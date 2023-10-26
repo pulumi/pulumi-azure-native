@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,47 @@ class ExtensionArgs:
         :param pulumi.Input[str] extension_id: Id of extension resource.
         :param pulumi.Input[str] extension_version: Extension Version.
         """
-        pulumi.set(__self__, "farm_beats_resource_name", farm_beats_resource_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            farm_beats_resource_name=farm_beats_resource_name,
+            resource_group_name=resource_group_name,
+            additional_api_properties=additional_api_properties,
+            extension_id=extension_id,
+            extension_version=extension_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             farm_beats_resource_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]] = None,
+             extension_id: Optional[pulumi.Input[str]] = None,
+             extension_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if farm_beats_resource_name is None and 'farmBeatsResourceName' in kwargs:
+            farm_beats_resource_name = kwargs['farmBeatsResourceName']
+        if farm_beats_resource_name is None:
+            raise TypeError("Missing 'farm_beats_resource_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if additional_api_properties is None and 'additionalApiProperties' in kwargs:
+            additional_api_properties = kwargs['additionalApiProperties']
+        if extension_id is None and 'extensionId' in kwargs:
+            extension_id = kwargs['extensionId']
+        if extension_version is None and 'extensionVersion' in kwargs:
+            extension_version = kwargs['extensionVersion']
+
+        _setter("farm_beats_resource_name", farm_beats_resource_name)
+        _setter("resource_group_name", resource_group_name)
         if additional_api_properties is not None:
-            pulumi.set(__self__, "additional_api_properties", additional_api_properties)
+            _setter("additional_api_properties", additional_api_properties)
         if extension_id is not None:
-            pulumi.set(__self__, "extension_id", extension_id)
+            _setter("extension_id", extension_id)
         if extension_version is not None:
-            pulumi.set(__self__, "extension_version", extension_version)
+            _setter("extension_version", extension_version)
 
     @property
     @pulumi.getter(name="farmBeatsResourceName")
@@ -140,6 +173,10 @@ class Extension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

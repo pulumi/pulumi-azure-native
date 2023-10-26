@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,8 +27,21 @@ class FleetHubProfileArgs:
         The FleetHubProfile configures the fleet hub.
         :param pulumi.Input[str] dns_prefix: DNS prefix used to create the FQDN for the Fleet hub.
         """
+        FleetHubProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_prefix=dns_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_prefix is None and 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+
         if dns_prefix is not None:
-            pulumi.set(__self__, "dns_prefix", dns_prefix)
+            _setter("dns_prefix", dns_prefix)
 
     @property
     @pulumi.getter(name="dnsPrefix")
@@ -51,7 +64,20 @@ class ManagedClusterUpdateArgs:
         The update to be applied to the ManagedClusters.
         :param pulumi.Input['ManagedClusterUpgradeSpecArgs'] upgrade: The upgrade to apply to the ManagedClusters.
         """
-        pulumi.set(__self__, "upgrade", upgrade)
+        ManagedClusterUpdateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            upgrade=upgrade,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             upgrade: Optional[pulumi.Input['ManagedClusterUpgradeSpecArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if upgrade is None:
+            raise TypeError("Missing 'upgrade' argument")
+
+        _setter("upgrade", upgrade)
 
     @property
     @pulumi.getter
@@ -78,9 +104,26 @@ class ManagedClusterUpgradeSpecArgs:
                NodeImageOnly requires the KubernetesVersion property not to be set.
         :param pulumi.Input[str] kubernetes_version: The Kubernetes version to upgrade the member clusters to.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedClusterUpgradeSpecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            kubernetes_version=kubernetes_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedClusterUpgradeType']]] = None,
+             kubernetes_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+
+        _setter("type", type)
         if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+            _setter("kubernetes_version", kubernetes_version)
 
     @property
     @pulumi.getter
@@ -118,7 +161,20 @@ class UpdateGroupArgs:
         :param pulumi.Input[str] name: Name of the group.
                It must match a group name of an existing fleet member. 
         """
-        pulumi.set(__self__, "name", name)
+        UpdateGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -148,7 +204,20 @@ class UpdateRunStrategyArgs:
         A valid strategy contains no duplicate groups within or across stages.
         :param pulumi.Input[Sequence[pulumi.Input['UpdateStageArgs']]] stages: The list of stages that compose this update run. Min size: 1.
         """
-        pulumi.set(__self__, "stages", stages)
+        UpdateRunStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            stages=stages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             stages: Optional[pulumi.Input[Sequence[pulumi.Input['UpdateStageArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stages is None:
+            raise TypeError("Missing 'stages' argument")
+
+        _setter("stages", stages)
 
     @property
     @pulumi.getter
@@ -175,11 +244,30 @@ class UpdateStageArgs:
         :param pulumi.Input[int] after_stage_wait_in_seconds: The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.
         :param pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]] groups: Defines the groups to be executed in parallel in this stage. Duplicate groups are not allowed. Min size: 1.
         """
-        pulumi.set(__self__, "name", name)
+        UpdateStageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            after_stage_wait_in_seconds=after_stage_wait_in_seconds,
+            groups=groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             after_stage_wait_in_seconds: Optional[pulumi.Input[int]] = None,
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input['UpdateGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if after_stage_wait_in_seconds is None and 'afterStageWaitInSeconds' in kwargs:
+            after_stage_wait_in_seconds = kwargs['afterStageWaitInSeconds']
+
+        _setter("name", name)
         if after_stage_wait_in_seconds is not None:
-            pulumi.set(__self__, "after_stage_wait_in_seconds", after_stage_wait_in_seconds)
+            _setter("after_stage_wait_in_seconds", after_stage_wait_in_seconds)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
 
     @property
     @pulumi.getter

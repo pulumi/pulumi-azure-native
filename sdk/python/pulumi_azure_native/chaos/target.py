@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -32,15 +32,58 @@ class TargetArgs:
         :param pulumi.Input[str] location: Location of the target resource.
         :param pulumi.Input[str] target_name: String that represents a Target resource name.
         """
-        pulumi.set(__self__, "parent_provider_namespace", parent_provider_namespace)
-        pulumi.set(__self__, "parent_resource_name", parent_resource_name)
-        pulumi.set(__self__, "parent_resource_type", parent_resource_type)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_provider_namespace=parent_provider_namespace,
+            parent_resource_name=parent_resource_name,
+            parent_resource_type=parent_resource_type,
+            properties=properties,
+            resource_group_name=resource_group_name,
+            location=location,
+            target_name=target_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_provider_namespace: Optional[pulumi.Input[str]] = None,
+             parent_resource_name: Optional[pulumi.Input[str]] = None,
+             parent_resource_type: Optional[pulumi.Input[str]] = None,
+             properties: Optional[Any] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_provider_namespace is None and 'parentProviderNamespace' in kwargs:
+            parent_provider_namespace = kwargs['parentProviderNamespace']
+        if parent_provider_namespace is None:
+            raise TypeError("Missing 'parent_provider_namespace' argument")
+        if parent_resource_name is None and 'parentResourceName' in kwargs:
+            parent_resource_name = kwargs['parentResourceName']
+        if parent_resource_name is None:
+            raise TypeError("Missing 'parent_resource_name' argument")
+        if parent_resource_type is None and 'parentResourceType' in kwargs:
+            parent_resource_type = kwargs['parentResourceType']
+        if parent_resource_type is None:
+            raise TypeError("Missing 'parent_resource_type' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_name is None and 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+
+        _setter("parent_provider_namespace", parent_provider_namespace)
+        _setter("parent_resource_name", parent_resource_name)
+        _setter("parent_resource_type", parent_resource_type)
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if target_name is not None:
-            pulumi.set(__self__, "target_name", target_name)
+            _setter("target_name", target_name)
 
     @property
     @pulumi.getter(name="parentProviderNamespace")
@@ -178,6 +221,10 @@ class Target(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

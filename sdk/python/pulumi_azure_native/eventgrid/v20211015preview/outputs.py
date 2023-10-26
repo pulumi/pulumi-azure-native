@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -70,11 +70,30 @@ class BoolEqualsAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param bool value: The boolean filter value.
         """
-        pulumi.set(__self__, "operator_type", 'BoolEquals')
+        BoolEqualsAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             value: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'BoolEquals')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -140,12 +159,33 @@ class EventChannelDestinationResponse(dict):
         :param str resource_group: Azure Resource Group of the customer creating the event channel. The partner topic
                associated with the event channel will be created under this resource group.
         """
+        EventChannelDestinationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_subscription_id=azure_subscription_id,
+            partner_topic_name=partner_topic_name,
+            resource_group=resource_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_subscription_id: Optional[str] = None,
+             partner_topic_name: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_subscription_id is None and 'azureSubscriptionId' in kwargs:
+            azure_subscription_id = kwargs['azureSubscriptionId']
+        if partner_topic_name is None and 'partnerTopicName' in kwargs:
+            partner_topic_name = kwargs['partnerTopicName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+
         if azure_subscription_id is not None:
-            pulumi.set(__self__, "azure_subscription_id", azure_subscription_id)
+            _setter("azure_subscription_id", azure_subscription_id)
         if partner_topic_name is not None:
-            pulumi.set(__self__, "partner_topic_name", partner_topic_name)
+            _setter("partner_topic_name", partner_topic_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
 
     @property
     @pulumi.getter(name="azureSubscriptionId")
@@ -206,12 +246,29 @@ class EventChannelFilterResponse(dict):
         :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'IsNotNullAdvancedFilterResponse', 'IsNullOrUndefinedAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberInRangeAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'NumberNotInRangeAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotBeginsWithAdvancedFilterResponse', 'StringNotContainsAdvancedFilterResponse', 'StringNotEndsWithAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event channels.
         :param bool enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value. The default value is either false or null.
         """
+        EventChannelFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_filters=advanced_filters,
+            enable_advanced_filtering_on_arrays=enable_advanced_filtering_on_arrays,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_filters: Optional[Sequence[Any]] = None,
+             enable_advanced_filtering_on_arrays: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if advanced_filters is None and 'advancedFilters' in kwargs:
+            advanced_filters = kwargs['advancedFilters']
+        if enable_advanced_filtering_on_arrays is None and 'enableAdvancedFilteringOnArrays' in kwargs:
+            enable_advanced_filtering_on_arrays = kwargs['enableAdvancedFilteringOnArrays']
+
         if advanced_filters is not None:
-            pulumi.set(__self__, "advanced_filters", advanced_filters)
+            _setter("advanced_filters", advanced_filters)
         if enable_advanced_filtering_on_arrays is None:
             enable_advanced_filtering_on_arrays = False
         if enable_advanced_filtering_on_arrays is not None:
-            pulumi.set(__self__, "enable_advanced_filtering_on_arrays", enable_advanced_filtering_on_arrays)
+            _setter("enable_advanced_filtering_on_arrays", enable_advanced_filtering_on_arrays)
 
     @property
     @pulumi.getter(name="advancedFilters")
@@ -242,8 +299,19 @@ class EventChannelSourceResponse(dict):
         :param str source: The identifier of the resource that's the source of the events.
                This represents a unique resource in the partner's resource model.
         """
+        EventChannelSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -286,9 +354,26 @@ class IsNotNullAdvancedFilterResponse(dict):
                Expected value is 'IsNotNull'.
         :param str key: The field/property in the event based on which you want to filter.
         """
-        pulumi.set(__self__, "operator_type", 'IsNotNull')
+        IsNotNullAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'IsNotNull')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -339,9 +424,26 @@ class IsNullOrUndefinedAdvancedFilterResponse(dict):
                Expected value is 'IsNullOrUndefined'.
         :param str key: The field/property in the event based on which you want to filter.
         """
-        pulumi.set(__self__, "operator_type", 'IsNullOrUndefined')
+        IsNullOrUndefinedAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'IsNullOrUndefined')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -394,11 +496,30 @@ class NumberGreaterThanAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param float value: The filter value.
         """
-        pulumi.set(__self__, "operator_type", 'NumberGreaterThan')
+        NumberGreaterThanAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             value: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'NumberGreaterThan')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -459,11 +580,30 @@ class NumberGreaterThanOrEqualsAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param float value: The filter value.
         """
-        pulumi.set(__self__, "operator_type", 'NumberGreaterThanOrEquals')
+        NumberGreaterThanOrEqualsAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             value: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'NumberGreaterThanOrEquals')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -524,11 +664,30 @@ class NumberInAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[float] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'NumberIn')
+        NumberInAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'NumberIn')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -589,11 +748,30 @@ class NumberInRangeAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[Sequence[float]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'NumberInRange')
+        NumberInRangeAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[Sequence[float]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'NumberInRange')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -654,11 +832,30 @@ class NumberLessThanAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param float value: The filter value.
         """
-        pulumi.set(__self__, "operator_type", 'NumberLessThan')
+        NumberLessThanAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             value: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'NumberLessThan')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -719,11 +916,30 @@ class NumberLessThanOrEqualsAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param float value: The filter value.
         """
-        pulumi.set(__self__, "operator_type", 'NumberLessThanOrEquals')
+        NumberLessThanOrEqualsAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             value: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'NumberLessThanOrEquals')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -784,11 +1000,30 @@ class NumberNotInAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[float] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'NumberNotIn')
+        NumberNotInAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'NumberNotIn')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -849,11 +1084,30 @@ class NumberNotInRangeAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[Sequence[float]] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'NumberNotInRange')
+        NumberNotInRangeAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[Sequence[float]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'NumberNotInRange')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -914,11 +1168,30 @@ class StringBeginsWithAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[str] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringBeginsWith')
+        StringBeginsWithAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'StringBeginsWith')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -979,11 +1252,30 @@ class StringContainsAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[str] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringContains')
+        StringContainsAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'StringContains')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1044,11 +1336,30 @@ class StringEndsWithAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[str] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringEndsWith')
+        StringEndsWithAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'StringEndsWith')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1109,11 +1420,30 @@ class StringInAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[str] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringIn')
+        StringInAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'StringIn')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1174,11 +1504,30 @@ class StringNotBeginsWithAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[str] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringNotBeginsWith')
+        StringNotBeginsWithAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'StringNotBeginsWith')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1239,11 +1588,30 @@ class StringNotContainsAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[str] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringNotContains')
+        StringNotContainsAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'StringNotContains')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1304,11 +1672,30 @@ class StringNotEndsWithAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[str] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringNotEndsWith')
+        StringNotEndsWithAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'StringNotEndsWith')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1369,11 +1756,30 @@ class StringNotInAdvancedFilterResponse(dict):
         :param str key: The field/property in the event based on which you want to filter.
         :param Sequence[str] values: The set of filter values.
         """
-        pulumi.set(__self__, "operator_type", 'StringNotIn')
+        StringNotInAdvancedFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operator_type=operator_type,
+            key=key,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operator_type: Optional[str] = None,
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_type is None and 'operatorType' in kwargs:
+            operator_type = kwargs['operatorType']
+        if operator_type is None:
+            raise TypeError("Missing 'operator_type' argument")
+
+        _setter("operator_type", 'StringNotIn')
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="operatorType")
@@ -1449,18 +1855,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

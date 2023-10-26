@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,52 @@ class ExportPipelineArgs:
         :param pulumi.Input[str] location: The location of the export pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]] options: The list of all options configured for the pipeline.
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target", target)
+        ExportPipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            target=target,
+            export_pipeline_name=export_pipeline_name,
+            identity=identity,
+            location=location,
+            options=options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input['ExportPipelineTargetPropertiesArgs']] = None,
+             export_pipeline_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if export_pipeline_name is None and 'exportPipelineName' in kwargs:
+            export_pipeline_name = kwargs['exportPipelineName']
+
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target", target)
         if export_pipeline_name is not None:
-            pulumi.set(__self__, "export_pipeline_name", export_pipeline_name)
+            _setter("export_pipeline_name", export_pipeline_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
 
     @property
     @pulumi.getter(name="registryName")
@@ -182,6 +217,10 @@ class ExportPipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExportPipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -204,6 +243,7 @@ class ExportPipeline(pulumi.CustomResource):
             __props__ = ExportPipelineArgs.__new__(ExportPipelineArgs)
 
             __props__.__dict__["export_pipeline_name"] = export_pipeline_name
+            identity = _utilities.configure(identity, IdentityPropertiesArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["options"] = options
@@ -213,6 +253,7 @@ class ExportPipeline(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            target = _utilities.configure(target, ExportPipelineTargetPropertiesArgs, True)
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target

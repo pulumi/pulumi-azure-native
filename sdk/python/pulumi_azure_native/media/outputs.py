@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -204,17 +204,44 @@ class AacAudioResponse(dict):
         :param str profile: The encoding profile to be used when encoding audio with AAC.
         :param int sampling_rate: The sampling rate to use for encoding in hertz.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AacAudio')
+        AacAudioResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            bitrate=bitrate,
+            channels=channels,
+            label=label,
+            profile=profile,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             bitrate: Optional[int] = None,
+             channels: Optional[int] = None,
+             label: Optional[str] = None,
+             profile: Optional[str] = None,
+             sampling_rate: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
+        _setter("odata_type", '#Microsoft.Media.AacAudio')
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if channels is not None:
-            pulumi.set(__self__, "channels", channels)
+            _setter("channels", channels)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
+            _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter(name="odataType")
@@ -297,8 +324,27 @@ class AbsoluteClipTimeResponse(dict):
                Expected value is '#Microsoft.Media.AbsoluteClipTime'.
         :param str time: The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AbsoluteClipTime')
-        pulumi.set(__self__, "time", time)
+        AbsoluteClipTimeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
+
+        _setter("odata_type", '#Microsoft.Media.AbsoluteClipTime')
+        _setter("time", time)
 
     @property
     @pulumi.getter(name="odataType")
@@ -346,10 +392,27 @@ class AccessControlResponse(dict):
         :param str default_action: The behavior for IP access control in Key Delivery.
         :param Sequence[str] ip_allow_list: The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
         """
+        AccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_allow_list=ip_allow_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[str] = None,
+             ip_allow_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_allow_list is None and 'ipAllowList' in kwargs:
+            ip_allow_list = kwargs['ipAllowList']
+
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_allow_list is not None:
-            pulumi.set(__self__, "ip_allow_list", ip_allow_list)
+            _setter("ip_allow_list", ip_allow_list)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -398,12 +461,35 @@ class AccountEncryptionResponse(dict):
         :param 'ResourceIdentityResponse' identity: The Key Vault identity.
         :param 'KeyVaultPropertiesResponse' key_vault_properties: The properties of the key used to encrypt the account.
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        AccountEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            type=type,
+            identity=identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             type: Optional[str] = None,
+             identity: Optional['outputs.ResourceIdentityResponse'] = None,
+             key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if key_vault_properties is None and 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
+        _setter("status", status)
+        _setter("type", type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter
@@ -466,8 +552,21 @@ class AkamaiAccessControlResponse(dict):
         Akamai access control
         :param Sequence['AkamaiSignatureHeaderAuthenticationKeyResponse'] akamai_signature_header_authentication_key_list: authentication key list
         """
+        AkamaiAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            akamai_signature_header_authentication_key_list=akamai_signature_header_authentication_key_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             akamai_signature_header_authentication_key_list: Optional[Sequence['outputs.AkamaiSignatureHeaderAuthenticationKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if akamai_signature_header_authentication_key_list is None and 'akamaiSignatureHeaderAuthenticationKeyList' in kwargs:
+            akamai_signature_header_authentication_key_list = kwargs['akamaiSignatureHeaderAuthenticationKeyList']
+
         if akamai_signature_header_authentication_key_list is not None:
-            pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
+            _setter("akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
 
     @property
     @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
@@ -510,12 +609,29 @@ class AkamaiSignatureHeaderAuthenticationKeyResponse(dict):
         :param str expiration: The expiration time of the authentication key.
         :param str identifier: identifier of the key
         """
+        AkamaiSignatureHeaderAuthenticationKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base64_key=base64_key,
+            expiration=expiration,
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base64_key: Optional[str] = None,
+             expiration: Optional[str] = None,
+             identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base64_key is None and 'base64Key' in kwargs:
+            base64_key = kwargs['base64Key']
+
         if base64_key is not None:
-            pulumi.set(__self__, "base64_key", base64_key)
+            _setter("base64_key", base64_key)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
 
     @property
     @pulumi.getter(name="base64Key")
@@ -555,9 +671,24 @@ class ArmStreamingEndpointCurrentSkuResponse(dict):
         :param str name: The streaming endpoint sku name.
         :param int capacity: The streaming endpoint sku capacity.
         """
-        pulumi.set(__self__, "name", name)
+        ArmStreamingEndpointCurrentSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -591,11 +722,34 @@ class AssetFileEncryptionMetadataResponse(dict):
         :param str asset_file_name: The Asset File name.
         :param str initialization_vector: The Asset File initialization vector.
         """
-        pulumi.set(__self__, "asset_file_id", asset_file_id)
+        AssetFileEncryptionMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_file_id=asset_file_id,
+            asset_file_name=asset_file_name,
+            initialization_vector=initialization_vector,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_file_id: Optional[str] = None,
+             asset_file_name: Optional[str] = None,
+             initialization_vector: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_file_id is None and 'assetFileId' in kwargs:
+            asset_file_id = kwargs['assetFileId']
+        if asset_file_id is None:
+            raise TypeError("Missing 'asset_file_id' argument")
+        if asset_file_name is None and 'assetFileName' in kwargs:
+            asset_file_name = kwargs['assetFileName']
+        if initialization_vector is None and 'initializationVector' in kwargs:
+            initialization_vector = kwargs['initializationVector']
+
+        _setter("asset_file_id", asset_file_id)
         if asset_file_name is not None:
-            pulumi.set(__self__, "asset_file_name", asset_file_name)
+            _setter("asset_file_name", asset_file_name)
         if initialization_vector is not None:
-            pulumi.set(__self__, "initialization_vector", initialization_vector)
+            _setter("initialization_vector", initialization_vector)
 
     @property
     @pulumi.getter(name="assetFileId")
@@ -647,14 +801,67 @@ class AssetStreamingLocatorResponse(dict):
         :param str streaming_locator_id: StreamingLocatorId of the Streaming Locator.
         :param str streaming_policy_name: Name of the Streaming Policy used by this Streaming Locator.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "created", created)
-        pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "streaming_locator_id", streaming_locator_id)
-        pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+        AssetStreamingLocatorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            created=created,
+            default_content_key_policy_name=default_content_key_policy_name,
+            end_time=end_time,
+            name=name,
+            start_time=start_time,
+            streaming_locator_id=streaming_locator_id,
+            streaming_policy_name=streaming_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: Optional[str] = None,
+             created: Optional[str] = None,
+             default_content_key_policy_name: Optional[str] = None,
+             end_time: Optional[str] = None,
+             name: Optional[str] = None,
+             start_time: Optional[str] = None,
+             streaming_locator_id: Optional[str] = None,
+             streaming_policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if created is None:
+            raise TypeError("Missing 'created' argument")
+        if default_content_key_policy_name is None and 'defaultContentKeyPolicyName' in kwargs:
+            default_content_key_policy_name = kwargs['defaultContentKeyPolicyName']
+        if default_content_key_policy_name is None:
+            raise TypeError("Missing 'default_content_key_policy_name' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if streaming_locator_id is None and 'streamingLocatorId' in kwargs:
+            streaming_locator_id = kwargs['streamingLocatorId']
+        if streaming_locator_id is None:
+            raise TypeError("Missing 'streaming_locator_id' argument")
+        if streaming_policy_name is None and 'streamingPolicyName' in kwargs:
+            streaming_policy_name = kwargs['streamingPolicyName']
+        if streaming_policy_name is None:
+            raise TypeError("Missing 'streaming_policy_name' argument")
+
+        _setter("asset_name", asset_name)
+        _setter("created", created)
+        _setter("default_content_key_policy_name", default_content_key_policy_name)
+        _setter("end_time", end_time)
+        _setter("name", name)
+        _setter("start_time", start_time)
+        _setter("streaming_locator_id", streaming_locator_id)
+        _setter("streaming_policy_name", streaming_policy_name)
 
     @property
     @pulumi.getter(name="assetName")
@@ -760,13 +967,38 @@ class AudioAnalyzerPresetResponse(dict):
         :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
         :param str mode: Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
+        AudioAnalyzerPresetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            audio_language=audio_language,
+            experimental_options=experimental_options,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             audio_language: Optional[str] = None,
+             experimental_options: Optional[Mapping[str, str]] = None,
+             mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if audio_language is None and 'audioLanguage' in kwargs:
+            audio_language = kwargs['audioLanguage']
+        if experimental_options is None and 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+
+        _setter("odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
         if audio_language is not None:
-            pulumi.set(__self__, "audio_language", audio_language)
+            _setter("audio_language", audio_language)
         if experimental_options is not None:
-            pulumi.set(__self__, "experimental_options", experimental_options)
+            _setter("experimental_options", experimental_options)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -851,18 +1083,55 @@ class AudioOverlayResponse(dict):
         :param str fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
         :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
-        pulumi.set(__self__, "input_label", input_label)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioOverlay')
+        AudioOverlayResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_label=input_label,
+            odata_type=odata_type,
+            audio_gain_level=audio_gain_level,
+            end=end,
+            fade_in_duration=fade_in_duration,
+            fade_out_duration=fade_out_duration,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_label: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             audio_gain_level: Optional[float] = None,
+             end: Optional[str] = None,
+             fade_in_duration: Optional[str] = None,
+             fade_out_duration: Optional[str] = None,
+             start: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_label is None and 'inputLabel' in kwargs:
+            input_label = kwargs['inputLabel']
+        if input_label is None:
+            raise TypeError("Missing 'input_label' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if audio_gain_level is None and 'audioGainLevel' in kwargs:
+            audio_gain_level = kwargs['audioGainLevel']
+        if fade_in_duration is None and 'fadeInDuration' in kwargs:
+            fade_in_duration = kwargs['fadeInDuration']
+        if fade_out_duration is None and 'fadeOutDuration' in kwargs:
+            fade_out_duration = kwargs['fadeOutDuration']
+
+        _setter("input_label", input_label)
+        _setter("odata_type", '#Microsoft.Media.AudioOverlay')
         if audio_gain_level is not None:
-            pulumi.set(__self__, "audio_gain_level", audio_gain_level)
+            _setter("audio_gain_level", audio_gain_level)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if fade_in_duration is not None:
-            pulumi.set(__self__, "fade_in_duration", fade_in_duration)
+            _setter("fade_in_duration", fade_in_duration)
         if fade_out_duration is not None:
-            pulumi.set(__self__, "fade_out_duration", fade_out_duration)
+            _setter("fade_out_duration", fade_out_duration)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="inputLabel")
@@ -961,15 +1230,40 @@ class AudioResponse(dict):
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
         :param int sampling_rate: The sampling rate to use for encoding in hertz.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Audio')
+        AudioResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            bitrate=bitrate,
+            channels=channels,
+            label=label,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             bitrate: Optional[int] = None,
+             channels: Optional[int] = None,
+             label: Optional[str] = None,
+             sampling_rate: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
+        _setter("odata_type", '#Microsoft.Media.Audio')
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if channels is not None:
-            pulumi.set(__self__, "channels", channels)
+            _setter("channels", channels)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
+            _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1046,9 +1340,28 @@ class AudioTrackDescriptorResponse(dict):
                Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
         :param str channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioTrackDescriptor')
+        AudioTrackDescriptorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            channel_mapping=channel_mapping,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             channel_mapping: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if channel_mapping is None and 'channelMapping' in kwargs:
+            channel_mapping = kwargs['channelMapping']
+
+        _setter("odata_type", '#Microsoft.Media.AudioTrackDescriptor')
         if channel_mapping is not None:
-            pulumi.set(__self__, "channel_mapping", channel_mapping)
+            _setter("channel_mapping", channel_mapping)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1125,20 +1438,65 @@ class AudioTrackResponse(dict):
         :param str language_code: The RFC5646 language code for the audio track.
         :param int mpeg4_track_id: The MPEG-4 audio track ID for the audio track.
         """
-        pulumi.set(__self__, "bit_rate", bit_rate)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioTrack')
+        AudioTrackResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bit_rate=bit_rate,
+            odata_type=odata_type,
+            dash_settings=dash_settings,
+            display_name=display_name,
+            file_name=file_name,
+            hls_settings=hls_settings,
+            language_code=language_code,
+            mpeg4_track_id=mpeg4_track_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bit_rate: Optional[int] = None,
+             odata_type: Optional[str] = None,
+             dash_settings: Optional['outputs.DashSettingsResponse'] = None,
+             display_name: Optional[str] = None,
+             file_name: Optional[str] = None,
+             hls_settings: Optional['outputs.HlsSettingsResponse'] = None,
+             language_code: Optional[str] = None,
+             mpeg4_track_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bit_rate is None and 'bitRate' in kwargs:
+            bit_rate = kwargs['bitRate']
+        if bit_rate is None:
+            raise TypeError("Missing 'bit_rate' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if dash_settings is None and 'dashSettings' in kwargs:
+            dash_settings = kwargs['dashSettings']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if file_name is None and 'fileName' in kwargs:
+            file_name = kwargs['fileName']
+        if hls_settings is None and 'hlsSettings' in kwargs:
+            hls_settings = kwargs['hlsSettings']
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if mpeg4_track_id is None and 'mpeg4TrackId' in kwargs:
+            mpeg4_track_id = kwargs['mpeg4TrackId']
+
+        _setter("bit_rate", bit_rate)
+        _setter("odata_type", '#Microsoft.Media.AudioTrack')
         if dash_settings is not None:
-            pulumi.set(__self__, "dash_settings", dash_settings)
+            _setter("dash_settings", dash_settings)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if file_name is not None:
-            pulumi.set(__self__, "file_name", file_name)
+            _setter("file_name", file_name)
         if hls_settings is not None:
-            pulumi.set(__self__, "hls_settings", hls_settings)
+            _setter("hls_settings", hls_settings)
         if language_code is not None:
-            pulumi.set(__self__, "language_code", language_code)
+            _setter("language_code", language_code)
         if mpeg4_track_id is not None:
-            pulumi.set(__self__, "mpeg4_track_id", mpeg4_track_id)
+            _setter("mpeg4_track_id", mpeg4_track_id)
 
     @property
     @pulumi.getter(name="bitRate")
@@ -1241,10 +1599,33 @@ class BuiltInStandardEncoderPresetResponse(dict):
         :param str preset_name: The built-in preset to be used for encoding videos.
         :param 'PresetConfigurationsResponse' configurations: Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.BuiltInStandardEncoderPreset')
-        pulumi.set(__self__, "preset_name", preset_name)
+        BuiltInStandardEncoderPresetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            preset_name=preset_name,
+            configurations=configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             preset_name: Optional[str] = None,
+             configurations: Optional['outputs.PresetConfigurationsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if preset_name is None and 'presetName' in kwargs:
+            preset_name = kwargs['presetName']
+        if preset_name is None:
+            raise TypeError("Missing 'preset_name' argument")
+
+        _setter("odata_type", '#Microsoft.Media.BuiltInStandardEncoderPreset')
+        _setter("preset_name", preset_name)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1306,12 +1687,31 @@ class CbcsDrmConfigurationResponse(dict):
         :param 'StreamingPolicyPlayReadyConfigurationResponse' play_ready: PlayReady configurations
         :param 'StreamingPolicyWidevineConfigurationResponse' widevine: Widevine configurations
         """
+        CbcsDrmConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fair_play=fair_play,
+            play_ready=play_ready,
+            widevine=widevine,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fair_play: Optional['outputs.StreamingPolicyFairPlayConfigurationResponse'] = None,
+             play_ready: Optional['outputs.StreamingPolicyPlayReadyConfigurationResponse'] = None,
+             widevine: Optional['outputs.StreamingPolicyWidevineConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fair_play is None and 'fairPlay' in kwargs:
+            fair_play = kwargs['fairPlay']
+        if play_ready is None and 'playReady' in kwargs:
+            play_ready = kwargs['playReady']
+
         if fair_play is not None:
-            pulumi.set(__self__, "fair_play", fair_play)
+            _setter("fair_play", fair_play)
         if play_ready is not None:
-            pulumi.set(__self__, "play_ready", play_ready)
+            _setter("play_ready", play_ready)
         if widevine is not None:
-            pulumi.set(__self__, "widevine", widevine)
+            _setter("widevine", widevine)
 
     @property
     @pulumi.getter(name="fairPlay")
@@ -1368,10 +1768,25 @@ class CencDrmConfigurationResponse(dict):
         :param 'StreamingPolicyPlayReadyConfigurationResponse' play_ready: PlayReady configurations
         :param 'StreamingPolicyWidevineConfigurationResponse' widevine: Widevine configurations
         """
+        CencDrmConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            play_ready=play_ready,
+            widevine=widevine,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             play_ready: Optional['outputs.StreamingPolicyPlayReadyConfigurationResponse'] = None,
+             widevine: Optional['outputs.StreamingPolicyWidevineConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if play_ready is None and 'playReady' in kwargs:
+            play_ready = kwargs['playReady']
+
         if play_ready is not None:
-            pulumi.set(__self__, "play_ready", play_ready)
+            _setter("play_ready", play_ready)
         if widevine is not None:
-            pulumi.set(__self__, "widevine", widevine)
+            _setter("widevine", widevine)
 
     @property
     @pulumi.getter(name="playReady")
@@ -1418,8 +1833,21 @@ class ClearKeyEncryptionConfigurationResponse(dict):
         Class to specify ClearKey configuration of common encryption schemes in Streaming Policy
         :param str custom_keys_acquisition_url_template: Template for the URL of the custom service delivering content keys to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token value is {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId.
         """
+        ClearKeyEncryptionConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_keys_acquisition_url_template=custom_keys_acquisition_url_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_keys_acquisition_url_template: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_keys_acquisition_url_template is None and 'customKeysAcquisitionUrlTemplate' in kwargs:
+            custom_keys_acquisition_url_template = kwargs['customKeysAcquisitionUrlTemplate']
+
         if custom_keys_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
+            _setter("custom_keys_acquisition_url_template", custom_keys_acquisition_url_template)
 
     @property
     @pulumi.getter(name="customKeysAcquisitionUrlTemplate")
@@ -1472,16 +1900,43 @@ class CommonEncryptionCbcsResponse(dict):
         :param 'CbcsDrmConfigurationResponse' drm: Configuration of DRMs for current encryption scheme
         :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
+        CommonEncryptionCbcsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clear_key_encryption_configuration=clear_key_encryption_configuration,
+            clear_tracks=clear_tracks,
+            content_keys=content_keys,
+            drm=drm,
+            enabled_protocols=enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clear_key_encryption_configuration: Optional['outputs.ClearKeyEncryptionConfigurationResponse'] = None,
+             clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
+             content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
+             drm: Optional['outputs.CbcsDrmConfigurationResponse'] = None,
+             enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if clear_key_encryption_configuration is None and 'clearKeyEncryptionConfiguration' in kwargs:
+            clear_key_encryption_configuration = kwargs['clearKeyEncryptionConfiguration']
+        if clear_tracks is None and 'clearTracks' in kwargs:
+            clear_tracks = kwargs['clearTracks']
+        if content_keys is None and 'contentKeys' in kwargs:
+            content_keys = kwargs['contentKeys']
+        if enabled_protocols is None and 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if clear_key_encryption_configuration is not None:
-            pulumi.set(__self__, "clear_key_encryption_configuration", clear_key_encryption_configuration)
+            _setter("clear_key_encryption_configuration", clear_key_encryption_configuration)
         if clear_tracks is not None:
-            pulumi.set(__self__, "clear_tracks", clear_tracks)
+            _setter("clear_tracks", clear_tracks)
         if content_keys is not None:
-            pulumi.set(__self__, "content_keys", content_keys)
+            _setter("content_keys", content_keys)
         if drm is not None:
-            pulumi.set(__self__, "drm", drm)
+            _setter("drm", drm)
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
 
     @property
     @pulumi.getter(name="clearKeyEncryptionConfiguration")
@@ -1566,16 +2021,43 @@ class CommonEncryptionCencResponse(dict):
         :param 'CencDrmConfigurationResponse' drm: Configuration of DRMs for CommonEncryptionCenc encryption scheme
         :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
+        CommonEncryptionCencResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clear_key_encryption_configuration=clear_key_encryption_configuration,
+            clear_tracks=clear_tracks,
+            content_keys=content_keys,
+            drm=drm,
+            enabled_protocols=enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clear_key_encryption_configuration: Optional['outputs.ClearKeyEncryptionConfigurationResponse'] = None,
+             clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
+             content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
+             drm: Optional['outputs.CencDrmConfigurationResponse'] = None,
+             enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if clear_key_encryption_configuration is None and 'clearKeyEncryptionConfiguration' in kwargs:
+            clear_key_encryption_configuration = kwargs['clearKeyEncryptionConfiguration']
+        if clear_tracks is None and 'clearTracks' in kwargs:
+            clear_tracks = kwargs['clearTracks']
+        if content_keys is None and 'contentKeys' in kwargs:
+            content_keys = kwargs['contentKeys']
+        if enabled_protocols is None and 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if clear_key_encryption_configuration is not None:
-            pulumi.set(__self__, "clear_key_encryption_configuration", clear_key_encryption_configuration)
+            _setter("clear_key_encryption_configuration", clear_key_encryption_configuration)
         if clear_tracks is not None:
-            pulumi.set(__self__, "clear_tracks", clear_tracks)
+            _setter("clear_tracks", clear_tracks)
         if content_keys is not None:
-            pulumi.set(__self__, "content_keys", content_keys)
+            _setter("content_keys", content_keys)
         if drm is not None:
-            pulumi.set(__self__, "drm", drm)
+            _setter("drm", drm)
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
 
     @property
     @pulumi.getter(name="clearKeyEncryptionConfiguration")
@@ -1647,7 +2129,22 @@ class ContentKeyPolicyClearKeyConfigurationResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration')
+        ContentKeyPolicyClearKeyConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration')
 
     @property
     @pulumi.getter(name="odataType")
@@ -1710,14 +2207,61 @@ class ContentKeyPolicyFairPlayConfigurationResponse(dict):
         :param float rental_duration: The rental duration. Must be greater than or equal to 0.
         :param 'ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse' offline_rental_configuration: Offline rental policy
         """
-        pulumi.set(__self__, "ask", ask)
-        pulumi.set(__self__, "fair_play_pfx", fair_play_pfx)
-        pulumi.set(__self__, "fair_play_pfx_password", fair_play_pfx_password)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration')
-        pulumi.set(__self__, "rental_and_lease_key_type", rental_and_lease_key_type)
-        pulumi.set(__self__, "rental_duration", rental_duration)
+        ContentKeyPolicyFairPlayConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ask=ask,
+            fair_play_pfx=fair_play_pfx,
+            fair_play_pfx_password=fair_play_pfx_password,
+            odata_type=odata_type,
+            rental_and_lease_key_type=rental_and_lease_key_type,
+            rental_duration=rental_duration,
+            offline_rental_configuration=offline_rental_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ask: Optional[str] = None,
+             fair_play_pfx: Optional[str] = None,
+             fair_play_pfx_password: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             rental_and_lease_key_type: Optional[str] = None,
+             rental_duration: Optional[float] = None,
+             offline_rental_configuration: Optional['outputs.ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ask is None:
+            raise TypeError("Missing 'ask' argument")
+        if fair_play_pfx is None and 'fairPlayPfx' in kwargs:
+            fair_play_pfx = kwargs['fairPlayPfx']
+        if fair_play_pfx is None:
+            raise TypeError("Missing 'fair_play_pfx' argument")
+        if fair_play_pfx_password is None and 'fairPlayPfxPassword' in kwargs:
+            fair_play_pfx_password = kwargs['fairPlayPfxPassword']
+        if fair_play_pfx_password is None:
+            raise TypeError("Missing 'fair_play_pfx_password' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if rental_and_lease_key_type is None and 'rentalAndLeaseKeyType' in kwargs:
+            rental_and_lease_key_type = kwargs['rentalAndLeaseKeyType']
+        if rental_and_lease_key_type is None:
+            raise TypeError("Missing 'rental_and_lease_key_type' argument")
+        if rental_duration is None and 'rentalDuration' in kwargs:
+            rental_duration = kwargs['rentalDuration']
+        if rental_duration is None:
+            raise TypeError("Missing 'rental_duration' argument")
+        if offline_rental_configuration is None and 'offlineRentalConfiguration' in kwargs:
+            offline_rental_configuration = kwargs['offlineRentalConfiguration']
+
+        _setter("ask", ask)
+        _setter("fair_play_pfx", fair_play_pfx)
+        _setter("fair_play_pfx_password", fair_play_pfx_password)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration')
+        _setter("rental_and_lease_key_type", rental_and_lease_key_type)
+        _setter("rental_duration", rental_duration)
         if offline_rental_configuration is not None:
-            pulumi.set(__self__, "offline_rental_configuration", offline_rental_configuration)
+            _setter("offline_rental_configuration", offline_rental_configuration)
 
     @property
     @pulumi.getter
@@ -1805,8 +2349,29 @@ class ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse(dict):
         :param float playback_duration_seconds: Playback duration
         :param float storage_duration_seconds: Storage duration
         """
-        pulumi.set(__self__, "playback_duration_seconds", playback_duration_seconds)
-        pulumi.set(__self__, "storage_duration_seconds", storage_duration_seconds)
+        ContentKeyPolicyFairPlayOfflineRentalConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            playback_duration_seconds=playback_duration_seconds,
+            storage_duration_seconds=storage_duration_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             playback_duration_seconds: Optional[float] = None,
+             storage_duration_seconds: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if playback_duration_seconds is None and 'playbackDurationSeconds' in kwargs:
+            playback_duration_seconds = kwargs['playbackDurationSeconds']
+        if playback_duration_seconds is None:
+            raise TypeError("Missing 'playback_duration_seconds' argument")
+        if storage_duration_seconds is None and 'storageDurationSeconds' in kwargs:
+            storage_duration_seconds = kwargs['storageDurationSeconds']
+        if storage_duration_seconds is None:
+            raise TypeError("Missing 'storage_duration_seconds' argument")
+
+        _setter("playback_duration_seconds", playback_duration_seconds)
+        _setter("storage_duration_seconds", storage_duration_seconds)
 
     @property
     @pulumi.getter(name="playbackDurationSeconds")
@@ -1854,7 +2419,22 @@ class ContentKeyPolicyOpenRestrictionResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyOpenRestriction'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyOpenRestriction')
+        ContentKeyPolicyOpenRestrictionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyOpenRestriction')
 
     @property
     @pulumi.getter(name="odataType")
@@ -1900,11 +2480,36 @@ class ContentKeyPolicyOptionResponse(dict):
         :param Union['ContentKeyPolicyOpenRestrictionResponse', 'ContentKeyPolicyTokenRestrictionResponse', 'ContentKeyPolicyUnknownRestrictionResponse'] restriction: The requirements that must be met to deliver keys with this configuration
         :param str name: The Policy Option description.
         """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "policy_option_id", policy_option_id)
-        pulumi.set(__self__, "restriction", restriction)
+        ContentKeyPolicyOptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            policy_option_id=policy_option_id,
+            restriction=restriction,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[Any] = None,
+             policy_option_id: Optional[str] = None,
+             restriction: Optional[Any] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if policy_option_id is None and 'policyOptionId' in kwargs:
+            policy_option_id = kwargs['policyOptionId']
+        if policy_option_id is None:
+            raise TypeError("Missing 'policy_option_id' argument")
+        if restriction is None:
+            raise TypeError("Missing 'restriction' argument")
+
+        _setter("configuration", configuration)
+        _setter("policy_option_id", policy_option_id)
+        _setter("restriction", restriction)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1974,10 +2579,33 @@ class ContentKeyPolicyPlayReadyConfigurationResponse(dict):
                Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration'.
         :param str response_custom_data: The custom response data.
         """
-        pulumi.set(__self__, "licenses", licenses)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration')
+        ContentKeyPolicyPlayReadyConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            licenses=licenses,
+            odata_type=odata_type,
+            response_custom_data=response_custom_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             licenses: Optional[Sequence['outputs.ContentKeyPolicyPlayReadyLicenseResponse']] = None,
+             odata_type: Optional[str] = None,
+             response_custom_data: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if licenses is None:
+            raise TypeError("Missing 'licenses' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if response_custom_data is None and 'responseCustomData' in kwargs:
+            response_custom_data = kwargs['responseCustomData']
+
+        _setter("licenses", licenses)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration')
         if response_custom_data is not None:
-            pulumi.set(__self__, "response_custom_data", response_custom_data)
+            _setter("response_custom_data", response_custom_data)
 
     @property
     @pulumi.getter
@@ -2034,7 +2662,22 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader')
+        ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader')
 
     @property
     @pulumi.getter(name="odataType")
@@ -2079,8 +2722,29 @@ class ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse(dic
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier'.
         """
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier')
+        ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_id=key_id,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_id: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("key_id", key_id)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifier')
 
     @property
     @pulumi.getter(name="keyId")
@@ -2132,8 +2796,29 @@ class ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse(dict)
         :param bool best_effort: Indicates whether this restriction is enforced on a Best Effort basis.
         :param int configuration_data: Configures the restriction control bits. Must be between 0 and 3 inclusive.
         """
-        pulumi.set(__self__, "best_effort", best_effort)
-        pulumi.set(__self__, "configuration_data", configuration_data)
+        ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            best_effort=best_effort,
+            configuration_data=configuration_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             best_effort: Optional[bool] = None,
+             configuration_data: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if best_effort is None and 'bestEffort' in kwargs:
+            best_effort = kwargs['bestEffort']
+        if best_effort is None:
+            raise TypeError("Missing 'best_effort' argument")
+        if configuration_data is None and 'configurationData' in kwargs:
+            configuration_data = kwargs['configurationData']
+        if configuration_data is None:
+            raise TypeError("Missing 'configuration_data' argument")
+
+        _setter("best_effort", best_effort)
+        _setter("configuration_data", configuration_data)
 
     @property
     @pulumi.getter(name="bestEffort")
@@ -2220,24 +2905,85 @@ class ContentKeyPolicyPlayReadyLicenseResponse(dict):
         :param str relative_expiration_date: The relative expiration date of license.
         :param str security_level: The security level.
         """
-        pulumi.set(__self__, "allow_test_devices", allow_test_devices)
-        pulumi.set(__self__, "content_key_location", content_key_location)
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "license_type", license_type)
+        ContentKeyPolicyPlayReadyLicenseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_test_devices=allow_test_devices,
+            content_key_location=content_key_location,
+            content_type=content_type,
+            license_type=license_type,
+            begin_date=begin_date,
+            expiration_date=expiration_date,
+            grace_period=grace_period,
+            play_right=play_right,
+            relative_begin_date=relative_begin_date,
+            relative_expiration_date=relative_expiration_date,
+            security_level=security_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_test_devices: Optional[bool] = None,
+             content_key_location: Optional[Any] = None,
+             content_type: Optional[str] = None,
+             license_type: Optional[str] = None,
+             begin_date: Optional[str] = None,
+             expiration_date: Optional[str] = None,
+             grace_period: Optional[str] = None,
+             play_right: Optional['outputs.ContentKeyPolicyPlayReadyPlayRightResponse'] = None,
+             relative_begin_date: Optional[str] = None,
+             relative_expiration_date: Optional[str] = None,
+             security_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_test_devices is None and 'allowTestDevices' in kwargs:
+            allow_test_devices = kwargs['allowTestDevices']
+        if allow_test_devices is None:
+            raise TypeError("Missing 'allow_test_devices' argument")
+        if content_key_location is None and 'contentKeyLocation' in kwargs:
+            content_key_location = kwargs['contentKeyLocation']
+        if content_key_location is None:
+            raise TypeError("Missing 'content_key_location' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if license_type is None:
+            raise TypeError("Missing 'license_type' argument")
+        if begin_date is None and 'beginDate' in kwargs:
+            begin_date = kwargs['beginDate']
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if grace_period is None and 'gracePeriod' in kwargs:
+            grace_period = kwargs['gracePeriod']
+        if play_right is None and 'playRight' in kwargs:
+            play_right = kwargs['playRight']
+        if relative_begin_date is None and 'relativeBeginDate' in kwargs:
+            relative_begin_date = kwargs['relativeBeginDate']
+        if relative_expiration_date is None and 'relativeExpirationDate' in kwargs:
+            relative_expiration_date = kwargs['relativeExpirationDate']
+        if security_level is None and 'securityLevel' in kwargs:
+            security_level = kwargs['securityLevel']
+
+        _setter("allow_test_devices", allow_test_devices)
+        _setter("content_key_location", content_key_location)
+        _setter("content_type", content_type)
+        _setter("license_type", license_type)
         if begin_date is not None:
-            pulumi.set(__self__, "begin_date", begin_date)
+            _setter("begin_date", begin_date)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if grace_period is not None:
-            pulumi.set(__self__, "grace_period", grace_period)
+            _setter("grace_period", grace_period)
         if play_right is not None:
-            pulumi.set(__self__, "play_right", play_right)
+            _setter("play_right", play_right)
         if relative_begin_date is not None:
-            pulumi.set(__self__, "relative_begin_date", relative_begin_date)
+            _setter("relative_begin_date", relative_begin_date)
         if relative_expiration_date is not None:
-            pulumi.set(__self__, "relative_expiration_date", relative_expiration_date)
+            _setter("relative_expiration_date", relative_expiration_date)
         if security_level is not None:
-            pulumi.set(__self__, "security_level", security_level)
+            _setter("security_level", security_level)
 
     @property
     @pulumi.getter(name="allowTestDevices")
@@ -2404,28 +3150,97 @@ class ContentKeyPolicyPlayReadyPlayRightResponse(dict):
         :param int uncompressed_digital_audio_opl: Specifies the output protection level for uncompressed digital audio.
         :param int uncompressed_digital_video_opl: Specifies the output protection level for uncompressed digital video.
         """
-        pulumi.set(__self__, "allow_passing_video_content_to_unknown_output", allow_passing_video_content_to_unknown_output)
-        pulumi.set(__self__, "digital_video_only_content_restriction", digital_video_only_content_restriction)
-        pulumi.set(__self__, "image_constraint_for_analog_component_video_restriction", image_constraint_for_analog_component_video_restriction)
-        pulumi.set(__self__, "image_constraint_for_analog_computer_monitor_restriction", image_constraint_for_analog_computer_monitor_restriction)
+        ContentKeyPolicyPlayReadyPlayRightResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_passing_video_content_to_unknown_output=allow_passing_video_content_to_unknown_output,
+            digital_video_only_content_restriction=digital_video_only_content_restriction,
+            image_constraint_for_analog_component_video_restriction=image_constraint_for_analog_component_video_restriction,
+            image_constraint_for_analog_computer_monitor_restriction=image_constraint_for_analog_computer_monitor_restriction,
+            agc_and_color_stripe_restriction=agc_and_color_stripe_restriction,
+            analog_video_opl=analog_video_opl,
+            compressed_digital_audio_opl=compressed_digital_audio_opl,
+            compressed_digital_video_opl=compressed_digital_video_opl,
+            explicit_analog_television_output_restriction=explicit_analog_television_output_restriction,
+            first_play_expiration=first_play_expiration,
+            scms_restriction=scms_restriction,
+            uncompressed_digital_audio_opl=uncompressed_digital_audio_opl,
+            uncompressed_digital_video_opl=uncompressed_digital_video_opl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_passing_video_content_to_unknown_output: Optional[str] = None,
+             digital_video_only_content_restriction: Optional[bool] = None,
+             image_constraint_for_analog_component_video_restriction: Optional[bool] = None,
+             image_constraint_for_analog_computer_monitor_restriction: Optional[bool] = None,
+             agc_and_color_stripe_restriction: Optional[int] = None,
+             analog_video_opl: Optional[int] = None,
+             compressed_digital_audio_opl: Optional[int] = None,
+             compressed_digital_video_opl: Optional[int] = None,
+             explicit_analog_television_output_restriction: Optional['outputs.ContentKeyPolicyPlayReadyExplicitAnalogTelevisionRestrictionResponse'] = None,
+             first_play_expiration: Optional[str] = None,
+             scms_restriction: Optional[int] = None,
+             uncompressed_digital_audio_opl: Optional[int] = None,
+             uncompressed_digital_video_opl: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_passing_video_content_to_unknown_output is None and 'allowPassingVideoContentToUnknownOutput' in kwargs:
+            allow_passing_video_content_to_unknown_output = kwargs['allowPassingVideoContentToUnknownOutput']
+        if allow_passing_video_content_to_unknown_output is None:
+            raise TypeError("Missing 'allow_passing_video_content_to_unknown_output' argument")
+        if digital_video_only_content_restriction is None and 'digitalVideoOnlyContentRestriction' in kwargs:
+            digital_video_only_content_restriction = kwargs['digitalVideoOnlyContentRestriction']
+        if digital_video_only_content_restriction is None:
+            raise TypeError("Missing 'digital_video_only_content_restriction' argument")
+        if image_constraint_for_analog_component_video_restriction is None and 'imageConstraintForAnalogComponentVideoRestriction' in kwargs:
+            image_constraint_for_analog_component_video_restriction = kwargs['imageConstraintForAnalogComponentVideoRestriction']
+        if image_constraint_for_analog_component_video_restriction is None:
+            raise TypeError("Missing 'image_constraint_for_analog_component_video_restriction' argument")
+        if image_constraint_for_analog_computer_monitor_restriction is None and 'imageConstraintForAnalogComputerMonitorRestriction' in kwargs:
+            image_constraint_for_analog_computer_monitor_restriction = kwargs['imageConstraintForAnalogComputerMonitorRestriction']
+        if image_constraint_for_analog_computer_monitor_restriction is None:
+            raise TypeError("Missing 'image_constraint_for_analog_computer_monitor_restriction' argument")
+        if agc_and_color_stripe_restriction is None and 'agcAndColorStripeRestriction' in kwargs:
+            agc_and_color_stripe_restriction = kwargs['agcAndColorStripeRestriction']
+        if analog_video_opl is None and 'analogVideoOpl' in kwargs:
+            analog_video_opl = kwargs['analogVideoOpl']
+        if compressed_digital_audio_opl is None and 'compressedDigitalAudioOpl' in kwargs:
+            compressed_digital_audio_opl = kwargs['compressedDigitalAudioOpl']
+        if compressed_digital_video_opl is None and 'compressedDigitalVideoOpl' in kwargs:
+            compressed_digital_video_opl = kwargs['compressedDigitalVideoOpl']
+        if explicit_analog_television_output_restriction is None and 'explicitAnalogTelevisionOutputRestriction' in kwargs:
+            explicit_analog_television_output_restriction = kwargs['explicitAnalogTelevisionOutputRestriction']
+        if first_play_expiration is None and 'firstPlayExpiration' in kwargs:
+            first_play_expiration = kwargs['firstPlayExpiration']
+        if scms_restriction is None and 'scmsRestriction' in kwargs:
+            scms_restriction = kwargs['scmsRestriction']
+        if uncompressed_digital_audio_opl is None and 'uncompressedDigitalAudioOpl' in kwargs:
+            uncompressed_digital_audio_opl = kwargs['uncompressedDigitalAudioOpl']
+        if uncompressed_digital_video_opl is None and 'uncompressedDigitalVideoOpl' in kwargs:
+            uncompressed_digital_video_opl = kwargs['uncompressedDigitalVideoOpl']
+
+        _setter("allow_passing_video_content_to_unknown_output", allow_passing_video_content_to_unknown_output)
+        _setter("digital_video_only_content_restriction", digital_video_only_content_restriction)
+        _setter("image_constraint_for_analog_component_video_restriction", image_constraint_for_analog_component_video_restriction)
+        _setter("image_constraint_for_analog_computer_monitor_restriction", image_constraint_for_analog_computer_monitor_restriction)
         if agc_and_color_stripe_restriction is not None:
-            pulumi.set(__self__, "agc_and_color_stripe_restriction", agc_and_color_stripe_restriction)
+            _setter("agc_and_color_stripe_restriction", agc_and_color_stripe_restriction)
         if analog_video_opl is not None:
-            pulumi.set(__self__, "analog_video_opl", analog_video_opl)
+            _setter("analog_video_opl", analog_video_opl)
         if compressed_digital_audio_opl is not None:
-            pulumi.set(__self__, "compressed_digital_audio_opl", compressed_digital_audio_opl)
+            _setter("compressed_digital_audio_opl", compressed_digital_audio_opl)
         if compressed_digital_video_opl is not None:
-            pulumi.set(__self__, "compressed_digital_video_opl", compressed_digital_video_opl)
+            _setter("compressed_digital_video_opl", compressed_digital_video_opl)
         if explicit_analog_television_output_restriction is not None:
-            pulumi.set(__self__, "explicit_analog_television_output_restriction", explicit_analog_television_output_restriction)
+            _setter("explicit_analog_television_output_restriction", explicit_analog_television_output_restriction)
         if first_play_expiration is not None:
-            pulumi.set(__self__, "first_play_expiration", first_play_expiration)
+            _setter("first_play_expiration", first_play_expiration)
         if scms_restriction is not None:
-            pulumi.set(__self__, "scms_restriction", scms_restriction)
+            _setter("scms_restriction", scms_restriction)
         if uncompressed_digital_audio_opl is not None:
-            pulumi.set(__self__, "uncompressed_digital_audio_opl", uncompressed_digital_audio_opl)
+            _setter("uncompressed_digital_audio_opl", uncompressed_digital_audio_opl)
         if uncompressed_digital_video_opl is not None:
-            pulumi.set(__self__, "uncompressed_digital_video_opl", uncompressed_digital_video_opl)
+            _setter("uncompressed_digital_video_opl", uncompressed_digital_video_opl)
 
     @property
     @pulumi.getter(name="allowPassingVideoContentToUnknownOutput")
@@ -2565,9 +3380,32 @@ class ContentKeyPolicyRsaTokenKeyResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyRsaTokenKey'.
         """
-        pulumi.set(__self__, "exponent", exponent)
-        pulumi.set(__self__, "modulus", modulus)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyRsaTokenKey')
+        ContentKeyPolicyRsaTokenKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exponent=exponent,
+            modulus=modulus,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exponent: Optional[str] = None,
+             modulus: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exponent is None:
+            raise TypeError("Missing 'exponent' argument")
+        if modulus is None:
+            raise TypeError("Missing 'modulus' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("exponent", exponent)
+        _setter("modulus", modulus)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyRsaTokenKey')
 
     @property
     @pulumi.getter
@@ -2628,8 +3466,29 @@ class ContentKeyPolicySymmetricTokenKeyResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey'.
         """
-        pulumi.set(__self__, "key_value", key_value)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey')
+        ContentKeyPolicySymmetricTokenKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_value=key_value,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_value: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_value is None and 'keyValue' in kwargs:
+            key_value = kwargs['keyValue']
+        if key_value is None:
+            raise TypeError("Missing 'key_value' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("key_value", key_value)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicySymmetricTokenKey')
 
     @property
     @pulumi.getter(name="keyValue")
@@ -2681,10 +3540,27 @@ class ContentKeyPolicyTokenClaimResponse(dict):
         :param str claim_type: Token claim type.
         :param str claim_value: Token claim value.
         """
+        ContentKeyPolicyTokenClaimResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            claim_type=claim_type,
+            claim_value=claim_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             claim_type: Optional[str] = None,
+             claim_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if claim_type is None and 'claimType' in kwargs:
+            claim_type = kwargs['claimType']
+        if claim_value is None and 'claimValue' in kwargs:
+            claim_value = kwargs['claimValue']
+
         if claim_type is not None:
-            pulumi.set(__self__, "claim_type", claim_type)
+            _setter("claim_type", claim_type)
         if claim_value is not None:
-            pulumi.set(__self__, "claim_value", claim_value)
+            _setter("claim_value", claim_value)
 
     @property
     @pulumi.getter(name="claimType")
@@ -2756,17 +3632,64 @@ class ContentKeyPolicyTokenRestrictionResponse(dict):
         :param str open_id_connect_discovery_document: The OpenID connect discovery document.
         :param Sequence['ContentKeyPolicyTokenClaimResponse'] required_claims: A list of required token claims.
         """
-        pulumi.set(__self__, "audience", audience)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyTokenRestriction')
-        pulumi.set(__self__, "primary_verification_key", primary_verification_key)
-        pulumi.set(__self__, "restriction_token_type", restriction_token_type)
+        ContentKeyPolicyTokenRestrictionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audience=audience,
+            issuer=issuer,
+            odata_type=odata_type,
+            primary_verification_key=primary_verification_key,
+            restriction_token_type=restriction_token_type,
+            alternate_verification_keys=alternate_verification_keys,
+            open_id_connect_discovery_document=open_id_connect_discovery_document,
+            required_claims=required_claims,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audience: Optional[str] = None,
+             issuer: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             primary_verification_key: Optional[Any] = None,
+             restriction_token_type: Optional[str] = None,
+             alternate_verification_keys: Optional[Sequence[Any]] = None,
+             open_id_connect_discovery_document: Optional[str] = None,
+             required_claims: Optional[Sequence['outputs.ContentKeyPolicyTokenClaimResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audience is None:
+            raise TypeError("Missing 'audience' argument")
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if primary_verification_key is None and 'primaryVerificationKey' in kwargs:
+            primary_verification_key = kwargs['primaryVerificationKey']
+        if primary_verification_key is None:
+            raise TypeError("Missing 'primary_verification_key' argument")
+        if restriction_token_type is None and 'restrictionTokenType' in kwargs:
+            restriction_token_type = kwargs['restrictionTokenType']
+        if restriction_token_type is None:
+            raise TypeError("Missing 'restriction_token_type' argument")
+        if alternate_verification_keys is None and 'alternateVerificationKeys' in kwargs:
+            alternate_verification_keys = kwargs['alternateVerificationKeys']
+        if open_id_connect_discovery_document is None and 'openIdConnectDiscoveryDocument' in kwargs:
+            open_id_connect_discovery_document = kwargs['openIdConnectDiscoveryDocument']
+        if required_claims is None and 'requiredClaims' in kwargs:
+            required_claims = kwargs['requiredClaims']
+
+        _setter("audience", audience)
+        _setter("issuer", issuer)
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyTokenRestriction')
+        _setter("primary_verification_key", primary_verification_key)
+        _setter("restriction_token_type", restriction_token_type)
         if alternate_verification_keys is not None:
-            pulumi.set(__self__, "alternate_verification_keys", alternate_verification_keys)
+            _setter("alternate_verification_keys", alternate_verification_keys)
         if open_id_connect_discovery_document is not None:
-            pulumi.set(__self__, "open_id_connect_discovery_document", open_id_connect_discovery_document)
+            _setter("open_id_connect_discovery_document", open_id_connect_discovery_document)
         if required_claims is not None:
-            pulumi.set(__self__, "required_claims", required_claims)
+            _setter("required_claims", required_claims)
 
     @property
     @pulumi.getter
@@ -2863,7 +3786,22 @@ class ContentKeyPolicyUnknownConfigurationResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration')
+        ContentKeyPolicyUnknownConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownConfiguration')
 
     @property
     @pulumi.getter(name="odataType")
@@ -2904,7 +3842,22 @@ class ContentKeyPolicyUnknownRestrictionResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ContentKeyPolicyUnknownRestriction'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownRestriction')
+        ContentKeyPolicyUnknownRestrictionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyUnknownRestriction')
 
     @property
     @pulumi.getter(name="odataType")
@@ -2949,8 +3902,29 @@ class ContentKeyPolicyWidevineConfigurationResponse(dict):
                Expected value is '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration'.
         :param str widevine_template: The Widevine template.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration')
-        pulumi.set(__self__, "widevine_template", widevine_template)
+        ContentKeyPolicyWidevineConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            widevine_template=widevine_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             widevine_template: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if widevine_template is None and 'widevineTemplate' in kwargs:
+            widevine_template = kwargs['widevineTemplate']
+        if widevine_template is None:
+            raise TypeError("Missing 'widevine_template' argument")
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyWidevineConfiguration')
+        _setter("widevine_template", widevine_template)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3003,8 +3977,29 @@ class ContentKeyPolicyX509CertificateTokenKeyResponse(dict):
                Expected value is '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey'.
         :param str raw_body: The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey')
-        pulumi.set(__self__, "raw_body", raw_body)
+        ContentKeyPolicyX509CertificateTokenKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            raw_body=raw_body,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             raw_body: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if raw_body is None and 'rawBody' in kwargs:
+            raw_body = kwargs['rawBody']
+        if raw_body is None:
+            raise TypeError("Missing 'raw_body' argument")
+
+        _setter("odata_type", '#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey')
+        _setter("raw_body", raw_body)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3055,9 +4050,26 @@ class CopyAudioResponse(dict):
                Expected value is '#Microsoft.Media.CopyAudio'.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.CopyAudio')
+        CopyAudioResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            label=label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             label: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.CopyAudio')
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3108,9 +4120,26 @@ class CopyVideoResponse(dict):
                Expected value is '#Microsoft.Media.CopyVideo'.
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.CopyVideo')
+        CopyVideoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            label=label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             label: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.CopyVideo')
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3162,10 +4191,27 @@ class CrossSiteAccessPoliciesResponse(dict):
         :param str client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
         :param str cross_domain_policy: The content of crossdomain.xml used by Silverlight.
         """
+        CrossSiteAccessPoliciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_access_policy=client_access_policy,
+            cross_domain_policy=cross_domain_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_access_policy: Optional[str] = None,
+             cross_domain_policy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_access_policy is None and 'clientAccessPolicy' in kwargs:
+            client_access_policy = kwargs['clientAccessPolicy']
+        if cross_domain_policy is None and 'crossDomainPolicy' in kwargs:
+            cross_domain_policy = kwargs['crossDomainPolicy']
+
         if client_access_policy is not None:
-            pulumi.set(__self__, "client_access_policy", client_access_policy)
+            _setter("client_access_policy", client_access_policy)
         if cross_domain_policy is not None:
-            pulumi.set(__self__, "cross_domain_policy", cross_domain_policy)
+            _setter("cross_domain_policy", cross_domain_policy)
 
     @property
     @pulumi.getter(name="clientAccessPolicy")
@@ -3223,15 +4269,40 @@ class DDAudioResponse(dict):
         :param str label: An optional label for the codec. The label can be used to control muxing behavior.
         :param int sampling_rate: The sampling rate to use for encoding in hertz.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.DDAudio')
+        DDAudioResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            bitrate=bitrate,
+            channels=channels,
+            label=label,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             bitrate: Optional[int] = None,
+             channels: Optional[int] = None,
+             label: Optional[str] = None,
+             sampling_rate: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
+        _setter("odata_type", '#Microsoft.Media.DDAudio')
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if channels is not None:
-            pulumi.set(__self__, "channels", channels)
+            _setter("channels", channels)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
+            _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3286,8 +4357,19 @@ class DashSettingsResponse(dict):
         The DASH setting for a track.
         :param str role: The role for the DASH setting.
         """
+        DashSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -3328,10 +4410,25 @@ class DefaultKeyResponse(dict):
         :param str label: Label can be used to specify Content Key when creating a Streaming Locator
         :param str policy_name: Policy used by Default Key
         """
+        DefaultKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            policy_name=policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[str] = None,
+             policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
 
     @property
     @pulumi.getter
@@ -3363,10 +4460,23 @@ class DeinterlaceResponse(dict):
         :param str mode: The deinterlacing mode. Defaults to AutoPixelAdaptive.
         :param str parity: The field parity for de-interlacing, defaults to Auto.
         """
+        DeinterlaceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            parity=parity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[str] = None,
+             parity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if parity is not None:
-            pulumi.set(__self__, "parity", parity)
+            _setter("parity", parity)
 
     @property
     @pulumi.getter
@@ -3398,14 +4508,39 @@ class EdgeUsageDataCollectionPolicyResponse(dict):
         :param 'EdgeUsageDataEventHubResponse' event_hub_details: Details of Event Hub where the usage will be reported.
         :param str max_allowed_unreported_usage_duration: Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
         """
+        EdgeUsageDataCollectionPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_collection_frequency=data_collection_frequency,
+            data_reporting_frequency=data_reporting_frequency,
+            event_hub_details=event_hub_details,
+            max_allowed_unreported_usage_duration=max_allowed_unreported_usage_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_collection_frequency: Optional[str] = None,
+             data_reporting_frequency: Optional[str] = None,
+             event_hub_details: Optional['outputs.EdgeUsageDataEventHubResponse'] = None,
+             max_allowed_unreported_usage_duration: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_collection_frequency is None and 'dataCollectionFrequency' in kwargs:
+            data_collection_frequency = kwargs['dataCollectionFrequency']
+        if data_reporting_frequency is None and 'dataReportingFrequency' in kwargs:
+            data_reporting_frequency = kwargs['dataReportingFrequency']
+        if event_hub_details is None and 'eventHubDetails' in kwargs:
+            event_hub_details = kwargs['eventHubDetails']
+        if max_allowed_unreported_usage_duration is None and 'maxAllowedUnreportedUsageDuration' in kwargs:
+            max_allowed_unreported_usage_duration = kwargs['maxAllowedUnreportedUsageDuration']
+
         if data_collection_frequency is not None:
-            pulumi.set(__self__, "data_collection_frequency", data_collection_frequency)
+            _setter("data_collection_frequency", data_collection_frequency)
         if data_reporting_frequency is not None:
-            pulumi.set(__self__, "data_reporting_frequency", data_reporting_frequency)
+            _setter("data_reporting_frequency", data_reporting_frequency)
         if event_hub_details is not None:
-            pulumi.set(__self__, "event_hub_details", event_hub_details)
+            _setter("event_hub_details", event_hub_details)
         if max_allowed_unreported_usage_duration is not None:
-            pulumi.set(__self__, "max_allowed_unreported_usage_duration", max_allowed_unreported_usage_duration)
+            _setter("max_allowed_unreported_usage_duration", max_allowed_unreported_usage_duration)
 
     @property
     @pulumi.getter(name="dataCollectionFrequency")
@@ -3451,12 +4586,27 @@ class EdgeUsageDataEventHubResponse(dict):
         :param str namespace: Namespace of the Event Hub where usage will be reported.
         :param str token: SAS token needed to interact with Event Hub.
         """
+        EdgeUsageDataEventHubResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            namespace=namespace,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
 
     @property
     @pulumi.getter
@@ -3517,10 +4667,37 @@ class EnabledProtocolsResponse(dict):
         :param bool hls: Enable HLS protocol or not
         :param bool smooth_streaming: Enable SmoothStreaming protocol or not
         """
-        pulumi.set(__self__, "dash", dash)
-        pulumi.set(__self__, "download", download)
-        pulumi.set(__self__, "hls", hls)
-        pulumi.set(__self__, "smooth_streaming", smooth_streaming)
+        EnabledProtocolsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dash=dash,
+            download=download,
+            hls=hls,
+            smooth_streaming=smooth_streaming,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dash: Optional[bool] = None,
+             download: Optional[bool] = None,
+             hls: Optional[bool] = None,
+             smooth_streaming: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dash is None:
+            raise TypeError("Missing 'dash' argument")
+        if download is None:
+            raise TypeError("Missing 'download' argument")
+        if hls is None:
+            raise TypeError("Missing 'hls' argument")
+        if smooth_streaming is None and 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+        if smooth_streaming is None:
+            raise TypeError("Missing 'smooth_streaming' argument")
+
+        _setter("dash", dash)
+        _setter("download", download)
+        _setter("hls", hls)
+        _setter("smooth_streaming", smooth_streaming)
 
     @property
     @pulumi.getter
@@ -3595,14 +4772,39 @@ class EnvelopeEncryptionResponse(dict):
         :param str custom_key_acquisition_url_template: Template for the URL of the custom service delivering keys to end user players.  Not required when using Azure Media Services for issuing keys.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
         :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
+        EnvelopeEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            clear_tracks=clear_tracks,
+            content_keys=content_keys,
+            custom_key_acquisition_url_template=custom_key_acquisition_url_template,
+            enabled_protocols=enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             clear_tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
+             content_keys: Optional['outputs.StreamingPolicyContentKeysResponse'] = None,
+             custom_key_acquisition_url_template: Optional[str] = None,
+             enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if clear_tracks is None and 'clearTracks' in kwargs:
+            clear_tracks = kwargs['clearTracks']
+        if content_keys is None and 'contentKeys' in kwargs:
+            content_keys = kwargs['contentKeys']
+        if custom_key_acquisition_url_template is None and 'customKeyAcquisitionUrlTemplate' in kwargs:
+            custom_key_acquisition_url_template = kwargs['customKeyAcquisitionUrlTemplate']
+        if enabled_protocols is None and 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if clear_tracks is not None:
-            pulumi.set(__self__, "clear_tracks", clear_tracks)
+            _setter("clear_tracks", clear_tracks)
         if content_keys is not None:
-            pulumi.set(__self__, "content_keys", content_keys)
+            _setter("content_keys", content_keys)
         if custom_key_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_key_acquisition_url_template", custom_key_acquisition_url_template)
+            _setter("custom_key_acquisition_url_template", custom_key_acquisition_url_template)
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
 
     @property
     @pulumi.getter(name="clearTracks")
@@ -3678,15 +4880,42 @@ class FaceDetectorPresetResponse(dict):
         :param str mode: This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
         :param str resolution: Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FaceDetectorPreset')
+        FaceDetectorPresetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            blur_type=blur_type,
+            experimental_options=experimental_options,
+            mode=mode,
+            resolution=resolution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             blur_type: Optional[str] = None,
+             experimental_options: Optional[Mapping[str, str]] = None,
+             mode: Optional[str] = None,
+             resolution: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if blur_type is None and 'blurType' in kwargs:
+            blur_type = kwargs['blurType']
+        if experimental_options is None and 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+
+        _setter("odata_type", '#Microsoft.Media.FaceDetectorPreset')
         if blur_type is not None:
-            pulumi.set(__self__, "blur_type", blur_type)
+            _setter("blur_type", blur_type)
         if experimental_options is not None:
-            pulumi.set(__self__, "experimental_options", experimental_options)
+            _setter("experimental_options", experimental_options)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if resolution is not None:
-            pulumi.set(__self__, "resolution", resolution)
+            _setter("resolution", resolution)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3762,10 +4991,31 @@ class FadeResponse(dict):
         :param str fade_color: The Color for the fade In/Out. it can be on the CSS Level1 colors https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords or an RGB/hex value: e.g: rgb(255,0,0), 0xFF0000 or #FF0000
         :param str start: The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, PT05S to start at 5 seconds), or a frame count (For example, 10 to start at the 10th frame), or a relative value to stream duration (For example, 10% to start at 10% of stream duration). Default is 0
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "fade_color", fade_color)
+        FadeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            fade_color=fade_color,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[str] = None,
+             fade_color: Optional[str] = None,
+             start: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if fade_color is None and 'fadeColor' in kwargs:
+            fade_color = kwargs['fadeColor']
+        if fade_color is None:
+            raise TypeError("Missing 'fade_color' argument")
+
+        _setter("duration", duration)
+        _setter("fade_color", fade_color)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter
@@ -3807,9 +5057,30 @@ class FilterTrackPropertyConditionResponse(dict):
         :param str property: The track property type.
         :param str value: The track property value.
         """
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "property", property)
-        pulumi.set(__self__, "value", value)
+        FilterTrackPropertyConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            property=property,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: Optional[str] = None,
+             property: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operation is None:
+            raise TypeError("Missing 'operation' argument")
+        if property is None:
+            raise TypeError("Missing 'property' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("operation", operation)
+        _setter("property", property)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3864,7 +5135,22 @@ class FilterTrackSelectionResponse(dict):
         Representing a list of FilterTrackPropertyConditions to select a track.  The filters are combined using a logical AND operation.
         :param Sequence['FilterTrackPropertyConditionResponse'] track_selections: The track selections.
         """
-        pulumi.set(__self__, "track_selections", track_selections)
+        FilterTrackSelectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            track_selections=track_selections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             track_selections: Optional[Sequence['outputs.FilterTrackPropertyConditionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if track_selections is None and 'trackSelections' in kwargs:
+            track_selections = kwargs['trackSelections']
+        if track_selections is None:
+            raise TypeError("Missing 'track_selections' argument")
+
+        _setter("track_selections", track_selections)
 
     @property
     @pulumi.getter(name="trackSelections")
@@ -3915,18 +5201,43 @@ class FiltersResponse(dict):
         :param Sequence[Union['AudioOverlayResponse', 'VideoOverlayResponse']] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
         :param str rotation: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         """
+        FiltersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crop=crop,
+            deinterlace=deinterlace,
+            fade_in=fade_in,
+            fade_out=fade_out,
+            overlays=overlays,
+            rotation=rotation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crop: Optional['outputs.RectangleResponse'] = None,
+             deinterlace: Optional['outputs.DeinterlaceResponse'] = None,
+             fade_in: Optional['outputs.FadeResponse'] = None,
+             fade_out: Optional['outputs.FadeResponse'] = None,
+             overlays: Optional[Sequence[Any]] = None,
+             rotation: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fade_in is None and 'fadeIn' in kwargs:
+            fade_in = kwargs['fadeIn']
+        if fade_out is None and 'fadeOut' in kwargs:
+            fade_out = kwargs['fadeOut']
+
         if crop is not None:
-            pulumi.set(__self__, "crop", crop)
+            _setter("crop", crop)
         if deinterlace is not None:
-            pulumi.set(__self__, "deinterlace", deinterlace)
+            _setter("deinterlace", deinterlace)
         if fade_in is not None:
-            pulumi.set(__self__, "fade_in", fade_in)
+            _setter("fade_in", fade_in)
         if fade_out is not None:
-            pulumi.set(__self__, "fade_out", fade_out)
+            _setter("fade_out", fade_out)
         if overlays is not None:
-            pulumi.set(__self__, "overlays", overlays)
+            _setter("overlays", overlays)
         if rotation is not None:
-            pulumi.set(__self__, "rotation", rotation)
+            _setter("rotation", rotation)
 
     @property
     @pulumi.getter
@@ -3988,7 +5299,20 @@ class FirstQualityResponse(dict):
         Filter First Quality
         :param int bitrate: The first quality bitrate.
         """
-        pulumi.set(__self__, "bitrate", bitrate)
+        FirstQualityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bitrate is None:
+            raise TypeError("Missing 'bitrate' argument")
+
+        _setter("bitrate", bitrate)
 
     @property
     @pulumi.getter
@@ -4032,9 +5356,28 @@ class FromAllInputFileResponse(dict):
                Expected value is '#Microsoft.Media.FromAllInputFile'.
         :param Sequence[Union['AudioTrackDescriptorResponse', 'SelectAudioTrackByAttributeResponse', 'SelectAudioTrackByIdResponse', 'SelectVideoTrackByAttributeResponse', 'SelectVideoTrackByIdResponse', 'VideoTrackDescriptorResponse']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FromAllInputFile')
+        FromAllInputFileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            included_tracks=included_tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             included_tracks: Optional[Sequence[Any]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if included_tracks is None and 'includedTracks' in kwargs:
+            included_tracks = kwargs['includedTracks']
+
+        _setter("odata_type", '#Microsoft.Media.FromAllInputFile')
         if included_tracks is not None:
-            pulumi.set(__self__, "included_tracks", included_tracks)
+            _setter("included_tracks", included_tracks)
 
     @property
     @pulumi.getter(name="odataType")
@@ -4087,9 +5430,28 @@ class FromEachInputFileResponse(dict):
                Expected value is '#Microsoft.Media.FromEachInputFile'.
         :param Sequence[Union['AudioTrackDescriptorResponse', 'SelectAudioTrackByAttributeResponse', 'SelectAudioTrackByIdResponse', 'SelectVideoTrackByAttributeResponse', 'SelectVideoTrackByIdResponse', 'VideoTrackDescriptorResponse']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FromEachInputFile')
+        FromEachInputFileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            included_tracks=included_tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             included_tracks: Optional[Sequence[Any]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if included_tracks is None and 'includedTracks' in kwargs:
+            included_tracks = kwargs['includedTracks']
+
+        _setter("odata_type", '#Microsoft.Media.FromEachInputFile')
         if included_tracks is not None:
-            pulumi.set(__self__, "included_tracks", included_tracks)
+            _setter("included_tracks", included_tracks)
 
     @property
     @pulumi.getter(name="odataType")
@@ -4177,35 +5539,90 @@ class H264LayerResponse(dict):
         :param int slices: The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
         :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
-        pulumi.set(__self__, "bitrate", bitrate)
+        H264LayerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+            adaptive_b_frame=adaptive_b_frame,
+            b_frames=b_frames,
+            buffer_window=buffer_window,
+            crf=crf,
+            entropy_mode=entropy_mode,
+            frame_rate=frame_rate,
+            height=height,
+            label=label,
+            level=level,
+            max_bitrate=max_bitrate,
+            profile=profile,
+            reference_frames=reference_frames,
+            slices=slices,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[int] = None,
+             adaptive_b_frame: Optional[bool] = None,
+             b_frames: Optional[int] = None,
+             buffer_window: Optional[str] = None,
+             crf: Optional[float] = None,
+             entropy_mode: Optional[str] = None,
+             frame_rate: Optional[str] = None,
+             height: Optional[str] = None,
+             label: Optional[str] = None,
+             level: Optional[str] = None,
+             max_bitrate: Optional[int] = None,
+             profile: Optional[str] = None,
+             reference_frames: Optional[int] = None,
+             slices: Optional[int] = None,
+             width: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bitrate is None:
+            raise TypeError("Missing 'bitrate' argument")
+        if adaptive_b_frame is None and 'adaptiveBFrame' in kwargs:
+            adaptive_b_frame = kwargs['adaptiveBFrame']
+        if b_frames is None and 'bFrames' in kwargs:
+            b_frames = kwargs['bFrames']
+        if buffer_window is None and 'bufferWindow' in kwargs:
+            buffer_window = kwargs['bufferWindow']
+        if entropy_mode is None and 'entropyMode' in kwargs:
+            entropy_mode = kwargs['entropyMode']
+        if frame_rate is None and 'frameRate' in kwargs:
+            frame_rate = kwargs['frameRate']
+        if max_bitrate is None and 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if reference_frames is None and 'referenceFrames' in kwargs:
+            reference_frames = kwargs['referenceFrames']
+
+        _setter("bitrate", bitrate)
         if adaptive_b_frame is not None:
-            pulumi.set(__self__, "adaptive_b_frame", adaptive_b_frame)
+            _setter("adaptive_b_frame", adaptive_b_frame)
         if b_frames is not None:
-            pulumi.set(__self__, "b_frames", b_frames)
+            _setter("b_frames", b_frames)
         if buffer_window is not None:
-            pulumi.set(__self__, "buffer_window", buffer_window)
+            _setter("buffer_window", buffer_window)
         if crf is not None:
-            pulumi.set(__self__, "crf", crf)
+            _setter("crf", crf)
         if entropy_mode is not None:
-            pulumi.set(__self__, "entropy_mode", entropy_mode)
+            _setter("entropy_mode", entropy_mode)
         if frame_rate is not None:
-            pulumi.set(__self__, "frame_rate", frame_rate)
+            _setter("frame_rate", frame_rate)
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if max_bitrate is not None:
-            pulumi.set(__self__, "max_bitrate", max_bitrate)
+            _setter("max_bitrate", max_bitrate)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if reference_frames is not None:
-            pulumi.set(__self__, "reference_frames", reference_frames)
+            _setter("reference_frames", reference_frames)
         if slices is not None:
-            pulumi.set(__self__, "slices", slices)
+            _setter("slices", slices)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -4383,23 +5800,64 @@ class H264VideoResponse(dict):
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.H264Video')
+        H264VideoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            complexity=complexity,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            layers=layers,
+            rate_control_mode=rate_control_mode,
+            scene_change_detection=scene_change_detection,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             complexity: Optional[str] = None,
+             key_frame_interval: Optional[str] = None,
+             label: Optional[str] = None,
+             layers: Optional[Sequence['outputs.H264LayerResponse']] = None,
+             rate_control_mode: Optional[str] = None,
+             scene_change_detection: Optional[bool] = None,
+             stretch_mode: Optional[str] = None,
+             sync_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if rate_control_mode is None and 'rateControlMode' in kwargs:
+            rate_control_mode = kwargs['rateControlMode']
+        if scene_change_detection is None and 'sceneChangeDetection' in kwargs:
+            scene_change_detection = kwargs['sceneChangeDetection']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.H264Video')
         if complexity is not None:
-            pulumi.set(__self__, "complexity", complexity)
+            _setter("complexity", complexity)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if rate_control_mode is not None:
-            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
+            _setter("rate_control_mode", rate_control_mode)
         if scene_change_detection is not None:
-            pulumi.set(__self__, "scene_change_detection", scene_change_detection)
+            _setter("scene_change_detection", scene_change_detection)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -4539,33 +5997,84 @@ class H265LayerResponse(dict):
         :param int slices: The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
         :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
-        pulumi.set(__self__, "bitrate", bitrate)
+        H265LayerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+            adaptive_b_frame=adaptive_b_frame,
+            b_frames=b_frames,
+            buffer_window=buffer_window,
+            crf=crf,
+            frame_rate=frame_rate,
+            height=height,
+            label=label,
+            level=level,
+            max_bitrate=max_bitrate,
+            profile=profile,
+            reference_frames=reference_frames,
+            slices=slices,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[int] = None,
+             adaptive_b_frame: Optional[bool] = None,
+             b_frames: Optional[int] = None,
+             buffer_window: Optional[str] = None,
+             crf: Optional[float] = None,
+             frame_rate: Optional[str] = None,
+             height: Optional[str] = None,
+             label: Optional[str] = None,
+             level: Optional[str] = None,
+             max_bitrate: Optional[int] = None,
+             profile: Optional[str] = None,
+             reference_frames: Optional[int] = None,
+             slices: Optional[int] = None,
+             width: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bitrate is None:
+            raise TypeError("Missing 'bitrate' argument")
+        if adaptive_b_frame is None and 'adaptiveBFrame' in kwargs:
+            adaptive_b_frame = kwargs['adaptiveBFrame']
+        if b_frames is None and 'bFrames' in kwargs:
+            b_frames = kwargs['bFrames']
+        if buffer_window is None and 'bufferWindow' in kwargs:
+            buffer_window = kwargs['bufferWindow']
+        if frame_rate is None and 'frameRate' in kwargs:
+            frame_rate = kwargs['frameRate']
+        if max_bitrate is None and 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if reference_frames is None and 'referenceFrames' in kwargs:
+            reference_frames = kwargs['referenceFrames']
+
+        _setter("bitrate", bitrate)
         if adaptive_b_frame is not None:
-            pulumi.set(__self__, "adaptive_b_frame", adaptive_b_frame)
+            _setter("adaptive_b_frame", adaptive_b_frame)
         if b_frames is not None:
-            pulumi.set(__self__, "b_frames", b_frames)
+            _setter("b_frames", b_frames)
         if buffer_window is not None:
-            pulumi.set(__self__, "buffer_window", buffer_window)
+            _setter("buffer_window", buffer_window)
         if crf is not None:
-            pulumi.set(__self__, "crf", crf)
+            _setter("crf", crf)
         if frame_rate is not None:
-            pulumi.set(__self__, "frame_rate", frame_rate)
+            _setter("frame_rate", frame_rate)
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if max_bitrate is not None:
-            pulumi.set(__self__, "max_bitrate", max_bitrate)
+            _setter("max_bitrate", max_bitrate)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if reference_frames is not None:
-            pulumi.set(__self__, "reference_frames", reference_frames)
+            _setter("reference_frames", reference_frames)
         if slices is not None:
-            pulumi.set(__self__, "slices", slices)
+            _setter("slices", slices)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -4731,21 +6240,58 @@ class H265VideoResponse(dict):
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.H265Video')
+        H265VideoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            complexity=complexity,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            layers=layers,
+            scene_change_detection=scene_change_detection,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             complexity: Optional[str] = None,
+             key_frame_interval: Optional[str] = None,
+             label: Optional[str] = None,
+             layers: Optional[Sequence['outputs.H265LayerResponse']] = None,
+             scene_change_detection: Optional[bool] = None,
+             stretch_mode: Optional[str] = None,
+             sync_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if scene_change_detection is None and 'sceneChangeDetection' in kwargs:
+            scene_change_detection = kwargs['sceneChangeDetection']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.H265Video')
         if complexity is not None:
-            pulumi.set(__self__, "complexity", complexity)
+            _setter("complexity", complexity)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if scene_change_detection is not None:
-            pulumi.set(__self__, "scene_change_detection", scene_change_detection)
+            _setter("scene_change_detection", scene_change_detection)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -4841,8 +6387,21 @@ class HlsResponse(dict):
         HTTP Live Streaming (HLS) packing setting for the live output.
         :param int fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
         """
+        HlsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fragments_per_ts_segment=fragments_per_ts_segment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fragments_per_ts_segment: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fragments_per_ts_segment is None and 'fragmentsPerTsSegment' in kwargs:
+            fragments_per_ts_segment = kwargs['fragmentsPerTsSegment']
+
         if fragments_per_ts_segment is not None:
-            pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
+            _setter("fragments_per_ts_segment", fragments_per_ts_segment)
 
     @property
     @pulumi.getter(name="fragmentsPerTsSegment")
@@ -4868,12 +6427,27 @@ class HlsSettingsResponse(dict):
         :param bool default: The default for the HLS setting.
         :param bool forced: The forced for the HLS setting.
         """
+        HlsSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            characteristics=characteristics,
+            default=default,
+            forced=forced,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             characteristics: Optional[str] = None,
+             default: Optional[bool] = None,
+             forced: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if characteristics is not None:
-            pulumi.set(__self__, "characteristics", characteristics)
+            _setter("characteristics", characteristics)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if forced is not None:
-            pulumi.set(__self__, "forced", forced)
+            _setter("forced", forced)
 
     @property
     @pulumi.getter
@@ -4911,8 +6485,19 @@ class IPAccessControlResponse(dict):
         The IP access control.
         :param Sequence['IPRangeResponse'] allow: The IP allow list.
         """
+        IPAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional[Sequence['outputs.IPRangeResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
 
     @property
     @pulumi.getter
@@ -4955,12 +6540,29 @@ class IPRangeResponse(dict):
         :param str name: The friendly name for the IP address range.
         :param int subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
         """
+        IPRangeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            name=name,
+            subnet_prefix_length=subnet_prefix_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[str] = None,
+             name: Optional[str] = None,
+             subnet_prefix_length: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_prefix_length is None and 'subnetPrefixLength' in kwargs:
+            subnet_prefix_length = kwargs['subnetPrefixLength']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_prefix_length is not None:
-            pulumi.set(__self__, "subnet_prefix_length", subnet_prefix_length)
+            _setter("subnet_prefix_length", subnet_prefix_length)
 
     @property
     @pulumi.getter
@@ -5020,8 +6622,29 @@ class ImageFormatResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ImageFormat'.
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ImageFormat')
+        ImageFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.ImageFormat')
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -5090,20 +6713,57 @@ class ImageResponse(dict):
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Image')
-        pulumi.set(__self__, "start", start)
+        ImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            start=start,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            range=range,
+            step=step,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             start: Optional[str] = None,
+             key_frame_interval: Optional[str] = None,
+             label: Optional[str] = None,
+             range: Optional[str] = None,
+             step: Optional[str] = None,
+             stretch_mode: Optional[str] = None,
+             sync_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.Image')
+        _setter("start", start)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if step is not None:
-            pulumi.set(__self__, "step", step)
+            _setter("step", step)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -5206,11 +6866,32 @@ class InputFileResponse(dict):
         :param str filename: Name of the file that this input definition applies to.
         :param Sequence[Union['AudioTrackDescriptorResponse', 'SelectAudioTrackByAttributeResponse', 'SelectAudioTrackByIdResponse', 'SelectVideoTrackByAttributeResponse', 'SelectVideoTrackByIdResponse', 'VideoTrackDescriptorResponse']] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.InputFile')
+        InputFileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            filename=filename,
+            included_tracks=included_tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             filename: Optional[str] = None,
+             included_tracks: Optional[Sequence[Any]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if included_tracks is None and 'includedTracks' in kwargs:
+            included_tracks = kwargs['includedTracks']
+
+        _setter("odata_type", '#Microsoft.Media.InputFile')
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if included_tracks is not None:
-            pulumi.set(__self__, "included_tracks", included_tracks)
+            _setter("included_tracks", included_tracks)
 
     @property
     @pulumi.getter(name="odataType")
@@ -5251,8 +6932,25 @@ class JobErrorDetailResponse(dict):
         :param str code: Code describing the error detail.
         :param str message: A human-readable representation of the error.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        JobErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+
+        _setter("code", code)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -5290,11 +6988,40 @@ class JobErrorResponse(dict):
         :param str message: A human-readable language-dependent representation of the error.
         :param str retry: Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "retry", retry)
+        JobErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            code=code,
+            details=details,
+            message=message,
+            retry=retry,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[str] = None,
+             code: Optional[str] = None,
+             details: Optional[Sequence['outputs.JobErrorDetailResponse']] = None,
+             message: Optional[str] = None,
+             retry: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if details is None:
+            raise TypeError("Missing 'details' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if retry is None:
+            raise TypeError("Missing 'retry' argument")
+
+        _setter("category", category)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("retry", retry)
 
     @property
     @pulumi.getter
@@ -5382,18 +7109,51 @@ class JobInputAssetResponse(dict):
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputAsset')
+        JobInputAssetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            odata_type=odata_type,
+            end=end,
+            files=files,
+            input_definitions=input_definitions,
+            label=label,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             end: Optional[Any] = None,
+             files: Optional[Sequence[str]] = None,
+             input_definitions: Optional[Sequence[Any]] = None,
+             label: Optional[str] = None,
+             start: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if input_definitions is None and 'inputDefinitions' in kwargs:
+            input_definitions = kwargs['inputDefinitions']
+
+        _setter("asset_name", asset_name)
+        _setter("odata_type", '#Microsoft.Media.JobInputAsset')
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if files is not None:
-            pulumi.set(__self__, "files", files)
+            _setter("files", files)
         if input_definitions is not None:
-            pulumi.set(__self__, "input_definitions", input_definitions)
+            _setter("input_definitions", input_definitions)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="assetName")
@@ -5494,17 +7254,44 @@ class JobInputClipResponse(dict):
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
+        JobInputClipResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            end=end,
+            files=files,
+            input_definitions=input_definitions,
+            label=label,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             end: Optional[Any] = None,
+             files: Optional[Sequence[str]] = None,
+             input_definitions: Optional[Sequence[Any]] = None,
+             label: Optional[str] = None,
+             start: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if input_definitions is None and 'inputDefinitions' in kwargs:
+            input_definitions = kwargs['inputDefinitions']
+
+        _setter("odata_type", '#Microsoft.Media.JobInputClip')
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if files is not None:
-            pulumi.set(__self__, "files", files)
+            _setter("files", files)
         if input_definitions is not None:
-            pulumi.set(__self__, "input_definitions", input_definitions)
+            _setter("input_definitions", input_definitions)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="odataType")
@@ -5601,19 +7388,50 @@ class JobInputHttpResponse(dict):
         :param str label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param Union['AbsoluteClipTimeResponse', 'UtcClipTimeResponse'] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputHttp')
+        JobInputHttpResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            base_uri=base_uri,
+            end=end,
+            files=files,
+            input_definitions=input_definitions,
+            label=label,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             base_uri: Optional[str] = None,
+             end: Optional[Any] = None,
+             files: Optional[Sequence[str]] = None,
+             input_definitions: Optional[Sequence[Any]] = None,
+             label: Optional[str] = None,
+             start: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if base_uri is None and 'baseUri' in kwargs:
+            base_uri = kwargs['baseUri']
+        if input_definitions is None and 'inputDefinitions' in kwargs:
+            input_definitions = kwargs['inputDefinitions']
+
+        _setter("odata_type", '#Microsoft.Media.JobInputHttp')
         if base_uri is not None:
-            pulumi.set(__self__, "base_uri", base_uri)
+            _setter("base_uri", base_uri)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if files is not None:
-            pulumi.set(__self__, "files", files)
+            _setter("files", files)
         if input_definitions is not None:
-            pulumi.set(__self__, "input_definitions", input_definitions)
+            _setter("input_definitions", input_definitions)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="odataType")
@@ -5704,9 +7522,26 @@ class JobInputSequenceResponse(dict):
                Expected value is '#Microsoft.Media.JobInputSequence'.
         :param Sequence['JobInputClipResponse'] inputs: JobInputs that make up the timeline.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputSequence')
+        JobInputSequenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            inputs=inputs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             inputs: Optional[Sequence['outputs.JobInputClipResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.JobInputSequence')
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
 
     @property
     @pulumi.getter(name="odataType")
@@ -5757,9 +7592,26 @@ class JobInputsResponse(dict):
                Expected value is '#Microsoft.Media.JobInputs'.
         :param Sequence[Union['JobInputAssetResponse', 'JobInputClipResponse', 'JobInputHttpResponse', 'JobInputSequenceResponse', 'JobInputsResponse']] inputs: List of inputs to a Job.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputs')
+        JobInputsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            inputs=inputs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             inputs: Optional[Sequence[Any]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.JobInputs')
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
 
     @property
     @pulumi.getter(name="odataType")
@@ -5832,17 +7684,68 @@ class JobOutputAssetResponse(dict):
         :param str label: A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
         :param Union['AudioAnalyzerPresetResponse', 'BuiltInStandardEncoderPresetResponse', 'FaceDetectorPresetResponse', 'StandardEncoderPresetResponse', 'VideoAnalyzerPresetResponse'] preset_override: A preset used to override the preset in the corresponding transform output.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobOutputAsset')
-        pulumi.set(__self__, "progress", progress)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "state", state)
+        JobOutputAssetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            end_time=end_time,
+            error=error,
+            odata_type=odata_type,
+            progress=progress,
+            start_time=start_time,
+            state=state,
+            label=label,
+            preset_override=preset_override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: Optional[str] = None,
+             end_time: Optional[str] = None,
+             error: Optional['outputs.JobErrorResponse'] = None,
+             odata_type: Optional[str] = None,
+             progress: Optional[int] = None,
+             start_time: Optional[str] = None,
+             state: Optional[str] = None,
+             label: Optional[str] = None,
+             preset_override: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if progress is None:
+            raise TypeError("Missing 'progress' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if preset_override is None and 'presetOverride' in kwargs:
+            preset_override = kwargs['presetOverride']
+
+        _setter("asset_name", asset_name)
+        _setter("end_time", end_time)
+        _setter("error", error)
+        _setter("odata_type", '#Microsoft.Media.JobOutputAsset')
+        _setter("progress", progress)
+        _setter("start_time", start_time)
+        _setter("state", state)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if preset_override is not None:
-            pulumi.set(__self__, "preset_override", preset_override)
+            _setter("preset_override", preset_override)
 
     @property
     @pulumi.getter(name="assetName")
@@ -5951,8 +7854,29 @@ class JpgFormatResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JpgFormat'.
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JpgFormat')
+        JpgFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.JpgFormat')
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -6027,24 +7951,67 @@ class JpgImageResponse(dict):
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JpgImage')
-        pulumi.set(__self__, "start", start)
+        JpgImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            start=start,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            layers=layers,
+            range=range,
+            sprite_column=sprite_column,
+            step=step,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             start: Optional[str] = None,
+             key_frame_interval: Optional[str] = None,
+             label: Optional[str] = None,
+             layers: Optional[Sequence['outputs.JpgLayerResponse']] = None,
+             range: Optional[str] = None,
+             sprite_column: Optional[int] = None,
+             step: Optional[str] = None,
+             stretch_mode: Optional[str] = None,
+             sync_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if sprite_column is None and 'spriteColumn' in kwargs:
+            sprite_column = kwargs['spriteColumn']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.JpgImage')
+        _setter("start", start)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if sprite_column is not None:
-            pulumi.set(__self__, "sprite_column", sprite_column)
+            _setter("sprite_column", sprite_column)
         if step is not None:
-            pulumi.set(__self__, "step", step)
+            _setter("step", step)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -6145,14 +8112,31 @@ class JpgLayerResponse(dict):
         :param int quality: The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
         :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
+        JpgLayerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            height=height,
+            label=label,
+            quality=quality,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             height: Optional[str] = None,
+             label: Optional[str] = None,
+             quality: Optional[int] = None,
+             width: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if quality is not None:
-            pulumi.set(__self__, "quality", quality)
+            _setter("quality", quality)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -6211,8 +8195,21 @@ class KeyDeliveryResponse(dict):
         """
         :param 'AccessControlResponse' access_control: The access control properties for Key Delivery.
         """
+        KeyDeliveryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control=access_control,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control: Optional['outputs.AccessControlResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control is None and 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
 
     @property
     @pulumi.getter(name="accessControl")
@@ -6251,9 +8248,28 @@ class KeyVaultPropertiesResponse(dict):
         :param str current_key_identifier: The current key used to encrypt the Media Services account, including the key version.
         :param str key_identifier: The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         """
-        pulumi.set(__self__, "current_key_identifier", current_key_identifier)
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_key_identifier=current_key_identifier,
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_key_identifier: Optional[str] = None,
+             key_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_key_identifier is None and 'currentKeyIdentifier' in kwargs:
+            current_key_identifier = kwargs['currentKeyIdentifier']
+        if current_key_identifier is None:
+            raise TypeError("Missing 'current_key_identifier' argument")
+        if key_identifier is None and 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+
+        _setter("current_key_identifier", current_key_identifier)
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="currentKeyIdentifier")
@@ -6312,14 +8328,39 @@ class LiveEventEncodingResponse(dict):
         :param str preset_name: The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
         :param str stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
         """
+        LiveEventEncodingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding_type=encoding_type,
+            key_frame_interval=key_frame_interval,
+            preset_name=preset_name,
+            stretch_mode=stretch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding_type: Optional[str] = None,
+             key_frame_interval: Optional[str] = None,
+             preset_name: Optional[str] = None,
+             stretch_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encoding_type is None and 'encodingType' in kwargs:
+            encoding_type = kwargs['encodingType']
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if preset_name is None and 'presetName' in kwargs:
+            preset_name = kwargs['presetName']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if preset_name is not None:
-            pulumi.set(__self__, "preset_name", preset_name)
+            _setter("preset_name", preset_name)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
 
     @property
     @pulumi.getter(name="encodingType")
@@ -6367,10 +8408,23 @@ class LiveEventEndpointResponse(dict):
         :param str protocol: The endpoint protocol.
         :param str url: The endpoint URL.
         """
+        LiveEventEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -6406,14 +8460,31 @@ class LiveEventIngestInterruptionResponse(dict):
         :param str end: UTC time of interruption end, encoder re-connected.
         :param str reason: Interruption reason.
         """
+        LiveEventIngestInterruptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            duration=duration,
+            end=end,
+            reason=reason,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: Optional[str] = None,
+             duration: Optional[str] = None,
+             end: Optional[str] = None,
+             reason: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if begin is not None:
-            pulumi.set(__self__, "begin", begin)
+            _setter("begin", begin)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if reason is not None:
-            pulumi.set(__self__, "reason", reason)
+            _setter("reason", reason)
 
     @property
     @pulumi.getter
@@ -6467,16 +8538,41 @@ class LiveEventIngestionResponse(dict):
         :param Sequence['LiveEventIngestInterruptionResponse'] ingest_interruptions: IngestInterruption entry list.
         :param str stream_name: Ingestion stream name.
         """
+        LiveEventIngestionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            begin=begin,
+            end=end,
+            end_reason=end_reason,
+            ingest_interruptions=ingest_interruptions,
+            stream_name=stream_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             begin: Optional[str] = None,
+             end: Optional[str] = None,
+             end_reason: Optional[str] = None,
+             ingest_interruptions: Optional[Sequence['outputs.LiveEventIngestInterruptionResponse']] = None,
+             stream_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_reason is None and 'endReason' in kwargs:
+            end_reason = kwargs['endReason']
+        if ingest_interruptions is None and 'ingestInterruptions' in kwargs:
+            ingest_interruptions = kwargs['ingestInterruptions']
+        if stream_name is None and 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         if begin is not None:
-            pulumi.set(__self__, "begin", begin)
+            _setter("begin", begin)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if end_reason is not None:
-            pulumi.set(__self__, "end_reason", end_reason)
+            _setter("end_reason", end_reason)
         if ingest_interruptions is not None:
-            pulumi.set(__self__, "ingest_interruptions", ingest_interruptions)
+            _setter("ingest_interruptions", ingest_interruptions)
         if stream_name is not None:
-            pulumi.set(__self__, "stream_name", stream_name)
+            _setter("stream_name", stream_name)
 
     @property
     @pulumi.getter
@@ -6530,8 +8626,19 @@ class LiveEventInputAccessControlResponse(dict):
         The IP access control for live event input.
         :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
+        LiveEventInputAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional['outputs.IPAccessControlResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -6588,17 +8695,50 @@ class LiveEventInputResponse(dict):
         :param str key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
         :param Sequence['LiveEventTimedMetadataEndpointResponse'] timed_metadata_endpoints: The metadata endpoints for the live event.
         """
-        pulumi.set(__self__, "streaming_protocol", streaming_protocol)
+        LiveEventInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            streaming_protocol=streaming_protocol,
+            access_control=access_control,
+            access_token=access_token,
+            endpoints=endpoints,
+            key_frame_interval_duration=key_frame_interval_duration,
+            timed_metadata_endpoints=timed_metadata_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             streaming_protocol: Optional[str] = None,
+             access_control: Optional['outputs.LiveEventInputAccessControlResponse'] = None,
+             access_token: Optional[str] = None,
+             endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
+             key_frame_interval_duration: Optional[str] = None,
+             timed_metadata_endpoints: Optional[Sequence['outputs.LiveEventTimedMetadataEndpointResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if streaming_protocol is None and 'streamingProtocol' in kwargs:
+            streaming_protocol = kwargs['streamingProtocol']
+        if streaming_protocol is None:
+            raise TypeError("Missing 'streaming_protocol' argument")
+        if access_control is None and 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if key_frame_interval_duration is None and 'keyFrameIntervalDuration' in kwargs:
+            key_frame_interval_duration = kwargs['keyFrameIntervalDuration']
+        if timed_metadata_endpoints is None and 'timedMetadataEndpoints' in kwargs:
+            timed_metadata_endpoints = kwargs['timedMetadataEndpoints']
+
+        _setter("streaming_protocol", streaming_protocol)
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if key_frame_interval_duration is not None:
-            pulumi.set(__self__, "key_frame_interval_duration", key_frame_interval_duration)
+            _setter("key_frame_interval_duration", key_frame_interval_duration)
         if timed_metadata_endpoints is not None:
-            pulumi.set(__self__, "timed_metadata_endpoints", timed_metadata_endpoints)
+            _setter("timed_metadata_endpoints", timed_metadata_endpoints)
 
     @property
     @pulumi.getter(name="streamingProtocol")
@@ -6664,12 +8804,27 @@ class LiveEventInputTrackSelectionResponse(dict):
         :param str property: Property name to select. This property is reserved for future use, any value set on this property will be ignored.
         :param str value: Property value to select. This property is reserved for future use, any value set on this property will be ignored.
         """
+        LiveEventInputTrackSelectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            property=property,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: Optional[str] = None,
+             property: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
         if property is not None:
-            pulumi.set(__self__, "property", property)
+            _setter("property", property)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -6724,7 +8879,22 @@ class LiveEventOutputTranscriptionTrackResponse(dict):
         Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
         :param str track_name: The output track name. This property is reserved for future use, any value set on this property will be ignored.
         """
-        pulumi.set(__self__, "track_name", track_name)
+        LiveEventOutputTranscriptionTrackResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            track_name=track_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             track_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if track_name is None and 'trackName' in kwargs:
+            track_name = kwargs['trackName']
+        if track_name is None:
+            raise TypeError("Missing 'track_name' argument")
+
+        _setter("track_name", track_name)
 
     @property
     @pulumi.getter(name="trackName")
@@ -6746,8 +8916,19 @@ class LiveEventPreviewAccessControlResponse(dict):
         The IP access control for the live event preview endpoint.
         :param 'IPAccessControlResponse' ip: The IP access control properties.
         """
+        LiveEventPreviewAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional['outputs.IPAccessControlResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -6800,16 +8981,43 @@ class LiveEventPreviewResponse(dict):
         :param str preview_locator: The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
         :param str streaming_policy_name: The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
         """
+        LiveEventPreviewResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control=access_control,
+            alternative_media_id=alternative_media_id,
+            endpoints=endpoints,
+            preview_locator=preview_locator,
+            streaming_policy_name=streaming_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control: Optional['outputs.LiveEventPreviewAccessControlResponse'] = None,
+             alternative_media_id: Optional[str] = None,
+             endpoints: Optional[Sequence['outputs.LiveEventEndpointResponse']] = None,
+             preview_locator: Optional[str] = None,
+             streaming_policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control is None and 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if alternative_media_id is None and 'alternativeMediaId' in kwargs:
+            alternative_media_id = kwargs['alternativeMediaId']
+        if preview_locator is None and 'previewLocator' in kwargs:
+            preview_locator = kwargs['previewLocator']
+        if streaming_policy_name is None and 'streamingPolicyName' in kwargs:
+            streaming_policy_name = kwargs['streamingPolicyName']
+
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if alternative_media_id is not None:
-            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+            _setter("alternative_media_id", alternative_media_id)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if preview_locator is not None:
-            pulumi.set(__self__, "preview_locator", preview_locator)
+            _setter("preview_locator", preview_locator)
         if streaming_policy_name is not None:
-            pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+            _setter("streaming_policy_name", streaming_policy_name)
 
     @property
     @pulumi.getter(name="accessControl")
@@ -6873,18 +9081,47 @@ class LiveEventStatusResponse(dict):
         :param str state: Current state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
         :param Sequence['LiveEventTrackStatusResponse'] track_status: Track entry list.
         """
+        LiveEventStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health_descriptions=health_descriptions,
+            health_status=health_status,
+            ingestion=ingestion,
+            last_updated_time=last_updated_time,
+            state=state,
+            track_status=track_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health_descriptions: Optional[Sequence[str]] = None,
+             health_status: Optional[str] = None,
+             ingestion: Optional['outputs.LiveEventIngestionResponse'] = None,
+             last_updated_time: Optional[str] = None,
+             state: Optional[str] = None,
+             track_status: Optional[Sequence['outputs.LiveEventTrackStatusResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_descriptions is None and 'healthDescriptions' in kwargs:
+            health_descriptions = kwargs['healthDescriptions']
+        if health_status is None and 'healthStatus' in kwargs:
+            health_status = kwargs['healthStatus']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if track_status is None and 'trackStatus' in kwargs:
+            track_status = kwargs['trackStatus']
+
         if health_descriptions is not None:
-            pulumi.set(__self__, "health_descriptions", health_descriptions)
+            _setter("health_descriptions", health_descriptions)
         if health_status is not None:
-            pulumi.set(__self__, "health_status", health_status)
+            _setter("health_status", health_status)
         if ingestion is not None:
-            pulumi.set(__self__, "ingestion", ingestion)
+            _setter("ingestion", ingestion)
         if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+            _setter("last_updated_time", last_updated_time)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if track_status is not None:
-            pulumi.set(__self__, "track_status", track_status)
+            _setter("track_status", track_status)
 
     @property
     @pulumi.getter(name="healthDescriptions")
@@ -7002,64 +9239,181 @@ class LiveEventStreamEventDataResponse(dict):
         :param int track_id: Track index.
         :param str track_name: Name of the track. 
         """
+        LiveEventStreamEventDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+            current_fragment_timestamp=current_fragment_timestamp,
+            discontinuity_gap=discontinuity_gap,
+            duration=duration,
+            fragment_drop_reason=fragment_drop_reason,
+            fragment_one_duration=fragment_one_duration,
+            fragment_one_timestamp=fragment_one_timestamp,
+            fragment_two_duration=fragment_two_duration,
+            fragment_two_timestamp=fragment_two_timestamp,
+            max_time=max_time,
+            max_time_media_type=max_time_media_type,
+            media_timestamp=media_timestamp,
+            media_type=media_type,
+            min_time=min_time,
+            min_time_media_type=min_time_media_type,
+            previous_fragment_duration=previous_fragment_duration,
+            previous_fragment_timestamp=previous_fragment_timestamp,
+            remote_ip=remote_ip,
+            remote_port=remote_port,
+            resolution=resolution,
+            result_code=result_code,
+            result_message=result_message,
+            stream_id=stream_id,
+            stream_name=stream_name,
+            timescale=timescale,
+            timescale_of_max_time=timescale_of_max_time,
+            timescale_of_min_time=timescale_of_min_time,
+            track_id=track_id,
+            track_name=track_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[float] = None,
+             current_fragment_timestamp: Optional[str] = None,
+             discontinuity_gap: Optional[float] = None,
+             duration: Optional[str] = None,
+             fragment_drop_reason: Optional[str] = None,
+             fragment_one_duration: Optional[str] = None,
+             fragment_one_timestamp: Optional[str] = None,
+             fragment_two_duration: Optional[str] = None,
+             fragment_two_timestamp: Optional[str] = None,
+             max_time: Optional[str] = None,
+             max_time_media_type: Optional[str] = None,
+             media_timestamp: Optional[str] = None,
+             media_type: Optional[str] = None,
+             min_time: Optional[str] = None,
+             min_time_media_type: Optional[str] = None,
+             previous_fragment_duration: Optional[str] = None,
+             previous_fragment_timestamp: Optional[str] = None,
+             remote_ip: Optional[str] = None,
+             remote_port: Optional[str] = None,
+             resolution: Optional[str] = None,
+             result_code: Optional[str] = None,
+             result_message: Optional[str] = None,
+             stream_id: Optional[str] = None,
+             stream_name: Optional[str] = None,
+             timescale: Optional[str] = None,
+             timescale_of_max_time: Optional[str] = None,
+             timescale_of_min_time: Optional[str] = None,
+             track_id: Optional[int] = None,
+             track_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_fragment_timestamp is None and 'currentFragmentTimestamp' in kwargs:
+            current_fragment_timestamp = kwargs['currentFragmentTimestamp']
+        if discontinuity_gap is None and 'discontinuityGap' in kwargs:
+            discontinuity_gap = kwargs['discontinuityGap']
+        if fragment_drop_reason is None and 'fragmentDropReason' in kwargs:
+            fragment_drop_reason = kwargs['fragmentDropReason']
+        if fragment_one_duration is None and 'fragmentOneDuration' in kwargs:
+            fragment_one_duration = kwargs['fragmentOneDuration']
+        if fragment_one_timestamp is None and 'fragmentOneTimestamp' in kwargs:
+            fragment_one_timestamp = kwargs['fragmentOneTimestamp']
+        if fragment_two_duration is None and 'fragmentTwoDuration' in kwargs:
+            fragment_two_duration = kwargs['fragmentTwoDuration']
+        if fragment_two_timestamp is None and 'fragmentTwoTimestamp' in kwargs:
+            fragment_two_timestamp = kwargs['fragmentTwoTimestamp']
+        if max_time is None and 'maxTime' in kwargs:
+            max_time = kwargs['maxTime']
+        if max_time_media_type is None and 'maxTimeMediaType' in kwargs:
+            max_time_media_type = kwargs['maxTimeMediaType']
+        if media_timestamp is None and 'mediaTimestamp' in kwargs:
+            media_timestamp = kwargs['mediaTimestamp']
+        if media_type is None and 'mediaType' in kwargs:
+            media_type = kwargs['mediaType']
+        if min_time is None and 'minTime' in kwargs:
+            min_time = kwargs['minTime']
+        if min_time_media_type is None and 'minTimeMediaType' in kwargs:
+            min_time_media_type = kwargs['minTimeMediaType']
+        if previous_fragment_duration is None and 'previousFragmentDuration' in kwargs:
+            previous_fragment_duration = kwargs['previousFragmentDuration']
+        if previous_fragment_timestamp is None and 'previousFragmentTimestamp' in kwargs:
+            previous_fragment_timestamp = kwargs['previousFragmentTimestamp']
+        if remote_ip is None and 'remoteIp' in kwargs:
+            remote_ip = kwargs['remoteIp']
+        if remote_port is None and 'remotePort' in kwargs:
+            remote_port = kwargs['remotePort']
+        if result_code is None and 'resultCode' in kwargs:
+            result_code = kwargs['resultCode']
+        if result_message is None and 'resultMessage' in kwargs:
+            result_message = kwargs['resultMessage']
+        if stream_id is None and 'streamId' in kwargs:
+            stream_id = kwargs['streamId']
+        if stream_name is None and 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+        if timescale_of_max_time is None and 'timescaleOfMaxTime' in kwargs:
+            timescale_of_max_time = kwargs['timescaleOfMaxTime']
+        if timescale_of_min_time is None and 'timescaleOfMinTime' in kwargs:
+            timescale_of_min_time = kwargs['timescaleOfMinTime']
+        if track_id is None and 'trackId' in kwargs:
+            track_id = kwargs['trackId']
+        if track_name is None and 'trackName' in kwargs:
+            track_name = kwargs['trackName']
+
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if current_fragment_timestamp is not None:
-            pulumi.set(__self__, "current_fragment_timestamp", current_fragment_timestamp)
+            _setter("current_fragment_timestamp", current_fragment_timestamp)
         if discontinuity_gap is not None:
-            pulumi.set(__self__, "discontinuity_gap", discontinuity_gap)
+            _setter("discontinuity_gap", discontinuity_gap)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if fragment_drop_reason is not None:
-            pulumi.set(__self__, "fragment_drop_reason", fragment_drop_reason)
+            _setter("fragment_drop_reason", fragment_drop_reason)
         if fragment_one_duration is not None:
-            pulumi.set(__self__, "fragment_one_duration", fragment_one_duration)
+            _setter("fragment_one_duration", fragment_one_duration)
         if fragment_one_timestamp is not None:
-            pulumi.set(__self__, "fragment_one_timestamp", fragment_one_timestamp)
+            _setter("fragment_one_timestamp", fragment_one_timestamp)
         if fragment_two_duration is not None:
-            pulumi.set(__self__, "fragment_two_duration", fragment_two_duration)
+            _setter("fragment_two_duration", fragment_two_duration)
         if fragment_two_timestamp is not None:
-            pulumi.set(__self__, "fragment_two_timestamp", fragment_two_timestamp)
+            _setter("fragment_two_timestamp", fragment_two_timestamp)
         if max_time is not None:
-            pulumi.set(__self__, "max_time", max_time)
+            _setter("max_time", max_time)
         if max_time_media_type is not None:
-            pulumi.set(__self__, "max_time_media_type", max_time_media_type)
+            _setter("max_time_media_type", max_time_media_type)
         if media_timestamp is not None:
-            pulumi.set(__self__, "media_timestamp", media_timestamp)
+            _setter("media_timestamp", media_timestamp)
         if media_type is not None:
-            pulumi.set(__self__, "media_type", media_type)
+            _setter("media_type", media_type)
         if min_time is not None:
-            pulumi.set(__self__, "min_time", min_time)
+            _setter("min_time", min_time)
         if min_time_media_type is not None:
-            pulumi.set(__self__, "min_time_media_type", min_time_media_type)
+            _setter("min_time_media_type", min_time_media_type)
         if previous_fragment_duration is not None:
-            pulumi.set(__self__, "previous_fragment_duration", previous_fragment_duration)
+            _setter("previous_fragment_duration", previous_fragment_duration)
         if previous_fragment_timestamp is not None:
-            pulumi.set(__self__, "previous_fragment_timestamp", previous_fragment_timestamp)
+            _setter("previous_fragment_timestamp", previous_fragment_timestamp)
         if remote_ip is not None:
-            pulumi.set(__self__, "remote_ip", remote_ip)
+            _setter("remote_ip", remote_ip)
         if remote_port is not None:
-            pulumi.set(__self__, "remote_port", remote_port)
+            _setter("remote_port", remote_port)
         if resolution is not None:
-            pulumi.set(__self__, "resolution", resolution)
+            _setter("resolution", resolution)
         if result_code is not None:
-            pulumi.set(__self__, "result_code", result_code)
+            _setter("result_code", result_code)
         if result_message is not None:
-            pulumi.set(__self__, "result_message", result_message)
+            _setter("result_message", result_message)
         if stream_id is not None:
-            pulumi.set(__self__, "stream_id", stream_id)
+            _setter("stream_id", stream_id)
         if stream_name is not None:
-            pulumi.set(__self__, "stream_name", stream_name)
+            _setter("stream_name", stream_name)
         if timescale is not None:
-            pulumi.set(__self__, "timescale", timescale)
+            _setter("timescale", timescale)
         if timescale_of_max_time is not None:
-            pulumi.set(__self__, "timescale_of_max_time", timescale_of_max_time)
+            _setter("timescale_of_max_time", timescale_of_max_time)
         if timescale_of_min_time is not None:
-            pulumi.set(__self__, "timescale_of_min_time", timescale_of_min_time)
+            _setter("timescale_of_min_time", timescale_of_min_time)
         if track_id is not None:
-            pulumi.set(__self__, "track_id", track_id)
+            _setter("track_id", track_id)
         if track_name is not None:
-            pulumi.set(__self__, "track_name", track_name)
+            _setter("track_name", track_name)
 
     @property
     @pulumi.getter
@@ -7311,14 +9665,37 @@ class LiveEventStreamEventResponse(dict):
         :param str event_time: The time event raised.
         :param str event_type: The type of the stream event. Format: StreamEvent/{eventType}
         """
+        LiveEventStreamEventResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data=data,
+            event_level=event_level,
+            event_time=event_time,
+            event_type=event_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data: Optional['outputs.LiveEventStreamEventDataResponse'] = None,
+             event_level: Optional[str] = None,
+             event_time: Optional[str] = None,
+             event_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_level is None and 'eventLevel' in kwargs:
+            event_level = kwargs['eventLevel']
+        if event_time is None and 'eventTime' in kwargs:
+            event_time = kwargs['eventTime']
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
         if event_level is not None:
-            pulumi.set(__self__, "event_level", event_level)
+            _setter("event_level", event_level)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
 
     @property
     @pulumi.getter
@@ -7364,8 +9741,19 @@ class LiveEventTimedMetadataEndpointResponse(dict):
         The live event metadata insertion endpoint.
         :param str url: The metadata endpoint URL.
         """
+        LiveEventTimedMetadataEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -7417,38 +9805,103 @@ class LiveEventTrackEventDataResponse(dict):
         :param str transcription_state: This value is "On" for audio track heartbeats if live transcription is turned on, otherwise you will see an empty string. This state is only applicable to track type of "audio" for Live transcription. All other tracks will have an empty value.
         :param bool unexpected_bitrate: If expected and actual bitrates differ by more than allowed limit in last 20 seconds.
         """
+        LiveEventTrackEventDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+            discontinuity_count=discontinuity_count,
+            healthy=healthy,
+            incoming_bitrate=incoming_bitrate,
+            ingest_drift_value=ingest_drift_value,
+            last_fragment_arrival_time=last_fragment_arrival_time,
+            last_timestamp=last_timestamp,
+            nonincreasing_count=nonincreasing_count,
+            overlap_count=overlap_count,
+            state=state,
+            timescale=timescale,
+            track_name=track_name,
+            track_type=track_type,
+            transcription_language=transcription_language,
+            transcription_state=transcription_state,
+            unexpected_bitrate=unexpected_bitrate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[float] = None,
+             discontinuity_count: Optional[float] = None,
+             healthy: Optional[bool] = None,
+             incoming_bitrate: Optional[float] = None,
+             ingest_drift_value: Optional[str] = None,
+             last_fragment_arrival_time: Optional[str] = None,
+             last_timestamp: Optional[str] = None,
+             nonincreasing_count: Optional[float] = None,
+             overlap_count: Optional[float] = None,
+             state: Optional[str] = None,
+             timescale: Optional[str] = None,
+             track_name: Optional[str] = None,
+             track_type: Optional[str] = None,
+             transcription_language: Optional[str] = None,
+             transcription_state: Optional[str] = None,
+             unexpected_bitrate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if discontinuity_count is None and 'discontinuityCount' in kwargs:
+            discontinuity_count = kwargs['discontinuityCount']
+        if incoming_bitrate is None and 'incomingBitrate' in kwargs:
+            incoming_bitrate = kwargs['incomingBitrate']
+        if ingest_drift_value is None and 'ingestDriftValue' in kwargs:
+            ingest_drift_value = kwargs['ingestDriftValue']
+        if last_fragment_arrival_time is None and 'lastFragmentArrivalTime' in kwargs:
+            last_fragment_arrival_time = kwargs['lastFragmentArrivalTime']
+        if last_timestamp is None and 'lastTimestamp' in kwargs:
+            last_timestamp = kwargs['lastTimestamp']
+        if nonincreasing_count is None and 'nonincreasingCount' in kwargs:
+            nonincreasing_count = kwargs['nonincreasingCount']
+        if overlap_count is None and 'overlapCount' in kwargs:
+            overlap_count = kwargs['overlapCount']
+        if track_name is None and 'trackName' in kwargs:
+            track_name = kwargs['trackName']
+        if track_type is None and 'trackType' in kwargs:
+            track_type = kwargs['trackType']
+        if transcription_language is None and 'transcriptionLanguage' in kwargs:
+            transcription_language = kwargs['transcriptionLanguage']
+        if transcription_state is None and 'transcriptionState' in kwargs:
+            transcription_state = kwargs['transcriptionState']
+        if unexpected_bitrate is None and 'unexpectedBitrate' in kwargs:
+            unexpected_bitrate = kwargs['unexpectedBitrate']
+
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if discontinuity_count is not None:
-            pulumi.set(__self__, "discontinuity_count", discontinuity_count)
+            _setter("discontinuity_count", discontinuity_count)
         if healthy is not None:
-            pulumi.set(__self__, "healthy", healthy)
+            _setter("healthy", healthy)
         if incoming_bitrate is not None:
-            pulumi.set(__self__, "incoming_bitrate", incoming_bitrate)
+            _setter("incoming_bitrate", incoming_bitrate)
         if ingest_drift_value is not None:
-            pulumi.set(__self__, "ingest_drift_value", ingest_drift_value)
+            _setter("ingest_drift_value", ingest_drift_value)
         if last_fragment_arrival_time is not None:
-            pulumi.set(__self__, "last_fragment_arrival_time", last_fragment_arrival_time)
+            _setter("last_fragment_arrival_time", last_fragment_arrival_time)
         if last_timestamp is not None:
-            pulumi.set(__self__, "last_timestamp", last_timestamp)
+            _setter("last_timestamp", last_timestamp)
         if nonincreasing_count is not None:
-            pulumi.set(__self__, "nonincreasing_count", nonincreasing_count)
+            _setter("nonincreasing_count", nonincreasing_count)
         if overlap_count is not None:
-            pulumi.set(__self__, "overlap_count", overlap_count)
+            _setter("overlap_count", overlap_count)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if timescale is not None:
-            pulumi.set(__self__, "timescale", timescale)
+            _setter("timescale", timescale)
         if track_name is not None:
-            pulumi.set(__self__, "track_name", track_name)
+            _setter("track_name", track_name)
         if track_type is not None:
-            pulumi.set(__self__, "track_type", track_type)
+            _setter("track_type", track_type)
         if transcription_language is not None:
-            pulumi.set(__self__, "transcription_language", transcription_language)
+            _setter("transcription_language", transcription_language)
         if transcription_state is not None:
-            pulumi.set(__self__, "transcription_state", transcription_state)
+            _setter("transcription_state", transcription_state)
         if unexpected_bitrate is not None:
-            pulumi.set(__self__, "unexpected_bitrate", unexpected_bitrate)
+            _setter("unexpected_bitrate", unexpected_bitrate)
 
     @property
     @pulumi.getter
@@ -7594,12 +10047,31 @@ class LiveEventTrackEventResponse(dict):
         :param str event_time: The time event raised.
         :param str event_type: The type of the track event.
         """
+        LiveEventTrackEventResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data=data,
+            event_time=event_time,
+            event_type=event_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data: Optional['outputs.LiveEventTrackEventDataResponse'] = None,
+             event_time: Optional[str] = None,
+             event_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_time is None and 'eventTime' in kwargs:
+            event_time = kwargs['eventTime']
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
         if event_time is not None:
-            pulumi.set(__self__, "event_time", event_time)
+            _setter("event_time", event_time)
         if event_type is not None:
-            pulumi.set(__self__, "event_type", event_type)
+            _setter("event_type", event_type)
 
     @property
     @pulumi.getter
@@ -7647,18 +10119,51 @@ class LiveEventTrackStatusResponse(dict):
         :param float request_succeeded: Total number of successful timed metadata request received.
         :param str track_id: Track Id.
         """
+        LiveEventTrackStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expected_bitrate=expected_bitrate,
+            incoming_bitrate=incoming_bitrate,
+            ingest_drift=ingest_drift,
+            request_received=request_received,
+            request_succeeded=request_succeeded,
+            track_id=track_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expected_bitrate: Optional[float] = None,
+             incoming_bitrate: Optional[float] = None,
+             ingest_drift: Optional[str] = None,
+             request_received: Optional[float] = None,
+             request_succeeded: Optional[float] = None,
+             track_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expected_bitrate is None and 'expectedBitrate' in kwargs:
+            expected_bitrate = kwargs['expectedBitrate']
+        if incoming_bitrate is None and 'incomingBitrate' in kwargs:
+            incoming_bitrate = kwargs['incomingBitrate']
+        if ingest_drift is None and 'ingestDrift' in kwargs:
+            ingest_drift = kwargs['ingestDrift']
+        if request_received is None and 'requestReceived' in kwargs:
+            request_received = kwargs['requestReceived']
+        if request_succeeded is None and 'requestSucceeded' in kwargs:
+            request_succeeded = kwargs['requestSucceeded']
+        if track_id is None and 'trackId' in kwargs:
+            track_id = kwargs['trackId']
+
         if expected_bitrate is not None:
-            pulumi.set(__self__, "expected_bitrate", expected_bitrate)
+            _setter("expected_bitrate", expected_bitrate)
         if incoming_bitrate is not None:
-            pulumi.set(__self__, "incoming_bitrate", incoming_bitrate)
+            _setter("incoming_bitrate", incoming_bitrate)
         if ingest_drift is not None:
-            pulumi.set(__self__, "ingest_drift", ingest_drift)
+            _setter("ingest_drift", ingest_drift)
         if request_received is not None:
-            pulumi.set(__self__, "request_received", request_received)
+            _setter("request_received", request_received)
         if request_succeeded is not None:
-            pulumi.set(__self__, "request_succeeded", request_succeeded)
+            _setter("request_succeeded", request_succeeded)
         if track_id is not None:
-            pulumi.set(__self__, "track_id", track_id)
+            _setter("track_id", track_id)
 
     @property
     @pulumi.getter(name="expectedBitrate")
@@ -7743,12 +10248,31 @@ class LiveEventTranscriptionResponse(dict):
         :param str language: Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
         :param 'LiveEventOutputTranscriptionTrackResponse' output_transcription_track: Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
         """
+        LiveEventTranscriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_track_selection=input_track_selection,
+            language=language,
+            output_transcription_track=output_transcription_track,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_track_selection: Optional[Sequence['outputs.LiveEventInputTrackSelectionResponse']] = None,
+             language: Optional[str] = None,
+             output_transcription_track: Optional['outputs.LiveEventOutputTranscriptionTrackResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_track_selection is None and 'inputTrackSelection' in kwargs:
+            input_track_selection = kwargs['inputTrackSelection']
+        if output_transcription_track is None and 'outputTranscriptionTrack' in kwargs:
+            output_transcription_track = kwargs['outputTranscriptionTrack']
+
         if input_track_selection is not None:
-            pulumi.set(__self__, "input_track_selection", input_track_selection)
+            _setter("input_track_selection", input_track_selection)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if output_transcription_track is not None:
-            pulumi.set(__self__, "output_transcription_track", output_transcription_track)
+            _setter("output_transcription_track", output_transcription_track)
 
     @property
     @pulumi.getter(name="inputTrackSelection")
@@ -7812,10 +10336,39 @@ class MediaGraphAssetSinkResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "inputs", inputs)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphAssetSink')
+        MediaGraphAssetSinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            inputs=inputs,
+            name=name,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: Optional[str] = None,
+             inputs: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if inputs is None:
+            raise TypeError("Missing 'inputs' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("asset_name", asset_name)
+        _setter("inputs", inputs)
+        _setter("name", name)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphAssetSink')
 
     @property
     @pulumi.getter(name="assetName")
@@ -7884,10 +10437,31 @@ class MediaGraphClearEndpointResponse(dict):
         :param str url: Url for the endpoint.
         :param 'MediaGraphUsernamePasswordCredentialsResponse' credentials: Polymorphic credentials to present to the endpoint.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
-        pulumi.set(__self__, "url", url)
+        MediaGraphClearEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            url=url,
+            credentials=credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             url: Optional[str] = None,
+             credentials: Optional['outputs.MediaGraphUsernamePasswordCredentialsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
+        _setter("odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
+        _setter("url", url)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
 
     @property
     @pulumi.getter(name="odataType")
@@ -7946,8 +10520,27 @@ class MediaGraphPemCertificateListResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
         """
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
+        MediaGraphPemCertificateListResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[Sequence[str]] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("certificates", certificates)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
 
     @property
     @pulumi.getter
@@ -8002,10 +10595,37 @@ class MediaGraphRtspSourceResponse(dict):
                Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         :param str transport: Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphRtspSource')
-        pulumi.set(__self__, "transport", transport)
+        MediaGraphRtspSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+            odata_type=odata_type,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[Any] = None,
+             name: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+
+        _setter("endpoint", endpoint)
+        _setter("name", name)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphRtspSource')
+        _setter("transport", transport)
 
     @property
     @pulumi.getter
@@ -8082,14 +10702,43 @@ class MediaGraphTlsEndpointResponse(dict):
         :param 'MediaGraphPemCertificateListResponse' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
         :param 'MediaGraphTlsValidationOptionsResponse' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
-        pulumi.set(__self__, "url", url)
+        MediaGraphTlsEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            url=url,
+            credentials=credentials,
+            trusted_certificates=trusted_certificates,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             url: Optional[str] = None,
+             credentials: Optional['outputs.MediaGraphUsernamePasswordCredentialsResponse'] = None,
+             trusted_certificates: Optional['outputs.MediaGraphPemCertificateListResponse'] = None,
+             validation_options: Optional['outputs.MediaGraphTlsValidationOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if trusted_certificates is None and 'trustedCertificates' in kwargs:
+            trusted_certificates = kwargs['trustedCertificates']
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
+        _setter("odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
+        _setter("url", url)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if trusted_certificates is not None:
-            pulumi.set(__self__, "trusted_certificates", trusted_certificates)
+            _setter("trusted_certificates", trusted_certificates)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="odataType")
@@ -8165,8 +10814,29 @@ class MediaGraphTlsValidationOptionsResponse(dict):
         :param bool ignore_hostname: Ignore the host name (common name) during validation.
         :param bool ignore_signature: Ignore the integrity of the certificate chain at the current time.
         """
-        pulumi.set(__self__, "ignore_hostname", ignore_hostname)
-        pulumi.set(__self__, "ignore_signature", ignore_signature)
+        MediaGraphTlsValidationOptionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_hostname=ignore_hostname,
+            ignore_signature=ignore_signature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_hostname: Optional[bool] = None,
+             ignore_signature: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ignore_hostname is None and 'ignoreHostname' in kwargs:
+            ignore_hostname = kwargs['ignoreHostname']
+        if ignore_hostname is None:
+            raise TypeError("Missing 'ignore_hostname' argument")
+        if ignore_signature is None and 'ignoreSignature' in kwargs:
+            ignore_signature = kwargs['ignoreSignature']
+        if ignore_signature is None:
+            raise TypeError("Missing 'ignore_signature' argument")
+
+        _setter("ignore_hostname", ignore_hostname)
+        _setter("ignore_signature", ignore_signature)
 
     @property
     @pulumi.getter(name="ignoreHostname")
@@ -8218,9 +10888,32 @@ class MediaGraphUsernamePasswordCredentialsResponse(dict):
         :param str password: Password for a username/password pair.
         :param str username: Username for a username/password pair.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphUsernamePasswordCredentials')
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        MediaGraphUsernamePasswordCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("odata_type", '#Microsoft.Media.MediaGraphUsernamePasswordCredentials')
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="odataType")
@@ -8282,11 +10975,40 @@ class MediaServiceIdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'UserAssignedManagedIdentityResponse'] user_assigned_identities: The user assigned managed identities.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        MediaServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -8358,10 +11080,35 @@ class Mp4FormatResponse(dict):
                Expected value is '#Microsoft.Media.Mp4Format'.
         :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Mp4Format')
+        Mp4FormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+            output_files=output_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             output_files: Optional[Sequence['outputs.OutputFileResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if output_files is None and 'outputFiles' in kwargs:
+            output_files = kwargs['outputFiles']
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.Mp4Format')
         if output_files is not None:
-            pulumi.set(__self__, "output_files", output_files)
+            _setter("output_files", output_files)
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -8426,10 +11173,35 @@ class MultiBitrateFormatResponse(dict):
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
+        MultiBitrateFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+            output_files=output_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             output_files: Optional[Sequence['outputs.OutputFileResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if output_files is None and 'outputFiles' in kwargs:
+            output_files = kwargs['outputFiles']
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.MultiBitrateFormat')
         if output_files is not None:
-            pulumi.set(__self__, "output_files", output_files)
+            _setter("output_files", output_files)
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -8485,8 +11257,21 @@ class NoEncryptionResponse(dict):
         Class for NoEncryption scheme
         :param 'EnabledProtocolsResponse' enabled_protocols: Representing supported protocols
         """
+        NoEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled_protocols=enabled_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled_protocols: Optional['outputs.EnabledProtocolsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled_protocols is None and 'enabledProtocols' in kwargs:
+            enabled_protocols = kwargs['enabledProtocols']
+
         if enabled_protocols is not None:
-            pulumi.set(__self__, "enabled_protocols", enabled_protocols)
+            _setter("enabled_protocols", enabled_protocols)
 
     @property
     @pulumi.getter(name="enabledProtocols")
@@ -8508,7 +11293,20 @@ class OutputFileResponse(dict):
         Represents an output file produced.
         :param Sequence[str] labels: The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
         """
-        pulumi.set(__self__, "labels", labels)
+        OutputFileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            labels=labels,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             labels: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+
+        _setter("labels", labels)
 
     @property
     @pulumi.getter
@@ -8552,8 +11350,29 @@ class PngFormatResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.PngFormat'.
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.PngFormat')
+        PngFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.PngFormat')
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -8624,22 +11443,61 @@ class PngImageResponse(dict):
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.PngImage')
-        pulumi.set(__self__, "start", start)
+        PngImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            start=start,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            layers=layers,
+            range=range,
+            step=step,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             start: Optional[str] = None,
+             key_frame_interval: Optional[str] = None,
+             label: Optional[str] = None,
+             layers: Optional[Sequence['outputs.PngLayerResponse']] = None,
+             range: Optional[str] = None,
+             step: Optional[str] = None,
+             stretch_mode: Optional[str] = None,
+             sync_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.PngImage')
+        _setter("start", start)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if step is not None:
-            pulumi.set(__self__, "step", step)
+            _setter("step", step)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -8730,12 +11588,27 @@ class PngLayerResponse(dict):
         :param str label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param str width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
+        PngLayerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            height=height,
+            label=label,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             height: Optional[str] = None,
+             label: Optional[str] = None,
+             width: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -8808,18 +11681,49 @@ class PresentationTimeRangeResponse(dict):
         :param float start_timestamp: The absolute start time boundary.
         :param float timescale: The time scale of time stamps.
         """
+        PresentationTimeRangeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_timestamp=end_timestamp,
+            force_end_timestamp=force_end_timestamp,
+            live_backoff_duration=live_backoff_duration,
+            presentation_window_duration=presentation_window_duration,
+            start_timestamp=start_timestamp,
+            timescale=timescale,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_timestamp: Optional[float] = None,
+             force_end_timestamp: Optional[bool] = None,
+             live_backoff_duration: Optional[float] = None,
+             presentation_window_duration: Optional[float] = None,
+             start_timestamp: Optional[float] = None,
+             timescale: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_timestamp is None and 'endTimestamp' in kwargs:
+            end_timestamp = kwargs['endTimestamp']
+        if force_end_timestamp is None and 'forceEndTimestamp' in kwargs:
+            force_end_timestamp = kwargs['forceEndTimestamp']
+        if live_backoff_duration is None and 'liveBackoffDuration' in kwargs:
+            live_backoff_duration = kwargs['liveBackoffDuration']
+        if presentation_window_duration is None and 'presentationWindowDuration' in kwargs:
+            presentation_window_duration = kwargs['presentationWindowDuration']
+        if start_timestamp is None and 'startTimestamp' in kwargs:
+            start_timestamp = kwargs['startTimestamp']
+
         if end_timestamp is not None:
-            pulumi.set(__self__, "end_timestamp", end_timestamp)
+            _setter("end_timestamp", end_timestamp)
         if force_end_timestamp is not None:
-            pulumi.set(__self__, "force_end_timestamp", force_end_timestamp)
+            _setter("force_end_timestamp", force_end_timestamp)
         if live_backoff_duration is not None:
-            pulumi.set(__self__, "live_backoff_duration", live_backoff_duration)
+            _setter("live_backoff_duration", live_backoff_duration)
         if presentation_window_duration is not None:
-            pulumi.set(__self__, "presentation_window_duration", presentation_window_duration)
+            _setter("presentation_window_duration", presentation_window_duration)
         if start_timestamp is not None:
-            pulumi.set(__self__, "start_timestamp", start_timestamp)
+            _setter("start_timestamp", start_timestamp)
         if timescale is not None:
-            pulumi.set(__self__, "timescale", timescale)
+            _setter("timescale", timescale)
 
     @property
     @pulumi.getter(name="endTimestamp")
@@ -8924,22 +11828,61 @@ class PresetConfigurationsResponse(dict):
         :param int min_bitrate_bps: The minimum bitrate in bits per second (threshold for the bottom video layer). Example: set MinBitrateBps as 200000 to have a bottom layer that covers users with low network bandwidth.
         :param int min_height: The minimum height of output video layers. Example: set MinHeight as 360 to avoid output layers of smaller resolutions like 180P.
         """
+        PresetConfigurationsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            complexity=complexity,
+            interleave_output=interleave_output,
+            key_frame_interval_in_seconds=key_frame_interval_in_seconds,
+            max_bitrate_bps=max_bitrate_bps,
+            max_height=max_height,
+            max_layers=max_layers,
+            min_bitrate_bps=min_bitrate_bps,
+            min_height=min_height,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             complexity: Optional[str] = None,
+             interleave_output: Optional[str] = None,
+             key_frame_interval_in_seconds: Optional[float] = None,
+             max_bitrate_bps: Optional[int] = None,
+             max_height: Optional[int] = None,
+             max_layers: Optional[int] = None,
+             min_bitrate_bps: Optional[int] = None,
+             min_height: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interleave_output is None and 'interleaveOutput' in kwargs:
+            interleave_output = kwargs['interleaveOutput']
+        if key_frame_interval_in_seconds is None and 'keyFrameIntervalInSeconds' in kwargs:
+            key_frame_interval_in_seconds = kwargs['keyFrameIntervalInSeconds']
+        if max_bitrate_bps is None and 'maxBitrateBps' in kwargs:
+            max_bitrate_bps = kwargs['maxBitrateBps']
+        if max_height is None and 'maxHeight' in kwargs:
+            max_height = kwargs['maxHeight']
+        if max_layers is None and 'maxLayers' in kwargs:
+            max_layers = kwargs['maxLayers']
+        if min_bitrate_bps is None and 'minBitrateBps' in kwargs:
+            min_bitrate_bps = kwargs['minBitrateBps']
+        if min_height is None and 'minHeight' in kwargs:
+            min_height = kwargs['minHeight']
+
         if complexity is not None:
-            pulumi.set(__self__, "complexity", complexity)
+            _setter("complexity", complexity)
         if interleave_output is not None:
-            pulumi.set(__self__, "interleave_output", interleave_output)
+            _setter("interleave_output", interleave_output)
         if key_frame_interval_in_seconds is not None:
-            pulumi.set(__self__, "key_frame_interval_in_seconds", key_frame_interval_in_seconds)
+            _setter("key_frame_interval_in_seconds", key_frame_interval_in_seconds)
         if max_bitrate_bps is not None:
-            pulumi.set(__self__, "max_bitrate_bps", max_bitrate_bps)
+            _setter("max_bitrate_bps", max_bitrate_bps)
         if max_height is not None:
-            pulumi.set(__self__, "max_height", max_height)
+            _setter("max_height", max_height)
         if max_layers is not None:
-            pulumi.set(__self__, "max_layers", max_layers)
+            _setter("max_layers", max_layers)
         if min_bitrate_bps is not None:
-            pulumi.set(__self__, "min_bitrate_bps", min_bitrate_bps)
+            _setter("min_bitrate_bps", min_bitrate_bps)
         if min_height is not None:
-            pulumi.set(__self__, "min_height", min_height)
+            _setter("min_height", min_height)
 
     @property
     @pulumi.getter
@@ -9048,13 +11991,50 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             type: Optional[str] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -9116,7 +12096,20 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -9159,12 +12152,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -9208,14 +12218,31 @@ class RectangleResponse(dict):
         :param str top: The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
         :param str width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
         """
+        RectangleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            height=height,
+            left=left,
+            top=top,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             height: Optional[str] = None,
+             left: Optional[str] = None,
+             top: Optional[str] = None,
+             width: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if left is not None:
-            pulumi.set(__self__, "left", left)
+            _setter("left", left)
         if top is not None:
-            pulumi.set(__self__, "top", top)
+            _setter("top", top)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -9278,9 +12305,28 @@ class ResourceIdentityResponse(dict):
         :param bool use_system_assigned_identity: Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
         :param str user_assigned_identity: The user assigned managed identity's ARM ID to use when accessing a resource.
         """
-        pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        ResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_system_assigned_identity: Optional[bool] = None,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if use_system_assigned_identity is None:
+            raise TypeError("Missing 'use_system_assigned_identity' argument")
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
+        _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="useSystemAssignedIdentity")
@@ -9340,13 +12386,44 @@ class SelectAudioTrackByAttributeResponse(dict):
         :param str channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
         :param str filter_value: The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property.
         """
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.SelectAudioTrackByAttribute')
+        SelectAudioTrackByAttributeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute=attribute,
+            filter=filter,
+            odata_type=odata_type,
+            channel_mapping=channel_mapping,
+            filter_value=filter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute: Optional[str] = None,
+             filter: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             channel_mapping: Optional[str] = None,
+             filter_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if channel_mapping is None and 'channelMapping' in kwargs:
+            channel_mapping = kwargs['channelMapping']
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
+        _setter("attribute", attribute)
+        _setter("filter", filter)
+        _setter("odata_type", '#Microsoft.Media.SelectAudioTrackByAttribute')
         if channel_mapping is not None:
-            pulumi.set(__self__, "channel_mapping", channel_mapping)
+            _setter("channel_mapping", channel_mapping)
         if filter_value is not None:
-            pulumi.set(__self__, "filter_value", filter_value)
+            _setter("filter_value", filter_value)
 
     @property
     @pulumi.getter
@@ -9427,10 +12504,35 @@ class SelectAudioTrackByIdResponse(dict):
         :param float track_id: Track identifier to select
         :param str channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.SelectAudioTrackById')
-        pulumi.set(__self__, "track_id", track_id)
+        SelectAudioTrackByIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            track_id=track_id,
+            channel_mapping=channel_mapping,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             track_id: Optional[float] = None,
+             channel_mapping: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if track_id is None and 'trackId' in kwargs:
+            track_id = kwargs['trackId']
+        if track_id is None:
+            raise TypeError("Missing 'track_id' argument")
+        if channel_mapping is None and 'channelMapping' in kwargs:
+            channel_mapping = kwargs['channelMapping']
+
+        _setter("odata_type", '#Microsoft.Media.SelectAudioTrackById')
+        _setter("track_id", track_id)
         if channel_mapping is not None:
-            pulumi.set(__self__, "channel_mapping", channel_mapping)
+            _setter("channel_mapping", channel_mapping)
 
     @property
     @pulumi.getter(name="odataType")
@@ -9495,11 +12597,38 @@ class SelectVideoTrackByAttributeResponse(dict):
                Expected value is '#Microsoft.Media.SelectVideoTrackByAttribute'.
         :param str filter_value: The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property. For TrackAttribute.Bitrate, this should be an integer value in bits per second (e.g: '1500000').  The TrackAttribute.Language is not supported for video tracks.
         """
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.SelectVideoTrackByAttribute')
+        SelectVideoTrackByAttributeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute=attribute,
+            filter=filter,
+            odata_type=odata_type,
+            filter_value=filter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute: Optional[str] = None,
+             filter: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             filter_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
+        _setter("attribute", attribute)
+        _setter("filter", filter)
+        _setter("odata_type", '#Microsoft.Media.SelectVideoTrackByAttribute')
         if filter_value is not None:
-            pulumi.set(__self__, "filter_value", filter_value)
+            _setter("filter_value", filter_value)
 
     @property
     @pulumi.getter
@@ -9568,8 +12697,29 @@ class SelectVideoTrackByIdResponse(dict):
                Expected value is '#Microsoft.Media.SelectVideoTrackById'.
         :param float track_id: Track identifier to select
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.SelectVideoTrackById')
-        pulumi.set(__self__, "track_id", track_id)
+        SelectVideoTrackByIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            track_id=track_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             track_id: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if track_id is None and 'trackId' in kwargs:
+            track_id = kwargs['trackId']
+        if track_id is None:
+            raise TypeError("Missing 'track_id' argument")
+
+        _setter("odata_type", '#Microsoft.Media.SelectVideoTrackById')
+        _setter("track_id", track_id)
 
     @property
     @pulumi.getter(name="odataType")
@@ -9628,13 +12778,42 @@ class StandardEncoderPresetResponse(dict):
         :param Mapping[str, str] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
         :param 'FiltersResponse' filters: One or more filtering operations that are applied to the input media before encoding.
         """
-        pulumi.set(__self__, "codecs", codecs)
-        pulumi.set(__self__, "formats", formats)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.StandardEncoderPreset')
+        StandardEncoderPresetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            codecs=codecs,
+            formats=formats,
+            odata_type=odata_type,
+            experimental_options=experimental_options,
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             codecs: Optional[Sequence[Any]] = None,
+             formats: Optional[Sequence[Any]] = None,
+             odata_type: Optional[str] = None,
+             experimental_options: Optional[Mapping[str, str]] = None,
+             filters: Optional['outputs.FiltersResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if codecs is None:
+            raise TypeError("Missing 'codecs' argument")
+        if formats is None:
+            raise TypeError("Missing 'formats' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if experimental_options is None and 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+
+        _setter("codecs", codecs)
+        _setter("formats", formats)
+        _setter("odata_type", '#Microsoft.Media.StandardEncoderPreset')
         if experimental_options is not None:
-            pulumi.set(__self__, "experimental_options", experimental_options)
+            _setter("experimental_options", experimental_options)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
 
     @property
     @pulumi.getter
@@ -9695,12 +12874,33 @@ class StorageAccountResponse(dict):
         :param str id: The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
         :param 'ResourceIdentityResponse' identity: The storage account identity.
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        StorageAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            type=type,
+            id=id,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             type: Optional[str] = None,
+             id: Optional[str] = None,
+             identity: Optional['outputs.ResourceIdentityResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("status", status)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter
@@ -9748,10 +12948,23 @@ class StreamingEndpointAccessControlResponse(dict):
         :param 'AkamaiAccessControlResponse' akamai: The access control of Akamai
         :param 'IPAccessControlResponse' ip: The IP access control of the streaming endpoint.
         """
+        StreamingEndpointAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            akamai=akamai,
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             akamai: Optional['outputs.AkamaiAccessControlResponse'] = None,
+             ip: Optional['outputs.IPAccessControlResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if akamai is not None:
-            pulumi.set(__self__, "akamai", akamai)
+            _setter("akamai", akamai)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -9810,14 +13023,47 @@ class StreamingLocatorContentKeyResponse(dict):
         :param str label_reference_in_streaming_policy: Label of Content Key as specified in the Streaming Policy
         :param str value: Value of Content Key
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "tracks", tracks)
-        pulumi.set(__self__, "type", type)
+        StreamingLocatorContentKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            policy_name=policy_name,
+            tracks=tracks,
+            type=type,
+            label_reference_in_streaming_policy=label_reference_in_streaming_policy,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             policy_name: Optional[str] = None,
+             tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
+             type: Optional[str] = None,
+             label_reference_in_streaming_policy: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+        if tracks is None:
+            raise TypeError("Missing 'tracks' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if label_reference_in_streaming_policy is None and 'labelReferenceInStreamingPolicy' in kwargs:
+            label_reference_in_streaming_policy = kwargs['labelReferenceInStreamingPolicy']
+
+        _setter("id", id)
+        _setter("policy_name", policy_name)
+        _setter("tracks", tracks)
+        _setter("type", type)
         if label_reference_in_streaming_policy is not None:
-            pulumi.set(__self__, "label_reference_in_streaming_policy", label_reference_in_streaming_policy)
+            _setter("label_reference_in_streaming_policy", label_reference_in_streaming_policy)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -9883,10 +13129,33 @@ class StreamingPathResponse(dict):
         :param str streaming_protocol: Streaming protocol
         :param Sequence[str] paths: Streaming paths for each protocol and encryptionScheme pair
         """
-        pulumi.set(__self__, "encryption_scheme", encryption_scheme)
-        pulumi.set(__self__, "streaming_protocol", streaming_protocol)
+        StreamingPathResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_scheme=encryption_scheme,
+            streaming_protocol=streaming_protocol,
+            paths=paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_scheme: Optional[str] = None,
+             streaming_protocol: Optional[str] = None,
+             paths: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_scheme is None and 'encryptionScheme' in kwargs:
+            encryption_scheme = kwargs['encryptionScheme']
+        if encryption_scheme is None:
+            raise TypeError("Missing 'encryption_scheme' argument")
+        if streaming_protocol is None and 'streamingProtocol' in kwargs:
+            streaming_protocol = kwargs['streamingProtocol']
+        if streaming_protocol is None:
+            raise TypeError("Missing 'streaming_protocol' argument")
+
+        _setter("encryption_scheme", encryption_scheme)
+        _setter("streaming_protocol", streaming_protocol)
         if paths is not None:
-            pulumi.set(__self__, "paths", paths)
+            _setter("paths", paths)
 
     @property
     @pulumi.getter(name="encryptionScheme")
@@ -9945,12 +13214,29 @@ class StreamingPolicyContentKeyResponse(dict):
         :param str policy_name: Policy used by Content Key
         :param Sequence['TrackSelectionResponse'] tracks: Tracks which use this content key
         """
+        StreamingPolicyContentKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            policy_name=policy_name,
+            tracks=tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[str] = None,
+             policy_name: Optional[str] = None,
+             tracks: Optional[Sequence['outputs.TrackSelectionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if tracks is not None:
-            pulumi.set(__self__, "tracks", tracks)
+            _setter("tracks", tracks)
 
     @property
     @pulumi.getter
@@ -10009,10 +13295,27 @@ class StreamingPolicyContentKeysResponse(dict):
         :param 'DefaultKeyResponse' default_key: Default content key for an encryption scheme
         :param Sequence['StreamingPolicyContentKeyResponse'] key_to_track_mappings: Representing tracks needs separate content key
         """
+        StreamingPolicyContentKeysResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_key=default_key,
+            key_to_track_mappings=key_to_track_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_key: Optional['outputs.DefaultKeyResponse'] = None,
+             key_to_track_mappings: Optional[Sequence['outputs.StreamingPolicyContentKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_key is None and 'defaultKey' in kwargs:
+            default_key = kwargs['defaultKey']
+        if key_to_track_mappings is None and 'keyToTrackMappings' in kwargs:
+            key_to_track_mappings = kwargs['keyToTrackMappings']
+
         if default_key is not None:
-            pulumi.set(__self__, "default_key", default_key)
+            _setter("default_key", default_key)
         if key_to_track_mappings is not None:
-            pulumi.set(__self__, "key_to_track_mappings", key_to_track_mappings)
+            _setter("key_to_track_mappings", key_to_track_mappings)
 
     @property
     @pulumi.getter(name="defaultKey")
@@ -10063,9 +13366,28 @@ class StreamingPolicyFairPlayConfigurationResponse(dict):
         :param bool allow_persistent_license: All license to be persistent or not
         :param str custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
         """
-        pulumi.set(__self__, "allow_persistent_license", allow_persistent_license)
+        StreamingPolicyFairPlayConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_persistent_license=allow_persistent_license,
+            custom_license_acquisition_url_template=custom_license_acquisition_url_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_persistent_license: Optional[bool] = None,
+             custom_license_acquisition_url_template: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_persistent_license is None and 'allowPersistentLicense' in kwargs:
+            allow_persistent_license = kwargs['allowPersistentLicense']
+        if allow_persistent_license is None:
+            raise TypeError("Missing 'allow_persistent_license' argument")
+        if custom_license_acquisition_url_template is None and 'customLicenseAcquisitionUrlTemplate' in kwargs:
+            custom_license_acquisition_url_template = kwargs['customLicenseAcquisitionUrlTemplate']
+
+        _setter("allow_persistent_license", allow_persistent_license)
         if custom_license_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+            _setter("custom_license_acquisition_url_template", custom_license_acquisition_url_template)
 
     @property
     @pulumi.getter(name="allowPersistentLicense")
@@ -10116,10 +13438,27 @@ class StreamingPolicyPlayReadyConfigurationResponse(dict):
         :param str custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
         :param str play_ready_custom_attributes: Custom attributes for PlayReady
         """
+        StreamingPolicyPlayReadyConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_license_acquisition_url_template=custom_license_acquisition_url_template,
+            play_ready_custom_attributes=play_ready_custom_attributes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_license_acquisition_url_template: Optional[str] = None,
+             play_ready_custom_attributes: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_license_acquisition_url_template is None and 'customLicenseAcquisitionUrlTemplate' in kwargs:
+            custom_license_acquisition_url_template = kwargs['customLicenseAcquisitionUrlTemplate']
+        if play_ready_custom_attributes is None and 'playReadyCustomAttributes' in kwargs:
+            play_ready_custom_attributes = kwargs['playReadyCustomAttributes']
+
         if custom_license_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+            _setter("custom_license_acquisition_url_template", custom_license_acquisition_url_template)
         if play_ready_custom_attributes is not None:
-            pulumi.set(__self__, "play_ready_custom_attributes", play_ready_custom_attributes)
+            _setter("play_ready_custom_attributes", play_ready_custom_attributes)
 
     @property
     @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
@@ -10166,8 +13505,21 @@ class StreamingPolicyWidevineConfigurationResponse(dict):
         Class to specify configurations of Widevine in Streaming Policy
         :param str custom_license_acquisition_url_template: Template for the URL of the custom service delivering licenses to end user players.  Not required when using Azure Media Services for issuing licenses.  The template supports replaceable tokens that the service will update at runtime with the value specific to the request.  The currently supported token values are {AlternativeMediaId}, which is replaced with the value of StreamingLocatorId.AlternativeMediaId, and {ContentKeyId}, which is replaced with the value of identifier of the key being requested.
         """
+        StreamingPolicyWidevineConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_license_acquisition_url_template=custom_license_acquisition_url_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_license_acquisition_url_template: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_license_acquisition_url_template is None and 'customLicenseAcquisitionUrlTemplate' in kwargs:
+            custom_license_acquisition_url_template = kwargs['customLicenseAcquisitionUrlTemplate']
+
         if custom_license_acquisition_url_template is not None:
-            pulumi.set(__self__, "custom_license_acquisition_url_template", custom_license_acquisition_url_template)
+            _setter("custom_license_acquisition_url_template", custom_license_acquisition_url_template)
 
     @property
     @pulumi.getter(name="customLicenseAcquisitionUrlTemplate")
@@ -10226,18 +13578,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -10337,16 +13722,53 @@ class TextTrackResponse(dict):
         :param 'HlsSettingsResponse' hls_settings: The HLS specific setting for the text track.
         :param str player_visibility: When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
         """
-        pulumi.set(__self__, "language_code", language_code)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.TextTrack')
+        TextTrackResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            language_code=language_code,
+            odata_type=odata_type,
+            display_name=display_name,
+            file_name=file_name,
+            hls_settings=hls_settings,
+            player_visibility=player_visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             language_code: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             display_name: Optional[str] = None,
+             file_name: Optional[str] = None,
+             hls_settings: Optional['outputs.HlsSettingsResponse'] = None,
+             player_visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if language_code is None:
+            raise TypeError("Missing 'language_code' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if file_name is None and 'fileName' in kwargs:
+            file_name = kwargs['fileName']
+        if hls_settings is None and 'hlsSettings' in kwargs:
+            hls_settings = kwargs['hlsSettings']
+        if player_visibility is None and 'playerVisibility' in kwargs:
+            player_visibility = kwargs['playerVisibility']
+
+        _setter("language_code", language_code)
+        _setter("odata_type", '#Microsoft.Media.TextTrack')
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if file_name is not None:
-            pulumi.set(__self__, "file_name", file_name)
+            _setter("file_name", file_name)
         if hls_settings is not None:
-            pulumi.set(__self__, "hls_settings", hls_settings)
+            _setter("hls_settings", hls_settings)
         if player_visibility is not None:
-            pulumi.set(__self__, "player_visibility", player_visibility)
+            _setter("player_visibility", player_visibility)
 
     @property
     @pulumi.getter(name="languageCode")
@@ -10413,10 +13835,29 @@ class TrackPropertyConditionResponse(dict):
         :param str property: Track property type
         :param str value: Track property value
         """
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "property", property)
+        TrackPropertyConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            property=property,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: Optional[str] = None,
+             property: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operation is None:
+            raise TypeError("Missing 'operation' argument")
+        if property is None:
+            raise TypeError("Missing 'property' argument")
+
+        _setter("operation", operation)
+        _setter("property", property)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -10471,8 +13912,21 @@ class TrackSelectionResponse(dict):
         Class to select a track
         :param Sequence['TrackPropertyConditionResponse'] track_selections: TrackSelections is a track property condition list which can specify track(s)
         """
+        TrackSelectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            track_selections=track_selections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             track_selections: Optional[Sequence['outputs.TrackPropertyConditionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if track_selections is None and 'trackSelections' in kwargs:
+            track_selections = kwargs['trackSelections']
+
         if track_selections is not None:
-            pulumi.set(__self__, "track_selections", track_selections)
+            _setter("track_selections", track_selections)
 
     @property
     @pulumi.getter(name="trackSelections")
@@ -10517,11 +13971,32 @@ class TransformOutputResponse(dict):
         :param str on_error: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
         :param str relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
-        pulumi.set(__self__, "preset", preset)
+        TransformOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preset=preset,
+            on_error=on_error,
+            relative_priority=relative_priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preset: Optional[Any] = None,
+             on_error: Optional[str] = None,
+             relative_priority: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preset is None:
+            raise TypeError("Missing 'preset' argument")
+        if on_error is None and 'onError' in kwargs:
+            on_error = kwargs['onError']
+        if relative_priority is None and 'relativePriority' in kwargs:
+            relative_priority = kwargs['relativePriority']
+
+        _setter("preset", preset)
         if on_error is not None:
-            pulumi.set(__self__, "on_error", on_error)
+            _setter("on_error", on_error)
         if relative_priority is not None:
-            pulumi.set(__self__, "relative_priority", relative_priority)
+            _setter("relative_priority", relative_priority)
 
     @property
     @pulumi.getter
@@ -10585,10 +14060,35 @@ class TransportStreamFormatResponse(dict):
                Expected value is '#Microsoft.Media.TransportStreamFormat'.
         :param Sequence['OutputFileResponse'] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.TransportStreamFormat')
+        TransportStreamFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+            output_files=output_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             output_files: Optional[Sequence['outputs.OutputFileResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if output_files is None and 'outputFiles' in kwargs:
+            output_files = kwargs['outputFiles']
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.TransportStreamFormat')
         if output_files is not None:
-            pulumi.set(__self__, "output_files", output_files)
+            _setter("output_files", output_files)
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -10644,8 +14144,29 @@ class UserAssignedManagedIdentityResponse(dict):
         :param str client_id: The client ID.
         :param str principal_id: The principal ID.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedManagedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -10695,8 +14216,27 @@ class UtcClipTimeResponse(dict):
                Expected value is '#Microsoft.Media.UtcClipTime'.
         :param str time: The time position on the timeline of the input media based on Utc time.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.UtcClipTime')
-        pulumi.set(__self__, "time", time)
+        UtcClipTimeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
+
+        _setter("odata_type", '#Microsoft.Media.UtcClipTime')
+        _setter("time", time)
 
     @property
     @pulumi.getter(name="odataType")
@@ -10759,15 +14299,44 @@ class VideoAnalyzerPresetResponse(dict):
         :param str insights_to_extract: Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
         :param str mode: Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoAnalyzerPreset')
+        VideoAnalyzerPresetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            audio_language=audio_language,
+            experimental_options=experimental_options,
+            insights_to_extract=insights_to_extract,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             audio_language: Optional[str] = None,
+             experimental_options: Optional[Mapping[str, str]] = None,
+             insights_to_extract: Optional[str] = None,
+             mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if audio_language is None and 'audioLanguage' in kwargs:
+            audio_language = kwargs['audioLanguage']
+        if experimental_options is None and 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+        if insights_to_extract is None and 'insightsToExtract' in kwargs:
+            insights_to_extract = kwargs['insightsToExtract']
+
+        _setter("odata_type", '#Microsoft.Media.VideoAnalyzerPreset')
         if audio_language is not None:
-            pulumi.set(__self__, "audio_language", audio_language)
+            _setter("audio_language", audio_language)
         if experimental_options is not None:
-            pulumi.set(__self__, "experimental_options", experimental_options)
+            _setter("experimental_options", experimental_options)
         if insights_to_extract is not None:
-            pulumi.set(__self__, "insights_to_extract", insights_to_extract)
+            _setter("insights_to_extract", insights_to_extract)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -10868,24 +14437,69 @@ class VideoOverlayResponse(dict):
         :param 'RectangleResponse' position: The location in the input video where the overlay is applied.
         :param str start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
-        pulumi.set(__self__, "input_label", input_label)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoOverlay')
+        VideoOverlayResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_label=input_label,
+            odata_type=odata_type,
+            audio_gain_level=audio_gain_level,
+            crop_rectangle=crop_rectangle,
+            end=end,
+            fade_in_duration=fade_in_duration,
+            fade_out_duration=fade_out_duration,
+            opacity=opacity,
+            position=position,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_label: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             audio_gain_level: Optional[float] = None,
+             crop_rectangle: Optional['outputs.RectangleResponse'] = None,
+             end: Optional[str] = None,
+             fade_in_duration: Optional[str] = None,
+             fade_out_duration: Optional[str] = None,
+             opacity: Optional[float] = None,
+             position: Optional['outputs.RectangleResponse'] = None,
+             start: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_label is None and 'inputLabel' in kwargs:
+            input_label = kwargs['inputLabel']
+        if input_label is None:
+            raise TypeError("Missing 'input_label' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if audio_gain_level is None and 'audioGainLevel' in kwargs:
+            audio_gain_level = kwargs['audioGainLevel']
+        if crop_rectangle is None and 'cropRectangle' in kwargs:
+            crop_rectangle = kwargs['cropRectangle']
+        if fade_in_duration is None and 'fadeInDuration' in kwargs:
+            fade_in_duration = kwargs['fadeInDuration']
+        if fade_out_duration is None and 'fadeOutDuration' in kwargs:
+            fade_out_duration = kwargs['fadeOutDuration']
+
+        _setter("input_label", input_label)
+        _setter("odata_type", '#Microsoft.Media.VideoOverlay')
         if audio_gain_level is not None:
-            pulumi.set(__self__, "audio_gain_level", audio_gain_level)
+            _setter("audio_gain_level", audio_gain_level)
         if crop_rectangle is not None:
-            pulumi.set(__self__, "crop_rectangle", crop_rectangle)
+            _setter("crop_rectangle", crop_rectangle)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if fade_in_duration is not None:
-            pulumi.set(__self__, "fade_in_duration", fade_in_duration)
+            _setter("fade_in_duration", fade_in_duration)
         if fade_out_duration is not None:
-            pulumi.set(__self__, "fade_out_duration", fade_out_duration)
+            _setter("fade_out_duration", fade_out_duration)
         if opacity is not None:
-            pulumi.set(__self__, "opacity", opacity)
+            _setter("opacity", opacity)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="inputLabel")
@@ -11012,15 +14626,44 @@ class VideoResponse(dict):
         :param str stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param str sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        VideoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             key_frame_interval: Optional[str] = None,
+             label: Optional[str] = None,
+             stretch_mode: Optional[str] = None,
+             sync_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.Video')
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -11093,7 +14736,22 @@ class VideoTrackDescriptorResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoTrackDescriptor')
+        VideoTrackDescriptorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.VideoTrackDescriptor')
 
     @property
     @pulumi.getter(name="odataType")
@@ -11134,7 +14792,22 @@ class VideoTrackResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.VideoTrack'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoTrack')
+        VideoTrackResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.VideoTrack')
 
     @property
     @pulumi.getter(name="odataType")

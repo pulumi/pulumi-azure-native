@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,41 @@ class KeyGroupArgs:
         :param pulumi.Input[str] key_group_name: Name of the KeyGroup under the profile.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] key_references: Names of UrlSigningKey type secret objects
         """
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        KeyGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            key_group_name=key_group_name,
+            key_references=key_references,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             key_group_name: Optional[pulumi.Input[str]] = None,
+             key_references: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if profile_name is None and 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if profile_name is None:
+            raise TypeError("Missing 'profile_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if key_group_name is None and 'keyGroupName' in kwargs:
+            key_group_name = kwargs['keyGroupName']
+        if key_references is None and 'keyReferences' in kwargs:
+            key_references = kwargs['keyReferences']
+
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if key_group_name is not None:
-            pulumi.set(__self__, "key_group_name", key_group_name)
+            _setter("key_group_name", key_group_name)
         if key_references is not None:
-            pulumi.set(__self__, "key_references", key_references)
+            _setter("key_references", key_references)
 
     @property
     @pulumi.getter(name="profileName")
@@ -122,6 +151,10 @@ class KeyGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

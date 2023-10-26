@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,12 +58,33 @@ class AADBasedSecurityPrincipalResponse(dict):
         :param str principal_id: UUID/GUID based Principal Id of the Security Principal
         :param str tenant_id: UUID/GUID based Tenant Id of the Security Principal
         """
+        AADBasedSecurityPrincipalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ledger_role_name=ledger_role_name,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ledger_role_name: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ledger_role_name is None and 'ledgerRoleName' in kwargs:
+            ledger_role_name = kwargs['ledgerRoleName']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if ledger_role_name is not None:
-            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+            _setter("ledger_role_name", ledger_role_name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="ledgerRoleName")
@@ -120,10 +141,25 @@ class CertBasedSecurityPrincipalResponse(dict):
         :param str cert: Public key of the user cert (.pem or .cer)
         :param str ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         """
+        CertBasedSecurityPrincipalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            ledger_role_name=ledger_role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[str] = None,
+             ledger_role_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ledger_role_name is None and 'ledgerRoleName' in kwargs:
+            ledger_role_name = kwargs['ledgerRoleName']
+
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if ledger_role_name is not None:
-            pulumi.set(__self__, "ledger_role_name", ledger_role_name)
+            _setter("ledger_role_name", ledger_role_name)
 
     @property
     @pulumi.getter
@@ -153,8 +189,19 @@ class CertificateTagsResponse(dict):
         Tags for Managed CCF Certificates
         :param Mapping[str, str] tags: Additional tags for Managed CCF Certificates
         """
+        CertificateTagsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -197,10 +244,27 @@ class DeploymentTypeResponse(dict):
         :param str app_source_uri: Source Uri containing ManagedCCF code
         :param str language_runtime: Unique name for the Managed CCF.
         """
+        DeploymentTypeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_source_uri=app_source_uri,
+            language_runtime=language_runtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_source_uri: Optional[str] = None,
+             language_runtime: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_source_uri is None and 'appSourceUri' in kwargs:
+            app_source_uri = kwargs['appSourceUri']
+        if language_runtime is None and 'languageRuntime' in kwargs:
+            language_runtime = kwargs['languageRuntime']
+
         if app_source_uri is not None:
-            pulumi.set(__self__, "app_source_uri", app_source_uri)
+            _setter("app_source_uri", app_source_uri)
         if language_runtime is not None:
-            pulumi.set(__self__, "language_runtime", language_runtime)
+            _setter("language_runtime", language_runtime)
 
     @property
     @pulumi.getter(name="appSourceUri")
@@ -279,19 +343,74 @@ class LedgerPropertiesResponse(dict):
         :param str ledger_type: Type of Confidential Ledger
         :param str running_state: Object representing RunningState for Ledger.
         """
-        pulumi.set(__self__, "identity_service_uri", identity_service_uri)
-        pulumi.set(__self__, "ledger_internal_namespace", ledger_internal_namespace)
-        pulumi.set(__self__, "ledger_name", ledger_name)
-        pulumi.set(__self__, "ledger_uri", ledger_uri)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        LedgerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_service_uri=identity_service_uri,
+            ledger_internal_namespace=ledger_internal_namespace,
+            ledger_name=ledger_name,
+            ledger_uri=ledger_uri,
+            provisioning_state=provisioning_state,
+            aad_based_security_principals=aad_based_security_principals,
+            cert_based_security_principals=cert_based_security_principals,
+            ledger_type=ledger_type,
+            running_state=running_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_service_uri: Optional[str] = None,
+             ledger_internal_namespace: Optional[str] = None,
+             ledger_name: Optional[str] = None,
+             ledger_uri: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             aad_based_security_principals: Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']] = None,
+             cert_based_security_principals: Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']] = None,
+             ledger_type: Optional[str] = None,
+             running_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identity_service_uri is None and 'identityServiceUri' in kwargs:
+            identity_service_uri = kwargs['identityServiceUri']
+        if identity_service_uri is None:
+            raise TypeError("Missing 'identity_service_uri' argument")
+        if ledger_internal_namespace is None and 'ledgerInternalNamespace' in kwargs:
+            ledger_internal_namespace = kwargs['ledgerInternalNamespace']
+        if ledger_internal_namespace is None:
+            raise TypeError("Missing 'ledger_internal_namespace' argument")
+        if ledger_name is None and 'ledgerName' in kwargs:
+            ledger_name = kwargs['ledgerName']
+        if ledger_name is None:
+            raise TypeError("Missing 'ledger_name' argument")
+        if ledger_uri is None and 'ledgerUri' in kwargs:
+            ledger_uri = kwargs['ledgerUri']
+        if ledger_uri is None:
+            raise TypeError("Missing 'ledger_uri' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if aad_based_security_principals is None and 'aadBasedSecurityPrincipals' in kwargs:
+            aad_based_security_principals = kwargs['aadBasedSecurityPrincipals']
+        if cert_based_security_principals is None and 'certBasedSecurityPrincipals' in kwargs:
+            cert_based_security_principals = kwargs['certBasedSecurityPrincipals']
+        if ledger_type is None and 'ledgerType' in kwargs:
+            ledger_type = kwargs['ledgerType']
+        if running_state is None and 'runningState' in kwargs:
+            running_state = kwargs['runningState']
+
+        _setter("identity_service_uri", identity_service_uri)
+        _setter("ledger_internal_namespace", ledger_internal_namespace)
+        _setter("ledger_name", ledger_name)
+        _setter("ledger_uri", ledger_uri)
+        _setter("provisioning_state", provisioning_state)
         if aad_based_security_principals is not None:
-            pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
+            _setter("aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
-            pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
+            _setter("cert_based_security_principals", cert_based_security_principals)
         if ledger_type is not None:
-            pulumi.set(__self__, "ledger_type", ledger_type)
+            _setter("ledger_type", ledger_type)
         if running_state is not None:
-            pulumi.set(__self__, "running_state", running_state)
+            _setter("running_state", running_state)
 
     @property
     @pulumi.getter(name="identityServiceUri")
@@ -418,16 +537,61 @@ class ManagedCCFPropertiesResponse(dict):
         :param Sequence['MemberIdentityCertificateResponse'] member_identity_certificates: List of member identity certificates for  Managed CCF
         :param int node_count: Number of CCF nodes in the Managed CCF.
         """
-        pulumi.set(__self__, "app_name", app_name)
-        pulumi.set(__self__, "app_uri", app_uri)
-        pulumi.set(__self__, "identity_service_uri", identity_service_uri)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ManagedCCFPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_name=app_name,
+            app_uri=app_uri,
+            identity_service_uri=identity_service_uri,
+            provisioning_state=provisioning_state,
+            deployment_type=deployment_type,
+            member_identity_certificates=member_identity_certificates,
+            node_count=node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_name: Optional[str] = None,
+             app_uri: Optional[str] = None,
+             identity_service_uri: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             deployment_type: Optional['outputs.DeploymentTypeResponse'] = None,
+             member_identity_certificates: Optional[Sequence['outputs.MemberIdentityCertificateResponse']] = None,
+             node_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_name is None and 'appName' in kwargs:
+            app_name = kwargs['appName']
+        if app_name is None:
+            raise TypeError("Missing 'app_name' argument")
+        if app_uri is None and 'appUri' in kwargs:
+            app_uri = kwargs['appUri']
+        if app_uri is None:
+            raise TypeError("Missing 'app_uri' argument")
+        if identity_service_uri is None and 'identityServiceUri' in kwargs:
+            identity_service_uri = kwargs['identityServiceUri']
+        if identity_service_uri is None:
+            raise TypeError("Missing 'identity_service_uri' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if member_identity_certificates is None and 'memberIdentityCertificates' in kwargs:
+            member_identity_certificates = kwargs['memberIdentityCertificates']
+        if node_count is None and 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+
+        _setter("app_name", app_name)
+        _setter("app_uri", app_uri)
+        _setter("identity_service_uri", identity_service_uri)
+        _setter("provisioning_state", provisioning_state)
         if deployment_type is not None:
-            pulumi.set(__self__, "deployment_type", deployment_type)
+            _setter("deployment_type", deployment_type)
         if member_identity_certificates is not None:
-            pulumi.set(__self__, "member_identity_certificates", member_identity_certificates)
+            _setter("member_identity_certificates", member_identity_certificates)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
 
     @property
     @pulumi.getter(name="appName")
@@ -500,12 +664,27 @@ class MemberIdentityCertificateResponse(dict):
         :param str certificate: Member Identity Certificate
         :param str encryptionkey: Member Identity Certificate Encryption Key
         """
+        MemberIdentityCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            encryptionkey=encryptionkey,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[str] = None,
+             encryptionkey: Optional[str] = None,
+             tags: Optional[Sequence['outputs.CertificateTagsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if encryptionkey is not None:
-            pulumi.set(__self__, "encryptionkey", encryptionkey)
+            _setter("encryptionkey", encryptionkey)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -577,18 +756,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

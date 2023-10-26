@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,11 +27,34 @@ class ADLSGen2StorageAccountPathArgs:
         :param pulumi.Input[str] consumer_path: Gets or sets the path on the consumer side where the dataset is to be mapped.
         :param pulumi.Input[str] provider_path: Gets or sets the path to file/folder within the container.
         """
-        pulumi.set(__self__, "container_name", container_name)
+        ADLSGen2StorageAccountPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            consumer_path=consumer_path,
+            provider_path=provider_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[pulumi.Input[str]] = None,
+             consumer_path: Optional[pulumi.Input[str]] = None,
+             provider_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if consumer_path is None and 'consumerPath' in kwargs:
+            consumer_path = kwargs['consumerPath']
+        if provider_path is None and 'providerPath' in kwargs:
+            provider_path = kwargs['providerPath']
+
+        _setter("container_name", container_name)
         if consumer_path is not None:
-            pulumi.set(__self__, "consumer_path", consumer_path)
+            _setter("consumer_path", consumer_path)
         if provider_path is not None:
-            pulumi.set(__self__, "provider_path", provider_path)
+            _setter("provider_path", provider_path)
 
     @property
     @pulumi.getter(name="containerName")
@@ -82,11 +105,34 @@ class BlobStorageAccountPathArgs:
         :param pulumi.Input[str] consumer_path: Gets or sets the path on the consumer side where the dataset is to be mapped.
         :param pulumi.Input[str] provider_path: Gets or sets the path to file/folder within the container.
         """
-        pulumi.set(__self__, "container_name", container_name)
+        BlobStorageAccountPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            consumer_path=consumer_path,
+            provider_path=provider_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[pulumi.Input[str]] = None,
+             consumer_path: Optional[pulumi.Input[str]] = None,
+             provider_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if consumer_path is None and 'consumerPath' in kwargs:
+            consumer_path = kwargs['consumerPath']
+        if provider_path is None and 'providerPath' in kwargs:
+            provider_path = kwargs['providerPath']
+
+        _setter("container_name", container_name)
         if consumer_path is not None:
-            pulumi.set(__self__, "consumer_path", consumer_path)
+            _setter("consumer_path", consumer_path)
         if provider_path is not None:
-            pulumi.set(__self__, "provider_path", provider_path)
+            _setter("provider_path", provider_path)
 
     @property
     @pulumi.getter(name="containerName")

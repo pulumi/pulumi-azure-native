@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -25,12 +25,29 @@ class LogAnalyticsQueryPackQueryPropertiesRelatedArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: The related resource types for the function.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] solutions: The related Log Analytics solutions for the function.
         """
+        LogAnalyticsQueryPackQueryPropertiesRelatedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            categories=categories,
+            resource_types=resource_types,
+            solutions=solutions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             solutions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_types is None and 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if resource_types is not None:
-            pulumi.set(__self__, "resource_types", resource_types)
+            _setter("resource_types", resource_types)
         if solutions is not None:
-            pulumi.set(__self__, "solutions", solutions)
+            _setter("solutions", solutions)
 
     @property
     @pulumi.getter

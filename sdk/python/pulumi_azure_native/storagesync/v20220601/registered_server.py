@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -40,26 +40,83 @@ class RegisteredServerArgs:
         :param pulumi.Input[str] server_os_version: Registered Server OS Version
         :param pulumi.Input[str] server_role: Registered Server serverRole
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
+        RegisteredServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_sync_service_name=storage_sync_service_name,
+            agent_version=agent_version,
+            cluster_id=cluster_id,
+            cluster_name=cluster_name,
+            friendly_name=friendly_name,
+            last_heart_beat=last_heart_beat,
+            server_certificate=server_certificate,
+            server_id=server_id,
+            server_os_version=server_os_version,
+            server_role=server_role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_sync_service_name: Optional[pulumi.Input[str]] = None,
+             agent_version: Optional[pulumi.Input[str]] = None,
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             last_heart_beat: Optional[pulumi.Input[str]] = None,
+             server_certificate: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             server_os_version: Optional[pulumi.Input[str]] = None,
+             server_role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_sync_service_name is None and 'storageSyncServiceName' in kwargs:
+            storage_sync_service_name = kwargs['storageSyncServiceName']
+        if storage_sync_service_name is None:
+            raise TypeError("Missing 'storage_sync_service_name' argument")
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if last_heart_beat is None and 'lastHeartBeat' in kwargs:
+            last_heart_beat = kwargs['lastHeartBeat']
+        if server_certificate is None and 'serverCertificate' in kwargs:
+            server_certificate = kwargs['serverCertificate']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_os_version is None and 'serverOSVersion' in kwargs:
+            server_os_version = kwargs['serverOSVersion']
+        if server_role is None and 'serverRole' in kwargs:
+            server_role = kwargs['serverRole']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_sync_service_name", storage_sync_service_name)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if last_heart_beat is not None:
-            pulumi.set(__self__, "last_heart_beat", last_heart_beat)
+            _setter("last_heart_beat", last_heart_beat)
         if server_certificate is not None:
-            pulumi.set(__self__, "server_certificate", server_certificate)
+            _setter("server_certificate", server_certificate)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if server_os_version is not None:
-            pulumi.set(__self__, "server_os_version", server_os_version)
+            _setter("server_os_version", server_os_version)
         if server_role is not None:
-            pulumi.set(__self__, "server_role", server_role)
+            _setter("server_role", server_role)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -247,6 +304,10 @@ class RegisteredServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegisteredServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

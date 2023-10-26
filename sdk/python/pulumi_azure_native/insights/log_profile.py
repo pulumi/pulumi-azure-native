@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,58 @@ class LogProfileArgs:
         :param pulumi.Input[str] storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "categories", categories)
-        pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "retention_policy", retention_policy)
+        LogProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            categories=categories,
+            locations=locations,
+            retention_policy=retention_policy,
+            location=location,
+            log_profile_name=log_profile_name,
+            service_bus_rule_id=service_bus_rule_id,
+            storage_account_id=storage_account_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_profile_name: Optional[pulumi.Input[str]] = None,
+             service_bus_rule_id: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if categories is None:
+            raise TypeError("Missing 'categories' argument")
+        if locations is None:
+            raise TypeError("Missing 'locations' argument")
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if retention_policy is None:
+            raise TypeError("Missing 'retention_policy' argument")
+        if log_profile_name is None and 'logProfileName' in kwargs:
+            log_profile_name = kwargs['logProfileName']
+        if service_bus_rule_id is None and 'serviceBusRuleId' in kwargs:
+            service_bus_rule_id = kwargs['serviceBusRuleId']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
+        _setter("categories", categories)
+        _setter("locations", locations)
+        _setter("retention_policy", retention_policy)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_profile_name is not None:
-            pulumi.set(__self__, "log_profile_name", log_profile_name)
+            _setter("log_profile_name", log_profile_name)
         if service_bus_rule_id is not None:
-            pulumi.set(__self__, "service_bus_rule_id", service_bus_rule_id)
+            _setter("service_bus_rule_id", service_bus_rule_id)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -195,6 +234,10 @@ class LogProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -225,6 +268,7 @@ class LogProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'locations'")
             __props__.__dict__["locations"] = locations
             __props__.__dict__["log_profile_name"] = log_profile_name
+            retention_policy = _utilities.configure(retention_policy, RetentionPolicyArgs, True)
             if retention_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_policy'")
             __props__.__dict__["retention_policy"] = retention_policy

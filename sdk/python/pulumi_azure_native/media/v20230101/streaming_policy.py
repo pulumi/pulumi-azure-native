@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,65 @@ class StreamingPolicyArgs:
         :param pulumi.Input['NoEncryptionArgs'] no_encryption: Configurations of NoEncryption
         :param pulumi.Input[str] streaming_policy_name: The Streaming Policy name.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StreamingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            common_encryption_cbcs=common_encryption_cbcs,
+            common_encryption_cenc=common_encryption_cenc,
+            default_content_key_policy_name=default_content_key_policy_name,
+            envelope_encryption=envelope_encryption,
+            no_encryption=no_encryption,
+            streaming_policy_name=streaming_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             common_encryption_cbcs: Optional[pulumi.Input['CommonEncryptionCbcsArgs']] = None,
+             common_encryption_cenc: Optional[pulumi.Input['CommonEncryptionCencArgs']] = None,
+             default_content_key_policy_name: Optional[pulumi.Input[str]] = None,
+             envelope_encryption: Optional[pulumi.Input['EnvelopeEncryptionArgs']] = None,
+             no_encryption: Optional[pulumi.Input['NoEncryptionArgs']] = None,
+             streaming_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if common_encryption_cbcs is None and 'commonEncryptionCbcs' in kwargs:
+            common_encryption_cbcs = kwargs['commonEncryptionCbcs']
+        if common_encryption_cenc is None and 'commonEncryptionCenc' in kwargs:
+            common_encryption_cenc = kwargs['commonEncryptionCenc']
+        if default_content_key_policy_name is None and 'defaultContentKeyPolicyName' in kwargs:
+            default_content_key_policy_name = kwargs['defaultContentKeyPolicyName']
+        if envelope_encryption is None and 'envelopeEncryption' in kwargs:
+            envelope_encryption = kwargs['envelopeEncryption']
+        if no_encryption is None and 'noEncryption' in kwargs:
+            no_encryption = kwargs['noEncryption']
+        if streaming_policy_name is None and 'streamingPolicyName' in kwargs:
+            streaming_policy_name = kwargs['streamingPolicyName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if common_encryption_cbcs is not None:
-            pulumi.set(__self__, "common_encryption_cbcs", common_encryption_cbcs)
+            _setter("common_encryption_cbcs", common_encryption_cbcs)
         if common_encryption_cenc is not None:
-            pulumi.set(__self__, "common_encryption_cenc", common_encryption_cenc)
+            _setter("common_encryption_cenc", common_encryption_cenc)
         if default_content_key_policy_name is not None:
-            pulumi.set(__self__, "default_content_key_policy_name", default_content_key_policy_name)
+            _setter("default_content_key_policy_name", default_content_key_policy_name)
         if envelope_encryption is not None:
-            pulumi.set(__self__, "envelope_encryption", envelope_encryption)
+            _setter("envelope_encryption", envelope_encryption)
         if no_encryption is not None:
-            pulumi.set(__self__, "no_encryption", no_encryption)
+            _setter("no_encryption", no_encryption)
         if streaming_policy_name is not None:
-            pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+            _setter("streaming_policy_name", streaming_policy_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -195,6 +240,10 @@ class StreamingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,10 +269,14 @@ class StreamingPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            common_encryption_cbcs = _utilities.configure(common_encryption_cbcs, CommonEncryptionCbcsArgs, True)
             __props__.__dict__["common_encryption_cbcs"] = common_encryption_cbcs
+            common_encryption_cenc = _utilities.configure(common_encryption_cenc, CommonEncryptionCencArgs, True)
             __props__.__dict__["common_encryption_cenc"] = common_encryption_cenc
             __props__.__dict__["default_content_key_policy_name"] = default_content_key_policy_name
+            envelope_encryption = _utilities.configure(envelope_encryption, EnvelopeEncryptionArgs, True)
             __props__.__dict__["envelope_encryption"] = envelope_encryption
+            no_encryption = _utilities.configure(no_encryption, NoEncryptionArgs, True)
             __props__.__dict__["no_encryption"] = no_encryption
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

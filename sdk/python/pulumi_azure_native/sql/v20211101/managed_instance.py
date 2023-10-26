@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -87,63 +87,178 @@ class ManagedInstanceArgs:
         :param pulumi.Input[int] v_cores: The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         :param pulumi.Input[bool] zone_redundant: Whether or not the multi-az is enabled.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            administrators=administrators,
+            collation=collation,
+            dns_zone_partner=dns_zone_partner,
+            identity=identity,
+            instance_pool_id=instance_pool_id,
+            key_id=key_id,
+            license_type=license_type,
+            location=location,
+            maintenance_configuration_id=maintenance_configuration_id,
+            managed_instance_create_mode=managed_instance_create_mode,
+            managed_instance_name=managed_instance_name,
+            minimal_tls_version=minimal_tls_version,
+            primary_user_assigned_identity_id=primary_user_assigned_identity_id,
+            proxy_override=proxy_override,
+            public_data_endpoint_enabled=public_data_endpoint_enabled,
+            requested_backup_storage_redundancy=requested_backup_storage_redundancy,
+            restore_point_in_time=restore_point_in_time,
+            service_principal=service_principal,
+            sku=sku,
+            source_managed_instance_id=source_managed_instance_id,
+            storage_size_in_gb=storage_size_in_gb,
+            subnet_id=subnet_id,
+            tags=tags,
+            timezone_id=timezone_id,
+            v_cores=v_cores,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             administrators: Optional[pulumi.Input['ManagedInstanceExternalAdministratorArgs']] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             dns_zone_partner: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+             instance_pool_id: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             managed_instance_create_mode: Optional[pulumi.Input[Union[str, 'ManagedServerCreateMode']]] = None,
+             managed_instance_name: Optional[pulumi.Input[str]] = None,
+             minimal_tls_version: Optional[pulumi.Input[str]] = None,
+             primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
+             public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             requested_backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             service_principal: Optional[pulumi.Input['ServicePrincipalArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             source_managed_instance_id: Optional[pulumi.Input[str]] = None,
+             storage_size_in_gb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timezone_id: Optional[pulumi.Input[str]] = None,
+             v_cores: Optional[pulumi.Input[int]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if dns_zone_partner is None and 'dnsZonePartner' in kwargs:
+            dns_zone_partner = kwargs['dnsZonePartner']
+        if instance_pool_id is None and 'instancePoolId' in kwargs:
+            instance_pool_id = kwargs['instancePoolId']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if managed_instance_create_mode is None and 'managedInstanceCreateMode' in kwargs:
+            managed_instance_create_mode = kwargs['managedInstanceCreateMode']
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if minimal_tls_version is None and 'minimalTlsVersion' in kwargs:
+            minimal_tls_version = kwargs['minimalTlsVersion']
+        if primary_user_assigned_identity_id is None and 'primaryUserAssignedIdentityId' in kwargs:
+            primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
+        if proxy_override is None and 'proxyOverride' in kwargs:
+            proxy_override = kwargs['proxyOverride']
+        if public_data_endpoint_enabled is None and 'publicDataEndpointEnabled' in kwargs:
+            public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
+        if requested_backup_storage_redundancy is None and 'requestedBackupStorageRedundancy' in kwargs:
+            requested_backup_storage_redundancy = kwargs['requestedBackupStorageRedundancy']
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if service_principal is None and 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+        if source_managed_instance_id is None and 'sourceManagedInstanceId' in kwargs:
+            source_managed_instance_id = kwargs['sourceManagedInstanceId']
+        if storage_size_in_gb is None and 'storageSizeInGB' in kwargs:
+            storage_size_in_gb = kwargs['storageSizeInGB']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if timezone_id is None and 'timezoneId' in kwargs:
+            timezone_id = kwargs['timezoneId']
+        if v_cores is None and 'vCores' in kwargs:
+            v_cores = kwargs['vCores']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_group_name", resource_group_name)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if administrators is not None:
-            pulumi.set(__self__, "administrators", administrators)
+            _setter("administrators", administrators)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if dns_zone_partner is not None:
-            pulumi.set(__self__, "dns_zone_partner", dns_zone_partner)
+            _setter("dns_zone_partner", dns_zone_partner)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if instance_pool_id is not None:
-            pulumi.set(__self__, "instance_pool_id", instance_pool_id)
+            _setter("instance_pool_id", instance_pool_id)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_configuration_id is not None:
-            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+            _setter("maintenance_configuration_id", maintenance_configuration_id)
         if managed_instance_create_mode is not None:
-            pulumi.set(__self__, "managed_instance_create_mode", managed_instance_create_mode)
+            _setter("managed_instance_create_mode", managed_instance_create_mode)
         if managed_instance_name is not None:
-            pulumi.set(__self__, "managed_instance_name", managed_instance_name)
+            _setter("managed_instance_name", managed_instance_name)
         if minimal_tls_version is not None:
-            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+            _setter("minimal_tls_version", minimal_tls_version)
         if primary_user_assigned_identity_id is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+            _setter("primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if proxy_override is not None:
-            pulumi.set(__self__, "proxy_override", proxy_override)
+            _setter("proxy_override", proxy_override)
         if public_data_endpoint_enabled is not None:
-            pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
+            _setter("public_data_endpoint_enabled", public_data_endpoint_enabled)
         if requested_backup_storage_redundancy is not None:
-            pulumi.set(__self__, "requested_backup_storage_redundancy", requested_backup_storage_redundancy)
+            _setter("requested_backup_storage_redundancy", requested_backup_storage_redundancy)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
+            _setter("service_principal", service_principal)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if source_managed_instance_id is not None:
-            pulumi.set(__self__, "source_managed_instance_id", source_managed_instance_id)
+            _setter("source_managed_instance_id", source_managed_instance_id)
         if storage_size_in_gb is not None:
-            pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
+            _setter("storage_size_in_gb", storage_size_in_gb)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timezone_id is not None:
-            pulumi.set(__self__, "timezone_id", timezone_id)
+            _setter("timezone_id", timezone_id)
         if v_cores is not None:
-            pulumi.set(__self__, "v_cores", v_cores)
+            _setter("v_cores", v_cores)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -601,6 +716,10 @@ class ManagedInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -646,9 +765,11 @@ class ManagedInstance(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = administrator_login_password
+            administrators = _utilities.configure(administrators, ManagedInstanceExternalAdministratorArgs, True)
             __props__.__dict__["administrators"] = administrators
             __props__.__dict__["collation"] = collation
             __props__.__dict__["dns_zone_partner"] = dns_zone_partner
+            identity = _utilities.configure(identity, ResourceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["instance_pool_id"] = instance_pool_id
             __props__.__dict__["key_id"] = key_id
@@ -666,7 +787,9 @@ class ManagedInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
+            service_principal = _utilities.configure(service_principal, ServicePrincipalArgs, True)
             __props__.__dict__["service_principal"] = service_principal
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_managed_instance_id"] = source_managed_instance_id
             __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb

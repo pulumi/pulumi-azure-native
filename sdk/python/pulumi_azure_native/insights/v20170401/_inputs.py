@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -26,9 +26,28 @@ class ActivityLogAlertActionGroupArgs:
         :param pulumi.Input[str] action_group_id: The resourceId of the action group. This cannot be null or empty.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
-        pulumi.set(__self__, "action_group_id", action_group_id)
+        ActivityLogAlertActionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            webhook_properties=webhook_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: Optional[pulumi.Input[str]] = None,
+             webhook_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_group_id is None and 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if action_group_id is None:
+            raise TypeError("Missing 'action_group_id' argument")
+        if webhook_properties is None and 'webhookProperties' in kwargs:
+            webhook_properties = kwargs['webhookProperties']
+
+        _setter("action_group_id", action_group_id)
         if webhook_properties is not None:
-            pulumi.set(__self__, "webhook_properties", webhook_properties)
+            _setter("webhook_properties", webhook_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -63,8 +82,21 @@ class ActivityLogAlertActionListArgs:
         A list of activity log alert actions.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]] action_groups: The list of activity log alerts.
         """
+        ActivityLogAlertActionListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_groups=action_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertActionGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_groups is None and 'actionGroups' in kwargs:
+            action_groups = kwargs['actionGroups']
+
         if action_groups is not None:
-            pulumi.set(__self__, "action_groups", action_groups)
+            _setter("action_groups", action_groups)
 
     @property
     @pulumi.getter(name="actionGroups")
@@ -87,7 +119,22 @@ class ActivityLogAlertAllOfConditionArgs:
         An Activity Log alert condition that is met when all its member conditions are met.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]] all_of: The list of activity log alert conditions.
         """
-        pulumi.set(__self__, "all_of", all_of)
+        ActivityLogAlertAllOfConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            all_of=all_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             all_of: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertLeafConditionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if all_of is None and 'allOf' in kwargs:
+            all_of = kwargs['allOf']
+        if all_of is None:
+            raise TypeError("Missing 'all_of' argument")
+
+        _setter("all_of", all_of)
 
     @property
     @pulumi.getter(name="allOf")
@@ -112,8 +159,25 @@ class ActivityLogAlertLeafConditionArgs:
         :param pulumi.Input[str] equals: The field value will be compared to this value (case-insensitive) to determine if the condition is met.
         :param pulumi.Input[str] field: The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
         """
-        pulumi.set(__self__, "equals", equals)
-        pulumi.set(__self__, "field", field)
+        ActivityLogAlertLeafConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            equals=equals,
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             equals: Optional[pulumi.Input[str]] = None,
+             field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if equals is None:
+            raise TypeError("Missing 'equals' argument")
+        if field is None:
+            raise TypeError("Missing 'field' argument")
+
+        _setter("equals", equals)
+        _setter("field", field)
 
     @property
     @pulumi.getter

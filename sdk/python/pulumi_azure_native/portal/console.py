@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,9 +24,26 @@ class ConsoleArgs:
         :param pulumi.Input['ConsoleCreatePropertiesArgs'] properties: Cloud shell properties for creating a console.
         :param pulumi.Input[str] console_name: The name of the console
         """
-        pulumi.set(__self__, "properties", properties)
+        ConsoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            console_name=console_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['ConsoleCreatePropertiesArgs']] = None,
+             console_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if console_name is None and 'consoleName' in kwargs:
+            console_name = kwargs['consoleName']
+
+        _setter("properties", properties)
         if console_name is not None:
-            pulumi.set(__self__, "console_name", console_name)
+            _setter("console_name", console_name)
 
     @property
     @pulumi.getter
@@ -90,6 +107,10 @@ class Console(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConsoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -107,6 +128,7 @@ class Console(pulumi.CustomResource):
             __props__ = ConsoleArgs.__new__(ConsoleArgs)
 
             __props__.__dict__["console_name"] = console_name
+            properties = _utilities.configure(properties, ConsoleCreatePropertiesArgs, True)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

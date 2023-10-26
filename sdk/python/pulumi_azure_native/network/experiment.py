@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,65 @@ class ExperimentArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExperimentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            enabled_state=enabled_state,
+            endpoint_a=endpoint_a,
+            endpoint_b=endpoint_b,
+            experiment_name=experiment_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             endpoint_a: Optional[pulumi.Input['ExperimentEndpointArgs']] = None,
+             endpoint_b: Optional[pulumi.Input['ExperimentEndpointArgs']] = None,
+             experiment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if profile_name is None and 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if profile_name is None:
+            raise TypeError("Missing 'profile_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if enabled_state is None and 'enabledState' in kwargs:
+            enabled_state = kwargs['enabledState']
+        if endpoint_a is None and 'endpointA' in kwargs:
+            endpoint_a = kwargs['endpointA']
+        if endpoint_b is None and 'endpointB' in kwargs:
+            endpoint_b = kwargs['endpointB']
+        if experiment_name is None and 'experimentName' in kwargs:
+            experiment_name = kwargs['experimentName']
+
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if endpoint_a is not None:
-            pulumi.set(__self__, "endpoint_a", endpoint_a)
+            _setter("endpoint_a", endpoint_a)
         if endpoint_b is not None:
-            pulumi.set(__self__, "endpoint_b", endpoint_b)
+            _setter("endpoint_b", endpoint_b)
         if experiment_name is not None:
-            pulumi.set(__self__, "experiment_name", experiment_name)
+            _setter("experiment_name", experiment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="profileName")
@@ -215,6 +258,10 @@ class Experiment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExperimentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,7 +287,9 @@ class Experiment(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled_state"] = enabled_state
+            endpoint_a = _utilities.configure(endpoint_a, ExperimentEndpointArgs, True)
             __props__.__dict__["endpoint_a"] = endpoint_a
+            endpoint_b = _utilities.configure(endpoint_b, ExperimentEndpointArgs, True)
             __props__.__dict__["endpoint_b"] = endpoint_b
             __props__.__dict__["experiment_name"] = experiment_name
             __props__.__dict__["location"] = location

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -70,55 +70,152 @@ class VirtualMachineScaleSetArgs:
         :param pulumi.Input[bool] zone_balance: Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualMachineScaleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            additional_capabilities=additional_capabilities,
+            automatic_repairs_policy=automatic_repairs_policy,
+            constrained_maximum_capacity=constrained_maximum_capacity,
+            do_not_run_extensions_on_overprovisioned_vms=do_not_run_extensions_on_overprovisioned_vms,
+            extended_location=extended_location,
+            host_group=host_group,
+            identity=identity,
+            location=location,
+            orchestration_mode=orchestration_mode,
+            overprovision=overprovision,
+            plan=plan,
+            platform_fault_domain_count=platform_fault_domain_count,
+            priority_mix_policy=priority_mix_policy,
+            proximity_placement_group=proximity_placement_group,
+            scale_in_policy=scale_in_policy,
+            single_placement_group=single_placement_group,
+            sku=sku,
+            spot_restore_policy=spot_restore_policy,
+            tags=tags,
+            upgrade_policy=upgrade_policy,
+            virtual_machine_profile=virtual_machine_profile,
+            vm_scale_set_name=vm_scale_set_name,
+            zone_balance=zone_balance,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             additional_capabilities: Optional[pulumi.Input['AdditionalCapabilitiesArgs']] = None,
+             automatic_repairs_policy: Optional[pulumi.Input['AutomaticRepairsPolicyArgs']] = None,
+             constrained_maximum_capacity: Optional[pulumi.Input[bool]] = None,
+             do_not_run_extensions_on_overprovisioned_vms: Optional[pulumi.Input[bool]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             host_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+             identity: Optional[pulumi.Input['VirtualMachineScaleSetIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             orchestration_mode: Optional[pulumi.Input[Union[str, 'OrchestrationMode']]] = None,
+             overprovision: Optional[pulumi.Input[bool]] = None,
+             plan: Optional[pulumi.Input['PlanArgs']] = None,
+             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+             priority_mix_policy: Optional[pulumi.Input['PriorityMixPolicyArgs']] = None,
+             proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+             scale_in_policy: Optional[pulumi.Input['ScaleInPolicyArgs']] = None,
+             single_placement_group: Optional[pulumi.Input[bool]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             spot_restore_policy: Optional[pulumi.Input['SpotRestorePolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             upgrade_policy: Optional[pulumi.Input['UpgradePolicyArgs']] = None,
+             virtual_machine_profile: Optional[pulumi.Input['VirtualMachineScaleSetVMProfileArgs']] = None,
+             vm_scale_set_name: Optional[pulumi.Input[str]] = None,
+             zone_balance: Optional[pulumi.Input[bool]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if automatic_repairs_policy is None and 'automaticRepairsPolicy' in kwargs:
+            automatic_repairs_policy = kwargs['automaticRepairsPolicy']
+        if constrained_maximum_capacity is None and 'constrainedMaximumCapacity' in kwargs:
+            constrained_maximum_capacity = kwargs['constrainedMaximumCapacity']
+        if do_not_run_extensions_on_overprovisioned_vms is None and 'doNotRunExtensionsOnOverprovisionedVMs' in kwargs:
+            do_not_run_extensions_on_overprovisioned_vms = kwargs['doNotRunExtensionsOnOverprovisionedVMs']
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if host_group is None and 'hostGroup' in kwargs:
+            host_group = kwargs['hostGroup']
+        if orchestration_mode is None and 'orchestrationMode' in kwargs:
+            orchestration_mode = kwargs['orchestrationMode']
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if priority_mix_policy is None and 'priorityMixPolicy' in kwargs:
+            priority_mix_policy = kwargs['priorityMixPolicy']
+        if proximity_placement_group is None and 'proximityPlacementGroup' in kwargs:
+            proximity_placement_group = kwargs['proximityPlacementGroup']
+        if scale_in_policy is None and 'scaleInPolicy' in kwargs:
+            scale_in_policy = kwargs['scaleInPolicy']
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
+            single_placement_group = kwargs['singlePlacementGroup']
+        if spot_restore_policy is None and 'spotRestorePolicy' in kwargs:
+            spot_restore_policy = kwargs['spotRestorePolicy']
+        if upgrade_policy is None and 'upgradePolicy' in kwargs:
+            upgrade_policy = kwargs['upgradePolicy']
+        if virtual_machine_profile is None and 'virtualMachineProfile' in kwargs:
+            virtual_machine_profile = kwargs['virtualMachineProfile']
+        if vm_scale_set_name is None and 'vmScaleSetName' in kwargs:
+            vm_scale_set_name = kwargs['vmScaleSetName']
+        if zone_balance is None and 'zoneBalance' in kwargs:
+            zone_balance = kwargs['zoneBalance']
+
+        _setter("resource_group_name", resource_group_name)
         if additional_capabilities is not None:
-            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+            _setter("additional_capabilities", additional_capabilities)
         if automatic_repairs_policy is not None:
-            pulumi.set(__self__, "automatic_repairs_policy", automatic_repairs_policy)
+            _setter("automatic_repairs_policy", automatic_repairs_policy)
         if constrained_maximum_capacity is not None:
-            pulumi.set(__self__, "constrained_maximum_capacity", constrained_maximum_capacity)
+            _setter("constrained_maximum_capacity", constrained_maximum_capacity)
         if do_not_run_extensions_on_overprovisioned_vms is not None:
-            pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_vms", do_not_run_extensions_on_overprovisioned_vms)
+            _setter("do_not_run_extensions_on_overprovisioned_vms", do_not_run_extensions_on_overprovisioned_vms)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if host_group is not None:
-            pulumi.set(__self__, "host_group", host_group)
+            _setter("host_group", host_group)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if orchestration_mode is not None:
-            pulumi.set(__self__, "orchestration_mode", orchestration_mode)
+            _setter("orchestration_mode", orchestration_mode)
         if overprovision is not None:
-            pulumi.set(__self__, "overprovision", overprovision)
+            _setter("overprovision", overprovision)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if platform_fault_domain_count is not None:
-            pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
+            _setter("platform_fault_domain_count", platform_fault_domain_count)
         if priority_mix_policy is not None:
-            pulumi.set(__self__, "priority_mix_policy", priority_mix_policy)
+            _setter("priority_mix_policy", priority_mix_policy)
         if proximity_placement_group is not None:
-            pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+            _setter("proximity_placement_group", proximity_placement_group)
         if scale_in_policy is not None:
-            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
+            _setter("scale_in_policy", scale_in_policy)
         if single_placement_group is not None:
-            pulumi.set(__self__, "single_placement_group", single_placement_group)
+            _setter("single_placement_group", single_placement_group)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if spot_restore_policy is not None:
-            pulumi.set(__self__, "spot_restore_policy", spot_restore_policy)
+            _setter("spot_restore_policy", spot_restore_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if upgrade_policy is not None:
-            pulumi.set(__self__, "upgrade_policy", upgrade_policy)
+            _setter("upgrade_policy", upgrade_policy)
         if virtual_machine_profile is not None:
-            pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+            _setter("virtual_machine_profile", virtual_machine_profile)
         if vm_scale_set_name is not None:
-            pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
+            _setter("vm_scale_set_name", vm_scale_set_name)
         if zone_balance is not None:
-            pulumi.set(__self__, "zone_balance", zone_balance)
+            _setter("zone_balance", zone_balance)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -508,6 +605,10 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineScaleSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -547,29 +648,42 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineScaleSetArgs.__new__(VirtualMachineScaleSetArgs)
 
+            additional_capabilities = _utilities.configure(additional_capabilities, AdditionalCapabilitiesArgs, True)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
+            automatic_repairs_policy = _utilities.configure(automatic_repairs_policy, AutomaticRepairsPolicyArgs, True)
             __props__.__dict__["automatic_repairs_policy"] = automatic_repairs_policy
             __props__.__dict__["constrained_maximum_capacity"] = constrained_maximum_capacity
             __props__.__dict__["do_not_run_extensions_on_overprovisioned_vms"] = do_not_run_extensions_on_overprovisioned_vms
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
+            host_group = _utilities.configure(host_group, SubResourceArgs, True)
             __props__.__dict__["host_group"] = host_group
+            identity = _utilities.configure(identity, VirtualMachineScaleSetIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["orchestration_mode"] = orchestration_mode
             __props__.__dict__["overprovision"] = overprovision
+            plan = _utilities.configure(plan, PlanArgs, True)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["platform_fault_domain_count"] = platform_fault_domain_count
+            priority_mix_policy = _utilities.configure(priority_mix_policy, PriorityMixPolicyArgs, True)
             __props__.__dict__["priority_mix_policy"] = priority_mix_policy
+            proximity_placement_group = _utilities.configure(proximity_placement_group, SubResourceArgs, True)
             __props__.__dict__["proximity_placement_group"] = proximity_placement_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            scale_in_policy = _utilities.configure(scale_in_policy, ScaleInPolicyArgs, True)
             __props__.__dict__["scale_in_policy"] = scale_in_policy
             __props__.__dict__["single_placement_group"] = single_placement_group
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
+            spot_restore_policy = _utilities.configure(spot_restore_policy, SpotRestorePolicyArgs, True)
             __props__.__dict__["spot_restore_policy"] = spot_restore_policy
             __props__.__dict__["tags"] = tags
+            upgrade_policy = _utilities.configure(upgrade_policy, UpgradePolicyArgs, True)
             __props__.__dict__["upgrade_policy"] = upgrade_policy
+            virtual_machine_profile = _utilities.configure(virtual_machine_profile, VirtualMachineScaleSetVMProfileArgs, True)
             __props__.__dict__["virtual_machine_profile"] = virtual_machine_profile
             __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
             __props__.__dict__["zone_balance"] = zone_balance

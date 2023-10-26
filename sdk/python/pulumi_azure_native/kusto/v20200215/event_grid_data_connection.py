@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -43,21 +43,92 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "consumer_group", consumer_group)
-        pulumi.set(__self__, "data_format", data_format)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
-        pulumi.set(__self__, "kind", 'EventGrid')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
-        pulumi.set(__self__, "table_name", table_name)
+        EventGridDataConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            consumer_group=consumer_group,
+            data_format=data_format,
+            database_name=database_name,
+            event_hub_resource_id=event_hub_resource_id,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            storage_account_resource_id=storage_account_resource_id,
+            table_name=table_name,
+            data_connection_name=data_connection_name,
+            location=location,
+            mapping_rule_name=mapping_rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             consumer_group: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[Union[str, 'EventGridDataFormat']]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             event_hub_resource_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             data_connection_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if consumer_group is None and 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+        if consumer_group is None:
+            raise TypeError("Missing 'consumer_group' argument")
+        if data_format is None and 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if data_format is None:
+            raise TypeError("Missing 'data_format' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if event_hub_resource_id is None and 'eventHubResourceId' in kwargs:
+            event_hub_resource_id = kwargs['eventHubResourceId']
+        if event_hub_resource_id is None:
+            raise TypeError("Missing 'event_hub_resource_id' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_resource_id is None and 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+        if storage_account_resource_id is None:
+            raise TypeError("Missing 'storage_account_resource_id' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if data_connection_name is None and 'dataConnectionName' in kwargs:
+            data_connection_name = kwargs['dataConnectionName']
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+
+        _setter("cluster_name", cluster_name)
+        _setter("consumer_group", consumer_group)
+        _setter("data_format", data_format)
+        _setter("database_name", database_name)
+        _setter("event_hub_resource_id", event_hub_resource_id)
+        _setter("kind", 'EventGrid')
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_resource_id", storage_account_resource_id)
+        _setter("table_name", table_name)
         if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
+            _setter("data_connection_name", data_connection_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -261,6 +332,10 @@ class EventGridDataConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventGridDataConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

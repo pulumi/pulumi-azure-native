@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,55 @@ class SqlResourceSqlRoleDefinitionArgs:
         :param pulumi.Input[str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
         :param pulumi.Input['RoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SqlResourceSqlRoleDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            assignable_scopes=assignable_scopes,
+            permissions=permissions,
+            role_definition_id=role_definition_id,
+            role_name=role_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionArgs']]]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['RoleDefinitionType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
+            assignable_scopes = kwargs['assignableScopes']
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if assignable_scopes is not None:
-            pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+            _setter("assignable_scopes", assignable_scopes)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -177,6 +214,10 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlResourceSqlRoleDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,11 +56,46 @@ class AuthorizationProfileResponse(dict):
         :param str requester: The requester
         :param str requester_object_id: The requester object id
         """
-        pulumi.set(__self__, "approved_time", approved_time)
-        pulumi.set(__self__, "approver", approver)
-        pulumi.set(__self__, "requested_time", requested_time)
-        pulumi.set(__self__, "requester", requester)
-        pulumi.set(__self__, "requester_object_id", requester_object_id)
+        AuthorizationProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approved_time=approved_time,
+            approver=approver,
+            requested_time=requested_time,
+            requester=requester,
+            requester_object_id=requester_object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approved_time: Optional[str] = None,
+             approver: Optional[str] = None,
+             requested_time: Optional[str] = None,
+             requester: Optional[str] = None,
+             requester_object_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if approved_time is None and 'approvedTime' in kwargs:
+            approved_time = kwargs['approvedTime']
+        if approved_time is None:
+            raise TypeError("Missing 'approved_time' argument")
+        if approver is None:
+            raise TypeError("Missing 'approver' argument")
+        if requested_time is None and 'requestedTime' in kwargs:
+            requested_time = kwargs['requestedTime']
+        if requested_time is None:
+            raise TypeError("Missing 'requested_time' argument")
+        if requester is None:
+            raise TypeError("Missing 'requester' argument")
+        if requester_object_id is None and 'requesterObjectId' in kwargs:
+            requester_object_id = kwargs['requesterObjectId']
+        if requester_object_id is None:
+            raise TypeError("Missing 'requester_object_id' argument")
+
+        _setter("approved_time", approved_time)
+        _setter("approver", approver)
+        _setter("requested_time", requested_time)
+        _setter("requester", requester)
+        _setter("requester_object_id", requester_object_id)
 
     @property
     @pulumi.getter(name="approvedTime")
@@ -173,27 +208,104 @@ class SubscriptionFeatureRegistrationResponseProperties(dict):
         :param bool should_feature_display_in_portal: Indicates whether feature should be displayed in Portal.
         :param str state: The state.
         """
-        pulumi.set(__self__, "approval_type", approval_type)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "documentation_link", documentation_link)
-        pulumi.set(__self__, "feature_name", feature_name)
-        pulumi.set(__self__, "provider_namespace", provider_namespace)
-        pulumi.set(__self__, "registration_date", registration_date)
-        pulumi.set(__self__, "release_date", release_date)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        SubscriptionFeatureRegistrationResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approval_type=approval_type,
+            display_name=display_name,
+            documentation_link=documentation_link,
+            feature_name=feature_name,
+            provider_namespace=provider_namespace,
+            registration_date=registration_date,
+            release_date=release_date,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            authorization_profile=authorization_profile,
+            description=description,
+            metadata=metadata,
+            should_feature_display_in_portal=should_feature_display_in_portal,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approval_type: Optional[str] = None,
+             display_name: Optional[str] = None,
+             documentation_link: Optional[str] = None,
+             feature_name: Optional[str] = None,
+             provider_namespace: Optional[str] = None,
+             registration_date: Optional[str] = None,
+             release_date: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             authorization_profile: Optional['outputs.AuthorizationProfileResponse'] = None,
+             description: Optional[str] = None,
+             metadata: Optional[Mapping[str, str]] = None,
+             should_feature_display_in_portal: Optional[bool] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if approval_type is None and 'approvalType' in kwargs:
+            approval_type = kwargs['approvalType']
+        if approval_type is None:
+            raise TypeError("Missing 'approval_type' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if documentation_link is None and 'documentationLink' in kwargs:
+            documentation_link = kwargs['documentationLink']
+        if documentation_link is None:
+            raise TypeError("Missing 'documentation_link' argument")
+        if feature_name is None and 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+        if feature_name is None:
+            raise TypeError("Missing 'feature_name' argument")
+        if provider_namespace is None and 'providerNamespace' in kwargs:
+            provider_namespace = kwargs['providerNamespace']
+        if provider_namespace is None:
+            raise TypeError("Missing 'provider_namespace' argument")
+        if registration_date is None and 'registrationDate' in kwargs:
+            registration_date = kwargs['registrationDate']
+        if registration_date is None:
+            raise TypeError("Missing 'registration_date' argument")
+        if release_date is None and 'releaseDate' in kwargs:
+            release_date = kwargs['releaseDate']
+        if release_date is None:
+            raise TypeError("Missing 'release_date' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if authorization_profile is None and 'authorizationProfile' in kwargs:
+            authorization_profile = kwargs['authorizationProfile']
+        if should_feature_display_in_portal is None and 'shouldFeatureDisplayInPortal' in kwargs:
+            should_feature_display_in_portal = kwargs['shouldFeatureDisplayInPortal']
+
+        _setter("approval_type", approval_type)
+        _setter("display_name", display_name)
+        _setter("documentation_link", documentation_link)
+        _setter("feature_name", feature_name)
+        _setter("provider_namespace", provider_namespace)
+        _setter("registration_date", registration_date)
+        _setter("release_date", release_date)
+        _setter("subscription_id", subscription_id)
+        _setter("tenant_id", tenant_id)
         if authorization_profile is not None:
-            pulumi.set(__self__, "authorization_profile", authorization_profile)
+            _setter("authorization_profile", authorization_profile)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if should_feature_display_in_portal is None:
             should_feature_display_in_portal = False
         if should_feature_display_in_portal is not None:
-            pulumi.set(__self__, "should_feature_display_in_portal", should_feature_display_in_portal)
+            _setter("should_feature_display_in_portal", should_feature_display_in_portal)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="approvalType")

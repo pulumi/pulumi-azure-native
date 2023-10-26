@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,31 @@ class HybridUseBenefitArgs:
         :param pulumi.Input['SkuArgs'] sku: Hybrid use benefit SKU
         :param pulumi.Input[str] plan_id: This is a unique identifier for a plan. Should be a guid.
         """
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "sku", sku)
+        HybridUseBenefitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            sku=sku,
+            plan_id=plan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             plan_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+
+        _setter("scope", scope)
+        _setter("sku", sku)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
 
     @property
     @pulumi.getter
@@ -106,6 +127,10 @@ class HybridUseBenefit(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HybridUseBenefitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -127,6 +152,7 @@ class HybridUseBenefit(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -39,18 +39,79 @@ class ADLSGen2StorageAccountDataSetMappingArgs:
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         :param pulumi.Input[str] mount_path: Gets or sets the mount path
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "folder", folder)
-        pulumi.set(__self__, "kind", 'AdlsGen2StorageAccount')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        ADLSGen2StorageAccountDataSetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            container_name=container_name,
+            data_set_id=data_set_id,
+            folder=folder,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            share_subscription_name=share_subscription_name,
+            storage_account_resource_id=storage_account_resource_id,
+            data_set_mapping_name=data_set_mapping_name,
+            mount_path=mount_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             data_set_id: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             share_subscription_name: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+             mount_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if data_set_id is None:
+            raise TypeError("Missing 'data_set_id' argument")
+        if folder is None:
+            raise TypeError("Missing 'folder' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if share_subscription_name is None and 'shareSubscriptionName' in kwargs:
+            share_subscription_name = kwargs['shareSubscriptionName']
+        if share_subscription_name is None:
+            raise TypeError("Missing 'share_subscription_name' argument")
+        if storage_account_resource_id is None and 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+        if storage_account_resource_id is None:
+            raise TypeError("Missing 'storage_account_resource_id' argument")
+        if data_set_mapping_name is None and 'dataSetMappingName' in kwargs:
+            data_set_mapping_name = kwargs['dataSetMappingName']
+        if mount_path is None and 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
+        _setter("account_name", account_name)
+        _setter("container_name", container_name)
+        _setter("data_set_id", data_set_id)
+        _setter("folder", folder)
+        _setter("kind", 'AdlsGen2StorageAccount')
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_subscription_name", share_subscription_name)
+        _setter("storage_account_resource_id", storage_account_resource_id)
         if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
+            _setter("data_set_mapping_name", data_set_mapping_name)
         if mount_path is not None:
-            pulumi.set(__self__, "mount_path", mount_path)
+            _setter("mount_path", mount_path)
 
     @property
     @pulumi.getter(name="accountName")
@@ -226,6 +287,10 @@ class ADLSGen2StorageAccountDataSetMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ADLSGen2StorageAccountDataSetMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

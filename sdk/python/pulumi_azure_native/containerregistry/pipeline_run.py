@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,45 @@ class PipelineRunArgs:
         :param pulumi.Input[str] pipeline_run_name: The name of the pipeline run.
         :param pulumi.Input['PipelineRunRequestArgs'] request: The request parameters for a pipeline run.
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PipelineRunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            force_update_tag=force_update_tag,
+            pipeline_run_name=pipeline_run_name,
+            request=request,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             force_update_tag: Optional[pulumi.Input[str]] = None,
+             pipeline_run_name: Optional[pulumi.Input[str]] = None,
+             request: Optional[pulumi.Input['PipelineRunRequestArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if pipeline_run_name is None and 'pipelineRunName' in kwargs:
+            pipeline_run_name = kwargs['pipelineRunName']
+
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if pipeline_run_name is not None:
-            pulumi.set(__self__, "pipeline_run_name", pipeline_run_name)
+            _setter("pipeline_run_name", pipeline_run_name)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
 
     @property
     @pulumi.getter(name="registryName")
@@ -147,6 +178,10 @@ class PipelineRun(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineRunArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -171,6 +206,7 @@ class PipelineRun(pulumi.CustomResource):
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
+            request = _utilities.configure(request, PipelineRunRequestArgs, True)
             __props__.__dict__["request"] = request
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

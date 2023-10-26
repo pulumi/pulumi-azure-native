@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,38 +50,95 @@ class ConnectionMonitorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]] test_configurations: List of connection monitor test configurations.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]] test_groups: List of connection monitor test groups.
         """
-        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectionMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            auto_start=auto_start,
+            connection_monitor_name=connection_monitor_name,
+            destination=destination,
+            endpoints=endpoints,
+            location=location,
+            migrate=migrate,
+            monitoring_interval_in_seconds=monitoring_interval_in_seconds,
+            notes=notes,
+            outputs=outputs,
+            source=source,
+            tags=tags,
+            test_configurations=test_configurations,
+            test_groups=test_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auto_start: Optional[pulumi.Input[bool]] = None,
+             connection_monitor_name: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input['ConnectionMonitorDestinationArgs']] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             migrate: Optional[pulumi.Input[str]] = None,
+             monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorOutputArgs']]]] = None,
+             source: Optional[pulumi.Input['ConnectionMonitorSourceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]]] = None,
+             test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
+            network_watcher_name = kwargs['networkWatcherName']
+        if network_watcher_name is None:
+            raise TypeError("Missing 'network_watcher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_start is None and 'autoStart' in kwargs:
+            auto_start = kwargs['autoStart']
+        if connection_monitor_name is None and 'connectionMonitorName' in kwargs:
+            connection_monitor_name = kwargs['connectionMonitorName']
+        if monitoring_interval_in_seconds is None and 'monitoringIntervalInSeconds' in kwargs:
+            monitoring_interval_in_seconds = kwargs['monitoringIntervalInSeconds']
+        if test_configurations is None and 'testConfigurations' in kwargs:
+            test_configurations = kwargs['testConfigurations']
+        if test_groups is None and 'testGroups' in kwargs:
+            test_groups = kwargs['testGroups']
+
+        _setter("network_watcher_name", network_watcher_name)
+        _setter("resource_group_name", resource_group_name)
         if auto_start is None:
             auto_start = True
         if auto_start is not None:
-            pulumi.set(__self__, "auto_start", auto_start)
+            _setter("auto_start", auto_start)
         if connection_monitor_name is not None:
-            pulumi.set(__self__, "connection_monitor_name", connection_monitor_name)
+            _setter("connection_monitor_name", connection_monitor_name)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if migrate is not None:
-            pulumi.set(__self__, "migrate", migrate)
+            _setter("migrate", migrate)
         if monitoring_interval_in_seconds is None:
             monitoring_interval_in_seconds = 60
         if monitoring_interval_in_seconds is not None:
-            pulumi.set(__self__, "monitoring_interval_in_seconds", monitoring_interval_in_seconds)
+            _setter("monitoring_interval_in_seconds", monitoring_interval_in_seconds)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if test_configurations is not None:
-            pulumi.set(__self__, "test_configurations", test_configurations)
+            _setter("test_configurations", test_configurations)
         if test_groups is not None:
-            pulumi.set(__self__, "test_groups", test_groups)
+            _setter("test_groups", test_groups)
 
     @property
     @pulumi.getter(name="networkWatcherName")
@@ -331,6 +388,10 @@ class ConnectionMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -364,6 +425,7 @@ class ConnectionMonitor(pulumi.CustomResource):
                 auto_start = True
             __props__.__dict__["auto_start"] = auto_start
             __props__.__dict__["connection_monitor_name"] = connection_monitor_name
+            destination = _utilities.configure(destination, ConnectionMonitorDestinationArgs, True)
             __props__.__dict__["destination"] = destination
             __props__.__dict__["endpoints"] = endpoints
             __props__.__dict__["location"] = location
@@ -379,6 +441,7 @@ class ConnectionMonitor(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            source = _utilities.configure(source, ConnectionMonitorSourceArgs, True)
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["test_configurations"] = test_configurations

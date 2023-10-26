@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -38,23 +38,72 @@ class RouteInitArgs:
         :param pulumi.Input[str] route_name: The name of the route.
         :param pulumi.Input[str] type: The type of the resource.
         """
-        pulumi.set(__self__, "next_hop_type", next_hop_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "route_table_name", route_table_name)
+        RouteInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            next_hop_type=next_hop_type,
+            resource_group_name=resource_group_name,
+            route_table_name=route_table_name,
+            address_prefix=address_prefix,
+            has_bgp_override=has_bgp_override,
+            id=id,
+            name=name,
+            next_hop_ip_address=next_hop_ip_address,
+            route_name=route_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             next_hop_type: Optional[pulumi.Input[Union[str, 'RouteNextHopType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             route_table_name: Optional[pulumi.Input[str]] = None,
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             has_bgp_override: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             next_hop_ip_address: Optional[pulumi.Input[str]] = None,
+             route_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if next_hop_type is None and 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+        if next_hop_type is None:
+            raise TypeError("Missing 'next_hop_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if route_table_name is None and 'routeTableName' in kwargs:
+            route_table_name = kwargs['routeTableName']
+        if route_table_name is None:
+            raise TypeError("Missing 'route_table_name' argument")
+        if address_prefix is None and 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if has_bgp_override is None and 'hasBgpOverride' in kwargs:
+            has_bgp_override = kwargs['hasBgpOverride']
+        if next_hop_ip_address is None and 'nextHopIpAddress' in kwargs:
+            next_hop_ip_address = kwargs['nextHopIpAddress']
+        if route_name is None and 'routeName' in kwargs:
+            route_name = kwargs['routeName']
+
+        _setter("next_hop_type", next_hop_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("route_table_name", route_table_name)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if has_bgp_override is not None:
-            pulumi.set(__self__, "has_bgp_override", has_bgp_override)
+            _setter("has_bgp_override", has_bgp_override)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop_ip_address is not None:
-            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+            _setter("next_hop_ip_address", next_hop_ip_address)
         if route_name is not None:
-            pulumi.set(__self__, "route_name", route_name)
+            _setter("route_name", route_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="nextHopType")
@@ -228,6 +277,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

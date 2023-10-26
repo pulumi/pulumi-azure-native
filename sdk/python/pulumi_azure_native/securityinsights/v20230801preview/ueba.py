@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,46 @@ class UebaArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'UebaDataSources']]]] data_sources: The relevant data sources that enriched by ueba
         :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
-        pulumi.set(__self__, "kind", 'Ueba')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        UebaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            data_sources=data_sources,
+            settings_name=settings_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'UebaDataSources']]]]] = None,
+             settings_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if data_sources is None and 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if settings_name is None and 'settingsName' in kwargs:
+            settings_name = kwargs['settingsName']
+
+        _setter("kind", 'Ueba')
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if data_sources is not None:
-            pulumi.set(__self__, "data_sources", data_sources)
+            _setter("data_sources", data_sources)
         if settings_name is not None:
-            pulumi.set(__self__, "settings_name", settings_name)
+            _setter("settings_name", settings_name)
 
     @property
     @pulumi.getter
@@ -142,6 +175,10 @@ class Ueba(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UebaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

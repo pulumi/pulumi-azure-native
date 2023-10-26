@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,53 @@ class FirewallPolicyRuleCollectionGroupArgs:
         :param pulumi.Input[str] rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]] rule_collections: Group of Firewall Policy rule collections.
         """
-        pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FirewallPolicyRuleCollectionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_policy_name=firewall_policy_name,
+            resource_group_name=resource_group_name,
+            id=id,
+            name=name,
+            priority=priority,
+            rule_collection_group_name=rule_collection_group_name,
+            rule_collections=rule_collections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_policy_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rule_collection_group_name: Optional[pulumi.Input[str]] = None,
+             rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_policy_name is None and 'firewallPolicyName' in kwargs:
+            firewall_policy_name = kwargs['firewallPolicyName']
+        if firewall_policy_name is None:
+            raise TypeError("Missing 'firewall_policy_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rule_collection_group_name is None and 'ruleCollectionGroupName' in kwargs:
+            rule_collection_group_name = kwargs['ruleCollectionGroupName']
+        if rule_collections is None and 'ruleCollections' in kwargs:
+            rule_collections = kwargs['ruleCollections']
+
+        _setter("firewall_policy_name", firewall_policy_name)
+        _setter("resource_group_name", resource_group_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if rule_collection_group_name is not None:
-            pulumi.set(__self__, "rule_collection_group_name", rule_collection_group_name)
+            _setter("rule_collection_group_name", rule_collection_group_name)
         if rule_collections is not None:
-            pulumi.set(__self__, "rule_collections", rule_collections)
+            _setter("rule_collections", rule_collections)
 
     @property
     @pulumi.getter(name="firewallPolicyName")
@@ -177,6 +212,10 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyRuleCollectionGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

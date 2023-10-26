@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,53 @@ class MaintenanceConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]] not_allowed_time: Time slots on which upgrade is not allowed.
         :param pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]] time_in_week: If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        MaintenanceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            config_name=config_name,
+            maintenance_window=maintenance_window,
+            not_allowed_time=not_allowed_time,
+            time_in_week=time_in_week,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             config_name: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
+             not_allowed_time: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]]] = None,
+             time_in_week: Optional[pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if config_name is None and 'configName' in kwargs:
+            config_name = kwargs['configName']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if not_allowed_time is None and 'notAllowedTime' in kwargs:
+            not_allowed_time = kwargs['notAllowedTime']
+        if time_in_week is None and 'timeInWeek' in kwargs:
+            time_in_week = kwargs['timeInWeek']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if config_name is not None:
-            pulumi.set(__self__, "config_name", config_name)
+            _setter("config_name", config_name)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if not_allowed_time is not None:
-            pulumi.set(__self__, "not_allowed_time", not_allowed_time)
+            _setter("not_allowed_time", not_allowed_time)
         if time_in_week is not None:
-            pulumi.set(__self__, "time_in_week", time_in_week)
+            _setter("time_in_week", time_in_week)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -159,6 +196,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MaintenanceConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,6 +221,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__ = MaintenanceConfigurationArgs.__new__(MaintenanceConfigurationArgs)
 
             __props__.__dict__["config_name"] = config_name
+            maintenance_window = _utilities.configure(maintenance_window, MaintenanceWindowArgs, True)
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["not_allowed_time"] = not_allowed_time
             if resource_group_name is None and not opts.urn:

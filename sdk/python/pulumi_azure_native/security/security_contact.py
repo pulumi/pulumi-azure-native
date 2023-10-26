@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,16 +30,41 @@ class SecurityContactArgs:
         :param pulumi.Input[str] phone: The security contact's phone number
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
         """
+        SecurityContactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_notifications=alert_notifications,
+            emails=emails,
+            notifications_by_role=notifications_by_role,
+            phone=phone,
+            security_contact_name=security_contact_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_notifications: Optional[pulumi.Input['SecurityContactPropertiesAlertNotificationsArgs']] = None,
+             emails: Optional[pulumi.Input[str]] = None,
+             notifications_by_role: Optional[pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs']] = None,
+             phone: Optional[pulumi.Input[str]] = None,
+             security_contact_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alert_notifications is None and 'alertNotifications' in kwargs:
+            alert_notifications = kwargs['alertNotifications']
+        if notifications_by_role is None and 'notificationsByRole' in kwargs:
+            notifications_by_role = kwargs['notificationsByRole']
+        if security_contact_name is None and 'securityContactName' in kwargs:
+            security_contact_name = kwargs['securityContactName']
+
         if alert_notifications is not None:
-            pulumi.set(__self__, "alert_notifications", alert_notifications)
+            _setter("alert_notifications", alert_notifications)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if notifications_by_role is not None:
-            pulumi.set(__self__, "notifications_by_role", notifications_by_role)
+            _setter("notifications_by_role", notifications_by_role)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
         if security_contact_name is not None:
-            pulumi.set(__self__, "security_contact_name", security_contact_name)
+            _setter("security_contact_name", security_contact_name)
 
     @property
     @pulumi.getter(name="alertNotifications")
@@ -149,6 +174,10 @@ class SecurityContact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityContactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -168,8 +197,10 @@ class SecurityContact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityContactArgs.__new__(SecurityContactArgs)
 
+            alert_notifications = _utilities.configure(alert_notifications, SecurityContactPropertiesAlertNotificationsArgs, True)
             __props__.__dict__["alert_notifications"] = alert_notifications
             __props__.__dict__["emails"] = emails
+            notifications_by_role = _utilities.configure(notifications_by_role, SecurityContactPropertiesNotificationsByRoleArgs, True)
             __props__.__dict__["notifications_by_role"] = notifications_by_role
             __props__.__dict__["phone"] = phone
             __props__.__dict__["security_contact_name"] = security_contact_name

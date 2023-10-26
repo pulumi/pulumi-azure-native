@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,28 +50,107 @@ class NetworkFabricArgs:
         :param pulumi.Input[int] rack_count: Number of compute racks associated to Network Fabric.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "fabric_asn", fabric_asn)
-        pulumi.set(__self__, "ipv4_prefix", ipv4_prefix)
-        pulumi.set(__self__, "management_network_configuration", management_network_configuration)
-        pulumi.set(__self__, "network_fabric_controller_id", network_fabric_controller_id)
-        pulumi.set(__self__, "network_fabric_sku", network_fabric_sku)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_count_per_rack", server_count_per_rack)
-        pulumi.set(__self__, "terminal_server_configuration", terminal_server_configuration)
+        NetworkFabricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_asn=fabric_asn,
+            ipv4_prefix=ipv4_prefix,
+            management_network_configuration=management_network_configuration,
+            network_fabric_controller_id=network_fabric_controller_id,
+            network_fabric_sku=network_fabric_sku,
+            resource_group_name=resource_group_name,
+            server_count_per_rack=server_count_per_rack,
+            terminal_server_configuration=terminal_server_configuration,
+            annotation=annotation,
+            fabric_version=fabric_version,
+            ipv6_prefix=ipv6_prefix,
+            location=location,
+            network_fabric_name=network_fabric_name,
+            rack_count=rack_count,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_asn: Optional[pulumi.Input[float]] = None,
+             ipv4_prefix: Optional[pulumi.Input[str]] = None,
+             management_network_configuration: Optional[pulumi.Input['ManagementNetworkConfigurationPropertiesArgs']] = None,
+             network_fabric_controller_id: Optional[pulumi.Input[str]] = None,
+             network_fabric_sku: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_count_per_rack: Optional[pulumi.Input[int]] = None,
+             terminal_server_configuration: Optional[pulumi.Input['TerminalServerConfigurationArgs']] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             fabric_version: Optional[pulumi.Input[str]] = None,
+             ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_fabric_name: Optional[pulumi.Input[str]] = None,
+             rack_count: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fabric_asn is None and 'fabricASN' in kwargs:
+            fabric_asn = kwargs['fabricASN']
+        if fabric_asn is None:
+            raise TypeError("Missing 'fabric_asn' argument")
+        if ipv4_prefix is None and 'ipv4Prefix' in kwargs:
+            ipv4_prefix = kwargs['ipv4Prefix']
+        if ipv4_prefix is None:
+            raise TypeError("Missing 'ipv4_prefix' argument")
+        if management_network_configuration is None and 'managementNetworkConfiguration' in kwargs:
+            management_network_configuration = kwargs['managementNetworkConfiguration']
+        if management_network_configuration is None:
+            raise TypeError("Missing 'management_network_configuration' argument")
+        if network_fabric_controller_id is None and 'networkFabricControllerId' in kwargs:
+            network_fabric_controller_id = kwargs['networkFabricControllerId']
+        if network_fabric_controller_id is None:
+            raise TypeError("Missing 'network_fabric_controller_id' argument")
+        if network_fabric_sku is None and 'networkFabricSku' in kwargs:
+            network_fabric_sku = kwargs['networkFabricSku']
+        if network_fabric_sku is None:
+            raise TypeError("Missing 'network_fabric_sku' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_count_per_rack is None and 'serverCountPerRack' in kwargs:
+            server_count_per_rack = kwargs['serverCountPerRack']
+        if server_count_per_rack is None:
+            raise TypeError("Missing 'server_count_per_rack' argument")
+        if terminal_server_configuration is None and 'terminalServerConfiguration' in kwargs:
+            terminal_server_configuration = kwargs['terminalServerConfiguration']
+        if terminal_server_configuration is None:
+            raise TypeError("Missing 'terminal_server_configuration' argument")
+        if fabric_version is None and 'fabricVersion' in kwargs:
+            fabric_version = kwargs['fabricVersion']
+        if ipv6_prefix is None and 'ipv6Prefix' in kwargs:
+            ipv6_prefix = kwargs['ipv6Prefix']
+        if network_fabric_name is None and 'networkFabricName' in kwargs:
+            network_fabric_name = kwargs['networkFabricName']
+        if rack_count is None and 'rackCount' in kwargs:
+            rack_count = kwargs['rackCount']
+
+        _setter("fabric_asn", fabric_asn)
+        _setter("ipv4_prefix", ipv4_prefix)
+        _setter("management_network_configuration", management_network_configuration)
+        _setter("network_fabric_controller_id", network_fabric_controller_id)
+        _setter("network_fabric_sku", network_fabric_sku)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_count_per_rack", server_count_per_rack)
+        _setter("terminal_server_configuration", terminal_server_configuration)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if fabric_version is not None:
-            pulumi.set(__self__, "fabric_version", fabric_version)
+            _setter("fabric_version", fabric_version)
         if ipv6_prefix is not None:
-            pulumi.set(__self__, "ipv6_prefix", ipv6_prefix)
+            _setter("ipv6_prefix", ipv6_prefix)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_fabric_name is not None:
-            pulumi.set(__self__, "network_fabric_name", network_fabric_name)
+            _setter("network_fabric_name", network_fabric_name)
         if rack_count is not None:
-            pulumi.set(__self__, "rack_count", rack_count)
+            _setter("rack_count", rack_count)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="fabricASN")
@@ -315,6 +394,10 @@ class NetworkFabric(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkFabricArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -354,6 +437,7 @@ class NetworkFabric(pulumi.CustomResource):
             __props__.__dict__["ipv4_prefix"] = ipv4_prefix
             __props__.__dict__["ipv6_prefix"] = ipv6_prefix
             __props__.__dict__["location"] = location
+            management_network_configuration = _utilities.configure(management_network_configuration, ManagementNetworkConfigurationPropertiesArgs, True)
             if management_network_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'management_network_configuration'")
             __props__.__dict__["management_network_configuration"] = management_network_configuration
@@ -372,6 +456,7 @@ class NetworkFabric(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_count_per_rack'")
             __props__.__dict__["server_count_per_rack"] = server_count_per_rack
             __props__.__dict__["tags"] = tags
+            terminal_server_configuration = _utilities.configure(terminal_server_configuration, TerminalServerConfigurationArgs, True)
             if terminal_server_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'terminal_server_configuration'")
             __props__.__dict__["terminal_server_configuration"] = terminal_server_configuration

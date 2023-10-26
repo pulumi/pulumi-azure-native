@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,42 @@ class DiskAccessAPrivateEndpointConnectionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         """
-        pulumi.set(__self__, "disk_access_name", disk_access_name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DiskAccessAPrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_access_name=disk_access_name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            resource_group_name=resource_group_name,
+            private_endpoint_connection_name=private_endpoint_connection_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_access_name: Optional[pulumi.Input[str]] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_access_name is None and 'diskAccessName' in kwargs:
+            disk_access_name = kwargs['diskAccessName']
+        if disk_access_name is None:
+            raise TypeError("Missing 'disk_access_name' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if private_endpoint_connection_name is None and 'privateEndpointConnectionName' in kwargs:
+            private_endpoint_connection_name = kwargs['privateEndpointConnectionName']
+
+        _setter("disk_access_name", disk_access_name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("resource_group_name", resource_group_name)
         if private_endpoint_connection_name is not None:
-            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+            _setter("private_endpoint_connection_name", private_endpoint_connection_name)
 
     @property
     @pulumi.getter(name="diskAccessName")
@@ -122,6 +153,10 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskAccessAPrivateEndpointConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +179,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'disk_access_name'")
             __props__.__dict__["disk_access_name"] = disk_access_name
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
+            private_link_service_connection_state = _utilities.configure(private_link_service_connection_state, PrivateLinkServiceConnectionStateArgs, True)
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state

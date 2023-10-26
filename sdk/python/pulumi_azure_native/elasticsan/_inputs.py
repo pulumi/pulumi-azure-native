@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,8 +27,21 @@ class NetworkRuleSetArgs:
         A set of rules governing the network accessibility.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
+        NetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
@@ -55,12 +68,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -109,9 +139,24 @@ class SkuArgs:
         :param pulumi.Input[Union[str, 'SkuName']] name: The sku name.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The sku tier.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -146,7 +191,22 @@ class SnapshotCreationDataArgs:
         Data used when creating a volume snapshot.
         :param pulumi.Input[str] source_id: Fully qualified resource ID of the volume. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumegroups/{volumeGroupName}/volumes/{volumeName}"
         """
-        pulumi.set(__self__, "source_id", source_id)
+        SnapshotCreationDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_id=source_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+        if source_id is None:
+            raise TypeError("Missing 'source_id' argument")
+
+        _setter("source_id", source_id)
 
     @property
     @pulumi.getter(name="sourceId")
@@ -171,10 +231,27 @@ class SourceCreationDataArgs:
         :param pulumi.Input['VolumeCreateOption'] create_source: This enumerates the possible sources of a volume creation.
         :param pulumi.Input[str] source_uri: If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
         """
+        SourceCreationDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_source=create_source,
+            source_uri=source_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_source: Optional[pulumi.Input['VolumeCreateOption']] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_source is None and 'createSource' in kwargs:
+            create_source = kwargs['createSource']
+        if source_uri is None and 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+
         if create_source is not None:
-            pulumi.set(__self__, "create_source", create_source)
+            _setter("create_source", create_source)
         if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+            _setter("source_uri", source_uri)
 
     @property
     @pulumi.getter(name="createSource")
@@ -211,11 +288,28 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         :param pulumi.Input['Action'] action: The action of virtual network rule.
         """
-        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        VirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_network_resource_id=virtual_network_resource_id,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_network_resource_id: Optional[pulumi.Input[str]] = None,
+             action: Optional[pulumi.Input['Action']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if virtual_network_resource_id is None and 'virtualNetworkResourceId' in kwargs:
+            virtual_network_resource_id = kwargs['virtualNetworkResourceId']
+        if virtual_network_resource_id is None:
+            raise TypeError("Missing 'virtual_network_resource_id' argument")
+
+        _setter("virtual_network_resource_id", virtual_network_resource_id)
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="virtualNetworkResourceId")

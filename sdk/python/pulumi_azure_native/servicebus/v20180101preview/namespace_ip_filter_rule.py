@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,16 +30,51 @@ class NamespaceIpFilterRuleArgs:
         :param pulumi.Input[str] ip_filter_rule_name: The IP Filter Rule name.
         :param pulumi.Input[str] ip_mask: IP Mask
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NamespaceIpFilterRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            action=action,
+            filter_name=filter_name,
+            ip_filter_rule_name=ip_filter_rule_name,
+            ip_mask=ip_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             action: Optional[pulumi.Input[Union[str, 'IPAction']]] = None,
+             filter_name: Optional[pulumi.Input[str]] = None,
+             ip_filter_rule_name: Optional[pulumi.Input[str]] = None,
+             ip_mask: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if filter_name is None and 'filterName' in kwargs:
+            filter_name = kwargs['filterName']
+        if ip_filter_rule_name is None and 'ipFilterRuleName' in kwargs:
+            ip_filter_rule_name = kwargs['ipFilterRuleName']
+        if ip_mask is None and 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if filter_name is not None:
-            pulumi.set(__self__, "filter_name", filter_name)
+            _setter("filter_name", filter_name)
         if ip_filter_rule_name is not None:
-            pulumi.set(__self__, "ip_filter_rule_name", ip_filter_rule_name)
+            _setter("ip_filter_rule_name", ip_filter_rule_name)
         if ip_mask is not None:
-            pulumi.set(__self__, "ip_mask", ip_mask)
+            _setter("ip_mask", ip_mask)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -157,6 +192,10 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceIpFilterRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

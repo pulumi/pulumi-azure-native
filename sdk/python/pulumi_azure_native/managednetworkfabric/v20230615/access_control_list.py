@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,26 +40,73 @@ class AccessControlListArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConfigurationArgs']]] match_configurations: List of match configurations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "configuration_type", configuration_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccessControlListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_type=configuration_type,
+            resource_group_name=resource_group_name,
+            access_control_list_name=access_control_list_name,
+            acls_url=acls_url,
+            annotation=annotation,
+            default_action=default_action,
+            dynamic_match_configurations=dynamic_match_configurations,
+            location=location,
+            match_configurations=match_configurations,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             access_control_list_name: Optional[pulumi.Input[str]] = None,
+             acls_url: Optional[pulumi.Input[str]] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             default_action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
+             dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CommonDynamicMatchConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListMatchConfigurationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_type is None and 'configurationType' in kwargs:
+            configuration_type = kwargs['configurationType']
+        if configuration_type is None:
+            raise TypeError("Missing 'configuration_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_control_list_name is None and 'accessControlListName' in kwargs:
+            access_control_list_name = kwargs['accessControlListName']
+        if acls_url is None and 'aclsUrl' in kwargs:
+            acls_url = kwargs['aclsUrl']
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if dynamic_match_configurations is None and 'dynamicMatchConfigurations' in kwargs:
+            dynamic_match_configurations = kwargs['dynamicMatchConfigurations']
+        if match_configurations is None and 'matchConfigurations' in kwargs:
+            match_configurations = kwargs['matchConfigurations']
+
+        _setter("configuration_type", configuration_type)
+        _setter("resource_group_name", resource_group_name)
         if access_control_list_name is not None:
-            pulumi.set(__self__, "access_control_list_name", access_control_list_name)
+            _setter("access_control_list_name", access_control_list_name)
         if acls_url is not None:
-            pulumi.set(__self__, "acls_url", acls_url)
+            _setter("acls_url", acls_url)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if default_action is None:
             default_action = 'Permit'
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if dynamic_match_configurations is not None:
-            pulumi.set(__self__, "dynamic_match_configurations", dynamic_match_configurations)
+            _setter("dynamic_match_configurations", dynamic_match_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if match_configurations is not None:
-            pulumi.set(__self__, "match_configurations", match_configurations)
+            _setter("match_configurations", match_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -233,6 +280,10 @@ class AccessControlList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessControlListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

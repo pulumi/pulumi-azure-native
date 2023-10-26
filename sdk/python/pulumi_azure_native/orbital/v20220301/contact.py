@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,14 +33,63 @@ class ContactArgs:
         :param pulumi.Input[str] spacecraft_name: Spacecraft ID.
         :param pulumi.Input[str] contact_name: Contact name.
         """
-        pulumi.set(__self__, "contact_profile", contact_profile)
-        pulumi.set(__self__, "ground_station_name", ground_station_name)
-        pulumi.set(__self__, "reservation_end_time", reservation_end_time)
-        pulumi.set(__self__, "reservation_start_time", reservation_start_time)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "spacecraft_name", spacecraft_name)
+        ContactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_profile=contact_profile,
+            ground_station_name=ground_station_name,
+            reservation_end_time=reservation_end_time,
+            reservation_start_time=reservation_start_time,
+            resource_group_name=resource_group_name,
+            spacecraft_name=spacecraft_name,
+            contact_name=contact_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_profile: Optional[pulumi.Input['ContactsPropertiesContactProfileArgs']] = None,
+             ground_station_name: Optional[pulumi.Input[str]] = None,
+             reservation_end_time: Optional[pulumi.Input[str]] = None,
+             reservation_start_time: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             spacecraft_name: Optional[pulumi.Input[str]] = None,
+             contact_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_profile is None and 'contactProfile' in kwargs:
+            contact_profile = kwargs['contactProfile']
+        if contact_profile is None:
+            raise TypeError("Missing 'contact_profile' argument")
+        if ground_station_name is None and 'groundStationName' in kwargs:
+            ground_station_name = kwargs['groundStationName']
+        if ground_station_name is None:
+            raise TypeError("Missing 'ground_station_name' argument")
+        if reservation_end_time is None and 'reservationEndTime' in kwargs:
+            reservation_end_time = kwargs['reservationEndTime']
+        if reservation_end_time is None:
+            raise TypeError("Missing 'reservation_end_time' argument")
+        if reservation_start_time is None and 'reservationStartTime' in kwargs:
+            reservation_start_time = kwargs['reservationStartTime']
+        if reservation_start_time is None:
+            raise TypeError("Missing 'reservation_start_time' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if spacecraft_name is None and 'spacecraftName' in kwargs:
+            spacecraft_name = kwargs['spacecraftName']
+        if spacecraft_name is None:
+            raise TypeError("Missing 'spacecraft_name' argument")
+        if contact_name is None and 'contactName' in kwargs:
+            contact_name = kwargs['contactName']
+
+        _setter("contact_profile", contact_profile)
+        _setter("ground_station_name", ground_station_name)
+        _setter("reservation_end_time", reservation_end_time)
+        _setter("reservation_start_time", reservation_start_time)
+        _setter("resource_group_name", resource_group_name)
+        _setter("spacecraft_name", spacecraft_name)
         if contact_name is not None:
-            pulumi.set(__self__, "contact_name", contact_name)
+            _setter("contact_name", contact_name)
 
     @property
     @pulumi.getter(name="contactProfile")
@@ -172,6 +221,10 @@ class Contact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -194,6 +247,7 @@ class Contact(pulumi.CustomResource):
             __props__ = ContactArgs.__new__(ContactArgs)
 
             __props__.__dict__["contact_name"] = contact_name
+            contact_profile = _utilities.configure(contact_profile, ContactsPropertiesContactProfileArgs, True)
             if contact_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_profile'")
             __props__.__dict__["contact_profile"] = contact_profile

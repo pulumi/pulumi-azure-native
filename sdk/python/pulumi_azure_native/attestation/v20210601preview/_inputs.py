@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,10 +27,27 @@ class AttestationServiceCreationSpecificParamsArgs:
         :param pulumi.Input['JSONWebKeySetArgs'] policy_signing_certificates: JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
         """
+        AttestationServiceCreationSpecificParamsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_signing_certificates=policy_signing_certificates,
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_signing_certificates: Optional[pulumi.Input['JSONWebKeySetArgs']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_signing_certificates is None and 'policySigningCertificates' in kwargs:
+            policy_signing_certificates = kwargs['policySigningCertificates']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
         if policy_signing_certificates is not None:
-            pulumi.set(__self__, "policy_signing_certificates", policy_signing_certificates)
+            _setter("policy_signing_certificates", policy_signing_certificates)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="policySigningCertificates")
@@ -68,8 +85,19 @@ class JSONWebKeySetArgs:
                can choose to assign a meaning to the order for their purposes, if
                desired.
         """
+        JSONWebKeySetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keys=keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keys: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
 
     @property
     @pulumi.getter
@@ -152,39 +180,84 @@ class JSONWebKeyArgs:
                certificate.
         :param pulumi.Input[str] y: Y coordinate for the Elliptic Curve point
         """
-        pulumi.set(__self__, "kty", kty)
+        JSONWebKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kty=kty,
+            alg=alg,
+            crv=crv,
+            d=d,
+            dp=dp,
+            dq=dq,
+            e=e,
+            k=k,
+            kid=kid,
+            n=n,
+            p=p,
+            q=q,
+            qi=qi,
+            use=use,
+            x=x,
+            x5c=x5c,
+            y=y,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kty: Optional[pulumi.Input[str]] = None,
+             alg: Optional[pulumi.Input[str]] = None,
+             crv: Optional[pulumi.Input[str]] = None,
+             d: Optional[pulumi.Input[str]] = None,
+             dp: Optional[pulumi.Input[str]] = None,
+             dq: Optional[pulumi.Input[str]] = None,
+             e: Optional[pulumi.Input[str]] = None,
+             k: Optional[pulumi.Input[str]] = None,
+             kid: Optional[pulumi.Input[str]] = None,
+             n: Optional[pulumi.Input[str]] = None,
+             p: Optional[pulumi.Input[str]] = None,
+             q: Optional[pulumi.Input[str]] = None,
+             qi: Optional[pulumi.Input[str]] = None,
+             use: Optional[pulumi.Input[str]] = None,
+             x: Optional[pulumi.Input[str]] = None,
+             x5c: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             y: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kty is None:
+            raise TypeError("Missing 'kty' argument")
+
+        _setter("kty", kty)
         if alg is not None:
-            pulumi.set(__self__, "alg", alg)
+            _setter("alg", alg)
         if crv is not None:
-            pulumi.set(__self__, "crv", crv)
+            _setter("crv", crv)
         if d is not None:
-            pulumi.set(__self__, "d", d)
+            _setter("d", d)
         if dp is not None:
-            pulumi.set(__self__, "dp", dp)
+            _setter("dp", dp)
         if dq is not None:
-            pulumi.set(__self__, "dq", dq)
+            _setter("dq", dq)
         if e is not None:
-            pulumi.set(__self__, "e", e)
+            _setter("e", e)
         if k is not None:
-            pulumi.set(__self__, "k", k)
+            _setter("k", k)
         if kid is not None:
-            pulumi.set(__self__, "kid", kid)
+            _setter("kid", kid)
         if n is not None:
-            pulumi.set(__self__, "n", n)
+            _setter("n", n)
         if p is not None:
-            pulumi.set(__self__, "p", p)
+            _setter("p", p)
         if q is not None:
-            pulumi.set(__self__, "q", q)
+            _setter("q", q)
         if qi is not None:
-            pulumi.set(__self__, "qi", qi)
+            _setter("qi", qi)
         if use is not None:
-            pulumi.set(__self__, "use", use)
+            _setter("use", use)
         if x is not None:
-            pulumi.set(__self__, "x", x)
+            _setter("x", x)
         if x5c is not None:
-            pulumi.set(__self__, "x5c", x5c)
+            _setter("x5c", x5c)
         if y is not None:
-            pulumi.set(__self__, "y", y)
+            _setter("y", y)
 
     @property
     @pulumi.getter
@@ -428,12 +501,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")

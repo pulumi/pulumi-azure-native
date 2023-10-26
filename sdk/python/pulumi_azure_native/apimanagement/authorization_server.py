@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -62,41 +62,144 @@ class AuthorizationServerArgs:
         :param pulumi.Input[bool] use_in_api_documentation: If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
         :param pulumi.Input[bool] use_in_test_console: If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
         """
-        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_registration_endpoint", client_registration_endpoint)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "grant_types", grant_types)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        AuthorizationServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_endpoint=authorization_endpoint,
+            client_id=client_id,
+            client_registration_endpoint=client_registration_endpoint,
+            display_name=display_name,
+            grant_types=grant_types,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            authorization_methods=authorization_methods,
+            authsid=authsid,
+            bearer_token_sending_methods=bearer_token_sending_methods,
+            client_authentication_method=client_authentication_method,
+            client_secret=client_secret,
+            default_scope=default_scope,
+            description=description,
+            resource_owner_password=resource_owner_password,
+            resource_owner_username=resource_owner_username,
+            support_state=support_state,
+            token_body_parameters=token_body_parameters,
+            token_endpoint=token_endpoint,
+            use_in_api_documentation=use_in_api_documentation,
+            use_in_test_console=use_in_test_console,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_endpoint: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_registration_endpoint: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'GrantType']]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             authorization_methods: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationMethod']]]] = None,
+             authsid: Optional[pulumi.Input[str]] = None,
+             bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethod']]]]] = None,
+             client_authentication_method: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ClientAuthenticationMethod']]]]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             default_scope: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             resource_owner_password: Optional[pulumi.Input[str]] = None,
+             resource_owner_username: Optional[pulumi.Input[str]] = None,
+             support_state: Optional[pulumi.Input[bool]] = None,
+             token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['TokenBodyParameterContractArgs']]]] = None,
+             token_endpoint: Optional[pulumi.Input[str]] = None,
+             use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
+             use_in_test_console: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_endpoint is None and 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if authorization_endpoint is None:
+            raise TypeError("Missing 'authorization_endpoint' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_registration_endpoint is None and 'clientRegistrationEndpoint' in kwargs:
+            client_registration_endpoint = kwargs['clientRegistrationEndpoint']
+        if client_registration_endpoint is None:
+            raise TypeError("Missing 'client_registration_endpoint' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if grant_types is None and 'grantTypes' in kwargs:
+            grant_types = kwargs['grantTypes']
+        if grant_types is None:
+            raise TypeError("Missing 'grant_types' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if authorization_methods is None and 'authorizationMethods' in kwargs:
+            authorization_methods = kwargs['authorizationMethods']
+        if bearer_token_sending_methods is None and 'bearerTokenSendingMethods' in kwargs:
+            bearer_token_sending_methods = kwargs['bearerTokenSendingMethods']
+        if client_authentication_method is None and 'clientAuthenticationMethod' in kwargs:
+            client_authentication_method = kwargs['clientAuthenticationMethod']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if default_scope is None and 'defaultScope' in kwargs:
+            default_scope = kwargs['defaultScope']
+        if resource_owner_password is None and 'resourceOwnerPassword' in kwargs:
+            resource_owner_password = kwargs['resourceOwnerPassword']
+        if resource_owner_username is None and 'resourceOwnerUsername' in kwargs:
+            resource_owner_username = kwargs['resourceOwnerUsername']
+        if support_state is None and 'supportState' in kwargs:
+            support_state = kwargs['supportState']
+        if token_body_parameters is None and 'tokenBodyParameters' in kwargs:
+            token_body_parameters = kwargs['tokenBodyParameters']
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if use_in_api_documentation is None and 'useInApiDocumentation' in kwargs:
+            use_in_api_documentation = kwargs['useInApiDocumentation']
+        if use_in_test_console is None and 'useInTestConsole' in kwargs:
+            use_in_test_console = kwargs['useInTestConsole']
+
+        _setter("authorization_endpoint", authorization_endpoint)
+        _setter("client_id", client_id)
+        _setter("client_registration_endpoint", client_registration_endpoint)
+        _setter("display_name", display_name)
+        _setter("grant_types", grant_types)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if authorization_methods is not None:
-            pulumi.set(__self__, "authorization_methods", authorization_methods)
+            _setter("authorization_methods", authorization_methods)
         if authsid is not None:
-            pulumi.set(__self__, "authsid", authsid)
+            _setter("authsid", authsid)
         if bearer_token_sending_methods is not None:
-            pulumi.set(__self__, "bearer_token_sending_methods", bearer_token_sending_methods)
+            _setter("bearer_token_sending_methods", bearer_token_sending_methods)
         if client_authentication_method is not None:
-            pulumi.set(__self__, "client_authentication_method", client_authentication_method)
+            _setter("client_authentication_method", client_authentication_method)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if default_scope is not None:
-            pulumi.set(__self__, "default_scope", default_scope)
+            _setter("default_scope", default_scope)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if resource_owner_password is not None:
-            pulumi.set(__self__, "resource_owner_password", resource_owner_password)
+            _setter("resource_owner_password", resource_owner_password)
         if resource_owner_username is not None:
-            pulumi.set(__self__, "resource_owner_username", resource_owner_username)
+            _setter("resource_owner_username", resource_owner_username)
         if support_state is not None:
-            pulumi.set(__self__, "support_state", support_state)
+            _setter("support_state", support_state)
         if token_body_parameters is not None:
-            pulumi.set(__self__, "token_body_parameters", token_body_parameters)
+            _setter("token_body_parameters", token_body_parameters)
         if token_endpoint is not None:
-            pulumi.set(__self__, "token_endpoint", token_endpoint)
+            _setter("token_endpoint", token_endpoint)
         if use_in_api_documentation is not None:
-            pulumi.set(__self__, "use_in_api_documentation", use_in_api_documentation)
+            _setter("use_in_api_documentation", use_in_api_documentation)
         if use_in_test_console is not None:
-            pulumi.set(__self__, "use_in_test_console", use_in_test_console)
+            _setter("use_in_test_console", use_in_test_console)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -430,6 +533,10 @@ class AuthorizationServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizationServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

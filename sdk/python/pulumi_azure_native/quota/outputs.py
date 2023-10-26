@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,9 +48,26 @@ class AdditionalAttributesResponse(dict):
         Additional attribute to allow subscriptions to be part of the GroupQuota.
         :param 'GroupingIdResponse' group_id: The grouping Id for the group quota. It can be management Group Id or ServiceTreeId if applicable. 
         """
-        pulumi.set(__self__, "group_id", group_id)
+        AdditionalAttributesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            environment=environment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional['outputs.GroupingIdResponse'] = None,
+             environment: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+
+        _setter("group_id", group_id)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
 
     @property
     @pulumi.getter(name="groupId")
@@ -94,8 +111,29 @@ class GroupQuotaSubscriptionIdResponseProperties(dict):
         :param str provisioning_state: Status of this subscriptionId being associated with the GroupQuotasEntity.
         :param str subscription_id: An Azure subscriptionId.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        GroupQuotaSubscriptionIdResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+
+        _setter("provisioning_state", provisioning_state)
+        _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -150,11 +188,34 @@ class GroupQuotasEntityBaseResponse(dict):
         :param 'AdditionalAttributesResponse' additional_attributes: Additional attributes to allow subscription, which can be added to the subscriptionIds.
         :param str display_name: Display name of the GroupQuota entity.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        GroupQuotasEntityBaseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            additional_attributes=additional_attributes,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             additional_attributes: Optional['outputs.AdditionalAttributesResponse'] = None,
+             display_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if additional_attributes is None and 'additionalAttributes' in kwargs:
+            additional_attributes = kwargs['additionalAttributes']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("provisioning_state", provisioning_state)
         if additional_attributes is not None:
-            pulumi.set(__self__, "additional_attributes", additional_attributes)
+            _setter("additional_attributes", additional_attributes)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -211,10 +272,25 @@ class GroupingIdResponse(dict):
         :param str grouping_id_type: GroupingId type. It is a required property. More types of groupIds can be supported in future. MGID is already in the URI, so it's not needed.'
         :param str value: GroupId value based on the groupingType selected - management Group Id or ServiceTreeId.
         """
+        GroupingIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grouping_id_type=grouping_id_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grouping_id_type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if grouping_id_type is None and 'groupingIdType' in kwargs:
+            grouping_id_type = kwargs['groupingIdType']
+
         if grouping_id_type is not None:
-            pulumi.set(__self__, "grouping_id_type", grouping_id_type)
+            _setter("grouping_id_type", grouping_id_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="groupingIdType")
@@ -281,18 +357,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

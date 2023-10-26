@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualRouterPeeringArgs', 'VirtualRouterPeering']
@@ -31,18 +31,55 @@ class VirtualRouterPeeringArgs:
         :param pulumi.Input[str] peer_ip: Peer IP.
         :param pulumi.Input[str] peering_name: The name of the Virtual Router Peering.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+        VirtualRouterPeeringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_router_name=virtual_router_name,
+            id=id,
+            name=name,
+            peer_asn=peer_asn,
+            peer_ip=peer_ip,
+            peering_name=peering_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_router_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             peer_asn: Optional[pulumi.Input[float]] = None,
+             peer_ip: Optional[pulumi.Input[str]] = None,
+             peering_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_router_name is None and 'virtualRouterName' in kwargs:
+            virtual_router_name = kwargs['virtualRouterName']
+        if virtual_router_name is None:
+            raise TypeError("Missing 'virtual_router_name' argument")
+        if peer_asn is None and 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if peer_ip is None and 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+        if peering_name is None and 'peeringName' in kwargs:
+            peering_name = kwargs['peeringName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_router_name", virtual_router_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
         if peer_ip is not None:
-            pulumi.set(__self__, "peer_ip", peer_ip)
+            _setter("peer_ip", peer_ip)
         if peering_name is not None:
-            pulumi.set(__self__, "peering_name", peering_name)
+            _setter("peering_name", peering_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -180,6 +217,10 @@ class VirtualRouterPeering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualRouterPeeringArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

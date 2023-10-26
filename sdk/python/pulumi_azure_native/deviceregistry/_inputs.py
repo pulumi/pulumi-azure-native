@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,10 +34,23 @@ class AssetEndpointProfileExtendedLocationArgs:
         :param pulumi.Input[str] name: The extended location name.
         :param pulumi.Input[str] type: The extended location type.
         """
+        AssetEndpointProfileExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -75,12 +88,33 @@ class AssetEndpointProfilePropertiesOwnCertificatesArgs:
         :param pulumi.Input[str] cert_secret_reference: Secret Reference name (cert and private key).
         :param pulumi.Input[str] cert_thumbprint: Certificate thumbprint.
         """
+        AssetEndpointProfilePropertiesOwnCertificatesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert_password_reference=cert_password_reference,
+            cert_secret_reference=cert_secret_reference,
+            cert_thumbprint=cert_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert_password_reference: Optional[pulumi.Input[str]] = None,
+             cert_secret_reference: Optional[pulumi.Input[str]] = None,
+             cert_thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cert_password_reference is None and 'certPasswordReference' in kwargs:
+            cert_password_reference = kwargs['certPasswordReference']
+        if cert_secret_reference is None and 'certSecretReference' in kwargs:
+            cert_secret_reference = kwargs['certSecretReference']
+        if cert_thumbprint is None and 'certThumbprint' in kwargs:
+            cert_thumbprint = kwargs['certThumbprint']
+
         if cert_password_reference is not None:
-            pulumi.set(__self__, "cert_password_reference", cert_password_reference)
+            _setter("cert_password_reference", cert_password_reference)
         if cert_secret_reference is not None:
-            pulumi.set(__self__, "cert_secret_reference", cert_secret_reference)
+            _setter("cert_secret_reference", cert_secret_reference)
         if cert_thumbprint is not None:
-            pulumi.set(__self__, "cert_thumbprint", cert_thumbprint)
+            _setter("cert_thumbprint", cert_thumbprint)
 
     @property
     @pulumi.getter(name="certPasswordReference")
@@ -127,7 +161,22 @@ class AssetEndpointProfilePropertiesTransportAuthenticationArgs:
         Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
         :param pulumi.Input[Sequence[pulumi.Input['AssetEndpointProfilePropertiesOwnCertificatesArgs']]] own_certificates: Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
         """
-        pulumi.set(__self__, "own_certificates", own_certificates)
+        AssetEndpointProfilePropertiesTransportAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            own_certificates=own_certificates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             own_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEndpointProfilePropertiesOwnCertificatesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if own_certificates is None and 'ownCertificates' in kwargs:
+            own_certificates = kwargs['ownCertificates']
+        if own_certificates is None:
+            raise TypeError("Missing 'own_certificates' argument")
+
+        _setter("own_certificates", own_certificates)
 
     @property
     @pulumi.getter(name="ownCertificates")
@@ -154,13 +203,32 @@ class AssetEndpointProfilePropertiesUserAuthenticationArgs:
         :param pulumi.Input['AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs'] username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
         :param pulumi.Input['AssetEndpointProfilePropertiesX509CredentialsArgs'] x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
         """
+        AssetEndpointProfilePropertiesUserAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            username_password_credentials=username_password_credentials,
+            x509_credentials=x509_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[Union[str, 'Mode']]] = None,
+             username_password_credentials: Optional[pulumi.Input['AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs']] = None,
+             x509_credentials: Optional[pulumi.Input['AssetEndpointProfilePropertiesX509CredentialsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if username_password_credentials is None and 'usernamePasswordCredentials' in kwargs:
+            username_password_credentials = kwargs['usernamePasswordCredentials']
+        if x509_credentials is None and 'x509Credentials' in kwargs:
+            x509_credentials = kwargs['x509Credentials']
+
         if mode is None:
             mode = 'Certificate'
-        pulumi.set(__self__, "mode", mode)
+        _setter("mode", mode)
         if username_password_credentials is not None:
-            pulumi.set(__self__, "username_password_credentials", username_password_credentials)
+            _setter("username_password_credentials", username_password_credentials)
         if x509_credentials is not None:
-            pulumi.set(__self__, "x509_credentials", x509_credentials)
+            _setter("x509_credentials", x509_credentials)
 
     @property
     @pulumi.getter
@@ -209,8 +277,29 @@ class AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs:
         :param pulumi.Input[str] password_reference: A reference to secret containing the password.
         :param pulumi.Input[str] username_reference: A reference to secret containing the username.
         """
-        pulumi.set(__self__, "password_reference", password_reference)
-        pulumi.set(__self__, "username_reference", username_reference)
+        AssetEndpointProfilePropertiesUsernamePasswordCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password_reference=password_reference,
+            username_reference=username_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password_reference: Optional[pulumi.Input[str]] = None,
+             username_reference: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password_reference is None and 'passwordReference' in kwargs:
+            password_reference = kwargs['passwordReference']
+        if password_reference is None:
+            raise TypeError("Missing 'password_reference' argument")
+        if username_reference is None and 'usernameReference' in kwargs:
+            username_reference = kwargs['usernameReference']
+        if username_reference is None:
+            raise TypeError("Missing 'username_reference' argument")
+
+        _setter("password_reference", password_reference)
+        _setter("username_reference", username_reference)
 
     @property
     @pulumi.getter(name="passwordReference")
@@ -245,7 +334,22 @@ class AssetEndpointProfilePropertiesX509CredentialsArgs:
         Defines the certificate reference when Certificate user authentication mode is selected.
         :param pulumi.Input[str] certificate_reference: A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         """
-        pulumi.set(__self__, "certificate_reference", certificate_reference)
+        AssetEndpointProfilePropertiesX509CredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_reference=certificate_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_reference: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_reference is None and 'certificateReference' in kwargs:
+            certificate_reference = kwargs['certificateReference']
+        if certificate_reference is None:
+            raise TypeError("Missing 'certificate_reference' argument")
+
+        _setter("certificate_reference", certificate_reference)
 
     @property
     @pulumi.getter(name="certificateReference")
@@ -274,13 +378,40 @@ class AssetEndpointProfilePropertiesArgs:
         :param pulumi.Input['AssetEndpointProfilePropertiesTransportAuthenticationArgs'] transport_authentication: Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
         :param pulumi.Input['AssetEndpointProfilePropertiesUserAuthenticationArgs'] user_authentication: Defines the client authentication mechanism to the server.
         """
-        pulumi.set(__self__, "target_address", target_address)
+        AssetEndpointProfilePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_address=target_address,
+            additional_configuration=additional_configuration,
+            transport_authentication=transport_authentication,
+            user_authentication=user_authentication,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_address: Optional[pulumi.Input[str]] = None,
+             additional_configuration: Optional[pulumi.Input[str]] = None,
+             transport_authentication: Optional[pulumi.Input['AssetEndpointProfilePropertiesTransportAuthenticationArgs']] = None,
+             user_authentication: Optional[pulumi.Input['AssetEndpointProfilePropertiesUserAuthenticationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_address is None and 'targetAddress' in kwargs:
+            target_address = kwargs['targetAddress']
+        if target_address is None:
+            raise TypeError("Missing 'target_address' argument")
+        if additional_configuration is None and 'additionalConfiguration' in kwargs:
+            additional_configuration = kwargs['additionalConfiguration']
+        if transport_authentication is None and 'transportAuthentication' in kwargs:
+            transport_authentication = kwargs['transportAuthentication']
+        if user_authentication is None and 'userAuthentication' in kwargs:
+            user_authentication = kwargs['userAuthentication']
+
+        _setter("target_address", target_address)
         if additional_configuration is not None:
-            pulumi.set(__self__, "additional_configuration", additional_configuration)
+            _setter("additional_configuration", additional_configuration)
         if transport_authentication is not None:
-            pulumi.set(__self__, "transport_authentication", transport_authentication)
+            _setter("transport_authentication", transport_authentication)
         if user_authentication is not None:
-            pulumi.set(__self__, "user_authentication", user_authentication)
+            _setter("user_authentication", user_authentication)
 
     @property
     @pulumi.getter(name="targetAddress")
@@ -341,10 +472,23 @@ class AssetExtendedLocationArgs:
         :param pulumi.Input[str] name: The extended location name.
         :param pulumi.Input[str] type: The extended location type.
         """
+        AssetExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -386,17 +530,46 @@ class AssetPropertiesDataPointsArgs:
         :param pulumi.Input[str] name: The name of the data point.
         :param pulumi.Input[Union[str, 'DataPointsObservabilityMode']] observability_mode: An indication of how the data point should be mapped to OpenTelemetry.
         """
-        pulumi.set(__self__, "data_source", data_source)
+        AssetPropertiesDataPointsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            capability_id=capability_id,
+            data_point_configuration=data_point_configuration,
+            name=name,
+            observability_mode=observability_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: Optional[pulumi.Input[str]] = None,
+             capability_id: Optional[pulumi.Input[str]] = None,
+             data_point_configuration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             observability_mode: Optional[pulumi.Input[Union[str, 'DataPointsObservabilityMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_source is None:
+            raise TypeError("Missing 'data_source' argument")
+        if capability_id is None and 'capabilityId' in kwargs:
+            capability_id = kwargs['capabilityId']
+        if data_point_configuration is None and 'dataPointConfiguration' in kwargs:
+            data_point_configuration = kwargs['dataPointConfiguration']
+        if observability_mode is None and 'observabilityMode' in kwargs:
+            observability_mode = kwargs['observabilityMode']
+
+        _setter("data_source", data_source)
         if capability_id is not None:
-            pulumi.set(__self__, "capability_id", capability_id)
+            _setter("capability_id", capability_id)
         if data_point_configuration is not None:
-            pulumi.set(__self__, "data_point_configuration", data_point_configuration)
+            _setter("data_point_configuration", data_point_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if observability_mode is None:
             observability_mode = 'none'
         if observability_mode is not None:
-            pulumi.set(__self__, "observability_mode", observability_mode)
+            _setter("observability_mode", observability_mode)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -474,17 +647,46 @@ class AssetPropertiesEventsArgs:
         :param pulumi.Input[str] name: The name of the event.
         :param pulumi.Input[Union[str, 'EventsObservabilityMode']] observability_mode: An indication of how the event should be mapped to OpenTelemetry.
         """
-        pulumi.set(__self__, "event_notifier", event_notifier)
+        AssetPropertiesEventsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_notifier=event_notifier,
+            capability_id=capability_id,
+            event_configuration=event_configuration,
+            name=name,
+            observability_mode=observability_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_notifier: Optional[pulumi.Input[str]] = None,
+             capability_id: Optional[pulumi.Input[str]] = None,
+             event_configuration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             observability_mode: Optional[pulumi.Input[Union[str, 'EventsObservabilityMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_notifier is None and 'eventNotifier' in kwargs:
+            event_notifier = kwargs['eventNotifier']
+        if event_notifier is None:
+            raise TypeError("Missing 'event_notifier' argument")
+        if capability_id is None and 'capabilityId' in kwargs:
+            capability_id = kwargs['capabilityId']
+        if event_configuration is None and 'eventConfiguration' in kwargs:
+            event_configuration = kwargs['eventConfiguration']
+        if observability_mode is None and 'observabilityMode' in kwargs:
+            observability_mode = kwargs['observabilityMode']
+
+        _setter("event_notifier", event_notifier)
         if capability_id is not None:
-            pulumi.set(__self__, "capability_id", capability_id)
+            _setter("capability_id", capability_id)
         if event_configuration is not None:
-            pulumi.set(__self__, "event_configuration", event_configuration)
+            _setter("event_configuration", event_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if observability_mode is None:
             observability_mode = 'none'
         if observability_mode is not None:
-            pulumi.set(__self__, "observability_mode", observability_mode)
+            _setter("observability_mode", observability_mode)
 
     @property
     @pulumi.getter(name="eventNotifier")
@@ -591,43 +793,118 @@ class AssetPropertiesArgs:
         :param pulumi.Input[str] serial_number: Asset serial number.
         :param pulumi.Input[str] software_revision: Revision number of the software.
         """
-        pulumi.set(__self__, "asset_endpoint_profile_uri", asset_endpoint_profile_uri)
+        AssetPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_endpoint_profile_uri=asset_endpoint_profile_uri,
+            asset_type=asset_type,
+            attributes=attributes,
+            data_points=data_points,
+            default_data_points_configuration=default_data_points_configuration,
+            default_events_configuration=default_events_configuration,
+            description=description,
+            display_name=display_name,
+            documentation_uri=documentation_uri,
+            enabled=enabled,
+            events=events,
+            external_asset_id=external_asset_id,
+            hardware_revision=hardware_revision,
+            manufacturer=manufacturer,
+            manufacturer_uri=manufacturer_uri,
+            model=model,
+            product_code=product_code,
+            serial_number=serial_number,
+            software_revision=software_revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_endpoint_profile_uri: Optional[pulumi.Input[str]] = None,
+             asset_type: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[Any] = None,
+             data_points: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertiesDataPointsArgs']]]] = None,
+             default_data_points_configuration: Optional[pulumi.Input[str]] = None,
+             default_events_configuration: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             documentation_uri: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertiesEventsArgs']]]] = None,
+             external_asset_id: Optional[pulumi.Input[str]] = None,
+             hardware_revision: Optional[pulumi.Input[str]] = None,
+             manufacturer: Optional[pulumi.Input[str]] = None,
+             manufacturer_uri: Optional[pulumi.Input[str]] = None,
+             model: Optional[pulumi.Input[str]] = None,
+             product_code: Optional[pulumi.Input[str]] = None,
+             serial_number: Optional[pulumi.Input[str]] = None,
+             software_revision: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_endpoint_profile_uri is None and 'assetEndpointProfileUri' in kwargs:
+            asset_endpoint_profile_uri = kwargs['assetEndpointProfileUri']
+        if asset_endpoint_profile_uri is None:
+            raise TypeError("Missing 'asset_endpoint_profile_uri' argument")
+        if asset_type is None and 'assetType' in kwargs:
+            asset_type = kwargs['assetType']
+        if data_points is None and 'dataPoints' in kwargs:
+            data_points = kwargs['dataPoints']
+        if default_data_points_configuration is None and 'defaultDataPointsConfiguration' in kwargs:
+            default_data_points_configuration = kwargs['defaultDataPointsConfiguration']
+        if default_events_configuration is None and 'defaultEventsConfiguration' in kwargs:
+            default_events_configuration = kwargs['defaultEventsConfiguration']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if documentation_uri is None and 'documentationUri' in kwargs:
+            documentation_uri = kwargs['documentationUri']
+        if external_asset_id is None and 'externalAssetId' in kwargs:
+            external_asset_id = kwargs['externalAssetId']
+        if hardware_revision is None and 'hardwareRevision' in kwargs:
+            hardware_revision = kwargs['hardwareRevision']
+        if manufacturer_uri is None and 'manufacturerUri' in kwargs:
+            manufacturer_uri = kwargs['manufacturerUri']
+        if product_code is None and 'productCode' in kwargs:
+            product_code = kwargs['productCode']
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if software_revision is None and 'softwareRevision' in kwargs:
+            software_revision = kwargs['softwareRevision']
+
+        _setter("asset_endpoint_profile_uri", asset_endpoint_profile_uri)
         if asset_type is not None:
-            pulumi.set(__self__, "asset_type", asset_type)
+            _setter("asset_type", asset_type)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if data_points is not None:
-            pulumi.set(__self__, "data_points", data_points)
+            _setter("data_points", data_points)
         if default_data_points_configuration is not None:
-            pulumi.set(__self__, "default_data_points_configuration", default_data_points_configuration)
+            _setter("default_data_points_configuration", default_data_points_configuration)
         if default_events_configuration is not None:
-            pulumi.set(__self__, "default_events_configuration", default_events_configuration)
+            _setter("default_events_configuration", default_events_configuration)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if documentation_uri is not None:
-            pulumi.set(__self__, "documentation_uri", documentation_uri)
+            _setter("documentation_uri", documentation_uri)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if external_asset_id is not None:
-            pulumi.set(__self__, "external_asset_id", external_asset_id)
+            _setter("external_asset_id", external_asset_id)
         if hardware_revision is not None:
-            pulumi.set(__self__, "hardware_revision", hardware_revision)
+            _setter("hardware_revision", hardware_revision)
         if manufacturer is not None:
-            pulumi.set(__self__, "manufacturer", manufacturer)
+            _setter("manufacturer", manufacturer)
         if manufacturer_uri is not None:
-            pulumi.set(__self__, "manufacturer_uri", manufacturer_uri)
+            _setter("manufacturer_uri", manufacturer_uri)
         if model is not None:
-            pulumi.set(__self__, "model", model)
+            _setter("model", model)
         if product_code is not None:
-            pulumi.set(__self__, "product_code", product_code)
+            _setter("product_code", product_code)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
         if software_revision is not None:
-            pulumi.set(__self__, "software_revision", software_revision)
+            _setter("software_revision", software_revision)
 
     @property
     @pulumi.getter(name="assetEndpointProfileUri")

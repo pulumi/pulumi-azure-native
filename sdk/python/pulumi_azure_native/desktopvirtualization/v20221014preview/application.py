@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -47,31 +47,100 @@ class ApplicationArgs:
         :param pulumi.Input[str] msix_package_family_name: Specifies the package family name for MSIX applications
         :param pulumi.Input[bool] show_in_portal: Specifies whether to show the RemoteApp program in the RD Web Access server.
         """
-        pulumi.set(__self__, "application_group_name", application_group_name)
-        pulumi.set(__self__, "command_line_setting", command_line_setting)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_group_name=application_group_name,
+            command_line_setting=command_line_setting,
+            resource_group_name=resource_group_name,
+            application_name=application_name,
+            application_type=application_type,
+            command_line_arguments=command_line_arguments,
+            description=description,
+            file_path=file_path,
+            friendly_name=friendly_name,
+            icon_index=icon_index,
+            icon_path=icon_path,
+            msix_package_application_id=msix_package_application_id,
+            msix_package_family_name=msix_package_family_name,
+            show_in_portal=show_in_portal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_group_name: Optional[pulumi.Input[str]] = None,
+             command_line_setting: Optional[pulumi.Input[Union[str, 'CommandLineSetting']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             application_name: Optional[pulumi.Input[str]] = None,
+             application_type: Optional[pulumi.Input[Union[str, 'RemoteApplicationType']]] = None,
+             command_line_arguments: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             file_path: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             icon_index: Optional[pulumi.Input[int]] = None,
+             icon_path: Optional[pulumi.Input[str]] = None,
+             msix_package_application_id: Optional[pulumi.Input[str]] = None,
+             msix_package_family_name: Optional[pulumi.Input[str]] = None,
+             show_in_portal: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_group_name is None and 'applicationGroupName' in kwargs:
+            application_group_name = kwargs['applicationGroupName']
+        if application_group_name is None:
+            raise TypeError("Missing 'application_group_name' argument")
+        if command_line_setting is None and 'commandLineSetting' in kwargs:
+            command_line_setting = kwargs['commandLineSetting']
+        if command_line_setting is None:
+            raise TypeError("Missing 'command_line_setting' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_type is None and 'applicationType' in kwargs:
+            application_type = kwargs['applicationType']
+        if command_line_arguments is None and 'commandLineArguments' in kwargs:
+            command_line_arguments = kwargs['commandLineArguments']
+        if file_path is None and 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if icon_index is None and 'iconIndex' in kwargs:
+            icon_index = kwargs['iconIndex']
+        if icon_path is None and 'iconPath' in kwargs:
+            icon_path = kwargs['iconPath']
+        if msix_package_application_id is None and 'msixPackageApplicationId' in kwargs:
+            msix_package_application_id = kwargs['msixPackageApplicationId']
+        if msix_package_family_name is None and 'msixPackageFamilyName' in kwargs:
+            msix_package_family_name = kwargs['msixPackageFamilyName']
+        if show_in_portal is None and 'showInPortal' in kwargs:
+            show_in_portal = kwargs['showInPortal']
+
+        _setter("application_group_name", application_group_name)
+        _setter("command_line_setting", command_line_setting)
+        _setter("resource_group_name", resource_group_name)
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if application_type is not None:
-            pulumi.set(__self__, "application_type", application_type)
+            _setter("application_type", application_type)
         if command_line_arguments is not None:
-            pulumi.set(__self__, "command_line_arguments", command_line_arguments)
+            _setter("command_line_arguments", command_line_arguments)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
+            _setter("file_path", file_path)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if icon_index is not None:
-            pulumi.set(__self__, "icon_index", icon_index)
+            _setter("icon_index", icon_index)
         if icon_path is not None:
-            pulumi.set(__self__, "icon_path", icon_path)
+            _setter("icon_path", icon_path)
         if msix_package_application_id is not None:
-            pulumi.set(__self__, "msix_package_application_id", msix_package_application_id)
+            _setter("msix_package_application_id", msix_package_application_id)
         if msix_package_family_name is not None:
-            pulumi.set(__self__, "msix_package_family_name", msix_package_family_name)
+            _setter("msix_package_family_name", msix_package_family_name)
         if show_in_portal is not None:
-            pulumi.set(__self__, "show_in_portal", show_in_portal)
+            _setter("show_in_portal", show_in_portal)
 
     @property
     @pulumi.getter(name="applicationGroupName")
@@ -301,6 +370,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,61 @@ class ElasticSanArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
-        pulumi.set(__self__, "base_size_ti_b", base_size_ti_b)
-        pulumi.set(__self__, "extended_capacity_size_ti_b", extended_capacity_size_ti_b)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ElasticSanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base_size_ti_b=base_size_ti_b,
+            extended_capacity_size_ti_b=extended_capacity_size_ti_b,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            availability_zones=availability_zones,
+            elastic_san_name=elastic_san_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base_size_ti_b: Optional[pulumi.Input[float]] = None,
+             extended_capacity_size_ti_b: Optional[pulumi.Input[float]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             elastic_san_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_size_ti_b is None and 'baseSizeTiB' in kwargs:
+            base_size_ti_b = kwargs['baseSizeTiB']
+        if base_size_ti_b is None:
+            raise TypeError("Missing 'base_size_ti_b' argument")
+        if extended_capacity_size_ti_b is None and 'extendedCapacitySizeTiB' in kwargs:
+            extended_capacity_size_ti_b = kwargs['extendedCapacitySizeTiB']
+        if extended_capacity_size_ti_b is None:
+            raise TypeError("Missing 'extended_capacity_size_ti_b' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if elastic_san_name is None and 'elasticSanName' in kwargs:
+            elastic_san_name = kwargs['elasticSanName']
+
+        _setter("base_size_ti_b", base_size_ti_b)
+        _setter("extended_capacity_size_ti_b", extended_capacity_size_ti_b)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if elastic_san_name is not None:
-            pulumi.set(__self__, "elastic_san_name", elastic_san_name)
+            _setter("elastic_san_name", elastic_san_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="baseSizeTiB")
@@ -193,6 +236,10 @@ class ElasticSan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ElasticSanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -227,6 +274,7 @@ class ElasticSan(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

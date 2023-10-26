@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -24,7 +24,20 @@ class ConnectionPropertiesResponsePrivateEndpoint(dict):
         """
         :param str id: The resource identifier.
         """
-        pulumi.set(__self__, "id", id)
+        ConnectionPropertiesResponsePrivateEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -63,10 +76,31 @@ class ConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
         :param str status: The status of a private endpoint connection.
         :param str actions_required: Actions required for a private endpoint connection.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        ConnectionPropertiesResponsePrivateLinkServiceConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+            actions_required=actions_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             actions_required: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
+        _setter("description", description)
+        _setter("status", status)
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
 
     @property
     @pulumi.getter
@@ -127,13 +161,40 @@ class PrivateEndpointConnectionResponseProperties(dict):
         :param str provisioning_state: The provisioning state.
         :param Sequence[str] group_ids: The list of group ids for the private endpoint connection.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        PrivateEndpointConnectionResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            group_ids=group_ids,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             group_ids: Optional[Sequence[str]] = None,
+             private_endpoint: Optional['outputs.ConnectionPropertiesResponsePrivateEndpoint'] = None,
+             private_link_service_connection_state: Optional['outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("provisioning_state", provisioning_state)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="provisioningState")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,8 +54,21 @@ class ARecordResponse(dict):
         An A record.
         :param str ipv4_address: The IPv4 address of this A record.
         """
+        ARecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4_address=ipv4_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv4_address is None and 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
 
     @property
     @pulumi.getter(name="ipv4Address")
@@ -94,8 +107,21 @@ class AaaaRecordResponse(dict):
         An AAAA record.
         :param str ipv6_address: The IPv6 address of this AAAA record.
         """
+        AaaaRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv6_address=ipv6_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv6_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_address is None and 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+
         if ipv6_address is not None:
-            pulumi.set(__self__, "ipv6_address", ipv6_address)
+            _setter("ipv6_address", ipv6_address)
 
     @property
     @pulumi.getter(name="ipv6Address")
@@ -121,12 +147,27 @@ class CaaRecordResponse(dict):
         :param str tag: The tag for this CAA record.
         :param str value: The value for this CAA record.
         """
+        CaaRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            flags=flags,
+            tag=tag,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             flags: Optional[int] = None,
+             tag: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if flags is not None:
-            pulumi.set(__self__, "flags", flags)
+            _setter("flags", flags)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -164,8 +205,19 @@ class CnameRecordResponse(dict):
         A CNAME record.
         :param str cname: The canonical name for this CNAME record.
         """
+        CnameRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cname=cname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cname: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
 
     @property
     @pulumi.getter
@@ -189,10 +241,27 @@ class DnsResourceReferenceResponse(dict):
         :param Sequence['SubResourceResponse'] dns_resources: A list of dns Records 
         :param 'SubResourceResponse' target_resource: A reference to an azure resource from where the dns resource value is taken.
         """
+        DnsResourceReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_resources=dns_resources,
+            target_resource=target_resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_resources: Optional[Sequence['outputs.SubResourceResponse']] = None,
+             target_resource: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_resources is None and 'dnsResources' in kwargs:
+            dns_resources = kwargs['dnsResources']
+        if target_resource is None and 'targetResource' in kwargs:
+            target_resource = kwargs['targetResource']
+
         if dns_resources is not None:
-            pulumi.set(__self__, "dns_resources", dns_resources)
+            _setter("dns_resources", dns_resources)
         if target_resource is not None:
-            pulumi.set(__self__, "target_resource", target_resource)
+            _setter("target_resource", target_resource)
 
     @property
     @pulumi.getter(name="dnsResources")
@@ -224,10 +293,23 @@ class MxRecordResponse(dict):
         :param str exchange: The domain name of the mail host for this MX record.
         :param int preference: The preference value for this MX record.
         """
+        MxRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exchange=exchange,
+            preference=preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exchange: Optional[str] = None,
+             preference: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if exchange is not None:
-            pulumi.set(__self__, "exchange", exchange)
+            _setter("exchange", exchange)
         if preference is not None:
-            pulumi.set(__self__, "preference", preference)
+            _setter("preference", preference)
 
     @property
     @pulumi.getter
@@ -257,8 +339,19 @@ class NsRecordResponse(dict):
         An NS record.
         :param str nsdname: The name server name for this NS record.
         """
+        NsRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nsdname=nsdname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nsdname: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if nsdname is not None:
-            pulumi.set(__self__, "nsdname", nsdname)
+            _setter("nsdname", nsdname)
 
     @property
     @pulumi.getter
@@ -280,8 +373,19 @@ class PtrRecordResponse(dict):
         A PTR record.
         :param str ptrdname: The PTR target domain name for this PTR record.
         """
+        PtrRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ptrdname=ptrdname,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ptrdname: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ptrdname is not None:
-            pulumi.set(__self__, "ptrdname", ptrdname)
+            _setter("ptrdname", ptrdname)
 
     @property
     @pulumi.getter
@@ -340,20 +444,53 @@ class SoaRecordResponse(dict):
         :param float retry_time: The retry time for this SOA record.
         :param float serial_number: The serial number for this SOA record.
         """
+        SoaRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            expire_time=expire_time,
+            host=host,
+            minimum_ttl=minimum_ttl,
+            refresh_time=refresh_time,
+            retry_time=retry_time,
+            serial_number=serial_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[str] = None,
+             expire_time: Optional[float] = None,
+             host: Optional[str] = None,
+             minimum_ttl: Optional[float] = None,
+             refresh_time: Optional[float] = None,
+             retry_time: Optional[float] = None,
+             serial_number: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expire_time is None and 'expireTime' in kwargs:
+            expire_time = kwargs['expireTime']
+        if minimum_ttl is None and 'minimumTtl' in kwargs:
+            minimum_ttl = kwargs['minimumTtl']
+        if refresh_time is None and 'refreshTime' in kwargs:
+            refresh_time = kwargs['refreshTime']
+        if retry_time is None and 'retryTime' in kwargs:
+            retry_time = kwargs['retryTime']
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if expire_time is not None:
-            pulumi.set(__self__, "expire_time", expire_time)
+            _setter("expire_time", expire_time)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if minimum_ttl is not None:
-            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
+            _setter("minimum_ttl", minimum_ttl)
         if refresh_time is not None:
-            pulumi.set(__self__, "refresh_time", refresh_time)
+            _setter("refresh_time", refresh_time)
         if retry_time is not None:
-            pulumi.set(__self__, "retry_time", retry_time)
+            _setter("retry_time", retry_time)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
 
     @property
     @pulumi.getter
@@ -429,14 +566,31 @@ class SrvRecordResponse(dict):
         :param str target: The target domain name for this SRV record.
         :param int weight: The weight value for this SRV record.
         """
+        SrvRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            priority=priority,
+            target=target,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[int] = None,
+             priority: Optional[int] = None,
+             target: Optional[str] = None,
+             weight: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -482,8 +636,19 @@ class SubResourceResponse(dict):
         A reference to a another resource
         :param str id: Resource Id.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -505,8 +670,19 @@ class TxtRecordResponse(dict):
         A TXT record.
         :param Sequence[str] value: The text value of this TXT record.
         """
+        TxtRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter

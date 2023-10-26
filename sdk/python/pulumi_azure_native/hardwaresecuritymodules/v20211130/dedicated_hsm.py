@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,61 @@ class DedicatedHsmArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hsm zones.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        DedicatedHsmArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            location=location,
+            management_network_profile=management_network_profile,
+            name=name,
+            network_profile=network_profile,
+            stamp_id=stamp_id,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             management_network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             stamp_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if management_network_profile is None and 'managementNetworkProfile' in kwargs:
+            management_network_profile = kwargs['managementNetworkProfile']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if stamp_id is None and 'stampId' in kwargs:
+            stamp_id = kwargs['stampId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if management_network_profile is not None:
-            pulumi.set(__self__, "management_network_profile", management_network_profile)
+            _setter("management_network_profile", management_network_profile)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if stamp_id is not None:
-            pulumi.set(__self__, "stamp_id", stamp_id)
+            _setter("stamp_id", stamp_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -213,6 +252,10 @@ class DedicatedHsm(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedHsmArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -237,12 +280,15 @@ class DedicatedHsm(pulumi.CustomResource):
             __props__ = DedicatedHsmArgs.__new__(DedicatedHsmArgs)
 
             __props__.__dict__["location"] = location
+            management_network_profile = _utilities.configure(management_network_profile, NetworkProfileArgs, True)
             __props__.__dict__["management_network_profile"] = management_network_profile
             __props__.__dict__["name"] = name
+            network_profile = _utilities.configure(network_profile, NetworkProfileArgs, True)
             __props__.__dict__["network_profile"] = network_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

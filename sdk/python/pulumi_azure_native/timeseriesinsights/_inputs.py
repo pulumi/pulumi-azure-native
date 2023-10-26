@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -31,8 +31,29 @@ class Gen2StorageConfigurationInputArgs:
         :param pulumi.Input[str] account_name: The name of the storage account that will hold the environment's Gen2 data.
         :param pulumi.Input[str] management_key: The value of the management key that grants the Time Series Insights service write access to the storage account. This property is not shown in environment responses.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "management_key", management_key)
+        Gen2StorageConfigurationInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            management_key=management_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             management_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if management_key is None and 'managementKey' in kwargs:
+            management_key = kwargs['managementKey']
+        if management_key is None:
+            raise TypeError("Missing 'management_key' argument")
+
+        _setter("account_name", account_name)
+        _setter("management_key", management_key)
 
     @property
     @pulumi.getter(name="accountName")
@@ -67,8 +88,21 @@ class LocalTimestampTimeZoneOffsetArgs:
         An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
         :param pulumi.Input[str] property_name: The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
         """
+        LocalTimestampTimeZoneOffsetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            property_name=property_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             property_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property_name is None and 'propertyName' in kwargs:
+            property_name = kwargs['propertyName']
+
         if property_name is not None:
-            pulumi.set(__self__, "property_name", property_name)
+            _setter("property_name", property_name)
 
     @property
     @pulumi.getter(name="propertyName")
@@ -93,10 +127,25 @@ class LocalTimestampArgs:
         :param pulumi.Input[Union[str, 'LocalTimestampFormat']] format: An enum that represents the format of the local timestamp property that needs to be set.
         :param pulumi.Input['LocalTimestampTimeZoneOffsetArgs'] time_zone_offset: An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
         """
+        LocalTimestampArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format=format,
+            time_zone_offset=time_zone_offset,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format: Optional[pulumi.Input[Union[str, 'LocalTimestampFormat']]] = None,
+             time_zone_offset: Optional[pulumi.Input['LocalTimestampTimeZoneOffsetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_zone_offset is None and 'timeZoneOffset' in kwargs:
+            time_zone_offset = kwargs['timeZoneOffset']
+
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if time_zone_offset is not None:
-            pulumi.set(__self__, "time_zone_offset", time_zone_offset)
+            _setter("time_zone_offset", time_zone_offset)
 
     @property
     @pulumi.getter
@@ -135,12 +184,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -189,10 +255,23 @@ class ReferenceDataSetKeyPropertyArgs:
         :param pulumi.Input[str] name: The name of the key property.
         :param pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']] type: The type of the key property.
         """
+        ReferenceDataSetKeyPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -229,8 +308,25 @@ class SkuArgs:
         :param pulumi.Input[int] capacity: The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
         :param pulumi.Input[Union[str, 'SkuName']] name: The name of this SKU.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("capacity", capacity)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -267,10 +363,23 @@ class TimeSeriesIdPropertyArgs:
         :param pulumi.Input[str] name: The name of the property.
         :param pulumi.Input[Union[str, 'PropertyType']] type: The type of the property.
         """
+        TimeSeriesIdPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'PropertyType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -305,7 +414,22 @@ class WarmStoreConfigurationPropertiesArgs:
         The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
         :param pulumi.Input[str] data_retention: ISO8601 timespan specifying the number of days the environment's events will be available for query from the warm store.
         """
-        pulumi.set(__self__, "data_retention", data_retention)
+        WarmStoreConfigurationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_retention=data_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_retention: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_retention is None and 'dataRetention' in kwargs:
+            data_retention = kwargs['dataRetention']
+        if data_retention is None:
+            raise TypeError("Missing 'data_retention' argument")
+
+        _setter("data_retention", data_retention)
 
     @property
     @pulumi.getter(name="dataRetention")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,26 +44,81 @@ class FlowLogArgs:
         :param pulumi.Input['RetentionPolicyParametersArgs'] retention_policy: Parameters that define the retention policy for flow log.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_id", storage_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        FlowLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            storage_id=storage_id,
+            target_resource_id=target_resource_id,
+            enabled=enabled,
+            flow_analytics_configuration=flow_analytics_configuration,
+            flow_log_name=flow_log_name,
+            format=format,
+            id=id,
+            location=location,
+            retention_policy=retention_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             flow_analytics_configuration: Optional[pulumi.Input['TrafficAnalyticsPropertiesArgs']] = None,
+             flow_log_name: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input['FlowLogFormatParametersArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['RetentionPolicyParametersArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
+            network_watcher_name = kwargs['networkWatcherName']
+        if network_watcher_name is None:
+            raise TypeError("Missing 'network_watcher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_id is None and 'storageId' in kwargs:
+            storage_id = kwargs['storageId']
+        if storage_id is None:
+            raise TypeError("Missing 'storage_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if flow_analytics_configuration is None and 'flowAnalyticsConfiguration' in kwargs:
+            flow_analytics_configuration = kwargs['flowAnalyticsConfiguration']
+        if flow_log_name is None and 'flowLogName' in kwargs:
+            flow_log_name = kwargs['flowLogName']
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
+        _setter("network_watcher_name", network_watcher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_id", storage_id)
+        _setter("target_resource_id", target_resource_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if flow_analytics_configuration is not None:
-            pulumi.set(__self__, "flow_analytics_configuration", flow_analytics_configuration)
+            _setter("flow_analytics_configuration", flow_analytics_configuration)
         if flow_log_name is not None:
-            pulumi.set(__self__, "flow_log_name", flow_log_name)
+            _setter("flow_log_name", flow_log_name)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkWatcherName")
@@ -265,6 +320,10 @@ class FlowLog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlowLogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -292,8 +351,10 @@ class FlowLog(pulumi.CustomResource):
             __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
             __props__.__dict__["enabled"] = enabled
+            flow_analytics_configuration = _utilities.configure(flow_analytics_configuration, TrafficAnalyticsPropertiesArgs, True)
             __props__.__dict__["flow_analytics_configuration"] = flow_analytics_configuration
             __props__.__dict__["flow_log_name"] = flow_log_name
+            format = _utilities.configure(format, FlowLogFormatParametersArgs, True)
             __props__.__dict__["format"] = format
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
@@ -303,6 +364,7 @@ class FlowLog(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            retention_policy = _utilities.configure(retention_policy, RetentionPolicyParametersArgs, True)
             __props__.__dict__["retention_policy"] = retention_policy
             if storage_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_id'")

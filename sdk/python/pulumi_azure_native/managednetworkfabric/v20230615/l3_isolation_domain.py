@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,28 +40,75 @@ class L3IsolationDomainArgs:
         :param pulumi.Input[Union[str, 'RedistributeStaticRoutes']] redistribute_static_routes: Advertise Static Routes. Ex: "True" | "False".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        L3IsolationDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_fabric_id=network_fabric_id,
+            resource_group_name=resource_group_name,
+            aggregate_route_configuration=aggregate_route_configuration,
+            annotation=annotation,
+            connected_subnet_route_policy=connected_subnet_route_policy,
+            l3_isolation_domain_name=l3_isolation_domain_name,
+            location=location,
+            redistribute_connected_subnets=redistribute_connected_subnets,
+            redistribute_static_routes=redistribute_static_routes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_fabric_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             aggregate_route_configuration: Optional[pulumi.Input['AggregateRouteConfigurationArgs']] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             connected_subnet_route_policy: Optional[pulumi.Input['ConnectedSubnetRoutePolicyArgs']] = None,
+             l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             redistribute_connected_subnets: Optional[pulumi.Input[Union[str, 'RedistributeConnectedSubnets']]] = None,
+             redistribute_static_routes: Optional[pulumi.Input[Union[str, 'RedistributeStaticRoutes']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_fabric_id is None and 'networkFabricId' in kwargs:
+            network_fabric_id = kwargs['networkFabricId']
+        if network_fabric_id is None:
+            raise TypeError("Missing 'network_fabric_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if aggregate_route_configuration is None and 'aggregateRouteConfiguration' in kwargs:
+            aggregate_route_configuration = kwargs['aggregateRouteConfiguration']
+        if connected_subnet_route_policy is None and 'connectedSubnetRoutePolicy' in kwargs:
+            connected_subnet_route_policy = kwargs['connectedSubnetRoutePolicy']
+        if l3_isolation_domain_name is None and 'l3IsolationDomainName' in kwargs:
+            l3_isolation_domain_name = kwargs['l3IsolationDomainName']
+        if redistribute_connected_subnets is None and 'redistributeConnectedSubnets' in kwargs:
+            redistribute_connected_subnets = kwargs['redistributeConnectedSubnets']
+        if redistribute_static_routes is None and 'redistributeStaticRoutes' in kwargs:
+            redistribute_static_routes = kwargs['redistributeStaticRoutes']
+
+        _setter("network_fabric_id", network_fabric_id)
+        _setter("resource_group_name", resource_group_name)
         if aggregate_route_configuration is not None:
-            pulumi.set(__self__, "aggregate_route_configuration", aggregate_route_configuration)
+            _setter("aggregate_route_configuration", aggregate_route_configuration)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if connected_subnet_route_policy is not None:
-            pulumi.set(__self__, "connected_subnet_route_policy", connected_subnet_route_policy)
+            _setter("connected_subnet_route_policy", connected_subnet_route_policy)
         if l3_isolation_domain_name is not None:
-            pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
+            _setter("l3_isolation_domain_name", l3_isolation_domain_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if redistribute_connected_subnets is None:
             redistribute_connected_subnets = 'True'
         if redistribute_connected_subnets is not None:
-            pulumi.set(__self__, "redistribute_connected_subnets", redistribute_connected_subnets)
+            _setter("redistribute_connected_subnets", redistribute_connected_subnets)
         if redistribute_static_routes is None:
             redistribute_static_routes = 'False'
         if redistribute_static_routes is not None:
-            pulumi.set(__self__, "redistribute_static_routes", redistribute_static_routes)
+            _setter("redistribute_static_routes", redistribute_static_routes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkFabricId")
@@ -235,6 +282,10 @@ class L3IsolationDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            L3IsolationDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -259,8 +310,10 @@ class L3IsolationDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = L3IsolationDomainArgs.__new__(L3IsolationDomainArgs)
 
+            aggregate_route_configuration = _utilities.configure(aggregate_route_configuration, AggregateRouteConfigurationArgs, True)
             __props__.__dict__["aggregate_route_configuration"] = aggregate_route_configuration
             __props__.__dict__["annotation"] = annotation
+            connected_subnet_route_policy = _utilities.configure(connected_subnet_route_policy, ConnectedSubnetRoutePolicyArgs, True)
             __props__.__dict__["connected_subnet_route_policy"] = connected_subnet_route_policy
             __props__.__dict__["l3_isolation_domain_name"] = l3_isolation_domain_name
             __props__.__dict__["location"] = location

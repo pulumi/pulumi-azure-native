@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -29,12 +29,49 @@ class ContainerArgs:
         :param pulumi.Input[str] storage_account_name: The Storage Account Name
         :param pulumi.Input[str] container_name: The container name.
         """
-        pulumi.set(__self__, "data_format", data_format)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        ContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_format=data_format,
+            device_name=device_name,
+            resource_group_name=resource_group_name,
+            storage_account_name=storage_account_name,
+            container_name=container_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_format: Optional[pulumi.Input[Union[str, 'AzureContainerDataFormat']]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_format is None and 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if data_format is None:
+            raise TypeError("Missing 'data_format' argument")
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+
+        _setter("data_format", data_format)
+        _setter("device_name", device_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_name", storage_account_name)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
 
     @property
     @pulumi.getter(name="dataFormat")
@@ -138,6 +175,10 @@ class Container(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

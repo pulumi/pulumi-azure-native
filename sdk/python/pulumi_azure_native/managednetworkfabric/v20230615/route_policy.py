@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,25 +38,68 @@ class RoutePolicyArgs:
         :param pulumi.Input[str] route_policy_name: Name of the Route Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "statements", statements)
+        RoutePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_fabric_id=network_fabric_id,
+            resource_group_name=resource_group_name,
+            statements=statements,
+            address_family_type=address_family_type,
+            annotation=annotation,
+            default_action=default_action,
+            location=location,
+            route_policy_name=route_policy_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_fabric_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             statements: Optional[pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]]] = None,
+             address_family_type: Optional[pulumi.Input[Union[str, 'AddressFamilyType']]] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             default_action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             route_policy_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_fabric_id is None and 'networkFabricId' in kwargs:
+            network_fabric_id = kwargs['networkFabricId']
+        if network_fabric_id is None:
+            raise TypeError("Missing 'network_fabric_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if statements is None:
+            raise TypeError("Missing 'statements' argument")
+        if address_family_type is None and 'addressFamilyType' in kwargs:
+            address_family_type = kwargs['addressFamilyType']
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if route_policy_name is None and 'routePolicyName' in kwargs:
+            route_policy_name = kwargs['routePolicyName']
+
+        _setter("network_fabric_id", network_fabric_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("statements", statements)
         if address_family_type is None:
             address_family_type = 'IPv4'
         if address_family_type is not None:
-            pulumi.set(__self__, "address_family_type", address_family_type)
+            _setter("address_family_type", address_family_type)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if default_action is None:
             default_action = 'Deny'
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if route_policy_name is not None:
-            pulumi.set(__self__, "route_policy_name", route_policy_name)
+            _setter("route_policy_name", route_policy_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkFabricId")
@@ -216,6 +259,10 @@ class RoutePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoutePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

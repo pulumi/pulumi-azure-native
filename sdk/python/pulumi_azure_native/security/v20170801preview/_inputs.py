@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,10 +25,27 @@ class RecommendationConfigurationPropertiesArgs:
         :param pulumi.Input[Union[str, 'RecommendationType']] recommendation_type: The recommendation type.
         :param pulumi.Input[Union[str, 'RecommendationConfigStatus']] status: Recommendation status. The recommendation is not generated when the status is disabled
         """
-        pulumi.set(__self__, "recommendation_type", recommendation_type)
+        RecommendationConfigurationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recommendation_type=recommendation_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recommendation_type: Optional[pulumi.Input[Union[str, 'RecommendationType']]] = None,
+             status: Optional[pulumi.Input[Union[str, 'RecommendationConfigStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recommendation_type is None and 'recommendationType' in kwargs:
+            recommendation_type = kwargs['recommendationType']
+        if recommendation_type is None:
+            raise TypeError("Missing 'recommendation_type' argument")
+
+        _setter("recommendation_type", recommendation_type)
         if status is None:
             status = 'Enabled'
-        pulumi.set(__self__, "status", status)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="recommendationType")
@@ -65,8 +82,27 @@ class UserDefinedResourcesPropertiesArgs:
         :param pulumi.Input[str] query: Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
         :param pulumi.Input[Sequence[pulumi.Input[str]]] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
         """
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "query_subscriptions", query_subscriptions)
+        UserDefinedResourcesPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query=query,
+            query_subscriptions=query_subscriptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query: Optional[pulumi.Input[str]] = None,
+             query_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if query_subscriptions is None and 'querySubscriptions' in kwargs:
+            query_subscriptions = kwargs['querySubscriptions']
+        if query_subscriptions is None:
+            raise TypeError("Missing 'query_subscriptions' argument")
+
+        _setter("query", query)
+        _setter("query_subscriptions", query_subscriptions)
 
     @property
     @pulumi.getter

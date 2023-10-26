@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -119,9 +119,36 @@ class AzureActiveDirectoryAppArgs:
         :param pulumi.Input[str] application_id: Application ID of the Azure Active Directory Application
         :param pulumi.Input[str] tenant_id: Tenant id of the customer
         """
-        pulumi.set(__self__, "app_key", app_key)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        AzureActiveDirectoryAppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_key=app_key,
+            application_id=application_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_key: Optional[pulumi.Input[str]] = None,
+             application_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_key is None and 'appKey' in kwargs:
+            app_key = kwargs['appKey']
+        if app_key is None:
+            raise TypeError("Missing 'app_key' argument")
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("app_key", app_key)
+        _setter("application_id", application_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="appKey")
@@ -168,7 +195,22 @@ class BlobShareArgs:
         Blob container storage information.
         :param pulumi.Input[str] sas_uri: SAS URI of Azure Storage Account Container.
         """
-        pulumi.set(__self__, "sas_uri", sas_uri)
+        BlobShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sas_uri=sas_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sas_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sas_uri is None and 'sasUri' in kwargs:
+            sas_uri = kwargs['sasUri']
+        if sas_uri is None:
+            raise TypeError("Missing 'sas_uri' argument")
+
+        _setter("sas_uri", sas_uri)
 
     @property
     @pulumi.getter(name="sasUri")
@@ -196,11 +238,32 @@ class ConnectToMongoDbTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MongoDbConnectionInfoArgs'] input: Describes a connection to a MongoDB data source
         """
-        pulumi.set(__self__, "task_type", 'Connect.MongoDb')
+        ConnectToMongoDbTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MongoDbConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Connect.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -254,15 +317,42 @@ class ConnectToSourceMySqlTaskInputArgs:
         :param pulumi.Input[bool] is_offline_migration: Flag for whether or not the migration is offline
         :param pulumi.Input[Union[str, 'MySqlTargetPlatformType']] target_platform: Target Platform for the migration
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceMySqlTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            check_permissions_group=check_permissions_group,
+            is_offline_migration=is_offline_migration,
+            target_platform=target_platform,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional[pulumi.Input['MySqlConnectionInfoArgs']] = None,
+             check_permissions_group: Optional[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]] = None,
+             is_offline_migration: Optional[pulumi.Input[bool]] = None,
+             target_platform: Optional[pulumi.Input[Union[str, 'MySqlTargetPlatformType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if check_permissions_group is None and 'checkPermissionsGroup' in kwargs:
+            check_permissions_group = kwargs['checkPermissionsGroup']
+        if is_offline_migration is None and 'isOfflineMigration' in kwargs:
+            is_offline_migration = kwargs['isOfflineMigration']
+        if target_platform is None and 'targetPlatform' in kwargs:
+            target_platform = kwargs['targetPlatform']
+
+        _setter("source_connection_info", source_connection_info)
         if check_permissions_group is not None:
-            pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+            _setter("check_permissions_group", check_permissions_group)
         if is_offline_migration is None:
             is_offline_migration = False
         if is_offline_migration is not None:
-            pulumi.set(__self__, "is_offline_migration", is_offline_migration)
+            _setter("is_offline_migration", is_offline_migration)
         if target_platform is not None:
-            pulumi.set(__self__, "target_platform", target_platform)
+            _setter("target_platform", target_platform)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -326,11 +416,32 @@ class ConnectToSourceMySqlTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToSourceMySqlTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToSource.MySql')
+        ConnectToSourceMySqlTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToSourceMySqlTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToSource.MySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -378,7 +489,22 @@ class ConnectToSourceOracleSyncTaskInputArgs:
         Input for the task that validates Oracle database connection
         :param pulumi.Input['OracleConnectionInfoArgs'] source_connection_info: Information for connecting to Oracle source
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceOracleSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional[pulumi.Input['OracleConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -406,11 +532,32 @@ class ConnectToSourceOracleSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToSourceOracleSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToSource.Oracle.Sync')
+        ConnectToSourceOracleSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToSourceOracleSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToSource.Oracle.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -458,7 +605,22 @@ class ConnectToSourcePostgreSqlSyncTaskInputArgs:
         Input for the task that validates connection to PostgreSQL and source server requirements
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] source_connection_info: Connection information for source PostgreSQL server
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourcePostgreSqlSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional[pulumi.Input['PostgreSqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -486,11 +648,32 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToSourcePostgreSqlSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToSource.PostgreSql.Sync')
+        ConnectToSourcePostgreSqlSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToSourcePostgreSqlSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToSource.PostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -543,11 +726,32 @@ class ConnectToSourceSqlServerSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToSourceSqlServerTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer.Sync')
+        ConnectToSourceSqlServerSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToSource.SqlServer.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -607,29 +811,68 @@ class ConnectToSourceSqlServerTaskInputArgs:
         :param pulumi.Input[bool] collect_tde_certificate_info: Flag for whether to collect TDE Certificate names from source server.
         :param pulumi.Input[bool] validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the source server.
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceSqlServerTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            check_permissions_group=check_permissions_group,
+            collect_agent_jobs=collect_agent_jobs,
+            collect_databases=collect_databases,
+            collect_logins=collect_logins,
+            collect_tde_certificate_info=collect_tde_certificate_info,
+            validate_ssis_catalog_only=validate_ssis_catalog_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             check_permissions_group: Optional[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]] = None,
+             collect_agent_jobs: Optional[pulumi.Input[bool]] = None,
+             collect_databases: Optional[pulumi.Input[bool]] = None,
+             collect_logins: Optional[pulumi.Input[bool]] = None,
+             collect_tde_certificate_info: Optional[pulumi.Input[bool]] = None,
+             validate_ssis_catalog_only: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if check_permissions_group is None and 'checkPermissionsGroup' in kwargs:
+            check_permissions_group = kwargs['checkPermissionsGroup']
+        if collect_agent_jobs is None and 'collectAgentJobs' in kwargs:
+            collect_agent_jobs = kwargs['collectAgentJobs']
+        if collect_databases is None and 'collectDatabases' in kwargs:
+            collect_databases = kwargs['collectDatabases']
+        if collect_logins is None and 'collectLogins' in kwargs:
+            collect_logins = kwargs['collectLogins']
+        if collect_tde_certificate_info is None and 'collectTdeCertificateInfo' in kwargs:
+            collect_tde_certificate_info = kwargs['collectTdeCertificateInfo']
+        if validate_ssis_catalog_only is None and 'validateSsisCatalogOnly' in kwargs:
+            validate_ssis_catalog_only = kwargs['validateSsisCatalogOnly']
+
+        _setter("source_connection_info", source_connection_info)
         if check_permissions_group is not None:
-            pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+            _setter("check_permissions_group", check_permissions_group)
         if collect_agent_jobs is None:
             collect_agent_jobs = False
         if collect_agent_jobs is not None:
-            pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+            _setter("collect_agent_jobs", collect_agent_jobs)
         if collect_databases is None:
             collect_databases = True
         if collect_databases is not None:
-            pulumi.set(__self__, "collect_databases", collect_databases)
+            _setter("collect_databases", collect_databases)
         if collect_logins is None:
             collect_logins = False
         if collect_logins is not None:
-            pulumi.set(__self__, "collect_logins", collect_logins)
+            _setter("collect_logins", collect_logins)
         if collect_tde_certificate_info is None:
             collect_tde_certificate_info = False
         if collect_tde_certificate_info is not None:
-            pulumi.set(__self__, "collect_tde_certificate_info", collect_tde_certificate_info)
+            _setter("collect_tde_certificate_info", collect_tde_certificate_info)
         if validate_ssis_catalog_only is None:
             validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
-            pulumi.set(__self__, "validate_ssis_catalog_only", validate_ssis_catalog_only)
+            _setter("validate_ssis_catalog_only", validate_ssis_catalog_only)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -729,11 +972,32 @@ class ConnectToSourceSqlServerTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToSourceSqlServerTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer')
+        ConnectToSourceSqlServerTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToSourceSqlServerTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToSource.SqlServer')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -785,12 +1049,37 @@ class ConnectToTargetAzureDbForMySqlTaskInputArgs:
         :param pulumi.Input['MySqlConnectionInfoArgs'] target_connection_info: Connection information for target Azure Database for MySQL server
         :param pulumi.Input[bool] is_offline_migration: Flag for whether or not the migration is offline
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetAzureDbForMySqlTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            is_offline_migration=is_offline_migration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional[pulumi.Input['MySqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['MySqlConnectionInfoArgs']] = None,
+             is_offline_migration: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if is_offline_migration is None and 'isOfflineMigration' in kwargs:
+            is_offline_migration = kwargs['isOfflineMigration']
+
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if is_offline_migration is None:
             is_offline_migration = False
         if is_offline_migration is not None:
-            pulumi.set(__self__, "is_offline_migration", is_offline_migration)
+            _setter("is_offline_migration", is_offline_migration)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -842,11 +1131,32 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToTargetAzureDbForMySqlTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureDbForMySql')
+        ConnectToTargetAzureDbForMySqlTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToTargetAzureDbForMySqlTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToTarget.AzureDbForMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -896,8 +1206,29 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs:
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] source_connection_info: Connection information for source PostgreSQL server
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional[pulumi.Input['PostgreSqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['PostgreSqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -937,11 +1268,32 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureDbForPostgreSql.Sync')
+        ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToTargetAzureDbForPostgreSqlSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToTarget.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -989,7 +1341,22 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs:
         Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: Optional[pulumi.Input['PostgreSqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -1017,11 +1384,32 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync')
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -1069,7 +1457,22 @@ class ConnectToTargetSqlDbTaskInputArgs:
         Input for the task that validates connection to SQL DB and target server requirements
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Connection information for target SQL DB
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlDbTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -1097,11 +1500,32 @@ class ConnectToTargetSqlDbTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToTargetSqlDbTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb')
+        ConnectToTargetSqlDbTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToTargetSqlDbTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToTarget.SqlDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -1151,8 +1575,29 @@ class ConnectToTargetSqlMISyncTaskInputArgs:
         :param pulumi.Input['AzureActiveDirectoryAppArgs'] azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param pulumi.Input['MiSqlConnectionInfoArgs'] target_connection_info: Connection information for Azure SQL Database Managed Instance
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlMISyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: Optional[pulumi.Input['AzureActiveDirectoryAppArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['MiSqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_app is None and 'azureApp' in kwargs:
+            azure_app = kwargs['azureApp']
+        if azure_app is None:
+            raise TypeError("Missing 'azure_app' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("azure_app", azure_app)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -1192,11 +1637,32 @@ class ConnectToTargetSqlMISyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI.Sync.LRS')
+        ConnectToTargetSqlMISyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToTargetSqlMISyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToTarget.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -1250,19 +1716,46 @@ class ConnectToTargetSqlMITaskInputArgs:
         :param pulumi.Input[bool] collect_logins: Flag for whether to collect logins from target SQL MI server.
         :param pulumi.Input[bool] validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlMITaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+            collect_agent_jobs=collect_agent_jobs,
+            collect_logins=collect_logins,
+            validate_ssis_catalog_only=validate_ssis_catalog_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             collect_agent_jobs: Optional[pulumi.Input[bool]] = None,
+             collect_logins: Optional[pulumi.Input[bool]] = None,
+             validate_ssis_catalog_only: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if collect_agent_jobs is None and 'collectAgentJobs' in kwargs:
+            collect_agent_jobs = kwargs['collectAgentJobs']
+        if collect_logins is None and 'collectLogins' in kwargs:
+            collect_logins = kwargs['collectLogins']
+        if validate_ssis_catalog_only is None and 'validateSsisCatalogOnly' in kwargs:
+            validate_ssis_catalog_only = kwargs['validateSsisCatalogOnly']
+
+        _setter("target_connection_info", target_connection_info)
         if collect_agent_jobs is None:
             collect_agent_jobs = True
         if collect_agent_jobs is not None:
-            pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+            _setter("collect_agent_jobs", collect_agent_jobs)
         if collect_logins is None:
             collect_logins = True
         if collect_logins is not None:
-            pulumi.set(__self__, "collect_logins", collect_logins)
+            _setter("collect_logins", collect_logins)
         if validate_ssis_catalog_only is None:
             validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
-            pulumi.set(__self__, "validate_ssis_catalog_only", validate_ssis_catalog_only)
+            _setter("validate_ssis_catalog_only", validate_ssis_catalog_only)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -1326,11 +1819,32 @@ class ConnectToTargetSqlMITaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToTargetSqlMITaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI')
+        ConnectToTargetSqlMITaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToTargetSqlMITaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToTarget.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -1380,8 +1894,29 @@ class ConnectToTargetSqlSqlDbSyncTaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Connection information for source SQL Server
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Connection information for target SQL DB
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlSqlDbSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -1421,11 +1956,32 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ConnectToTargetSqlSqlDbSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb.Sync')
+        ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ConnectToTargetSqlSqlDbSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ConnectToTarget.SqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -1473,7 +2029,22 @@ class DatabaseInfoArgs:
         Project Database Details
         :param pulumi.Input[str] source_database_name: Name of the database
         """
-        pulumi.set(__self__, "source_database_name", source_database_name)
+        DatabaseInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_database_name=source_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_database_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_database_name is None and 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+        if source_database_name is None:
+            raise TypeError("Missing 'source_database_name' argument")
+
+        _setter("source_database_name", source_database_name)
 
     @property
     @pulumi.getter(name="sourceDatabaseName")
@@ -1515,25 +2086,72 @@ class DatabaseMigrationPropertiesSqlDbArgs:
         :param pulumi.Input[str] target_database_collation: Database collation to be used for the target database.
         :param pulumi.Input['SqlConnectionInformationArgs'] target_sql_connection: Target SQL DB connection details.
         """
-        pulumi.set(__self__, "kind", 'SqlDb')
+        DatabaseMigrationPropertiesSqlDbArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            migration_operation_id=migration_operation_id,
+            migration_service=migration_service,
+            provisioning_error=provisioning_error,
+            scope=scope,
+            source_database_name=source_database_name,
+            source_sql_connection=source_sql_connection,
+            table_list=table_list,
+            target_database_collation=target_database_collation,
+            target_sql_connection=target_sql_connection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[str]] = None,
+             migration_operation_id: Optional[pulumi.Input[str]] = None,
+             migration_service: Optional[pulumi.Input[str]] = None,
+             provisioning_error: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             source_database_name: Optional[pulumi.Input[str]] = None,
+             source_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None,
+             table_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_database_collation: Optional[pulumi.Input[str]] = None,
+             target_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if migration_operation_id is None and 'migrationOperationId' in kwargs:
+            migration_operation_id = kwargs['migrationOperationId']
+        if migration_service is None and 'migrationService' in kwargs:
+            migration_service = kwargs['migrationService']
+        if provisioning_error is None and 'provisioningError' in kwargs:
+            provisioning_error = kwargs['provisioningError']
+        if source_database_name is None and 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+        if source_sql_connection is None and 'sourceSqlConnection' in kwargs:
+            source_sql_connection = kwargs['sourceSqlConnection']
+        if table_list is None and 'tableList' in kwargs:
+            table_list = kwargs['tableList']
+        if target_database_collation is None and 'targetDatabaseCollation' in kwargs:
+            target_database_collation = kwargs['targetDatabaseCollation']
+        if target_sql_connection is None and 'targetSqlConnection' in kwargs:
+            target_sql_connection = kwargs['targetSqlConnection']
+
+        _setter("kind", 'SqlDb')
         if migration_operation_id is not None:
-            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+            _setter("migration_operation_id", migration_operation_id)
         if migration_service is not None:
-            pulumi.set(__self__, "migration_service", migration_service)
+            _setter("migration_service", migration_service)
         if provisioning_error is not None:
-            pulumi.set(__self__, "provisioning_error", provisioning_error)
+            _setter("provisioning_error", provisioning_error)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if source_database_name is not None:
-            pulumi.set(__self__, "source_database_name", source_database_name)
+            _setter("source_database_name", source_database_name)
         if source_sql_connection is not None:
-            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+            _setter("source_sql_connection", source_sql_connection)
         if table_list is not None:
-            pulumi.set(__self__, "table_list", table_list)
+            _setter("table_list", table_list)
         if target_database_collation is not None:
-            pulumi.set(__self__, "target_database_collation", target_database_collation)
+            _setter("target_database_collation", target_database_collation)
         if target_sql_connection is not None:
-            pulumi.set(__self__, "target_sql_connection", target_sql_connection)
+            _setter("target_sql_connection", target_sql_connection)
 
     @property
     @pulumi.getter
@@ -1669,11 +2287,30 @@ class FileShareArgs:
         :param pulumi.Input[str] password: Password credential used to connect to the share location.
         :param pulumi.Input[str] user_name: User name credential to connect to the share location
         """
-        pulumi.set(__self__, "path", path)
+        FileShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("path", path)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -1724,9 +2361,36 @@ class GetTdeCertificatesSqlTaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] connection_info: Connection information for SQL Server
         :param pulumi.Input[Sequence[pulumi.Input['SelectedCertificateInputArgs']]] selected_certificates: List containing certificate names and corresponding password to use for encrypting the exported certificate.
         """
-        pulumi.set(__self__, "backup_file_share", backup_file_share)
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_certificates", selected_certificates)
+        GetTdeCertificatesSqlTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_file_share=backup_file_share,
+            connection_info=connection_info,
+            selected_certificates=selected_certificates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
+             connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             selected_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['SelectedCertificateInputArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+        if backup_file_share is None:
+            raise TypeError("Missing 'backup_file_share' argument")
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_certificates is None and 'selectedCertificates' in kwargs:
+            selected_certificates = kwargs['selectedCertificates']
+        if selected_certificates is None:
+            raise TypeError("Missing 'selected_certificates' argument")
+
+        _setter("backup_file_share", backup_file_share)
+        _setter("connection_info", connection_info)
+        _setter("selected_certificates", selected_certificates)
 
     @property
     @pulumi.getter(name="backupFileShare")
@@ -1778,11 +2442,32 @@ class GetTdeCertificatesSqlTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['GetTdeCertificatesSqlTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'GetTDECertificates.Sql')
+        GetTdeCertificatesSqlTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['GetTdeCertificatesSqlTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'GetTDECertificates.Sql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -1832,8 +2517,29 @@ class GetUserTablesMySqlTaskInputArgs:
         :param pulumi.Input['MySqlConnectionInfoArgs'] connection_info: Connection information for SQL Server
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_databases: List of database names to collect tables for
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesMySqlTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: Optional[pulumi.Input['MySqlConnectionInfoArgs']] = None,
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -1873,11 +2579,32 @@ class GetUserTablesMySqlTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['GetUserTablesMySqlTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'GetUserTablesMySql')
+        GetUserTablesMySqlTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['GetUserTablesMySqlTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'GetUserTablesMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -1927,8 +2654,29 @@ class GetUserTablesOracleTaskInputArgs:
         :param pulumi.Input['OracleConnectionInfoArgs'] connection_info: Information for connecting to Oracle source
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_schemas: List of Oracle schemas for which to collect tables
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_schemas", selected_schemas)
+        GetUserTablesOracleTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_schemas=selected_schemas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: Optional[pulumi.Input['OracleConnectionInfoArgs']] = None,
+             selected_schemas: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_schemas is None and 'selectedSchemas' in kwargs:
+            selected_schemas = kwargs['selectedSchemas']
+        if selected_schemas is None:
+            raise TypeError("Missing 'selected_schemas' argument")
+
+        _setter("connection_info", connection_info)
+        _setter("selected_schemas", selected_schemas)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -1968,11 +2716,32 @@ class GetUserTablesOracleTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['GetUserTablesOracleTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'GetUserTablesOracle')
+        GetUserTablesOracleTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['GetUserTablesOracleTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'GetUserTablesOracle')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -2022,8 +2791,29 @@ class GetUserTablesPostgreSqlTaskInputArgs:
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] connection_info: Information for connecting to PostgreSQL source
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_databases: List of PostgreSQL databases for which to collect tables
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesPostgreSqlTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: Optional[pulumi.Input['PostgreSqlConnectionInfoArgs']] = None,
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -2063,11 +2853,32 @@ class GetUserTablesPostgreSqlTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['GetUserTablesPostgreSqlTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'GetUserTablesPostgreSql')
+        GetUserTablesPostgreSqlTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['GetUserTablesPostgreSqlTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'GetUserTablesPostgreSql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -2121,10 +2932,43 @@ class GetUserTablesSqlSyncTaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Connection information for SQL Server
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Connection information for SQL DB
         """
-        pulumi.set(__self__, "selected_source_databases", selected_source_databases)
-        pulumi.set(__self__, "selected_target_databases", selected_target_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        GetUserTablesSqlSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_source_databases=selected_source_databases,
+            selected_target_databases=selected_target_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_source_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             selected_target_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_source_databases is None and 'selectedSourceDatabases' in kwargs:
+            selected_source_databases = kwargs['selectedSourceDatabases']
+        if selected_source_databases is None:
+            raise TypeError("Missing 'selected_source_databases' argument")
+        if selected_target_databases is None and 'selectedTargetDatabases' in kwargs:
+            selected_target_databases = kwargs['selectedTargetDatabases']
+        if selected_target_databases is None:
+            raise TypeError("Missing 'selected_target_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_source_databases", selected_source_databases)
+        _setter("selected_target_databases", selected_target_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedSourceDatabases")
@@ -2188,11 +3032,32 @@ class GetUserTablesSqlSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['GetUserTablesSqlSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'GetUserTables.AzureSqlDb.Sync')
+        GetUserTablesSqlSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['GetUserTablesSqlSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'GetUserTables.AzureSqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -2242,8 +3107,29 @@ class GetUserTablesSqlTaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] connection_info: Connection information for SQL Server
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_databases: List of database names to collect tables for
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesSqlTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -2283,11 +3169,32 @@ class GetUserTablesSqlTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['GetUserTablesSqlTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'GetUserTables.Sql')
+        GetUserTablesSqlTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['GetUserTablesSqlTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'GetUserTables.Sql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -2342,12 +3249,37 @@ class MiSqlConnectionInfoArgs:
         :param pulumi.Input[str] password: Password credential.
         :param pulumi.Input[str] user_name: User name
         """
-        pulumi.set(__self__, "managed_instance_resource_id", managed_instance_resource_id)
-        pulumi.set(__self__, "type", 'MiSqlConnectionInfo')
+        MiSqlConnectionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_resource_id=managed_instance_resource_id,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_resource_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if managed_instance_resource_id is None and 'managedInstanceResourceId' in kwargs:
+            managed_instance_resource_id = kwargs['managedInstanceResourceId']
+        if managed_instance_resource_id is None:
+            raise TypeError("Missing 'managed_instance_resource_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("managed_instance_resource_id", managed_instance_resource_id)
+        _setter("type", 'MiSqlConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="managedInstanceResourceId")
@@ -2412,11 +3344,32 @@ class MigrateMongoDbTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MongoDbMigrationSettingsArgs'] input: Describes how a MongoDB data migration should be performed
         """
-        pulumi.set(__self__, "task_type", 'Migrate.MongoDb')
+        MigrateMongoDbTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MongoDbMigrationSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -2468,12 +3421,31 @@ class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] table_map: Mapping of source to target tables
         :param pulumi.Input[str] target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         """
+        MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            table_map=table_map,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_database_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter
@@ -2530,17 +3502,56 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] optional_agent_settings: Optional parameters for fine tuning the data transfer rate during migration
         :param pulumi.Input[str] started_on: Parameter to specify when the migration started
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            make_source_server_read_only=make_source_server_read_only,
+            optional_agent_settings=optional_agent_settings,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['MySqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['MySqlConnectionInfoArgs']] = None,
+             make_source_server_read_only: Optional[pulumi.Input[bool]] = None,
+             optional_agent_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             started_on: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if make_source_server_read_only is None and 'makeSourceServerReadOnly' in kwargs:
+            make_source_server_read_only = kwargs['makeSourceServerReadOnly']
+        if optional_agent_settings is None and 'optionalAgentSettings' in kwargs:
+            optional_agent_settings = kwargs['optionalAgentSettings']
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if make_source_server_read_only is None:
             make_source_server_read_only = False
         if make_source_server_read_only is not None:
-            pulumi.set(__self__, "make_source_server_read_only", make_source_server_read_only)
+            _setter("make_source_server_read_only", make_source_server_read_only)
         if optional_agent_settings is not None:
-            pulumi.set(__self__, "optional_agent_settings", optional_agent_settings)
+            _setter("optional_agent_settings", optional_agent_settings)
         if started_on is not None:
-            pulumi.set(__self__, "started_on", started_on)
+            _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -2628,11 +3639,32 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.MySql.AzureDbForMySql')
+        MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlOfflineTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.MySql.AzureDbForMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -2690,18 +3722,49 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs:
         :param pulumi.Input[str] target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migration_setting=migration_setting,
+            name=name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_database_name: Optional[pulumi.Input[str]] = None,
+             target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_setting is None and 'migrationSetting' in kwargs:
+            migration_setting = kwargs['migrationSetting']
+        if source_setting is None and 'sourceSetting' in kwargs:
+            source_setting = kwargs['sourceSetting']
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_setting is None and 'targetSetting' in kwargs:
+            target_setting = kwargs['targetSetting']
+
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter(name="migrationSetting")
@@ -2788,9 +3851,36 @@ class MigrateMySqlAzureDbForMySqlSyncTaskInputArgs:
         :param pulumi.Input['MySqlConnectionInfoArgs'] source_connection_info: Connection information for source MySQL
         :param pulumi.Input['MySqlConnectionInfoArgs'] target_connection_info: Connection information for target Azure Database for MySQL
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateMySqlAzureDbForMySqlSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['MySqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['MySqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -2842,11 +3932,32 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.MySql.AzureDbForMySql.Sync')
+        MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateMySqlAzureDbForMySqlSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.MySql.AzureDbForMySql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -2899,11 +4010,32 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.Oracle.AzureDbForPostgreSql.Sync')
+        MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.Oracle.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -2965,22 +4097,61 @@ class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs:
         :param pulumi.Input[str] target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            case_manipulation=case_manipulation,
+            migration_setting=migration_setting,
+            name=name,
+            schema_name=schema_name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             case_manipulation: Optional[pulumi.Input[str]] = None,
+             migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_database_name: Optional[pulumi.Input[str]] = None,
+             target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if case_manipulation is None and 'caseManipulation' in kwargs:
+            case_manipulation = kwargs['caseManipulation']
+        if migration_setting is None and 'migrationSetting' in kwargs:
+            migration_setting = kwargs['migrationSetting']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if source_setting is None and 'sourceSetting' in kwargs:
+            source_setting = kwargs['sourceSetting']
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_setting is None and 'targetSetting' in kwargs:
+            target_setting = kwargs['targetSetting']
+
         if case_manipulation is not None:
-            pulumi.set(__self__, "case_manipulation", case_manipulation)
+            _setter("case_manipulation", case_manipulation)
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter(name="caseManipulation")
@@ -3091,9 +4262,36 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs:
         :param pulumi.Input['OracleConnectionInfoArgs'] source_connection_info: Connection information for source Oracle
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] target_connection_info: Connection information for target Azure Database for PostgreSQL
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['OracleConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['PostgreSqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -3150,18 +4348,49 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs:
         :param pulumi.Input[str] target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migration_setting=migration_setting,
+            name=name,
+            selected_tables=selected_tables,
+            source_setting=source_setting,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             selected_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs']]]] = None,
+             source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_database_name: Optional[pulumi.Input[str]] = None,
+             target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_setting is None and 'migrationSetting' in kwargs:
+            migration_setting = kwargs['migrationSetting']
+        if selected_tables is None and 'selectedTables' in kwargs:
+            selected_tables = kwargs['selectedTables']
+        if source_setting is None and 'sourceSetting' in kwargs:
+            source_setting = kwargs['sourceSetting']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_setting is None and 'targetSetting' in kwargs:
+            target_setting = kwargs['targetSetting']
+
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if selected_tables is not None:
-            pulumi.set(__self__, "selected_tables", selected_tables)
+            _setter("selected_tables", selected_tables)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter(name="migrationSetting")
@@ -3244,8 +4473,19 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs:
         Selected tables for the migration
         :param pulumi.Input[str] name: Name of the table to migrate
         """
+        MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3272,9 +4512,36 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs:
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] source_connection_info: Connection information for source PostgreSQL
         :param pulumi.Input['PostgreSqlConnectionInfoArgs'] target_connection_info: Connection information for target Azure Database for PostgreSQL
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['PostgreSqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['PostgreSqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -3326,11 +4593,32 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2')
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -3384,14 +4672,37 @@ class MigrateSqlServerSqlDbDatabaseInputArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] table_map: Mapping of source to target tables
         :param pulumi.Input[str] target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         """
+        MigrateSqlServerSqlDbDatabaseInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            make_source_db_read_only=make_source_db_read_only,
+            name=name,
+            table_map=table_map,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             make_source_db_read_only: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_database_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if make_source_db_read_only is None and 'makeSourceDbReadOnly' in kwargs:
+            make_source_db_read_only = kwargs['makeSourceDbReadOnly']
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+
         if make_source_db_read_only is not None:
-            pulumi.set(__self__, "make_source_db_read_only", make_source_db_read_only)
+            _setter("make_source_db_read_only", make_source_db_read_only)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter(name="makeSourceDbReadOnly")
@@ -3464,22 +4775,59 @@ class MigrateSqlServerSqlDbSyncDatabaseInputArgs:
         :param pulumi.Input[str] target_database_name: Target database name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateSqlServerSqlDbSyncDatabaseInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            migration_setting=migration_setting,
+            name=name,
+            schema_name=schema_name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             migration_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             source_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_database_name: Optional[pulumi.Input[str]] = None,
+             target_setting: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_setting is None and 'migrationSetting' in kwargs:
+            migration_setting = kwargs['migrationSetting']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if source_setting is None and 'sourceSetting' in kwargs:
+            source_setting = kwargs['sourceSetting']
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_setting is None and 'targetSetting' in kwargs:
+            target_setting = kwargs['targetSetting']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter
@@ -3592,11 +4940,42 @@ class MigrateSqlServerSqlDbSyncTaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input['MigrationValidationOptionsArgs'] validation_options: Validation options
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlDbSyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             validation_options: Optional[pulumi.Input['MigrationValidationOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -3660,11 +5039,32 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDb.Sync')
+        MigrateSqlServerSqlDbSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateSqlServerSqlDbSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -3720,11 +5120,42 @@ class MigrateSqlServerSqlDbTaskInputArgs:
                 1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
                 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlDbTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             validation_options: Optional[pulumi.Input['MigrationValidationOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -3790,11 +5221,32 @@ class MigrateSqlServerSqlDbTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateSqlServerSqlDbTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.SqlDb')
+        MigrateSqlServerSqlDbTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateSqlServerSqlDbTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.SqlServer.SqlDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -3848,12 +5300,39 @@ class MigrateSqlServerSqlMIDatabaseInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_file_paths: The list of backup files to be used in case of existing backups.
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for backing up this database.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "restore_database_name", restore_database_name)
+        MigrateSqlServerSqlMIDatabaseInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            restore_database_name=restore_database_name,
+            backup_file_paths=backup_file_paths,
+            backup_file_share=backup_file_share,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             restore_database_name: Optional[pulumi.Input[str]] = None,
+             backup_file_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if restore_database_name is None and 'restoreDatabaseName' in kwargs:
+            restore_database_name = kwargs['restoreDatabaseName']
+        if restore_database_name is None:
+            raise TypeError("Missing 'restore_database_name' argument")
+        if backup_file_paths is None and 'backupFilePaths' in kwargs:
+            backup_file_paths = kwargs['backupFilePaths']
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+
+        _setter("name", name)
+        _setter("restore_database_name", restore_database_name)
         if backup_file_paths is not None:
-            pulumi.set(__self__, "backup_file_paths", backup_file_paths)
+            _setter("backup_file_paths", backup_file_paths)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
 
     @property
     @pulumi.getter
@@ -3922,13 +5401,56 @@ class MigrateSqlServerSqlMISyncTaskInputArgs:
         :param pulumi.Input['MiSqlConnectionInfoArgs'] target_connection_info: Connection information for Azure SQL Database Managed Instance
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for all selected databases.
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlMISyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            storage_resource_id=storage_resource_id,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: Optional[pulumi.Input['AzureActiveDirectoryAppArgs']] = None,
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             storage_resource_id: Optional[pulumi.Input[str]] = None,
+             target_connection_info: Optional[pulumi.Input['MiSqlConnectionInfoArgs']] = None,
+             backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_app is None and 'azureApp' in kwargs:
+            azure_app = kwargs['azureApp']
+        if azure_app is None:
+            raise TypeError("Missing 'azure_app' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+
+        _setter("azure_app", azure_app)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("storage_resource_id", storage_resource_id)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -4016,11 +5538,32 @@ class MigrateSqlServerSqlMISyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS')
+        MigrateSqlServerSqlMISyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateSqlServerSqlMISyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -4084,20 +5627,73 @@ class MigrateSqlServerSqlMITaskInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_agent_jobs: Agent Jobs to migrate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_logins: Logins to migrate.
         """
-        pulumi.set(__self__, "backup_blob_share", backup_blob_share)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlMITaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_blob_share=backup_blob_share,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            aad_domain_name=aad_domain_name,
+            backup_file_share=backup_file_share,
+            backup_mode=backup_mode,
+            selected_agent_jobs=selected_agent_jobs,
+            selected_logins=selected_logins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_blob_share: Optional[pulumi.Input['BlobShareArgs']] = None,
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             aad_domain_name: Optional[pulumi.Input[str]] = None,
+             backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
+             backup_mode: Optional[pulumi.Input[Union[str, 'BackupMode']]] = None,
+             selected_agent_jobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             selected_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_blob_share is None and 'backupBlobShare' in kwargs:
+            backup_blob_share = kwargs['backupBlobShare']
+        if backup_blob_share is None:
+            raise TypeError("Missing 'backup_blob_share' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if aad_domain_name is None and 'aadDomainName' in kwargs:
+            aad_domain_name = kwargs['aadDomainName']
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+        if backup_mode is None and 'backupMode' in kwargs:
+            backup_mode = kwargs['backupMode']
+        if selected_agent_jobs is None and 'selectedAgentJobs' in kwargs:
+            selected_agent_jobs = kwargs['selectedAgentJobs']
+        if selected_logins is None and 'selectedLogins' in kwargs:
+            selected_logins = kwargs['selectedLogins']
+
+        _setter("backup_blob_share", backup_blob_share)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if aad_domain_name is not None:
-            pulumi.set(__self__, "aad_domain_name", aad_domain_name)
+            _setter("aad_domain_name", aad_domain_name)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
         if backup_mode is not None:
-            pulumi.set(__self__, "backup_mode", backup_mode)
+            _setter("backup_mode", backup_mode)
         if selected_agent_jobs is not None:
-            pulumi.set(__self__, "selected_agent_jobs", selected_agent_jobs)
+            _setter("selected_agent_jobs", selected_agent_jobs)
         if selected_logins is not None:
-            pulumi.set(__self__, "selected_logins", selected_logins)
+            _setter("selected_logins", selected_logins)
 
     @property
     @pulumi.getter(name="backupBlobShare")
@@ -4221,11 +5817,32 @@ class MigrateSqlServerSqlMITaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateSqlServerSqlMITaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI')
+        MigrateSqlServerSqlMITaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateSqlServerSqlMITaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -4277,9 +5894,36 @@ class MigrateSsisTaskInputArgs:
         :param pulumi.Input['SsisMigrationInfoArgs'] ssis_migration_info: SSIS package migration information.
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "ssis_migration_info", ssis_migration_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSsisTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            ssis_migration_info=ssis_migration_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             ssis_migration_info: Optional[pulumi.Input['SsisMigrationInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if ssis_migration_info is None and 'ssisMigrationInfo' in kwargs:
+            ssis_migration_info = kwargs['ssisMigrationInfo']
+        if ssis_migration_info is None:
+            raise TypeError("Missing 'ssis_migration_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
+        _setter("ssis_migration_info", ssis_migration_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -4331,11 +5975,32 @@ class MigrateSsisTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateSsisTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'Migrate.Ssis')
+        MigrateSsisTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateSsisTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Migrate.Ssis')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -4387,12 +6052,33 @@ class MigrationValidationOptionsArgs:
         :param pulumi.Input[bool] enable_query_analysis_validation: Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
         :param pulumi.Input[bool] enable_schema_validation: Allows to compare the schema information between source and target.
         """
+        MigrationValidationOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_data_integrity_validation=enable_data_integrity_validation,
+            enable_query_analysis_validation=enable_query_analysis_validation,
+            enable_schema_validation=enable_schema_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_data_integrity_validation: Optional[pulumi.Input[bool]] = None,
+             enable_query_analysis_validation: Optional[pulumi.Input[bool]] = None,
+             enable_schema_validation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_data_integrity_validation is None and 'enableDataIntegrityValidation' in kwargs:
+            enable_data_integrity_validation = kwargs['enableDataIntegrityValidation']
+        if enable_query_analysis_validation is None and 'enableQueryAnalysisValidation' in kwargs:
+            enable_query_analysis_validation = kwargs['enableQueryAnalysisValidation']
+        if enable_schema_validation is None and 'enableSchemaValidation' in kwargs:
+            enable_schema_validation = kwargs['enableSchemaValidation']
+
         if enable_data_integrity_validation is not None:
-            pulumi.set(__self__, "enable_data_integrity_validation", enable_data_integrity_validation)
+            _setter("enable_data_integrity_validation", enable_data_integrity_validation)
         if enable_query_analysis_validation is not None:
-            pulumi.set(__self__, "enable_query_analysis_validation", enable_query_analysis_validation)
+            _setter("enable_query_analysis_validation", enable_query_analysis_validation)
         if enable_schema_validation is not None:
-            pulumi.set(__self__, "enable_schema_validation", enable_schema_validation)
+            _setter("enable_schema_validation", enable_schema_validation)
 
     @property
     @pulumi.getter(name="enableDataIntegrityValidation")
@@ -4443,12 +6129,33 @@ class MongoDbCollectionSettingsArgs:
         :param pulumi.Input['MongoDbShardKeySettingArgs'] shard_key: Describes a MongoDB shard key
         :param pulumi.Input[int] target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
         """
+        MongoDbCollectionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            can_delete=can_delete,
+            shard_key=shard_key,
+            target_rus=target_rus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             can_delete: Optional[pulumi.Input[bool]] = None,
+             shard_key: Optional[pulumi.Input['MongoDbShardKeySettingArgs']] = None,
+             target_rus: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if can_delete is None and 'canDelete' in kwargs:
+            can_delete = kwargs['canDelete']
+        if shard_key is None and 'shardKey' in kwargs:
+            shard_key = kwargs['shardKey']
+        if target_rus is None and 'targetRUs' in kwargs:
+            target_rus = kwargs['targetRUs']
+
         if can_delete is not None:
-            pulumi.set(__self__, "can_delete", can_delete)
+            _setter("can_delete", can_delete)
         if shard_key is not None:
-            pulumi.set(__self__, "shard_key", shard_key)
+            _setter("shard_key", shard_key)
         if target_rus is not None:
-            pulumi.set(__self__, "target_rus", target_rus)
+            _setter("target_rus", target_rus)
 
     @property
     @pulumi.getter(name="canDelete")
@@ -4502,12 +6209,37 @@ class MongoDbConnectionInfoArgs:
         :param pulumi.Input[str] password: Password credential.
         :param pulumi.Input[str] user_name: User name
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "type", 'MongoDbConnectionInfo')
+        MongoDbConnectionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("connection_string", connection_string)
+        _setter("type", 'MongoDbConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -4569,9 +6301,26 @@ class MongoDbDatabaseSettingsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['MongoDbCollectionSettingsArgs']]] collections: The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
         :param pulumi.Input[int] target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
         """
-        pulumi.set(__self__, "collections", collections)
+        MongoDbDatabaseSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collections=collections,
+            target_rus=target_rus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collections: Optional[pulumi.Input[Mapping[str, pulumi.Input['MongoDbCollectionSettingsArgs']]]] = None,
+             target_rus: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collections is None:
+            raise TypeError("Missing 'collections' argument")
+        if target_rus is None and 'targetRUs' in kwargs:
+            target_rus = kwargs['targetRUs']
+
+        _setter("collections", collections)
         if target_rus is not None:
-            pulumi.set(__self__, "target_rus", target_rus)
+            _setter("target_rus", target_rus)
 
     @property
     @pulumi.getter
@@ -4616,15 +6365,44 @@ class MongoDbMigrationSettingsArgs:
         :param pulumi.Input[Union[str, 'MongoDbReplication']] replication: Describes how changes will be replicated from the source to the target. The default is OneTime.
         :param pulumi.Input['MongoDbThrottlingSettingsArgs'] throttling: Settings used to limit the resource usage of the migration
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "target", target)
+        MongoDbMigrationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            source=source,
+            target=target,
+            boost_rus=boost_rus,
+            replication=replication,
+            throttling=throttling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[pulumi.Input[Mapping[str, pulumi.Input['MongoDbDatabaseSettingsArgs']]]] = None,
+             source: Optional[pulumi.Input['MongoDbConnectionInfoArgs']] = None,
+             target: Optional[pulumi.Input['MongoDbConnectionInfoArgs']] = None,
+             boost_rus: Optional[pulumi.Input[int]] = None,
+             replication: Optional[pulumi.Input[Union[str, 'MongoDbReplication']]] = None,
+             throttling: Optional[pulumi.Input['MongoDbThrottlingSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if boost_rus is None and 'boostRUs' in kwargs:
+            boost_rus = kwargs['boostRUs']
+
+        _setter("databases", databases)
+        _setter("source", source)
+        _setter("target", target)
         if boost_rus is not None:
-            pulumi.set(__self__, "boost_rus", boost_rus)
+            _setter("boost_rus", boost_rus)
         if replication is not None:
-            pulumi.set(__self__, "replication", replication)
+            _setter("replication", replication)
         if throttling is not None:
-            pulumi.set(__self__, "throttling", throttling)
+            _setter("throttling", throttling)
 
     @property
     @pulumi.getter
@@ -4709,8 +6487,25 @@ class MongoDbShardKeyFieldArgs:
         :param pulumi.Input[str] name: The name of the field
         :param pulumi.Input[Union[str, 'MongoDbShardKeyOrder']] order: The field ordering
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "order", order)
+        MongoDbShardKeyFieldArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[Union[str, 'MongoDbShardKeyOrder']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+
+        _setter("name", name)
+        _setter("order", order)
 
     @property
     @pulumi.getter
@@ -4747,8 +6542,27 @@ class MongoDbShardKeySettingArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MongoDbShardKeyFieldArgs']]] fields: The fields within the shard key
         :param pulumi.Input[bool] is_unique: Whether the shard key is unique
         """
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "is_unique", is_unique)
+        MongoDbShardKeySettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fields=fields,
+            is_unique=is_unique,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input['MongoDbShardKeyFieldArgs']]]] = None,
+             is_unique: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fields is None:
+            raise TypeError("Missing 'fields' argument")
+        if is_unique is None and 'isUnique' in kwargs:
+            is_unique = kwargs['isUnique']
+        if is_unique is None:
+            raise TypeError("Missing 'is_unique' argument")
+
+        _setter("fields", fields)
+        _setter("is_unique", is_unique)
 
     @property
     @pulumi.getter
@@ -4787,12 +6601,33 @@ class MongoDbThrottlingSettingsArgs:
         :param pulumi.Input[int] min_free_cpu: The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
         :param pulumi.Input[int] min_free_memory_mb: The number of megabytes of RAM that the migrator will try to avoid using
         """
+        MongoDbThrottlingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_parallelism=max_parallelism,
+            min_free_cpu=min_free_cpu,
+            min_free_memory_mb=min_free_memory_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_parallelism: Optional[pulumi.Input[int]] = None,
+             min_free_cpu: Optional[pulumi.Input[int]] = None,
+             min_free_memory_mb: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_parallelism is None and 'maxParallelism' in kwargs:
+            max_parallelism = kwargs['maxParallelism']
+        if min_free_cpu is None and 'minFreeCpu' in kwargs:
+            min_free_cpu = kwargs['minFreeCpu']
+        if min_free_memory_mb is None and 'minFreeMemoryMb' in kwargs:
+            min_free_memory_mb = kwargs['minFreeMemoryMb']
+
         if max_parallelism is not None:
-            pulumi.set(__self__, "max_parallelism", max_parallelism)
+            _setter("max_parallelism", max_parallelism)
         if min_free_cpu is not None:
-            pulumi.set(__self__, "min_free_cpu", min_free_cpu)
+            _setter("min_free_cpu", min_free_cpu)
         if min_free_memory_mb is not None:
-            pulumi.set(__self__, "min_free_memory_mb", min_free_memory_mb)
+            _setter("min_free_memory_mb", min_free_memory_mb)
 
     @property
     @pulumi.getter(name="maxParallelism")
@@ -4850,17 +6685,50 @@ class MySqlConnectionInfoArgs:
         :param pulumi.Input[str] password: Password credential.
         :param pulumi.Input[str] user_name: User name
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "type", 'MySqlConnectionInfo')
+        MySqlConnectionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            server_name=server_name,
+            type=type,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             encrypt_connection: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if encrypt_connection is None and 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("type", 'MySqlConnectionInfo')
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -4951,12 +6819,37 @@ class OracleConnectionInfoArgs:
         :param pulumi.Input[str] password: Password credential.
         :param pulumi.Input[str] user_name: User name
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "type", 'OracleConnectionInfo')
+        OracleConnectionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_source is None:
+            raise TypeError("Missing 'data_source' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("data_source", data_source)
+        _setter("type", 'OracleConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -5031,23 +6924,64 @@ class PostgreSqlConnectionInfoArgs:
         :param pulumi.Input[bool] trust_server_certificate: Whether to trust the server certificate
         :param pulumi.Input[str] user_name: User name
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "type", 'PostgreSqlConnectionInfo')
+        PostgreSqlConnectionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            server_name=server_name,
+            type=type,
+            database_name=database_name,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             encrypt_connection: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             trust_server_certificate: Optional[pulumi.Input[bool]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if encrypt_connection is None and 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if trust_server_certificate is None and 'trustServerCertificate' in kwargs:
+            trust_server_certificate = kwargs['trustServerCertificate']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("type", 'PostgreSqlConnectionInfo')
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -5159,12 +7093,31 @@ class ProjectFilePropertiesArgs:
         :param pulumi.Input[str] file_path: Relative path of this file resource. This property can be set when creating or updating the file resource.
         :param pulumi.Input[str] media_type: File content type. This property can be modified to reflect the file content type.
         """
+        ProjectFilePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension=extension,
+            file_path=file_path,
+            media_type=media_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension: Optional[pulumi.Input[str]] = None,
+             file_path: Optional[pulumi.Input[str]] = None,
+             media_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_path is None and 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if media_type is None and 'mediaType' in kwargs:
+            media_type = kwargs['mediaType']
+
         if extension is not None:
-            pulumi.set(__self__, "extension", extension)
+            _setter("extension", extension)
         if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
+            _setter("file_path", file_path)
         if media_type is not None:
-            pulumi.set(__self__, "media_type", media_type)
+            _setter("media_type", media_type)
 
     @property
     @pulumi.getter
@@ -5213,8 +7166,27 @@ class SelectedCertificateInputArgs:
         :param pulumi.Input[str] certificate_name: Name of certificate to be exported.
         :param pulumi.Input[str] password: Password to use for encrypting the exported certificate.
         """
-        pulumi.set(__self__, "certificate_name", certificate_name)
-        pulumi.set(__self__, "password", password)
+        SelectedCertificateInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_name=certificate_name,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if certificate_name is None:
+            raise TypeError("Missing 'certificate_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+
+        _setter("certificate_name", certificate_name)
+        _setter("password", password)
 
     @property
     @pulumi.getter(name="certificateName")
@@ -5257,16 +7229,35 @@ class ServiceSkuArgs:
         :param pulumi.Input[str] size: The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
         :param pulumi.Input[str] tier: The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
         """
+        ServiceSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            name=name,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -5347,18 +7338,47 @@ class SqlConnectionInformationArgs:
         :param pulumi.Input[bool] trust_server_certificate: Whether to trust server certificate or not.
         :param pulumi.Input[str] user_name: User name to connect to source SQL.
         """
+        SqlConnectionInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            data_source=data_source,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input[str]] = None,
+             data_source: Optional[pulumi.Input[str]] = None,
+             encrypt_connection: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             trust_server_certificate: Optional[pulumi.Input[bool]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if encrypt_connection is None and 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if trust_server_certificate is None and 'trustServerCertificate' in kwargs:
+            trust_server_certificate = kwargs['trustServerCertificate']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -5458,26 +7478,67 @@ class SqlConnectionInfoArgs:
         :param pulumi.Input[bool] trust_server_certificate: Whether to trust the server certificate
         :param pulumi.Input[str] user_name: User name
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "type", 'SqlConnectionInfo')
+        SqlConnectionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            type=type,
+            additional_settings=additional_settings,
+            authentication=authentication,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            platform=platform,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             additional_settings: Optional[pulumi.Input[str]] = None,
+             authentication: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             encrypt_connection: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[Union[str, 'SqlSourcePlatform']]] = None,
+             trust_server_certificate: Optional[pulumi.Input[bool]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_source is None:
+            raise TypeError("Missing 'data_source' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if additional_settings is None and 'additionalSettings' in kwargs:
+            additional_settings = kwargs['additionalSettings']
+        if encrypt_connection is None and 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if trust_server_certificate is None and 'trustServerCertificate' in kwargs:
+            trust_server_certificate = kwargs['trustServerCertificate']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("data_source", data_source)
+        _setter("type", 'SqlConnectionInfo')
         if additional_settings is not None:
-            pulumi.set(__self__, "additional_settings", additional_settings)
+            _setter("additional_settings", additional_settings)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -5601,12 +7662,33 @@ class SsisMigrationInfoArgs:
         :param pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']] project_overwrite_option: The overwrite option for the SSIS project migration
         :param pulumi.Input[Union[str, 'SsisStoreType']] ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS
         """
+        SsisMigrationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_overwrite_option=environment_overwrite_option,
+            project_overwrite_option=project_overwrite_option,
+            ssis_store_type=ssis_store_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_overwrite_option: Optional[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]] = None,
+             project_overwrite_option: Optional[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]] = None,
+             ssis_store_type: Optional[pulumi.Input[Union[str, 'SsisStoreType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_overwrite_option is None and 'environmentOverwriteOption' in kwargs:
+            environment_overwrite_option = kwargs['environmentOverwriteOption']
+        if project_overwrite_option is None and 'projectOverwriteOption' in kwargs:
+            project_overwrite_option = kwargs['projectOverwriteOption']
+        if ssis_store_type is None and 'ssisStoreType' in kwargs:
+            ssis_store_type = kwargs['ssisStoreType']
+
         if environment_overwrite_option is not None:
-            pulumi.set(__self__, "environment_overwrite_option", environment_overwrite_option)
+            _setter("environment_overwrite_option", environment_overwrite_option)
         if project_overwrite_option is not None:
-            pulumi.set(__self__, "project_overwrite_option", project_overwrite_option)
+            _setter("project_overwrite_option", project_overwrite_option)
         if ssis_store_type is not None:
-            pulumi.set(__self__, "ssis_store_type", ssis_store_type)
+            _setter("ssis_store_type", ssis_store_type)
 
     @property
     @pulumi.getter(name="environmentOverwriteOption")
@@ -5658,11 +7740,32 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.SqlDb.Sync')
+        ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ValidateSyncMigrationInputSqlServerTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.SqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -5720,13 +7823,56 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs:
         :param pulumi.Input['MiSqlConnectionInfoArgs'] target_connection_info: Connection information for Azure SQL Database Managed Instance
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for all selected databases.
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            storage_resource_id=storage_resource_id,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: Optional[pulumi.Input['AzureActiveDirectoryAppArgs']] = None,
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             storage_resource_id: Optional[pulumi.Input[str]] = None,
+             target_connection_info: Optional[pulumi.Input['MiSqlConnectionInfoArgs']] = None,
+             backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_app is None and 'azureApp' in kwargs:
+            azure_app = kwargs['azureApp']
+        if azure_app is None:
+            raise TypeError("Missing 'azure_app' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+
+        _setter("azure_app", azure_app)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("storage_resource_id", storage_resource_id)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -5814,11 +7960,32 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS')
+        ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -5878,16 +8045,61 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
         :param pulumi.Input[Union[str, 'BackupMode']] backup_mode: Backup Mode to specify whether to use existing backup or create new backup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_logins: Logins to migrate
         """
-        pulumi.set(__self__, "backup_blob_share", backup_blob_share)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateMigrationInputSqlServerSqlMITaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_blob_share=backup_blob_share,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+            backup_mode=backup_mode,
+            selected_logins=selected_logins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_blob_share: Optional[pulumi.Input['BlobShareArgs']] = None,
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlMIDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
+             backup_mode: Optional[pulumi.Input[Union[str, 'BackupMode']]] = None,
+             selected_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_blob_share is None and 'backupBlobShare' in kwargs:
+            backup_blob_share = kwargs['backupBlobShare']
+        if backup_blob_share is None:
+            raise TypeError("Missing 'backup_blob_share' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+        if backup_mode is None and 'backupMode' in kwargs:
+            backup_mode = kwargs['backupMode']
+        if selected_logins is None and 'selectedLogins' in kwargs:
+            selected_logins = kwargs['selectedLogins']
+
+        _setter("backup_blob_share", backup_blob_share)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
         if backup_mode is not None:
-            pulumi.set(__self__, "backup_mode", backup_mode)
+            _setter("backup_mode", backup_mode)
         if selected_logins is not None:
-            pulumi.set(__self__, "selected_logins", selected_logins)
+            _setter("selected_logins", selected_logins)
 
     @property
     @pulumi.getter(name="backupBlobShare")
@@ -5987,11 +8199,32 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgs'] input: Task input
         """
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI')
+        ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['ValidateMigrationInputSqlServerSqlMITaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -6044,11 +8277,32 @@ class ValidateMongoDbTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MongoDbMigrationSettingsArgs'] input: Describes how a MongoDB data migration should be performed
         """
-        pulumi.set(__self__, "task_type", 'Validate.MongoDb')
+        ValidateMongoDbTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MongoDbMigrationSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Validate.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -6101,11 +8355,32 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_data: Key value pairs of client data to attach meta data information to task
         :param pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs'] input: Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
         """
-        pulumi.set(__self__, "task_type", 'Validate.Oracle.AzureDbPostgreSql.Sync')
+        ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             task_type: Optional[pulumi.Input[str]] = None,
+             client_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             input: Optional[pulumi.Input['MigrateOracleAzureDbPostgreSqlSyncTaskInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("task_type", 'Validate.Oracle.AzureDbPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="taskType")
@@ -6157,9 +8432,36 @@ class ValidateSyncMigrationInputSqlServerTaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Information for connecting to source SQL server
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateSyncMigrationInputSqlServerTaskInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[pulumi.Input[Sequence[pulumi.Input['MigrateSqlServerSqlDbSyncDatabaseInputArgs']]]] = None,
+             source_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             target_connection_info: Optional[pulumi.Input['SqlConnectionInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,53 @@ class SqlCollectorOperationArgs:
         :param pulumi.Input[str] discovery_site_id: Gets the discovery site id.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         """
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SqlCollectorOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            agent_properties=agent_properties,
+            collector_name=collector_name,
+            discovery_site_id=discovery_site_id,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             agent_properties: Optional[pulumi.Input['CollectorAgentPropertiesBaseArgs']] = None,
+             collector_name: Optional[pulumi.Input[str]] = None,
+             discovery_site_id: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if agent_properties is None and 'agentProperties' in kwargs:
+            agent_properties = kwargs['agentProperties']
+        if collector_name is None and 'collectorName' in kwargs:
+            collector_name = kwargs['collectorName']
+        if discovery_site_id is None and 'discoverySiteId' in kwargs:
+            discovery_site_id = kwargs['discoverySiteId']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if agent_properties is not None:
-            pulumi.set(__self__, "agent_properties", agent_properties)
+            _setter("agent_properties", agent_properties)
         if collector_name is not None:
-            pulumi.set(__self__, "collector_name", collector_name)
+            _setter("collector_name", collector_name)
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="projectName")
@@ -161,6 +198,10 @@ class SqlCollectorOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlCollectorOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -181,6 +222,7 @@ class SqlCollectorOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlCollectorOperationArgs.__new__(SqlCollectorOperationArgs)
 
+            agent_properties = _utilities.configure(agent_properties, CollectorAgentPropertiesBaseArgs, True)
             __props__.__dict__["agent_properties"] = agent_properties
             __props__.__dict__["collector_name"] = collector_name
             __props__.__dict__["discovery_site_id"] = discovery_site_id

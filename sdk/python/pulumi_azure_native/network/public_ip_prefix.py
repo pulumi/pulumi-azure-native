@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,31 +46,84 @@ class PublicIPPrefixArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PublicIPPrefixArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            custom_ip_prefix=custom_ip_prefix,
+            extended_location=extended_location,
+            id=id,
+            ip_tags=ip_tags,
+            location=location,
+            nat_gateway=nat_gateway,
+            prefix_length=prefix_length,
+            public_ip_address_version=public_ip_address_version,
+            public_ip_prefix_name=public_ip_prefix_name,
+            sku=sku,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             custom_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             nat_gateway: Optional[pulumi.Input['NatGatewayArgs']] = None,
+             prefix_length: Optional[pulumi.Input[int]] = None,
+             public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+             public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['PublicIPPrefixSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if custom_ip_prefix is None and 'customIPPrefix' in kwargs:
+            custom_ip_prefix = kwargs['customIPPrefix']
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if ip_tags is None and 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if nat_gateway is None and 'natGateway' in kwargs:
+            nat_gateway = kwargs['natGateway']
+        if prefix_length is None and 'prefixLength' in kwargs:
+            prefix_length = kwargs['prefixLength']
+        if public_ip_address_version is None and 'publicIPAddressVersion' in kwargs:
+            public_ip_address_version = kwargs['publicIPAddressVersion']
+        if public_ip_prefix_name is None and 'publicIpPrefixName' in kwargs:
+            public_ip_prefix_name = kwargs['publicIpPrefixName']
+
+        _setter("resource_group_name", resource_group_name)
         if custom_ip_prefix is not None:
-            pulumi.set(__self__, "custom_ip_prefix", custom_ip_prefix)
+            _setter("custom_ip_prefix", custom_ip_prefix)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
+            _setter("ip_tags", ip_tags)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if nat_gateway is not None:
-            pulumi.set(__self__, "nat_gateway", nat_gateway)
+            _setter("nat_gateway", nat_gateway)
         if prefix_length is not None:
-            pulumi.set(__self__, "prefix_length", prefix_length)
+            _setter("prefix_length", prefix_length)
         if public_ip_address_version is not None:
-            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+            _setter("public_ip_address_version", public_ip_address_version)
         if public_ip_prefix_name is not None:
-            pulumi.set(__self__, "public_ip_prefix_name", public_ip_prefix_name)
+            _setter("public_ip_prefix_name", public_ip_prefix_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -292,6 +345,10 @@ class PublicIPPrefix(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PublicIPPrefixArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -319,11 +376,14 @@ class PublicIPPrefix(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicIPPrefixArgs.__new__(PublicIPPrefixArgs)
 
+            custom_ip_prefix = _utilities.configure(custom_ip_prefix, SubResourceArgs, True)
             __props__.__dict__["custom_ip_prefix"] = custom_ip_prefix
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_tags"] = ip_tags
             __props__.__dict__["location"] = location
+            nat_gateway = _utilities.configure(nat_gateway, NatGatewayArgs, True)
             __props__.__dict__["nat_gateway"] = nat_gateway
             __props__.__dict__["prefix_length"] = prefix_length
             __props__.__dict__["public_ip_address_version"] = public_ip_address_version
@@ -331,6 +391,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, PublicIPPrefixSkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones

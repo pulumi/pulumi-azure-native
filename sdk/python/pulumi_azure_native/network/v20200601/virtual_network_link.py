@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,55 @@ class VirtualNetworkLinkArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_network: The reference of the virtual network.
         :param pulumi.Input[str] virtual_network_link_name: The name of the virtual network link.
         """
-        pulumi.set(__self__, "private_zone_name", private_zone_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualNetworkLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_zone_name=private_zone_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            registration_enabled=registration_enabled,
+            tags=tags,
+            virtual_network=virtual_network,
+            virtual_network_link_name=virtual_network_link_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_zone_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             registration_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+             virtual_network_link_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_zone_name is None and 'privateZoneName' in kwargs:
+            private_zone_name = kwargs['privateZoneName']
+        if private_zone_name is None:
+            raise TypeError("Missing 'private_zone_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if registration_enabled is None and 'registrationEnabled' in kwargs:
+            registration_enabled = kwargs['registrationEnabled']
+        if virtual_network is None and 'virtualNetwork' in kwargs:
+            virtual_network = kwargs['virtualNetwork']
+        if virtual_network_link_name is None and 'virtualNetworkLinkName' in kwargs:
+            virtual_network_link_name = kwargs['virtualNetworkLinkName']
+
+        _setter("private_zone_name", private_zone_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if registration_enabled is not None:
-            pulumi.set(__self__, "registration_enabled", registration_enabled)
+            _setter("registration_enabled", registration_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network is not None:
-            pulumi.set(__self__, "virtual_network", virtual_network)
+            _setter("virtual_network", virtual_network)
         if virtual_network_link_name is not None:
-            pulumi.set(__self__, "virtual_network_link_name", virtual_network_link_name)
+            _setter("virtual_network_link_name", virtual_network_link_name)
 
     @property
     @pulumi.getter(name="privateZoneName")
@@ -176,6 +213,10 @@ class VirtualNetworkLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -206,6 +247,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            virtual_network = _utilities.configure(virtual_network, SubResourceArgs, True)
             __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["virtual_network_link_name"] = virtual_network_link_name
             __props__.__dict__["etag"] = None

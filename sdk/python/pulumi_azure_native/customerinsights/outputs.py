@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -81,10 +81,35 @@ class AssignmentPrincipalResponse(dict):
         :param str principal_type: The Type of the principal ID.
         :param Mapping[str, str] principal_metadata: Other metadata for the principal.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "principal_type", principal_type)
+        AssignmentPrincipalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            principal_type=principal_type,
+            principal_metadata=principal_metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             principal_type: Optional[str] = None,
+             principal_metadata: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if principal_type is None:
+            raise TypeError("Missing 'principal_type' argument")
+        if principal_metadata is None and 'principalMetadata' in kwargs:
+            principal_metadata = kwargs['principalMetadata']
+
+        _setter("principal_id", principal_id)
+        _setter("principal_type", principal_type)
         if principal_metadata is not None:
-            pulumi.set(__self__, "principal_metadata", principal_metadata)
+            _setter("principal_metadata", principal_metadata)
 
     @property
     @pulumi.getter(name="principalId")
@@ -124,10 +149,25 @@ class CanonicalProfileDefinitionResponse(dict):
         :param int canonical_profile_id: Canonical profile ID.
         :param Sequence['CanonicalProfileDefinitionResponseProperties'] properties: Properties of the canonical profile.
         """
+        CanonicalProfileDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            canonical_profile_id=canonical_profile_id,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             canonical_profile_id: Optional[int] = None,
+             properties: Optional[Sequence['outputs.CanonicalProfileDefinitionResponseProperties']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if canonical_profile_id is None and 'canonicalProfileId' in kwargs:
+            canonical_profile_id = kwargs['canonicalProfileId']
+
         if canonical_profile_id is not None:
-            pulumi.set(__self__, "canonical_profile_id", canonical_profile_id)
+            _setter("canonical_profile_id", canonical_profile_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="canonicalProfileId")
@@ -165,16 +205,39 @@ class CanonicalProfileDefinitionResponseProperties(dict):
         :param str type: Type of canonical property value.
         :param str value: Value of the canonical property.
         """
+        CanonicalProfileDefinitionResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_name=profile_name,
+            profile_property_name=profile_property_name,
+            rank=rank,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_name: Optional[str] = None,
+             profile_property_name: Optional[str] = None,
+             rank: Optional[int] = None,
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if profile_name is None and 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if profile_property_name is None and 'profilePropertyName' in kwargs:
+            profile_property_name = kwargs['profilePropertyName']
+
         if profile_name is not None:
-            pulumi.set(__self__, "profile_name", profile_name)
+            _setter("profile_name", profile_name)
         if profile_property_name is not None:
-            pulumi.set(__self__, "profile_property_name", profile_property_name)
+            _setter("profile_property_name", profile_property_name)
         if rank is not None:
-            pulumi.set(__self__, "rank", rank)
+            _setter("rank", rank)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="profileName")
@@ -230,9 +293,24 @@ class ConnectorMappingAvailabilityResponse(dict):
         :param int interval: The interval of the given frequency to use.
         :param str frequency: The frequency to update.
         """
-        pulumi.set(__self__, "interval", interval)
+        ConnectorMappingAvailabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interval=interval,
+            frequency=frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interval: Optional[int] = None,
+             frequency: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+
+        _setter("interval", interval)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
 
     @property
     @pulumi.getter
@@ -283,10 +361,27 @@ class ConnectorMappingCompleteOperationResponse(dict):
         :param str completion_operation_type: The type of completion operation.
         :param str destination_folder: The destination folder where files will be moved to once the import is done.
         """
+        ConnectorMappingCompleteOperationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completion_operation_type=completion_operation_type,
+            destination_folder=destination_folder,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completion_operation_type: Optional[str] = None,
+             destination_folder: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if completion_operation_type is None and 'completionOperationType' in kwargs:
+            completion_operation_type = kwargs['completionOperationType']
+        if destination_folder is None and 'destinationFolder' in kwargs:
+            destination_folder = kwargs['destinationFolder']
+
         if completion_operation_type is not None:
-            pulumi.set(__self__, "completion_operation_type", completion_operation_type)
+            _setter("completion_operation_type", completion_operation_type)
         if destination_folder is not None:
-            pulumi.set(__self__, "destination_folder", destination_folder)
+            _setter("destination_folder", destination_folder)
 
     @property
     @pulumi.getter(name="completionOperationType")
@@ -337,9 +432,28 @@ class ConnectorMappingErrorManagementResponse(dict):
         :param str error_management_type: The type of error management to use for the mapping.
         :param int error_limit: The error limit allowed while importing data.
         """
-        pulumi.set(__self__, "error_management_type", error_management_type)
+        ConnectorMappingErrorManagementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_management_type=error_management_type,
+            error_limit=error_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_management_type: Optional[str] = None,
+             error_limit: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_management_type is None and 'errorManagementType' in kwargs:
+            error_management_type = kwargs['errorManagementType']
+        if error_management_type is None:
+            raise TypeError("Missing 'error_management_type' argument")
+        if error_limit is None and 'errorLimit' in kwargs:
+            error_limit = kwargs['errorLimit']
+
+        _setter("error_management_type", error_management_type)
         if error_limit is not None:
-            pulumi.set(__self__, "error_limit", error_limit)
+            _setter("error_limit", error_limit)
 
     @property
     @pulumi.getter(name="errorManagementType")
@@ -406,17 +520,52 @@ class ConnectorMappingFormatResponse(dict):
         :param str quote_character: Quote character, used to indicate enquoted fields.
         :param str quote_escape_character: Escape character for quotes, can be the same as the quoteCharacter.
         """
-        pulumi.set(__self__, "format_type", format_type)
+        ConnectorMappingFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            format_type=format_type,
+            accept_language=accept_language,
+            array_separator=array_separator,
+            column_delimiter=column_delimiter,
+            quote_character=quote_character,
+            quote_escape_character=quote_escape_character,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             format_type: Optional[str] = None,
+             accept_language: Optional[str] = None,
+             array_separator: Optional[str] = None,
+             column_delimiter: Optional[str] = None,
+             quote_character: Optional[str] = None,
+             quote_escape_character: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if format_type is None and 'formatType' in kwargs:
+            format_type = kwargs['formatType']
+        if format_type is None:
+            raise TypeError("Missing 'format_type' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if array_separator is None and 'arraySeparator' in kwargs:
+            array_separator = kwargs['arraySeparator']
+        if column_delimiter is None and 'columnDelimiter' in kwargs:
+            column_delimiter = kwargs['columnDelimiter']
+        if quote_character is None and 'quoteCharacter' in kwargs:
+            quote_character = kwargs['quoteCharacter']
+        if quote_escape_character is None and 'quoteEscapeCharacter' in kwargs:
+            quote_escape_character = kwargs['quoteEscapeCharacter']
+
+        _setter("format_type", format_type)
         if accept_language is not None:
-            pulumi.set(__self__, "accept_language", accept_language)
+            _setter("accept_language", accept_language)
         if array_separator is not None:
-            pulumi.set(__self__, "array_separator", array_separator)
+            _setter("array_separator", array_separator)
         if column_delimiter is not None:
-            pulumi.set(__self__, "column_delimiter", column_delimiter)
+            _setter("column_delimiter", column_delimiter)
         if quote_character is not None:
-            pulumi.set(__self__, "quote_character", quote_character)
+            _setter("quote_character", quote_character)
         if quote_escape_character is not None:
-            pulumi.set(__self__, "quote_escape_character", quote_escape_character)
+            _setter("quote_escape_character", quote_escape_character)
 
     @property
     @pulumi.getter(name="formatType")
@@ -517,17 +666,62 @@ class ConnectorMappingPropertiesResponse(dict):
         :param str folder_path: The folder path for the mapping.
         :param bool has_header: If the file contains a header or not.
         """
-        pulumi.set(__self__, "availability", availability)
-        pulumi.set(__self__, "complete_operation", complete_operation)
-        pulumi.set(__self__, "error_management", error_management)
-        pulumi.set(__self__, "format", format)
-        pulumi.set(__self__, "structure", structure)
+        ConnectorMappingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability=availability,
+            complete_operation=complete_operation,
+            error_management=error_management,
+            format=format,
+            structure=structure,
+            file_filter=file_filter,
+            folder_path=folder_path,
+            has_header=has_header,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability: Optional['outputs.ConnectorMappingAvailabilityResponse'] = None,
+             complete_operation: Optional['outputs.ConnectorMappingCompleteOperationResponse'] = None,
+             error_management: Optional['outputs.ConnectorMappingErrorManagementResponse'] = None,
+             format: Optional['outputs.ConnectorMappingFormatResponse'] = None,
+             structure: Optional[Sequence['outputs.ConnectorMappingStructureResponse']] = None,
+             file_filter: Optional[str] = None,
+             folder_path: Optional[str] = None,
+             has_header: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability is None:
+            raise TypeError("Missing 'availability' argument")
+        if complete_operation is None and 'completeOperation' in kwargs:
+            complete_operation = kwargs['completeOperation']
+        if complete_operation is None:
+            raise TypeError("Missing 'complete_operation' argument")
+        if error_management is None and 'errorManagement' in kwargs:
+            error_management = kwargs['errorManagement']
+        if error_management is None:
+            raise TypeError("Missing 'error_management' argument")
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if structure is None:
+            raise TypeError("Missing 'structure' argument")
+        if file_filter is None and 'fileFilter' in kwargs:
+            file_filter = kwargs['fileFilter']
+        if folder_path is None and 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+        if has_header is None and 'hasHeader' in kwargs:
+            has_header = kwargs['hasHeader']
+
+        _setter("availability", availability)
+        _setter("complete_operation", complete_operation)
+        _setter("error_management", error_management)
+        _setter("format", format)
+        _setter("structure", structure)
         if file_filter is not None:
-            pulumi.set(__self__, "file_filter", file_filter)
+            _setter("file_filter", file_filter)
         if folder_path is not None:
-            pulumi.set(__self__, "folder_path", folder_path)
+            _setter("folder_path", folder_path)
         if has_header is not None:
-            pulumi.set(__self__, "has_header", has_header)
+            _setter("has_header", has_header)
 
     @property
     @pulumi.getter
@@ -634,12 +828,41 @@ class ConnectorMappingStructureResponse(dict):
         :param str custom_format_specifier: Custom format specifier for input parsing.
         :param bool is_encrypted: Indicates if the column is encrypted.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "property_name", property_name)
+        ConnectorMappingStructureResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            property_name=property_name,
+            custom_format_specifier=custom_format_specifier,
+            is_encrypted=is_encrypted,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: Optional[str] = None,
+             property_name: Optional[str] = None,
+             custom_format_specifier: Optional[str] = None,
+             is_encrypted: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_name is None and 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
+        if property_name is None and 'propertyName' in kwargs:
+            property_name = kwargs['propertyName']
+        if property_name is None:
+            raise TypeError("Missing 'property_name' argument")
+        if custom_format_specifier is None and 'customFormatSpecifier' in kwargs:
+            custom_format_specifier = kwargs['customFormatSpecifier']
+        if is_encrypted is None and 'isEncrypted' in kwargs:
+            is_encrypted = kwargs['isEncrypted']
+
+        _setter("column_name", column_name)
+        _setter("property_name", property_name)
         if custom_format_specifier is not None:
-            pulumi.set(__self__, "custom_format_specifier", custom_format_specifier)
+            _setter("custom_format_specifier", custom_format_specifier)
         if is_encrypted is not None:
-            pulumi.set(__self__, "is_encrypted", is_encrypted)
+            _setter("is_encrypted", is_encrypted)
 
     @property
     @pulumi.getter(name="columnName")
@@ -714,13 +937,48 @@ class DataSourcePrecedenceResponse(dict):
         :param str status: The data source status.
         :param int precedence: the precedence value.
         """
-        pulumi.set(__self__, "data_source_reference_id", data_source_reference_id)
-        pulumi.set(__self__, "data_source_type", data_source_type)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "status", status)
+        DataSourcePrecedenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_reference_id=data_source_reference_id,
+            data_source_type=data_source_type,
+            id=id,
+            name=name,
+            status=status,
+            precedence=precedence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_reference_id: Optional[str] = None,
+             data_source_type: Optional[str] = None,
+             id: Optional[int] = None,
+             name: Optional[str] = None,
+             status: Optional[str] = None,
+             precedence: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source_reference_id is None and 'dataSourceReferenceId' in kwargs:
+            data_source_reference_id = kwargs['dataSourceReferenceId']
+        if data_source_reference_id is None:
+            raise TypeError("Missing 'data_source_reference_id' argument")
+        if data_source_type is None and 'dataSourceType' in kwargs:
+            data_source_type = kwargs['dataSourceType']
+        if data_source_type is None:
+            raise TypeError("Missing 'data_source_type' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("data_source_reference_id", data_source_reference_id)
+        _setter("data_source_type", data_source_type)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("status", status)
         if precedence is not None:
-            pulumi.set(__self__, "precedence", precedence)
+            _setter("precedence", precedence)
 
     @property
     @pulumi.getter(name="dataSourceReferenceId")
@@ -807,12 +1065,33 @@ class HubBillingInfoFormatResponse(dict):
         :param int min_units: The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
         :param str sku_name: The sku name.
         """
+        HubBillingInfoFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_units=max_units,
+            min_units=min_units,
+            sku_name=sku_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_units: Optional[int] = None,
+             min_units: Optional[int] = None,
+             sku_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_units is None and 'maxUnits' in kwargs:
+            max_units = kwargs['maxUnits']
+        if min_units is None and 'minUnits' in kwargs:
+            min_units = kwargs['minUnits']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if max_units is not None:
-            pulumi.set(__self__, "max_units", max_units)
+            _setter("max_units", max_units)
         if min_units is not None:
-            pulumi.set(__self__, "min_units", min_units)
+            _setter("min_units", min_units)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
 
     @property
     @pulumi.getter(name="maxUnits")
@@ -869,8 +1148,27 @@ class KpiAliasResponse(dict):
         :param str alias_name: KPI alias name.
         :param str expression: The expression.
         """
-        pulumi.set(__self__, "alias_name", alias_name)
-        pulumi.set(__self__, "expression", expression)
+        KpiAliasResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias_name=alias_name,
+            expression=expression,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias_name: Optional[str] = None,
+             expression: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alias_name is None and 'aliasName' in kwargs:
+            alias_name = kwargs['aliasName']
+        if alias_name is None:
+            raise TypeError("Missing 'alias_name' argument")
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+
+        _setter("alias_name", alias_name)
+        _setter("expression", expression)
 
     @property
     @pulumi.getter(name="aliasName")
@@ -919,8 +1217,27 @@ class KpiExtractResponse(dict):
         :param str expression: The expression.
         :param str extract_name: KPI extract name.
         """
-        pulumi.set(__self__, "expression", expression)
-        pulumi.set(__self__, "extract_name", extract_name)
+        KpiExtractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            extract_name=extract_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: Optional[str] = None,
+             extract_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if extract_name is None and 'extractName' in kwargs:
+            extract_name = kwargs['extractName']
+        if extract_name is None:
+            raise TypeError("Missing 'extract_name' argument")
+
+        _setter("expression", expression)
+        _setter("extract_name", extract_name)
 
     @property
     @pulumi.getter
@@ -975,12 +1292,33 @@ class KpiGroupByMetadataResponse(dict):
         :param str field_name: The name of the field.
         :param str field_type: The type of the field.
         """
+        KpiGroupByMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            field_name=field_name,
+            field_type=field_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[Mapping[str, str]] = None,
+             field_name: Optional[str] = None,
+             field_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if field_name is None and 'fieldName' in kwargs:
+            field_name = kwargs['fieldName']
+        if field_type is None and 'fieldType' in kwargs:
+            field_type = kwargs['fieldType']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if field_name is not None:
-            pulumi.set(__self__, "field_name", field_name)
+            _setter("field_name", field_name)
         if field_type is not None:
-            pulumi.set(__self__, "field_type", field_type)
+            _setter("field_type", field_type)
 
     @property
     @pulumi.getter(name="displayName")
@@ -1035,7 +1373,22 @@ class KpiParticipantProfilesMetadataResponse(dict):
         The KPI participant profile metadata.
         :param str type_name: Name of the type.
         """
-        pulumi.set(__self__, "type_name", type_name)
+        KpiParticipantProfilesMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type_name=type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if type_name is None:
+            raise TypeError("Missing 'type_name' argument")
+
+        _setter("type_name", type_name)
 
     @property
     @pulumi.getter(name="typeName")
@@ -1082,9 +1435,36 @@ class KpiThresholdsResponse(dict):
         :param float lower_limit: The lower threshold limit.
         :param float upper_limit: The upper threshold limit.
         """
-        pulumi.set(__self__, "increasing_kpi", increasing_kpi)
-        pulumi.set(__self__, "lower_limit", lower_limit)
-        pulumi.set(__self__, "upper_limit", upper_limit)
+        KpiThresholdsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            increasing_kpi=increasing_kpi,
+            lower_limit=lower_limit,
+            upper_limit=upper_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             increasing_kpi: Optional[bool] = None,
+             lower_limit: Optional[float] = None,
+             upper_limit: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if increasing_kpi is None and 'increasingKpi' in kwargs:
+            increasing_kpi = kwargs['increasingKpi']
+        if increasing_kpi is None:
+            raise TypeError("Missing 'increasing_kpi' argument")
+        if lower_limit is None and 'lowerLimit' in kwargs:
+            lower_limit = kwargs['lowerLimit']
+        if lower_limit is None:
+            raise TypeError("Missing 'lower_limit' argument")
+        if upper_limit is None and 'upperLimit' in kwargs:
+            upper_limit = kwargs['upperLimit']
+        if upper_limit is None:
+            raise TypeError("Missing 'upper_limit' argument")
+
+        _setter("increasing_kpi", increasing_kpi)
+        _setter("lower_limit", lower_limit)
+        _setter("upper_limit", upper_limit)
 
     @property
     @pulumi.getter(name="increasingKpi")
@@ -1143,8 +1523,29 @@ class ParticipantProfilePropertyReferenceResponse(dict):
         :param str interaction_property_name: The source interaction property that maps to the target profile property.
         :param str profile_property_name: The target profile property that maps to the source interaction property.
         """
-        pulumi.set(__self__, "interaction_property_name", interaction_property_name)
-        pulumi.set(__self__, "profile_property_name", profile_property_name)
+        ParticipantProfilePropertyReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interaction_property_name=interaction_property_name,
+            profile_property_name=profile_property_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interaction_property_name: Optional[str] = None,
+             profile_property_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interaction_property_name is None and 'interactionPropertyName' in kwargs:
+            interaction_property_name = kwargs['interactionPropertyName']
+        if interaction_property_name is None:
+            raise TypeError("Missing 'interaction_property_name' argument")
+        if profile_property_name is None and 'profilePropertyName' in kwargs:
+            profile_property_name = kwargs['profilePropertyName']
+        if profile_property_name is None:
+            raise TypeError("Missing 'profile_property_name' argument")
+
+        _setter("interaction_property_name", interaction_property_name)
+        _setter("profile_property_name", profile_property_name)
 
     @property
     @pulumi.getter(name="interactionPropertyName")
@@ -1195,8 +1596,29 @@ class ParticipantPropertyReferenceResponse(dict):
         :param str source_property_name: The source property that maps to the target property.
         :param str target_property_name: The target property that maps to the source property.
         """
-        pulumi.set(__self__, "source_property_name", source_property_name)
-        pulumi.set(__self__, "target_property_name", target_property_name)
+        ParticipantPropertyReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_property_name=source_property_name,
+            target_property_name=target_property_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_property_name: Optional[str] = None,
+             target_property_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_property_name is None and 'sourcePropertyName' in kwargs:
+            source_property_name = kwargs['sourcePropertyName']
+        if source_property_name is None:
+            raise TypeError("Missing 'source_property_name' argument")
+        if target_property_name is None and 'targetPropertyName' in kwargs:
+            target_property_name = kwargs['targetPropertyName']
+        if target_property_name is None:
+            raise TypeError("Missing 'target_property_name' argument")
+
+        _setter("source_property_name", source_property_name)
+        _setter("target_property_name", target_property_name)
 
     @property
     @pulumi.getter(name="sourcePropertyName")
@@ -1230,12 +1652,31 @@ class PredictionDistributionDefinitionResponse(dict):
         :param float total_negatives: Total negatives in the distribution.
         :param float total_positives: Total positive in the distribution.
         """
+        PredictionDistributionDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distributions=distributions,
+            total_negatives=total_negatives,
+            total_positives=total_positives,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distributions: Optional[Sequence['outputs.PredictionDistributionDefinitionResponseDistributions']] = None,
+             total_negatives: Optional[float] = None,
+             total_positives: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if total_negatives is None and 'totalNegatives' in kwargs:
+            total_negatives = kwargs['totalNegatives']
+        if total_positives is None and 'totalPositives' in kwargs:
+            total_positives = kwargs['totalPositives']
+
         if distributions is not None:
-            pulumi.set(__self__, "distributions", distributions)
+            _setter("distributions", distributions)
         if total_negatives is not None:
-            pulumi.set(__self__, "total_negatives", total_negatives)
+            _setter("total_negatives", total_negatives)
         if total_positives is not None:
-            pulumi.set(__self__, "total_positives", total_positives)
+            _setter("total_positives", total_positives)
 
     @property
     @pulumi.getter
@@ -1281,16 +1722,41 @@ class PredictionDistributionDefinitionResponseDistributions(dict):
         :param float positives_above_threshold: Number of positives above threshold.
         :param int score_threshold: Score threshold.
         """
+        PredictionDistributionDefinitionResponseDistributions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            negatives=negatives,
+            negatives_above_threshold=negatives_above_threshold,
+            positives=positives,
+            positives_above_threshold=positives_above_threshold,
+            score_threshold=score_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             negatives: Optional[float] = None,
+             negatives_above_threshold: Optional[float] = None,
+             positives: Optional[float] = None,
+             positives_above_threshold: Optional[float] = None,
+             score_threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if negatives_above_threshold is None and 'negativesAboveThreshold' in kwargs:
+            negatives_above_threshold = kwargs['negativesAboveThreshold']
+        if positives_above_threshold is None and 'positivesAboveThreshold' in kwargs:
+            positives_above_threshold = kwargs['positivesAboveThreshold']
+        if score_threshold is None and 'scoreThreshold' in kwargs:
+            score_threshold = kwargs['scoreThreshold']
+
         if negatives is not None:
-            pulumi.set(__self__, "negatives", negatives)
+            _setter("negatives", negatives)
         if negatives_above_threshold is not None:
-            pulumi.set(__self__, "negatives_above_threshold", negatives_above_threshold)
+            _setter("negatives_above_threshold", negatives_above_threshold)
         if positives is not None:
-            pulumi.set(__self__, "positives", positives)
+            _setter("positives", positives)
         if positives_above_threshold is not None:
-            pulumi.set(__self__, "positives_above_threshold", positives_above_threshold)
+            _setter("positives_above_threshold", positives_above_threshold)
         if score_threshold is not None:
-            pulumi.set(__self__, "score_threshold", score_threshold)
+            _setter("score_threshold", score_threshold)
 
     @property
     @pulumi.getter
@@ -1369,12 +1835,33 @@ class PredictionResponseGrades(dict):
         :param int max_score_threshold: Maximum score threshold.
         :param int min_score_threshold: Minimum score threshold.
         """
+        PredictionResponseGrades._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grade_name=grade_name,
+            max_score_threshold=max_score_threshold,
+            min_score_threshold=min_score_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grade_name: Optional[str] = None,
+             max_score_threshold: Optional[int] = None,
+             min_score_threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if grade_name is None and 'gradeName' in kwargs:
+            grade_name = kwargs['gradeName']
+        if max_score_threshold is None and 'maxScoreThreshold' in kwargs:
+            max_score_threshold = kwargs['maxScoreThreshold']
+        if min_score_threshold is None and 'minScoreThreshold' in kwargs:
+            min_score_threshold = kwargs['minScoreThreshold']
+
         if grade_name is not None:
-            pulumi.set(__self__, "grade_name", grade_name)
+            _setter("grade_name", grade_name)
         if max_score_threshold is not None:
-            pulumi.set(__self__, "max_score_threshold", max_score_threshold)
+            _setter("max_score_threshold", max_score_threshold)
         if min_score_threshold is not None:
-            pulumi.set(__self__, "min_score_threshold", min_score_threshold)
+            _setter("min_score_threshold", min_score_threshold)
 
     @property
     @pulumi.getter(name="gradeName")
@@ -1416,9 +1903,30 @@ class PredictionResponseMappings(dict):
         :param str reason: The reason of the link mapping.
         :param str score: The score of the link mapping.
         """
-        pulumi.set(__self__, "grade", grade)
-        pulumi.set(__self__, "reason", reason)
-        pulumi.set(__self__, "score", score)
+        PredictionResponseMappings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grade=grade,
+            reason=reason,
+            score=score,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grade: Optional[str] = None,
+             reason: Optional[str] = None,
+             score: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if grade is None:
+            raise TypeError("Missing 'grade' argument")
+        if reason is None:
+            raise TypeError("Missing 'reason' argument")
+        if score is None:
+            raise TypeError("Missing 'score' argument")
+
+        _setter("grade", grade)
+        _setter("reason", reason)
+        _setter("score", score)
 
     @property
     @pulumi.getter
@@ -1481,12 +1989,33 @@ class PredictionResponseSystemGeneratedEntities(dict):
         :param Mapping[str, str] generated_kpis: Generated KPIs.
         :param Sequence[str] generated_links: Generated links.
         """
+        PredictionResponseSystemGeneratedEntities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            generated_interaction_types=generated_interaction_types,
+            generated_kpis=generated_kpis,
+            generated_links=generated_links,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             generated_interaction_types: Optional[Sequence[str]] = None,
+             generated_kpis: Optional[Mapping[str, str]] = None,
+             generated_links: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if generated_interaction_types is None and 'generatedInteractionTypes' in kwargs:
+            generated_interaction_types = kwargs['generatedInteractionTypes']
+        if generated_kpis is None and 'generatedKpis' in kwargs:
+            generated_kpis = kwargs['generatedKpis']
+        if generated_links is None and 'generatedLinks' in kwargs:
+            generated_links = kwargs['generatedLinks']
+
         if generated_interaction_types is not None:
-            pulumi.set(__self__, "generated_interaction_types", generated_interaction_types)
+            _setter("generated_interaction_types", generated_interaction_types)
         if generated_kpis is not None:
-            pulumi.set(__self__, "generated_kpis", generated_kpis)
+            _setter("generated_kpis", generated_kpis)
         if generated_links is not None:
-            pulumi.set(__self__, "generated_links", generated_links)
+            _setter("generated_links", generated_links)
 
     @property
     @pulumi.getter(name="generatedInteractionTypes")
@@ -1543,10 +2072,25 @@ class ProfileEnumValidValuesFormatResponse(dict):
         :param Mapping[str, str] localized_value_names: Localized names of the enum member.
         :param int value: The integer value of the enum member.
         """
+        ProfileEnumValidValuesFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            localized_value_names=localized_value_names,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             localized_value_names: Optional[Mapping[str, str]] = None,
+             value: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if localized_value_names is None and 'localizedValueNames' in kwargs:
+            localized_value_names = kwargs['localizedValueNames']
+
         if localized_value_names is not None:
-            pulumi.set(__self__, "localized_value_names", localized_value_names)
+            _setter("localized_value_names", localized_value_names)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="localizedValueNames")
@@ -1653,35 +2197,114 @@ class PropertyDefinitionResponse(dict):
         :param str property_id: The ID associated with the property.
         :param str schema_item_prop_link: URL encoded schema.org item prop link for the property.
         """
-        pulumi.set(__self__, "data_source_precedence_rules", data_source_precedence_rules)
-        pulumi.set(__self__, "field_name", field_name)
-        pulumi.set(__self__, "field_type", field_type)
+        PropertyDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source_precedence_rules=data_source_precedence_rules,
+            field_name=field_name,
+            field_type=field_type,
+            array_value_separator=array_value_separator,
+            enum_valid_values=enum_valid_values,
+            is_array=is_array,
+            is_available_in_graph=is_available_in_graph,
+            is_enum=is_enum,
+            is_flag_enum=is_flag_enum,
+            is_image=is_image,
+            is_localized_string=is_localized_string,
+            is_name=is_name,
+            is_required=is_required,
+            max_length=max_length,
+            property_id=property_id,
+            schema_item_prop_link=schema_item_prop_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source_precedence_rules: Optional[Sequence['outputs.DataSourcePrecedenceResponse']] = None,
+             field_name: Optional[str] = None,
+             field_type: Optional[str] = None,
+             array_value_separator: Optional[str] = None,
+             enum_valid_values: Optional[Sequence['outputs.ProfileEnumValidValuesFormatResponse']] = None,
+             is_array: Optional[bool] = None,
+             is_available_in_graph: Optional[bool] = None,
+             is_enum: Optional[bool] = None,
+             is_flag_enum: Optional[bool] = None,
+             is_image: Optional[bool] = None,
+             is_localized_string: Optional[bool] = None,
+             is_name: Optional[bool] = None,
+             is_required: Optional[bool] = None,
+             max_length: Optional[int] = None,
+             property_id: Optional[str] = None,
+             schema_item_prop_link: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source_precedence_rules is None and 'dataSourcePrecedenceRules' in kwargs:
+            data_source_precedence_rules = kwargs['dataSourcePrecedenceRules']
+        if data_source_precedence_rules is None:
+            raise TypeError("Missing 'data_source_precedence_rules' argument")
+        if field_name is None and 'fieldName' in kwargs:
+            field_name = kwargs['fieldName']
+        if field_name is None:
+            raise TypeError("Missing 'field_name' argument")
+        if field_type is None and 'fieldType' in kwargs:
+            field_type = kwargs['fieldType']
+        if field_type is None:
+            raise TypeError("Missing 'field_type' argument")
+        if array_value_separator is None and 'arrayValueSeparator' in kwargs:
+            array_value_separator = kwargs['arrayValueSeparator']
+        if enum_valid_values is None and 'enumValidValues' in kwargs:
+            enum_valid_values = kwargs['enumValidValues']
+        if is_array is None and 'isArray' in kwargs:
+            is_array = kwargs['isArray']
+        if is_available_in_graph is None and 'isAvailableInGraph' in kwargs:
+            is_available_in_graph = kwargs['isAvailableInGraph']
+        if is_enum is None and 'isEnum' in kwargs:
+            is_enum = kwargs['isEnum']
+        if is_flag_enum is None and 'isFlagEnum' in kwargs:
+            is_flag_enum = kwargs['isFlagEnum']
+        if is_image is None and 'isImage' in kwargs:
+            is_image = kwargs['isImage']
+        if is_localized_string is None and 'isLocalizedString' in kwargs:
+            is_localized_string = kwargs['isLocalizedString']
+        if is_name is None and 'isName' in kwargs:
+            is_name = kwargs['isName']
+        if is_required is None and 'isRequired' in kwargs:
+            is_required = kwargs['isRequired']
+        if max_length is None and 'maxLength' in kwargs:
+            max_length = kwargs['maxLength']
+        if property_id is None and 'propertyId' in kwargs:
+            property_id = kwargs['propertyId']
+        if schema_item_prop_link is None and 'schemaItemPropLink' in kwargs:
+            schema_item_prop_link = kwargs['schemaItemPropLink']
+
+        _setter("data_source_precedence_rules", data_source_precedence_rules)
+        _setter("field_name", field_name)
+        _setter("field_type", field_type)
         if array_value_separator is not None:
-            pulumi.set(__self__, "array_value_separator", array_value_separator)
+            _setter("array_value_separator", array_value_separator)
         if enum_valid_values is not None:
-            pulumi.set(__self__, "enum_valid_values", enum_valid_values)
+            _setter("enum_valid_values", enum_valid_values)
         if is_array is not None:
-            pulumi.set(__self__, "is_array", is_array)
+            _setter("is_array", is_array)
         if is_available_in_graph is not None:
-            pulumi.set(__self__, "is_available_in_graph", is_available_in_graph)
+            _setter("is_available_in_graph", is_available_in_graph)
         if is_enum is not None:
-            pulumi.set(__self__, "is_enum", is_enum)
+            _setter("is_enum", is_enum)
         if is_flag_enum is not None:
-            pulumi.set(__self__, "is_flag_enum", is_flag_enum)
+            _setter("is_flag_enum", is_flag_enum)
         if is_image is not None:
-            pulumi.set(__self__, "is_image", is_image)
+            _setter("is_image", is_image)
         if is_localized_string is not None:
-            pulumi.set(__self__, "is_localized_string", is_localized_string)
+            _setter("is_localized_string", is_localized_string)
         if is_name is not None:
-            pulumi.set(__self__, "is_name", is_name)
+            _setter("is_name", is_name)
         if is_required is not None:
-            pulumi.set(__self__, "is_required", is_required)
+            _setter("is_required", is_required)
         if max_length is not None:
-            pulumi.set(__self__, "max_length", max_length)
+            _setter("max_length", max_length)
         if property_id is not None:
-            pulumi.set(__self__, "property_id", property_id)
+            _setter("property_id", property_id)
         if schema_item_prop_link is not None:
-            pulumi.set(__self__, "schema_item_prop_link", schema_item_prop_link)
+            _setter("schema_item_prop_link", schema_item_prop_link)
 
     @property
     @pulumi.getter(name="dataSourcePrecedenceRules")
@@ -1848,10 +2471,35 @@ class RelationshipLinkFieldMappingResponse(dict):
         :param str relationship_field_name: The field name on the Relationship metadata.
         :param str link_type: Link type.
         """
-        pulumi.set(__self__, "interaction_field_name", interaction_field_name)
-        pulumi.set(__self__, "relationship_field_name", relationship_field_name)
+        RelationshipLinkFieldMappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interaction_field_name=interaction_field_name,
+            relationship_field_name=relationship_field_name,
+            link_type=link_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interaction_field_name: Optional[str] = None,
+             relationship_field_name: Optional[str] = None,
+             link_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interaction_field_name is None and 'interactionFieldName' in kwargs:
+            interaction_field_name = kwargs['interactionFieldName']
+        if interaction_field_name is None:
+            raise TypeError("Missing 'interaction_field_name' argument")
+        if relationship_field_name is None and 'relationshipFieldName' in kwargs:
+            relationship_field_name = kwargs['relationshipFieldName']
+        if relationship_field_name is None:
+            raise TypeError("Missing 'relationship_field_name' argument")
+        if link_type is None and 'linkType' in kwargs:
+            link_type = kwargs['linkType']
+
+        _setter("interaction_field_name", interaction_field_name)
+        _setter("relationship_field_name", relationship_field_name)
         if link_type is not None:
-            pulumi.set(__self__, "link_type", link_type)
+            _setter("link_type", link_type)
 
     @property
     @pulumi.getter(name="interactionFieldName")
@@ -1910,8 +2558,29 @@ class RelationshipTypeFieldMappingResponse(dict):
         :param str profile_field_name: Specifies the fieldName in profile.
         :param str related_profile_key_property: Specifies the KeyProperty (from StrongId) of the related profile.
         """
-        pulumi.set(__self__, "profile_field_name", profile_field_name)
-        pulumi.set(__self__, "related_profile_key_property", related_profile_key_property)
+        RelationshipTypeFieldMappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            profile_field_name=profile_field_name,
+            related_profile_key_property=related_profile_key_property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             profile_field_name: Optional[str] = None,
+             related_profile_key_property: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if profile_field_name is None and 'profileFieldName' in kwargs:
+            profile_field_name = kwargs['profileFieldName']
+        if profile_field_name is None:
+            raise TypeError("Missing 'profile_field_name' argument")
+        if related_profile_key_property is None and 'relatedProfileKeyProperty' in kwargs:
+            related_profile_key_property = kwargs['relatedProfileKeyProperty']
+        if related_profile_key_property is None:
+            raise TypeError("Missing 'related_profile_key_property' argument")
+
+        _setter("profile_field_name", profile_field_name)
+        _setter("related_profile_key_property", related_profile_key_property)
 
     @property
     @pulumi.getter(name="profileFieldName")
@@ -1958,7 +2627,22 @@ class RelationshipTypeMappingResponse(dict):
         Maps fields in Profile to their corresponding StrongIds in Related Profile.
         :param Sequence['RelationshipTypeFieldMappingResponse'] field_mappings: Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
         """
-        pulumi.set(__self__, "field_mappings", field_mappings)
+        RelationshipTypeMappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field_mappings=field_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field_mappings: Optional[Sequence['outputs.RelationshipTypeFieldMappingResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if field_mappings is None:
+            raise TypeError("Missing 'field_mappings' argument")
+
+        _setter("field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="fieldMappings")
@@ -1982,10 +2666,23 @@ class ResourceSetDescriptionResponse(dict):
         :param Sequence[str] elements: The elements included in the set.
         :param Sequence[str] exceptions: The elements that are not included in the set, in case elements contains '*' indicating 'all'.
         """
+        ResourceSetDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elements=elements,
+            exceptions=exceptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elements: Optional[Sequence[str]] = None,
+             exceptions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if elements is not None:
-            pulumi.set(__self__, "elements", elements)
+            _setter("elements", elements)
         if exceptions is not None:
-            pulumi.set(__self__, "exceptions", exceptions)
+            _setter("exceptions", exceptions)
 
     @property
     @pulumi.getter
@@ -2042,12 +2739,39 @@ class StrongIdResponse(dict):
         :param Mapping[str, str] description: Localized descriptions.
         :param Mapping[str, str] display_name: Localized display name.
         """
-        pulumi.set(__self__, "key_property_names", key_property_names)
-        pulumi.set(__self__, "strong_id_name", strong_id_name)
+        StrongIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_property_names=key_property_names,
+            strong_id_name=strong_id_name,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_property_names: Optional[Sequence[str]] = None,
+             strong_id_name: Optional[str] = None,
+             description: Optional[Mapping[str, str]] = None,
+             display_name: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_property_names is None and 'keyPropertyNames' in kwargs:
+            key_property_names = kwargs['keyPropertyNames']
+        if key_property_names is None:
+            raise TypeError("Missing 'key_property_names' argument")
+        if strong_id_name is None and 'strongIdName' in kwargs:
+            strong_id_name = kwargs['strongIdName']
+        if strong_id_name is None:
+            raise TypeError("Missing 'strong_id_name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("key_property_names", key_property_names)
+        _setter("strong_id_name", strong_id_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter(name="keyPropertyNames")
@@ -2118,10 +2842,35 @@ class TypePropertiesMappingResponse(dict):
         :param str target_property_name: Property name on the target Entity Type.
         :param str link_type: Link type.
         """
-        pulumi.set(__self__, "source_property_name", source_property_name)
-        pulumi.set(__self__, "target_property_name", target_property_name)
+        TypePropertiesMappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_property_name=source_property_name,
+            target_property_name=target_property_name,
+            link_type=link_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_property_name: Optional[str] = None,
+             target_property_name: Optional[str] = None,
+             link_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_property_name is None and 'sourcePropertyName' in kwargs:
+            source_property_name = kwargs['sourcePropertyName']
+        if source_property_name is None:
+            raise TypeError("Missing 'source_property_name' argument")
+        if target_property_name is None and 'targetPropertyName' in kwargs:
+            target_property_name = kwargs['targetPropertyName']
+        if target_property_name is None:
+            raise TypeError("Missing 'target_property_name' argument")
+        if link_type is None and 'linkType' in kwargs:
+            link_type = kwargs['linkType']
+
+        _setter("source_property_name", source_property_name)
+        _setter("target_property_name", target_property_name)
         if link_type is not None:
-            pulumi.set(__self__, "link_type", link_type)
+            _setter("link_type", link_type)
 
     @property
     @pulumi.getter(name="sourcePropertyName")

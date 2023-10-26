@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,12 +28,49 @@ class WorkspaceManagerMemberArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] workspace_manager_member_name: The name of the workspace manager member
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_workspace_resource_id", target_workspace_resource_id)
-        pulumi.set(__self__, "target_workspace_tenant_id", target_workspace_tenant_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        WorkspaceManagerMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            target_workspace_resource_id=target_workspace_resource_id,
+            target_workspace_tenant_id=target_workspace_tenant_id,
+            workspace_name=workspace_name,
+            workspace_manager_member_name=workspace_manager_member_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             target_workspace_tenant_id: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             workspace_manager_member_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_workspace_resource_id is None and 'targetWorkspaceResourceId' in kwargs:
+            target_workspace_resource_id = kwargs['targetWorkspaceResourceId']
+        if target_workspace_resource_id is None:
+            raise TypeError("Missing 'target_workspace_resource_id' argument")
+        if target_workspace_tenant_id is None and 'targetWorkspaceTenantId' in kwargs:
+            target_workspace_tenant_id = kwargs['targetWorkspaceTenantId']
+        if target_workspace_tenant_id is None:
+            raise TypeError("Missing 'target_workspace_tenant_id' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if workspace_manager_member_name is None and 'workspaceManagerMemberName' in kwargs:
+            workspace_manager_member_name = kwargs['workspaceManagerMemberName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_workspace_resource_id", target_workspace_resource_id)
+        _setter("target_workspace_tenant_id", target_workspace_tenant_id)
+        _setter("workspace_name", workspace_name)
         if workspace_manager_member_name is not None:
-            pulumi.set(__self__, "workspace_manager_member_name", workspace_manager_member_name)
+            _setter("workspace_manager_member_name", workspace_manager_member_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -143,6 +180,10 @@ class WorkspaceManagerMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceManagerMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

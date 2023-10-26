@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -29,13 +29,46 @@ class MetadataSchemaArgs:
         :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[str] metadata_schema_name: The name of the metadata schema.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "service_name", service_name)
+        MetadataSchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            schema=schema,
+            service_name=service_name,
+            assigned_to=assigned_to,
+            metadata_schema_name=metadata_schema_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             assigned_to: Optional[pulumi.Input[Sequence[pulumi.Input['MetadataAssignmentArgs']]]] = None,
+             metadata_schema_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if assigned_to is None and 'assignedTo' in kwargs:
+            assigned_to = kwargs['assignedTo']
+        if metadata_schema_name is None and 'metadataSchemaName' in kwargs:
+            metadata_schema_name = kwargs['metadataSchemaName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("schema", schema)
+        _setter("service_name", service_name)
         if assigned_to is not None:
-            pulumi.set(__self__, "assigned_to", assigned_to)
+            _setter("assigned_to", assigned_to)
         if metadata_schema_name is not None:
-            pulumi.set(__self__, "metadata_schema_name", metadata_schema_name)
+            _setter("metadata_schema_name", metadata_schema_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -135,6 +168,10 @@ class MetadataSchema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetadataSchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

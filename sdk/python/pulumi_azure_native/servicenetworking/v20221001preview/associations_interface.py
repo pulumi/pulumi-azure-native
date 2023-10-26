@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,54 @@ class AssociationsInterfaceArgs:
         :param pulumi.Input['AssociationSubnetArgs'] subnet: Association Subnet
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "association_type", association_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
+        AssociationsInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            association_type=association_type,
+            resource_group_name=resource_group_name,
+            traffic_controller_name=traffic_controller_name,
+            association_name=association_name,
+            location=location,
+            subnet=subnet,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             association_type: Optional[pulumi.Input['AssociationType']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             traffic_controller_name: Optional[pulumi.Input[str]] = None,
+             association_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input['AssociationSubnetArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if association_type is None and 'associationType' in kwargs:
+            association_type = kwargs['associationType']
+        if association_type is None:
+            raise TypeError("Missing 'association_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if traffic_controller_name is None and 'trafficControllerName' in kwargs:
+            traffic_controller_name = kwargs['trafficControllerName']
+        if traffic_controller_name is None:
+            raise TypeError("Missing 'traffic_controller_name' argument")
+        if association_name is None and 'associationName' in kwargs:
+            association_name = kwargs['associationName']
+
+        _setter("association_type", association_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("traffic_controller_name", traffic_controller_name)
         if association_name is not None:
-            pulumi.set(__self__, "association_name", association_name)
+            _setter("association_name", association_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="associationType")
@@ -176,6 +213,10 @@ class AssociationsInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssociationsInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -205,6 +246,7 @@ class AssociationsInterface(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            subnet = _utilities.configure(subnet, AssociationSubnetArgs, True)
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
             if traffic_controller_name is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,24 +39,73 @@ class LabArgs:
         :param pulumi.Input[str] usage_quota: Maximum duration a user can use an environment for in the lab.
         :param pulumi.Input[Union[str, 'LabUserAccessMode']] user_access_mode: Lab user access mode (open to all vs. restricted to those listed on the lab).
         """
-        pulumi.set(__self__, "lab_account_name", lab_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LabArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_account_name=lab_account_name,
+            resource_group_name=resource_group_name,
+            lab_name=lab_name,
+            location=location,
+            max_users_in_lab=max_users_in_lab,
+            provisioning_state=provisioning_state,
+            tags=tags,
+            unique_identifier=unique_identifier,
+            usage_quota=usage_quota,
+            user_access_mode=user_access_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_users_in_lab: Optional[pulumi.Input[int]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             unique_identifier: Optional[pulumi.Input[str]] = None,
+             usage_quota: Optional[pulumi.Input[str]] = None,
+             user_access_mode: Optional[pulumi.Input[Union[str, 'LabUserAccessMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lab_account_name is None and 'labAccountName' in kwargs:
+            lab_account_name = kwargs['labAccountName']
+        if lab_account_name is None:
+            raise TypeError("Missing 'lab_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if lab_name is None and 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if max_users_in_lab is None and 'maxUsersInLab' in kwargs:
+            max_users_in_lab = kwargs['maxUsersInLab']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if unique_identifier is None and 'uniqueIdentifier' in kwargs:
+            unique_identifier = kwargs['uniqueIdentifier']
+        if usage_quota is None and 'usageQuota' in kwargs:
+            usage_quota = kwargs['usageQuota']
+        if user_access_mode is None and 'userAccessMode' in kwargs:
+            user_access_mode = kwargs['userAccessMode']
+
+        _setter("lab_account_name", lab_account_name)
+        _setter("resource_group_name", resource_group_name)
         if lab_name is not None:
-            pulumi.set(__self__, "lab_name", lab_name)
+            _setter("lab_name", lab_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_users_in_lab is not None:
-            pulumi.set(__self__, "max_users_in_lab", max_users_in_lab)
+            _setter("max_users_in_lab", max_users_in_lab)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
+            _setter("unique_identifier", unique_identifier)
         if usage_quota is not None:
-            pulumi.set(__self__, "usage_quota", usage_quota)
+            _setter("usage_quota", usage_quota)
         if user_access_mode is not None:
-            pulumi.set(__self__, "user_access_mode", user_access_mode)
+            _setter("user_access_mode", user_access_mode)
 
     @property
     @pulumi.getter(name="labAccountName")
@@ -230,6 +279,10 @@ class Lab(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LabArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

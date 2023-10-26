@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -33,18 +33,55 @@ class ReadWriteDatabaseArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries in TimeSpan.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ReadWriteDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            database_name=database_name,
+            hot_cache_period=hot_cache_period,
+            kind=kind,
+            location=location,
+            soft_delete_period=soft_delete_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             hot_cache_period: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             soft_delete_period: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if hot_cache_period is None and 'hotCachePeriod' in kwargs:
+            hot_cache_period = kwargs['hotCachePeriod']
+        if soft_delete_period is None and 'softDeletePeriod' in kwargs:
+            soft_delete_period = kwargs['softDeletePeriod']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if hot_cache_period is not None:
-            pulumi.set(__self__, "hot_cache_period", hot_cache_period)
+            _setter("hot_cache_period", hot_cache_period)
         if kind is not None:
-            pulumi.set(__self__, "kind", 'ReadWrite')
+            _setter("kind", 'ReadWrite')
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if soft_delete_period is not None:
-            pulumi.set(__self__, "soft_delete_period", soft_delete_period)
+            _setter("soft_delete_period", soft_delete_period)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -178,6 +215,10 @@ class ReadWriteDatabase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReadWriteDatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -23,8 +23,25 @@ class LinkedTemplateArtifactArgs:
         :param pulumi.Input[str] path: A filesystem safe relative path of the artifact.
         :param Any template: The Azure Resource Manager template.
         """
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "template", template)
+        LinkedTemplateArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[pulumi.Input[str]] = None,
+             template: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+
+        _setter("path", path)
+        _setter("template", template)
 
     @property
     @pulumi.getter

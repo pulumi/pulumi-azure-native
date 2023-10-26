@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['SapMonitorArgs', 'SapMonitor']
@@ -35,23 +35,66 @@ class SapMonitorArgs:
         :param pulumi.Input[str] sap_monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SapMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            enable_customer_analytics=enable_customer_analytics,
+            location=location,
+            log_analytics_workspace_arm_id=log_analytics_workspace_arm_id,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            log_analytics_workspace_shared_key=log_analytics_workspace_shared_key,
+            monitor_subnet=monitor_subnet,
+            sap_monitor_name=sap_monitor_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             enable_customer_analytics: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_arm_id: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_shared_key: Optional[pulumi.Input[str]] = None,
+             monitor_subnet: Optional[pulumi.Input[str]] = None,
+             sap_monitor_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if enable_customer_analytics is None and 'enableCustomerAnalytics' in kwargs:
+            enable_customer_analytics = kwargs['enableCustomerAnalytics']
+        if log_analytics_workspace_arm_id is None and 'logAnalyticsWorkspaceArmId' in kwargs:
+            log_analytics_workspace_arm_id = kwargs['logAnalyticsWorkspaceArmId']
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if log_analytics_workspace_shared_key is None and 'logAnalyticsWorkspaceSharedKey' in kwargs:
+            log_analytics_workspace_shared_key = kwargs['logAnalyticsWorkspaceSharedKey']
+        if monitor_subnet is None and 'monitorSubnet' in kwargs:
+            monitor_subnet = kwargs['monitorSubnet']
+        if sap_monitor_name is None and 'sapMonitorName' in kwargs:
+            sap_monitor_name = kwargs['sapMonitorName']
+
+        _setter("resource_group_name", resource_group_name)
         if enable_customer_analytics is not None:
-            pulumi.set(__self__, "enable_customer_analytics", enable_customer_analytics)
+            _setter("enable_customer_analytics", enable_customer_analytics)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_workspace_arm_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_arm_id", log_analytics_workspace_arm_id)
+            _setter("log_analytics_workspace_arm_id", log_analytics_workspace_arm_id)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if log_analytics_workspace_shared_key is not None:
-            pulumi.set(__self__, "log_analytics_workspace_shared_key", log_analytics_workspace_shared_key)
+            _setter("log_analytics_workspace_shared_key", log_analytics_workspace_shared_key)
         if monitor_subnet is not None:
-            pulumi.set(__self__, "monitor_subnet", monitor_subnet)
+            _setter("monitor_subnet", monitor_subnet)
         if sap_monitor_name is not None:
-            pulumi.set(__self__, "sap_monitor_name", sap_monitor_name)
+            _setter("sap_monitor_name", sap_monitor_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -211,6 +254,10 @@ class SapMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SapMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

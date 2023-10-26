@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,52 @@ class VideoAnalyzerArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "encryption", encryption)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_accounts", storage_accounts)
+        VideoAnalyzerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption=encryption,
+            resource_group_name=resource_group_name,
+            storage_accounts=storage_accounts,
+            account_name=account_name,
+            identity=identity,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['VideoAnalyzerIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption is None:
+            raise TypeError("Missing 'encryption' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_accounts is None and 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if storage_accounts is None:
+            raise TypeError("Missing 'storage_accounts' argument")
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+
+        _setter("encryption", encryption)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_accounts", storage_accounts)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -176,6 +211,10 @@ class VideoAnalyzer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VideoAnalyzerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -198,9 +237,11 @@ class VideoAnalyzer(pulumi.CustomResource):
             __props__ = VideoAnalyzerArgs.__new__(VideoAnalyzerArgs)
 
             __props__.__dict__["account_name"] = account_name
+            encryption = _utilities.configure(encryption, AccountEncryptionArgs, True)
             if encryption is None and not opts.urn:
                 raise TypeError("Missing required property 'encryption'")
             __props__.__dict__["encryption"] = encryption
+            identity = _utilities.configure(identity, VideoAnalyzerIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

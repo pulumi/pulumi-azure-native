@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,22 +37,61 @@ class AgentPoolArgs:
         :param pulumi.Input[str] tier: The Tier of agent machine
         :param pulumi.Input[str] virtual_network_subnet_resource_id: The Virtual Network Subnet Resource Id of the agent machine
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AgentPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            agent_pool_name=agent_pool_name,
+            count=count,
+            location=location,
+            os=os,
+            tags=tags,
+            tier=tier,
+            virtual_network_subnet_resource_id=virtual_network_subnet_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             agent_pool_name: Optional[pulumi.Input[str]] = None,
+             count: Optional[pulumi.Input[int]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             os: Optional[pulumi.Input[Union[str, 'OS']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             virtual_network_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if virtual_network_subnet_resource_id is None and 'virtualNetworkSubnetResourceId' in kwargs:
+            virtual_network_subnet_resource_id = kwargs['virtualNetworkSubnetResourceId']
+
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+            _setter("agent_pool_name", agent_pool_name)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if os is not None:
-            pulumi.set(__self__, "os", os)
+            _setter("os", os)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
         if virtual_network_subnet_resource_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_resource_id", virtual_network_subnet_resource_id)
+            _setter("virtual_network_subnet_resource_id", virtual_network_subnet_resource_id)
 
     @property
     @pulumi.getter(name="registryName")
@@ -214,6 +253,10 @@ class AgentPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgentPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

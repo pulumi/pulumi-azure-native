@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -57,42 +57,119 @@ class AzurePowerShellScriptArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
         """
-        pulumi.set(__self__, "az_power_shell_version", az_power_shell_version)
-        pulumi.set(__self__, "kind", 'AzurePowerShell')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "retention_interval", retention_interval)
+        AzurePowerShellScriptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            az_power_shell_version=az_power_shell_version,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            retention_interval=retention_interval,
+            arguments=arguments,
+            cleanup_preference=cleanup_preference,
+            container_settings=container_settings,
+            environment_variables=environment_variables,
+            force_update_tag=force_update_tag,
+            identity=identity,
+            location=location,
+            primary_script_uri=primary_script_uri,
+            script_content=script_content,
+            script_name=script_name,
+            storage_account_settings=storage_account_settings,
+            supporting_script_uris=supporting_script_uris,
+            tags=tags,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             az_power_shell_version: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_interval: Optional[pulumi.Input[str]] = None,
+             arguments: Optional[pulumi.Input[str]] = None,
+             cleanup_preference: Optional[pulumi.Input[Union[str, 'CleanupOptions']]] = None,
+             container_settings: Optional[pulumi.Input['ContainerConfigurationArgs']] = None,
+             environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+             force_update_tag: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             primary_script_uri: Optional[pulumi.Input[str]] = None,
+             script_content: Optional[pulumi.Input[str]] = None,
+             script_name: Optional[pulumi.Input[str]] = None,
+             storage_account_settings: Optional[pulumi.Input['StorageAccountConfigurationArgs']] = None,
+             supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if az_power_shell_version is None and 'azPowerShellVersion' in kwargs:
+            az_power_shell_version = kwargs['azPowerShellVersion']
+        if az_power_shell_version is None:
+            raise TypeError("Missing 'az_power_shell_version' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retention_interval is None and 'retentionInterval' in kwargs:
+            retention_interval = kwargs['retentionInterval']
+        if retention_interval is None:
+            raise TypeError("Missing 'retention_interval' argument")
+        if cleanup_preference is None and 'cleanupPreference' in kwargs:
+            cleanup_preference = kwargs['cleanupPreference']
+        if container_settings is None and 'containerSettings' in kwargs:
+            container_settings = kwargs['containerSettings']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if primary_script_uri is None and 'primaryScriptUri' in kwargs:
+            primary_script_uri = kwargs['primaryScriptUri']
+        if script_content is None and 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+        if script_name is None and 'scriptName' in kwargs:
+            script_name = kwargs['scriptName']
+        if storage_account_settings is None and 'storageAccountSettings' in kwargs:
+            storage_account_settings = kwargs['storageAccountSettings']
+        if supporting_script_uris is None and 'supportingScriptUris' in kwargs:
+            supporting_script_uris = kwargs['supportingScriptUris']
+
+        _setter("az_power_shell_version", az_power_shell_version)
+        _setter("kind", 'AzurePowerShell')
+        _setter("resource_group_name", resource_group_name)
+        _setter("retention_interval", retention_interval)
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if cleanup_preference is None:
             cleanup_preference = 'Always'
         if cleanup_preference is not None:
-            pulumi.set(__self__, "cleanup_preference", cleanup_preference)
+            _setter("cleanup_preference", cleanup_preference)
         if container_settings is not None:
-            pulumi.set(__self__, "container_settings", container_settings)
+            _setter("container_settings", container_settings)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if primary_script_uri is not None:
-            pulumi.set(__self__, "primary_script_uri", primary_script_uri)
+            _setter("primary_script_uri", primary_script_uri)
         if script_content is not None:
-            pulumi.set(__self__, "script_content", script_content)
+            _setter("script_content", script_content)
         if script_name is not None:
-            pulumi.set(__self__, "script_name", script_name)
+            _setter("script_name", script_name)
         if storage_account_settings is not None:
-            pulumi.set(__self__, "storage_account_settings", storage_account_settings)
+            _setter("storage_account_settings", storage_account_settings)
         if supporting_script_uris is not None:
-            pulumi.set(__self__, "supporting_script_uris", supporting_script_uris)
+            _setter("supporting_script_uris", supporting_script_uris)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout is None:
             timeout = 'P1D'
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="azPowerShellVersion")
@@ -380,6 +457,10 @@ class AzurePowerShellScript(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AzurePowerShellScriptArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -419,9 +500,11 @@ class AzurePowerShellScript(pulumi.CustomResource):
             if cleanup_preference is None:
                 cleanup_preference = 'Always'
             __props__.__dict__["cleanup_preference"] = cleanup_preference
+            container_settings = _utilities.configure(container_settings, ContainerConfigurationArgs, True)
             __props__.__dict__["container_settings"] = container_settings
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["force_update_tag"] = force_update_tag
+            identity = _utilities.configure(identity, ManagedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
@@ -436,6 +519,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
             __props__.__dict__["retention_interval"] = retention_interval
             __props__.__dict__["script_content"] = script_content
             __props__.__dict__["script_name"] = script_name
+            storage_account_settings = _utilities.configure(storage_account_settings, StorageAccountConfigurationArgs, True)
             __props__.__dict__["storage_account_settings"] = storage_account_settings
             __props__.__dict__["supporting_script_uris"] = supporting_script_uris
             __props__.__dict__["tags"] = tags

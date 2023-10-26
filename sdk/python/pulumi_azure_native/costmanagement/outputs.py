@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -84,9 +84,30 @@ class BudgetComparisonExpressionResponse(dict):
         :param str operator: The operator to use for comparison.
         :param Sequence[str] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        BudgetComparisonExpressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -138,10 +159,23 @@ class BudgetFilterPropertiesResponse(dict):
                
                 Supported for CategoryType(s): Cost.
         """
+        BudgetFilterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimensions=dimensions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimensions: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+             tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -214,12 +248,29 @@ class BudgetFilterResponse(dict):
                
                 Supported for CategoryType(s): Cost.
         """
+        BudgetFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimensions=dimensions,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[Sequence['outputs.BudgetFilterPropertiesResponse']] = None,
+             dimensions: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+             tags: Optional['outputs.BudgetComparisonExpressionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if and_ is None and 'and' in kwargs:
+            and_ = kwargs['and']
+
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -304,9 +355,28 @@ class BudgetTimePeriodResponse(dict):
                
                - Constraints for **CategoryType: ReservationUtilization** - End date cannot be more than 3 years after the start date.
         """
-        pulumi.set(__self__, "start_date", start_date)
+        BudgetTimePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            start_date=start_date,
+            end_date=end_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             start_date: Optional[str] = None,
+             end_date: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+
+        _setter("start_date", start_date)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
 
     @property
     @pulumi.getter(name="startDate")
@@ -377,15 +447,50 @@ class CommonExportPropertiesResponse(dict):
         :param bool partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
         :param 'ExportExecutionListResultResponse' run_history: If requested, has the most recent run history for the export.
         """
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "delivery_info", delivery_info)
-        pulumi.set(__self__, "next_run_time_estimate", next_run_time_estimate)
+        CommonExportPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            delivery_info=delivery_info,
+            next_run_time_estimate=next_run_time_estimate,
+            format=format,
+            partition_data=partition_data,
+            run_history=run_history,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: Optional['outputs.ExportDefinitionResponse'] = None,
+             delivery_info: Optional['outputs.ExportDeliveryInfoResponse'] = None,
+             next_run_time_estimate: Optional[str] = None,
+             format: Optional[str] = None,
+             partition_data: Optional[bool] = None,
+             run_history: Optional['outputs.ExportExecutionListResultResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition is None:
+            raise TypeError("Missing 'definition' argument")
+        if delivery_info is None and 'deliveryInfo' in kwargs:
+            delivery_info = kwargs['deliveryInfo']
+        if delivery_info is None:
+            raise TypeError("Missing 'delivery_info' argument")
+        if next_run_time_estimate is None and 'nextRunTimeEstimate' in kwargs:
+            next_run_time_estimate = kwargs['nextRunTimeEstimate']
+        if next_run_time_estimate is None:
+            raise TypeError("Missing 'next_run_time_estimate' argument")
+        if partition_data is None and 'partitionData' in kwargs:
+            partition_data = kwargs['partitionData']
+        if run_history is None and 'runHistory' in kwargs:
+            run_history = kwargs['runHistory']
+
+        _setter("definition", definition)
+        _setter("delivery_info", delivery_info)
+        _setter("next_run_time_estimate", next_run_time_estimate)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if partition_data is not None:
-            pulumi.set(__self__, "partition_data", partition_data)
+            _setter("partition_data", partition_data)
         if run_history is not None:
-            pulumi.set(__self__, "run_history", run_history)
+            _setter("run_history", run_history)
 
     @property
     @pulumi.getter
@@ -476,11 +581,42 @@ class ConnectorCollectionErrorInfoResponse(dict):
         :param str error_start_time: Time the error started occurring (Last time error occurred in lastRun)
         :param str error_inner_message: External Provider error message
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_start_time", error_start_time)
+        ConnectorCollectionErrorInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_start_time=error_start_time,
+            error_inner_message=error_inner_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_start_time: Optional[str] = None,
+             error_inner_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_code is None:
+            raise TypeError("Missing 'error_code' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if error_message is None:
+            raise TypeError("Missing 'error_message' argument")
+        if error_start_time is None and 'errorStartTime' in kwargs:
+            error_start_time = kwargs['errorStartTime']
+        if error_start_time is None:
+            raise TypeError("Missing 'error_start_time' argument")
+        if error_inner_message is None and 'errorInnerMessage' in kwargs:
+            error_inner_message = kwargs['errorInnerMessage']
+
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_start_time", error_start_time)
         if error_inner_message is not None:
-            pulumi.set(__self__, "error_inner_message", error_inner_message)
+            _setter("error_inner_message", error_inner_message)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -557,13 +693,46 @@ class ConnectorCollectionInfoResponse(dict):
         :param 'ConnectorCollectionErrorInfoResponse' error: Error information of last collection
         :param str last_checked: Last time the data acquisition process initiated connecting to the external provider
         """
-        pulumi.set(__self__, "last_run", last_run)
-        pulumi.set(__self__, "last_updated", last_updated)
-        pulumi.set(__self__, "source_last_updated", source_last_updated)
+        ConnectorCollectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_run=last_run,
+            last_updated=last_updated,
+            source_last_updated=source_last_updated,
+            error=error,
+            last_checked=last_checked,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_run: Optional[str] = None,
+             last_updated: Optional[str] = None,
+             source_last_updated: Optional[str] = None,
+             error: Optional['outputs.ConnectorCollectionErrorInfoResponse'] = None,
+             last_checked: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last_run is None and 'lastRun' in kwargs:
+            last_run = kwargs['lastRun']
+        if last_run is None:
+            raise TypeError("Missing 'last_run' argument")
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if last_updated is None:
+            raise TypeError("Missing 'last_updated' argument")
+        if source_last_updated is None and 'sourceLastUpdated' in kwargs:
+            source_last_updated = kwargs['sourceLastUpdated']
+        if source_last_updated is None:
+            raise TypeError("Missing 'source_last_updated' argument")
+        if last_checked is None and 'lastChecked' in kwargs:
+            last_checked = kwargs['lastChecked']
+
+        _setter("last_run", last_run)
+        _setter("last_updated", last_updated)
+        _setter("source_last_updated", source_last_updated)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if last_checked is not None:
-            pulumi.set(__self__, "last_checked", last_checked)
+            _setter("last_checked", last_checked)
 
     @property
     @pulumi.getter(name="lastRun")
@@ -619,8 +788,25 @@ class CostAllocationProportionResponse(dict):
         :param str name: Target resource for cost allocation
         :param float percentage: Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "percentage", percentage)
+        CostAllocationProportionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            percentage=percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             percentage: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if percentage is None:
+            raise TypeError("Missing 'percentage' argument")
+
+        _setter("name", name)
+        _setter("percentage", percentage)
 
     @property
     @pulumi.getter
@@ -671,10 +857,27 @@ class CostAllocationRuleDetailsResponse(dict):
         :param Sequence['SourceCostAllocationResourceResponse'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
         :param Sequence['TargetCostAllocationResourceResponse'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
+        CostAllocationRuleDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_resources=source_resources,
+            target_resources=target_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_resources: Optional[Sequence['outputs.SourceCostAllocationResourceResponse']] = None,
+             target_resources: Optional[Sequence['outputs.TargetCostAllocationResourceResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_resources is None and 'sourceResources' in kwargs:
+            source_resources = kwargs['sourceResources']
+        if target_resources is None and 'targetResources' in kwargs:
+            target_resources = kwargs['targetResources']
+
         if source_resources is not None:
-            pulumi.set(__self__, "source_resources", source_resources)
+            _setter("source_resources", source_resources)
         if target_resources is not None:
-            pulumi.set(__self__, "target_resources", target_resources)
+            _setter("target_resources", target_resources)
 
     @property
     @pulumi.getter(name="sourceResources")
@@ -731,12 +934,43 @@ class CostAllocationRulePropertiesResponse(dict):
         :param str updated_date: Time at which the rule was last updated.
         :param str description: Description of a cost allocation rule.
         """
-        pulumi.set(__self__, "created_date", created_date)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "updated_date", updated_date)
+        CostAllocationRulePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_date=created_date,
+            details=details,
+            status=status,
+            updated_date=updated_date,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_date: Optional[str] = None,
+             details: Optional['outputs.CostAllocationRuleDetailsResponse'] = None,
+             status: Optional[str] = None,
+             updated_date: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if created_date is None:
+            raise TypeError("Missing 'created_date' argument")
+        if details is None:
+            raise TypeError("Missing 'details' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if updated_date is None and 'updatedDate' in kwargs:
+            updated_date = kwargs['updatedDate']
+        if updated_date is None:
+            raise TypeError("Missing 'updated_date' argument")
+
+        _setter("created_date", created_date)
+        _setter("details", details)
+        _setter("status", status)
+        _setter("updated_date", updated_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="createdDate")
@@ -796,8 +1030,25 @@ class CurrentSpendResponse(dict):
         :param float amount: The total amount of cost which is being tracked by the budget.
         :param str unit: The unit of measure for the budget amount.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "unit", unit)
+        CurrentSpendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: Optional[float] = None,
+             unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+
+        _setter("amount", amount)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -848,8 +1099,29 @@ class CustomerMetadataResponse(dict):
         :param str billing_account_id: Customer billing account id
         :param str billing_profile_id: Customer billing profile id
         """
-        pulumi.set(__self__, "billing_account_id", billing_account_id)
-        pulumi.set(__self__, "billing_profile_id", billing_profile_id)
+        CustomerMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_account_id=billing_account_id,
+            billing_profile_id=billing_profile_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_account_id: Optional[str] = None,
+             billing_profile_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_account_id is None and 'billingAccountId' in kwargs:
+            billing_account_id = kwargs['billingAccountId']
+        if billing_account_id is None:
+            raise TypeError("Missing 'billing_account_id' argument")
+        if billing_profile_id is None and 'billingProfileId' in kwargs:
+            billing_profile_id = kwargs['billingProfileId']
+        if billing_profile_id is None:
+            raise TypeError("Missing 'billing_profile_id' argument")
+
+        _setter("billing_account_id", billing_account_id)
+        _setter("billing_profile_id", billing_profile_id)
 
     @property
     @pulumi.getter(name="billingAccountId")
@@ -881,8 +1153,25 @@ class ErrorDetailsResponse(dict):
         :param str code: Error code.
         :param str message: Error message indicating why the operation failed.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        ErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+
+        _setter("code", code)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -912,8 +1201,19 @@ class ExportDatasetConfigurationResponse(dict):
         The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
         :param Sequence[str] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
         """
+        ExportDatasetConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -937,10 +1237,23 @@ class ExportDatasetResponse(dict):
         :param 'ExportDatasetConfigurationResponse' configuration: The export dataset configuration.
         :param str granularity: The granularity of rows in the export. Currently only 'Daily' is supported.
         """
+        ExportDatasetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            granularity=granularity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional['outputs.ExportDatasetConfigurationResponse'] = None,
+             granularity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
 
     @property
     @pulumi.getter
@@ -995,12 +1308,37 @@ class ExportDefinitionResponse(dict):
         :param 'ExportDatasetResponse' data_set: The definition for data in the export.
         :param 'ExportTimePeriodResponse' time_period: Has time period for pulling data for the export.
         """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
+        ExportDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timeframe=timeframe,
+            type=type,
+            data_set=data_set,
+            time_period=time_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timeframe: Optional[str] = None,
+             type: Optional[str] = None,
+             data_set: Optional['outputs.ExportDatasetResponse'] = None,
+             time_period: Optional['outputs.ExportTimePeriodResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timeframe is None:
+            raise TypeError("Missing 'timeframe' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if data_set is None and 'dataSet' in kwargs:
+            data_set = kwargs['dataSet']
+        if time_period is None and 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+
+        _setter("timeframe", timeframe)
+        _setter("type", type)
         if data_set is not None:
-            pulumi.set(__self__, "data_set", data_set)
+            _setter("data_set", data_set)
         if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
+            _setter("time_period", time_period)
 
     @property
     @pulumi.getter
@@ -1077,15 +1415,44 @@ class ExportDeliveryDestinationResponse(dict):
         :param str sas_token: A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
         :param str storage_account: The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
         """
-        pulumi.set(__self__, "container", container)
+        ExportDeliveryDestinationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            resource_id=resource_id,
+            root_folder_path=root_folder_path,
+            sas_token=sas_token,
+            storage_account=storage_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             root_folder_path: Optional[str] = None,
+             sas_token: Optional[str] = None,
+             storage_account: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container is None:
+            raise TypeError("Missing 'container' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if root_folder_path is None and 'rootFolderPath' in kwargs:
+            root_folder_path = kwargs['rootFolderPath']
+        if sas_token is None and 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if storage_account is None and 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
+        _setter("container", container)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
+            _setter("root_folder_path", root_folder_path)
         if sas_token is not None:
-            pulumi.set(__self__, "sas_token", sas_token)
+            _setter("sas_token", sas_token)
         if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+            _setter("storage_account", storage_account)
 
     @property
     @pulumi.getter
@@ -1139,7 +1506,20 @@ class ExportDeliveryInfoResponse(dict):
         The delivery information associated with a export.
         :param 'ExportDeliveryDestinationResponse' destination: Has destination for the export being delivered.
         """
-        pulumi.set(__self__, "destination", destination)
+        ExportDeliveryInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional['outputs.ExportDeliveryDestinationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+
+        _setter("destination", destination)
 
     @property
     @pulumi.getter
@@ -1161,7 +1541,20 @@ class ExportExecutionListResultResponse(dict):
         Result of listing the run history of an export.
         :param Sequence['ExportRunResponse'] value: A list of export runs.
         """
-        pulumi.set(__self__, "value", value)
+        ExportExecutionListResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[Sequence['outputs.ExportRunResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1202,9 +1595,26 @@ class ExportRecurrencePeriodResponse(dict):
         :param str from_: The start date of recurrence.
         :param str to: The end date of recurrence.
         """
-        pulumi.set(__self__, "from_", from_)
+        ExportRecurrencePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: Optional[str] = None,
+             to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+
+        _setter("from_", from_)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -1289,29 +1699,86 @@ class ExportRunResponse(dict):
         :param str submitted_by: The identifier for the entity that triggered the export. For on-demand runs it is the user email. For scheduled runs it is 'System'.
         :param str submitted_time: The time when export was queued to be run.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ExportRunResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            type=type,
+            e_tag=e_tag,
+            error=error,
+            execution_type=execution_type,
+            file_name=file_name,
+            processing_end_time=processing_end_time,
+            processing_start_time=processing_start_time,
+            run_settings=run_settings,
+            status=status,
+            submitted_by=submitted_by,
+            submitted_time=submitted_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             e_tag: Optional[str] = None,
+             error: Optional['outputs.ErrorDetailsResponse'] = None,
+             execution_type: Optional[str] = None,
+             file_name: Optional[str] = None,
+             processing_end_time: Optional[str] = None,
+             processing_start_time: Optional[str] = None,
+             run_settings: Optional['outputs.CommonExportPropertiesResponse'] = None,
+             status: Optional[str] = None,
+             submitted_by: Optional[str] = None,
+             submitted_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if execution_type is None and 'executionType' in kwargs:
+            execution_type = kwargs['executionType']
+        if file_name is None and 'fileName' in kwargs:
+            file_name = kwargs['fileName']
+        if processing_end_time is None and 'processingEndTime' in kwargs:
+            processing_end_time = kwargs['processingEndTime']
+        if processing_start_time is None and 'processingStartTime' in kwargs:
+            processing_start_time = kwargs['processingStartTime']
+        if run_settings is None and 'runSettings' in kwargs:
+            run_settings = kwargs['runSettings']
+        if submitted_by is None and 'submittedBy' in kwargs:
+            submitted_by = kwargs['submittedBy']
+        if submitted_time is None and 'submittedTime' in kwargs:
+            submitted_time = kwargs['submittedTime']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if execution_type is not None:
-            pulumi.set(__self__, "execution_type", execution_type)
+            _setter("execution_type", execution_type)
         if file_name is not None:
-            pulumi.set(__self__, "file_name", file_name)
+            _setter("file_name", file_name)
         if processing_end_time is not None:
-            pulumi.set(__self__, "processing_end_time", processing_end_time)
+            _setter("processing_end_time", processing_end_time)
         if processing_start_time is not None:
-            pulumi.set(__self__, "processing_start_time", processing_start_time)
+            _setter("processing_start_time", processing_start_time)
         if run_settings is not None:
-            pulumi.set(__self__, "run_settings", run_settings)
+            _setter("run_settings", run_settings)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if submitted_by is not None:
-            pulumi.set(__self__, "submitted_by", submitted_by)
+            _setter("submitted_by", submitted_by)
         if submitted_time is not None:
-            pulumi.set(__self__, "submitted_time", submitted_time)
+            _setter("submitted_time", submitted_time)
 
     @property
     @pulumi.getter
@@ -1450,12 +1917,29 @@ class ExportScheduleResponse(dict):
         :param 'ExportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param str status: The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         """
+        ExportScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence=recurrence,
+            recurrence_period=recurrence_period,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence: Optional[str] = None,
+             recurrence_period: Optional['outputs.ExportRecurrencePeriodResponse'] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recurrence_period is None and 'recurrencePeriod' in kwargs:
+            recurrence_period = kwargs['recurrencePeriod']
+
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
         if recurrence_period is not None:
-            pulumi.set(__self__, "recurrence_period", recurrence_period)
+            _setter("recurrence_period", recurrence_period)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -1512,8 +1996,27 @@ class ExportTimePeriodResponse(dict):
         :param str from_: The start date for export data.
         :param str to: The end date for export data.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        ExportTimePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: Optional[str] = None,
+             to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+        if to is None:
+            raise TypeError("Missing 'to' argument")
+
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -1560,8 +2063,21 @@ class FileDestinationResponse(dict):
         Destination of the view data. This is optional. Currently only CSV format is supported.
         :param Sequence[str] file_formats: Destination of the view data. Currently only CSV format is supported.
         """
+        FileDestinationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_formats=file_formats,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_formats: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_formats is None and 'fileFormats' in kwargs:
+            file_formats = kwargs['fileFormats']
+
         if file_formats is not None:
-            pulumi.set(__self__, "file_formats", file_formats)
+            _setter("file_formats", file_formats)
 
     @property
     @pulumi.getter(name="fileFormats")
@@ -1589,8 +2105,25 @@ class ForecastSpendResponse(dict):
         :param float amount: The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.
         :param str unit: The unit of measure for the budget amount.
         """
-        pulumi.set(__self__, "amount", amount)
-        pulumi.set(__self__, "unit", unit)
+        ForecastSpendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount=amount,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount: Optional[float] = None,
+             unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+
+        _setter("amount", amount)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter
@@ -1624,12 +2157,27 @@ class KpiPropertiesResponse(dict):
         :param str id: ID of resource related to metric (budget).
         :param str type: KPI type (Forecast, Budget).
         """
+        KpiPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1692,14 +2240,39 @@ class NotificationPropertiesResponse(dict):
         :param str message: Optional message to be added in the email. Length is limited to 250 characters.
         :param str regional_format: Regional format used for formatting date/time and currency values in the email.
         """
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "to", to)
+        NotificationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject=subject,
+            to=to,
+            language=language,
+            message=message,
+            regional_format=regional_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject: Optional[str] = None,
+             to: Optional[Sequence[str]] = None,
+             language: Optional[str] = None,
+             message: Optional[str] = None,
+             regional_format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if to is None:
+            raise TypeError("Missing 'to' argument")
+        if regional_format is None and 'regionalFormat' in kwargs:
+            regional_format = kwargs['regionalFormat']
+
+        _setter("subject", subject)
+        _setter("to", to)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if regional_format is not None:
-            pulumi.set(__self__, "regional_format", regional_format)
+            _setter("regional_format", regional_format)
 
     @property
     @pulumi.getter
@@ -1825,22 +2398,65 @@ class NotificationResponse(dict):
                
                 Supported for CategoryType(s): Cost.
         """
-        pulumi.set(__self__, "contact_emails", contact_emails)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
+        NotificationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_emails=contact_emails,
+            enabled=enabled,
+            operator=operator,
+            threshold=threshold,
+            contact_groups=contact_groups,
+            contact_roles=contact_roles,
+            frequency=frequency,
+            locale=locale,
+            threshold_type=threshold_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_emails: Optional[Sequence[str]] = None,
+             enabled: Optional[bool] = None,
+             operator: Optional[str] = None,
+             threshold: Optional[float] = None,
+             contact_groups: Optional[Sequence[str]] = None,
+             contact_roles: Optional[Sequence[str]] = None,
+             frequency: Optional[str] = None,
+             locale: Optional[str] = None,
+             threshold_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_emails is None and 'contactEmails' in kwargs:
+            contact_emails = kwargs['contactEmails']
+        if contact_emails is None:
+            raise TypeError("Missing 'contact_emails' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if contact_groups is None and 'contactGroups' in kwargs:
+            contact_groups = kwargs['contactGroups']
+        if contact_roles is None and 'contactRoles' in kwargs:
+            contact_roles = kwargs['contactRoles']
+        if threshold_type is None and 'thresholdType' in kwargs:
+            threshold_type = kwargs['thresholdType']
+
+        _setter("contact_emails", contact_emails)
+        _setter("enabled", enabled)
+        _setter("operator", operator)
+        _setter("threshold", threshold)
         if contact_groups is not None:
-            pulumi.set(__self__, "contact_groups", contact_groups)
+            _setter("contact_groups", contact_groups)
         if contact_roles is not None:
-            pulumi.set(__self__, "contact_roles", contact_roles)
+            _setter("contact_roles", contact_roles)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if locale is not None:
-            pulumi.set(__self__, "locale", locale)
+            _setter("locale", locale)
         if threshold_type is None:
             threshold_type = 'Actual'
         if threshold_type is not None:
-            pulumi.set(__self__, "threshold_type", threshold_type)
+            _setter("threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="contactEmails")
@@ -1957,10 +2573,23 @@ class PivotPropertiesResponse(dict):
         :param str name: Data field to show in view.
         :param str type: Data type to show in view.
         """
+        PivotPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1992,8 +2621,25 @@ class ReportAggregationResponse(dict):
         :param str function: The name of the aggregation function to use.
         :param str name: The name of the column to aggregate.
         """
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "name", name)
+        ReportAggregationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function=function,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("function", function)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2027,9 +2673,30 @@ class ReportComparisonExpressionResponse(dict):
         :param str operator: The operator to use for comparison.
         :param Sequence[str] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ReportComparisonExpressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2069,8 +2736,25 @@ class ReportConfigAggregationResponse(dict):
         :param str function: The name of the aggregation function to use.
         :param str name: The name of the column to aggregate.
         """
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "name", name)
+        ReportConfigAggregationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function=function,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("function", function)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2104,9 +2788,30 @@ class ReportConfigComparisonExpressionResponse(dict):
         :param str operator: The operator to use for comparison.
         :param Sequence[str] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ReportConfigComparisonExpressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2144,8 +2849,19 @@ class ReportConfigDatasetConfigurationResponse(dict):
         The configuration of dataset in the report.
         :param Sequence[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
+        ReportConfigDatasetConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -2177,18 +2893,39 @@ class ReportConfigDatasetResponse(dict):
         :param Sequence['ReportConfigGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         :param Sequence['ReportConfigSortingResponse'] sorting: Array of order by expression to use in the report.
         """
+        ReportConfigDatasetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            configuration=configuration,
+            filter=filter,
+            granularity=granularity,
+            grouping=grouping,
+            sorting=sorting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: Optional[Mapping[str, 'outputs.ReportConfigAggregationResponse']] = None,
+             configuration: Optional['outputs.ReportConfigDatasetConfigurationResponse'] = None,
+             filter: Optional['outputs.ReportConfigFilterResponse'] = None,
+             granularity: Optional[str] = None,
+             grouping: Optional[Sequence['outputs.ReportConfigGroupingResponse']] = None,
+             sorting: Optional[Sequence['outputs.ReportConfigSortingResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
+            _setter("aggregation", aggregation)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
         if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
+            _setter("grouping", grouping)
         if sorting is not None:
-            pulumi.set(__self__, "sorting", sorting)
+            _setter("sorting", sorting)
 
     @property
     @pulumi.getter
@@ -2275,14 +3012,35 @@ class ReportConfigFilterResponse(dict):
         :param Sequence['ReportConfigFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
+        ReportConfigFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimensions=dimensions,
+            or_=or_,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
+             dimensions: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
+             or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
+             tags: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if and_ is None and 'and' in kwargs:
+            and_ = kwargs['and']
+        if or_ is None and 'or' in kwargs:
+            or_ = kwargs['or']
+
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if or_ is not None:
-            pulumi.set(__self__, "or_", or_)
+            _setter("or_", or_)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -2330,8 +3088,25 @@ class ReportConfigGroupingResponse(dict):
         :param str name: The name of the column to group. This version supports subscription lowest possible grain.
         :param str type: Has type of the column to group.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReportConfigGroupingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2363,9 +3138,24 @@ class ReportConfigSortingResponse(dict):
         :param str name: The name of the column to sort.
         :param str direction: Direction of sort.
         """
-        pulumi.set(__self__, "name", name)
+        ReportConfigSortingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            direction=direction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             direction: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
 
     @property
     @pulumi.getter
@@ -2414,8 +3204,27 @@ class ReportConfigTimePeriodResponse(dict):
         :param str from_: The start date to pull data from.
         :param str to: The end date to pull data to.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        ReportConfigTimePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: Optional[str] = None,
+             to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+        if to is None:
+            raise TypeError("Missing 'to' argument")
+
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -2445,8 +3254,19 @@ class ReportDatasetConfigurationResponse(dict):
         The configuration of dataset in the report.
         :param Sequence[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
+        ReportDatasetConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -2476,16 +3296,35 @@ class ReportDatasetResponse(dict):
         :param str granularity: The granularity of rows in the report.
         :param Sequence['ReportGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
+        ReportDatasetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            configuration=configuration,
+            filter=filter,
+            granularity=granularity,
+            grouping=grouping,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: Optional[Mapping[str, 'outputs.ReportAggregationResponse']] = None,
+             configuration: Optional['outputs.ReportDatasetConfigurationResponse'] = None,
+             filter: Optional['outputs.ReportFilterResponse'] = None,
+             granularity: Optional[str] = None,
+             grouping: Optional[Sequence['outputs.ReportGroupingResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
+            _setter("aggregation", aggregation)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
         if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
+            _setter("grouping", grouping)
 
     @property
     @pulumi.getter
@@ -2562,12 +3401,35 @@ class ReportDefinitionResponse(dict):
         :param 'ReportDatasetResponse' dataset: Has definition for data in this report.
         :param 'ReportTimePeriodResponse' time_period: Has time period for pulling data for the report.
         """
-        pulumi.set(__self__, "timeframe", timeframe)
-        pulumi.set(__self__, "type", type)
+        ReportDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            timeframe=timeframe,
+            type=type,
+            dataset=dataset,
+            time_period=time_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             timeframe: Optional[str] = None,
+             type: Optional[str] = None,
+             dataset: Optional['outputs.ReportDatasetResponse'] = None,
+             time_period: Optional['outputs.ReportTimePeriodResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timeframe is None:
+            raise TypeError("Missing 'timeframe' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if time_period is None and 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+
+        _setter("timeframe", timeframe)
+        _setter("type", type)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if time_period is not None:
-            pulumi.set(__self__, "time_period", time_period)
+            _setter("time_period", time_period)
 
     @property
     @pulumi.getter
@@ -2636,10 +3498,33 @@ class ReportDeliveryDestinationResponse(dict):
         :param str resource_id: The resource id of the storage account where reports will be delivered.
         :param str root_folder_path: The name of the directory where reports will be uploaded.
         """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
+        ReportDeliveryDestinationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            resource_id=resource_id,
+            root_folder_path=root_folder_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: Optional[str] = None,
+             resource_id: Optional[str] = None,
+             root_folder_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container is None:
+            raise TypeError("Missing 'container' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if root_folder_path is None and 'rootFolderPath' in kwargs:
+            root_folder_path = kwargs['rootFolderPath']
+
+        _setter("container", container)
+        _setter("resource_id", resource_id)
         if root_folder_path is not None:
-            pulumi.set(__self__, "root_folder_path", root_folder_path)
+            _setter("root_folder_path", root_folder_path)
 
     @property
     @pulumi.getter
@@ -2677,7 +3562,20 @@ class ReportDeliveryInfoResponse(dict):
         The delivery information associated with a report.
         :param 'ReportDeliveryDestinationResponse' destination: Has destination for the report being delivered.
         """
-        pulumi.set(__self__, "destination", destination)
+        ReportDeliveryInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional['outputs.ReportDeliveryDestinationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+
+        _setter("destination", destination)
 
     @property
     @pulumi.getter
@@ -2728,16 +3626,41 @@ class ReportFilterResponse(dict):
         :param Sequence['ReportFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'ReportComparisonExpressionResponse' tag: Has comparison expression for a tag
         """
+        ReportFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimension=dimension,
+            not_=not_,
+            or_=or_,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[Sequence['outputs.ReportFilterResponse']] = None,
+             dimension: Optional['outputs.ReportComparisonExpressionResponse'] = None,
+             not_: Optional['outputs.ReportFilterResponse'] = None,
+             or_: Optional[Sequence['outputs.ReportFilterResponse']] = None,
+             tag: Optional['outputs.ReportComparisonExpressionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if and_ is None and 'and' in kwargs:
+            and_ = kwargs['and']
+        if not_ is None and 'not' in kwargs:
+            not_ = kwargs['not']
+        if or_ is None and 'or' in kwargs:
+            or_ = kwargs['or']
+
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimension is not None:
-            pulumi.set(__self__, "dimension", dimension)
+            _setter("dimension", dimension)
         if not_ is not None:
-            pulumi.set(__self__, "not_", not_)
+            _setter("not_", not_)
         if or_ is not None:
-            pulumi.set(__self__, "or_", or_)
+            _setter("or_", or_)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
 
     @property
     @pulumi.getter(name="and")
@@ -2793,8 +3716,25 @@ class ReportGroupingResponse(dict):
         :param str name: The name of the column to group.
         :param str type: Has type of the column to group.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReportGroupingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2843,9 +3783,26 @@ class ReportRecurrencePeriodResponse(dict):
         :param str from_: The start date of recurrence.
         :param str to: The end date of recurrence.
         """
-        pulumi.set(__self__, "from_", from_)
+        ReportRecurrencePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: Optional[str] = None,
+             to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+
+        _setter("from_", from_)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -2896,11 +3853,30 @@ class ReportScheduleResponse(dict):
         :param 'ReportRecurrencePeriodResponse' recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
         :param str status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
         """
-        pulumi.set(__self__, "recurrence", recurrence)
+        ReportScheduleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence=recurrence,
+            recurrence_period=recurrence_period,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence: Optional[str] = None,
+             recurrence_period: Optional['outputs.ReportRecurrencePeriodResponse'] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recurrence is None:
+            raise TypeError("Missing 'recurrence' argument")
+        if recurrence_period is None and 'recurrencePeriod' in kwargs:
+            recurrence_period = kwargs['recurrencePeriod']
+
+        _setter("recurrence", recurrence)
         if recurrence_period is not None:
-            pulumi.set(__self__, "recurrence_period", recurrence_period)
+            _setter("recurrence_period", recurrence_period)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -2957,8 +3933,27 @@ class ReportTimePeriodResponse(dict):
         :param str from_: The start date to pull data from.
         :param str to: The end date to pull data to.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        ReportTimePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: Optional[str] = None,
+             to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+        if to is None:
+            raise TypeError("Missing 'to' argument")
+
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -3027,17 +4022,58 @@ class SchedulePropertiesResponse(dict):
         :param int hour_of_day: UTC time at which cost analysis data will be emailed.
         :param Sequence[str] weeks_of_month: Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.
         """
-        pulumi.set(__self__, "end_date", end_date)
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "start_date", start_date)
+        SchedulePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_date=end_date,
+            frequency=frequency,
+            start_date=start_date,
+            day_of_month=day_of_month,
+            days_of_week=days_of_week,
+            hour_of_day=hour_of_day,
+            weeks_of_month=weeks_of_month,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_date: Optional[str] = None,
+             frequency: Optional[str] = None,
+             start_date: Optional[str] = None,
+             day_of_month: Optional[int] = None,
+             days_of_week: Optional[Sequence[str]] = None,
+             hour_of_day: Optional[int] = None,
+             weeks_of_month: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if end_date is None:
+            raise TypeError("Missing 'end_date' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if day_of_month is None and 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if days_of_week is None and 'daysOfWeek' in kwargs:
+            days_of_week = kwargs['daysOfWeek']
+        if hour_of_day is None and 'hourOfDay' in kwargs:
+            hour_of_day = kwargs['hourOfDay']
+        if weeks_of_month is None and 'weeksOfMonth' in kwargs:
+            weeks_of_month = kwargs['weeksOfMonth']
+
+        _setter("end_date", end_date)
+        _setter("frequency", frequency)
+        _setter("start_date", start_date)
         if day_of_month is not None:
-            pulumi.set(__self__, "day_of_month", day_of_month)
+            _setter("day_of_month", day_of_month)
         if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
+            _setter("days_of_week", days_of_week)
         if hour_of_day is not None:
-            pulumi.set(__self__, "hour_of_day", hour_of_day)
+            _setter("hour_of_day", hour_of_day)
         if weeks_of_month is not None:
-            pulumi.set(__self__, "weeks_of_month", weeks_of_month)
+            _setter("weeks_of_month", weeks_of_month)
 
     @property
     @pulumi.getter(name="endDate")
@@ -3113,14 +4149,43 @@ class SettingsPropertiesResponseCache(dict):
         :param str parent: Resource ID of the parent scope. For instance, subscription's resource ID for a resource group or a management group resource ID for a subscription.
         :param str status: Indicates the status of the scope. Status only applies to subscriptions and billing accounts.
         """
-        pulumi.set(__self__, "channel", channel)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subchannel", subchannel)
+        SettingsPropertiesResponseCache._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel=channel,
+            id=id,
+            name=name,
+            subchannel=subchannel,
+            parent=parent,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             subchannel: Optional[str] = None,
+             parent: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel is None:
+            raise TypeError("Missing 'channel' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if subchannel is None:
+            raise TypeError("Missing 'subchannel' argument")
+
+        _setter("channel", channel)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("subchannel", subchannel)
         if parent is not None:
-            pulumi.set(__self__, "parent", parent)
+            _setter("parent", parent)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -3203,9 +4268,32 @@ class SourceCostAllocationResourceResponse(dict):
         :param str resource_type: Type of resources contained in this cost allocation rule
         :param Sequence[str] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "values", values)
+        SourceCostAllocationResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_type=resource_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("resource_type", resource_type)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -3280,18 +4368,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -3370,7 +4491,22 @@ class TagInheritancePropertiesResponse(dict):
         The properties of the tag inheritance setting.
         :param bool prefer_container_tags: When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
         """
-        pulumi.set(__self__, "prefer_container_tags", prefer_container_tags)
+        TagInheritancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefer_container_tags=prefer_container_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefer_container_tags: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prefer_container_tags is None and 'preferContainerTags' in kwargs:
+            prefer_container_tags = kwargs['preferContainerTags']
+        if prefer_container_tags is None:
+            raise TypeError("Missing 'prefer_container_tags' argument")
+
+        _setter("prefer_container_tags", prefer_container_tags)
 
     @property
     @pulumi.getter(name="preferContainerTags")
@@ -3417,10 +4553,39 @@ class TargetCostAllocationResourceResponse(dict):
         :param str resource_type: Type of resources contained in this cost allocation rule
         :param Sequence['CostAllocationProportionResponse'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "policy_type", policy_type)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "values", values)
+        TargetCostAllocationResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            policy_type=policy_type,
+            resource_type=resource_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             policy_type: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             values: Optional[Sequence['outputs.CostAllocationProportionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("policy_type", policy_type)
+        _setter("resource_type", resource_type)
+        _setter("values", values)
 
     @property
     @pulumi.getter

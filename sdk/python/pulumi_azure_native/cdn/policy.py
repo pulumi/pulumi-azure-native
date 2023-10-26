@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,71 @@ class PolicyArgs:
         :param pulumi.Input['RateLimitRuleListArgs'] rate_limit_rules: Describes rate limit rules inside the policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            custom_rules=custom_rules,
+            extended_properties=extended_properties,
+            location=location,
+            managed_rules=managed_rules,
+            policy_name=policy_name,
+            policy_settings=policy_settings,
+            rate_limit_rules=rate_limit_rules,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             custom_rules: Optional[pulumi.Input['CustomRuleListArgs']] = None,
+             extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_rules: Optional[pulumi.Input['ManagedRuleSetListArgs']] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             policy_settings: Optional[pulumi.Input['PolicySettingsArgs']] = None,
+             rate_limit_rules: Optional[pulumi.Input['RateLimitRuleListArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if custom_rules is None and 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if extended_properties is None and 'extendedProperties' in kwargs:
+            extended_properties = kwargs['extendedProperties']
+        if managed_rules is None and 'managedRules' in kwargs:
+            managed_rules = kwargs['managedRules']
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_settings is None and 'policySettings' in kwargs:
+            policy_settings = kwargs['policySettings']
+        if rate_limit_rules is None and 'rateLimitRules' in kwargs:
+            rate_limit_rules = kwargs['rateLimitRules']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if extended_properties is not None:
-            pulumi.set(__self__, "extended_properties", extended_properties)
+            _setter("extended_properties", extended_properties)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_rules is not None:
-            pulumi.set(__self__, "managed_rules", managed_rules)
+            _setter("managed_rules", managed_rules)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if policy_settings is not None:
-            pulumi.set(__self__, "policy_settings", policy_settings)
+            _setter("policy_settings", policy_settings)
         if rate_limit_rules is not None:
-            pulumi.set(__self__, "rate_limit_rules", rate_limit_rules)
+            _setter("rate_limit_rules", rate_limit_rules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -237,6 +284,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -261,16 +312,21 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
+            custom_rules = _utilities.configure(custom_rules, CustomRuleListArgs, True)
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["extended_properties"] = extended_properties
             __props__.__dict__["location"] = location
+            managed_rules = _utilities.configure(managed_rules, ManagedRuleSetListArgs, True)
             __props__.__dict__["managed_rules"] = managed_rules
             __props__.__dict__["policy_name"] = policy_name
+            policy_settings = _utilities.configure(policy_settings, PolicySettingsArgs, True)
             __props__.__dict__["policy_settings"] = policy_settings
+            rate_limit_rules = _utilities.configure(rate_limit_rules, RateLimitRuleListArgs, True)
             __props__.__dict__["rate_limit_rules"] = rate_limit_rules
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

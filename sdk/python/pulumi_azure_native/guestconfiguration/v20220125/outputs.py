@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,9 +39,24 @@ class AssignmentInfoResponse(dict):
         :param str name: Name of the guest configuration assignment.
         :param 'ConfigurationInfoResponse' configuration: Information about the configuration.
         """
-        pulumi.set(__self__, "name", name)
+        AssignmentInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            configuration=configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             configuration: Optional['outputs.ConfigurationInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
 
     @property
     @pulumi.getter
@@ -73,8 +88,25 @@ class AssignmentReportResourceComplianceReasonResponse(dict):
         :param str code: Code for the compliance of the guest configuration assignment resource.
         :param str phrase: Reason for the compliance of the guest configuration assignment resource.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "phrase", phrase)
+        AssignmentReportResourceComplianceReasonResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            phrase=phrase,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             phrase: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if phrase is None:
+            raise TypeError("Missing 'phrase' argument")
+
+        _setter("code", code)
+        _setter("phrase", phrase)
 
     @property
     @pulumi.getter
@@ -129,11 +161,38 @@ class AssignmentReportResourceResponse(dict):
         :param str resource_id: Name of the guest configuration assignment resource setting.
         :param Sequence['AssignmentReportResourceComplianceReasonResponse'] reasons: Compliance reason and reason code for a resource.
         """
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_id", resource_id)
+        AssignmentReportResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_status=compliance_status,
+            properties=properties,
+            resource_id=resource_id,
+            reasons=reasons,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_status: Optional[str] = None,
+             properties: Optional[Any] = None,
+             resource_id: Optional[str] = None,
+             reasons: Optional[Sequence['outputs.AssignmentReportResourceComplianceReasonResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compliance_status is None and 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if compliance_status is None:
+            raise TypeError("Missing 'compliance_status' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+
+        _setter("compliance_status", compliance_status)
+        _setter("properties", properties)
+        _setter("resource_id", resource_id)
         if reasons is not None:
-            pulumi.set(__self__, "reasons", reasons)
+            _setter("reasons", reasons)
 
     @property
     @pulumi.getter(name="complianceStatus")
@@ -216,18 +275,67 @@ class AssignmentReportResponse(dict):
         :param Sequence['AssignmentReportResourceResponse'] resources: The list of resources for which guest configuration assignment compliance is checked.
         :param 'VMInfoResponse' vm: Information about the VM.
         """
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "operation_type", operation_type)
-        pulumi.set(__self__, "report_id", report_id)
-        pulumi.set(__self__, "start_time", start_time)
+        AssignmentReportResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_status=compliance_status,
+            end_time=end_time,
+            id=id,
+            operation_type=operation_type,
+            report_id=report_id,
+            start_time=start_time,
+            assignment=assignment,
+            resources=resources,
+            vm=vm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_status: Optional[str] = None,
+             end_time: Optional[str] = None,
+             id: Optional[str] = None,
+             operation_type: Optional[str] = None,
+             report_id: Optional[str] = None,
+             start_time: Optional[str] = None,
+             assignment: Optional['outputs.AssignmentInfoResponse'] = None,
+             resources: Optional[Sequence['outputs.AssignmentReportResourceResponse']] = None,
+             vm: Optional['outputs.VMInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compliance_status is None and 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if compliance_status is None:
+            raise TypeError("Missing 'compliance_status' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if operation_type is None and 'operationType' in kwargs:
+            operation_type = kwargs['operationType']
+        if operation_type is None:
+            raise TypeError("Missing 'operation_type' argument")
+        if report_id is None and 'reportId' in kwargs:
+            report_id = kwargs['reportId']
+        if report_id is None:
+            raise TypeError("Missing 'report_id' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
+        _setter("compliance_status", compliance_status)
+        _setter("end_time", end_time)
+        _setter("id", id)
+        _setter("operation_type", operation_type)
+        _setter("report_id", report_id)
+        _setter("start_time", start_time)
         if assignment is not None:
-            pulumi.set(__self__, "assignment", assignment)
+            _setter("assignment", assignment)
         if resources is not None:
-            pulumi.set(__self__, "resources", resources)
+            _setter("resources", resources)
         if vm is not None:
-            pulumi.set(__self__, "vm", vm)
+            _setter("vm", vm)
 
     @property
     @pulumi.getter(name="complianceStatus")
@@ -315,8 +423,25 @@ class ConfigurationInfoResponse(dict):
         :param str name: Name of the configuration.
         :param str version: Version of the configuration.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        ConfigurationInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -348,10 +473,23 @@ class ConfigurationParameterResponse(dict):
         :param str name: Name of the configuration parameter.
         :param str value: Value of the configuration parameter.
         """
+        ConfigurationParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -418,16 +556,57 @@ class ConfigurationSettingResponse(dict):
         :param bool reboot_if_needed: Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         :param float refresh_frequency_mins: The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
         """
-        pulumi.set(__self__, "action_after_reboot", action_after_reboot)
-        pulumi.set(__self__, "allow_module_overwrite", allow_module_overwrite)
-        pulumi.set(__self__, "configuration_mode", configuration_mode)
+        ConfigurationSettingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_after_reboot=action_after_reboot,
+            allow_module_overwrite=allow_module_overwrite,
+            configuration_mode=configuration_mode,
+            configuration_mode_frequency_mins=configuration_mode_frequency_mins,
+            reboot_if_needed=reboot_if_needed,
+            refresh_frequency_mins=refresh_frequency_mins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_after_reboot: Optional[str] = None,
+             allow_module_overwrite: Optional[bool] = None,
+             configuration_mode: Optional[str] = None,
+             configuration_mode_frequency_mins: Optional[float] = None,
+             reboot_if_needed: Optional[bool] = None,
+             refresh_frequency_mins: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_after_reboot is None and 'actionAfterReboot' in kwargs:
+            action_after_reboot = kwargs['actionAfterReboot']
+        if action_after_reboot is None:
+            raise TypeError("Missing 'action_after_reboot' argument")
+        if allow_module_overwrite is None and 'allowModuleOverwrite' in kwargs:
+            allow_module_overwrite = kwargs['allowModuleOverwrite']
+        if allow_module_overwrite is None:
+            raise TypeError("Missing 'allow_module_overwrite' argument")
+        if configuration_mode is None and 'configurationMode' in kwargs:
+            configuration_mode = kwargs['configurationMode']
+        if configuration_mode is None:
+            raise TypeError("Missing 'configuration_mode' argument")
+        if configuration_mode_frequency_mins is None and 'configurationModeFrequencyMins' in kwargs:
+            configuration_mode_frequency_mins = kwargs['configurationModeFrequencyMins']
+        if reboot_if_needed is None and 'rebootIfNeeded' in kwargs:
+            reboot_if_needed = kwargs['rebootIfNeeded']
+        if reboot_if_needed is None:
+            raise TypeError("Missing 'reboot_if_needed' argument")
+        if refresh_frequency_mins is None and 'refreshFrequencyMins' in kwargs:
+            refresh_frequency_mins = kwargs['refreshFrequencyMins']
+
+        _setter("action_after_reboot", action_after_reboot)
+        _setter("allow_module_overwrite", allow_module_overwrite)
+        _setter("configuration_mode", configuration_mode)
         if configuration_mode_frequency_mins is None:
             configuration_mode_frequency_mins = 15
-        pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
-        pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
+        _setter("configuration_mode_frequency_mins", configuration_mode_frequency_mins)
+        _setter("reboot_if_needed", reboot_if_needed)
         if refresh_frequency_mins is None:
             refresh_frequency_mins = 30
-        pulumi.set(__self__, "refresh_frequency_mins", refresh_frequency_mins)
+        _setter("refresh_frequency_mins", refresh_frequency_mins)
 
     @property
     @pulumi.getter(name="actionAfterReboot")
@@ -548,22 +727,93 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         :param 'AssignmentReportResponse' latest_assignment_report: Last reported guest configuration assignment report.
         :param Sequence['VMSSVMInfoResponse'] vmss_vm_list: The list of VM Compliance data for VMSS
         """
-        pulumi.set(__self__, "assignment_hash", assignment_hash)
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "last_compliance_status_checked", last_compliance_status_checked)
-        pulumi.set(__self__, "latest_report_id", latest_report_id)
-        pulumi.set(__self__, "parameter_hash", parameter_hash)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        GuestConfigurationAssignmentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_hash=assignment_hash,
+            compliance_status=compliance_status,
+            last_compliance_status_checked=last_compliance_status_checked,
+            latest_report_id=latest_report_id,
+            parameter_hash=parameter_hash,
+            provisioning_state=provisioning_state,
+            resource_type=resource_type,
+            target_resource_id=target_resource_id,
+            context=context,
+            guest_configuration=guest_configuration,
+            latest_assignment_report=latest_assignment_report,
+            vmss_vm_list=vmss_vm_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_hash: Optional[str] = None,
+             compliance_status: Optional[str] = None,
+             last_compliance_status_checked: Optional[str] = None,
+             latest_report_id: Optional[str] = None,
+             parameter_hash: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             target_resource_id: Optional[str] = None,
+             context: Optional[str] = None,
+             guest_configuration: Optional['outputs.GuestConfigurationNavigationResponse'] = None,
+             latest_assignment_report: Optional['outputs.AssignmentReportResponse'] = None,
+             vmss_vm_list: Optional[Sequence['outputs.VMSSVMInfoResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assignment_hash is None and 'assignmentHash' in kwargs:
+            assignment_hash = kwargs['assignmentHash']
+        if assignment_hash is None:
+            raise TypeError("Missing 'assignment_hash' argument")
+        if compliance_status is None and 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if compliance_status is None:
+            raise TypeError("Missing 'compliance_status' argument")
+        if last_compliance_status_checked is None and 'lastComplianceStatusChecked' in kwargs:
+            last_compliance_status_checked = kwargs['lastComplianceStatusChecked']
+        if last_compliance_status_checked is None:
+            raise TypeError("Missing 'last_compliance_status_checked' argument")
+        if latest_report_id is None and 'latestReportId' in kwargs:
+            latest_report_id = kwargs['latestReportId']
+        if latest_report_id is None:
+            raise TypeError("Missing 'latest_report_id' argument")
+        if parameter_hash is None and 'parameterHash' in kwargs:
+            parameter_hash = kwargs['parameterHash']
+        if parameter_hash is None:
+            raise TypeError("Missing 'parameter_hash' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if guest_configuration is None and 'guestConfiguration' in kwargs:
+            guest_configuration = kwargs['guestConfiguration']
+        if latest_assignment_report is None and 'latestAssignmentReport' in kwargs:
+            latest_assignment_report = kwargs['latestAssignmentReport']
+        if vmss_vm_list is None and 'vmssVMList' in kwargs:
+            vmss_vm_list = kwargs['vmssVMList']
+
+        _setter("assignment_hash", assignment_hash)
+        _setter("compliance_status", compliance_status)
+        _setter("last_compliance_status_checked", last_compliance_status_checked)
+        _setter("latest_report_id", latest_report_id)
+        _setter("parameter_hash", parameter_hash)
+        _setter("provisioning_state", provisioning_state)
+        _setter("resource_type", resource_type)
+        _setter("target_resource_id", target_resource_id)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if guest_configuration is not None:
-            pulumi.set(__self__, "guest_configuration", guest_configuration)
+            _setter("guest_configuration", guest_configuration)
         if latest_assignment_report is not None:
-            pulumi.set(__self__, "latest_assignment_report", latest_assignment_report)
+            _setter("latest_assignment_report", latest_assignment_report)
         if vmss_vm_list is not None:
-            pulumi.set(__self__, "vmss_vm_list", vmss_vm_list)
+            _setter("vmss_vm_list", vmss_vm_list)
 
     @property
     @pulumi.getter(name="assignmentHash")
@@ -724,25 +974,78 @@ class GuestConfigurationNavigationResponse(dict):
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.
         """
-        pulumi.set(__self__, "assignment_source", assignment_source)
-        pulumi.set(__self__, "configuration_setting", configuration_setting)
-        pulumi.set(__self__, "content_type", content_type)
+        GuestConfigurationNavigationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_source=assignment_source,
+            configuration_setting=configuration_setting,
+            content_type=content_type,
+            assignment_type=assignment_type,
+            configuration_parameter=configuration_parameter,
+            configuration_protected_parameter=configuration_protected_parameter,
+            content_hash=content_hash,
+            content_uri=content_uri,
+            kind=kind,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_source: Optional[str] = None,
+             configuration_setting: Optional['outputs.ConfigurationSettingResponse'] = None,
+             content_type: Optional[str] = None,
+             assignment_type: Optional[str] = None,
+             configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
+             configuration_protected_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
+             content_hash: Optional[str] = None,
+             content_uri: Optional[str] = None,
+             kind: Optional[str] = None,
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assignment_source is None and 'assignmentSource' in kwargs:
+            assignment_source = kwargs['assignmentSource']
+        if assignment_source is None:
+            raise TypeError("Missing 'assignment_source' argument")
+        if configuration_setting is None and 'configurationSetting' in kwargs:
+            configuration_setting = kwargs['configurationSetting']
+        if configuration_setting is None:
+            raise TypeError("Missing 'configuration_setting' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if assignment_type is None and 'assignmentType' in kwargs:
+            assignment_type = kwargs['assignmentType']
+        if configuration_parameter is None and 'configurationParameter' in kwargs:
+            configuration_parameter = kwargs['configurationParameter']
+        if configuration_protected_parameter is None and 'configurationProtectedParameter' in kwargs:
+            configuration_protected_parameter = kwargs['configurationProtectedParameter']
+        if content_hash is None and 'contentHash' in kwargs:
+            content_hash = kwargs['contentHash']
+        if content_uri is None and 'contentUri' in kwargs:
+            content_uri = kwargs['contentUri']
+
+        _setter("assignment_source", assignment_source)
+        _setter("configuration_setting", configuration_setting)
+        _setter("content_type", content_type)
         if assignment_type is not None:
-            pulumi.set(__self__, "assignment_type", assignment_type)
+            _setter("assignment_type", assignment_type)
         if configuration_parameter is not None:
-            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
+            _setter("configuration_parameter", configuration_parameter)
         if configuration_protected_parameter is not None:
-            pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
+            _setter("configuration_protected_parameter", configuration_protected_parameter)
         if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
+            _setter("content_hash", content_hash)
         if content_uri is not None:
-            pulumi.set(__self__, "content_uri", content_uri)
+            _setter("content_uri", content_uri)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="assignmentSource")
@@ -881,18 +1184,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -956,8 +1292,25 @@ class VMInfoResponse(dict):
         :param str id: Azure resource Id of the VM.
         :param str uuid: UUID(Universally Unique Identifier) of the VM.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "uuid", uuid)
+        VMInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            uuid=uuid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             uuid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if uuid is None:
+            raise TypeError("Missing 'uuid' argument")
+
+        _setter("id", id)
+        _setter("uuid", uuid)
 
     @property
     @pulumi.getter
@@ -1020,11 +1373,50 @@ class VMSSVMInfoResponse(dict):
         :param str vm_id: UUID of the VM.
         :param str vm_resource_id: Azure resource Id of the VM.
         """
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "last_compliance_checked", last_compliance_checked)
-        pulumi.set(__self__, "latest_report_id", latest_report_id)
-        pulumi.set(__self__, "vm_id", vm_id)
-        pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+        VMSSVMInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_status=compliance_status,
+            last_compliance_checked=last_compliance_checked,
+            latest_report_id=latest_report_id,
+            vm_id=vm_id,
+            vm_resource_id=vm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_status: Optional[str] = None,
+             last_compliance_checked: Optional[str] = None,
+             latest_report_id: Optional[str] = None,
+             vm_id: Optional[str] = None,
+             vm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compliance_status is None and 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if compliance_status is None:
+            raise TypeError("Missing 'compliance_status' argument")
+        if last_compliance_checked is None and 'lastComplianceChecked' in kwargs:
+            last_compliance_checked = kwargs['lastComplianceChecked']
+        if last_compliance_checked is None:
+            raise TypeError("Missing 'last_compliance_checked' argument")
+        if latest_report_id is None and 'latestReportId' in kwargs:
+            latest_report_id = kwargs['latestReportId']
+        if latest_report_id is None:
+            raise TypeError("Missing 'latest_report_id' argument")
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+        if vm_id is None:
+            raise TypeError("Missing 'vm_id' argument")
+        if vm_resource_id is None and 'vmResourceId' in kwargs:
+            vm_resource_id = kwargs['vmResourceId']
+        if vm_resource_id is None:
+            raise TypeError("Missing 'vm_resource_id' argument")
+
+        _setter("compliance_status", compliance_status)
+        _setter("last_compliance_checked", last_compliance_checked)
+        _setter("latest_report_id", latest_report_id)
+        _setter("vm_id", vm_id)
+        _setter("vm_resource_id", vm_resource_id)
 
     @property
     @pulumi.getter(name="complianceStatus")

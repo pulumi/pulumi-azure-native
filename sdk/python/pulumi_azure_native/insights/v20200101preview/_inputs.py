@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -23,8 +23,25 @@ class ManagementGroupLogSettingsArgs:
         :param pulumi.Input[str] category: Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
         :param pulumi.Input[bool] enabled: a value indicating whether this log is enabled.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "enabled", enabled)
+        ManagementGroupLogSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
+        _setter("category", category)
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter

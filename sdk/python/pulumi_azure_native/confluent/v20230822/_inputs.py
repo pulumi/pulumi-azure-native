@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -24,7 +24,20 @@ class LinkOrganizationArgs:
         Link an existing Confluent organization
         :param pulumi.Input[str] token: User auth token
         """
-        pulumi.set(__self__, "token", token)
+        LinkOrganizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -63,19 +76,70 @@ class OfferDetailArgs:
         :param pulumi.Input[Union[str, 'SaaSOfferStatus']] status: SaaS Offer Status
         :param pulumi.Input[str] term_id: Offer Plan Term Id
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "plan_name", plan_name)
-        pulumi.set(__self__, "publisher_id", publisher_id)
-        pulumi.set(__self__, "term_unit", term_unit)
+        OfferDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            plan_id=plan_id,
+            plan_name=plan_name,
+            publisher_id=publisher_id,
+            term_unit=term_unit,
+            private_offer_id=private_offer_id,
+            private_offer_ids=private_offer_ids,
+            status=status,
+            term_id=term_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             plan_id: Optional[pulumi.Input[str]] = None,
+             plan_name: Optional[pulumi.Input[str]] = None,
+             publisher_id: Optional[pulumi.Input[str]] = None,
+             term_unit: Optional[pulumi.Input[str]] = None,
+             private_offer_id: Optional[pulumi.Input[str]] = None,
+             private_offer_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             status: Optional[pulumi.Input[Union[str, 'SaaSOfferStatus']]] = None,
+             term_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if plan_id is None:
+            raise TypeError("Missing 'plan_id' argument")
+        if plan_name is None and 'planName' in kwargs:
+            plan_name = kwargs['planName']
+        if plan_name is None:
+            raise TypeError("Missing 'plan_name' argument")
+        if publisher_id is None and 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if publisher_id is None:
+            raise TypeError("Missing 'publisher_id' argument")
+        if term_unit is None and 'termUnit' in kwargs:
+            term_unit = kwargs['termUnit']
+        if term_unit is None:
+            raise TypeError("Missing 'term_unit' argument")
+        if private_offer_id is None and 'privateOfferId' in kwargs:
+            private_offer_id = kwargs['privateOfferId']
+        if private_offer_ids is None and 'privateOfferIds' in kwargs:
+            private_offer_ids = kwargs['privateOfferIds']
+        if term_id is None and 'termId' in kwargs:
+            term_id = kwargs['termId']
+
+        _setter("id", id)
+        _setter("plan_id", plan_id)
+        _setter("plan_name", plan_name)
+        _setter("publisher_id", publisher_id)
+        _setter("term_unit", term_unit)
         if private_offer_id is not None:
-            pulumi.set(__self__, "private_offer_id", private_offer_id)
+            _setter("private_offer_id", private_offer_id)
         if private_offer_ids is not None:
-            pulumi.set(__self__, "private_offer_ids", private_offer_ids)
+            _setter("private_offer_ids", private_offer_ids)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if term_id is not None:
-            pulumi.set(__self__, "term_id", term_id)
+            _setter("term_id", term_id)
 
     @property
     @pulumi.getter
@@ -202,15 +266,46 @@ class UserDetailArgs:
         :param pulumi.Input[str] last_name: Last name
         :param pulumi.Input[str] user_principal_name: User principal name
         """
-        pulumi.set(__self__, "email_address", email_address)
+        UserDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            aad_email=aad_email,
+            first_name=first_name,
+            last_name=last_name,
+            user_principal_name=user_principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[pulumi.Input[str]] = None,
+             aad_email: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             user_principal_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if aad_email is None and 'aadEmail' in kwargs:
+            aad_email = kwargs['aadEmail']
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if user_principal_name is None and 'userPrincipalName' in kwargs:
+            user_principal_name = kwargs['userPrincipalName']
+
+        _setter("email_address", email_address)
         if aad_email is not None:
-            pulumi.set(__self__, "aad_email", aad_email)
+            _setter("aad_email", aad_email)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if user_principal_name is not None:
-            pulumi.set(__self__, "user_principal_name", user_principal_name)
+            _setter("user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="emailAddress")

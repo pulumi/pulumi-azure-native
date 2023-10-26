@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,8 +26,25 @@ class MachineReferenceWithHintsArgs:
         :param pulumi.Input[str] kind: Specifies the sub-class of the reference.
                Expected value is 'ref:machinewithhints'.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "kind", 'ref:machinewithhints')
+        MachineReferenceWithHintsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+
+        _setter("id", id)
+        _setter("kind", 'ref:machinewithhints')
 
     @property
     @pulumi.getter
@@ -63,7 +80,20 @@ class SkuArgs:
         The SKU (tier) of a workspace.
         :param pulumi.Input[Union[str, 'SkuNameEnum']] name: The name of the SKU.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuNameEnum']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter

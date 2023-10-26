@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,10 +58,27 @@ class CmkKekIdentityResponse(dict):
         :param bool use_system_assigned_identity: Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
         :param str user_assigned_identity: The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
         """
+        CmkKekIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_system_assigned_identity: Optional[bool] = None,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+            _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="useSystemAssignedIdentity")
@@ -108,8 +125,21 @@ class CmkKeyVaultPropertiesResponse(dict):
         The properties of the Key Vault which hosts CMK
         :param str key_uri: The key uri of the Customer Managed Key
         """
+        CmkKeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_uri=key_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_uri is None and 'keyUri' in kwargs:
+            key_uri = kwargs['keyUri']
+
         if key_uri is not None:
-            pulumi.set(__self__, "key_uri", key_uri)
+            _setter("key_uri", key_uri)
 
     @property
     @pulumi.getter(name="keyUri")
@@ -158,11 +188,40 @@ class IdentityDataResponse(dict):
         :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -210,8 +269,25 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
         :param str id: Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
         :param 'VaultPrivateEndpointConnectionResponse' properties: Private Endpoint Connection Response Properties.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "properties", properties)
+        PrivateEndpointConnectionVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             properties: Optional['outputs.VaultPrivateEndpointConnectionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("id", id)
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -241,7 +317,20 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint network resource that is linked to the Private Endpoint connection.
         :param str id: Gets or sets id.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -263,7 +352,20 @@ class SkuResponse(dict):
         Identifies the unique system identifier for each Azure resource.
         :param str name: The Sku name.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -330,15 +432,74 @@ class UpgradeDetailsResponse(dict):
         :param str trigger_type: The way the vault upgrade was triggered.
         :param str upgraded_resource_id: Resource ID of the upgraded vault.
         """
-        pulumi.set(__self__, "end_time_utc", end_time_utc)
-        pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "operation_id", operation_id)
-        pulumi.set(__self__, "previous_resource_id", previous_resource_id)
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "trigger_type", trigger_type)
-        pulumi.set(__self__, "upgraded_resource_id", upgraded_resource_id)
+        UpgradeDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time_utc=end_time_utc,
+            last_updated_time_utc=last_updated_time_utc,
+            message=message,
+            operation_id=operation_id,
+            previous_resource_id=previous_resource_id,
+            start_time_utc=start_time_utc,
+            status=status,
+            trigger_type=trigger_type,
+            upgraded_resource_id=upgraded_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time_utc: Optional[str] = None,
+             last_updated_time_utc: Optional[str] = None,
+             message: Optional[str] = None,
+             operation_id: Optional[str] = None,
+             previous_resource_id: Optional[str] = None,
+             start_time_utc: Optional[str] = None,
+             status: Optional[str] = None,
+             trigger_type: Optional[str] = None,
+             upgraded_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time_utc is None and 'endTimeUtc' in kwargs:
+            end_time_utc = kwargs['endTimeUtc']
+        if end_time_utc is None:
+            raise TypeError("Missing 'end_time_utc' argument")
+        if last_updated_time_utc is None and 'lastUpdatedTimeUtc' in kwargs:
+            last_updated_time_utc = kwargs['lastUpdatedTimeUtc']
+        if last_updated_time_utc is None:
+            raise TypeError("Missing 'last_updated_time_utc' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if operation_id is None and 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if operation_id is None:
+            raise TypeError("Missing 'operation_id' argument")
+        if previous_resource_id is None and 'previousResourceId' in kwargs:
+            previous_resource_id = kwargs['previousResourceId']
+        if previous_resource_id is None:
+            raise TypeError("Missing 'previous_resource_id' argument")
+        if start_time_utc is None and 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+        if start_time_utc is None:
+            raise TypeError("Missing 'start_time_utc' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if trigger_type is None and 'triggerType' in kwargs:
+            trigger_type = kwargs['triggerType']
+        if trigger_type is None:
+            raise TypeError("Missing 'trigger_type' argument")
+        if upgraded_resource_id is None and 'upgradedResourceId' in kwargs:
+            upgraded_resource_id = kwargs['upgradedResourceId']
+        if upgraded_resource_id is None:
+            raise TypeError("Missing 'upgraded_resource_id' argument")
+
+        _setter("end_time_utc", end_time_utc)
+        _setter("last_updated_time_utc", last_updated_time_utc)
+        _setter("message", message)
+        _setter("operation_id", operation_id)
+        _setter("previous_resource_id", previous_resource_id)
+        _setter("start_time_utc", start_time_utc)
+        _setter("status", status)
+        _setter("trigger_type", trigger_type)
+        _setter("upgraded_resource_id", upgraded_resource_id)
 
     @property
     @pulumi.getter(name="endTimeUtc")
@@ -445,8 +606,29 @@ class UserIdentityResponse(dict):
         :param str client_id: The client ID of the user-assigned identity.
         :param str principal_id: The principal ID of the user-assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -501,9 +683,36 @@ class VaultPrivateEndpointConnectionResponse(dict):
         :param 'VaultPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state.
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         """
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        VaultPrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.VaultPrivateLinkServiceConnectionStateResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_endpoint is None:
+            raise TypeError("Missing 'private_endpoint' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+
+        _setter("private_endpoint", private_endpoint)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -562,9 +771,32 @@ class VaultPrivateLinkServiceConnectionStateResponse(dict):
         :param str description: Gets or sets description.
         :param str status: Gets or sets the status.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        VaultPrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+        if actions_required is None:
+            raise TypeError("Missing 'actions_required' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("actions_required", actions_required)
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -637,14 +869,53 @@ class VaultPropertiesResponse(dict):
         :param 'VaultPropertiesResponseEncryption' encryption: Customer Managed Key details of the resource.
         :param 'UpgradeDetailsResponse' upgrade_details: Details for upgrading vault.
         """
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "private_endpoint_state_for_backup", private_endpoint_state_for_backup)
-        pulumi.set(__self__, "private_endpoint_state_for_site_recovery", private_endpoint_state_for_site_recovery)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        VaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint_connections=private_endpoint_connections,
+            private_endpoint_state_for_backup=private_endpoint_state_for_backup,
+            private_endpoint_state_for_site_recovery=private_endpoint_state_for_site_recovery,
+            provisioning_state=provisioning_state,
+            encryption=encryption,
+            upgrade_details=upgrade_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionVaultPropertiesResponse']] = None,
+             private_endpoint_state_for_backup: Optional[str] = None,
+             private_endpoint_state_for_site_recovery: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             encryption: Optional['outputs.VaultPropertiesResponseEncryption'] = None,
+             upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if private_endpoint_connections is None:
+            raise TypeError("Missing 'private_endpoint_connections' argument")
+        if private_endpoint_state_for_backup is None and 'privateEndpointStateForBackup' in kwargs:
+            private_endpoint_state_for_backup = kwargs['privateEndpointStateForBackup']
+        if private_endpoint_state_for_backup is None:
+            raise TypeError("Missing 'private_endpoint_state_for_backup' argument")
+        if private_endpoint_state_for_site_recovery is None and 'privateEndpointStateForSiteRecovery' in kwargs:
+            private_endpoint_state_for_site_recovery = kwargs['privateEndpointStateForSiteRecovery']
+        if private_endpoint_state_for_site_recovery is None:
+            raise TypeError("Missing 'private_endpoint_state_for_site_recovery' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if upgrade_details is None and 'upgradeDetails' in kwargs:
+            upgrade_details = kwargs['upgradeDetails']
+
+        _setter("private_endpoint_connections", private_endpoint_connections)
+        _setter("private_endpoint_state_for_backup", private_endpoint_state_for_backup)
+        _setter("private_endpoint_state_for_site_recovery", private_endpoint_state_for_site_recovery)
+        _setter("provisioning_state", provisioning_state)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if upgrade_details is not None:
-            pulumi.set(__self__, "upgrade_details", upgrade_details)
+            _setter("upgrade_details", upgrade_details)
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -731,12 +1002,33 @@ class VaultPropertiesResponseEncryption(dict):
         :param 'CmkKekIdentityResponse' kek_identity: The details of the identity used for CMK
         :param 'CmkKeyVaultPropertiesResponse' key_vault_properties: The properties of the Key Vault which hosts CMK
         """
+        VaultPropertiesResponseEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            infrastructure_encryption=infrastructure_encryption,
+            kek_identity=kek_identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             infrastructure_encryption: Optional[str] = None,
+             kek_identity: Optional['outputs.CmkKekIdentityResponse'] = None,
+             key_vault_properties: Optional['outputs.CmkKeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if infrastructure_encryption is None and 'infrastructureEncryption' in kwargs:
+            infrastructure_encryption = kwargs['infrastructureEncryption']
+        if kek_identity is None and 'kekIdentity' in kwargs:
+            kek_identity = kwargs['kekIdentity']
+        if key_vault_properties is None and 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
         if infrastructure_encryption is not None:
-            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
+            _setter("infrastructure_encryption", infrastructure_encryption)
         if kek_identity is not None:
-            pulumi.set(__self__, "kek_identity", kek_identity)
+            _setter("kek_identity", kek_identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter(name="infrastructureEncryption")

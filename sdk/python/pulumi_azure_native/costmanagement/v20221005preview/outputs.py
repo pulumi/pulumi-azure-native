@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,8 +58,29 @@ class CustomerMetadataResponse(dict):
         :param str billing_account_id: Customer billing account id
         :param str billing_profile_id: Customer billing profile id
         """
-        pulumi.set(__self__, "billing_account_id", billing_account_id)
-        pulumi.set(__self__, "billing_profile_id", billing_profile_id)
+        CustomerMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_account_id=billing_account_id,
+            billing_profile_id=billing_profile_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_account_id: Optional[str] = None,
+             billing_profile_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_account_id is None and 'billingAccountId' in kwargs:
+            billing_account_id = kwargs['billingAccountId']
+        if billing_account_id is None:
+            raise TypeError("Missing 'billing_account_id' argument")
+        if billing_profile_id is None and 'billingProfileId' in kwargs:
+            billing_profile_id = kwargs['billingProfileId']
+        if billing_profile_id is None:
+            raise TypeError("Missing 'billing_profile_id' argument")
+
+        _setter("billing_account_id", billing_account_id)
+        _setter("billing_profile_id", billing_profile_id)
 
     @property
     @pulumi.getter(name="billingAccountId")
@@ -93,12 +114,27 @@ class KpiPropertiesResponse(dict):
         :param str id: ID of resource related to metric (budget).
         :param str type: KPI type (Forecast, Budget).
         """
+        KpiPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -138,10 +174,23 @@ class PivotPropertiesResponse(dict):
         :param str name: Data field to show in view.
         :param str type: Data type to show in view.
         """
+        PivotPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -173,8 +222,25 @@ class ReportConfigAggregationResponse(dict):
         :param str function: The name of the aggregation function to use.
         :param str name: The name of the column to aggregate.
         """
-        pulumi.set(__self__, "function", function)
-        pulumi.set(__self__, "name", name)
+        ReportConfigAggregationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function=function,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("function", function)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -208,9 +274,30 @@ class ReportConfigComparisonExpressionResponse(dict):
         :param str operator: The operator to use for comparison.
         :param Sequence[str] values: Array of values to use for comparison
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ReportConfigComparisonExpressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -248,8 +335,19 @@ class ReportConfigDatasetConfigurationResponse(dict):
         The configuration of dataset in the report.
         :param Sequence[str] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
         """
+        ReportConfigDatasetConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
 
     @property
     @pulumi.getter
@@ -281,18 +379,39 @@ class ReportConfigDatasetResponse(dict):
         :param Sequence['ReportConfigGroupingResponse'] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         :param Sequence['ReportConfigSortingResponse'] sorting: Array of order by expression to use in the report.
         """
+        ReportConfigDatasetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregation=aggregation,
+            configuration=configuration,
+            filter=filter,
+            granularity=granularity,
+            grouping=grouping,
+            sorting=sorting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregation: Optional[Mapping[str, 'outputs.ReportConfigAggregationResponse']] = None,
+             configuration: Optional['outputs.ReportConfigDatasetConfigurationResponse'] = None,
+             filter: Optional['outputs.ReportConfigFilterResponse'] = None,
+             granularity: Optional[str] = None,
+             grouping: Optional[Sequence['outputs.ReportConfigGroupingResponse']] = None,
+             sorting: Optional[Sequence['outputs.ReportConfigSortingResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if aggregation is not None:
-            pulumi.set(__self__, "aggregation", aggregation)
+            _setter("aggregation", aggregation)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if granularity is not None:
-            pulumi.set(__self__, "granularity", granularity)
+            _setter("granularity", granularity)
         if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
+            _setter("grouping", grouping)
         if sorting is not None:
-            pulumi.set(__self__, "sorting", sorting)
+            _setter("sorting", sorting)
 
     @property
     @pulumi.getter
@@ -379,14 +498,35 @@ class ReportConfigFilterResponse(dict):
         :param Sequence['ReportConfigFilterResponse'] or_: The logical "OR" expression. Must have at least 2 items.
         :param 'ReportConfigComparisonExpressionResponse' tags: Has comparison expression for a tag
         """
+        ReportConfigFilterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            and_=and_,
+            dimensions=dimensions,
+            or_=or_,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             and_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
+             dimensions: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
+             or_: Optional[Sequence['outputs.ReportConfigFilterResponse']] = None,
+             tags: Optional['outputs.ReportConfigComparisonExpressionResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if and_ is None and 'and' in kwargs:
+            and_ = kwargs['and']
+        if or_ is None and 'or' in kwargs:
+            or_ = kwargs['or']
+
         if and_ is not None:
-            pulumi.set(__self__, "and_", and_)
+            _setter("and_", and_)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if or_ is not None:
-            pulumi.set(__self__, "or_", or_)
+            _setter("or_", or_)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="and")
@@ -434,8 +574,25 @@ class ReportConfigGroupingResponse(dict):
         :param str name: The name of the column to group. This version supports subscription lowest possible grain.
         :param str type: Has type of the column to group.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReportConfigGroupingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -467,9 +624,24 @@ class ReportConfigSortingResponse(dict):
         :param str name: The name of the column to sort.
         :param str direction: Direction of sort.
         """
-        pulumi.set(__self__, "name", name)
+        ReportConfigSortingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            direction=direction,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             direction: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
 
     @property
     @pulumi.getter
@@ -518,8 +690,27 @@ class ReportConfigTimePeriodResponse(dict):
         :param str from_: The start date to pull data from.
         :param str to: The end date to pull data to.
         """
-        pulumi.set(__self__, "from_", from_)
-        pulumi.set(__self__, "to", to)
+        ReportConfigTimePeriodResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            from_=from_,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             from_: Optional[str] = None,
+             to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+        if from_ is None:
+            raise TypeError("Missing 'from_' argument")
+        if to is None:
+            raise TypeError("Missing 'to' argument")
+
+        _setter("from_", from_)
+        _setter("to", to)
 
     @property
     @pulumi.getter(name="from")
@@ -566,7 +757,22 @@ class TagInheritancePropertiesResponse(dict):
         The properties of the tag inheritance setting.
         :param bool prefer_container_tags: When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
         """
-        pulumi.set(__self__, "prefer_container_tags", prefer_container_tags)
+        TagInheritancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prefer_container_tags=prefer_container_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prefer_container_tags: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prefer_container_tags is None and 'preferContainerTags' in kwargs:
+            prefer_container_tags = kwargs['preferContainerTags']
+        if prefer_container_tags is None:
+            raise TypeError("Missing 'prefer_container_tags' argument")
+
+        _setter("prefer_container_tags", prefer_container_tags)
 
     @property
     @pulumi.getter(name="preferContainerTags")

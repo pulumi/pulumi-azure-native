@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,59 @@ class CassandraResourceCassandraTableArgs:
         :param pulumi.Input[str] table_name: Cosmos DB table name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "keyspace_name", keyspace_name)
-        pulumi.set(__self__, "resource", resource)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CassandraResourceCassandraTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            keyspace_name=keyspace_name,
+            resource=resource,
+            resource_group_name=resource_group_name,
+            location=location,
+            options=options,
+            table_name=table_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             keyspace_name: Optional[pulumi.Input[str]] = None,
+             resource: Optional[pulumi.Input['CassandraTableResourceArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if keyspace_name is None and 'keyspaceName' in kwargs:
+            keyspace_name = kwargs['keyspaceName']
+        if keyspace_name is None:
+            raise TypeError("Missing 'keyspace_name' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
+        _setter("account_name", account_name)
+        _setter("keyspace_name", keyspace_name)
+        _setter("resource", resource)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -192,6 +233,10 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CassandraResourceCassandraTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,7 +266,9 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'keyspace_name'")
             __props__.__dict__["keyspace_name"] = keyspace_name
             __props__.__dict__["location"] = location
+            options = _utilities.configure(options, CreateUpdateOptionsArgs, True)
             __props__.__dict__["options"] = options
+            resource = _utilities.configure(resource, CassandraTableResourceArgs, True)
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource

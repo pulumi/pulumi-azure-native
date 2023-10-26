@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,10 +25,23 @@ class B2CResourceSKUArgs:
         :param pulumi.Input['B2CResourceSKUName'] name: The name of the SKU for the tenant.
         :param pulumi.Input['B2CResourceSKUTier'] tier: The tier of the tenant.
         """
+        B2CResourceSKUArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input['B2CResourceSKUName']] = None,
+             tier: Optional[pulumi.Input['B2CResourceSKUTier']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -64,10 +77,27 @@ class CreateTenantRequestBodyPropertiesArgs:
         :param pulumi.Input[str] country_code: Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
         :param pulumi.Input[str] display_name: The display name of the B2C tenant.
         """
+        CreateTenantRequestBodyPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country_code=country_code,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country_code: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter(name="countryCode")

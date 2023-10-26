@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -66,13 +66,58 @@ class ComputePolicyResponse(dict):
         :param str object_type: The type of AAD object the object identifier refers to.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
-        pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "object_type", object_type)
-        pulumi.set(__self__, "type", type)
+        ComputePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            max_degree_of_parallelism_per_job=max_degree_of_parallelism_per_job,
+            min_priority_per_job=min_priority_per_job,
+            name=name,
+            object_id=object_id,
+            object_type=object_type,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             max_degree_of_parallelism_per_job: Optional[int] = None,
+             min_priority_per_job: Optional[int] = None,
+             name: Optional[str] = None,
+             object_id: Optional[str] = None,
+             object_type: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if max_degree_of_parallelism_per_job is None and 'maxDegreeOfParallelismPerJob' in kwargs:
+            max_degree_of_parallelism_per_job = kwargs['maxDegreeOfParallelismPerJob']
+        if max_degree_of_parallelism_per_job is None:
+            raise TypeError("Missing 'max_degree_of_parallelism_per_job' argument")
+        if min_priority_per_job is None and 'minPriorityPerJob' in kwargs:
+            min_priority_per_job = kwargs['minPriorityPerJob']
+        if min_priority_per_job is None:
+            raise TypeError("Missing 'min_priority_per_job' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if object_type is None and 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if object_type is None:
+            raise TypeError("Missing 'object_type' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
+        _setter("min_priority_per_job", min_priority_per_job)
+        _setter("name", name)
+        _setter("object_id", object_id)
+        _setter("object_type", object_type)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -148,10 +193,35 @@ class DataLakeStoreAccountInformationResponse(dict):
         :param str suffix: The optional suffix for the Data Lake Store account.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "suffix", suffix)
-        pulumi.set(__self__, "type", type)
+        DataLakeStoreAccountInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            suffix=suffix,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             suffix: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if suffix is None:
+            raise TypeError("Missing 'suffix' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("suffix", suffix)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -224,11 +294,44 @@ class FirewallRuleResponse(dict):
         :param str start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
-        pulumi.set(__self__, "type", type)
+        FirewallRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            id=id,
+            name=name,
+            start_ip_address=start_ip_address,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             start_ip_address: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_ip_address is None and 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("end_ip_address", end_ip_address)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("start_ip_address", start_ip_address)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -319,15 +422,70 @@ class HiveMetastoreResponse(dict):
         :param str type: The resource type.
         :param str user_name: The userName for the Hive MetaStore
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "nested_resource_provisioning_state", nested_resource_provisioning_state)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "runtime_version", runtime_version)
-        pulumi.set(__self__, "server_uri", server_uri)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "user_name", user_name)
+        HiveMetastoreResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            id=id,
+            name=name,
+            nested_resource_provisioning_state=nested_resource_provisioning_state,
+            password=password,
+            runtime_version=runtime_version,
+            server_uri=server_uri,
+            type=type,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             nested_resource_provisioning_state: Optional[str] = None,
+             password: Optional[str] = None,
+             runtime_version: Optional[str] = None,
+             server_uri: Optional[str] = None,
+             type: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if nested_resource_provisioning_state is None and 'nestedResourceProvisioningState' in kwargs:
+            nested_resource_provisioning_state = kwargs['nestedResourceProvisioningState']
+        if nested_resource_provisioning_state is None:
+            raise TypeError("Missing 'nested_resource_provisioning_state' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if runtime_version is None:
+            raise TypeError("Missing 'runtime_version' argument")
+        if server_uri is None and 'serverUri' in kwargs:
+            server_uri = kwargs['serverUri']
+        if server_uri is None:
+            raise TypeError("Missing 'server_uri' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+
+        _setter("database_name", database_name)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("nested_resource_provisioning_state", nested_resource_provisioning_state)
+        _setter("password", password)
+        _setter("runtime_version", runtime_version)
+        _setter("server_uri", server_uri)
+        _setter("type", type)
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -413,7 +571,22 @@ class SasTokenInformationResponse(dict):
         SAS token information.
         :param str access_token: The access token for the associated Azure Storage Container.
         """
-        pulumi.set(__self__, "access_token", access_token)
+        SasTokenInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if access_token is None:
+            raise TypeError("Missing 'access_token' argument")
+
+        _setter("access_token", access_token)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -441,10 +614,35 @@ class StorageAccountInformationResponse(dict):
         :param str suffix: The optional suffix for the storage account.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "suffix", suffix)
-        pulumi.set(__self__, "type", type)
+        StorageAccountInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            suffix=suffix,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             suffix: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if suffix is None:
+            raise TypeError("Missing 'suffix' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("suffix", suffix)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -517,11 +715,44 @@ class VirtualNetworkRuleResponse(dict):
         :param str type: The resource type.
         :param str virtual_network_rule_state: The current state of the VirtualNetwork Rule
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "virtual_network_rule_state", virtual_network_rule_state)
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            subnet_id=subnet_id,
+            type=type,
+            virtual_network_rule_state=virtual_network_rule_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             type: Optional[str] = None,
+             virtual_network_rule_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if virtual_network_rule_state is None and 'virtualNetworkRuleState' in kwargs:
+            virtual_network_rule_state = kwargs['virtualNetworkRuleState']
+        if virtual_network_rule_state is None:
+            raise TypeError("Missing 'virtual_network_rule_state' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("subnet_id", subnet_id)
+        _setter("type", type)
+        _setter("virtual_network_rule_state", virtual_network_rule_state)
 
     @property
     @pulumi.getter

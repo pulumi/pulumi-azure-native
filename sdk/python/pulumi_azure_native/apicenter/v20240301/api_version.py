@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,14 +33,61 @@ class ApiVersionArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] version_name: The name of the API version.
         """
-        pulumi.set(__self__, "api_name", api_name)
-        pulumi.set(__self__, "lifecycle_stage", lifecycle_stage)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ApiVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_name=api_name,
+            lifecycle_stage=lifecycle_stage,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            title=title,
+            workspace_name=workspace_name,
+            version_name=version_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_name: Optional[pulumi.Input[str]] = None,
+             lifecycle_stage: Optional[pulumi.Input[Union[str, 'LifecycleStage']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             version_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_name is None and 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if api_name is None:
+            raise TypeError("Missing 'api_name' argument")
+        if lifecycle_stage is None and 'lifecycleStage' in kwargs:
+            lifecycle_stage = kwargs['lifecycleStage']
+        if lifecycle_stage is None:
+            raise TypeError("Missing 'lifecycle_stage' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if version_name is None and 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+
+        _setter("api_name", api_name)
+        _setter("lifecycle_stage", lifecycle_stage)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("title", title)
+        _setter("workspace_name", workspace_name)
         if version_name is not None:
-            pulumi.set(__self__, "version_name", version_name)
+            _setter("version_name", version_name)
 
     @property
     @pulumi.getter(name="apiName")
@@ -172,6 +219,10 @@ class ApiVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

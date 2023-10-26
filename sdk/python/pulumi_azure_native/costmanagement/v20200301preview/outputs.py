@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,8 +32,25 @@ class CostAllocationProportionResponse(dict):
         :param str name: Target resource for cost allocation
         :param float percentage: Percentage of source cost to allocate to this resource. This value can be specified to two decimal places and the total percentage of all resources in this rule must sum to 100.00.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "percentage", percentage)
+        CostAllocationProportionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            percentage=percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             percentage: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if percentage is None:
+            raise TypeError("Missing 'percentage' argument")
+
+        _setter("name", name)
+        _setter("percentage", percentage)
 
     @property
     @pulumi.getter
@@ -84,10 +101,27 @@ class CostAllocationRuleDetailsResponse(dict):
         :param Sequence['SourceCostAllocationResourceResponse'] source_resources: Source resources for cost allocation. At this time, this list can contain no more than one element.
         :param Sequence['TargetCostAllocationResourceResponse'] target_resources: Target resources for cost allocation. At this time, this list can contain no more than one element.
         """
+        CostAllocationRuleDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_resources=source_resources,
+            target_resources=target_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_resources: Optional[Sequence['outputs.SourceCostAllocationResourceResponse']] = None,
+             target_resources: Optional[Sequence['outputs.TargetCostAllocationResourceResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_resources is None and 'sourceResources' in kwargs:
+            source_resources = kwargs['sourceResources']
+        if target_resources is None and 'targetResources' in kwargs:
+            target_resources = kwargs['targetResources']
+
         if source_resources is not None:
-            pulumi.set(__self__, "source_resources", source_resources)
+            _setter("source_resources", source_resources)
         if target_resources is not None:
-            pulumi.set(__self__, "target_resources", target_resources)
+            _setter("target_resources", target_resources)
 
     @property
     @pulumi.getter(name="sourceResources")
@@ -144,12 +178,43 @@ class CostAllocationRulePropertiesResponse(dict):
         :param str updated_date: Time at which the rule was last updated.
         :param str description: Description of a cost allocation rule.
         """
-        pulumi.set(__self__, "created_date", created_date)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "updated_date", updated_date)
+        CostAllocationRulePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_date=created_date,
+            details=details,
+            status=status,
+            updated_date=updated_date,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_date: Optional[str] = None,
+             details: Optional['outputs.CostAllocationRuleDetailsResponse'] = None,
+             status: Optional[str] = None,
+             updated_date: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if created_date is None:
+            raise TypeError("Missing 'created_date' argument")
+        if details is None:
+            raise TypeError("Missing 'details' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if updated_date is None and 'updatedDate' in kwargs:
+            updated_date = kwargs['updatedDate']
+        if updated_date is None:
+            raise TypeError("Missing 'updated_date' argument")
+
+        _setter("created_date", created_date)
+        _setter("details", details)
+        _setter("status", status)
+        _setter("updated_date", updated_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="createdDate")
@@ -224,9 +289,32 @@ class SourceCostAllocationResourceResponse(dict):
         :param str resource_type: Type of resources contained in this cost allocation rule
         :param Sequence[str] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "values", values)
+        SourceCostAllocationResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_type=resource_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("resource_type", resource_type)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -289,10 +377,39 @@ class TargetCostAllocationResourceResponse(dict):
         :param str resource_type: Type of resources contained in this cost allocation rule
         :param Sequence['CostAllocationProportionResponse'] values: Target resources for cost allocation. This list cannot contain more than 25 values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "policy_type", policy_type)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "values", values)
+        TargetCostAllocationResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            policy_type=policy_type,
+            resource_type=resource_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             policy_type: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             values: Optional[Sequence['outputs.CostAllocationProportionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("policy_type", policy_type)
+        _setter("resource_type", resource_type)
+        _setter("values", values)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,19 +38,68 @@ class ServiceUnitArgs:
         :param pulumi.Input[str] service_unit_name: The name of the service unit resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "deployment_mode", deployment_mode)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "service_topology_name", service_topology_name)
-        pulumi.set(__self__, "target_resource_group", target_resource_group)
+        ServiceUnitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_mode=deployment_mode,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            service_topology_name=service_topology_name,
+            target_resource_group=target_resource_group,
+            artifacts=artifacts,
+            location=location,
+            service_unit_name=service_unit_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_mode: Optional[pulumi.Input['DeploymentMode']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             service_topology_name: Optional[pulumi.Input[str]] = None,
+             target_resource_group: Optional[pulumi.Input[str]] = None,
+             artifacts: Optional[pulumi.Input['ServiceUnitArtifactsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             service_unit_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_mode is None and 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if deployment_mode is None:
+            raise TypeError("Missing 'deployment_mode' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if service_topology_name is None and 'serviceTopologyName' in kwargs:
+            service_topology_name = kwargs['serviceTopologyName']
+        if service_topology_name is None:
+            raise TypeError("Missing 'service_topology_name' argument")
+        if target_resource_group is None and 'targetResourceGroup' in kwargs:
+            target_resource_group = kwargs['targetResourceGroup']
+        if target_resource_group is None:
+            raise TypeError("Missing 'target_resource_group' argument")
+        if service_unit_name is None and 'serviceUnitName' in kwargs:
+            service_unit_name = kwargs['serviceUnitName']
+
+        _setter("deployment_mode", deployment_mode)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("service_topology_name", service_topology_name)
+        _setter("target_resource_group", target_resource_group)
         if artifacts is not None:
-            pulumi.set(__self__, "artifacts", artifacts)
+            _setter("artifacts", artifacts)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if service_unit_name is not None:
-            pulumi.set(__self__, "service_unit_name", service_unit_name)
+            _setter("service_unit_name", service_unit_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -210,6 +259,10 @@ class ServiceUnit(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceUnitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -233,6 +286,7 @@ class ServiceUnit(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceUnitArgs.__new__(ServiceUnitArgs)
 
+            artifacts = _utilities.configure(artifacts, ServiceUnitArtifactsArgs, True)
             __props__.__dict__["artifacts"] = artifacts
             if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")

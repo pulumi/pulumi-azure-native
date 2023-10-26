@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,10 +35,23 @@ class ClusterSkuResponse(dict):
         :param float capacity: The capacity value
         :param str name: The name of the SKU.
         """
+        ClusterSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[float] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -91,9 +104,34 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -156,12 +194,33 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_vault_uri: The Key Vault uri which holds they key associated with the Log Analytics cluster.
         :param str key_version: The version of the key associated with the Log Analytics cluster.
         """
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             key_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -220,10 +279,27 @@ class PrivateLinkScopedResourceResponse(dict):
         :param str resource_id: The full resource Id of the private link scope resource.
         :param str scope_id: The private link scope unique Identifier.
         """
+        PrivateLinkScopedResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            scope_id=scope_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             scope_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if scope_id is None and 'scopeId' in kwargs:
+            scope_id = kwargs['scopeId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if scope_id is not None:
-            pulumi.set(__self__, "scope_id", scope_id)
+            _setter("scope_id", scope_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -255,8 +331,25 @@ class StorageAccountResponse(dict):
         :param str id: The Azure Resource Manager ID of the storage account resource.
         :param str key: The storage account key.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "key", key)
+        StorageAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            key=key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
+        _setter("id", id)
+        _setter("key", key)
 
     @property
     @pulumi.getter
@@ -288,9 +381,24 @@ class StorageInsightStatusResponse(dict):
         :param str state: The state of the storage insight connection to the workspace
         :param str description: Description of the state of the storage insight.
         """
-        pulumi.set(__self__, "state", state)
+        StorageInsightStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("state", state)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -322,8 +430,25 @@ class TagResponse(dict):
         :param str name: The tag name.
         :param str value: The tag value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TagResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -378,10 +503,35 @@ class WorkspaceCappingResponse(dict):
         :param str quota_next_reset_time: The time when the quota will be rest.
         :param float daily_quota_gb: The workspace daily quota for ingestion.
         """
-        pulumi.set(__self__, "data_ingestion_status", data_ingestion_status)
-        pulumi.set(__self__, "quota_next_reset_time", quota_next_reset_time)
+        WorkspaceCappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_ingestion_status=data_ingestion_status,
+            quota_next_reset_time=quota_next_reset_time,
+            daily_quota_gb=daily_quota_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_ingestion_status: Optional[str] = None,
+             quota_next_reset_time: Optional[str] = None,
+             daily_quota_gb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_ingestion_status is None and 'dataIngestionStatus' in kwargs:
+            data_ingestion_status = kwargs['dataIngestionStatus']
+        if data_ingestion_status is None:
+            raise TypeError("Missing 'data_ingestion_status' argument")
+        if quota_next_reset_time is None and 'quotaNextResetTime' in kwargs:
+            quota_next_reset_time = kwargs['quotaNextResetTime']
+        if quota_next_reset_time is None:
+            raise TypeError("Missing 'quota_next_reset_time' argument")
+        if daily_quota_gb is None and 'dailyQuotaGb' in kwargs:
+            daily_quota_gb = kwargs['dailyQuotaGb']
+
+        _setter("data_ingestion_status", data_ingestion_status)
+        _setter("quota_next_reset_time", quota_next_reset_time)
         if daily_quota_gb is not None:
-            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+            _setter("daily_quota_gb", daily_quota_gb)
 
     @property
     @pulumi.getter(name="dataIngestionStatus")
@@ -446,11 +596,40 @@ class WorkspaceSkuResponse(dict):
         :param str name: The name of the SKU.
         :param int capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
-        pulumi.set(__self__, "last_sku_update", last_sku_update)
-        pulumi.set(__self__, "max_capacity_reservation_level", max_capacity_reservation_level)
-        pulumi.set(__self__, "name", name)
+        WorkspaceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_sku_update=last_sku_update,
+            max_capacity_reservation_level=max_capacity_reservation_level,
+            name=name,
+            capacity_reservation_level=capacity_reservation_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_sku_update: Optional[str] = None,
+             max_capacity_reservation_level: Optional[int] = None,
+             name: Optional[str] = None,
+             capacity_reservation_level: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last_sku_update is None and 'lastSkuUpdate' in kwargs:
+            last_sku_update = kwargs['lastSkuUpdate']
+        if last_sku_update is None:
+            raise TypeError("Missing 'last_sku_update' argument")
+        if max_capacity_reservation_level is None and 'maxCapacityReservationLevel' in kwargs:
+            max_capacity_reservation_level = kwargs['maxCapacityReservationLevel']
+        if max_capacity_reservation_level is None:
+            raise TypeError("Missing 'max_capacity_reservation_level' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if capacity_reservation_level is None and 'capacityReservationLevel' in kwargs:
+            capacity_reservation_level = kwargs['capacityReservationLevel']
+
+        _setter("last_sku_update", last_sku_update)
+        _setter("max_capacity_reservation_level", max_capacity_reservation_level)
+        _setter("name", name)
         if capacity_reservation_level is not None:
-            pulumi.set(__self__, "capacity_reservation_level", capacity_reservation_level)
+            _setter("capacity_reservation_level", capacity_reservation_level)
 
     @property
     @pulumi.getter(name="lastSkuUpdate")

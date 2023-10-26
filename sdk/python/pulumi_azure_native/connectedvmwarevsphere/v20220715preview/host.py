@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,23 +37,64 @@ class HostArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this host resides.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            extended_location=extended_location,
+            host_name=host_name,
+            inventory_item_id=inventory_item_id,
+            kind=kind,
+            location=location,
+            mo_ref_id=mo_ref_id,
+            tags=tags,
+            v_center_id=v_center_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             inventory_item_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mo_ref_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             v_center_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if inventory_item_id is None and 'inventoryItemId' in kwargs:
+            inventory_item_id = kwargs['inventoryItemId']
+        if mo_ref_id is None and 'moRefId' in kwargs:
+            mo_ref_id = kwargs['moRefId']
+        if v_center_id is None and 'vCenterId' in kwargs:
+            v_center_id = kwargs['vCenterId']
+
+        _setter("resource_group_name", resource_group_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+            _setter("inventory_item_id", inventory_item_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mo_ref_id is not None:
-            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+            _setter("mo_ref_id", mo_ref_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if v_center_id is not None:
-            pulumi.set(__self__, "v_center_id", v_center_id)
+            _setter("v_center_id", v_center_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -213,6 +254,10 @@ class Host(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -236,6 +281,7 @@ class Host(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HostArgs.__new__(HostArgs)
 
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["inventory_item_id"] = inventory_item_id

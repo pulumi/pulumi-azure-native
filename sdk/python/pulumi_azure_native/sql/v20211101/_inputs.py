@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -52,10 +52,25 @@ class DatabaseIdentityArgs:
         :param pulumi.Input[Union[str, 'DatabaseIdentityType']] type: The identity type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
+        DatabaseIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'DatabaseIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -90,7 +105,20 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
         Properties for an Azure SQL Database Vulnerability Assessment rule baseline's result.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] result: The rule baseline result
         """
-        pulumi.set(__self__, "result", result)
+        DatabaseVulnerabilityAssessmentRuleBaselineItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            result=result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             result: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if result is None:
+            raise TypeError("Missing 'result' argument")
+
+        _setter("result", result)
 
     @property
     @pulumi.getter
@@ -115,10 +143,27 @@ class ElasticPoolPerDatabaseSettingsArgs:
         :param pulumi.Input[float] max_capacity: The maximum capacity any one database can consume.
         :param pulumi.Input[float] min_capacity: The minimum capacity all databases are guaranteed.
         """
+        ElasticPoolPerDatabaseSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: Optional[pulumi.Input[float]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -153,8 +198,21 @@ class FailoverGroupReadOnlyEndpointArgs:
         Read-only endpoint of the failover group instance.
         :param pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']] failover_policy: Failover policy of the read-only endpoint for the failover group.
         """
+        FailoverGroupReadOnlyEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_policy=failover_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_policy: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_policy is None and 'failoverPolicy' in kwargs:
+            failover_policy = kwargs['failoverPolicy']
+
         if failover_policy is not None:
-            pulumi.set(__self__, "failover_policy", failover_policy)
+            _setter("failover_policy", failover_policy)
 
     @property
     @pulumi.getter(name="failoverPolicy")
@@ -179,9 +237,28 @@ class FailoverGroupReadWriteEndpointArgs:
         :param pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param pulumi.Input[int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
-        pulumi.set(__self__, "failover_policy", failover_policy)
+        FailoverGroupReadWriteEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_policy=failover_policy,
+            failover_with_data_loss_grace_period_minutes=failover_with_data_loss_grace_period_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_policy: Optional[pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]] = None,
+             failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_policy is None and 'failoverPolicy' in kwargs:
+            failover_policy = kwargs['failoverPolicy']
+        if failover_policy is None:
+            raise TypeError("Missing 'failover_policy' argument")
+        if failover_with_data_loss_grace_period_minutes is None and 'failoverWithDataLossGracePeriodMinutes' in kwargs:
+            failover_with_data_loss_grace_period_minutes = kwargs['failoverWithDataLossGracePeriodMinutes']
+
+        _setter("failover_policy", failover_policy)
         if failover_with_data_loss_grace_period_minutes is not None:
-            pulumi.set(__self__, "failover_with_data_loss_grace_period_minutes", failover_with_data_loss_grace_period_minutes)
+            _setter("failover_with_data_loss_grace_period_minutes", failover_with_data_loss_grace_period_minutes)
 
     @property
     @pulumi.getter(name="failoverPolicy")
@@ -216,8 +293,21 @@ class InstanceFailoverGroupReadOnlyEndpointArgs:
         Read-only endpoint of the failover group instance.
         :param pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']] failover_policy: Failover policy of the read-only endpoint for the failover group.
         """
+        InstanceFailoverGroupReadOnlyEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_policy=failover_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_policy: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_policy is None and 'failoverPolicy' in kwargs:
+            failover_policy = kwargs['failoverPolicy']
+
         if failover_policy is not None:
-            pulumi.set(__self__, "failover_policy", failover_policy)
+            _setter("failover_policy", failover_policy)
 
     @property
     @pulumi.getter(name="failoverPolicy")
@@ -242,9 +332,28 @@ class InstanceFailoverGroupReadWriteEndpointArgs:
         :param pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param pulumi.Input[int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
-        pulumi.set(__self__, "failover_policy", failover_policy)
+        InstanceFailoverGroupReadWriteEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_policy=failover_policy,
+            failover_with_data_loss_grace_period_minutes=failover_with_data_loss_grace_period_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_policy: Optional[pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]] = None,
+             failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_policy is None and 'failoverPolicy' in kwargs:
+            failover_policy = kwargs['failoverPolicy']
+        if failover_policy is None:
+            raise TypeError("Missing 'failover_policy' argument")
+        if failover_with_data_loss_grace_period_minutes is None and 'failoverWithDataLossGracePeriodMinutes' in kwargs:
+            failover_with_data_loss_grace_period_minutes = kwargs['failoverWithDataLossGracePeriodMinutes']
+
+        _setter("failover_policy", failover_policy)
         if failover_with_data_loss_grace_period_minutes is not None:
-            pulumi.set(__self__, "failover_with_data_loss_grace_period_minutes", failover_with_data_loss_grace_period_minutes)
+            _setter("failover_with_data_loss_grace_period_minutes", failover_with_data_loss_grace_period_minutes)
 
     @property
     @pulumi.getter(name="failoverPolicy")
@@ -287,22 +396,45 @@ class JobScheduleArgs:
         :param pulumi.Input[str] start_time: Schedule start time.
         :param pulumi.Input['JobScheduleType'] type: Schedule interval type
         """
+        JobScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            end_time=end_time,
+            interval=interval,
+            start_time=start_time,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['JobScheduleType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if end_time is None:
             end_time = '9999-12-31T11:59:59+00:00'
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if start_time is None:
             start_time = '0001-01-01T00:00:00+00:00'
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if type is None:
             type = 'Once'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -377,15 +509,32 @@ class JobStepActionArgs:
         :param pulumi.Input[Union[str, 'JobStepActionSource']] source: The source of the action to execute.
         :param pulumi.Input[Union[str, 'JobStepActionType']] type: Type of action being executed by the job step.
         """
-        pulumi.set(__self__, "value", value)
+        JobStepActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            source=source,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[Union[str, 'JobStepActionSource']]] = None,
+             type: Optional[pulumi.Input[Union[str, 'JobStepActionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("value", value)
         if source is None:
             source = 'Inline'
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if type is None:
             type = 'TSql'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -440,26 +589,55 @@ class JobStepExecutionOptionsArgs:
         :param pulumi.Input[float] retry_interval_backoff_multiplier: The backoff multiplier for the time between retries.
         :param pulumi.Input[int] timeout_seconds: Execution timeout for the job step.
         """
+        JobStepExecutionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initial_retry_interval_seconds=initial_retry_interval_seconds,
+            maximum_retry_interval_seconds=maximum_retry_interval_seconds,
+            retry_attempts=retry_attempts,
+            retry_interval_backoff_multiplier=retry_interval_backoff_multiplier,
+            timeout_seconds=timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initial_retry_interval_seconds: Optional[pulumi.Input[int]] = None,
+             maximum_retry_interval_seconds: Optional[pulumi.Input[int]] = None,
+             retry_attempts: Optional[pulumi.Input[int]] = None,
+             retry_interval_backoff_multiplier: Optional[pulumi.Input[float]] = None,
+             timeout_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if initial_retry_interval_seconds is None and 'initialRetryIntervalSeconds' in kwargs:
+            initial_retry_interval_seconds = kwargs['initialRetryIntervalSeconds']
+        if maximum_retry_interval_seconds is None and 'maximumRetryIntervalSeconds' in kwargs:
+            maximum_retry_interval_seconds = kwargs['maximumRetryIntervalSeconds']
+        if retry_attempts is None and 'retryAttempts' in kwargs:
+            retry_attempts = kwargs['retryAttempts']
+        if retry_interval_backoff_multiplier is None and 'retryIntervalBackoffMultiplier' in kwargs:
+            retry_interval_backoff_multiplier = kwargs['retryIntervalBackoffMultiplier']
+        if timeout_seconds is None and 'timeoutSeconds' in kwargs:
+            timeout_seconds = kwargs['timeoutSeconds']
+
         if initial_retry_interval_seconds is None:
             initial_retry_interval_seconds = 1
         if initial_retry_interval_seconds is not None:
-            pulumi.set(__self__, "initial_retry_interval_seconds", initial_retry_interval_seconds)
+            _setter("initial_retry_interval_seconds", initial_retry_interval_seconds)
         if maximum_retry_interval_seconds is None:
             maximum_retry_interval_seconds = 120
         if maximum_retry_interval_seconds is not None:
-            pulumi.set(__self__, "maximum_retry_interval_seconds", maximum_retry_interval_seconds)
+            _setter("maximum_retry_interval_seconds", maximum_retry_interval_seconds)
         if retry_attempts is None:
             retry_attempts = 10
         if retry_attempts is not None:
-            pulumi.set(__self__, "retry_attempts", retry_attempts)
+            _setter("retry_attempts", retry_attempts)
         if retry_interval_backoff_multiplier is None:
             retry_interval_backoff_multiplier = 2
         if retry_interval_backoff_multiplier is not None:
-            pulumi.set(__self__, "retry_interval_backoff_multiplier", retry_interval_backoff_multiplier)
+            _setter("retry_interval_backoff_multiplier", retry_interval_backoff_multiplier)
         if timeout_seconds is None:
             timeout_seconds = 43200
         if timeout_seconds is not None:
-            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+            _setter("timeout_seconds", timeout_seconds)
 
     @property
     @pulumi.getter(name="initialRetryIntervalSeconds")
@@ -544,22 +722,67 @@ class JobStepOutputArgs:
         :param pulumi.Input[str] subscription_id: The output destination subscription id.
         :param pulumi.Input[Union[str, 'JobStepOutputType']] type: The output destination type.
         """
-        pulumi.set(__self__, "credential", credential)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "table_name", table_name)
+        JobStepOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credential=credential,
+            database_name=database_name,
+            server_name=server_name,
+            table_name=table_name,
+            resource_group_name=resource_group_name,
+            schema_name=schema_name,
+            subscription_id=subscription_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credential: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'JobStepOutputType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credential is None:
+            raise TypeError("Missing 'credential' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
+        _setter("credential", credential)
+        _setter("database_name", database_name)
+        _setter("server_name", server_name)
+        _setter("table_name", table_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if schema_name is None:
             schema_name = 'dbo'
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if type is None:
             type = 'SqlDatabase'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -678,21 +901,58 @@ class JobTargetArgs:
         :param pulumi.Input[str] server_name: The target server name.
         :param pulumi.Input[str] shard_map_name: The target shard map.
         """
-        pulumi.set(__self__, "type", type)
+        JobTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            database_name=database_name,
+            elastic_pool_name=elastic_pool_name,
+            membership_type=membership_type,
+            refresh_credential=refresh_credential,
+            server_name=server_name,
+            shard_map_name=shard_map_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'JobTargetType']]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             elastic_pool_name: Optional[pulumi.Input[str]] = None,
+             membership_type: Optional[pulumi.Input['JobTargetGroupMembershipType']] = None,
+             refresh_credential: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             shard_map_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if elastic_pool_name is None and 'elasticPoolName' in kwargs:
+            elastic_pool_name = kwargs['elasticPoolName']
+        if membership_type is None and 'membershipType' in kwargs:
+            membership_type = kwargs['membershipType']
+        if refresh_credential is None and 'refreshCredential' in kwargs:
+            refresh_credential = kwargs['refreshCredential']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if shard_map_name is None and 'shardMapName' in kwargs:
+            shard_map_name = kwargs['shardMapName']
+
+        _setter("type", type)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if elastic_pool_name is not None:
-            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+            _setter("elastic_pool_name", elastic_pool_name)
         if membership_type is None:
             membership_type = 'Include'
         if membership_type is not None:
-            pulumi.set(__self__, "membership_type", membership_type)
+            _setter("membership_type", membership_type)
         if refresh_credential is not None:
-            pulumi.set(__self__, "refresh_credential", refresh_credential)
+            _setter("refresh_credential", refresh_credential)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if shard_map_name is not None:
-            pulumi.set(__self__, "shard_map_name", shard_map_name)
+            _setter("shard_map_name", shard_map_name)
 
     @property
     @pulumi.getter
@@ -797,18 +1057,47 @@ class ManagedInstanceExternalAdministratorArgs:
         :param pulumi.Input[str] sid: SID (object ID) of the server administrator.
         :param pulumi.Input[str] tenant_id: Tenant ID of the administrator.
         """
+        ManagedInstanceExternalAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_type=administrator_type,
+            azure_ad_only_authentication=azure_ad_only_authentication,
+            login=login,
+            principal_type=principal_type,
+            sid=sid,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_type: Optional[pulumi.Input[Union[str, 'AdministratorType']]] = None,
+             azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+             sid: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if administrator_type is None and 'administratorType' in kwargs:
+            administrator_type = kwargs['administratorType']
+        if azure_ad_only_authentication is None and 'azureADOnlyAuthentication' in kwargs:
+            azure_ad_only_authentication = kwargs['azureADOnlyAuthentication']
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if administrator_type is not None:
-            pulumi.set(__self__, "administrator_type", administrator_type)
+            _setter("administrator_type", administrator_type)
         if azure_ad_only_authentication is not None:
-            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+            _setter("azure_ad_only_authentication", azure_ad_only_authentication)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="administratorType")
@@ -893,10 +1182,27 @@ class ManagedInstancePairInfoArgs:
         :param pulumi.Input[str] partner_managed_instance_id: Id of Partner Managed Instance in pair.
         :param pulumi.Input[str] primary_managed_instance_id: Id of Primary Managed Instance in pair.
         """
+        ManagedInstancePairInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_managed_instance_id=partner_managed_instance_id,
+            primary_managed_instance_id=primary_managed_instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_managed_instance_id: Optional[pulumi.Input[str]] = None,
+             primary_managed_instance_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if partner_managed_instance_id is None and 'partnerManagedInstanceId' in kwargs:
+            partner_managed_instance_id = kwargs['partnerManagedInstanceId']
+        if primary_managed_instance_id is None and 'primaryManagedInstanceId' in kwargs:
+            primary_managed_instance_id = kwargs['primaryManagedInstanceId']
+
         if partner_managed_instance_id is not None:
-            pulumi.set(__self__, "partner_managed_instance_id", partner_managed_instance_id)
+            _setter("partner_managed_instance_id", partner_managed_instance_id)
         if primary_managed_instance_id is not None:
-            pulumi.set(__self__, "primary_managed_instance_id", primary_managed_instance_id)
+            _setter("primary_managed_instance_id", primary_managed_instance_id)
 
     @property
     @pulumi.getter(name="partnerManagedInstanceId")
@@ -930,8 +1236,19 @@ class ManagedInstancePrivateEndpointPropertyArgs:
         """
         :param pulumi.Input[str] id: Resource id of the private endpoint.
         """
+        ManagedInstancePrivateEndpointPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -955,8 +1272,25 @@ class ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs:
         :param pulumi.Input[str] description: The private link service connection description.
         :param pulumi.Input[str] status: The private link service connection status.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -991,7 +1325,20 @@ class PartnerInfoArgs:
         Partner server information for the failover group.
         :param pulumi.Input[str] id: Resource identifier of the partner server.
         """
-        pulumi.set(__self__, "id", id)
+        PartnerInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1014,8 +1361,19 @@ class PartnerRegionInfoArgs:
         Partner region information for the failover group.
         :param pulumi.Input[str] location: Geo location of the partner managed instances.
         """
+        PartnerRegionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter
@@ -1037,8 +1395,19 @@ class PrivateEndpointPropertyArgs:
         """
         :param pulumi.Input[str] id: Resource id of the private endpoint.
         """
+        PrivateEndpointPropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1062,8 +1431,25 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
         :param pulumi.Input[str] description: The private link service connection description.
         :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']] status: The private link service connection status.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        PrivateLinkServiceConnectionStatePropertyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -1100,10 +1486,25 @@ class ResourceIdentityArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1148,18 +1549,47 @@ class ServerExternalAdministratorArgs:
         :param pulumi.Input[str] sid: SID (object ID) of the server administrator.
         :param pulumi.Input[str] tenant_id: Tenant ID of the administrator.
         """
+        ServerExternalAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_type=administrator_type,
+            azure_ad_only_authentication=azure_ad_only_authentication,
+            login=login,
+            principal_type=principal_type,
+            sid=sid,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_type: Optional[pulumi.Input[Union[str, 'AdministratorType']]] = None,
+             azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+             sid: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if administrator_type is None and 'administratorType' in kwargs:
+            administrator_type = kwargs['administratorType']
+        if azure_ad_only_authentication is None and 'azureADOnlyAuthentication' in kwargs:
+            azure_ad_only_authentication = kwargs['azureADOnlyAuthentication']
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if administrator_type is not None:
-            pulumi.set(__self__, "administrator_type", administrator_type)
+            _setter("administrator_type", administrator_type)
         if azure_ad_only_authentication is not None:
-            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+            _setter("azure_ad_only_authentication", azure_ad_only_authentication)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="administratorType")
@@ -1242,7 +1672,22 @@ class ServerInfoArgs:
         Server info for the server trust group.
         :param pulumi.Input[str] server_id: Server Id.
         """
-        pulumi.set(__self__, "server_id", server_id)
+        ServerInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_id=server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+
+        _setter("server_id", server_id)
 
     @property
     @pulumi.getter(name="serverId")
@@ -1265,8 +1710,19 @@ class ServicePrincipalArgs:
         The managed instance's service principal configuration for a resource.
         :param pulumi.Input[Union[str, 'ServicePrincipalType']] type: Service principal type.
         """
+        ServicePrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ServicePrincipalType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1297,15 +1753,36 @@ class SkuArgs:
         :param pulumi.Input[str] size: Size of the particular SKU
         :param pulumi.Input[str] tier: The tier or edition of the particular SKU, e.g. Basic, Premium.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1380,12 +1857,33 @@ class SyncGroupSchemaTableColumnArgs:
         :param pulumi.Input[str] data_type: Data type of the column.
         :param pulumi.Input[str] quoted_name: Quoted name of sync group table column.
         """
+        SyncGroupSchemaTableColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_size=data_size,
+            data_type=data_type,
+            quoted_name=quoted_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_size: Optional[pulumi.Input[str]] = None,
+             data_type: Optional[pulumi.Input[str]] = None,
+             quoted_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_size is None and 'dataSize' in kwargs:
+            data_size = kwargs['dataSize']
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if quoted_name is None and 'quotedName' in kwargs:
+            quoted_name = kwargs['quotedName']
+
         if data_size is not None:
-            pulumi.set(__self__, "data_size", data_size)
+            _setter("data_size", data_size)
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if quoted_name is not None:
-            pulumi.set(__self__, "quoted_name", quoted_name)
+            _setter("quoted_name", quoted_name)
 
     @property
     @pulumi.getter(name="dataSize")
@@ -1434,10 +1932,25 @@ class SyncGroupSchemaTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]] columns: List of columns in sync group schema.
         :param pulumi.Input[str] quoted_name: Quoted name of sync group schema table.
         """
+        SyncGroupSchemaTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            columns=columns,
+            quoted_name=quoted_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             columns: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]] = None,
+             quoted_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if quoted_name is None and 'quotedName' in kwargs:
+            quoted_name = kwargs['quotedName']
+
         if columns is not None:
-            pulumi.set(__self__, "columns", columns)
+            _setter("columns", columns)
         if quoted_name is not None:
-            pulumi.set(__self__, "quoted_name", quoted_name)
+            _setter("quoted_name", quoted_name)
 
     @property
     @pulumi.getter
@@ -1474,10 +1987,25 @@ class SyncGroupSchemaArgs:
         :param pulumi.Input[str] master_sync_member_name: Name of master sync member where the schema is from.
         :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]] tables: List of tables in sync group schema.
         """
+        SyncGroupSchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            master_sync_member_name=master_sync_member_name,
+            tables=tables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             master_sync_member_name: Optional[pulumi.Input[str]] = None,
+             tables: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if master_sync_member_name is None and 'masterSyncMemberName' in kwargs:
+            master_sync_member_name = kwargs['masterSyncMemberName']
+
         if master_sync_member_name is not None:
-            pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
+            _setter("master_sync_member_name", master_sync_member_name)
         if tables is not None:
-            pulumi.set(__self__, "tables", tables)
+            _setter("tables", tables)
 
     @property
     @pulumi.getter(name="masterSyncMemberName")
@@ -1516,14 +2044,33 @@ class VulnerabilityAssessmentRecurringScansPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param pulumi.Input[bool] is_enabled: Recurring scans state.
         """
+        VulnerabilityAssessmentRecurringScansPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_subscription_admins=email_subscription_admins,
+            emails=emails,
+            is_enabled=is_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_subscription_admins: Optional[pulumi.Input[bool]] = None,
+             emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_subscription_admins is None and 'emailSubscriptionAdmins' in kwargs:
+            email_subscription_admins = kwargs['emailSubscriptionAdmins']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         if email_subscription_admins is None:
             email_subscription_admins = True
         if email_subscription_admins is not None:
-            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+            _setter("email_subscription_admins", email_subscription_admins)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="emailSubscriptionAdmins")

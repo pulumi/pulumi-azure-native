@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -38,11 +38,28 @@ class AutoscaleNotificationArgs:
         :param pulumi.Input['EmailNotificationArgs'] email: the email notification.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]] webhooks: the collection of webhook notifications.
         """
-        pulumi.set(__self__, "operation", operation)
+        AutoscaleNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            email=email,
+            webhooks=webhooks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: Optional[pulumi.Input['OperationType']] = None,
+             email: Optional[pulumi.Input['EmailNotificationArgs']] = None,
+             webhooks: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operation is None:
+            raise TypeError("Missing 'operation' argument")
+
+        _setter("operation", operation)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if webhooks is not None:
-            pulumi.set(__self__, "webhooks", webhooks)
+            _setter("webhooks", webhooks)
 
     @property
     @pulumi.getter
@@ -97,13 +114,40 @@ class AutoscaleProfileArgs:
         :param pulumi.Input['TimeWindowArgs'] fixed_date: the specific date-time for the profile. This element is not used if the Recurrence element is used.
         :param pulumi.Input['RecurrenceArgs'] recurrence: the repeating times at which this profile begins. This element is not used if the FixedDate element is used.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rules", rules)
+        AutoscaleProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+            rules=rules,
+            fixed_date=fixed_date,
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input['ScaleCapacityArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleArgs']]]] = None,
+             fixed_date: Optional[pulumi.Input['TimeWindowArgs']] = None,
+             recurrence: Optional[pulumi.Input['RecurrenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if fixed_date is None and 'fixedDate' in kwargs:
+            fixed_date = kwargs['fixedDate']
+
+        _setter("capacity", capacity)
+        _setter("name", name)
+        _setter("rules", rules)
         if fixed_date is not None:
-            pulumi.set(__self__, "fixed_date", fixed_date)
+            _setter("fixed_date", fixed_date)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter
@@ -178,16 +222,37 @@ class EmailNotificationArgs:
         :param pulumi.Input[bool] send_to_subscription_administrator: a value indicating whether to send email to subscription administrator.
         :param pulumi.Input[bool] send_to_subscription_co_administrators: a value indicating whether to send email to subscription co-administrators.
         """
+        EmailNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_emails=custom_emails,
+            send_to_subscription_administrator=send_to_subscription_administrator,
+            send_to_subscription_co_administrators=send_to_subscription_co_administrators,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             send_to_subscription_administrator: Optional[pulumi.Input[bool]] = None,
+             send_to_subscription_co_administrators: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_emails is None and 'customEmails' in kwargs:
+            custom_emails = kwargs['customEmails']
+        if send_to_subscription_administrator is None and 'sendToSubscriptionAdministrator' in kwargs:
+            send_to_subscription_administrator = kwargs['sendToSubscriptionAdministrator']
+        if send_to_subscription_co_administrators is None and 'sendToSubscriptionCoAdministrators' in kwargs:
+            send_to_subscription_co_administrators = kwargs['sendToSubscriptionCoAdministrators']
+
         if custom_emails is not None:
-            pulumi.set(__self__, "custom_emails", custom_emails)
+            _setter("custom_emails", custom_emails)
         if send_to_subscription_administrator is None:
             send_to_subscription_administrator = False
         if send_to_subscription_administrator is not None:
-            pulumi.set(__self__, "send_to_subscription_administrator", send_to_subscription_administrator)
+            _setter("send_to_subscription_administrator", send_to_subscription_administrator)
         if send_to_subscription_co_administrators is None:
             send_to_subscription_co_administrators = False
         if send_to_subscription_co_administrators is not None:
-            pulumi.set(__self__, "send_to_subscription_co_administrators", send_to_subscription_co_administrators)
+            _setter("send_to_subscription_co_administrators", send_to_subscription_co_administrators)
 
     @property
     @pulumi.getter(name="customEmails")
@@ -256,22 +321,87 @@ class MetricTriggerArgs:
         :param pulumi.Input[str] metric_namespace: the namespace of the metric that defines what the rule monitors.
         :param pulumi.Input[str] metric_resource_location: the location of the resource the rule monitors.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "metric_resource_uri", metric_resource_uri)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "statistic", statistic)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "time_aggregation", time_aggregation)
-        pulumi.set(__self__, "time_grain", time_grain)
-        pulumi.set(__self__, "time_window", time_window)
+        MetricTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_name=metric_name,
+            metric_resource_uri=metric_resource_uri,
+            operator=operator,
+            statistic=statistic,
+            threshold=threshold,
+            time_aggregation=time_aggregation,
+            time_grain=time_grain,
+            time_window=time_window,
+            dimensions=dimensions,
+            divide_per_instance=divide_per_instance,
+            metric_namespace=metric_namespace,
+            metric_resource_location=metric_resource_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_resource_uri: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input['ComparisonOperationType']] = None,
+             statistic: Optional[pulumi.Input['MetricStatisticType']] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
+             time_aggregation: Optional[pulumi.Input['TimeAggregationType']] = None,
+             time_grain: Optional[pulumi.Input[str]] = None,
+             time_window: Optional[pulumi.Input[str]] = None,
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
+             divide_per_instance: Optional[pulumi.Input[bool]] = None,
+             metric_namespace: Optional[pulumi.Input[str]] = None,
+             metric_resource_location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if metric_resource_uri is None and 'metricResourceUri' in kwargs:
+            metric_resource_uri = kwargs['metricResourceUri']
+        if metric_resource_uri is None:
+            raise TypeError("Missing 'metric_resource_uri' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if statistic is None:
+            raise TypeError("Missing 'statistic' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if time_aggregation is None and 'timeAggregation' in kwargs:
+            time_aggregation = kwargs['timeAggregation']
+        if time_aggregation is None:
+            raise TypeError("Missing 'time_aggregation' argument")
+        if time_grain is None and 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+        if time_grain is None:
+            raise TypeError("Missing 'time_grain' argument")
+        if time_window is None and 'timeWindow' in kwargs:
+            time_window = kwargs['timeWindow']
+        if time_window is None:
+            raise TypeError("Missing 'time_window' argument")
+        if divide_per_instance is None and 'dividePerInstance' in kwargs:
+            divide_per_instance = kwargs['dividePerInstance']
+        if metric_namespace is None and 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if metric_resource_location is None and 'metricResourceLocation' in kwargs:
+            metric_resource_location = kwargs['metricResourceLocation']
+
+        _setter("metric_name", metric_name)
+        _setter("metric_resource_uri", metric_resource_uri)
+        _setter("operator", operator)
+        _setter("statistic", statistic)
+        _setter("threshold", threshold)
+        _setter("time_aggregation", time_aggregation)
+        _setter("time_grain", time_grain)
+        _setter("time_window", time_window)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if divide_per_instance is not None:
-            pulumi.set(__self__, "divide_per_instance", divide_per_instance)
+            _setter("divide_per_instance", divide_per_instance)
         if metric_namespace is not None:
-            pulumi.set(__self__, "metric_namespace", metric_namespace)
+            _setter("metric_namespace", metric_namespace)
         if metric_resource_location is not None:
-            pulumi.set(__self__, "metric_resource_location", metric_resource_location)
+            _setter("metric_resource_location", metric_resource_location)
 
     @property
     @pulumi.getter(name="metricName")
@@ -428,9 +558,28 @@ class PredictiveAutoscalePolicyArgs:
         :param pulumi.Input['PredictiveAutoscalePolicyScaleMode'] scale_mode: the predictive autoscale mode
         :param pulumi.Input[str] scale_look_ahead_time: the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.
         """
-        pulumi.set(__self__, "scale_mode", scale_mode)
+        PredictiveAutoscalePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scale_mode=scale_mode,
+            scale_look_ahead_time=scale_look_ahead_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scale_mode: Optional[pulumi.Input['PredictiveAutoscalePolicyScaleMode']] = None,
+             scale_look_ahead_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scale_mode is None and 'scaleMode' in kwargs:
+            scale_mode = kwargs['scaleMode']
+        if scale_mode is None:
+            raise TypeError("Missing 'scale_mode' argument")
+        if scale_look_ahead_time is None and 'scaleLookAheadTime' in kwargs:
+            scale_look_ahead_time = kwargs['scaleLookAheadTime']
+
+        _setter("scale_mode", scale_mode)
         if scale_look_ahead_time is not None:
-            pulumi.set(__self__, "scale_look_ahead_time", scale_look_ahead_time)
+            _setter("scale_look_ahead_time", scale_look_ahead_time)
 
     @property
     @pulumi.getter(name="scaleMode")
@@ -467,8 +616,25 @@ class RecurrenceArgs:
         :param pulumi.Input['RecurrenceFrequency'] frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         :param pulumi.Input['RecurrentScheduleArgs'] schedule: the scheduling constraints for when the profile begins.
         """
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "schedule", schedule)
+        RecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: Optional[pulumi.Input['RecurrenceFrequency']] = None,
+             schedule: Optional[pulumi.Input['RecurrentScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+
+        _setter("frequency", frequency)
+        _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -509,10 +675,37 @@ class RecurrentScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: A collection of minutes at which the profile takes effect at.
         :param pulumi.Input[str] time_zone: the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "hours", hours)
-        pulumi.set(__self__, "minutes", minutes)
-        pulumi.set(__self__, "time_zone", time_zone)
+        RecurrentScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            hours=hours,
+            minutes=minutes,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days is None:
+            raise TypeError("Missing 'days' argument")
+        if hours is None:
+            raise TypeError("Missing 'hours' argument")
+        if minutes is None:
+            raise TypeError("Missing 'minutes' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+
+        _setter("days", days)
+        _setter("hours", hours)
+        _setter("minutes", minutes)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -577,13 +770,36 @@ class ScaleActionArgs:
         :param pulumi.Input['ScaleType'] type: the type of action that should occur when the scale rule fires.
         :param pulumi.Input[str] value: the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
         """
-        pulumi.set(__self__, "cooldown", cooldown)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "type", type)
+        ScaleActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cooldown=cooldown,
+            direction=direction,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cooldown: Optional[pulumi.Input[str]] = None,
+             direction: Optional[pulumi.Input['ScaleDirection']] = None,
+             type: Optional[pulumi.Input['ScaleType']] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cooldown is None:
+            raise TypeError("Missing 'cooldown' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("cooldown", cooldown)
+        _setter("direction", direction)
+        _setter("type", type)
         if value is None:
             value = '1'
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -646,9 +862,30 @@ class ScaleCapacityArgs:
         :param pulumi.Input[str] maximum: the maximum number of instances for the resource. The actual maximum number of instances is limited by the cores that are available in the subscription.
         :param pulumi.Input[str] minimum: the minimum number of instances for the resource.
         """
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "maximum", maximum)
-        pulumi.set(__self__, "minimum", minimum)
+        ScaleCapacityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default=default,
+            maximum=maximum,
+            minimum=minimum,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default: Optional[pulumi.Input[str]] = None,
+             maximum: Optional[pulumi.Input[str]] = None,
+             minimum: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default is None:
+            raise TypeError("Missing 'default' argument")
+        if maximum is None:
+            raise TypeError("Missing 'maximum' argument")
+        if minimum is None:
+            raise TypeError("Missing 'minimum' argument")
+
+        _setter("default", default)
+        _setter("maximum", maximum)
+        _setter("minimum", minimum)
 
     @property
     @pulumi.getter
@@ -699,9 +936,32 @@ class ScaleRuleMetricDimensionArgs:
         :param pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']] operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of dimension values. For example: ["App1","App2"].
         """
-        pulumi.set(__self__, "dimension_name", dimension_name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        ScaleRuleMetricDimensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dimension_name=dimension_name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dimension_name: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dimension_name is None and 'dimensionName' in kwargs:
+            dimension_name = kwargs['dimensionName']
+        if dimension_name is None:
+            raise TypeError("Missing 'dimension_name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("dimension_name", dimension_name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter(name="dimensionName")
@@ -750,8 +1010,29 @@ class ScaleRuleArgs:
         :param pulumi.Input['MetricTriggerArgs'] metric_trigger: the trigger that results in a scaling action.
         :param pulumi.Input['ScaleActionArgs'] scale_action: the parameters for the scaling action.
         """
-        pulumi.set(__self__, "metric_trigger", metric_trigger)
-        pulumi.set(__self__, "scale_action", scale_action)
+        ScaleRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_trigger=metric_trigger,
+            scale_action=scale_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_trigger: Optional[pulumi.Input['MetricTriggerArgs']] = None,
+             scale_action: Optional[pulumi.Input['ScaleActionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_trigger is None and 'metricTrigger' in kwargs:
+            metric_trigger = kwargs['metricTrigger']
+        if metric_trigger is None:
+            raise TypeError("Missing 'metric_trigger' argument")
+        if scale_action is None and 'scaleAction' in kwargs:
+            scale_action = kwargs['scaleAction']
+        if scale_action is None:
+            raise TypeError("Missing 'scale_action' argument")
+
+        _setter("metric_trigger", metric_trigger)
+        _setter("scale_action", scale_action)
 
     @property
     @pulumi.getter(name="metricTrigger")
@@ -790,10 +1071,31 @@ class TimeWindowArgs:
         :param pulumi.Input[str] start: the start time for the profile in ISO 8601 format.
         :param pulumi.Input[str] time_zone: the timezone of the start and end times for the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
-        pulumi.set(__self__, "end", end)
-        pulumi.set(__self__, "start", start)
+        TimeWindowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end=end,
+            start=start,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end is None:
+            raise TypeError("Missing 'end' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("end", end)
+        _setter("start", start)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -842,10 +1144,25 @@ class WebhookNotificationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: a property bag of settings. This value can be empty.
         :param pulumi.Input[str] service_uri: the service address to receive the notification.
         """
+        WebhookNotificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            service_uri=service_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             service_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_uri is None and 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if service_uri is not None:
-            pulumi.set(__self__, "service_uri", service_uri)
+            _setter("service_uri", service_uri)
 
     @property
     @pulumi.getter

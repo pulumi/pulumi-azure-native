@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,21 +40,72 @@ class TemplateArtifactArgs:
         :param pulumi.Input[str] display_name: One-liner string explain this resource.
         :param pulumi.Input[str] resource_group: If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
         """
-        pulumi.set(__self__, "blueprint_name", blueprint_name)
-        pulumi.set(__self__, "kind", 'template')
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "resource_scope", resource_scope)
-        pulumi.set(__self__, "template", template)
+        TemplateArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blueprint_name=blueprint_name,
+            kind=kind,
+            parameters=parameters,
+            resource_scope=resource_scope,
+            template=template,
+            artifact_name=artifact_name,
+            depends_on=depends_on,
+            description=description,
+            display_name=display_name,
+            resource_group=resource_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blueprint_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterValueArgs']]]] = None,
+             resource_scope: Optional[pulumi.Input[str]] = None,
+             template: Optional[Any] = None,
+             artifact_name: Optional[pulumi.Input[str]] = None,
+             depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blueprint_name is None and 'blueprintName' in kwargs:
+            blueprint_name = kwargs['blueprintName']
+        if blueprint_name is None:
+            raise TypeError("Missing 'blueprint_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+        if resource_scope is None and 'resourceScope' in kwargs:
+            resource_scope = kwargs['resourceScope']
+        if resource_scope is None:
+            raise TypeError("Missing 'resource_scope' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+        if artifact_name is None and 'artifactName' in kwargs:
+            artifact_name = kwargs['artifactName']
+        if depends_on is None and 'dependsOn' in kwargs:
+            depends_on = kwargs['dependsOn']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+
+        _setter("blueprint_name", blueprint_name)
+        _setter("kind", 'template')
+        _setter("parameters", parameters)
+        _setter("resource_scope", resource_scope)
+        _setter("template", template)
         if artifact_name is not None:
-            pulumi.set(__self__, "artifact_name", artifact_name)
+            _setter("artifact_name", artifact_name)
         if depends_on is not None:
-            pulumi.set(__self__, "depends_on", depends_on)
+            _setter("depends_on", depends_on)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
 
     @property
     @pulumi.getter(name="blueprintName")
@@ -232,6 +283,10 @@ class TemplateArtifact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TemplateArtifactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

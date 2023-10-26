@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,25 +42,78 @@ class ContactProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileThirdPartyConfigurationArgs']]] third_party_configurations: Third-party mission configuration of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         """
-        pulumi.set(__self__, "links", links)
-        pulumi.set(__self__, "network_configuration", network_configuration)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ContactProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            links=links,
+            network_configuration=network_configuration,
+            resource_group_name=resource_group_name,
+            auto_tracking_configuration=auto_tracking_configuration,
+            contact_profile_name=contact_profile_name,
+            event_hub_uri=event_hub_uri,
+            location=location,
+            minimum_elevation_degrees=minimum_elevation_degrees,
+            minimum_viable_contact_duration=minimum_viable_contact_duration,
+            tags=tags,
+            third_party_configurations=third_party_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]]] = None,
+             network_configuration: Optional[pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auto_tracking_configuration: Optional[pulumi.Input['AutoTrackingConfiguration']] = None,
+             contact_profile_name: Optional[pulumi.Input[str]] = None,
+             event_hub_uri: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
+             minimum_viable_contact_duration: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             third_party_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileThirdPartyConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if network_configuration is None:
+            raise TypeError("Missing 'network_configuration' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_tracking_configuration is None and 'autoTrackingConfiguration' in kwargs:
+            auto_tracking_configuration = kwargs['autoTrackingConfiguration']
+        if contact_profile_name is None and 'contactProfileName' in kwargs:
+            contact_profile_name = kwargs['contactProfileName']
+        if event_hub_uri is None and 'eventHubUri' in kwargs:
+            event_hub_uri = kwargs['eventHubUri']
+        if minimum_elevation_degrees is None and 'minimumElevationDegrees' in kwargs:
+            minimum_elevation_degrees = kwargs['minimumElevationDegrees']
+        if minimum_viable_contact_duration is None and 'minimumViableContactDuration' in kwargs:
+            minimum_viable_contact_duration = kwargs['minimumViableContactDuration']
+        if third_party_configurations is None and 'thirdPartyConfigurations' in kwargs:
+            third_party_configurations = kwargs['thirdPartyConfigurations']
+
+        _setter("links", links)
+        _setter("network_configuration", network_configuration)
+        _setter("resource_group_name", resource_group_name)
         if auto_tracking_configuration is not None:
-            pulumi.set(__self__, "auto_tracking_configuration", auto_tracking_configuration)
+            _setter("auto_tracking_configuration", auto_tracking_configuration)
         if contact_profile_name is not None:
-            pulumi.set(__self__, "contact_profile_name", contact_profile_name)
+            _setter("contact_profile_name", contact_profile_name)
         if event_hub_uri is not None:
-            pulumi.set(__self__, "event_hub_uri", event_hub_uri)
+            _setter("event_hub_uri", event_hub_uri)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_elevation_degrees is not None:
-            pulumi.set(__self__, "minimum_elevation_degrees", minimum_elevation_degrees)
+            _setter("minimum_elevation_degrees", minimum_elevation_degrees)
         if minimum_viable_contact_duration is not None:
-            pulumi.set(__self__, "minimum_viable_contact_duration", minimum_viable_contact_duration)
+            _setter("minimum_viable_contact_duration", minimum_viable_contact_duration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if third_party_configurations is not None:
-            pulumi.set(__self__, "third_party_configurations", third_party_configurations)
+            _setter("third_party_configurations", third_party_configurations)
 
     @property
     @pulumi.getter
@@ -248,6 +301,10 @@ class ContactProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContactProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -282,6 +339,7 @@ class ContactProfile(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_elevation_degrees"] = minimum_elevation_degrees
             __props__.__dict__["minimum_viable_contact_duration"] = minimum_viable_contact_duration
+            network_configuration = _utilities.configure(network_configuration, ContactProfilesPropertiesNetworkConfigurationArgs, True)
             if network_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'network_configuration'")
             __props__.__dict__["network_configuration"] = network_configuration

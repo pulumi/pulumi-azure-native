@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,101 @@ class InboundNatRuleInitArgs:
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[Union[str, 'TransportProtocol']] protocol: The reference to the transport protocol used by the load balancing rule.
         """
-        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        InboundNatRuleInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_name=load_balancer_name,
+            resource_group_name=resource_group_name,
+            backend_address_pool=backend_address_pool,
+            backend_port=backend_port,
+            enable_floating_ip=enable_floating_ip,
+            enable_tcp_reset=enable_tcp_reset,
+            frontend_ip_configuration=frontend_ip_configuration,
+            frontend_port=frontend_port,
+            frontend_port_range_end=frontend_port_range_end,
+            frontend_port_range_start=frontend_port_range_start,
+            id=id,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            inbound_nat_rule_name=inbound_nat_rule_name,
+            name=name,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             backend_address_pool: Optional[pulumi.Input['SubResourceArgs']] = None,
+             backend_port: Optional[pulumi.Input[int]] = None,
+             enable_floating_ip: Optional[pulumi.Input[bool]] = None,
+             enable_tcp_reset: Optional[pulumi.Input[bool]] = None,
+             frontend_ip_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
+             frontend_port: Optional[pulumi.Input[int]] = None,
+             frontend_port_range_end: Optional[pulumi.Input[int]] = None,
+             frontend_port_range_start: Optional[pulumi.Input[int]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if load_balancer_name is None:
+            raise TypeError("Missing 'load_balancer_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if backend_address_pool is None and 'backendAddressPool' in kwargs:
+            backend_address_pool = kwargs['backendAddressPool']
+        if backend_port is None and 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if enable_floating_ip is None and 'enableFloatingIP' in kwargs:
+            enable_floating_ip = kwargs['enableFloatingIP']
+        if enable_tcp_reset is None and 'enableTcpReset' in kwargs:
+            enable_tcp_reset = kwargs['enableTcpReset']
+        if frontend_ip_configuration is None and 'frontendIPConfiguration' in kwargs:
+            frontend_ip_configuration = kwargs['frontendIPConfiguration']
+        if frontend_port is None and 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if frontend_port_range_end is None and 'frontendPortRangeEnd' in kwargs:
+            frontend_port_range_end = kwargs['frontendPortRangeEnd']
+        if frontend_port_range_start is None and 'frontendPortRangeStart' in kwargs:
+            frontend_port_range_start = kwargs['frontendPortRangeStart']
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if inbound_nat_rule_name is None and 'inboundNatRuleName' in kwargs:
+            inbound_nat_rule_name = kwargs['inboundNatRuleName']
+
+        _setter("load_balancer_name", load_balancer_name)
+        _setter("resource_group_name", resource_group_name)
         if backend_address_pool is not None:
-            pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+            _setter("backend_address_pool", backend_address_pool)
         if backend_port is not None:
-            pulumi.set(__self__, "backend_port", backend_port)
+            _setter("backend_port", backend_port)
         if enable_floating_ip is not None:
-            pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
+            _setter("enable_floating_ip", enable_floating_ip)
         if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+            _setter("enable_tcp_reset", enable_tcp_reset)
         if frontend_ip_configuration is not None:
-            pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
+            _setter("frontend_ip_configuration", frontend_ip_configuration)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
         if frontend_port_range_end is not None:
-            pulumi.set(__self__, "frontend_port_range_end", frontend_port_range_end)
+            _setter("frontend_port_range_end", frontend_port_range_end)
         if frontend_port_range_start is not None:
-            pulumi.set(__self__, "frontend_port_range_start", frontend_port_range_start)
+            _setter("frontend_port_range_start", frontend_port_range_start)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if inbound_nat_rule_name is not None:
-            pulumi.set(__self__, "inbound_nat_rule_name", inbound_nat_rule_name)
+            _setter("inbound_nat_rule_name", inbound_nat_rule_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -321,6 +388,10 @@ class InboundNatRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InboundNatRuleInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,10 +421,12 @@ class InboundNatRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InboundNatRuleInitArgs.__new__(InboundNatRuleInitArgs)
 
+            backend_address_pool = _utilities.configure(backend_address_pool, SubResourceArgs, True)
             __props__.__dict__["backend_address_pool"] = backend_address_pool
             __props__.__dict__["backend_port"] = backend_port
             __props__.__dict__["enable_floating_ip"] = enable_floating_ip
             __props__.__dict__["enable_tcp_reset"] = enable_tcp_reset
+            frontend_ip_configuration = _utilities.configure(frontend_ip_configuration, SubResourceArgs, True)
             __props__.__dict__["frontend_ip_configuration"] = frontend_ip_configuration
             __props__.__dict__["frontend_port"] = frontend_port
             __props__.__dict__["frontend_port_range_end"] = frontend_port_range_end

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,40 @@ class ReplicationExtensionArgs:
         :param pulumi.Input[str] vault_name: The vault name.
         :param pulumi.Input[str] replication_extension_name: The replication extension name.
         """
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vault_name", vault_name)
+        ReplicationExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            resource_group_name=resource_group_name,
+            vault_name=vault_name,
+            replication_extension_name=replication_extension_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['ReplicationExtensionModelPropertiesArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             replication_extension_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vault_name is None and 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+        if vault_name is None:
+            raise TypeError("Missing 'vault_name' argument")
+        if replication_extension_name is None and 'replicationExtensionName' in kwargs:
+            replication_extension_name = kwargs['replicationExtensionName']
+
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vault_name", vault_name)
         if replication_extension_name is not None:
-            pulumi.set(__self__, "replication_extension_name", replication_extension_name)
+            _setter("replication_extension_name", replication_extension_name)
 
     @property
     @pulumi.getter
@@ -121,6 +150,10 @@ class ReplicationExtension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -139,6 +172,7 @@ class ReplicationExtension(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationExtensionArgs.__new__(ReplicationExtensionArgs)
 
+            properties = _utilities.configure(properties, ReplicationExtensionModelPropertiesArgs, True)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

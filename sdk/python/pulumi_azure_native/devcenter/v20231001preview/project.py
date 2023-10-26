@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,21 +34,58 @@ class ProjectArgs:
         :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            description=description,
+            dev_center_id=dev_center_id,
+            display_name=display_name,
+            location=location,
+            max_dev_boxes_per_user=max_dev_boxes_per_user,
+            project_name=project_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dev_center_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_dev_boxes_per_user: Optional[pulumi.Input[int]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dev_center_id is None and 'devCenterId' in kwargs:
+            dev_center_id = kwargs['devCenterId']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if max_dev_boxes_per_user is None and 'maxDevBoxesPerUser' in kwargs:
+            max_dev_boxes_per_user = kwargs['maxDevBoxesPerUser']
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dev_center_id is not None:
-            pulumi.set(__self__, "dev_center_id", dev_center_id)
+            _setter("dev_center_id", dev_center_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_dev_boxes_per_user is not None:
-            pulumi.set(__self__, "max_dev_boxes_per_user", max_dev_boxes_per_user)
+            _setter("max_dev_boxes_per_user", max_dev_boxes_per_user)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -194,6 +231,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,52 @@ class PolicySetDefinitionArgs:
         :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
-        pulumi.set(__self__, "policy_definitions", policy_definitions)
+        PolicySetDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_definitions=policy_definitions,
+            description=description,
+            display_name=display_name,
+            metadata=metadata,
+            parameters=parameters,
+            policy_set_definition_name=policy_set_definition_name,
+            policy_type=policy_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionReferenceArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             parameters: Optional[Any] = None,
+             policy_set_definition_name: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_definitions is None and 'policyDefinitions' in kwargs:
+            policy_definitions = kwargs['policyDefinitions']
+        if policy_definitions is None:
+            raise TypeError("Missing 'policy_definitions' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if policy_set_definition_name is None and 'policySetDefinitionName' in kwargs:
+            policy_set_definition_name = kwargs['policySetDefinitionName']
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+
+        _setter("policy_definitions", policy_definitions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_set_definition_name is not None:
-            pulumi.set(__self__, "policy_set_definition_name", policy_set_definition_name)
+            _setter("policy_set_definition_name", policy_set_definition_name)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
 
     @property
     @pulumi.getter(name="policyDefinitions")
@@ -178,6 +211,10 @@ class PolicySetDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicySetDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

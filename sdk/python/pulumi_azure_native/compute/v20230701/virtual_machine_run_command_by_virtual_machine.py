@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,42 +53,115 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
         :param pulumi.Input[int] timeout_in_seconds: The timeout in seconds to execute the run command.
         :param pulumi.Input[bool] treat_failure_as_deployment_failure: Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vm_name", vm_name)
+        VirtualMachineRunCommandByVirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            vm_name=vm_name,
+            async_execution=async_execution,
+            error_blob_managed_identity=error_blob_managed_identity,
+            error_blob_uri=error_blob_uri,
+            location=location,
+            output_blob_managed_identity=output_blob_managed_identity,
+            output_blob_uri=output_blob_uri,
+            parameters=parameters,
+            protected_parameters=protected_parameters,
+            run_as_password=run_as_password,
+            run_as_user=run_as_user,
+            run_command_name=run_command_name,
+            source=source,
+            tags=tags,
+            timeout_in_seconds=timeout_in_seconds,
+            treat_failure_as_deployment_failure=treat_failure_as_deployment_failure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vm_name: Optional[pulumi.Input[str]] = None,
+             async_execution: Optional[pulumi.Input[bool]] = None,
+             error_blob_managed_identity: Optional[pulumi.Input['RunCommandManagedIdentityArgs']] = None,
+             error_blob_uri: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             output_blob_managed_identity: Optional[pulumi.Input['RunCommandManagedIdentityArgs']] = None,
+             output_blob_uri: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandInputParameterArgs']]]] = None,
+             protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandInputParameterArgs']]]] = None,
+             run_as_password: Optional[pulumi.Input[str]] = None,
+             run_as_user: Optional[pulumi.Input[str]] = None,
+             run_command_name: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['VirtualMachineRunCommandScriptSourceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             treat_failure_as_deployment_failure: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vm_name is None and 'vmName' in kwargs:
+            vm_name = kwargs['vmName']
+        if vm_name is None:
+            raise TypeError("Missing 'vm_name' argument")
+        if async_execution is None and 'asyncExecution' in kwargs:
+            async_execution = kwargs['asyncExecution']
+        if error_blob_managed_identity is None and 'errorBlobManagedIdentity' in kwargs:
+            error_blob_managed_identity = kwargs['errorBlobManagedIdentity']
+        if error_blob_uri is None and 'errorBlobUri' in kwargs:
+            error_blob_uri = kwargs['errorBlobUri']
+        if output_blob_managed_identity is None and 'outputBlobManagedIdentity' in kwargs:
+            output_blob_managed_identity = kwargs['outputBlobManagedIdentity']
+        if output_blob_uri is None and 'outputBlobUri' in kwargs:
+            output_blob_uri = kwargs['outputBlobUri']
+        if protected_parameters is None and 'protectedParameters' in kwargs:
+            protected_parameters = kwargs['protectedParameters']
+        if run_as_password is None and 'runAsPassword' in kwargs:
+            run_as_password = kwargs['runAsPassword']
+        if run_as_user is None and 'runAsUser' in kwargs:
+            run_as_user = kwargs['runAsUser']
+        if run_command_name is None and 'runCommandName' in kwargs:
+            run_command_name = kwargs['runCommandName']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if treat_failure_as_deployment_failure is None and 'treatFailureAsDeploymentFailure' in kwargs:
+            treat_failure_as_deployment_failure = kwargs['treatFailureAsDeploymentFailure']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("vm_name", vm_name)
         if async_execution is None:
             async_execution = False
         if async_execution is not None:
-            pulumi.set(__self__, "async_execution", async_execution)
+            _setter("async_execution", async_execution)
         if error_blob_managed_identity is not None:
-            pulumi.set(__self__, "error_blob_managed_identity", error_blob_managed_identity)
+            _setter("error_blob_managed_identity", error_blob_managed_identity)
         if error_blob_uri is not None:
-            pulumi.set(__self__, "error_blob_uri", error_blob_uri)
+            _setter("error_blob_uri", error_blob_uri)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if output_blob_managed_identity is not None:
-            pulumi.set(__self__, "output_blob_managed_identity", output_blob_managed_identity)
+            _setter("output_blob_managed_identity", output_blob_managed_identity)
         if output_blob_uri is not None:
-            pulumi.set(__self__, "output_blob_uri", output_blob_uri)
+            _setter("output_blob_uri", output_blob_uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if protected_parameters is not None:
-            pulumi.set(__self__, "protected_parameters", protected_parameters)
+            _setter("protected_parameters", protected_parameters)
         if run_as_password is not None:
-            pulumi.set(__self__, "run_as_password", run_as_password)
+            _setter("run_as_password", run_as_password)
         if run_as_user is not None:
-            pulumi.set(__self__, "run_as_user", run_as_user)
+            _setter("run_as_user", run_as_user)
         if run_command_name is not None:
-            pulumi.set(__self__, "run_command_name", run_command_name)
+            _setter("run_command_name", run_command_name)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if treat_failure_as_deployment_failure is None:
             treat_failure_as_deployment_failure = False
         if treat_failure_as_deployment_failure is not None:
-            pulumi.set(__self__, "treat_failure_as_deployment_failure", treat_failure_as_deployment_failure)
+            _setter("treat_failure_as_deployment_failure", treat_failure_as_deployment_failure)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -360,6 +433,10 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineRunCommandByVirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -394,9 +471,11 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
             if async_execution is None:
                 async_execution = False
             __props__.__dict__["async_execution"] = async_execution
+            error_blob_managed_identity = _utilities.configure(error_blob_managed_identity, RunCommandManagedIdentityArgs, True)
             __props__.__dict__["error_blob_managed_identity"] = error_blob_managed_identity
             __props__.__dict__["error_blob_uri"] = error_blob_uri
             __props__.__dict__["location"] = location
+            output_blob_managed_identity = _utilities.configure(output_blob_managed_identity, RunCommandManagedIdentityArgs, True)
             __props__.__dict__["output_blob_managed_identity"] = output_blob_managed_identity
             __props__.__dict__["output_blob_uri"] = output_blob_uri
             __props__.__dict__["parameters"] = parameters
@@ -407,6 +486,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["run_as_password"] = run_as_password
             __props__.__dict__["run_as_user"] = run_as_user
             __props__.__dict__["run_command_name"] = run_command_name
+            source = _utilities.configure(source, VirtualMachineRunCommandScriptSourceArgs, True)
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds

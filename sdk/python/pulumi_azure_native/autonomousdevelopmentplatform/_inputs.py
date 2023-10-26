@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,11 +30,42 @@ class DataPoolEncryptionArgs:
         :param pulumi.Input[str] user_assigned_identity: The resource ID of a user-assigned Managed Identity used to access the encryption key in the Key Vault. Requires access to the key operations get, wrap, unwrap, and recover
         :param pulumi.Input[str] key_version: The version of Key Vault key
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+        DataPoolEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            user_assigned_identity=user_assigned_identity,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_vault_uri is None:
+            raise TypeError("Missing 'key_vault_uri' argument")
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+        if user_assigned_identity is None:
+            raise TypeError("Missing 'user_assigned_identity' argument")
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("user_assigned_identity", user_assigned_identity)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -99,13 +130,36 @@ class DataPoolLocationArgs:
         :param pulumi.Input[int] storage_account_count: The amount of storage accounts provisioned per Data Pool. Default: 5
         :param pulumi.Input['StorageSkuArgs'] storage_sku: The Storage SKU. Default: Standard_ZRS.
         """
-        pulumi.set(__self__, "name", name)
+        DataPoolLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            encryption=encryption,
+            storage_account_count=storage_account_count,
+            storage_sku=storage_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['DataPoolEncryptionArgs']] = None,
+             storage_account_count: Optional[pulumi.Input[int]] = None,
+             storage_sku: Optional[pulumi.Input['StorageSkuArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_account_count is None and 'storageAccountCount' in kwargs:
+            storage_account_count = kwargs['storageAccountCount']
+        if storage_sku is None and 'storageSku' in kwargs:
+            storage_sku = kwargs['storageSku']
+
+        _setter("name", name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if storage_account_count is not None:
-            pulumi.set(__self__, "storage_account_count", storage_account_count)
+            _setter("storage_account_count", storage_account_count)
         if storage_sku is not None:
-            pulumi.set(__self__, "storage_sku", storage_sku)
+            _setter("storage_sku", storage_sku)
 
     @property
     @pulumi.getter
@@ -164,7 +218,20 @@ class StorageSkuArgs:
         The Storage SKU.
         :param pulumi.Input[Union[str, 'StorageSkuName']] name: The SKU name
         """
-        pulumi.set(__self__, "name", name)
+        StorageSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'StorageSkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter

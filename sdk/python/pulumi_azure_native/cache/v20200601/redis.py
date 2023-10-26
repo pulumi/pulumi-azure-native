@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,38 +50,101 @@ class RedisArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tenant_settings: A dictionary of tenant settings
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        RedisArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            enable_non_ssl_port=enable_non_ssl_port,
+            location=location,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            public_network_access=public_network_access,
+            redis_configuration=redis_configuration,
+            replicas_per_master=replicas_per_master,
+            shard_count=shard_count,
+            static_ip=static_ip,
+            subnet_id=subnet_id,
+            tags=tags,
+            tenant_settings=tenant_settings,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             redis_configuration: Optional[pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs']] = None,
+             replicas_per_master: Optional[pulumi.Input[int]] = None,
+             shard_count: Optional[pulumi.Input[int]] = None,
+             static_ip: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if enable_non_ssl_port is None and 'enableNonSslPort' in kwargs:
+            enable_non_ssl_port = kwargs['enableNonSslPort']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if redis_configuration is None and 'redisConfiguration' in kwargs:
+            redis_configuration = kwargs['redisConfiguration']
+        if replicas_per_master is None and 'replicasPerMaster' in kwargs:
+            replicas_per_master = kwargs['replicasPerMaster']
+        if shard_count is None and 'shardCount' in kwargs:
+            shard_count = kwargs['shardCount']
+        if static_ip is None and 'staticIP' in kwargs:
+            static_ip = kwargs['staticIP']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if tenant_settings is None and 'tenantSettings' in kwargs:
+            tenant_settings = kwargs['tenantSettings']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if enable_non_ssl_port is None:
             enable_non_ssl_port = False
         if enable_non_ssl_port is not None:
-            pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
+            _setter("enable_non_ssl_port", enable_non_ssl_port)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if redis_configuration is not None:
-            pulumi.set(__self__, "redis_configuration", redis_configuration)
+            _setter("redis_configuration", redis_configuration)
         if replicas_per_master is not None:
-            pulumi.set(__self__, "replicas_per_master", replicas_per_master)
+            _setter("replicas_per_master", replicas_per_master)
         if shard_count is not None:
-            pulumi.set(__self__, "shard_count", shard_count)
+            _setter("shard_count", shard_count)
         if static_ip is not None:
-            pulumi.set(__self__, "static_ip", static_ip)
+            _setter("static_ip", static_ip)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_settings is not None:
-            pulumi.set(__self__, "tenant_settings", tenant_settings)
+            _setter("tenant_settings", tenant_settings)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -325,6 +388,10 @@ class Redis(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RedisArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -363,12 +430,14 @@ class Redis(pulumi.CustomResource):
             if public_network_access is None:
                 public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
+            redis_configuration = _utilities.configure(redis_configuration, RedisCommonPropertiesRedisConfigurationArgs, True)
             __props__.__dict__["redis_configuration"] = redis_configuration
             __props__.__dict__["replicas_per_master"] = replicas_per_master
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["shard_count"] = shard_count
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

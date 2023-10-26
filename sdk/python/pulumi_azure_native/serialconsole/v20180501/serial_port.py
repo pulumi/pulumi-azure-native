@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,14 +30,53 @@ class SerialPortArgs:
         :param pulumi.Input[str] serial_port: The name of the serial port to create.
         :param pulumi.Input['SerialPortState'] state: Specifies whether the port is enabled for a serial console connection.
         """
-        pulumi.set(__self__, "parent_resource", parent_resource)
-        pulumi.set(__self__, "parent_resource_type", parent_resource_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
+        SerialPortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_resource=parent_resource,
+            parent_resource_type=parent_resource_type,
+            resource_group_name=resource_group_name,
+            resource_provider_namespace=resource_provider_namespace,
+            serial_port=serial_port,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_resource: Optional[pulumi.Input[str]] = None,
+             parent_resource_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_provider_namespace: Optional[pulumi.Input[str]] = None,
+             serial_port: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input['SerialPortState']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_resource is None and 'parentResource' in kwargs:
+            parent_resource = kwargs['parentResource']
+        if parent_resource is None:
+            raise TypeError("Missing 'parent_resource' argument")
+        if parent_resource_type is None and 'parentResourceType' in kwargs:
+            parent_resource_type = kwargs['parentResourceType']
+        if parent_resource_type is None:
+            raise TypeError("Missing 'parent_resource_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_provider_namespace is None and 'resourceProviderNamespace' in kwargs:
+            resource_provider_namespace = kwargs['resourceProviderNamespace']
+        if resource_provider_namespace is None:
+            raise TypeError("Missing 'resource_provider_namespace' argument")
+        if serial_port is None and 'serialPort' in kwargs:
+            serial_port = kwargs['serialPort']
+
+        _setter("parent_resource", parent_resource)
+        _setter("parent_resource_type", parent_resource_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_provider_namespace", resource_provider_namespace)
         if serial_port is not None:
-            pulumi.set(__self__, "serial_port", serial_port)
+            _setter("serial_port", serial_port)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="parentResource")
@@ -155,6 +194,10 @@ class SerialPort(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SerialPortArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

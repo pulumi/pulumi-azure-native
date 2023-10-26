@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,31 +46,80 @@ class LabArgs:
         :param pulumi.Input['LabSupportPropertiesArgs'] support: The properties of any lab support message associated with this lab
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LabArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            announcement=announcement,
+            environment_permission=environment_permission,
+            extended_properties=extended_properties,
+            lab_storage_type=lab_storage_type,
+            location=location,
+            mandatory_artifacts_resource_ids_linux=mandatory_artifacts_resource_ids_linux,
+            mandatory_artifacts_resource_ids_windows=mandatory_artifacts_resource_ids_windows,
+            name=name,
+            premium_data_disks=premium_data_disks,
+            support=support,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             announcement: Optional[pulumi.Input['LabAnnouncementPropertiesArgs']] = None,
+             environment_permission: Optional[pulumi.Input[Union[str, 'EnvironmentPermission']]] = None,
+             extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             lab_storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mandatory_artifacts_resource_ids_linux: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mandatory_artifacts_resource_ids_windows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             premium_data_disks: Optional[pulumi.Input[Union[str, 'PremiumDataDisk']]] = None,
+             support: Optional[pulumi.Input['LabSupportPropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if environment_permission is None and 'environmentPermission' in kwargs:
+            environment_permission = kwargs['environmentPermission']
+        if extended_properties is None and 'extendedProperties' in kwargs:
+            extended_properties = kwargs['extendedProperties']
+        if lab_storage_type is None and 'labStorageType' in kwargs:
+            lab_storage_type = kwargs['labStorageType']
+        if mandatory_artifacts_resource_ids_linux is None and 'mandatoryArtifactsResourceIdsLinux' in kwargs:
+            mandatory_artifacts_resource_ids_linux = kwargs['mandatoryArtifactsResourceIdsLinux']
+        if mandatory_artifacts_resource_ids_windows is None and 'mandatoryArtifactsResourceIdsWindows' in kwargs:
+            mandatory_artifacts_resource_ids_windows = kwargs['mandatoryArtifactsResourceIdsWindows']
+        if premium_data_disks is None and 'premiumDataDisks' in kwargs:
+            premium_data_disks = kwargs['premiumDataDisks']
+
+        _setter("resource_group_name", resource_group_name)
         if announcement is not None:
-            pulumi.set(__self__, "announcement", announcement)
+            _setter("announcement", announcement)
         if environment_permission is not None:
-            pulumi.set(__self__, "environment_permission", environment_permission)
+            _setter("environment_permission", environment_permission)
         if extended_properties is not None:
-            pulumi.set(__self__, "extended_properties", extended_properties)
+            _setter("extended_properties", extended_properties)
         if lab_storage_type is None:
             lab_storage_type = 'Premium'
         if lab_storage_type is not None:
-            pulumi.set(__self__, "lab_storage_type", lab_storage_type)
+            _setter("lab_storage_type", lab_storage_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mandatory_artifacts_resource_ids_linux is not None:
-            pulumi.set(__self__, "mandatory_artifacts_resource_ids_linux", mandatory_artifacts_resource_ids_linux)
+            _setter("mandatory_artifacts_resource_ids_linux", mandatory_artifacts_resource_ids_linux)
         if mandatory_artifacts_resource_ids_windows is not None:
-            pulumi.set(__self__, "mandatory_artifacts_resource_ids_windows", mandatory_artifacts_resource_ids_windows)
+            _setter("mandatory_artifacts_resource_ids_windows", mandatory_artifacts_resource_ids_windows)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if premium_data_disks is not None:
-            pulumi.set(__self__, "premium_data_disks", premium_data_disks)
+            _setter("premium_data_disks", premium_data_disks)
         if support is not None:
-            pulumi.set(__self__, "support", support)
+            _setter("support", support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -276,6 +325,10 @@ class Lab(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LabArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -302,6 +355,7 @@ class Lab(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LabArgs.__new__(LabArgs)
 
+            announcement = _utilities.configure(announcement, LabAnnouncementPropertiesArgs, True)
             __props__.__dict__["announcement"] = announcement
             __props__.__dict__["environment_permission"] = environment_permission
             __props__.__dict__["extended_properties"] = extended_properties
@@ -316,6 +370,7 @@ class Lab(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            support = _utilities.configure(support, LabSupportPropertiesArgs, True)
             __props__.__dict__["support"] = support
             __props__.__dict__["tags"] = tags
             __props__.__dict__["artifacts_storage_account"] = None

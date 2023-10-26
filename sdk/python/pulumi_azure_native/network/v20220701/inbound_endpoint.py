@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,15 +32,50 @@ class InboundEndpointArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dns_resolver_name", dns_resolver_name)
-        pulumi.set(__self__, "ip_configurations", ip_configurations)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        InboundEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_resolver_name=dns_resolver_name,
+            ip_configurations=ip_configurations,
+            resource_group_name=resource_group_name,
+            inbound_endpoint_name=inbound_endpoint_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_resolver_name: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InboundEndpointIPConfigurationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             inbound_endpoint_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_resolver_name is None and 'dnsResolverName' in kwargs:
+            dns_resolver_name = kwargs['dnsResolverName']
+        if dns_resolver_name is None:
+            raise TypeError("Missing 'dns_resolver_name' argument")
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if inbound_endpoint_name is None and 'inboundEndpointName' in kwargs:
+            inbound_endpoint_name = kwargs['inboundEndpointName']
+
+        _setter("dns_resolver_name", dns_resolver_name)
+        _setter("ip_configurations", ip_configurations)
+        _setter("resource_group_name", resource_group_name)
         if inbound_endpoint_name is not None:
-            pulumi.set(__self__, "inbound_endpoint_name", inbound_endpoint_name)
+            _setter("inbound_endpoint_name", inbound_endpoint_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dnsResolverName")
@@ -158,6 +193,10 @@ class InboundEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InboundEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

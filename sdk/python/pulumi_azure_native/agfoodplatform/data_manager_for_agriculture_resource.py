@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,52 @@ class DataManagerForAgricultureResourceArgs:
         :param pulumi.Input['SensorIntegrationArgs'] sensor_integration: Sensor integration request model.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DataManagerForAgricultureResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            data_manager_for_agriculture_resource_name=data_manager_for_agriculture_resource_name,
+            identity=identity,
+            location=location,
+            public_network_access=public_network_access,
+            sensor_integration=sensor_integration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             sensor_integration: Optional[pulumi.Input['SensorIntegrationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if data_manager_for_agriculture_resource_name is None and 'dataManagerForAgricultureResourceName' in kwargs:
+            data_manager_for_agriculture_resource_name = kwargs['dataManagerForAgricultureResourceName']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if sensor_integration is None and 'sensorIntegration' in kwargs:
+            sensor_integration = kwargs['sensorIntegration']
+
+        _setter("resource_group_name", resource_group_name)
         if data_manager_for_agriculture_resource_name is not None:
-            pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
+            _setter("data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if sensor_integration is not None:
-            pulumi.set(__self__, "sensor_integration", sensor_integration)
+            _setter("sensor_integration", sensor_integration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -180,6 +213,10 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataManagerForAgricultureResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -202,12 +239,14 @@ class DataManagerForAgricultureResource(pulumi.CustomResource):
             __props__ = DataManagerForAgricultureResourceArgs.__new__(DataManagerForAgricultureResourceArgs)
 
             __props__.__dict__["data_manager_for_agriculture_resource_name"] = data_manager_for_agriculture_resource_name
+            identity = _utilities.configure(identity, IdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sensor_integration = _utilities.configure(sensor_integration, SensorIntegrationArgs, True)
             __props__.__dict__["sensor_integration"] = sensor_integration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["instance_uri"] = None

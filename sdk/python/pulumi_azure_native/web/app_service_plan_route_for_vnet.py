@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -39,19 +39,62 @@ class AppServicePlanRouteForVnetArgs:
                These values will be used for syncing an app's routes with those from a Virtual Network.
         :param pulumi.Input[str] start_address: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vnet_name", vnet_name)
+        AppServicePlanRouteForVnetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            vnet_name=vnet_name,
+            end_address=end_address,
+            kind=kind,
+            route_name=route_name,
+            route_type=route_type,
+            start_address=start_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vnet_name: Optional[pulumi.Input[str]] = None,
+             end_address: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             route_name: Optional[pulumi.Input[str]] = None,
+             route_type: Optional[pulumi.Input[Union[str, 'RouteType']]] = None,
+             start_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vnet_name is None and 'vnetName' in kwargs:
+            vnet_name = kwargs['vnetName']
+        if vnet_name is None:
+            raise TypeError("Missing 'vnet_name' argument")
+        if end_address is None and 'endAddress' in kwargs:
+            end_address = kwargs['endAddress']
+        if route_name is None and 'routeName' in kwargs:
+            route_name = kwargs['routeName']
+        if route_type is None and 'routeType' in kwargs:
+            route_type = kwargs['routeType']
+        if start_address is None and 'startAddress' in kwargs:
+            start_address = kwargs['startAddress']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vnet_name", vnet_name)
         if end_address is not None:
-            pulumi.set(__self__, "end_address", end_address)
+            _setter("end_address", end_address)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if route_name is not None:
-            pulumi.set(__self__, "route_name", route_name)
+            _setter("route_name", route_name)
         if route_type is not None:
-            pulumi.set(__self__, "route_type", route_type)
+            _setter("route_type", route_type)
         if start_address is not None:
-            pulumi.set(__self__, "start_address", start_address)
+            _setter("start_address", start_address)
 
     @property
     @pulumi.getter
@@ -213,6 +256,10 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppServicePlanRouteForVnetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

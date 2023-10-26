@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,45 @@ class PrivateEndpointConnectionProxyArgs:
         :param pulumi.Input['RemotePrivateEndpointArgs'] remote_private_endpoint: Remote private endpoint details.
         :param pulumi.Input[str] status: Operation status.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateEndpointConnectionProxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            private_endpoint_connection_proxy_id=private_endpoint_connection_proxy_id,
+            remote_private_endpoint=remote_private_endpoint,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             private_endpoint_connection_proxy_id: Optional[pulumi.Input[str]] = None,
+             remote_private_endpoint: Optional[pulumi.Input['RemotePrivateEndpointArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if private_endpoint_connection_proxy_id is None and 'privateEndpointConnectionProxyId' in kwargs:
+            private_endpoint_connection_proxy_id = kwargs['privateEndpointConnectionProxyId']
+        if remote_private_endpoint is None and 'remotePrivateEndpoint' in kwargs:
+            remote_private_endpoint = kwargs['remotePrivateEndpoint']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if private_endpoint_connection_proxy_id is not None:
-            pulumi.set(__self__, "private_endpoint_connection_proxy_id", private_endpoint_connection_proxy_id)
+            _setter("private_endpoint_connection_proxy_id", private_endpoint_connection_proxy_id)
         if remote_private_endpoint is not None:
-            pulumi.set(__self__, "remote_private_endpoint", remote_private_endpoint)
+            _setter("remote_private_endpoint", remote_private_endpoint)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="accountName")
@@ -141,6 +172,10 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateEndpointConnectionProxyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,6 +199,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["private_endpoint_connection_proxy_id"] = private_endpoint_connection_proxy_id
+            remote_private_endpoint = _utilities.configure(remote_private_endpoint, RemotePrivateEndpointArgs, True)
             __props__.__dict__["remote_private_endpoint"] = remote_private_endpoint
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

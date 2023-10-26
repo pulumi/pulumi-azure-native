@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,20 +39,65 @@ class Gen1EnvironmentArgs:
         :param pulumi.Input[Union[str, 'StorageLimitExceededBehavior']] storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional properties for the resource.
         """
-        pulumi.set(__self__, "data_retention_time", data_retention_time)
-        pulumi.set(__self__, "kind", 'Gen1')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        Gen1EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_retention_time=data_retention_time,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            environment_name=environment_name,
+            location=location,
+            partition_key_properties=partition_key_properties,
+            storage_limit_exceeded_behavior=storage_limit_exceeded_behavior,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_retention_time: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             environment_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             partition_key_properties: Optional[pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]] = None,
+             storage_limit_exceeded_behavior: Optional[pulumi.Input[Union[str, 'StorageLimitExceededBehavior']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_retention_time is None and 'dataRetentionTime' in kwargs:
+            data_retention_time = kwargs['dataRetentionTime']
+        if data_retention_time is None:
+            raise TypeError("Missing 'data_retention_time' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if partition_key_properties is None and 'partitionKeyProperties' in kwargs:
+            partition_key_properties = kwargs['partitionKeyProperties']
+        if storage_limit_exceeded_behavior is None and 'storageLimitExceededBehavior' in kwargs:
+            storage_limit_exceeded_behavior = kwargs['storageLimitExceededBehavior']
+
+        _setter("data_retention_time", data_retention_time)
+        _setter("kind", 'Gen1')
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if environment_name is not None:
-            pulumi.set(__self__, "environment_name", environment_name)
+            _setter("environment_name", environment_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if partition_key_properties is not None:
-            pulumi.set(__self__, "partition_key_properties", partition_key_properties)
+            _setter("partition_key_properties", partition_key_properties)
         if storage_limit_exceeded_behavior is not None:
-            pulumi.set(__self__, "storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
+            _setter("storage_limit_exceeded_behavior", storage_limit_exceeded_behavior)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataRetentionTime")
@@ -214,6 +259,10 @@ class Gen1Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            Gen1EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -249,6 +298,7 @@ class Gen1Environment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

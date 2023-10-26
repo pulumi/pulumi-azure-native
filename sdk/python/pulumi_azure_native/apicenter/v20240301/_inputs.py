@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,12 +33,27 @@ class ContactArgs:
         :param pulumi.Input[str] name: Name of the contact.
         :param pulumi.Input[str] url: URL for the contact.
         """
+        ContactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            name=name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -84,8 +99,21 @@ class DeploymentServerArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] runtime_uri: Base runtime URLs for this deployment.
         """
+        DeploymentServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            runtime_uri=runtime_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             runtime_uri: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if runtime_uri is None and 'runtimeUri' in kwargs:
+            runtime_uri = kwargs['runtimeUri']
+
         if runtime_uri is not None:
-            pulumi.set(__self__, "runtime_uri", runtime_uri)
+            _setter("runtime_uri", runtime_uri)
 
     @property
     @pulumi.getter(name="runtimeUri")
@@ -109,10 +137,25 @@ class EnvironmentServerArgs:
         Server information of the environment.
         :param pulumi.Input[Union[str, 'EnvironmentServerType']] type: Type of the server that represents the environment.
         """
+        EnvironmentServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_portal_uri=management_portal_uri,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_portal_uri: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[Union[str, 'EnvironmentServerType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if management_portal_uri is None and 'managementPortalUri' in kwargs:
+            management_portal_uri = kwargs['managementPortalUri']
+
         if management_portal_uri is not None:
-            pulumi.set(__self__, "management_portal_uri", management_portal_uri)
+            _setter("management_portal_uri", management_portal_uri)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="managementPortalUri")
@@ -148,11 +191,28 @@ class ExternalDocumentationArgs:
         :param pulumi.Input[str] description: Description of the documentation.
         :param pulumi.Input[str] title: Title of the documentation.
         """
-        pulumi.set(__self__, "url", url)
+        ExternalDocumentationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            description=description,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
+        _setter("url", url)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -203,12 +263,27 @@ class LicenseArgs:
         :param pulumi.Input[str] name: Name of the license.
         :param pulumi.Input[str] url: URL pointing to the license details. The URL field is mutually exclusive of the identifier field.
         """
+        LicenseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identifier=identifier,
+            name=name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identifier: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -257,9 +332,26 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -295,12 +387,27 @@ class MetadataAssignmentArgs:
         """
         :param pulumi.Input[Union[str, 'MetadataAssignmentEntity']] entity: The entities this metadata schema component gets applied to.
         """
+        MetadataAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deprecated=deprecated,
+            entity=entity,
+            required=required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deprecated: Optional[pulumi.Input[bool]] = None,
+             entity: Optional[pulumi.Input[Union[str, 'MetadataAssignmentEntity']]] = None,
+             required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if deprecated is not None:
-            pulumi.set(__self__, "deprecated", deprecated)
+            _setter("deprecated", deprecated)
         if entity is not None:
-            pulumi.set(__self__, "entity", entity)
+            _setter("entity", entity)
         if required is not None:
-            pulumi.set(__self__, "required", required)
+            _setter("required", required)
 
     @property
     @pulumi.getter
@@ -341,10 +448,25 @@ class OnboardingArgs:
         """
         :param pulumi.Input[str] instructions: Onboarding guide.
         """
+        OnboardingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            developer_portal_uri=developer_portal_uri,
+            instructions=instructions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             developer_portal_uri: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             instructions: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if developer_portal_uri is None and 'developerPortalUri' in kwargs:
+            developer_portal_uri = kwargs['developerPortalUri']
+
         if developer_portal_uri is not None:
-            pulumi.set(__self__, "developer_portal_uri", developer_portal_uri)
+            _setter("developer_portal_uri", developer_portal_uri)
         if instructions is not None:
-            pulumi.set(__self__, "instructions", instructions)
+            _setter("instructions", instructions)
 
     @property
     @pulumi.getter(name="developerPortalUri")
@@ -376,7 +498,20 @@ class TermsOfServiceArgs:
         Terms of service for the API.
         :param pulumi.Input[str] url: URL pointing to the terms of service.
         """
-        pulumi.set(__self__, "url", url)
+        TermsOfServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
+        _setter("url", url)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -29,12 +29,33 @@ class AzureMonitorWorkspacePropertiesArgs:
         :param pulumi.Input[str] workspace_id: The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
         :param pulumi.Input[str] workspace_resource_id: The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
         """
+        AzureMonitorWorkspacePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include_change_details=include_change_details,
+            workspace_id=workspace_id,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include_change_details: Optional[pulumi.Input[Union[str, 'ChangeDetailsMode']]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if include_change_details is None and 'includeChangeDetails' in kwargs:
+            include_change_details = kwargs['includeChangeDetails']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         if include_change_details is not None:
-            pulumi.set(__self__, "include_change_details", include_change_details)
+            _setter("include_change_details", include_change_details)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="includeChangeDetails")
@@ -81,8 +102,19 @@ class ConfigurationProfileResourcePropertiesArgs:
         The properties of a configuration profile.
         :param pulumi.Input['NotificationSettingsArgs'] notifications: Settings of change notification configuration for a subscription.
         """
+        ConfigurationProfileResourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notifications=notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notifications: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
 
     @property
     @pulumi.getter
@@ -107,10 +139,27 @@ class NotificationSettingsArgs:
         :param pulumi.Input[Union[str, 'NotificationsState']] activation_state: The state of notifications feature.
         :param pulumi.Input['AzureMonitorWorkspacePropertiesArgs'] azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
         """
+        NotificationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_state=activation_state,
+            azure_monitor_workspace_properties=azure_monitor_workspace_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_state: Optional[pulumi.Input[Union[str, 'NotificationsState']]] = None,
+             azure_monitor_workspace_properties: Optional[pulumi.Input['AzureMonitorWorkspacePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activation_state is None and 'activationState' in kwargs:
+            activation_state = kwargs['activationState']
+        if azure_monitor_workspace_properties is None and 'azureMonitorWorkspaceProperties' in kwargs:
+            azure_monitor_workspace_properties = kwargs['azureMonitorWorkspaceProperties']
+
         if activation_state is not None:
-            pulumi.set(__self__, "activation_state", activation_state)
+            _setter("activation_state", activation_state)
         if azure_monitor_workspace_properties is not None:
-            pulumi.set(__self__, "azure_monitor_workspace_properties", azure_monitor_workspace_properties)
+            _setter("azure_monitor_workspace_properties", azure_monitor_workspace_properties)
 
     @property
     @pulumi.getter(name="activationState")
@@ -145,8 +194,19 @@ class ResourceIdentityArgs:
         The identity block returned by ARM resource that supports managed identity.
         :param pulumi.Input[Union[str, 'ManagedIdentityTypes']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         """
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter

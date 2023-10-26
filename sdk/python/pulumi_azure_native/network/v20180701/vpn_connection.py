@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,73 @@ class VpnConnectionInitArgs:
         :param pulumi.Input[int] routing_weight: routing weight for vpn connection.
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VpnConnectionInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_name=gateway_name,
+            resource_group_name=resource_group_name,
+            connection_name=connection_name,
+            enable_bgp=enable_bgp,
+            id=id,
+            ipsec_policies=ipsec_policies,
+            name=name,
+            remote_vpn_site=remote_vpn_site,
+            routing_weight=routing_weight,
+            shared_key=shared_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             connection_name: Optional[pulumi.Input[str]] = None,
+             enable_bgp: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remote_vpn_site: Optional[pulumi.Input['SubResourceArgs']] = None,
+             routing_weight: Optional[pulumi.Input[int]] = None,
+             shared_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_name is None and 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if gateway_name is None:
+            raise TypeError("Missing 'gateway_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if enable_bgp is None and 'enableBgp' in kwargs:
+            enable_bgp = kwargs['enableBgp']
+        if ipsec_policies is None and 'ipsecPolicies' in kwargs:
+            ipsec_policies = kwargs['ipsecPolicies']
+        if remote_vpn_site is None and 'remoteVpnSite' in kwargs:
+            remote_vpn_site = kwargs['remoteVpnSite']
+        if routing_weight is None and 'routingWeight' in kwargs:
+            routing_weight = kwargs['routingWeight']
+        if shared_key is None and 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+
+        _setter("gateway_name", gateway_name)
+        _setter("resource_group_name", resource_group_name)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
+            _setter("enable_bgp", enable_bgp)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ipsec_policies is not None:
-            pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+            _setter("ipsec_policies", ipsec_policies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remote_vpn_site is not None:
-            pulumi.set(__self__, "remote_vpn_site", remote_vpn_site)
+            _setter("remote_vpn_site", remote_vpn_site)
         if routing_weight is not None:
-            pulumi.set(__self__, "routing_weight", routing_weight)
+            _setter("routing_weight", routing_weight)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
 
     @property
     @pulumi.getter(name="gatewayName")
@@ -231,6 +280,10 @@ class VpnConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnConnectionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,6 +316,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["ipsec_policies"] = ipsec_policies
             __props__.__dict__["name"] = name
+            remote_vpn_site = _utilities.configure(remote_vpn_site, SubResourceArgs, True)
             __props__.__dict__["remote_vpn_site"] = remote_vpn_site
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

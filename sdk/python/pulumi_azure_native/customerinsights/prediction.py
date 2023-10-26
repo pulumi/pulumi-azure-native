@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,29 +51,114 @@ class PredictionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] involved_relationships: Relationships involved in the prediction.
         :param pulumi.Input[str] prediction_name: Name of the prediction.
         """
-        pulumi.set(__self__, "auto_analyze", auto_analyze)
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "mappings", mappings)
-        pulumi.set(__self__, "negative_outcome_expression", negative_outcome_expression)
-        pulumi.set(__self__, "positive_outcome_expression", positive_outcome_expression)
-        pulumi.set(__self__, "primary_profile_type", primary_profile_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope_expression", scope_expression)
-        pulumi.set(__self__, "score_label", score_label)
+        PredictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_analyze=auto_analyze,
+            hub_name=hub_name,
+            mappings=mappings,
+            negative_outcome_expression=negative_outcome_expression,
+            positive_outcome_expression=positive_outcome_expression,
+            primary_profile_type=primary_profile_type,
+            resource_group_name=resource_group_name,
+            scope_expression=scope_expression,
+            score_label=score_label,
+            description=description,
+            display_name=display_name,
+            grades=grades,
+            involved_interaction_types=involved_interaction_types,
+            involved_kpi_types=involved_kpi_types,
+            involved_relationships=involved_relationships,
+            prediction_name=prediction_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_analyze: Optional[pulumi.Input[bool]] = None,
+             hub_name: Optional[pulumi.Input[str]] = None,
+             mappings: Optional[pulumi.Input['PredictionMappingsArgs']] = None,
+             negative_outcome_expression: Optional[pulumi.Input[str]] = None,
+             positive_outcome_expression: Optional[pulumi.Input[str]] = None,
+             primary_profile_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_expression: Optional[pulumi.Input[str]] = None,
+             score_label: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             grades: Optional[pulumi.Input[Sequence[pulumi.Input['PredictionGradesArgs']]]] = None,
+             involved_interaction_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             involved_kpi_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             involved_relationships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             prediction_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_analyze is None and 'autoAnalyze' in kwargs:
+            auto_analyze = kwargs['autoAnalyze']
+        if auto_analyze is None:
+            raise TypeError("Missing 'auto_analyze' argument")
+        if hub_name is None and 'hubName' in kwargs:
+            hub_name = kwargs['hubName']
+        if hub_name is None:
+            raise TypeError("Missing 'hub_name' argument")
+        if mappings is None:
+            raise TypeError("Missing 'mappings' argument")
+        if negative_outcome_expression is None and 'negativeOutcomeExpression' in kwargs:
+            negative_outcome_expression = kwargs['negativeOutcomeExpression']
+        if negative_outcome_expression is None:
+            raise TypeError("Missing 'negative_outcome_expression' argument")
+        if positive_outcome_expression is None and 'positiveOutcomeExpression' in kwargs:
+            positive_outcome_expression = kwargs['positiveOutcomeExpression']
+        if positive_outcome_expression is None:
+            raise TypeError("Missing 'positive_outcome_expression' argument")
+        if primary_profile_type is None and 'primaryProfileType' in kwargs:
+            primary_profile_type = kwargs['primaryProfileType']
+        if primary_profile_type is None:
+            raise TypeError("Missing 'primary_profile_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope_expression is None and 'scopeExpression' in kwargs:
+            scope_expression = kwargs['scopeExpression']
+        if scope_expression is None:
+            raise TypeError("Missing 'scope_expression' argument")
+        if score_label is None and 'scoreLabel' in kwargs:
+            score_label = kwargs['scoreLabel']
+        if score_label is None:
+            raise TypeError("Missing 'score_label' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if involved_interaction_types is None and 'involvedInteractionTypes' in kwargs:
+            involved_interaction_types = kwargs['involvedInteractionTypes']
+        if involved_kpi_types is None and 'involvedKpiTypes' in kwargs:
+            involved_kpi_types = kwargs['involvedKpiTypes']
+        if involved_relationships is None and 'involvedRelationships' in kwargs:
+            involved_relationships = kwargs['involvedRelationships']
+        if prediction_name is None and 'predictionName' in kwargs:
+            prediction_name = kwargs['predictionName']
+
+        _setter("auto_analyze", auto_analyze)
+        _setter("hub_name", hub_name)
+        _setter("mappings", mappings)
+        _setter("negative_outcome_expression", negative_outcome_expression)
+        _setter("positive_outcome_expression", positive_outcome_expression)
+        _setter("primary_profile_type", primary_profile_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope_expression", scope_expression)
+        _setter("score_label", score_label)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if grades is not None:
-            pulumi.set(__self__, "grades", grades)
+            _setter("grades", grades)
         if involved_interaction_types is not None:
-            pulumi.set(__self__, "involved_interaction_types", involved_interaction_types)
+            _setter("involved_interaction_types", involved_interaction_types)
         if involved_kpi_types is not None:
-            pulumi.set(__self__, "involved_kpi_types", involved_kpi_types)
+            _setter("involved_kpi_types", involved_kpi_types)
         if involved_relationships is not None:
-            pulumi.set(__self__, "involved_relationships", involved_relationships)
+            _setter("involved_relationships", involved_relationships)
         if prediction_name is not None:
-            pulumi.set(__self__, "prediction_name", prediction_name)
+            _setter("prediction_name", prediction_name)
 
     @property
     @pulumi.getter(name="autoAnalyze")
@@ -333,6 +418,10 @@ class Prediction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PredictionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -375,6 +464,7 @@ class Prediction(pulumi.CustomResource):
             __props__.__dict__["involved_interaction_types"] = involved_interaction_types
             __props__.__dict__["involved_kpi_types"] = involved_kpi_types
             __props__.__dict__["involved_relationships"] = involved_relationships
+            mappings = _utilities.configure(mappings, PredictionMappingsArgs, True)
             if mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'mappings'")
             __props__.__dict__["mappings"] = mappings

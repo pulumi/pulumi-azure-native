@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,12 +28,47 @@ class HuntCommentArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] hunt_comment_id: The hunt comment id (GUID)
         """
-        pulumi.set(__self__, "hunt_id", hunt_id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        HuntCommentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hunt_id=hunt_id,
+            message=message,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            hunt_comment_id=hunt_comment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hunt_id: Optional[pulumi.Input[str]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             hunt_comment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hunt_id is None and 'huntId' in kwargs:
+            hunt_id = kwargs['huntId']
+        if hunt_id is None:
+            raise TypeError("Missing 'hunt_id' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if hunt_comment_id is None and 'huntCommentId' in kwargs:
+            hunt_comment_id = kwargs['huntCommentId']
+
+        _setter("hunt_id", hunt_id)
+        _setter("message", message)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if hunt_comment_id is not None:
-            pulumi.set(__self__, "hunt_comment_id", hunt_comment_id)
+            _setter("hunt_comment_id", hunt_comment_id)
 
     @property
     @pulumi.getter(name="huntId")
@@ -143,6 +178,10 @@ class HuntComment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HuntCommentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

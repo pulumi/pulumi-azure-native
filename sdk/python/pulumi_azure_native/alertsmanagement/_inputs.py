@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -48,11 +48,34 @@ class ActionGroupsInformationArgs:
         :param pulumi.Input[str] custom_email_subject: An optional custom email subject to use in email notifications.
         :param pulumi.Input[str] custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
         """
-        pulumi.set(__self__, "group_ids", group_ids)
+        ActionGroupsInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            custom_email_subject=custom_email_subject,
+            custom_webhook_payload=custom_webhook_payload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             custom_email_subject: Optional[pulumi.Input[str]] = None,
+             custom_webhook_payload: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if group_ids is None:
+            raise TypeError("Missing 'group_ids' argument")
+        if custom_email_subject is None and 'customEmailSubject' in kwargs:
+            custom_email_subject = kwargs['customEmailSubject']
+        if custom_webhook_payload is None and 'customWebhookPayload' in kwargs:
+            custom_webhook_payload = kwargs['customWebhookPayload']
+
+        _setter("group_ids", group_ids)
         if custom_email_subject is not None:
-            pulumi.set(__self__, "custom_email_subject", custom_email_subject)
+            _setter("custom_email_subject", custom_email_subject)
         if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
+            _setter("custom_webhook_payload", custom_webhook_payload)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -110,16 +133,43 @@ class ActionGroupArgs:
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
         :param pulumi.Input[Union[str, 'ActionRuleStatus']] status: Indicates if the given action rule is enabled or disabled
         """
-        pulumi.set(__self__, "action_group_id", action_group_id)
-        pulumi.set(__self__, "type", 'ActionGroup')
+        ActionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            type=type,
+            conditions=conditions,
+            description=description,
+            scope=scope,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['ScopeArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_group_id is None and 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if action_group_id is None:
+            raise TypeError("Missing 'action_group_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("action_group_id", action_group_id)
+        _setter("type", 'ActionGroup')
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -206,8 +256,29 @@ class AddActionGroupsArgs:
         :param pulumi.Input[str] action_type: Action that should be applied.
                Expected value is 'AddActionGroups'.
         """
-        pulumi.set(__self__, "action_group_ids", action_group_ids)
-        pulumi.set(__self__, "action_type", 'AddActionGroups')
+        AddActionGroupsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_ids=action_group_ids,
+            action_type=action_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             action_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_group_ids is None and 'actionGroupIds' in kwargs:
+            action_group_ids = kwargs['actionGroupIds']
+        if action_group_ids is None:
+            raise TypeError("Missing 'action_group_ids' argument")
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+
+        _setter("action_group_ids", action_group_ids)
+        _setter("action_type", 'AddActionGroups')
 
     @property
     @pulumi.getter(name="actionGroupIds")
@@ -253,18 +324,43 @@ class AlertProcessingRulePropertiesArgs:
         :param pulumi.Input[bool] enabled: Indicates if the given alert processing rule is enabled or disabled.
         :param pulumi.Input['ScheduleArgs'] schedule: Scheduling for alert processing rule.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "scopes", scopes)
+        AlertProcessingRulePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            scopes=scopes,
+            conditions=conditions,
+            description=description,
+            enabled=enabled,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'CorrelateAlertsArgs', 'RemoveAllActionGroupsArgs']]]]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             schedule: Optional[pulumi.Input['ScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+
+        _setter("actions", actions)
+        _setter("scopes", scopes)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is None:
             enabled = True
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -361,22 +457,59 @@ class ConditionsArgs:
         :param pulumi.Input['ConditionArgs'] severity: filter alerts by severity
         :param pulumi.Input['ConditionArgs'] target_resource_type: filter alerts by target resource type
         """
+        ConditionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_context=alert_context,
+            alert_rule_id=alert_rule_id,
+            alert_rule_name=alert_rule_name,
+            description=description,
+            monitor_condition=monitor_condition,
+            monitor_service=monitor_service,
+            severity=severity,
+            target_resource_type=target_resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_context: Optional[pulumi.Input['ConditionArgs']] = None,
+             alert_rule_id: Optional[pulumi.Input['ConditionArgs']] = None,
+             alert_rule_name: Optional[pulumi.Input['ConditionArgs']] = None,
+             description: Optional[pulumi.Input['ConditionArgs']] = None,
+             monitor_condition: Optional[pulumi.Input['ConditionArgs']] = None,
+             monitor_service: Optional[pulumi.Input['ConditionArgs']] = None,
+             severity: Optional[pulumi.Input['ConditionArgs']] = None,
+             target_resource_type: Optional[pulumi.Input['ConditionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alert_context is None and 'alertContext' in kwargs:
+            alert_context = kwargs['alertContext']
+        if alert_rule_id is None and 'alertRuleId' in kwargs:
+            alert_rule_id = kwargs['alertRuleId']
+        if alert_rule_name is None and 'alertRuleName' in kwargs:
+            alert_rule_name = kwargs['alertRuleName']
+        if monitor_condition is None and 'monitorCondition' in kwargs:
+            monitor_condition = kwargs['monitorCondition']
+        if monitor_service is None and 'monitorService' in kwargs:
+            monitor_service = kwargs['monitorService']
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         if alert_context is not None:
-            pulumi.set(__self__, "alert_context", alert_context)
+            _setter("alert_context", alert_context)
         if alert_rule_id is not None:
-            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
+            _setter("alert_rule_id", alert_rule_id)
         if alert_rule_name is not None:
-            pulumi.set(__self__, "alert_rule_name", alert_rule_name)
+            _setter("alert_rule_name", alert_rule_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if monitor_condition is not None:
-            pulumi.set(__self__, "monitor_condition", monitor_condition)
+            _setter("monitor_condition", monitor_condition)
         if monitor_service is not None:
-            pulumi.set(__self__, "monitor_service", monitor_service)
+            _setter("monitor_service", monitor_service)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
 
     @property
     @pulumi.getter(name="alertContext")
@@ -487,12 +620,27 @@ class ConditionArgs:
         :param pulumi.Input[Union[str, 'Operator']] operator: Operator for a given condition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of values to match for a given condition.
         """
+        ConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: Optional[pulumi.Input[Union[str, 'Field']]] = None,
+             operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -548,14 +696,49 @@ class CorrelateAlertsArgs:
         :param pulumi.Input[int] priority: The priority of this correlation.
         :param pulumi.Input[Union[str, 'NotificationsForCorrelatedAlerts']] notifications_for_correlated_alerts: Indicates how to handle child alerts notifications.
         """
-        pulumi.set(__self__, "action_type", 'CorrelateAlerts')
-        pulumi.set(__self__, "correlate_by", correlate_by)
-        pulumi.set(__self__, "correlation_interval", correlation_interval)
-        pulumi.set(__self__, "priority", priority)
+        CorrelateAlertsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            correlate_by=correlate_by,
+            correlation_interval=correlation_interval,
+            priority=priority,
+            notifications_for_correlated_alerts=notifications_for_correlated_alerts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: Optional[pulumi.Input[str]] = None,
+             correlate_by: Optional[pulumi.Input[Sequence[pulumi.Input['CorrelateByArgs']]]] = None,
+             correlation_interval: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             notifications_for_correlated_alerts: Optional[pulumi.Input[Union[str, 'NotificationsForCorrelatedAlerts']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if correlate_by is None and 'correlateBy' in kwargs:
+            correlate_by = kwargs['correlateBy']
+        if correlate_by is None:
+            raise TypeError("Missing 'correlate_by' argument")
+        if correlation_interval is None and 'correlationInterval' in kwargs:
+            correlation_interval = kwargs['correlationInterval']
+        if correlation_interval is None:
+            raise TypeError("Missing 'correlation_interval' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if notifications_for_correlated_alerts is None and 'notificationsForCorrelatedAlerts' in kwargs:
+            notifications_for_correlated_alerts = kwargs['notificationsForCorrelatedAlerts']
+
+        _setter("action_type", 'CorrelateAlerts')
+        _setter("correlate_by", correlate_by)
+        _setter("correlation_interval", correlation_interval)
+        _setter("priority", priority)
         if notifications_for_correlated_alerts is None:
             notifications_for_correlated_alerts = 'SuppressAlways'
         if notifications_for_correlated_alerts is not None:
-            pulumi.set(__self__, "notifications_for_correlated_alerts", notifications_for_correlated_alerts)
+            _setter("notifications_for_correlated_alerts", notifications_for_correlated_alerts)
 
     @property
     @pulumi.getter(name="actionType")
@@ -627,8 +810,19 @@ class CorrelateByArgs:
         The logic for the correlation.
         :param pulumi.Input[str] field: The JPath of the property that the alerts should be correlated by.
         """
+        CorrelateByArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
 
     @property
     @pulumi.getter
@@ -656,9 +850,36 @@ class DailyRecurrenceArgs:
                Expected value is 'Daily'.
         :param pulumi.Input[str] start_time: Start time for recurrence.
         """
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "recurrence_type", 'Daily')
-        pulumi.set(__self__, "start_time", start_time)
+        DailyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            recurrence_type=recurrence_type,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[pulumi.Input[str]] = None,
+             recurrence_type: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if recurrence_type is None and 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
+        _setter("end_time", end_time)
+        _setter("recurrence_type", 'Daily')
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -708,9 +929,24 @@ class DetectorArgs:
         :param pulumi.Input[str] id: The detector id.
         :param pulumi.Input[Mapping[str, Any]] parameters: The detector's parameters.'
         """
-        pulumi.set(__self__, "id", id)
+        DetectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -754,15 +990,36 @@ class DiagnosticsArgs:
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
         :param pulumi.Input[Union[str, 'ActionRuleStatus']] status: Indicates if the given action rule is enabled or disabled
         """
-        pulumi.set(__self__, "type", 'Diagnostics')
+        DiagnosticsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            conditions=conditions,
+            description=description,
+            scope=scope,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['ScopeArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Diagnostics')
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -841,12 +1098,41 @@ class MonthlyRecurrenceArgs:
         :param pulumi.Input[str] end_time: End time for recurrence.
         :param pulumi.Input[str] start_time: Start time for recurrence.
         """
-        pulumi.set(__self__, "days_of_month", days_of_month)
-        pulumi.set(__self__, "recurrence_type", 'Monthly')
+        MonthlyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_month=days_of_month,
+            recurrence_type=recurrence_type,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             recurrence_type: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_of_month is None and 'daysOfMonth' in kwargs:
+            days_of_month = kwargs['daysOfMonth']
+        if days_of_month is None:
+            raise TypeError("Missing 'days_of_month' argument")
+        if recurrence_type is None and 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
+        _setter("days_of_month", days_of_month)
+        _setter("recurrence_type", 'Monthly')
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="daysOfMonth")
@@ -908,10 +1194,27 @@ class PrometheusRuleGroupActionArgs:
         :param pulumi.Input[str] action_group_id: The resource id of the action group to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: The properties of an action group object.
         """
+        PrometheusRuleGroupActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            action_properties=action_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: Optional[pulumi.Input[str]] = None,
+             action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_group_id is None and 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if action_properties is None and 'actionProperties' in kwargs:
+            action_properties = kwargs['actionProperties']
+
         if action_group_id is not None:
-            pulumi.set(__self__, "action_group_id", action_group_id)
+            _setter("action_group_id", action_group_id)
         if action_properties is not None:
-            pulumi.set(__self__, "action_properties", action_properties)
+            _setter("action_properties", action_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -948,10 +1251,27 @@ class PrometheusRuleResolveConfigurationArgs:
         :param pulumi.Input[bool] auto_resolved: Enable alert auto-resolution.
         :param pulumi.Input[str] time_to_resolve: Alert auto-resolution timeout.
         """
+        PrometheusRuleResolveConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_resolved=auto_resolved,
+            time_to_resolve=time_to_resolve,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_resolved: Optional[pulumi.Input[bool]] = None,
+             time_to_resolve: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_resolved is None and 'autoResolved' in kwargs:
+            auto_resolved = kwargs['autoResolved']
+        if time_to_resolve is None and 'timeToResolve' in kwargs:
+            time_to_resolve = kwargs['timeToResolve']
+
         if auto_resolved is not None:
-            pulumi.set(__self__, "auto_resolved", auto_resolved)
+            _setter("auto_resolved", auto_resolved)
         if time_to_resolve is not None:
-            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+            _setter("time_to_resolve", time_to_resolve)
 
     @property
     @pulumi.getter(name="autoResolved")
@@ -1004,25 +1324,60 @@ class PrometheusRuleArgs:
         :param pulumi.Input['PrometheusRuleResolveConfigurationArgs'] resolve_configuration: Defines the configuration for resolving fired alerts. Only relevant for alerts.
         :param pulumi.Input[int] severity: The severity of the alerts fired by the rule. Must be between 0 and 4.
         """
-        pulumi.set(__self__, "expression", expression)
+        PrometheusRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expression=expression,
+            actions=actions,
+            alert=alert,
+            annotations=annotations,
+            enabled=enabled,
+            for_=for_,
+            labels=labels,
+            record=record,
+            resolve_configuration=resolve_configuration,
+            severity=severity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expression: Optional[pulumi.Input[str]] = None,
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['PrometheusRuleGroupActionArgs']]]] = None,
+             alert: Optional[pulumi.Input[str]] = None,
+             annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             for_: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             record: Optional[pulumi.Input[str]] = None,
+             resolve_configuration: Optional[pulumi.Input['PrometheusRuleResolveConfigurationArgs']] = None,
+             severity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if for_ is None and 'for' in kwargs:
+            for_ = kwargs['for']
+        if resolve_configuration is None and 'resolveConfiguration' in kwargs:
+            resolve_configuration = kwargs['resolveConfiguration']
+
+        _setter("expression", expression)
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if alert is not None:
-            pulumi.set(__self__, "alert", alert)
+            _setter("alert", alert)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if for_ is not None:
-            pulumi.set(__self__, "for_", for_)
+            _setter("for_", for_)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if record is not None:
-            pulumi.set(__self__, "record", record)
+            _setter("record", record)
         if resolve_configuration is not None:
-            pulumi.set(__self__, "resolve_configuration", resolve_configuration)
+            _setter("resolve_configuration", resolve_configuration)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
 
     @property
     @pulumi.getter
@@ -1154,7 +1509,22 @@ class RemoveAllActionGroupsArgs:
         :param pulumi.Input[str] action_type: Action that should be applied.
                Expected value is 'RemoveAllActionGroups'.
         """
-        pulumi.set(__self__, "action_type", 'RemoveAllActionGroups')
+        RemoveAllActionGroupsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+
+        _setter("action_type", 'RemoveAllActionGroups')
 
     @property
     @pulumi.getter(name="actionType")
@@ -1184,14 +1554,37 @@ class ScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]] recurrences: List of recurrences.
         :param pulumi.Input[str] time_zone: Scheduling time zone.
         """
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effective_from=effective_from,
+            effective_until=effective_until,
+            recurrences=recurrences,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effective_from: Optional[pulumi.Input[str]] = None,
+             effective_until: Optional[pulumi.Input[str]] = None,
+             recurrences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if effective_from is None and 'effectiveFrom' in kwargs:
+            effective_from = kwargs['effectiveFrom']
+        if effective_until is None and 'effectiveUntil' in kwargs:
+            effective_until = kwargs['effectiveUntil']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if effective_from is not None:
-            pulumi.set(__self__, "effective_from", effective_from)
+            _setter("effective_from", effective_from)
         if effective_until is not None:
-            pulumi.set(__self__, "effective_until", effective_until)
+            _setter("effective_until", effective_until)
         if recurrences is not None:
-            pulumi.set(__self__, "recurrences", recurrences)
+            _setter("recurrences", recurrences)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="effectiveFrom")
@@ -1252,10 +1645,25 @@ class ScopeArgs:
         :param pulumi.Input[Union[str, 'ScopeType']] scope_type: type of target scope
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of ARM IDs of the given scope type which will be the target of the given action rule.
         """
+        ScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope_type=scope_type,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope_type: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scope_type is None and 'scopeType' in kwargs:
+            scope_type = kwargs['scopeType']
+
         if scope_type is not None:
-            pulumi.set(__self__, "scope_type", scope_type)
+            _setter("scope_type", scope_type)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter(name="scopeType")
@@ -1292,9 +1700,26 @@ class SuppressionConfigArgs:
         :param pulumi.Input[Union[str, 'SuppressionType']] recurrence_type: Specifies when the suppression should be applied
         :param pulumi.Input['SuppressionScheduleArgs'] schedule: suppression schedule configuration
         """
-        pulumi.set(__self__, "recurrence_type", recurrence_type)
+        SuppressionConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence_type=recurrence_type,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence_type: Optional[pulumi.Input[Union[str, 'SuppressionType']]] = None,
+             schedule: Optional[pulumi.Input['SuppressionScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recurrence_type is None and 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+
+        _setter("recurrence_type", recurrence_type)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter(name="recurrenceType")
@@ -1337,16 +1762,45 @@ class SuppressionScheduleArgs:
         :param pulumi.Input[str] start_date: Start date for suppression
         :param pulumi.Input[str] start_time: Start time for suppression
         """
+        SuppressionScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_date=end_date,
+            end_time=end_time,
+            recurrence_values=recurrence_values,
+            start_date=start_date,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_date: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             recurrence_values: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if recurrence_values is None and 'recurrenceValues' in kwargs:
+            recurrence_values = kwargs['recurrenceValues']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if recurrence_values is not None:
-            pulumi.set(__self__, "recurrence_values", recurrence_values)
+            _setter("recurrence_values", recurrence_values)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endDate")
@@ -1428,16 +1882,43 @@ class SuppressionArgs:
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
         :param pulumi.Input[Union[str, 'ActionRuleStatus']] status: Indicates if the given action rule is enabled or disabled
         """
-        pulumi.set(__self__, "suppression_config", suppression_config)
-        pulumi.set(__self__, "type", 'Suppression')
+        SuppressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            suppression_config=suppression_config,
+            type=type,
+            conditions=conditions,
+            description=description,
+            scope=scope,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             suppression_config: Optional[pulumi.Input['SuppressionConfigArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['ScopeArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if suppression_config is None and 'suppressionConfig' in kwargs:
+            suppression_config = kwargs['suppressionConfig']
+        if suppression_config is None:
+            raise TypeError("Missing 'suppression_config' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("suppression_config", suppression_config)
+        _setter("type", 'Suppression')
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="suppressionConfig")
@@ -1521,8 +2002,19 @@ class ThrottlingInformationArgs:
         Optional throttling information for the alert rule.
         :param pulumi.Input[str] duration: The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
         """
+        ThrottlingInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
 
     @property
     @pulumi.getter
@@ -1552,12 +2044,41 @@ class WeeklyRecurrenceArgs:
         :param pulumi.Input[str] end_time: End time for recurrence.
         :param pulumi.Input[str] start_time: Start time for recurrence.
         """
-        pulumi.set(__self__, "days_of_week", days_of_week)
-        pulumi.set(__self__, "recurrence_type", 'Weekly')
+        WeeklyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_week=days_of_week,
+            recurrence_type=recurrence_type,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]] = None,
+             recurrence_type: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_of_week is None and 'daysOfWeek' in kwargs:
+            days_of_week = kwargs['daysOfWeek']
+        if days_of_week is None:
+            raise TypeError("Missing 'days_of_week' argument")
+        if recurrence_type is None and 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
+        _setter("days_of_week", days_of_week)
+        _setter("recurrence_type", 'Weekly')
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="daysOfWeek")

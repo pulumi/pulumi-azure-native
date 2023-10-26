@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,27 +40,76 @@ class KustoPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_uid: The workspace unique identifier.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        KustoPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            workspace_name=workspace_name,
+            enable_purge=enable_purge,
+            enable_streaming_ingest=enable_streaming_ingest,
+            kusto_pool_name=kusto_pool_name,
+            location=location,
+            optimized_autoscale=optimized_autoscale,
+            tags=tags,
+            workspace_uid=workspace_uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['AzureSkuArgs']] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             enable_purge: Optional[pulumi.Input[bool]] = None,
+             enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
+             kusto_pool_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             optimized_autoscale: Optional[pulumi.Input['OptimizedAutoscaleArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_uid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if enable_purge is None and 'enablePurge' in kwargs:
+            enable_purge = kwargs['enablePurge']
+        if enable_streaming_ingest is None and 'enableStreamingIngest' in kwargs:
+            enable_streaming_ingest = kwargs['enableStreamingIngest']
+        if kusto_pool_name is None and 'kustoPoolName' in kwargs:
+            kusto_pool_name = kwargs['kustoPoolName']
+        if optimized_autoscale is None and 'optimizedAutoscale' in kwargs:
+            optimized_autoscale = kwargs['optimizedAutoscale']
+        if workspace_uid is None and 'workspaceUID' in kwargs:
+            workspace_uid = kwargs['workspaceUID']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
+        _setter("workspace_name", workspace_name)
         if enable_purge is None:
             enable_purge = False
         if enable_purge is not None:
-            pulumi.set(__self__, "enable_purge", enable_purge)
+            _setter("enable_purge", enable_purge)
         if enable_streaming_ingest is None:
             enable_streaming_ingest = False
         if enable_streaming_ingest is not None:
-            pulumi.set(__self__, "enable_streaming_ingest", enable_streaming_ingest)
+            _setter("enable_streaming_ingest", enable_streaming_ingest)
         if kusto_pool_name is not None:
-            pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
+            _setter("kusto_pool_name", kusto_pool_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if optimized_autoscale is not None:
-            pulumi.set(__self__, "optimized_autoscale", optimized_autoscale)
+            _setter("optimized_autoscale", optimized_autoscale)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_uid is not None:
-            pulumi.set(__self__, "workspace_uid", workspace_uid)
+            _setter("workspace_uid", workspace_uid)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -236,6 +285,10 @@ class KustoPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KustoPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -268,10 +321,12 @@ class KustoPool(pulumi.CustomResource):
             __props__.__dict__["enable_streaming_ingest"] = enable_streaming_ingest
             __props__.__dict__["kusto_pool_name"] = kusto_pool_name
             __props__.__dict__["location"] = location
+            optimized_autoscale = _utilities.configure(optimized_autoscale, OptimizedAutoscaleArgs, True)
             __props__.__dict__["optimized_autoscale"] = optimized_autoscale
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, AzureSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

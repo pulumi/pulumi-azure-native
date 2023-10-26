@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -41,18 +41,47 @@ class NewNotificationsResponse(dict):
         :param str offer_id: Gets offer id
         :param Sequence['PlanNotificationDetailsResponse'] plans: Gets or sets removed plans notifications
         """
+        NewNotificationsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            icon=icon,
+            is_future_plans_enabled=is_future_plans_enabled,
+            message_code=message_code,
+            offer_id=offer_id,
+            plans=plans,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             icon: Optional[str] = None,
+             is_future_plans_enabled: Optional[bool] = None,
+             message_code: Optional[float] = None,
+             offer_id: Optional[str] = None,
+             plans: Optional[Sequence['outputs.PlanNotificationDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if is_future_plans_enabled is None and 'isFuturePlansEnabled' in kwargs:
+            is_future_plans_enabled = kwargs['isFuturePlansEnabled']
+        if message_code is None and 'messageCode' in kwargs:
+            message_code = kwargs['messageCode']
+        if offer_id is None and 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if icon is not None:
-            pulumi.set(__self__, "icon", icon)
+            _setter("icon", icon)
         if is_future_plans_enabled is not None:
-            pulumi.set(__self__, "is_future_plans_enabled", is_future_plans_enabled)
+            _setter("is_future_plans_enabled", is_future_plans_enabled)
         if message_code is not None:
-            pulumi.set(__self__, "message_code", message_code)
+            _setter("message_code", message_code)
         if offer_id is not None:
-            pulumi.set(__self__, "offer_id", offer_id)
+            _setter("offer_id", offer_id)
         if plans is not None:
-            pulumi.set(__self__, "plans", plans)
+            _setter("plans", plans)
 
     @property
     @pulumi.getter(name="displayName")
@@ -116,10 +145,27 @@ class PlanNotificationDetailsResponse(dict):
         :param str plan_display_name: Gets or sets the plan display name
         :param str plan_id: Gets or sets the plan id
         """
+        PlanNotificationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            plan_display_name=plan_display_name,
+            plan_id=plan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             plan_display_name: Optional[str] = None,
+             plan_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if plan_display_name is None and 'planDisplayName' in kwargs:
+            plan_display_name = kwargs['planDisplayName']
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+
         if plan_display_name is not None:
-            pulumi.set(__self__, "plan_display_name", plan_display_name)
+            _setter("plan_display_name", plan_display_name)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
 
     @property
     @pulumi.getter(name="planDisplayName")
@@ -180,13 +226,54 @@ class PlanResponse(dict):
         :param str stack_type: Stack type (classic or arm)
         :param str accessibility: Plan accessibility
         """
-        pulumi.set(__self__, "alt_stack_reference", alt_stack_reference)
-        pulumi.set(__self__, "plan_display_name", plan_display_name)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "sku_id", sku_id)
-        pulumi.set(__self__, "stack_type", stack_type)
+        PlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alt_stack_reference=alt_stack_reference,
+            plan_display_name=plan_display_name,
+            plan_id=plan_id,
+            sku_id=sku_id,
+            stack_type=stack_type,
+            accessibility=accessibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alt_stack_reference: Optional[str] = None,
+             plan_display_name: Optional[str] = None,
+             plan_id: Optional[str] = None,
+             sku_id: Optional[str] = None,
+             stack_type: Optional[str] = None,
+             accessibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alt_stack_reference is None and 'altStackReference' in kwargs:
+            alt_stack_reference = kwargs['altStackReference']
+        if alt_stack_reference is None:
+            raise TypeError("Missing 'alt_stack_reference' argument")
+        if plan_display_name is None and 'planDisplayName' in kwargs:
+            plan_display_name = kwargs['planDisplayName']
+        if plan_display_name is None:
+            raise TypeError("Missing 'plan_display_name' argument")
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if plan_id is None:
+            raise TypeError("Missing 'plan_id' argument")
+        if sku_id is None and 'skuId' in kwargs:
+            sku_id = kwargs['skuId']
+        if sku_id is None:
+            raise TypeError("Missing 'sku_id' argument")
+        if stack_type is None and 'stackType' in kwargs:
+            stack_type = kwargs['stackType']
+        if stack_type is None:
+            raise TypeError("Missing 'stack_type' argument")
+
+        _setter("alt_stack_reference", alt_stack_reference)
+        _setter("plan_display_name", plan_display_name)
+        _setter("plan_id", plan_id)
+        _setter("sku_id", sku_id)
+        _setter("stack_type", stack_type)
         if accessibility is not None:
-            pulumi.set(__self__, "accessibility", accessibility)
+            _setter("accessibility", accessibility)
 
     @property
     @pulumi.getter(name="altStackReference")
@@ -245,10 +332,23 @@ class RuleResponse(dict):
         """
         :param str type: Rule type
         """
+        RuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             value: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -289,14 +389,67 @@ class StopSellOffersPlansNotificationsListPropertiesResponse(dict):
         :param bool public_context: True if the offer has public plans
         :param Sequence[str] subscriptions_ids: The subscriptions related to private plans
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "icon", icon)
-        pulumi.set(__self__, "is_entire", is_entire)
-        pulumi.set(__self__, "message_code", message_code)
-        pulumi.set(__self__, "offer_id", offer_id)
-        pulumi.set(__self__, "plans", plans)
-        pulumi.set(__self__, "public_context", public_context)
-        pulumi.set(__self__, "subscriptions_ids", subscriptions_ids)
+        StopSellOffersPlansNotificationsListPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            icon=icon,
+            is_entire=is_entire,
+            message_code=message_code,
+            offer_id=offer_id,
+            plans=plans,
+            public_context=public_context,
+            subscriptions_ids=subscriptions_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             icon: Optional[str] = None,
+             is_entire: Optional[bool] = None,
+             message_code: Optional[float] = None,
+             offer_id: Optional[str] = None,
+             plans: Optional[Sequence['outputs.PlanNotificationDetailsResponse']] = None,
+             public_context: Optional[bool] = None,
+             subscriptions_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if icon is None:
+            raise TypeError("Missing 'icon' argument")
+        if is_entire is None and 'isEntire' in kwargs:
+            is_entire = kwargs['isEntire']
+        if is_entire is None:
+            raise TypeError("Missing 'is_entire' argument")
+        if message_code is None and 'messageCode' in kwargs:
+            message_code = kwargs['messageCode']
+        if message_code is None:
+            raise TypeError("Missing 'message_code' argument")
+        if offer_id is None and 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+        if offer_id is None:
+            raise TypeError("Missing 'offer_id' argument")
+        if plans is None:
+            raise TypeError("Missing 'plans' argument")
+        if public_context is None and 'publicContext' in kwargs:
+            public_context = kwargs['publicContext']
+        if public_context is None:
+            raise TypeError("Missing 'public_context' argument")
+        if subscriptions_ids is None and 'subscriptionsIds' in kwargs:
+            subscriptions_ids = kwargs['subscriptionsIds']
+        if subscriptions_ids is None:
+            raise TypeError("Missing 'subscriptions_ids' argument")
+
+        _setter("display_name", display_name)
+        _setter("icon", icon)
+        _setter("is_entire", is_entire)
+        _setter("message_code", message_code)
+        _setter("offer_id", offer_id)
+        _setter("plans", plans)
+        _setter("public_context", public_context)
+        _setter("subscriptions_ids", subscriptions_ids)
 
     @property
     @pulumi.getter(name="displayName")
@@ -411,18 +564,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

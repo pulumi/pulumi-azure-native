@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,41 +56,118 @@ class ManagedClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input['ManagedClusterWindowsProfileArgs'] windows_profile: Profile for Windows VMs in the container service cluster.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            aad_profile=aad_profile,
+            addon_profiles=addon_profiles,
+            agent_pool_profiles=agent_pool_profiles,
+            api_server_authorized_ip_ranges=api_server_authorized_ip_ranges,
+            dns_prefix=dns_prefix,
+            enable_pod_security_policy=enable_pod_security_policy,
+            enable_rbac=enable_rbac,
+            identity=identity,
+            kubernetes_version=kubernetes_version,
+            linux_profile=linux_profile,
+            location=location,
+            network_profile=network_profile,
+            node_resource_group=node_resource_group,
+            resource_name=resource_name,
+            service_principal_profile=service_principal_profile,
+            tags=tags,
+            windows_profile=windows_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             aad_profile: Optional[pulumi.Input['ManagedClusterAADProfileArgs']] = None,
+             addon_profiles: Optional[pulumi.Input[Mapping[str, pulumi.Input['ManagedClusterAddonProfileArgs']]]] = None,
+             agent_pool_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAgentPoolProfileArgs']]]] = None,
+             api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_prefix: Optional[pulumi.Input[str]] = None,
+             enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+             enable_rbac: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ManagedClusterIdentityArgs']] = None,
+             kubernetes_version: Optional[pulumi.Input[str]] = None,
+             linux_profile: Optional[pulumi.Input['ContainerServiceLinuxProfileArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['ContainerServiceNetworkProfileArgs']] = None,
+             node_resource_group: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             service_principal_profile: Optional[pulumi.Input['ManagedClusterServicePrincipalProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             windows_profile: Optional[pulumi.Input['ManagedClusterWindowsProfileArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if aad_profile is None and 'aadProfile' in kwargs:
+            aad_profile = kwargs['aadProfile']
+        if addon_profiles is None and 'addonProfiles' in kwargs:
+            addon_profiles = kwargs['addonProfiles']
+        if agent_pool_profiles is None and 'agentPoolProfiles' in kwargs:
+            agent_pool_profiles = kwargs['agentPoolProfiles']
+        if api_server_authorized_ip_ranges is None and 'apiServerAuthorizedIPRanges' in kwargs:
+            api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIPRanges']
+        if dns_prefix is None and 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+        if enable_pod_security_policy is None and 'enablePodSecurityPolicy' in kwargs:
+            enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
+        if enable_rbac is None and 'enableRBAC' in kwargs:
+            enable_rbac = kwargs['enableRBAC']
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if linux_profile is None and 'linuxProfile' in kwargs:
+            linux_profile = kwargs['linuxProfile']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if node_resource_group is None and 'nodeResourceGroup' in kwargs:
+            node_resource_group = kwargs['nodeResourceGroup']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if service_principal_profile is None and 'servicePrincipalProfile' in kwargs:
+            service_principal_profile = kwargs['servicePrincipalProfile']
+        if windows_profile is None and 'windowsProfile' in kwargs:
+            windows_profile = kwargs['windowsProfile']
+
+        _setter("resource_group_name", resource_group_name)
         if aad_profile is not None:
-            pulumi.set(__self__, "aad_profile", aad_profile)
+            _setter("aad_profile", aad_profile)
         if addon_profiles is not None:
-            pulumi.set(__self__, "addon_profiles", addon_profiles)
+            _setter("addon_profiles", addon_profiles)
         if agent_pool_profiles is not None:
-            pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
+            _setter("agent_pool_profiles", agent_pool_profiles)
         if api_server_authorized_ip_ranges is not None:
-            pulumi.set(__self__, "api_server_authorized_ip_ranges", api_server_authorized_ip_ranges)
+            _setter("api_server_authorized_ip_ranges", api_server_authorized_ip_ranges)
         if dns_prefix is not None:
-            pulumi.set(__self__, "dns_prefix", dns_prefix)
+            _setter("dns_prefix", dns_prefix)
         if enable_pod_security_policy is not None:
-            pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
+            _setter("enable_pod_security_policy", enable_pod_security_policy)
         if enable_rbac is not None:
-            pulumi.set(__self__, "enable_rbac", enable_rbac)
+            _setter("enable_rbac", enable_rbac)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+            _setter("kubernetes_version", kubernetes_version)
         if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
+            _setter("linux_profile", linux_profile)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if node_resource_group is not None:
-            pulumi.set(__self__, "node_resource_group", node_resource_group)
+            _setter("node_resource_group", node_resource_group)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if service_principal_profile is not None:
-            pulumi.set(__self__, "service_principal_profile", service_principal_profile)
+            _setter("service_principal_profile", service_principal_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if windows_profile is not None:
-            pulumi.set(__self__, "windows_profile", windows_profile)
+            _setter("windows_profile", windows_profile)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -376,6 +453,10 @@ class ManagedCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -408,6 +489,7 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedClusterArgs.__new__(ManagedClusterArgs)
 
+            aad_profile = _utilities.configure(aad_profile, ManagedClusterAADProfileArgs, True)
             __props__.__dict__["aad_profile"] = aad_profile
             __props__.__dict__["addon_profiles"] = addon_profiles
             __props__.__dict__["agent_pool_profiles"] = agent_pool_profiles
@@ -415,18 +497,23 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["dns_prefix"] = dns_prefix
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
             __props__.__dict__["enable_rbac"] = enable_rbac
+            identity = _utilities.configure(identity, ManagedClusterIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kubernetes_version"] = kubernetes_version
+            linux_profile = _utilities.configure(linux_profile, ContainerServiceLinuxProfileArgs, True)
             __props__.__dict__["linux_profile"] = linux_profile
             __props__.__dict__["location"] = location
+            network_profile = _utilities.configure(network_profile, ContainerServiceNetworkProfileArgs, True)
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            service_principal_profile = _utilities.configure(service_principal_profile, ManagedClusterServicePrincipalProfileArgs, True)
             __props__.__dict__["service_principal_profile"] = service_principal_profile
             __props__.__dict__["tags"] = tags
+            windows_profile = _utilities.configure(windows_profile, ManagedClusterWindowsProfileArgs, True)
             __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["fqdn"] = None
             __props__.__dict__["max_agent_pools"] = None

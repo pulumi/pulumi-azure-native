@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,21 +38,62 @@ class GatewayArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['TcpConfigArgs']]] tcp: Configuration for tcp connectivity for this gateway.
         """
-        pulumi.set(__self__, "destination_network", destination_network)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_network", source_network)
+        GatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_network=destination_network,
+            resource_group_name=resource_group_name,
+            source_network=source_network,
+            description=description,
+            gateway_resource_name=gateway_resource_name,
+            http=http,
+            location=location,
+            tags=tags,
+            tcp=tcp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_network: Optional[pulumi.Input['NetworkRefArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_network: Optional[pulumi.Input['NetworkRefArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             gateway_resource_name: Optional[pulumi.Input[str]] = None,
+             http: Optional[pulumi.Input[Sequence[pulumi.Input['HttpConfigArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tcp: Optional[pulumi.Input[Sequence[pulumi.Input['TcpConfigArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_network is None and 'destinationNetwork' in kwargs:
+            destination_network = kwargs['destinationNetwork']
+        if destination_network is None:
+            raise TypeError("Missing 'destination_network' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_network is None and 'sourceNetwork' in kwargs:
+            source_network = kwargs['sourceNetwork']
+        if source_network is None:
+            raise TypeError("Missing 'source_network' argument")
+        if gateway_resource_name is None and 'gatewayResourceName' in kwargs:
+            gateway_resource_name = kwargs['gatewayResourceName']
+
+        _setter("destination_network", destination_network)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_network", source_network)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gateway_resource_name is not None:
-            pulumi.set(__self__, "gateway_resource_name", gateway_resource_name)
+            _setter("gateway_resource_name", gateway_resource_name)
         if http is not None:
-            pulumi.set(__self__, "http", http)
+            _setter("http", http)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tcp is not None:
-            pulumi.set(__self__, "tcp", tcp)
+            _setter("tcp", tcp)
 
     @property
     @pulumi.getter(name="destinationNetwork")
@@ -214,6 +255,10 @@ class Gateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -238,6 +283,7 @@ class Gateway(pulumi.CustomResource):
             __props__ = GatewayArgs.__new__(GatewayArgs)
 
             __props__.__dict__["description"] = description
+            destination_network = _utilities.configure(destination_network, NetworkRefArgs, True)
             if destination_network is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_network'")
             __props__.__dict__["destination_network"] = destination_network
@@ -247,6 +293,7 @@ class Gateway(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            source_network = _utilities.configure(source_network, NetworkRefArgs, True)
             if source_network is None and not opts.urn:
                 raise TypeError("Missing required property 'source_network'")
             __props__.__dict__["source_network"] = source_network

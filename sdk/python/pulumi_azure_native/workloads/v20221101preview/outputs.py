@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,20 +43,55 @@ class DiskDetailsResponse(dict):
         :param float size_gb: The disk size in GB.
         :param 'DiskSkuResponse' sku: The disk sku.
         """
+        DiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_tier=disk_tier,
+            iops_read_write=iops_read_write,
+            maximum_supported_disk_count=maximum_supported_disk_count,
+            mbps_read_write=mbps_read_write,
+            minimum_supported_disk_count=minimum_supported_disk_count,
+            size_gb=size_gb,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_tier: Optional[str] = None,
+             iops_read_write: Optional[float] = None,
+             maximum_supported_disk_count: Optional[float] = None,
+             mbps_read_write: Optional[float] = None,
+             minimum_supported_disk_count: Optional[float] = None,
+             size_gb: Optional[float] = None,
+             sku: Optional['outputs.DiskSkuResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_tier is None and 'diskTier' in kwargs:
+            disk_tier = kwargs['diskTier']
+        if iops_read_write is None and 'iopsReadWrite' in kwargs:
+            iops_read_write = kwargs['iopsReadWrite']
+        if maximum_supported_disk_count is None and 'maximumSupportedDiskCount' in kwargs:
+            maximum_supported_disk_count = kwargs['maximumSupportedDiskCount']
+        if mbps_read_write is None and 'mbpsReadWrite' in kwargs:
+            mbps_read_write = kwargs['mbpsReadWrite']
+        if minimum_supported_disk_count is None and 'minimumSupportedDiskCount' in kwargs:
+            minimum_supported_disk_count = kwargs['minimumSupportedDiskCount']
+        if size_gb is None and 'sizeGB' in kwargs:
+            size_gb = kwargs['sizeGB']
+
         if disk_tier is not None:
-            pulumi.set(__self__, "disk_tier", disk_tier)
+            _setter("disk_tier", disk_tier)
         if iops_read_write is not None:
-            pulumi.set(__self__, "iops_read_write", iops_read_write)
+            _setter("iops_read_write", iops_read_write)
         if maximum_supported_disk_count is not None:
-            pulumi.set(__self__, "maximum_supported_disk_count", maximum_supported_disk_count)
+            _setter("maximum_supported_disk_count", maximum_supported_disk_count)
         if mbps_read_write is not None:
-            pulumi.set(__self__, "mbps_read_write", mbps_read_write)
+            _setter("mbps_read_write", mbps_read_write)
         if minimum_supported_disk_count is not None:
-            pulumi.set(__self__, "minimum_supported_disk_count", minimum_supported_disk_count)
+            _setter("minimum_supported_disk_count", minimum_supported_disk_count)
         if size_gb is not None:
-            pulumi.set(__self__, "size_gb", size_gb)
+            _setter("size_gb", size_gb)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
 
     @property
     @pulumi.getter(name="diskTier")
@@ -126,8 +161,19 @@ class DiskSkuResponse(dict):
         The disk sku.
         :param str name: Defines the disk sku name.
         """
+        DiskSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -153,12 +199,29 @@ class DiskVolumeConfigurationResponse(dict):
         :param float size_gb: The disk size in GB.
         :param 'DiskSkuResponse' sku: The disk SKU details.
         """
+        DiskVolumeConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            size_gb=size_gb,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[float] = None,
+             size_gb: Optional[float] = None,
+             sku: Optional['outputs.DiskSkuResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_gb is None and 'sizeGB' in kwargs:
+            size_gb = kwargs['sizeGB']
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if size_gb is not None:
-            pulumi.set(__self__, "size_gb", size_gb)
+            _setter("size_gb", size_gb)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
 
     @property
     @pulumi.getter
@@ -198,10 +261,27 @@ class SAPAvailabilityZonePairResponse(dict):
         :param float zone_a: The zone A.
         :param float zone_b: The zone B.
         """
+        SAPAvailabilityZonePairResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            zone_a=zone_a,
+            zone_b=zone_b,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             zone_a: Optional[float] = None,
+             zone_b: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if zone_a is None and 'zoneA' in kwargs:
+            zone_a = kwargs['zoneA']
+        if zone_b is None and 'zoneB' in kwargs:
+            zone_b = kwargs['zoneB']
+
         if zone_a is not None:
-            pulumi.set(__self__, "zone_a", zone_a)
+            _setter("zone_a", zone_a)
         if zone_b is not None:
-            pulumi.set(__self__, "zone_b", zone_b)
+            _setter("zone_b", zone_b)
 
     @property
     @pulumi.getter(name="zoneA")
@@ -233,10 +313,27 @@ class SAPDiskConfigurationResponse(dict):
         :param 'DiskVolumeConfigurationResponse' recommended_configuration: The recommended disk details for a given VM Sku.
         :param Sequence['DiskDetailsResponse'] supported_configurations: The list of supported disks for a given VM Sku.
         """
+        SAPDiskConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recommended_configuration=recommended_configuration,
+            supported_configurations=supported_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recommended_configuration: Optional['outputs.DiskVolumeConfigurationResponse'] = None,
+             supported_configurations: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recommended_configuration is None and 'recommendedConfiguration' in kwargs:
+            recommended_configuration = kwargs['recommendedConfiguration']
+        if supported_configurations is None and 'supportedConfigurations' in kwargs:
+            supported_configurations = kwargs['supportedConfigurations']
+
         if recommended_configuration is not None:
-            pulumi.set(__self__, "recommended_configuration", recommended_configuration)
+            _setter("recommended_configuration", recommended_configuration)
         if supported_configurations is not None:
-            pulumi.set(__self__, "supported_configurations", supported_configurations)
+            _setter("supported_configurations", supported_configurations)
 
     @property
     @pulumi.getter(name="recommendedConfiguration")
@@ -270,12 +367,33 @@ class SAPSupportedSkuResponse(dict):
         :param bool is_database_certified: True if the Sku is certified for Database server in the SAP system.
         :param str vm_sku: The VM Sku.
         """
+        SAPSupportedSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_app_server_certified=is_app_server_certified,
+            is_database_certified=is_database_certified,
+            vm_sku=vm_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_app_server_certified: Optional[bool] = None,
+             is_database_certified: Optional[bool] = None,
+             vm_sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_app_server_certified is None and 'isAppServerCertified' in kwargs:
+            is_app_server_certified = kwargs['isAppServerCertified']
+        if is_database_certified is None and 'isDatabaseCertified' in kwargs:
+            is_database_certified = kwargs['isDatabaseCertified']
+        if vm_sku is None and 'vmSku' in kwargs:
+            vm_sku = kwargs['vmSku']
+
         if is_app_server_certified is not None:
-            pulumi.set(__self__, "is_app_server_certified", is_app_server_certified)
+            _setter("is_app_server_certified", is_app_server_certified)
         if is_database_certified is not None:
-            pulumi.set(__self__, "is_database_certified", is_database_certified)
+            _setter("is_database_certified", is_database_certified)
         if vm_sku is not None:
-            pulumi.set(__self__, "vm_sku", vm_sku)
+            _setter("vm_sku", vm_sku)
 
     @property
     @pulumi.getter(name="isAppServerCertified")

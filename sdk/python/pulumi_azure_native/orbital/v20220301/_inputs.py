@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,8 +28,19 @@ class ContactParametersContactProfile:
         The reference to the contact profile resource.
         :param str id: Resource ID.
         """
+        ContactParametersContactProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -66,18 +77,65 @@ class ContactProfileLinkChannelArgs:
         :param pulumi.Input[str] encoding_configuration: Currently unused.
         :param pulumi.Input[str] modulation_configuration: Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
-        pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
-        pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
-        pulumi.set(__self__, "end_point", end_point)
-        pulumi.set(__self__, "name", name)
+        ContactProfileLinkChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_m_hz=bandwidth_m_hz,
+            center_frequency_m_hz=center_frequency_m_hz,
+            end_point=end_point,
+            name=name,
+            decoding_configuration=decoding_configuration,
+            demodulation_configuration=demodulation_configuration,
+            encoding_configuration=encoding_configuration,
+            modulation_configuration=modulation_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_m_hz: Optional[pulumi.Input[float]] = None,
+             center_frequency_m_hz: Optional[pulumi.Input[float]] = None,
+             end_point: Optional[pulumi.Input['EndPointArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             decoding_configuration: Optional[pulumi.Input[str]] = None,
+             demodulation_configuration: Optional[pulumi.Input[str]] = None,
+             encoding_configuration: Optional[pulumi.Input[str]] = None,
+             modulation_configuration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bandwidth_m_hz is None and 'bandwidthMHz' in kwargs:
+            bandwidth_m_hz = kwargs['bandwidthMHz']
+        if bandwidth_m_hz is None:
+            raise TypeError("Missing 'bandwidth_m_hz' argument")
+        if center_frequency_m_hz is None and 'centerFrequencyMHz' in kwargs:
+            center_frequency_m_hz = kwargs['centerFrequencyMHz']
+        if center_frequency_m_hz is None:
+            raise TypeError("Missing 'center_frequency_m_hz' argument")
+        if end_point is None and 'endPoint' in kwargs:
+            end_point = kwargs['endPoint']
+        if end_point is None:
+            raise TypeError("Missing 'end_point' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if decoding_configuration is None and 'decodingConfiguration' in kwargs:
+            decoding_configuration = kwargs['decodingConfiguration']
+        if demodulation_configuration is None and 'demodulationConfiguration' in kwargs:
+            demodulation_configuration = kwargs['demodulationConfiguration']
+        if encoding_configuration is None and 'encodingConfiguration' in kwargs:
+            encoding_configuration = kwargs['encodingConfiguration']
+        if modulation_configuration is None and 'modulationConfiguration' in kwargs:
+            modulation_configuration = kwargs['modulationConfiguration']
+
+        _setter("bandwidth_m_hz", bandwidth_m_hz)
+        _setter("center_frequency_m_hz", center_frequency_m_hz)
+        _setter("end_point", end_point)
+        _setter("name", name)
         if decoding_configuration is not None:
-            pulumi.set(__self__, "decoding_configuration", decoding_configuration)
+            _setter("decoding_configuration", decoding_configuration)
         if demodulation_configuration is not None:
-            pulumi.set(__self__, "demodulation_configuration", demodulation_configuration)
+            _setter("demodulation_configuration", demodulation_configuration)
         if encoding_configuration is not None:
-            pulumi.set(__self__, "encoding_configuration", encoding_configuration)
+            _setter("encoding_configuration", encoding_configuration)
         if modulation_configuration is not None:
-            pulumi.set(__self__, "modulation_configuration", modulation_configuration)
+            _setter("modulation_configuration", modulation_configuration)
 
     @property
     @pulumi.getter(name="bandwidthMHz")
@@ -194,14 +252,47 @@ class ContactProfileLinkArgs:
         :param pulumi.Input[float] eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
         :param pulumi.Input[float] gain_over_temperature: Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
         """
-        pulumi.set(__self__, "channels", channels)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "polarization", polarization)
+        ContactProfileLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channels=channels,
+            direction=direction,
+            name=name,
+            polarization=polarization,
+            eirpd_bw=eirpd_bw,
+            gain_over_temperature=gain_over_temperature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channels: Optional[pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]] = None,
+             direction: Optional[pulumi.Input[Union[str, 'Direction']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             polarization: Optional[pulumi.Input[Union[str, 'Polarization']]] = None,
+             eirpd_bw: Optional[pulumi.Input[float]] = None,
+             gain_over_temperature: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channels is None:
+            raise TypeError("Missing 'channels' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if polarization is None:
+            raise TypeError("Missing 'polarization' argument")
+        if eirpd_bw is None and 'eirpdBW' in kwargs:
+            eirpd_bw = kwargs['eirpdBW']
+        if gain_over_temperature is None and 'gainOverTemperature' in kwargs:
+            gain_over_temperature = kwargs['gainOverTemperature']
+
+        _setter("channels", channels)
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("polarization", polarization)
         if eirpd_bw is not None:
-            pulumi.set(__self__, "eirpd_bw", eirpd_bw)
+            _setter("eirpd_bw", eirpd_bw)
         if gain_over_temperature is not None:
-            pulumi.set(__self__, "gain_over_temperature", gain_over_temperature)
+            _setter("gain_over_temperature", gain_over_temperature)
 
     @property
     @pulumi.getter
@@ -284,7 +375,22 @@ class ContactProfilesPropertiesNetworkConfigurationArgs:
         Network configuration of customer virtual network.
         :param pulumi.Input[str] subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ContactProfilesPropertiesNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -307,8 +413,19 @@ class ContactsPropertiesContactProfileArgs:
         The reference to the contact profile resource.
         :param pulumi.Input[str] id: Resource ID.
         """
+        ContactsPropertiesContactProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -337,10 +454,39 @@ class EndPointArgs:
         :param pulumi.Input[str] port: TCP port to listen on to receive data.
         :param pulumi.Input[Union[str, 'Protocol']] protocol: Protocol either UDP or TCP.
         """
-        pulumi.set(__self__, "end_point_name", end_point_name)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        EndPointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_point_name=end_point_name,
+            ip_address=ip_address,
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_point_name: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'Protocol']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_point_name is None and 'endPointName' in kwargs:
+            end_point_name = kwargs['endPointName']
+        if end_point_name is None:
+            raise TypeError("Missing 'end_point_name' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+
+        _setter("end_point_name", end_point_name)
+        _setter("ip_address", ip_address)
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter(name="endPointName")
@@ -407,11 +553,44 @@ class SpacecraftLinkArgs:
         :param pulumi.Input[str] name: Link name.
         :param pulumi.Input[Union[str, 'Polarization']] polarization: Polarization. e.g. (RHCP, LHCP).
         """
-        pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
-        pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "polarization", polarization)
+        SpacecraftLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bandwidth_m_hz=bandwidth_m_hz,
+            center_frequency_m_hz=center_frequency_m_hz,
+            direction=direction,
+            name=name,
+            polarization=polarization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bandwidth_m_hz: Optional[pulumi.Input[float]] = None,
+             center_frequency_m_hz: Optional[pulumi.Input[float]] = None,
+             direction: Optional[pulumi.Input[Union[str, 'Direction']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             polarization: Optional[pulumi.Input[Union[str, 'Polarization']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bandwidth_m_hz is None and 'bandwidthMHz' in kwargs:
+            bandwidth_m_hz = kwargs['bandwidthMHz']
+        if bandwidth_m_hz is None:
+            raise TypeError("Missing 'bandwidth_m_hz' argument")
+        if center_frequency_m_hz is None and 'centerFrequencyMHz' in kwargs:
+            center_frequency_m_hz = kwargs['centerFrequencyMHz']
+        if center_frequency_m_hz is None:
+            raise TypeError("Missing 'center_frequency_m_hz' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if polarization is None:
+            raise TypeError("Missing 'polarization' argument")
+
+        _setter("bandwidth_m_hz", bandwidth_m_hz)
+        _setter("center_frequency_m_hz", center_frequency_m_hz)
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("polarization", polarization)
 
     @property
     @pulumi.getter(name="bandwidthMHz")

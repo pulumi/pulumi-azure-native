@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -41,22 +41,85 @@ class JobDefinitionArgs:
         :param pulumi.Input[str] source_subpath: The subpath to use when reading from the source Endpoint.
         :param pulumi.Input[str] target_subpath: The subpath to use when writing to the target Endpoint.
         """
-        pulumi.set(__self__, "copy_mode", copy_mode)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_name", source_name)
-        pulumi.set(__self__, "storage_mover_name", storage_mover_name)
-        pulumi.set(__self__, "target_name", target_name)
+        JobDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_mode=copy_mode,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            source_name=source_name,
+            storage_mover_name=storage_mover_name,
+            target_name=target_name,
+            agent_name=agent_name,
+            description=description,
+            job_definition_name=job_definition_name,
+            source_subpath=source_subpath,
+            target_subpath=target_subpath,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_mode: Optional[pulumi.Input[Union[str, 'CopyMode']]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_name: Optional[pulumi.Input[str]] = None,
+             storage_mover_name: Optional[pulumi.Input[str]] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
+             agent_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             job_definition_name: Optional[pulumi.Input[str]] = None,
+             source_subpath: Optional[pulumi.Input[str]] = None,
+             target_subpath: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_mode is None and 'copyMode' in kwargs:
+            copy_mode = kwargs['copyMode']
+        if copy_mode is None:
+            raise TypeError("Missing 'copy_mode' argument")
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_name is None and 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if source_name is None:
+            raise TypeError("Missing 'source_name' argument")
+        if storage_mover_name is None and 'storageMoverName' in kwargs:
+            storage_mover_name = kwargs['storageMoverName']
+        if storage_mover_name is None:
+            raise TypeError("Missing 'storage_mover_name' argument")
+        if target_name is None and 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if target_name is None:
+            raise TypeError("Missing 'target_name' argument")
+        if agent_name is None and 'agentName' in kwargs:
+            agent_name = kwargs['agentName']
+        if job_definition_name is None and 'jobDefinitionName' in kwargs:
+            job_definition_name = kwargs['jobDefinitionName']
+        if source_subpath is None and 'sourceSubpath' in kwargs:
+            source_subpath = kwargs['sourceSubpath']
+        if target_subpath is None and 'targetSubpath' in kwargs:
+            target_subpath = kwargs['targetSubpath']
+
+        _setter("copy_mode", copy_mode)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_name", source_name)
+        _setter("storage_mover_name", storage_mover_name)
+        _setter("target_name", target_name)
         if agent_name is not None:
-            pulumi.set(__self__, "agent_name", agent_name)
+            _setter("agent_name", agent_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if job_definition_name is not None:
-            pulumi.set(__self__, "job_definition_name", job_definition_name)
+            _setter("job_definition_name", job_definition_name)
         if source_subpath is not None:
-            pulumi.set(__self__, "source_subpath", source_subpath)
+            _setter("source_subpath", source_subpath)
         if target_subpath is not None:
-            pulumi.set(__self__, "target_subpath", target_subpath)
+            _setter("target_subpath", target_subpath)
 
     @property
     @pulumi.getter(name="copyMode")
@@ -244,6 +307,10 @@ class JobDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

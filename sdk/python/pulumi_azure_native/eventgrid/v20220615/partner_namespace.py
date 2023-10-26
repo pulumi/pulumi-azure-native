@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -41,29 +41,72 @@ class PartnerNamespaceArgs:
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PartnerNamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            disable_local_auth=disable_local_auth,
+            inbound_ip_rules=inbound_ip_rules,
+            location=location,
+            partner_namespace_name=partner_namespace_name,
+            partner_registration_fully_qualified_id=partner_registration_fully_qualified_id,
+            partner_topic_routing_mode=partner_topic_routing_mode,
+            public_network_access=public_network_access,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             partner_namespace_name: Optional[pulumi.Input[str]] = None,
+             partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
+             partner_topic_routing_mode: Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disable_local_auth is None and 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if inbound_ip_rules is None and 'inboundIpRules' in kwargs:
+            inbound_ip_rules = kwargs['inboundIpRules']
+        if partner_namespace_name is None and 'partnerNamespaceName' in kwargs:
+            partner_namespace_name = kwargs['partnerNamespaceName']
+        if partner_registration_fully_qualified_id is None and 'partnerRegistrationFullyQualifiedId' in kwargs:
+            partner_registration_fully_qualified_id = kwargs['partnerRegistrationFullyQualifiedId']
+        if partner_topic_routing_mode is None and 'partnerTopicRoutingMode' in kwargs:
+            partner_topic_routing_mode = kwargs['partnerTopicRoutingMode']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
+        _setter("resource_group_name", resource_group_name)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if inbound_ip_rules is not None:
-            pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
+            _setter("inbound_ip_rules", inbound_ip_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if partner_namespace_name is not None:
-            pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
+            _setter("partner_namespace_name", partner_namespace_name)
         if partner_registration_fully_qualified_id is not None:
-            pulumi.set(__self__, "partner_registration_fully_qualified_id", partner_registration_fully_qualified_id)
+            _setter("partner_registration_fully_qualified_id", partner_registration_fully_qualified_id)
         if partner_topic_routing_mode is None:
             partner_topic_routing_mode = 'SourceEventAttribute'
         if partner_topic_routing_mode is not None:
-            pulumi.set(__self__, "partner_topic_routing_mode", partner_topic_routing_mode)
+            _setter("partner_topic_routing_mode", partner_topic_routing_mode)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -229,6 +272,10 @@ class PartnerNamespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PartnerNamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

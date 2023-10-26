@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,14 +30,55 @@ class ShareSubscriptionArgs:
         :param pulumi.Input[str] expiration_date: The expiration date of the share subscription.
         :param pulumi.Input[str] share_subscription_name: The name of the shareSubscription.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "invitation_id", invitation_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_share_location", source_share_location)
+        ShareSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            invitation_id=invitation_id,
+            resource_group_name=resource_group_name,
+            source_share_location=source_share_location,
+            expiration_date=expiration_date,
+            share_subscription_name=share_subscription_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             invitation_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_share_location: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             share_subscription_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+        if invitation_id is None:
+            raise TypeError("Missing 'invitation_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_share_location is None and 'sourceShareLocation' in kwargs:
+            source_share_location = kwargs['sourceShareLocation']
+        if source_share_location is None:
+            raise TypeError("Missing 'source_share_location' argument")
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if share_subscription_name is None and 'shareSubscriptionName' in kwargs:
+            share_subscription_name = kwargs['shareSubscriptionName']
+
+        _setter("account_name", account_name)
+        _setter("invitation_id", invitation_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_share_location", source_share_location)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if share_subscription_name is not None:
-            pulumi.set(__self__, "share_subscription_name", share_subscription_name)
+            _setter("share_subscription_name", share_subscription_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -161,6 +202,10 @@ class ShareSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ShareSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

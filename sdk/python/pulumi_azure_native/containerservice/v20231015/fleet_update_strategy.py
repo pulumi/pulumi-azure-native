@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,40 @@ class FleetUpdateStrategyArgs:
         :param pulumi.Input['UpdateRunStrategyArgs'] strategy: Defines the update sequence of the clusters.
         :param pulumi.Input[str] update_strategy_name: The name of the UpdateStrategy resource.
         """
-        pulumi.set(__self__, "fleet_name", fleet_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "strategy", strategy)
+        FleetUpdateStrategyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fleet_name=fleet_name,
+            resource_group_name=resource_group_name,
+            strategy=strategy,
+            update_strategy_name=update_strategy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fleet_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             strategy: Optional[pulumi.Input['UpdateRunStrategyArgs']] = None,
+             update_strategy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fleet_name is None and 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if fleet_name is None:
+            raise TypeError("Missing 'fleet_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if strategy is None:
+            raise TypeError("Missing 'strategy' argument")
+        if update_strategy_name is None and 'updateStrategyName' in kwargs:
+            update_strategy_name = kwargs['updateStrategyName']
+
+        _setter("fleet_name", fleet_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("strategy", strategy)
         if update_strategy_name is not None:
-            pulumi.set(__self__, "update_strategy_name", update_strategy_name)
+            _setter("update_strategy_name", update_strategy_name)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -121,6 +150,10 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetUpdateStrategyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +178,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            strategy = _utilities.configure(strategy, UpdateRunStrategyArgs, True)
             if strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'strategy'")
             __props__.__dict__["strategy"] = strategy

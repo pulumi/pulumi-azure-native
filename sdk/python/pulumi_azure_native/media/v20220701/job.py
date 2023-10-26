@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,19 +38,66 @@ class JobArgs:
         :param pulumi.Input[str] job_name: The Job name.
         :param pulumi.Input[Union[str, 'Priority']] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "input", input)
-        pulumi.set(__self__, "outputs", outputs)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "transform_name", transform_name)
+        JobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            input=input,
+            outputs=outputs,
+            resource_group_name=resource_group_name,
+            transform_name=transform_name,
+            correlation_data=correlation_data,
+            description=description,
+            job_name=job_name,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             input: Optional[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputSequenceArgs', 'JobInputsArgs']]] = None,
+             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             transform_name: Optional[pulumi.Input[str]] = None,
+             correlation_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             job_name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[Union[str, 'Priority']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if input is None:
+            raise TypeError("Missing 'input' argument")
+        if outputs is None:
+            raise TypeError("Missing 'outputs' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if transform_name is None and 'transformName' in kwargs:
+            transform_name = kwargs['transformName']
+        if transform_name is None:
+            raise TypeError("Missing 'transform_name' argument")
+        if correlation_data is None and 'correlationData' in kwargs:
+            correlation_data = kwargs['correlationData']
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+
+        _setter("account_name", account_name)
+        _setter("input", input)
+        _setter("outputs", outputs)
+        _setter("resource_group_name", resource_group_name)
+        _setter("transform_name", transform_name)
         if correlation_data is not None:
-            pulumi.set(__self__, "correlation_data", correlation_data)
+            _setter("correlation_data", correlation_data)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter(name="accountName")
@@ -210,6 +257,10 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,10 +30,31 @@ class AnalyticsConnectorDataLakeDataDestinationArgs:
                Expected value is 'datalake'.
         :param pulumi.Input[str] name: Name of data destination.
         """
-        pulumi.set(__self__, "data_lake_name", data_lake_name)
-        pulumi.set(__self__, "type", 'datalake')
+        AnalyticsConnectorDataLakeDataDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_lake_name=data_lake_name,
+            type=type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_lake_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_lake_name is None and 'dataLakeName' in kwargs:
+            data_lake_name = kwargs['dataLakeName']
+        if data_lake_name is None:
+            raise TypeError("Missing 'data_lake_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("data_lake_name", data_lake_name)
+        _setter("type", 'datalake')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataLakeName")
@@ -86,9 +107,30 @@ class AnalyticsConnectorFhirServiceDataSourceArgs:
                Expected value is 'fhirservice'.
         :param pulumi.Input[str] url: The URL of FHIR service.
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "type", 'fhirservice')
-        pulumi.set(__self__, "url", url)
+        AnalyticsConnectorFhirServiceDataSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            type=type,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[Union[str, 'FhirServiceVersion']]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
+        _setter("kind", kind)
+        _setter("type", 'fhirservice')
+        _setter("url", url)
 
     @property
     @pulumi.getter
@@ -141,11 +183,32 @@ class AnalyticsConnectorFhirToParquetMappingArgs:
         :param pulumi.Input[str] extension_schema_reference: Artifact reference for extension schema.
         :param pulumi.Input[str] filter_configuration_reference: Artifact reference for filter configurations.
         """
-        pulumi.set(__self__, "type", 'fhirToParquet')
+        AnalyticsConnectorFhirToParquetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            extension_schema_reference=extension_schema_reference,
+            filter_configuration_reference=filter_configuration_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             extension_schema_reference: Optional[pulumi.Input[str]] = None,
+             filter_configuration_reference: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if extension_schema_reference is None and 'extensionSchemaReference' in kwargs:
+            extension_schema_reference = kwargs['extensionSchemaReference']
+        if filter_configuration_reference is None and 'filterConfigurationReference' in kwargs:
+            filter_configuration_reference = kwargs['filterConfigurationReference']
+
+        _setter("type", 'fhirToParquet')
         if extension_schema_reference is not None:
-            pulumi.set(__self__, "extension_schema_reference", extension_schema_reference)
+            _setter("extension_schema_reference", extension_schema_reference)
         if filter_configuration_reference is not None:
-            pulumi.set(__self__, "filter_configuration_reference", filter_configuration_reference)
+            _setter("filter_configuration_reference", filter_configuration_reference)
 
     @property
     @pulumi.getter
@@ -195,9 +258,26 @@ class ServiceManagedIdentityIdentityArgs:
         :param pulumi.Input[Union[str, 'ServiceManagedIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ServiceManagedIdentityIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ServiceManagedIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter

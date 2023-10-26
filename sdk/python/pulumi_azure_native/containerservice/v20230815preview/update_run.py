@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -45,15 +45,52 @@ class UpdateRunArgs:
                Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate. 
                UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
         """
-        pulumi.set(__self__, "fleet_name", fleet_name)
-        pulumi.set(__self__, "managed_cluster_update", managed_cluster_update)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        UpdateRunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fleet_name=fleet_name,
+            managed_cluster_update=managed_cluster_update,
+            resource_group_name=resource_group_name,
+            strategy=strategy,
+            update_run_name=update_run_name,
+            update_strategy_id=update_strategy_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fleet_name: Optional[pulumi.Input[str]] = None,
+             managed_cluster_update: Optional[pulumi.Input['ManagedClusterUpdateArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             strategy: Optional[pulumi.Input['UpdateRunStrategyArgs']] = None,
+             update_run_name: Optional[pulumi.Input[str]] = None,
+             update_strategy_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fleet_name is None and 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if fleet_name is None:
+            raise TypeError("Missing 'fleet_name' argument")
+        if managed_cluster_update is None and 'managedClusterUpdate' in kwargs:
+            managed_cluster_update = kwargs['managedClusterUpdate']
+        if managed_cluster_update is None:
+            raise TypeError("Missing 'managed_cluster_update' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if update_run_name is None and 'updateRunName' in kwargs:
+            update_run_name = kwargs['updateRunName']
+        if update_strategy_id is None and 'updateStrategyId' in kwargs:
+            update_strategy_id = kwargs['updateStrategyId']
+
+        _setter("fleet_name", fleet_name)
+        _setter("managed_cluster_update", managed_cluster_update)
+        _setter("resource_group_name", resource_group_name)
         if strategy is not None:
-            pulumi.set(__self__, "strategy", strategy)
+            _setter("strategy", strategy)
         if update_run_name is not None:
-            pulumi.set(__self__, "update_run_name", update_run_name)
+            _setter("update_run_name", update_run_name)
         if update_strategy_id is not None:
-            pulumi.set(__self__, "update_strategy_id", update_strategy_id)
+            _setter("update_strategy_id", update_strategy_id)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -197,6 +234,10 @@ class UpdateRun(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UpdateRunArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,12 +261,14 @@ class UpdateRun(pulumi.CustomResource):
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
+            managed_cluster_update = _utilities.configure(managed_cluster_update, ManagedClusterUpdateArgs, True)
             if managed_cluster_update is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_cluster_update'")
             __props__.__dict__["managed_cluster_update"] = managed_cluster_update
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            strategy = _utilities.configure(strategy, UpdateRunStrategyArgs, True)
             __props__.__dict__["strategy"] = strategy
             __props__.__dict__["update_run_name"] = update_run_name
             __props__.__dict__["update_strategy_id"] = update_strategy_id

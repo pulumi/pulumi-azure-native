@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,40 @@ class FailoverGroupArgs:
         :param pulumi.Input[str] sql_managed_instance_name: Name of SQL Managed Instance
         :param pulumi.Input[str] failover_group_name: The name of the Failover Group
         """
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_managed_instance_name", sql_managed_instance_name)
+        FailoverGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            resource_group_name=resource_group_name,
+            sql_managed_instance_name=sql_managed_instance_name,
+            failover_group_name=failover_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['FailoverGroupPropertiesArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sql_managed_instance_name: Optional[pulumi.Input[str]] = None,
+             failover_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sql_managed_instance_name is None and 'sqlManagedInstanceName' in kwargs:
+            sql_managed_instance_name = kwargs['sqlManagedInstanceName']
+        if sql_managed_instance_name is None:
+            raise TypeError("Missing 'sql_managed_instance_name' argument")
+        if failover_group_name is None and 'failoverGroupName' in kwargs:
+            failover_group_name = kwargs['failoverGroupName']
+
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sql_managed_instance_name", sql_managed_instance_name)
         if failover_group_name is not None:
-            pulumi.set(__self__, "failover_group_name", failover_group_name)
+            _setter("failover_group_name", failover_group_name)
 
     @property
     @pulumi.getter
@@ -122,6 +151,10 @@ class FailoverGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FailoverGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,6 +174,7 @@ class FailoverGroup(pulumi.CustomResource):
             __props__ = FailoverGroupArgs.__new__(FailoverGroupArgs)
 
             __props__.__dict__["failover_group_name"] = failover_group_name
+            properties = _utilities.configure(properties, FailoverGroupPropertiesArgs, True)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

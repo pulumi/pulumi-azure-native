@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -46,12 +46,29 @@ class PolicyAssignmentPropertiesResponse(dict):
         :param 'PolicyAssignmentPropertiesResponseRoleDefinition' role_definition: Details of role definition
         :param 'PolicyAssignmentPropertiesResponseScope' scope: Details of the resource scope
         """
+        PolicyAssignmentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+            role_definition=role_definition,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional['outputs.PolicyAssignmentPropertiesResponsePolicy'] = None,
+             role_definition: Optional['outputs.PolicyAssignmentPropertiesResponseRoleDefinition'] = None,
+             scope: Optional['outputs.PolicyAssignmentPropertiesResponseScope'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_definition is None and 'roleDefinition' in kwargs:
+            role_definition = kwargs['roleDefinition']
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if role_definition is not None:
-            pulumi.set(__self__, "role_definition", role_definition)
+            _setter("role_definition", role_definition)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -112,11 +129,32 @@ class PolicyAssignmentPropertiesResponsePolicy(dict):
         :param str id: Id of the policy
         :param str last_modified_date_time: The last modified date time.
         """
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
+        PolicyAssignmentPropertiesResponsePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_modified_by=last_modified_by,
+            id=id,
+            last_modified_date_time=last_modified_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_modified_by: Optional['outputs.PrincipalResponse'] = None,
+             id: Optional[str] = None,
+             last_modified_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by is None:
+            raise TypeError("Missing 'last_modified_by' argument")
+        if last_modified_date_time is None and 'lastModifiedDateTime' in kwargs:
+            last_modified_date_time = kwargs['lastModifiedDateTime']
+
+        _setter("last_modified_by", last_modified_by)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if last_modified_date_time is not None:
-            pulumi.set(__self__, "last_modified_date_time", last_modified_date_time)
+            _setter("last_modified_date_time", last_modified_date_time)
 
     @property
     @pulumi.getter(name="lastModifiedBy")
@@ -175,12 +213,29 @@ class PolicyAssignmentPropertiesResponseRoleDefinition(dict):
         :param str id: Id of the role definition
         :param str type: Type of the role definition
         """
+        PolicyAssignmentPropertiesResponseRoleDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="displayName")
@@ -239,12 +294,29 @@ class PolicyAssignmentPropertiesResponseScope(dict):
         :param str id: Scope id of the resource
         :param str type: Type of the resource
         """
+        PolicyAssignmentPropertiesResponseScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="displayName")
@@ -305,14 +377,33 @@ class PrincipalResponse(dict):
         :param str id: The id of the principal made changes
         :param str type: Type of principal such as user , group etc
         """
+        PrincipalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            email=email,
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             email: Optional[str] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="displayName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -26,12 +26,33 @@ class ConnectorArgs:
         :param pulumi.Input[str] connector_name: Name of the cloud account connector
         :param pulumi.Input['HybridComputeSettingsPropertiesArgs'] hybrid_compute_settings: Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         """
+        ConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_details=authentication_details,
+            connector_name=connector_name,
+            hybrid_compute_settings=hybrid_compute_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_details: Optional[pulumi.Input[Union['AwAssumeRoleAuthenticationDetailsPropertiesArgs', 'AwsCredsAuthenticationDetailsPropertiesArgs', 'GcpCredentialsDetailsPropertiesArgs']]] = None,
+             connector_name: Optional[pulumi.Input[str]] = None,
+             hybrid_compute_settings: Optional[pulumi.Input['HybridComputeSettingsPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_details is None and 'authenticationDetails' in kwargs:
+            authentication_details = kwargs['authenticationDetails']
+        if connector_name is None and 'connectorName' in kwargs:
+            connector_name = kwargs['connectorName']
+        if hybrid_compute_settings is None and 'hybridComputeSettings' in kwargs:
+            hybrid_compute_settings = kwargs['hybridComputeSettings']
+
         if authentication_details is not None:
-            pulumi.set(__self__, "authentication_details", authentication_details)
+            _setter("authentication_details", authentication_details)
         if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
+            _setter("connector_name", connector_name)
         if hybrid_compute_settings is not None:
-            pulumi.set(__self__, "hybrid_compute_settings", hybrid_compute_settings)
+            _setter("hybrid_compute_settings", hybrid_compute_settings)
 
     @property
     @pulumi.getter(name="authenticationDetails")
@@ -107,6 +128,10 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -126,6 +151,7 @@ class Connector(pulumi.CustomResource):
 
             __props__.__dict__["authentication_details"] = authentication_details
             __props__.__dict__["connector_name"] = connector_name
+            hybrid_compute_settings = _utilities.configure(hybrid_compute_settings, HybridComputeSettingsPropertiesArgs, True)
             __props__.__dict__["hybrid_compute_settings"] = hybrid_compute_settings
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None

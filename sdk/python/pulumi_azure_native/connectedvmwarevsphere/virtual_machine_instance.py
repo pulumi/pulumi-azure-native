@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,70 @@ class VirtualMachineInstanceArgs:
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Gets the security profile.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage properties.
         """
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        VirtualMachineInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_uri=resource_uri,
+            extended_location=extended_location,
+            hardware_profile=hardware_profile,
+            infrastructure_profile=infrastructure_profile,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            placement_profile=placement_profile,
+            security_profile=security_profile,
+            storage_profile=storage_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_uri: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
+             infrastructure_profile: Optional[pulumi.Input['InfrastructureProfileArgs']] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             os_profile: Optional[pulumi.Input['OsProfileForVMInstanceArgs']] = None,
+             placement_profile: Optional[pulumi.Input['PlacementProfileArgs']] = None,
+             security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_uri is None and 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+        if resource_uri is None:
+            raise TypeError("Missing 'resource_uri' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if hardware_profile is None and 'hardwareProfile' in kwargs:
+            hardware_profile = kwargs['hardwareProfile']
+        if infrastructure_profile is None and 'infrastructureProfile' in kwargs:
+            infrastructure_profile = kwargs['infrastructureProfile']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if placement_profile is None and 'placementProfile' in kwargs:
+            placement_profile = kwargs['placementProfile']
+        if security_profile is None and 'securityProfile' in kwargs:
+            security_profile = kwargs['securityProfile']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+
+        _setter("resource_uri", resource_uri)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if infrastructure_profile is not None:
-            pulumi.set(__self__, "infrastructure_profile", infrastructure_profile)
+            _setter("infrastructure_profile", infrastructure_profile)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if placement_profile is not None:
-            pulumi.set(__self__, "placement_profile", placement_profile)
+            _setter("placement_profile", placement_profile)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -220,6 +267,10 @@ class VirtualMachineInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -243,16 +294,24 @@ class VirtualMachineInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineInstanceArgs.__new__(VirtualMachineInstanceArgs)
 
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
+            hardware_profile = _utilities.configure(hardware_profile, HardwareProfileArgs, True)
             __props__.__dict__["hardware_profile"] = hardware_profile
+            infrastructure_profile = _utilities.configure(infrastructure_profile, InfrastructureProfileArgs, True)
             __props__.__dict__["infrastructure_profile"] = infrastructure_profile
+            network_profile = _utilities.configure(network_profile, NetworkProfileArgs, True)
             __props__.__dict__["network_profile"] = network_profile
+            os_profile = _utilities.configure(os_profile, OsProfileForVMInstanceArgs, True)
             __props__.__dict__["os_profile"] = os_profile
+            placement_profile = _utilities.configure(placement_profile, PlacementProfileArgs, True)
             __props__.__dict__["placement_profile"] = placement_profile
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
+            security_profile = _utilities.configure(security_profile, SecurityProfileArgs, True)
             __props__.__dict__["security_profile"] = security_profile
+            storage_profile = _utilities.configure(storage_profile, StorageProfileArgs, True)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["name"] = None
             __props__.__dict__["power_state"] = None

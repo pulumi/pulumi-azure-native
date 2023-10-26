@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -49,14 +49,37 @@ class ActionableRemediationResponse(dict):
                Enabled - ActionableRemediation is enabled.
                Disabled - ActionableRemediation is disabled.
         """
+        ActionableRemediationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_configuration=branch_configuration,
+            category_configurations=category_configurations,
+            inherit_from_parent_state=inherit_from_parent_state,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_configuration: Optional['outputs.TargetBranchConfigurationResponse'] = None,
+             category_configurations: Optional[Sequence['outputs.CategoryConfigurationResponse']] = None,
+             inherit_from_parent_state: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_configuration is None and 'branchConfiguration' in kwargs:
+            branch_configuration = kwargs['branchConfiguration']
+        if category_configurations is None and 'categoryConfigurations' in kwargs:
+            category_configurations = kwargs['categoryConfigurations']
+        if inherit_from_parent_state is None and 'inheritFromParentState' in kwargs:
+            inherit_from_parent_state = kwargs['inheritFromParentState']
+
         if branch_configuration is not None:
-            pulumi.set(__self__, "branch_configuration", branch_configuration)
+            _setter("branch_configuration", branch_configuration)
         if category_configurations is not None:
-            pulumi.set(__self__, "category_configurations", category_configurations)
+            _setter("category_configurations", category_configurations)
         if inherit_from_parent_state is not None:
-            pulumi.set(__self__, "inherit_from_parent_state", inherit_from_parent_state)
+            _setter("inherit_from_parent_state", inherit_from_parent_state)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="branchConfiguration")
@@ -110,8 +133,19 @@ class AuthorizationResponse(dict):
                
                Only used during PUT/PATCH operations. The secret is cleared during GET.
         """
+        AuthorizationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
 
     @property
     @pulumi.getter
@@ -156,14 +190,47 @@ class AzureDevOpsOrgPropertiesResponse(dict):
                DeletionSuccess - Deletion successful.
                DeletionFailure - Deletion failure.
         """
-        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
-        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        AzureDevOpsOrgPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_status_message=provisioning_status_message,
+            provisioning_status_update_time_utc=provisioning_status_update_time_utc,
+            actionable_remediation=actionable_remediation,
+            onboarding_state=onboarding_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_status_message: Optional[str] = None,
+             provisioning_status_update_time_utc: Optional[str] = None,
+             actionable_remediation: Optional['outputs.ActionableRemediationResponse'] = None,
+             onboarding_state: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_status_message is None and 'provisioningStatusMessage' in kwargs:
+            provisioning_status_message = kwargs['provisioningStatusMessage']
+        if provisioning_status_message is None:
+            raise TypeError("Missing 'provisioning_status_message' argument")
+        if provisioning_status_update_time_utc is None and 'provisioningStatusUpdateTimeUtc' in kwargs:
+            provisioning_status_update_time_utc = kwargs['provisioningStatusUpdateTimeUtc']
+        if provisioning_status_update_time_utc is None:
+            raise TypeError("Missing 'provisioning_status_update_time_utc' argument")
+        if actionable_remediation is None and 'actionableRemediation' in kwargs:
+            actionable_remediation = kwargs['actionableRemediation']
+        if onboarding_state is None and 'onboardingState' in kwargs:
+            onboarding_state = kwargs['onboardingState']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("provisioning_status_message", provisioning_status_message)
+        _setter("provisioning_status_update_time_utc", provisioning_status_update_time_utc)
         if actionable_remediation is not None:
-            pulumi.set(__self__, "actionable_remediation", actionable_remediation)
+            _setter("actionable_remediation", actionable_remediation)
         if onboarding_state is not None:
-            pulumi.set(__self__, "onboarding_state", onboarding_state)
+            _setter("onboarding_state", onboarding_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="provisioningStatusMessage")
@@ -238,12 +305,41 @@ class AzureDevOpsOrgResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'AzureDevOpsOrgPropertiesResponse' properties: Azure DevOps Organization properties.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        AzureDevOpsOrgResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            system_data=system_data,
+            type=type,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             properties: Optional['outputs.AzureDevOpsOrgPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -305,10 +401,25 @@ class CategoryConfigurationResponse(dict):
                Container scanning results.
         :param str minimum_severity_level: Gets or sets minimum severity level for a given category.
         """
+        CategoryConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            minimum_severity_level=minimum_severity_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[str] = None,
+             minimum_severity_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if minimum_severity_level is None and 'minimumSeverityLevel' in kwargs:
+            minimum_severity_level = kwargs['minimumSeverityLevel']
+
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if minimum_severity_level is not None:
-            pulumi.set(__self__, "minimum_severity_level", minimum_severity_level)
+            _setter("minimum_severity_level", minimum_severity_level)
 
     @property
     @pulumi.getter
@@ -388,16 +499,51 @@ class DevOpsConfigurationPropertiesResponse(dict):
         :param Sequence[str] top_level_inventory_list: List of top-level inventory to select when AutoDiscovery is disabled.
                This field is ignored when AutoDiscovery is enabled.
         """
-        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
-        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        DevOpsConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_status_message=provisioning_status_message,
+            provisioning_status_update_time_utc=provisioning_status_update_time_utc,
+            authorization=authorization,
+            auto_discovery=auto_discovery,
+            provisioning_state=provisioning_state,
+            top_level_inventory_list=top_level_inventory_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_status_message: Optional[str] = None,
+             provisioning_status_update_time_utc: Optional[str] = None,
+             authorization: Optional['outputs.AuthorizationResponse'] = None,
+             auto_discovery: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             top_level_inventory_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_status_message is None and 'provisioningStatusMessage' in kwargs:
+            provisioning_status_message = kwargs['provisioningStatusMessage']
+        if provisioning_status_message is None:
+            raise TypeError("Missing 'provisioning_status_message' argument")
+        if provisioning_status_update_time_utc is None and 'provisioningStatusUpdateTimeUtc' in kwargs:
+            provisioning_status_update_time_utc = kwargs['provisioningStatusUpdateTimeUtc']
+        if provisioning_status_update_time_utc is None:
+            raise TypeError("Missing 'provisioning_status_update_time_utc' argument")
+        if auto_discovery is None and 'autoDiscovery' in kwargs:
+            auto_discovery = kwargs['autoDiscovery']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if top_level_inventory_list is None and 'topLevelInventoryList' in kwargs:
+            top_level_inventory_list = kwargs['topLevelInventoryList']
+
+        _setter("provisioning_status_message", provisioning_status_message)
+        _setter("provisioning_status_update_time_utc", provisioning_status_update_time_utc)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if auto_discovery is not None:
-            pulumi.set(__self__, "auto_discovery", auto_discovery)
+            _setter("auto_discovery", auto_discovery)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if top_level_inventory_list is not None:
-            pulumi.set(__self__, "top_level_inventory_list", top_level_inventory_list)
+            _setter("top_level_inventory_list", top_level_inventory_list)
 
     @property
     @pulumi.getter(name="provisioningStatusMessage")
@@ -491,14 +637,55 @@ class GitHubOwnerPropertiesResponse(dict):
                DeletionSuccess - Deletion successful.
                DeletionFailure - Deletion failure.
         """
-        pulumi.set(__self__, "git_hub_internal_id", git_hub_internal_id)
-        pulumi.set(__self__, "owner_url", owner_url)
-        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
-        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        GitHubOwnerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            git_hub_internal_id=git_hub_internal_id,
+            owner_url=owner_url,
+            provisioning_status_message=provisioning_status_message,
+            provisioning_status_update_time_utc=provisioning_status_update_time_utc,
+            onboarding_state=onboarding_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             git_hub_internal_id: Optional[str] = None,
+             owner_url: Optional[str] = None,
+             provisioning_status_message: Optional[str] = None,
+             provisioning_status_update_time_utc: Optional[str] = None,
+             onboarding_state: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if git_hub_internal_id is None and 'gitHubInternalId' in kwargs:
+            git_hub_internal_id = kwargs['gitHubInternalId']
+        if git_hub_internal_id is None:
+            raise TypeError("Missing 'git_hub_internal_id' argument")
+        if owner_url is None and 'ownerUrl' in kwargs:
+            owner_url = kwargs['ownerUrl']
+        if owner_url is None:
+            raise TypeError("Missing 'owner_url' argument")
+        if provisioning_status_message is None and 'provisioningStatusMessage' in kwargs:
+            provisioning_status_message = kwargs['provisioningStatusMessage']
+        if provisioning_status_message is None:
+            raise TypeError("Missing 'provisioning_status_message' argument")
+        if provisioning_status_update_time_utc is None and 'provisioningStatusUpdateTimeUtc' in kwargs:
+            provisioning_status_update_time_utc = kwargs['provisioningStatusUpdateTimeUtc']
+        if provisioning_status_update_time_utc is None:
+            raise TypeError("Missing 'provisioning_status_update_time_utc' argument")
+        if onboarding_state is None and 'onboardingState' in kwargs:
+            onboarding_state = kwargs['onboardingState']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("git_hub_internal_id", git_hub_internal_id)
+        _setter("owner_url", owner_url)
+        _setter("provisioning_status_message", provisioning_status_message)
+        _setter("provisioning_status_update_time_utc", provisioning_status_update_time_utc)
         if onboarding_state is not None:
-            pulumi.set(__self__, "onboarding_state", onboarding_state)
+            _setter("onboarding_state", onboarding_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="gitHubInternalId")
@@ -581,12 +768,41 @@ class GitHubOwnerResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'GitHubOwnerPropertiesResponse' properties: GitHub Owner properties.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        GitHubOwnerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            system_data=system_data,
+            type=type,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             properties: Optional['outputs.GitHubOwnerPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -669,15 +885,60 @@ class GitLabGroupPropertiesResponse(dict):
                DeletionSuccess - Deletion successful.
                DeletionFailure - Deletion failure.
         """
-        pulumi.set(__self__, "fully_qualified_friendly_name", fully_qualified_friendly_name)
-        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
-        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
-        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
-        pulumi.set(__self__, "url", url)
+        GitLabGroupPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fully_qualified_friendly_name=fully_qualified_friendly_name,
+            fully_qualified_name=fully_qualified_name,
+            provisioning_status_message=provisioning_status_message,
+            provisioning_status_update_time_utc=provisioning_status_update_time_utc,
+            url=url,
+            onboarding_state=onboarding_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fully_qualified_friendly_name: Optional[str] = None,
+             fully_qualified_name: Optional[str] = None,
+             provisioning_status_message: Optional[str] = None,
+             provisioning_status_update_time_utc: Optional[str] = None,
+             url: Optional[str] = None,
+             onboarding_state: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fully_qualified_friendly_name is None and 'fullyQualifiedFriendlyName' in kwargs:
+            fully_qualified_friendly_name = kwargs['fullyQualifiedFriendlyName']
+        if fully_qualified_friendly_name is None:
+            raise TypeError("Missing 'fully_qualified_friendly_name' argument")
+        if fully_qualified_name is None and 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if fully_qualified_name is None:
+            raise TypeError("Missing 'fully_qualified_name' argument")
+        if provisioning_status_message is None and 'provisioningStatusMessage' in kwargs:
+            provisioning_status_message = kwargs['provisioningStatusMessage']
+        if provisioning_status_message is None:
+            raise TypeError("Missing 'provisioning_status_message' argument")
+        if provisioning_status_update_time_utc is None and 'provisioningStatusUpdateTimeUtc' in kwargs:
+            provisioning_status_update_time_utc = kwargs['provisioningStatusUpdateTimeUtc']
+        if provisioning_status_update_time_utc is None:
+            raise TypeError("Missing 'provisioning_status_update_time_utc' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if onboarding_state is None and 'onboardingState' in kwargs:
+            onboarding_state = kwargs['onboardingState']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("fully_qualified_friendly_name", fully_qualified_friendly_name)
+        _setter("fully_qualified_name", fully_qualified_name)
+        _setter("provisioning_status_message", provisioning_status_message)
+        _setter("provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        _setter("url", url)
         if onboarding_state is not None:
-            pulumi.set(__self__, "onboarding_state", onboarding_state)
+            _setter("onboarding_state", onboarding_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="fullyQualifiedFriendlyName")
@@ -772,12 +1033,41 @@ class GitLabGroupResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'GitLabGroupPropertiesResponse' properties: GitLab Group properties.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        GitLabGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            system_data=system_data,
+            type=type,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             properties: Optional['outputs.GitLabGroupPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -868,18 +1158,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -946,10 +1269,27 @@ class TargetBranchConfigurationResponse(dict):
                Disabled - PR Annotations are disabled on the resource's default branch.
         :param Sequence[str] branch_names: Gets or sets branches that should have annotations.
         """
+        TargetBranchConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            annotate_default_branch=annotate_default_branch,
+            branch_names=branch_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             annotate_default_branch: Optional[str] = None,
+             branch_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if annotate_default_branch is None and 'annotateDefaultBranch' in kwargs:
+            annotate_default_branch = kwargs['annotateDefaultBranch']
+        if branch_names is None and 'branchNames' in kwargs:
+            branch_names = kwargs['branchNames']
+
         if annotate_default_branch is not None:
-            pulumi.set(__self__, "annotate_default_branch", annotate_default_branch)
+            _setter("annotate_default_branch", annotate_default_branch)
         if branch_names is not None:
-            pulumi.set(__self__, "branch_names", branch_names)
+            _setter("branch_names", branch_names)
 
     @property
     @pulumi.getter(name="annotateDefaultBranch")

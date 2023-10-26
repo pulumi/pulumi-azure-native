@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,23 +36,58 @@ class ApplianceArgs:
         :param pulumi.Input[str] resource_name: Appliances name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplianceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            distro=distro,
+            identity=identity,
+            infrastructure_config=infrastructure_config,
+            location=location,
+            public_key=public_key,
+            resource_name=resource_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             distro: Optional[pulumi.Input[Union[str, 'Distro']]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             infrastructure_config: Optional[pulumi.Input['AppliancePropertiesInfrastructureConfigArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if infrastructure_config is None and 'infrastructureConfig' in kwargs:
+            infrastructure_config = kwargs['infrastructureConfig']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
+        _setter("resource_group_name", resource_group_name)
         if distro is None:
             distro = 'AKSEdge'
         if distro is not None:
-            pulumi.set(__self__, "distro", distro)
+            _setter("distro", distro)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if infrastructure_config is not None:
-            pulumi.set(__self__, "infrastructure_config", infrastructure_config)
+            _setter("infrastructure_config", infrastructure_config)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -198,6 +233,10 @@ class Appliance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplianceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,7 +262,9 @@ class Appliance(pulumi.CustomResource):
             if distro is None:
                 distro = 'AKSEdge'
             __props__.__dict__["distro"] = distro
+            identity = _utilities.configure(identity, IdentityArgs, True)
             __props__.__dict__["identity"] = identity
+            infrastructure_config = _utilities.configure(infrastructure_config, AppliancePropertiesInfrastructureConfigArgs, True)
             __props__.__dict__["infrastructure_config"] = infrastructure_config
             __props__.__dict__["location"] = location
             __props__.__dict__["public_key"] = public_key

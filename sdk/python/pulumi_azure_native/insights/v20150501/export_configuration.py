@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ExportConfigurationArgs', 'ExportConfiguration']
@@ -41,28 +41,89 @@ class ExportConfigurationArgs:
         :param pulumi.Input[str] notification_queue_uri: Deprecated
         :param pulumi.Input[str] record_types: The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        ExportConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            destination_account_id=destination_account_id,
+            destination_address=destination_address,
+            destination_storage_location_id=destination_storage_location_id,
+            destination_storage_subscription_id=destination_storage_subscription_id,
+            destination_type=destination_type,
+            export_id=export_id,
+            is_enabled=is_enabled,
+            notification_queue_enabled=notification_queue_enabled,
+            notification_queue_uri=notification_queue_uri,
+            record_types=record_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             destination_account_id: Optional[pulumi.Input[str]] = None,
+             destination_address: Optional[pulumi.Input[str]] = None,
+             destination_storage_location_id: Optional[pulumi.Input[str]] = None,
+             destination_storage_subscription_id: Optional[pulumi.Input[str]] = None,
+             destination_type: Optional[pulumi.Input[str]] = None,
+             export_id: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[str]] = None,
+             notification_queue_enabled: Optional[pulumi.Input[str]] = None,
+             notification_queue_uri: Optional[pulumi.Input[str]] = None,
+             record_types: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if destination_account_id is None and 'destinationAccountId' in kwargs:
+            destination_account_id = kwargs['destinationAccountId']
+        if destination_address is None and 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if destination_storage_location_id is None and 'destinationStorageLocationId' in kwargs:
+            destination_storage_location_id = kwargs['destinationStorageLocationId']
+        if destination_storage_subscription_id is None and 'destinationStorageSubscriptionId' in kwargs:
+            destination_storage_subscription_id = kwargs['destinationStorageSubscriptionId']
+        if destination_type is None and 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+        if export_id is None and 'exportId' in kwargs:
+            export_id = kwargs['exportId']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if notification_queue_enabled is None and 'notificationQueueEnabled' in kwargs:
+            notification_queue_enabled = kwargs['notificationQueueEnabled']
+        if notification_queue_uri is None and 'notificationQueueUri' in kwargs:
+            notification_queue_uri = kwargs['notificationQueueUri']
+        if record_types is None and 'recordTypes' in kwargs:
+            record_types = kwargs['recordTypes']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if destination_account_id is not None:
-            pulumi.set(__self__, "destination_account_id", destination_account_id)
+            _setter("destination_account_id", destination_account_id)
         if destination_address is not None:
-            pulumi.set(__self__, "destination_address", destination_address)
+            _setter("destination_address", destination_address)
         if destination_storage_location_id is not None:
-            pulumi.set(__self__, "destination_storage_location_id", destination_storage_location_id)
+            _setter("destination_storage_location_id", destination_storage_location_id)
         if destination_storage_subscription_id is not None:
-            pulumi.set(__self__, "destination_storage_subscription_id", destination_storage_subscription_id)
+            _setter("destination_storage_subscription_id", destination_storage_subscription_id)
         if destination_type is not None:
-            pulumi.set(__self__, "destination_type", destination_type)
+            _setter("destination_type", destination_type)
         if export_id is not None:
-            pulumi.set(__self__, "export_id", export_id)
+            _setter("export_id", export_id)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if notification_queue_enabled is not None:
-            pulumi.set(__self__, "notification_queue_enabled", notification_queue_enabled)
+            _setter("notification_queue_enabled", notification_queue_enabled)
         if notification_queue_uri is not None:
-            pulumi.set(__self__, "notification_queue_uri", notification_queue_uri)
+            _setter("notification_queue_uri", notification_queue_uri)
         if record_types is not None:
-            pulumi.set(__self__, "record_types", record_types)
+            _setter("record_types", record_types)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -264,6 +325,10 @@ class ExportConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExportConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

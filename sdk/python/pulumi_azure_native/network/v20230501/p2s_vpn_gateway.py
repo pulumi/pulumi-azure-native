@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,76 @@ class P2sVpnGatewayArgs:
         :param pulumi.Input[int] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
         :param pulumi.Input['SubResourceArgs'] vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        P2sVpnGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            custom_dns_servers=custom_dns_servers,
+            gateway_name=gateway_name,
+            id=id,
+            is_routing_preference_internet=is_routing_preference_internet,
+            location=location,
+            p2_s_connection_configurations=p2_s_connection_configurations,
+            tags=tags,
+            virtual_hub=virtual_hub,
+            vpn_gateway_scale_unit=vpn_gateway_scale_unit,
+            vpn_server_configuration=vpn_server_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             custom_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             is_routing_preference_internet: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             p2_s_connection_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['P2SConnectionConfigurationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub: Optional[pulumi.Input['SubResourceArgs']] = None,
+             vpn_gateway_scale_unit: Optional[pulumi.Input[int]] = None,
+             vpn_server_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if custom_dns_servers is None and 'customDnsServers' in kwargs:
+            custom_dns_servers = kwargs['customDnsServers']
+        if gateway_name is None and 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if is_routing_preference_internet is None and 'isRoutingPreferenceInternet' in kwargs:
+            is_routing_preference_internet = kwargs['isRoutingPreferenceInternet']
+        if p2_s_connection_configurations is None and 'p2SConnectionConfigurations' in kwargs:
+            p2_s_connection_configurations = kwargs['p2SConnectionConfigurations']
+        if virtual_hub is None and 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+        if vpn_gateway_scale_unit is None and 'vpnGatewayScaleUnit' in kwargs:
+            vpn_gateway_scale_unit = kwargs['vpnGatewayScaleUnit']
+        if vpn_server_configuration is None and 'vpnServerConfiguration' in kwargs:
+            vpn_server_configuration = kwargs['vpnServerConfiguration']
+
+        _setter("resource_group_name", resource_group_name)
         if custom_dns_servers is not None:
-            pulumi.set(__self__, "custom_dns_servers", custom_dns_servers)
+            _setter("custom_dns_servers", custom_dns_servers)
         if gateway_name is not None:
-            pulumi.set(__self__, "gateway_name", gateway_name)
+            _setter("gateway_name", gateway_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if is_routing_preference_internet is not None:
-            pulumi.set(__self__, "is_routing_preference_internet", is_routing_preference_internet)
+            _setter("is_routing_preference_internet", is_routing_preference_internet)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if p2_s_connection_configurations is not None:
-            pulumi.set(__self__, "p2_s_connection_configurations", p2_s_connection_configurations)
+            _setter("p2_s_connection_configurations", p2_s_connection_configurations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
         if vpn_gateway_scale_unit is not None:
-            pulumi.set(__self__, "vpn_gateway_scale_unit", vpn_gateway_scale_unit)
+            _setter("vpn_gateway_scale_unit", vpn_gateway_scale_unit)
         if vpn_server_configuration is not None:
-            pulumi.set(__self__, "vpn_server_configuration", vpn_server_configuration)
+            _setter("vpn_server_configuration", vpn_server_configuration)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -250,6 +299,10 @@ class P2sVpnGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            P2sVpnGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -285,8 +338,10 @@ class P2sVpnGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            virtual_hub = _utilities.configure(virtual_hub, SubResourceArgs, True)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["vpn_gateway_scale_unit"] = vpn_gateway_scale_unit
+            vpn_server_configuration = _utilities.configure(vpn_server_configuration, SubResourceArgs, True)
             __props__.__dict__["vpn_server_configuration"] = vpn_server_configuration
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None

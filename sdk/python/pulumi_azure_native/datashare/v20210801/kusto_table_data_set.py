@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,14 +34,61 @@ class KustoTableDataSetArgs:
         :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing properties for kusto database
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "kind", 'KustoTable')
-        pulumi.set(__self__, "kusto_database_resource_id", kusto_database_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
+        KustoTableDataSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            kind=kind,
+            kusto_database_resource_id=kusto_database_resource_id,
+            resource_group_name=resource_group_name,
+            share_name=share_name,
+            table_level_sharing_properties=table_level_sharing_properties,
+            data_set_name=data_set_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             kusto_database_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             table_level_sharing_properties: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']] = None,
+             data_set_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if kusto_database_resource_id is None and 'kustoDatabaseResourceId' in kwargs:
+            kusto_database_resource_id = kwargs['kustoDatabaseResourceId']
+        if kusto_database_resource_id is None:
+            raise TypeError("Missing 'kusto_database_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if table_level_sharing_properties is None and 'tableLevelSharingProperties' in kwargs:
+            table_level_sharing_properties = kwargs['tableLevelSharingProperties']
+        if table_level_sharing_properties is None:
+            raise TypeError("Missing 'table_level_sharing_properties' argument")
+        if data_set_name is None and 'dataSetName' in kwargs:
+            data_set_name = kwargs['dataSetName']
+
+        _setter("account_name", account_name)
+        _setter("kind", 'KustoTable')
+        _setter("kusto_database_resource_id", kusto_database_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_name", share_name)
+        _setter("table_level_sharing_properties", table_level_sharing_properties)
         if data_set_name is not None:
-            pulumi.set(__self__, "data_set_name", data_set_name)
+            _setter("data_set_name", data_set_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -175,6 +222,10 @@ class KustoTableDataSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KustoTableDataSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -212,6 +263,7 @@ class KustoTableDataSet(pulumi.CustomResource):
             if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
+            table_level_sharing_properties = _utilities.configure(table_level_sharing_properties, TableLevelSharingPropertiesArgs, True)
             if table_level_sharing_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'table_level_sharing_properties'")
             __props__.__dict__["table_level_sharing_properties"] = table_level_sharing_properties

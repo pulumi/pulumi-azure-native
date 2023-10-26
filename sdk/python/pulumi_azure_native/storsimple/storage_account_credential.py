@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,59 @@ class StorageAccountCredentialArgs:
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] storage_account_credential_name: The storage account credential name.
         """
-        pulumi.set(__self__, "end_point", end_point)
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "ssl_status", ssl_status)
+        StorageAccountCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_point=end_point,
+            manager_name=manager_name,
+            resource_group_name=resource_group_name,
+            ssl_status=ssl_status,
+            access_key=access_key,
+            kind=kind,
+            storage_account_credential_name=storage_account_credential_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_point: Optional[pulumi.Input[str]] = None,
+             manager_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ssl_status: Optional[pulumi.Input['SslStatus']] = None,
+             access_key: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+             kind: Optional[pulumi.Input['Kind']] = None,
+             storage_account_credential_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_point is None and 'endPoint' in kwargs:
+            end_point = kwargs['endPoint']
+        if end_point is None:
+            raise TypeError("Missing 'end_point' argument")
+        if manager_name is None and 'managerName' in kwargs:
+            manager_name = kwargs['managerName']
+        if manager_name is None:
+            raise TypeError("Missing 'manager_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ssl_status is None and 'sslStatus' in kwargs:
+            ssl_status = kwargs['sslStatus']
+        if ssl_status is None:
+            raise TypeError("Missing 'ssl_status' argument")
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if storage_account_credential_name is None and 'storageAccountCredentialName' in kwargs:
+            storage_account_credential_name = kwargs['storageAccountCredentialName']
+
+        _setter("end_point", end_point)
+        _setter("manager_name", manager_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("ssl_status", ssl_status)
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if storage_account_credential_name is not None:
-            pulumi.set(__self__, "storage_account_credential_name", storage_account_credential_name)
+            _setter("storage_account_credential_name", storage_account_credential_name)
 
     @property
     @pulumi.getter(name="endPoint")
@@ -181,6 +224,10 @@ class StorageAccountCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageAccountCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -202,6 +249,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageAccountCredentialArgs.__new__(StorageAccountCredentialArgs)
 
+            access_key = _utilities.configure(access_key, AsymmetricEncryptedSecretArgs, True)
             __props__.__dict__["access_key"] = access_key
             if end_point is None and not opts.urn:
                 raise TypeError("Missing required property 'end_point'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,36 +50,99 @@ class ApplicationArgs:
         :param pulumi.Input[str] type_version: The version of the application type as defined in the application manifest.
         :param pulumi.Input['ApplicationUpgradePolicyArgs'] upgrade_policy: Describes the policy for a monitored application upgrade.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            application_name=application_name,
+            identity=identity,
+            location=location,
+            managed_identities=managed_identities,
+            maximum_nodes=maximum_nodes,
+            metrics=metrics,
+            minimum_nodes=minimum_nodes,
+            parameters=parameters,
+            remove_application_capacity=remove_application_capacity,
+            tags=tags,
+            type_name=type_name,
+            type_version=type_version,
+            upgrade_policy=upgrade_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             application_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_identities: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationUserAssignedIdentityArgs']]]] = None,
+             maximum_nodes: Optional[pulumi.Input[float]] = None,
+             metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationMetricDescriptionArgs']]]] = None,
+             minimum_nodes: Optional[pulumi.Input[float]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             remove_application_capacity: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type_name: Optional[pulumi.Input[str]] = None,
+             type_version: Optional[pulumi.Input[str]] = None,
+             upgrade_policy: Optional[pulumi.Input['ApplicationUpgradePolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if managed_identities is None and 'managedIdentities' in kwargs:
+            managed_identities = kwargs['managedIdentities']
+        if maximum_nodes is None and 'maximumNodes' in kwargs:
+            maximum_nodes = kwargs['maximumNodes']
+        if minimum_nodes is None and 'minimumNodes' in kwargs:
+            minimum_nodes = kwargs['minimumNodes']
+        if remove_application_capacity is None and 'removeApplicationCapacity' in kwargs:
+            remove_application_capacity = kwargs['removeApplicationCapacity']
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if type_version is None and 'typeVersion' in kwargs:
+            type_version = kwargs['typeVersion']
+        if upgrade_policy is None and 'upgradePolicy' in kwargs:
+            upgrade_policy = kwargs['upgradePolicy']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_identities is not None:
-            pulumi.set(__self__, "managed_identities", managed_identities)
+            _setter("managed_identities", managed_identities)
         if maximum_nodes is None:
             maximum_nodes = 0
         if maximum_nodes is not None:
-            pulumi.set(__self__, "maximum_nodes", maximum_nodes)
+            _setter("maximum_nodes", maximum_nodes)
         if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
+            _setter("metrics", metrics)
         if minimum_nodes is not None:
-            pulumi.set(__self__, "minimum_nodes", minimum_nodes)
+            _setter("minimum_nodes", minimum_nodes)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if remove_application_capacity is not None:
-            pulumi.set(__self__, "remove_application_capacity", remove_application_capacity)
+            _setter("remove_application_capacity", remove_application_capacity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if type_version is not None:
-            pulumi.set(__self__, "type_version", type_version)
+            _setter("type_version", type_version)
         if upgrade_policy is not None:
-            pulumi.set(__self__, "upgrade_policy", upgrade_policy)
+            _setter("upgrade_policy", upgrade_policy)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -323,6 +386,10 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -356,6 +423,7 @@ class Application(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
+            identity = _utilities.configure(identity, ManagedIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_identities"] = managed_identities
@@ -372,6 +440,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type_name"] = type_name
             __props__.__dict__["type_version"] = type_version
+            upgrade_policy = _utilities.configure(upgrade_policy, ApplicationUpgradePolicyArgs, True)
             __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None

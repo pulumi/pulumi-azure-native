@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,80 @@ class ExpressRouteCircuitConnectionInitArgs:
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] peer_express_route_circuit_peering: Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
-        pulumi.set(__self__, "circuit_name", circuit_name)
-        pulumi.set(__self__, "peering_name", peering_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRouteCircuitConnectionInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            circuit_name=circuit_name,
+            peering_name=peering_name,
+            resource_group_name=resource_group_name,
+            address_prefix=address_prefix,
+            authorization_key=authorization_key,
+            connection_name=connection_name,
+            express_route_circuit_peering=express_route_circuit_peering,
+            id=id,
+            ipv6_circuit_connection_config=ipv6_circuit_connection_config,
+            name=name,
+            peer_express_route_circuit_peering=peer_express_route_circuit_peering,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             circuit_name: Optional[pulumi.Input[str]] = None,
+             peering_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             connection_name: Optional[pulumi.Input[str]] = None,
+             express_route_circuit_peering: Optional[pulumi.Input['SubResourceArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ipv6_circuit_connection_config: Optional[pulumi.Input['Ipv6CircuitConnectionConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             peer_express_route_circuit_peering: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if circuit_name is None and 'circuitName' in kwargs:
+            circuit_name = kwargs['circuitName']
+        if circuit_name is None:
+            raise TypeError("Missing 'circuit_name' argument")
+        if peering_name is None and 'peeringName' in kwargs:
+            peering_name = kwargs['peeringName']
+        if peering_name is None:
+            raise TypeError("Missing 'peering_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if address_prefix is None and 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if authorization_key is None and 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if express_route_circuit_peering is None and 'expressRouteCircuitPeering' in kwargs:
+            express_route_circuit_peering = kwargs['expressRouteCircuitPeering']
+        if ipv6_circuit_connection_config is None and 'ipv6CircuitConnectionConfig' in kwargs:
+            ipv6_circuit_connection_config = kwargs['ipv6CircuitConnectionConfig']
+        if peer_express_route_circuit_peering is None and 'peerExpressRouteCircuitPeering' in kwargs:
+            peer_express_route_circuit_peering = kwargs['peerExpressRouteCircuitPeering']
+
+        _setter("circuit_name", circuit_name)
+        _setter("peering_name", peering_name)
+        _setter("resource_group_name", resource_group_name)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if express_route_circuit_peering is not None:
-            pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+            _setter("express_route_circuit_peering", express_route_circuit_peering)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ipv6_circuit_connection_config is not None:
-            pulumi.set(__self__, "ipv6_circuit_connection_config", ipv6_circuit_connection_config)
+            _setter("ipv6_circuit_connection_config", ipv6_circuit_connection_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_express_route_circuit_peering is not None:
-            pulumi.set(__self__, "peer_express_route_circuit_peering", peer_express_route_circuit_peering)
+            _setter("peer_express_route_circuit_peering", peer_express_route_circuit_peering)
 
     @property
     @pulumi.getter(name="circuitName")
@@ -253,6 +308,10 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteCircuitConnectionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -284,10 +343,13 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'circuit_name'")
             __props__.__dict__["circuit_name"] = circuit_name
             __props__.__dict__["connection_name"] = connection_name
+            express_route_circuit_peering = _utilities.configure(express_route_circuit_peering, SubResourceArgs, True)
             __props__.__dict__["express_route_circuit_peering"] = express_route_circuit_peering
             __props__.__dict__["id"] = id
+            ipv6_circuit_connection_config = _utilities.configure(ipv6_circuit_connection_config, Ipv6CircuitConnectionConfigArgs, True)
             __props__.__dict__["ipv6_circuit_connection_config"] = ipv6_circuit_connection_config
             __props__.__dict__["name"] = name
+            peer_express_route_circuit_peering = _utilities.configure(peer_express_route_circuit_peering, SubResourceArgs, True)
             __props__.__dict__["peer_express_route_circuit_peering"] = peer_express_route_circuit_peering
             if peering_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_name'")

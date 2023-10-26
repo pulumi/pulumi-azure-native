@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -51,34 +51,113 @@ class EventHubDataConnectionArgs:
         :param pulumi.Input[str] retrieval_start_date: When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "consumer_group", consumer_group)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
-        pulumi.set(__self__, "kind", 'EventHub')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EventHubDataConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            consumer_group=consumer_group,
+            database_name=database_name,
+            event_hub_resource_id=event_hub_resource_id,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            compression=compression,
+            data_connection_name=data_connection_name,
+            data_format=data_format,
+            database_routing=database_routing,
+            event_system_properties=event_system_properties,
+            location=location,
+            managed_identity_resource_id=managed_identity_resource_id,
+            mapping_rule_name=mapping_rule_name,
+            retrieval_start_date=retrieval_start_date,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             consumer_group: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             event_hub_resource_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             compression: Optional[pulumi.Input[Union[str, 'Compression']]] = None,
+             data_connection_name: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[Union[str, 'EventHubDataFormat']]] = None,
+             database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
+             event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             retrieval_start_date: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if consumer_group is None and 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+        if consumer_group is None:
+            raise TypeError("Missing 'consumer_group' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if event_hub_resource_id is None and 'eventHubResourceId' in kwargs:
+            event_hub_resource_id = kwargs['eventHubResourceId']
+        if event_hub_resource_id is None:
+            raise TypeError("Missing 'event_hub_resource_id' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if data_connection_name is None and 'dataConnectionName' in kwargs:
+            data_connection_name = kwargs['dataConnectionName']
+        if data_format is None and 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if database_routing is None and 'databaseRouting' in kwargs:
+            database_routing = kwargs['databaseRouting']
+        if event_system_properties is None and 'eventSystemProperties' in kwargs:
+            event_system_properties = kwargs['eventSystemProperties']
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if retrieval_start_date is None and 'retrievalStartDate' in kwargs:
+            retrieval_start_date = kwargs['retrievalStartDate']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
+        _setter("cluster_name", cluster_name)
+        _setter("consumer_group", consumer_group)
+        _setter("database_name", database_name)
+        _setter("event_hub_resource_id", event_hub_resource_id)
+        _setter("kind", 'EventHub')
+        _setter("resource_group_name", resource_group_name)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
+            _setter("data_connection_name", data_connection_name)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if database_routing is None:
             database_routing = 'Single'
         if database_routing is not None:
-            pulumi.set(__self__, "database_routing", database_routing)
+            _setter("database_routing", database_routing)
         if event_system_properties is not None:
-            pulumi.set(__self__, "event_system_properties", event_system_properties)
+            _setter("event_system_properties", event_system_properties)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_identity_resource_id is not None:
-            pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
+            _setter("managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if retrieval_start_date is not None:
-            pulumi.set(__self__, "retrieval_start_date", retrieval_start_date)
+            _setter("retrieval_start_date", retrieval_start_date)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -340,6 +419,10 @@ class EventHubDataConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventHubDataConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

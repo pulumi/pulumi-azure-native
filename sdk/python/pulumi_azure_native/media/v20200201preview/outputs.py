@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,10 +58,39 @@ class MediaGraphAssetSinkResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphAssetSink'.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "inputs", inputs)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphAssetSink')
+        MediaGraphAssetSinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            inputs=inputs,
+            name=name,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: Optional[str] = None,
+             inputs: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if inputs is None:
+            raise TypeError("Missing 'inputs' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("asset_name", asset_name)
+        _setter("inputs", inputs)
+        _setter("name", name)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphAssetSink')
 
     @property
     @pulumi.getter(name="assetName")
@@ -130,10 +159,31 @@ class MediaGraphClearEndpointResponse(dict):
         :param str url: Url for the endpoint.
         :param 'MediaGraphUsernamePasswordCredentialsResponse' credentials: Polymorphic credentials to present to the endpoint.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
-        pulumi.set(__self__, "url", url)
+        MediaGraphClearEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            url=url,
+            credentials=credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             url: Optional[str] = None,
+             credentials: Optional['outputs.MediaGraphUsernamePasswordCredentialsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
+        _setter("odata_type", '#Microsoft.Media.MediaGraphClearEndpoint')
+        _setter("url", url)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
 
     @property
     @pulumi.getter(name="odataType")
@@ -192,8 +242,27 @@ class MediaGraphPemCertificateListResponse(dict):
         :param str odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.MediaGraphPemCertificateList'.
         """
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
+        MediaGraphPemCertificateListResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[Sequence[str]] = None,
+             odata_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("certificates", certificates)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphPemCertificateList')
 
     @property
     @pulumi.getter
@@ -248,10 +317,37 @@ class MediaGraphRtspSourceResponse(dict):
                Expected value is '#Microsoft.Media.MediaGraphRtspSource'.
         :param str transport: Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphRtspSource')
-        pulumi.set(__self__, "transport", transport)
+        MediaGraphRtspSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+            odata_type=odata_type,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[Any] = None,
+             name: Optional[str] = None,
+             odata_type: Optional[str] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+
+        _setter("endpoint", endpoint)
+        _setter("name", name)
+        _setter("odata_type", '#Microsoft.Media.MediaGraphRtspSource')
+        _setter("transport", transport)
 
     @property
     @pulumi.getter
@@ -328,14 +424,43 @@ class MediaGraphTlsEndpointResponse(dict):
         :param 'MediaGraphPemCertificateListResponse' trusted_certificates: What certificates should be trusted when authenticating a TLS connection. Null designates that Azure Media's source of trust should be used.
         :param 'MediaGraphTlsValidationOptionsResponse' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
-        pulumi.set(__self__, "url", url)
+        MediaGraphTlsEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            url=url,
+            credentials=credentials,
+            trusted_certificates=trusted_certificates,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             url: Optional[str] = None,
+             credentials: Optional['outputs.MediaGraphUsernamePasswordCredentialsResponse'] = None,
+             trusted_certificates: Optional['outputs.MediaGraphPemCertificateListResponse'] = None,
+             validation_options: Optional['outputs.MediaGraphTlsValidationOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if trusted_certificates is None and 'trustedCertificates' in kwargs:
+            trusted_certificates = kwargs['trustedCertificates']
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
+        _setter("odata_type", '#Microsoft.Media.MediaGraphTlsEndpoint')
+        _setter("url", url)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if trusted_certificates is not None:
-            pulumi.set(__self__, "trusted_certificates", trusted_certificates)
+            _setter("trusted_certificates", trusted_certificates)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="odataType")
@@ -411,8 +536,29 @@ class MediaGraphTlsValidationOptionsResponse(dict):
         :param bool ignore_hostname: Ignore the host name (common name) during validation.
         :param bool ignore_signature: Ignore the integrity of the certificate chain at the current time.
         """
-        pulumi.set(__self__, "ignore_hostname", ignore_hostname)
-        pulumi.set(__self__, "ignore_signature", ignore_signature)
+        MediaGraphTlsValidationOptionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_hostname=ignore_hostname,
+            ignore_signature=ignore_signature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_hostname: Optional[bool] = None,
+             ignore_signature: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ignore_hostname is None and 'ignoreHostname' in kwargs:
+            ignore_hostname = kwargs['ignoreHostname']
+        if ignore_hostname is None:
+            raise TypeError("Missing 'ignore_hostname' argument")
+        if ignore_signature is None and 'ignoreSignature' in kwargs:
+            ignore_signature = kwargs['ignoreSignature']
+        if ignore_signature is None:
+            raise TypeError("Missing 'ignore_signature' argument")
+
+        _setter("ignore_hostname", ignore_hostname)
+        _setter("ignore_signature", ignore_signature)
 
     @property
     @pulumi.getter(name="ignoreHostname")
@@ -464,9 +610,32 @@ class MediaGraphUsernamePasswordCredentialsResponse(dict):
         :param str password: Password for a username/password pair.
         :param str username: Username for a username/password pair.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MediaGraphUsernamePasswordCredentials')
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        MediaGraphUsernamePasswordCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("odata_type", '#Microsoft.Media.MediaGraphUsernamePasswordCredentials')
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="odataType")

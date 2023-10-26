@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -85,21 +85,82 @@ class DynamicMetricCriteriaResponse(dict):
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
-        pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
-        pulumi.set(__self__, "criterion_type", 'DynamicThresholdCriterion')
-        pulumi.set(__self__, "failing_periods", failing_periods)
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "time_aggregation", time_aggregation)
+        DynamicMetricCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_sensitivity=alert_sensitivity,
+            criterion_type=criterion_type,
+            failing_periods=failing_periods,
+            metric_name=metric_name,
+            name=name,
+            operator=operator,
+            time_aggregation=time_aggregation,
+            dimensions=dimensions,
+            ignore_data_before=ignore_data_before,
+            metric_namespace=metric_namespace,
+            skip_metric_validation=skip_metric_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_sensitivity: Optional[str] = None,
+             criterion_type: Optional[str] = None,
+             failing_periods: Optional['outputs.DynamicThresholdFailingPeriodsResponse'] = None,
+             metric_name: Optional[str] = None,
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             time_aggregation: Optional[str] = None,
+             dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
+             ignore_data_before: Optional[str] = None,
+             metric_namespace: Optional[str] = None,
+             skip_metric_validation: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alert_sensitivity is None and 'alertSensitivity' in kwargs:
+            alert_sensitivity = kwargs['alertSensitivity']
+        if alert_sensitivity is None:
+            raise TypeError("Missing 'alert_sensitivity' argument")
+        if criterion_type is None and 'criterionType' in kwargs:
+            criterion_type = kwargs['criterionType']
+        if criterion_type is None:
+            raise TypeError("Missing 'criterion_type' argument")
+        if failing_periods is None and 'failingPeriods' in kwargs:
+            failing_periods = kwargs['failingPeriods']
+        if failing_periods is None:
+            raise TypeError("Missing 'failing_periods' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if time_aggregation is None and 'timeAggregation' in kwargs:
+            time_aggregation = kwargs['timeAggregation']
+        if time_aggregation is None:
+            raise TypeError("Missing 'time_aggregation' argument")
+        if ignore_data_before is None and 'ignoreDataBefore' in kwargs:
+            ignore_data_before = kwargs['ignoreDataBefore']
+        if metric_namespace is None and 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if skip_metric_validation is None and 'skipMetricValidation' in kwargs:
+            skip_metric_validation = kwargs['skipMetricValidation']
+
+        _setter("alert_sensitivity", alert_sensitivity)
+        _setter("criterion_type", 'DynamicThresholdCriterion')
+        _setter("failing_periods", failing_periods)
+        _setter("metric_name", metric_name)
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("time_aggregation", time_aggregation)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if ignore_data_before is not None:
-            pulumi.set(__self__, "ignore_data_before", ignore_data_before)
+            _setter("ignore_data_before", ignore_data_before)
         if metric_namespace is not None:
-            pulumi.set(__self__, "metric_namespace", metric_namespace)
+            _setter("metric_namespace", metric_namespace)
         if skip_metric_validation is not None:
-            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
+            _setter("skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter(name="alertSensitivity")
@@ -223,8 +284,29 @@ class DynamicThresholdFailingPeriodsResponse(dict):
         :param float min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods.
         :param float number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points.
         """
-        pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
-        pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+        DynamicThresholdFailingPeriodsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            min_failing_periods_to_alert=min_failing_periods_to_alert,
+            number_of_evaluation_periods=number_of_evaluation_periods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             min_failing_periods_to_alert: Optional[float] = None,
+             number_of_evaluation_periods: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if min_failing_periods_to_alert is None and 'minFailingPeriodsToAlert' in kwargs:
+            min_failing_periods_to_alert = kwargs['minFailingPeriodsToAlert']
+        if min_failing_periods_to_alert is None:
+            raise TypeError("Missing 'min_failing_periods_to_alert' argument")
+        if number_of_evaluation_periods is None and 'numberOfEvaluationPeriods' in kwargs:
+            number_of_evaluation_periods = kwargs['numberOfEvaluationPeriods']
+        if number_of_evaluation_periods is None:
+            raise TypeError("Missing 'number_of_evaluation_periods' argument")
+
+        _setter("min_failing_periods_to_alert", min_failing_periods_to_alert)
+        _setter("number_of_evaluation_periods", number_of_evaluation_periods)
 
     @property
     @pulumi.getter(name="minFailingPeriodsToAlert")
@@ -275,10 +357,27 @@ class MetricAlertActionResponse(dict):
         :param str action_group_id: the id of the action group to use.
         :param Mapping[str, str] web_hook_properties: This field allows specifying custom properties, which would be appended to the alert payload sent as input to the webhook.
         """
+        MetricAlertActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_id=action_group_id,
+            web_hook_properties=web_hook_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_id: Optional[str] = None,
+             web_hook_properties: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_group_id is None and 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if web_hook_properties is None and 'webHookProperties' in kwargs:
+            web_hook_properties = kwargs['webHookProperties']
+
         if action_group_id is not None:
-            pulumi.set(__self__, "action_group_id", action_group_id)
+            _setter("action_group_id", action_group_id)
         if web_hook_properties is not None:
-            pulumi.set(__self__, "web_hook_properties", web_hook_properties)
+            _setter("web_hook_properties", web_hook_properties)
 
     @property
     @pulumi.getter(name="actionGroupId")
@@ -330,9 +429,28 @@ class MetricAlertMultipleResourceMultipleMetricCriteriaResponse(dict):
                Expected value is 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria'.
         :param Sequence[Union['DynamicMetricCriteriaResponse', 'MetricCriteriaResponse']] all_of: the list of multiple metric criteria for this 'all of' operation. 
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
+        MetricAlertMultipleResourceMultipleMetricCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            all_of=all_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             all_of: Optional[Sequence[Any]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if all_of is None and 'allOf' in kwargs:
+            all_of = kwargs['allOf']
+
+        _setter("odata_type", 'Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria')
         if all_of is not None:
-            pulumi.set(__self__, "all_of", all_of)
+            _setter("all_of", all_of)
 
     @property
     @pulumi.getter(name="odataType")
@@ -385,9 +503,28 @@ class MetricAlertSingleResourceMultipleMetricCriteriaResponse(dict):
                Expected value is 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria'.
         :param Sequence['MetricCriteriaResponse'] all_of: The list of metric criteria for this 'all of' operation. 
         """
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
+        MetricAlertSingleResourceMultipleMetricCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            all_of=all_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[str] = None,
+             all_of: Optional[Sequence['outputs.MetricCriteriaResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if all_of is None and 'allOf' in kwargs:
+            all_of = kwargs['allOf']
+
+        _setter("odata_type", 'Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria')
         if all_of is not None:
-            pulumi.set(__self__, "all_of", all_of)
+            _setter("all_of", all_of)
 
     @property
     @pulumi.getter(name="odataType")
@@ -460,18 +597,67 @@ class MetricCriteriaResponse(dict):
         :param str metric_namespace: Namespace of the metric.
         :param bool skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
         """
-        pulumi.set(__self__, "criterion_type", 'StaticThresholdCriterion')
-        pulumi.set(__self__, "metric_name", metric_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "threshold", threshold)
-        pulumi.set(__self__, "time_aggregation", time_aggregation)
+        MetricCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criterion_type=criterion_type,
+            metric_name=metric_name,
+            name=name,
+            operator=operator,
+            threshold=threshold,
+            time_aggregation=time_aggregation,
+            dimensions=dimensions,
+            metric_namespace=metric_namespace,
+            skip_metric_validation=skip_metric_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criterion_type: Optional[str] = None,
+             metric_name: Optional[str] = None,
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             threshold: Optional[float] = None,
+             time_aggregation: Optional[str] = None,
+             dimensions: Optional[Sequence['outputs.MetricDimensionResponse']] = None,
+             metric_namespace: Optional[str] = None,
+             skip_metric_validation: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if criterion_type is None and 'criterionType' in kwargs:
+            criterion_type = kwargs['criterionType']
+        if criterion_type is None:
+            raise TypeError("Missing 'criterion_type' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if time_aggregation is None and 'timeAggregation' in kwargs:
+            time_aggregation = kwargs['timeAggregation']
+        if time_aggregation is None:
+            raise TypeError("Missing 'time_aggregation' argument")
+        if metric_namespace is None and 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if skip_metric_validation is None and 'skipMetricValidation' in kwargs:
+            skip_metric_validation = kwargs['skipMetricValidation']
+
+        _setter("criterion_type", 'StaticThresholdCriterion')
+        _setter("metric_name", metric_name)
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("threshold", threshold)
+        _setter("time_aggregation", time_aggregation)
         if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
+            _setter("dimensions", dimensions)
         if metric_namespace is not None:
-            pulumi.set(__self__, "metric_namespace", metric_namespace)
+            _setter("metric_namespace", metric_namespace)
         if skip_metric_validation is not None:
-            pulumi.set(__self__, "skip_metric_validation", skip_metric_validation)
+            _setter("skip_metric_validation", skip_metric_validation)
 
     @property
     @pulumi.getter(name="criterionType")
@@ -562,9 +748,30 @@ class MetricDimensionResponse(dict):
         :param str operator: the dimension operator. Only 'Include' and 'Exclude' are supported
         :param Sequence[str] values: list of dimension values.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "operator", operator)
-        pulumi.set(__self__, "values", values)
+        MetricDimensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             operator: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("name", name)
+        _setter("operator", operator)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -632,10 +839,43 @@ class WebtestLocationAvailabilityCriteriaResponse(dict):
                Expected value is 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria'.
         :param str web_test_id: The Application Insights web test Id.
         """
-        pulumi.set(__self__, "component_id", component_id)
-        pulumi.set(__self__, "failed_location_count", failed_location_count)
-        pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria')
-        pulumi.set(__self__, "web_test_id", web_test_id)
+        WebtestLocationAvailabilityCriteriaResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_id=component_id,
+            failed_location_count=failed_location_count,
+            odata_type=odata_type,
+            web_test_id=web_test_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_id: Optional[str] = None,
+             failed_location_count: Optional[float] = None,
+             odata_type: Optional[str] = None,
+             web_test_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_id is None and 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if component_id is None:
+            raise TypeError("Missing 'component_id' argument")
+        if failed_location_count is None and 'failedLocationCount' in kwargs:
+            failed_location_count = kwargs['failedLocationCount']
+        if failed_location_count is None:
+            raise TypeError("Missing 'failed_location_count' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if web_test_id is None and 'webTestId' in kwargs:
+            web_test_id = kwargs['webTestId']
+        if web_test_id is None:
+            raise TypeError("Missing 'web_test_id' argument")
+
+        _setter("component_id", component_id)
+        _setter("failed_location_count", failed_location_count)
+        _setter("odata_type", 'Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria')
+        _setter("web_test_id", web_test_id)
 
     @property
     @pulumi.getter(name="componentId")

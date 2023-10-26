@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -55,11 +55,28 @@ class IPRuleResponse(dict):
         :param str i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         :param str action: The action of IP ACL rule.
         """
-        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        IPRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            i_p_address_or_range=i_p_address_or_range,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             i_p_address_or_range: Optional[str] = None,
+             action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if i_p_address_or_range is None and 'iPAddressOrRange' in kwargs:
+            i_p_address_or_range = kwargs['iPAddressOrRange']
+        if i_p_address_or_range is None:
+            raise TypeError("Missing 'i_p_address_or_range' argument")
+
+        _setter("i_p_address_or_range", i_p_address_or_range)
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="iPAddressOrRange")
@@ -114,13 +131,34 @@ class NetworkRuleSetResponse(dict):
         :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
         :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The virtual network rules.
         """
+        NetworkRuleSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[str] = None,
+             ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
+             virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         if default_action is None:
             default_action = 'Allow'
-        pulumi.set(__self__, "default_action", default_action)
+        _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -183,12 +221,33 @@ class PoliciesResponse(dict):
         :param 'RetentionPolicyResponse' retention_policy: The retention policy for a container registry.
         :param 'TrustPolicyResponse' trust_policy: The content trust policy for a container registry.
         """
+        PoliciesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quarantine_policy=quarantine_policy,
+            retention_policy=retention_policy,
+            trust_policy=trust_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quarantine_policy: Optional['outputs.QuarantinePolicyResponse'] = None,
+             retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
+             trust_policy: Optional['outputs.TrustPolicyResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if quarantine_policy is None and 'quarantinePolicy' in kwargs:
+            quarantine_policy = kwargs['quarantinePolicy']
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if trust_policy is None and 'trustPolicy' in kwargs:
+            trust_policy = kwargs['trustPolicy']
+
         if quarantine_policy is not None:
-            pulumi.set(__self__, "quarantine_policy", quarantine_policy)
+            _setter("quarantine_policy", quarantine_policy)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if trust_policy is not None:
-            pulumi.set(__self__, "trust_policy", trust_policy)
+            _setter("trust_policy", trust_policy)
 
     @property
     @pulumi.getter(name="quarantinePolicy")
@@ -226,10 +285,21 @@ class QuarantinePolicyResponse(dict):
         The quarantine policy for a container registry.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
+        QuarantinePolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -253,10 +323,23 @@ class RegistryPasswordResponse(dict):
         :param str name: The password name.
         :param str value: The password value.
         """
+        RegistryPasswordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -307,15 +390,34 @@ class RetentionPolicyResponse(dict):
         :param int days: The number of days to retain an untagged manifest after which it gets purged.
         :param str status: The value that indicates whether the policy is enabled or not.
         """
-        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        RetentionPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_updated_time=last_updated_time,
+            days=days,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_updated_time: Optional[str] = None,
+             days: Optional[int] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if last_updated_time is None:
+            raise TypeError("Missing 'last_updated_time' argument")
+
+        _setter("last_updated_time", last_updated_time)
         if days is None:
             days = 7
         if days is not None:
-            pulumi.set(__self__, "days", days)
+            _setter("days", days)
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -355,8 +457,25 @@ class SkuResponse(dict):
         :param str name: The SKU name of the container registry. Required for registry creation.
         :param str tier: The SKU tier based on the SKU name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -407,9 +526,32 @@ class StatusResponse(dict):
         :param str message: The detailed message for the status, including alerts and error messages.
         :param str timestamp: The timestamp when the status was changed to the current value.
         """
-        pulumi.set(__self__, "display_status", display_status)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "timestamp", timestamp)
+        StatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_status=display_status,
+            message=message,
+            timestamp=timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_status: Optional[str] = None,
+             message: Optional[str] = None,
+             timestamp: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_status is None and 'displayStatus' in kwargs:
+            display_status = kwargs['displayStatus']
+        if display_status is None:
+            raise TypeError("Missing 'display_status' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if timestamp is None:
+            raise TypeError("Missing 'timestamp' argument")
+
+        _setter("display_status", display_status)
+        _setter("message", message)
+        _setter("timestamp", timestamp)
 
     @property
     @pulumi.getter(name="displayStatus")
@@ -447,7 +589,20 @@ class StorageAccountPropertiesResponse(dict):
         The properties of a storage account for a container registry. Only applicable to Classic SKU.
         :param str id: The resource ID of the storage account.
         """
-        pulumi.set(__self__, "id", id)
+        StorageAccountPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -471,14 +626,27 @@ class TrustPolicyResponse(dict):
         :param str status: The value that indicates whether the policy is enabled or not.
         :param str type: The type of trust policy.
         """
+        TrustPolicyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if status is None:
             status = 'disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if type is None:
             type = 'Notary'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -527,11 +695,28 @@ class VirtualNetworkRuleResponse(dict):
         :param str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         :param str action: The action of virtual network rule.
         """
-        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_network_resource_id=virtual_network_resource_id,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_network_resource_id: Optional[str] = None,
+             action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if virtual_network_resource_id is None and 'virtualNetworkResourceId' in kwargs:
+            virtual_network_resource_id = kwargs['virtualNetworkResourceId']
+        if virtual_network_resource_id is None:
+            raise TypeError("Missing 'virtual_network_resource_id' argument")
+
+        _setter("virtual_network_resource_id", virtual_network_resource_id)
         if action is None:
             action = 'Allow'
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="virtualNetworkResourceId")

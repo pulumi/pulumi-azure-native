@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,16 +36,67 @@ class ScheduledTriggerArgs:
         :param pulumi.Input[Union[str, 'SynchronizationMode']] synchronization_mode: Synchronization mode
         :param pulumi.Input[str] trigger_name: The name of the trigger.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "kind", 'ScheduleBased')
-        pulumi.set(__self__, "recurrence_interval", recurrence_interval)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "synchronization_time", synchronization_time)
+        ScheduledTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            kind=kind,
+            recurrence_interval=recurrence_interval,
+            resource_group_name=resource_group_name,
+            share_subscription_name=share_subscription_name,
+            synchronization_time=synchronization_time,
+            synchronization_mode=synchronization_mode,
+            trigger_name=trigger_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             recurrence_interval: Optional[pulumi.Input[Union[str, 'RecurrenceInterval']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             share_subscription_name: Optional[pulumi.Input[str]] = None,
+             synchronization_time: Optional[pulumi.Input[str]] = None,
+             synchronization_mode: Optional[pulumi.Input[Union[str, 'SynchronizationMode']]] = None,
+             trigger_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if recurrence_interval is None and 'recurrenceInterval' in kwargs:
+            recurrence_interval = kwargs['recurrenceInterval']
+        if recurrence_interval is None:
+            raise TypeError("Missing 'recurrence_interval' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if share_subscription_name is None and 'shareSubscriptionName' in kwargs:
+            share_subscription_name = kwargs['shareSubscriptionName']
+        if share_subscription_name is None:
+            raise TypeError("Missing 'share_subscription_name' argument")
+        if synchronization_time is None and 'synchronizationTime' in kwargs:
+            synchronization_time = kwargs['synchronizationTime']
+        if synchronization_time is None:
+            raise TypeError("Missing 'synchronization_time' argument")
+        if synchronization_mode is None and 'synchronizationMode' in kwargs:
+            synchronization_mode = kwargs['synchronizationMode']
+        if trigger_name is None and 'triggerName' in kwargs:
+            trigger_name = kwargs['triggerName']
+
+        _setter("account_name", account_name)
+        _setter("kind", 'ScheduleBased')
+        _setter("recurrence_interval", recurrence_interval)
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_subscription_name", share_subscription_name)
+        _setter("synchronization_time", synchronization_time)
         if synchronization_mode is not None:
-            pulumi.set(__self__, "synchronization_mode", synchronization_mode)
+            _setter("synchronization_mode", synchronization_mode)
         if trigger_name is not None:
-            pulumi.set(__self__, "trigger_name", trigger_name)
+            _setter("trigger_name", trigger_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -195,6 +246,10 @@ class ScheduledTrigger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledTriggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

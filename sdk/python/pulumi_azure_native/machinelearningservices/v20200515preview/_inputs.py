@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -23,10 +23,27 @@ class LinkedWorkspacePropsArgs:
         :param pulumi.Input[str] linked_workspace_resource_id: ResourceId of the link target of the linked workspace.
         :param pulumi.Input[str] user_assigned_identity_resource_id: ResourceId of the user assigned identity for the linked workspace.
         """
+        LinkedWorkspacePropsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_workspace_resource_id=linked_workspace_resource_id,
+            user_assigned_identity_resource_id=user_assigned_identity_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linked_workspace_resource_id is None and 'linkedWorkspaceResourceId' in kwargs:
+            linked_workspace_resource_id = kwargs['linkedWorkspaceResourceId']
+        if user_assigned_identity_resource_id is None and 'userAssignedIdentityResourceId' in kwargs:
+            user_assigned_identity_resource_id = kwargs['userAssignedIdentityResourceId']
+
         if linked_workspace_resource_id is not None:
-            pulumi.set(__self__, "linked_workspace_resource_id", linked_workspace_resource_id)
+            _setter("linked_workspace_resource_id", linked_workspace_resource_id)
         if user_assigned_identity_resource_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+            _setter("user_assigned_identity_resource_id", user_assigned_identity_resource_id)
 
     @property
     @pulumi.getter(name="linkedWorkspaceResourceId")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,19 +34,70 @@ class ScriptArgs:
         :param pulumi.Input[str] force_update_tag: A unique string. If changed the script will be applied again.
         :param pulumi.Input[str] script_name: The name of the Kusto database script.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "script_url", script_url)
-        pulumi.set(__self__, "script_url_sas_token", script_url_sas_token)
+        ScriptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            script_url=script_url,
+            script_url_sas_token=script_url_sas_token,
+            continue_on_errors=continue_on_errors,
+            force_update_tag=force_update_tag,
+            script_name=script_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             script_url: Optional[pulumi.Input[str]] = None,
+             script_url_sas_token: Optional[pulumi.Input[str]] = None,
+             continue_on_errors: Optional[pulumi.Input[bool]] = None,
+             force_update_tag: Optional[pulumi.Input[str]] = None,
+             script_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if script_url is None and 'scriptUrl' in kwargs:
+            script_url = kwargs['scriptUrl']
+        if script_url is None:
+            raise TypeError("Missing 'script_url' argument")
+        if script_url_sas_token is None and 'scriptUrlSasToken' in kwargs:
+            script_url_sas_token = kwargs['scriptUrlSasToken']
+        if script_url_sas_token is None:
+            raise TypeError("Missing 'script_url_sas_token' argument")
+        if continue_on_errors is None and 'continueOnErrors' in kwargs:
+            continue_on_errors = kwargs['continueOnErrors']
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if script_name is None and 'scriptName' in kwargs:
+            script_name = kwargs['scriptName']
+
+        _setter("cluster_name", cluster_name)
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("script_url", script_url)
+        _setter("script_url_sas_token", script_url_sas_token)
         if continue_on_errors is None:
             continue_on_errors = False
         if continue_on_errors is not None:
-            pulumi.set(__self__, "continue_on_errors", continue_on_errors)
+            _setter("continue_on_errors", continue_on_errors)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if script_name is not None:
-            pulumi.set(__self__, "script_name", script_name)
+            _setter("script_name", script_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -192,6 +243,10 @@ class Script(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScriptArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

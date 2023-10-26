@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,14 +28,45 @@ class PrefixArgs:
         :param pulumi.Input[str] prefix: The prefix from which your traffic originates.
         :param pulumi.Input[str] prefix_name: The name of the prefix.
         """
-        pulumi.set(__self__, "peering_service_name", peering_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrefixArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peering_service_name=peering_service_name,
+            resource_group_name=resource_group_name,
+            peering_service_prefix_key=peering_service_prefix_key,
+            prefix=prefix,
+            prefix_name=prefix_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peering_service_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             peering_service_prefix_key: Optional[pulumi.Input[str]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             prefix_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if peering_service_name is None and 'peeringServiceName' in kwargs:
+            peering_service_name = kwargs['peeringServiceName']
+        if peering_service_name is None:
+            raise TypeError("Missing 'peering_service_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if peering_service_prefix_key is None and 'peeringServicePrefixKey' in kwargs:
+            peering_service_prefix_key = kwargs['peeringServicePrefixKey']
+        if prefix_name is None and 'prefixName' in kwargs:
+            prefix_name = kwargs['prefixName']
+
+        _setter("peering_service_name", peering_service_name)
+        _setter("resource_group_name", resource_group_name)
         if peering_service_prefix_key is not None:
-            pulumi.set(__self__, "peering_service_prefix_key", peering_service_prefix_key)
+            _setter("peering_service_prefix_key", peering_service_prefix_key)
         if prefix is not None:
-            pulumi.set(__self__, "prefix", prefix)
+            _setter("prefix", prefix)
         if prefix_name is not None:
-            pulumi.set(__self__, "prefix_name", prefix_name)
+            _setter("prefix_name", prefix_name)
 
     @property
     @pulumi.getter(name="peeringServiceName")
@@ -141,6 +172,10 @@ class Prefix(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrefixArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

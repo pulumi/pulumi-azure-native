@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,9 +35,34 @@ class ClusterJobResponse(dict):
         :param str job_state: The current execution state of the streaming job.
         :param int streaming_units: The number of streaming units that are used by the streaming job.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "job_state", job_state)
-        pulumi.set(__self__, "streaming_units", streaming_units)
+        ClusterJobResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            job_state=job_state,
+            streaming_units=streaming_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             job_state: Optional[str] = None,
+             streaming_units: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if job_state is None and 'jobState' in kwargs:
+            job_state = kwargs['jobState']
+        if job_state is None:
+            raise TypeError("Missing 'job_state' argument")
+        if streaming_units is None and 'streamingUnits' in kwargs:
+            streaming_units = kwargs['streamingUnits']
+        if streaming_units is None:
+            raise TypeError("Missing 'streaming_units' argument")
+
+        _setter("id", id)
+        _setter("job_state", job_state)
+        _setter("streaming_units", streaming_units)
 
     @property
     @pulumi.getter
@@ -108,11 +133,50 @@ class ClusterPropertiesResponse(dict):
         :param str created_date: The date this cluster was created.
         :param str provisioning_state: The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
         """
-        pulumi.set(__self__, "capacity_allocated", capacity_allocated)
-        pulumi.set(__self__, "capacity_assigned", capacity_assigned)
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "created_date", created_date)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ClusterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_allocated=capacity_allocated,
+            capacity_assigned=capacity_assigned,
+            cluster_id=cluster_id,
+            created_date=created_date,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_allocated: Optional[int] = None,
+             capacity_assigned: Optional[int] = None,
+             cluster_id: Optional[str] = None,
+             created_date: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_allocated is None and 'capacityAllocated' in kwargs:
+            capacity_allocated = kwargs['capacityAllocated']
+        if capacity_allocated is None:
+            raise TypeError("Missing 'capacity_allocated' argument")
+        if capacity_assigned is None and 'capacityAssigned' in kwargs:
+            capacity_assigned = kwargs['capacityAssigned']
+        if capacity_assigned is None:
+            raise TypeError("Missing 'capacity_assigned' argument")
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if created_date is None:
+            raise TypeError("Missing 'created_date' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+
+        _setter("capacity_allocated", capacity_allocated)
+        _setter("capacity_assigned", capacity_assigned)
+        _setter("cluster_id", cluster_id)
+        _setter("created_date", created_date)
+        _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="capacityAllocated")
@@ -168,10 +232,23 @@ class ClusterSkuResponse(dict):
         :param int capacity: Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
         :param str name: Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
         """
+        ClusterSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -222,9 +299,28 @@ class PrivateEndpointPropertiesResponse(dict):
         :param str created_date: The date when this private endpoint was created.
         :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: A list of connections to the remote resource. Immutable after it is set.
         """
-        pulumi.set(__self__, "created_date", created_date)
+        PrivateEndpointPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_date=created_date,
+            manual_private_link_service_connections=manual_private_link_service_connections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_date: Optional[str] = None,
+             manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+        if created_date is None:
+            raise TypeError("Missing 'created_date' argument")
+        if manual_private_link_service_connections is None and 'manualPrivateLinkServiceConnections' in kwargs:
+            manual_private_link_service_connections = kwargs['manualPrivateLinkServiceConnections']
+
+        _setter("created_date", created_date)
         if manual_private_link_service_connections is not None:
-            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+            _setter("manual_private_link_service_connections", manual_private_link_service_connections)
 
     @property
     @pulumi.getter(name="createdDate")
@@ -275,9 +371,32 @@ class PrivateLinkConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the remote resource/service.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        PrivateLinkConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+        if actions_required is None:
+            raise TypeError("Missing 'actions_required' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("actions_required", actions_required)
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -344,13 +463,40 @@ class PrivateLinkServiceConnectionResponse(dict):
         :param 'PrivateLinkConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the private remote resource.
         :param str private_link_service_id: The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
         """
-        pulumi.set(__self__, "request_message", request_message)
+        PrivateLinkServiceConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request_message=request_message,
+            group_ids=group_ids,
+            private_link_service_connection_state=private_link_service_connection_state,
+            private_link_service_id=private_link_service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request_message: Optional[str] = None,
+             group_ids: Optional[Sequence[str]] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None,
+             private_link_service_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if request_message is None and 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if request_message is None:
+            raise TypeError("Missing 'request_message' argument")
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_id is None and 'privateLinkServiceId' in kwargs:
+            private_link_service_id = kwargs['privateLinkServiceId']
+
+        _setter("request_message", request_message)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if private_link_service_id is not None:
-            pulumi.set(__self__, "private_link_service_id", private_link_service_id)
+            _setter("private_link_service_id", private_link_service_id)
 
     @property
     @pulumi.getter(name="requestMessage")

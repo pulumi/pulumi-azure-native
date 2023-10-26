@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,24 +37,69 @@ class ConnectionMonitorArgs:
         :param pulumi.Input[int] monitoring_interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Connection monitor tags.
         """
-        pulumi.set(__self__, "destination", destination)
-        pulumi.set(__self__, "network_watcher_name", network_watcher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source", source)
+        ConnectionMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            network_watcher_name=network_watcher_name,
+            resource_group_name=resource_group_name,
+            source=source,
+            auto_start=auto_start,
+            connection_monitor_name=connection_monitor_name,
+            location=location,
+            monitoring_interval_in_seconds=monitoring_interval_in_seconds,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[pulumi.Input['ConnectionMonitorDestinationArgs']] = None,
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['ConnectionMonitorSourceArgs']] = None,
+             auto_start: Optional[pulumi.Input[bool]] = None,
+             connection_monitor_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             monitoring_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
+            network_watcher_name = kwargs['networkWatcherName']
+        if network_watcher_name is None:
+            raise TypeError("Missing 'network_watcher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if auto_start is None and 'autoStart' in kwargs:
+            auto_start = kwargs['autoStart']
+        if connection_monitor_name is None and 'connectionMonitorName' in kwargs:
+            connection_monitor_name = kwargs['connectionMonitorName']
+        if monitoring_interval_in_seconds is None and 'monitoringIntervalInSeconds' in kwargs:
+            monitoring_interval_in_seconds = kwargs['monitoringIntervalInSeconds']
+
+        _setter("destination", destination)
+        _setter("network_watcher_name", network_watcher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source", source)
         if auto_start is None:
             auto_start = True
         if auto_start is not None:
-            pulumi.set(__self__, "auto_start", auto_start)
+            _setter("auto_start", auto_start)
         if connection_monitor_name is not None:
-            pulumi.set(__self__, "connection_monitor_name", connection_monitor_name)
+            _setter("connection_monitor_name", connection_monitor_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if monitoring_interval_in_seconds is None:
             monitoring_interval_in_seconds = 60
         if monitoring_interval_in_seconds is not None:
-            pulumi.set(__self__, "monitoring_interval_in_seconds", monitoring_interval_in_seconds)
+            _setter("monitoring_interval_in_seconds", monitoring_interval_in_seconds)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -214,6 +259,10 @@ class ConnectionMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -241,6 +290,7 @@ class ConnectionMonitor(pulumi.CustomResource):
                 auto_start = True
             __props__.__dict__["auto_start"] = auto_start
             __props__.__dict__["connection_monitor_name"] = connection_monitor_name
+            destination = _utilities.configure(destination, ConnectionMonitorDestinationArgs, True)
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
@@ -254,6 +304,7 @@ class ConnectionMonitor(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            source = _utilities.configure(source, ConnectionMonitorSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

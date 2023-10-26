@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -32,16 +32,55 @@ class ManagedClusterApplicationTypeVersionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] version: The application type version.
         """
-        pulumi.set(__self__, "app_package_url", app_package_url)
-        pulumi.set(__self__, "application_type_name", application_type_name)
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedClusterApplicationTypeVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_package_url=app_package_url,
+            application_type_name=application_type_name,
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_package_url: Optional[pulumi.Input[str]] = None,
+             application_type_name: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_package_url is None and 'appPackageUrl' in kwargs:
+            app_package_url = kwargs['appPackageUrl']
+        if app_package_url is None:
+            raise TypeError("Missing 'app_package_url' argument")
+        if application_type_name is None and 'applicationTypeName' in kwargs:
+            application_type_name = kwargs['applicationTypeName']
+        if application_type_name is None:
+            raise TypeError("Missing 'application_type_name' argument")
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("app_package_url", app_package_url)
+        _setter("application_type_name", application_type_name)
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="appPackageUrl")
@@ -173,6 +212,10 @@ class ManagedClusterApplicationTypeVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedClusterApplicationTypeVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -61,10 +61,27 @@ class ConfigDiagnosticsResponse(dict):
         :param str last_executed: Last domain configuration diagnostics DateTime
         :param Sequence['ConfigDiagnosticsValidatorResultResponse'] validator_results: List of Configuration Diagnostics validator results.
         """
+        ConfigDiagnosticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_executed=last_executed,
+            validator_results=validator_results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_executed: Optional[str] = None,
+             validator_results: Optional[Sequence['outputs.ConfigDiagnosticsValidatorResultResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last_executed is None and 'lastExecuted' in kwargs:
+            last_executed = kwargs['lastExecuted']
+        if validator_results is None and 'validatorResults' in kwargs:
+            validator_results = kwargs['validatorResults']
+
         if last_executed is not None:
-            pulumi.set(__self__, "last_executed", last_executed)
+            _setter("last_executed", last_executed)
         if validator_results is not None:
-            pulumi.set(__self__, "validator_results", validator_results)
+            _setter("validator_results", validator_results)
 
     @property
     @pulumi.getter(name="lastExecuted")
@@ -113,10 +130,25 @@ class ConfigDiagnosticsValidatorResultIssueResponse(dict):
         :param Sequence[str] description_params: List of domain resource property name or values used to compose a rich description.
         :param str id: Validation issue identifier.
         """
+        ConfigDiagnosticsValidatorResultIssueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description_params=description_params,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description_params: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description_params is None and 'descriptionParams' in kwargs:
+            description_params = kwargs['descriptionParams']
+
         if description_params is not None:
-            pulumi.set(__self__, "description_params", description_params)
+            _setter("description_params", description_params)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter(name="descriptionParams")
@@ -171,16 +203,37 @@ class ConfigDiagnosticsValidatorResultResponse(dict):
         :param str status: Status for individual validator after running diagnostics.
         :param str validator_id: Validator identifier
         """
+        ConfigDiagnosticsValidatorResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issues=issues,
+            replica_set_subnet_display_name=replica_set_subnet_display_name,
+            status=status,
+            validator_id=validator_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issues: Optional[Sequence['outputs.ConfigDiagnosticsValidatorResultIssueResponse']] = None,
+             replica_set_subnet_display_name: Optional[str] = None,
+             status: Optional[str] = None,
+             validator_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replica_set_subnet_display_name is None and 'replicaSetSubnetDisplayName' in kwargs:
+            replica_set_subnet_display_name = kwargs['replicaSetSubnetDisplayName']
+        if validator_id is None and 'validatorId' in kwargs:
+            validator_id = kwargs['validatorId']
+
         if issues is not None:
-            pulumi.set(__self__, "issues", issues)
+            _setter("issues", issues)
         if replica_set_subnet_display_name is not None:
-            pulumi.set(__self__, "replica_set_subnet_display_name", replica_set_subnet_display_name)
+            _setter("replica_set_subnet_display_name", replica_set_subnet_display_name)
         if status is None:
             status = 'None'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if validator_id is not None:
-            pulumi.set(__self__, "validator_id", validator_id)
+            _setter("validator_id", validator_id)
 
     @property
     @pulumi.getter
@@ -247,12 +300,29 @@ class ContainerAccountResponse(dict):
         :param str password: The account password
         :param str spn: The account spn
         """
+        ContainerAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            password=password,
+            spn=spn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[str] = None,
+             password: Optional[str] = None,
+             spn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if spn is not None:
-            pulumi.set(__self__, "spn", spn)
+            _setter("spn", spn)
 
     @property
     @pulumi.getter(name="accountName")
@@ -339,42 +409,87 @@ class DomainSecuritySettingsResponse(dict):
         :param str sync_on_prem_passwords: A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
         :param str tls_v1: A flag to determine whether or not TlsV1 is enabled or disabled.
         """
+        DomainSecuritySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_binding=channel_binding,
+            kerberos_armoring=kerberos_armoring,
+            kerberos_rc4_encryption=kerberos_rc4_encryption,
+            ldap_signing=ldap_signing,
+            ntlm_v1=ntlm_v1,
+            sync_kerberos_passwords=sync_kerberos_passwords,
+            sync_ntlm_passwords=sync_ntlm_passwords,
+            sync_on_prem_passwords=sync_on_prem_passwords,
+            tls_v1=tls_v1,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_binding: Optional[str] = None,
+             kerberos_armoring: Optional[str] = None,
+             kerberos_rc4_encryption: Optional[str] = None,
+             ldap_signing: Optional[str] = None,
+             ntlm_v1: Optional[str] = None,
+             sync_kerberos_passwords: Optional[str] = None,
+             sync_ntlm_passwords: Optional[str] = None,
+             sync_on_prem_passwords: Optional[str] = None,
+             tls_v1: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_binding is None and 'channelBinding' in kwargs:
+            channel_binding = kwargs['channelBinding']
+        if kerberos_armoring is None and 'kerberosArmoring' in kwargs:
+            kerberos_armoring = kwargs['kerberosArmoring']
+        if kerberos_rc4_encryption is None and 'kerberosRc4Encryption' in kwargs:
+            kerberos_rc4_encryption = kwargs['kerberosRc4Encryption']
+        if ldap_signing is None and 'ldapSigning' in kwargs:
+            ldap_signing = kwargs['ldapSigning']
+        if ntlm_v1 is None and 'ntlmV1' in kwargs:
+            ntlm_v1 = kwargs['ntlmV1']
+        if sync_kerberos_passwords is None and 'syncKerberosPasswords' in kwargs:
+            sync_kerberos_passwords = kwargs['syncKerberosPasswords']
+        if sync_ntlm_passwords is None and 'syncNtlmPasswords' in kwargs:
+            sync_ntlm_passwords = kwargs['syncNtlmPasswords']
+        if sync_on_prem_passwords is None and 'syncOnPremPasswords' in kwargs:
+            sync_on_prem_passwords = kwargs['syncOnPremPasswords']
+        if tls_v1 is None and 'tlsV1' in kwargs:
+            tls_v1 = kwargs['tlsV1']
+
         if channel_binding is None:
             channel_binding = 'Disabled'
         if channel_binding is not None:
-            pulumi.set(__self__, "channel_binding", channel_binding)
+            _setter("channel_binding", channel_binding)
         if kerberos_armoring is None:
             kerberos_armoring = 'Disabled'
         if kerberos_armoring is not None:
-            pulumi.set(__self__, "kerberos_armoring", kerberos_armoring)
+            _setter("kerberos_armoring", kerberos_armoring)
         if kerberos_rc4_encryption is None:
             kerberos_rc4_encryption = 'Enabled'
         if kerberos_rc4_encryption is not None:
-            pulumi.set(__self__, "kerberos_rc4_encryption", kerberos_rc4_encryption)
+            _setter("kerberos_rc4_encryption", kerberos_rc4_encryption)
         if ldap_signing is None:
             ldap_signing = 'Disabled'
         if ldap_signing is not None:
-            pulumi.set(__self__, "ldap_signing", ldap_signing)
+            _setter("ldap_signing", ldap_signing)
         if ntlm_v1 is None:
             ntlm_v1 = 'Enabled'
         if ntlm_v1 is not None:
-            pulumi.set(__self__, "ntlm_v1", ntlm_v1)
+            _setter("ntlm_v1", ntlm_v1)
         if sync_kerberos_passwords is None:
             sync_kerberos_passwords = 'Enabled'
         if sync_kerberos_passwords is not None:
-            pulumi.set(__self__, "sync_kerberos_passwords", sync_kerberos_passwords)
+            _setter("sync_kerberos_passwords", sync_kerberos_passwords)
         if sync_ntlm_passwords is None:
             sync_ntlm_passwords = 'Enabled'
         if sync_ntlm_passwords is not None:
-            pulumi.set(__self__, "sync_ntlm_passwords", sync_ntlm_passwords)
+            _setter("sync_ntlm_passwords", sync_ntlm_passwords)
         if sync_on_prem_passwords is None:
             sync_on_prem_passwords = 'Enabled'
         if sync_on_prem_passwords is not None:
-            pulumi.set(__self__, "sync_on_prem_passwords", sync_on_prem_passwords)
+            _setter("sync_on_prem_passwords", sync_on_prem_passwords)
         if tls_v1 is None:
             tls_v1 = 'Enabled'
         if tls_v1 is not None:
-            pulumi.set(__self__, "tls_v1", tls_v1)
+            _setter("tls_v1", tls_v1)
 
     @property
     @pulumi.getter(name="channelBinding")
@@ -493,16 +608,45 @@ class ForestTrustResponse(dict):
         :param str trust_password: Trust Password
         :param str trusted_domain_fqdn: Trusted Domain FQDN
         """
+        ForestTrustResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friendly_name=friendly_name,
+            remote_dns_ips=remote_dns_ips,
+            trust_direction=trust_direction,
+            trust_password=trust_password,
+            trusted_domain_fqdn=trusted_domain_fqdn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friendly_name: Optional[str] = None,
+             remote_dns_ips: Optional[str] = None,
+             trust_direction: Optional[str] = None,
+             trust_password: Optional[str] = None,
+             trusted_domain_fqdn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if remote_dns_ips is None and 'remoteDnsIps' in kwargs:
+            remote_dns_ips = kwargs['remoteDnsIps']
+        if trust_direction is None and 'trustDirection' in kwargs:
+            trust_direction = kwargs['trustDirection']
+        if trust_password is None and 'trustPassword' in kwargs:
+            trust_password = kwargs['trustPassword']
+        if trusted_domain_fqdn is None and 'trustedDomainFqdn' in kwargs:
+            trusted_domain_fqdn = kwargs['trustedDomainFqdn']
+
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if remote_dns_ips is not None:
-            pulumi.set(__self__, "remote_dns_ips", remote_dns_ips)
+            _setter("remote_dns_ips", remote_dns_ips)
         if trust_direction is not None:
-            pulumi.set(__self__, "trust_direction", trust_direction)
+            _setter("trust_direction", trust_direction)
         if trust_password is not None:
-            pulumi.set(__self__, "trust_password", trust_password)
+            _setter("trust_password", trust_password)
         if trusted_domain_fqdn is not None:
-            pulumi.set(__self__, "trusted_domain_fqdn", trusted_domain_fqdn)
+            _setter("trusted_domain_fqdn", trusted_domain_fqdn)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -587,13 +731,54 @@ class HealthAlertResponse(dict):
         :param str resolution_uri: Health Alert TSG Link
         :param str severity: Health Alert Severity
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "issue", issue)
-        pulumi.set(__self__, "last_detected", last_detected)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "raised", raised)
-        pulumi.set(__self__, "resolution_uri", resolution_uri)
-        pulumi.set(__self__, "severity", severity)
+        HealthAlertResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            issue=issue,
+            last_detected=last_detected,
+            name=name,
+            raised=raised,
+            resolution_uri=resolution_uri,
+            severity=severity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             issue: Optional[str] = None,
+             last_detected: Optional[str] = None,
+             name: Optional[str] = None,
+             raised: Optional[str] = None,
+             resolution_uri: Optional[str] = None,
+             severity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if issue is None:
+            raise TypeError("Missing 'issue' argument")
+        if last_detected is None and 'lastDetected' in kwargs:
+            last_detected = kwargs['lastDetected']
+        if last_detected is None:
+            raise TypeError("Missing 'last_detected' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if raised is None:
+            raise TypeError("Missing 'raised' argument")
+        if resolution_uri is None and 'resolutionUri' in kwargs:
+            resolution_uri = kwargs['resolutionUri']
+        if resolution_uri is None:
+            raise TypeError("Missing 'resolution_uri' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+
+        _setter("id", id)
+        _setter("issue", issue)
+        _setter("last_detected", last_detected)
+        _setter("name", name)
+        _setter("raised", raised)
+        _setter("resolution_uri", resolution_uri)
+        _setter("severity", severity)
 
     @property
     @pulumi.getter
@@ -667,9 +852,30 @@ class HealthMonitorResponse(dict):
         :param str id: Health Monitor Id
         :param str name: Health Monitor Name
         """
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        HealthMonitorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            details=details,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             details: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if details is None:
+            raise TypeError("Missing 'details' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("details", details)
+        _setter("id", id)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -746,21 +952,62 @@ class LdapsSettingsResponse(dict):
         :param str pfx_certificate: The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
         :param str pfx_certificate_password: The password to decrypt the provided Secure LDAP certificate pfx file.
         """
-        pulumi.set(__self__, "certificate_not_after", certificate_not_after)
-        pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
-        pulumi.set(__self__, "public_certificate", public_certificate)
+        LdapsSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_not_after=certificate_not_after,
+            certificate_thumbprint=certificate_thumbprint,
+            public_certificate=public_certificate,
+            external_access=external_access,
+            ldaps=ldaps,
+            pfx_certificate=pfx_certificate,
+            pfx_certificate_password=pfx_certificate_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_not_after: Optional[str] = None,
+             certificate_thumbprint: Optional[str] = None,
+             public_certificate: Optional[str] = None,
+             external_access: Optional[str] = None,
+             ldaps: Optional[str] = None,
+             pfx_certificate: Optional[str] = None,
+             pfx_certificate_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_not_after is None and 'certificateNotAfter' in kwargs:
+            certificate_not_after = kwargs['certificateNotAfter']
+        if certificate_not_after is None:
+            raise TypeError("Missing 'certificate_not_after' argument")
+        if certificate_thumbprint is None and 'certificateThumbprint' in kwargs:
+            certificate_thumbprint = kwargs['certificateThumbprint']
+        if certificate_thumbprint is None:
+            raise TypeError("Missing 'certificate_thumbprint' argument")
+        if public_certificate is None and 'publicCertificate' in kwargs:
+            public_certificate = kwargs['publicCertificate']
+        if public_certificate is None:
+            raise TypeError("Missing 'public_certificate' argument")
+        if external_access is None and 'externalAccess' in kwargs:
+            external_access = kwargs['externalAccess']
+        if pfx_certificate is None and 'pfxCertificate' in kwargs:
+            pfx_certificate = kwargs['pfxCertificate']
+        if pfx_certificate_password is None and 'pfxCertificatePassword' in kwargs:
+            pfx_certificate_password = kwargs['pfxCertificatePassword']
+
+        _setter("certificate_not_after", certificate_not_after)
+        _setter("certificate_thumbprint", certificate_thumbprint)
+        _setter("public_certificate", public_certificate)
         if external_access is None:
             external_access = 'Disabled'
         if external_access is not None:
-            pulumi.set(__self__, "external_access", external_access)
+            _setter("external_access", external_access)
         if ldaps is None:
             ldaps = 'Disabled'
         if ldaps is not None:
-            pulumi.set(__self__, "ldaps", ldaps)
+            _setter("ldaps", ldaps)
         if pfx_certificate is not None:
-            pulumi.set(__self__, "pfx_certificate", pfx_certificate)
+            _setter("pfx_certificate", pfx_certificate)
         if pfx_certificate_password is not None:
-            pulumi.set(__self__, "pfx_certificate_password", pfx_certificate_password)
+            _setter("pfx_certificate_password", pfx_certificate_password)
 
     @property
     @pulumi.getter(name="certificateNotAfter")
@@ -851,10 +1098,27 @@ class MigrationProgressResponse(dict):
         :param float completion_percentage: Completion Percentage
         :param str progress_message: Progress Message
         """
+        MigrationProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completion_percentage=completion_percentage,
+            progress_message=progress_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completion_percentage: Optional[float] = None,
+             progress_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if completion_percentage is None and 'completionPercentage' in kwargs:
+            completion_percentage = kwargs['completionPercentage']
+        if progress_message is None and 'progressMessage' in kwargs:
+            progress_message = kwargs['progressMessage']
+
         if completion_percentage is not None:
-            pulumi.set(__self__, "completion_percentage", completion_percentage)
+            _setter("completion_percentage", completion_percentage)
         if progress_message is not None:
-            pulumi.set(__self__, "progress_message", progress_message)
+            _setter("progress_message", progress_message)
 
     @property
     @pulumi.getter(name="completionPercentage")
@@ -909,9 +1173,36 @@ class MigrationPropertiesResponse(dict):
         :param str old_subnet_id: Old Subnet Id
         :param str old_vnet_site_id: Old Vnet Site Id
         """
-        pulumi.set(__self__, "migration_progress", migration_progress)
-        pulumi.set(__self__, "old_subnet_id", old_subnet_id)
-        pulumi.set(__self__, "old_vnet_site_id", old_vnet_site_id)
+        MigrationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migration_progress=migration_progress,
+            old_subnet_id=old_subnet_id,
+            old_vnet_site_id=old_vnet_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migration_progress: Optional['outputs.MigrationProgressResponse'] = None,
+             old_subnet_id: Optional[str] = None,
+             old_vnet_site_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_progress is None and 'migrationProgress' in kwargs:
+            migration_progress = kwargs['migrationProgress']
+        if migration_progress is None:
+            raise TypeError("Missing 'migration_progress' argument")
+        if old_subnet_id is None and 'oldSubnetId' in kwargs:
+            old_subnet_id = kwargs['oldSubnetId']
+        if old_subnet_id is None:
+            raise TypeError("Missing 'old_subnet_id' argument")
+        if old_vnet_site_id is None and 'oldVnetSiteId' in kwargs:
+            old_vnet_site_id = kwargs['oldVnetSiteId']
+        if old_vnet_site_id is None:
+            raise TypeError("Missing 'old_vnet_site_id' argument")
+
+        _setter("migration_progress", migration_progress)
+        _setter("old_subnet_id", old_subnet_id)
+        _setter("old_vnet_site_id", old_vnet_site_id)
 
     @property
     @pulumi.getter(name="migrationProgress")
@@ -974,12 +1265,33 @@ class NotificationSettingsResponse(dict):
         :param str notify_dc_admins: Should domain controller admins be notified
         :param str notify_global_admins: Should global admins be notified
         """
+        NotificationSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_recipients=additional_recipients,
+            notify_dc_admins=notify_dc_admins,
+            notify_global_admins=notify_global_admins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_recipients: Optional[Sequence[str]] = None,
+             notify_dc_admins: Optional[str] = None,
+             notify_global_admins: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_recipients is None and 'additionalRecipients' in kwargs:
+            additional_recipients = kwargs['additionalRecipients']
+        if notify_dc_admins is None and 'notifyDcAdmins' in kwargs:
+            notify_dc_admins = kwargs['notifyDcAdmins']
+        if notify_global_admins is None and 'notifyGlobalAdmins' in kwargs:
+            notify_global_admins = kwargs['notifyGlobalAdmins']
+
         if additional_recipients is not None:
-            pulumi.set(__self__, "additional_recipients", additional_recipients)
+            _setter("additional_recipients", additional_recipients)
         if notify_dc_admins is not None:
-            pulumi.set(__self__, "notify_dc_admins", notify_dc_admins)
+            _setter("notify_dc_admins", notify_dc_admins)
         if notify_global_admins is not None:
-            pulumi.set(__self__, "notify_global_admins", notify_global_admins)
+            _setter("notify_global_admins", notify_global_admins)
 
     @property
     @pulumi.getter(name="additionalRecipients")
@@ -1068,18 +1380,81 @@ class ReplicaSetResponse(dict):
         :param str location: Virtual network location
         :param str subnet_id: The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         """
-        pulumi.set(__self__, "domain_controller_ip_address", domain_controller_ip_address)
-        pulumi.set(__self__, "external_access_ip_address", external_access_ip_address)
-        pulumi.set(__self__, "health_alerts", health_alerts)
-        pulumi.set(__self__, "health_last_evaluated", health_last_evaluated)
-        pulumi.set(__self__, "health_monitors", health_monitors)
-        pulumi.set(__self__, "replica_set_id", replica_set_id)
-        pulumi.set(__self__, "service_status", service_status)
-        pulumi.set(__self__, "vnet_site_id", vnet_site_id)
+        ReplicaSetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_controller_ip_address=domain_controller_ip_address,
+            external_access_ip_address=external_access_ip_address,
+            health_alerts=health_alerts,
+            health_last_evaluated=health_last_evaluated,
+            health_monitors=health_monitors,
+            replica_set_id=replica_set_id,
+            service_status=service_status,
+            vnet_site_id=vnet_site_id,
+            location=location,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_controller_ip_address: Optional[Sequence[str]] = None,
+             external_access_ip_address: Optional[str] = None,
+             health_alerts: Optional[Sequence['outputs.HealthAlertResponse']] = None,
+             health_last_evaluated: Optional[str] = None,
+             health_monitors: Optional[Sequence['outputs.HealthMonitorResponse']] = None,
+             replica_set_id: Optional[str] = None,
+             service_status: Optional[str] = None,
+             vnet_site_id: Optional[str] = None,
+             location: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_controller_ip_address is None and 'domainControllerIpAddress' in kwargs:
+            domain_controller_ip_address = kwargs['domainControllerIpAddress']
+        if domain_controller_ip_address is None:
+            raise TypeError("Missing 'domain_controller_ip_address' argument")
+        if external_access_ip_address is None and 'externalAccessIpAddress' in kwargs:
+            external_access_ip_address = kwargs['externalAccessIpAddress']
+        if external_access_ip_address is None:
+            raise TypeError("Missing 'external_access_ip_address' argument")
+        if health_alerts is None and 'healthAlerts' in kwargs:
+            health_alerts = kwargs['healthAlerts']
+        if health_alerts is None:
+            raise TypeError("Missing 'health_alerts' argument")
+        if health_last_evaluated is None and 'healthLastEvaluated' in kwargs:
+            health_last_evaluated = kwargs['healthLastEvaluated']
+        if health_last_evaluated is None:
+            raise TypeError("Missing 'health_last_evaluated' argument")
+        if health_monitors is None and 'healthMonitors' in kwargs:
+            health_monitors = kwargs['healthMonitors']
+        if health_monitors is None:
+            raise TypeError("Missing 'health_monitors' argument")
+        if replica_set_id is None and 'replicaSetId' in kwargs:
+            replica_set_id = kwargs['replicaSetId']
+        if replica_set_id is None:
+            raise TypeError("Missing 'replica_set_id' argument")
+        if service_status is None and 'serviceStatus' in kwargs:
+            service_status = kwargs['serviceStatus']
+        if service_status is None:
+            raise TypeError("Missing 'service_status' argument")
+        if vnet_site_id is None and 'vnetSiteId' in kwargs:
+            vnet_site_id = kwargs['vnetSiteId']
+        if vnet_site_id is None:
+            raise TypeError("Missing 'vnet_site_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
+        _setter("domain_controller_ip_address", domain_controller_ip_address)
+        _setter("external_access_ip_address", external_access_ip_address)
+        _setter("health_alerts", health_alerts)
+        _setter("health_last_evaluated", health_last_evaluated)
+        _setter("health_monitors", health_monitors)
+        _setter("replica_set_id", replica_set_id)
+        _setter("service_status", service_status)
+        _setter("vnet_site_id", vnet_site_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="domainControllerIpAddress")
@@ -1192,10 +1567,25 @@ class ResourceForestSettingsResponse(dict):
         :param str resource_forest: Resource Forest
         :param Sequence['ForestTrustResponse'] settings: List of settings for Resource Forest
         """
+        ResourceForestSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_forest=resource_forest,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_forest: Optional[str] = None,
+             settings: Optional[Sequence['outputs.ForestTrustResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_forest is None and 'resourceForest' in kwargs:
+            resource_forest = kwargs['resourceForest']
+
         if resource_forest is not None:
-            pulumi.set(__self__, "resource_forest", resource_forest)
+            _setter("resource_forest", resource_forest)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter(name="resourceForest")
@@ -1262,18 +1652,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

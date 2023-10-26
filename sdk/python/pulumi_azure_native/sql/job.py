@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,52 @@ class JobArgs:
         :param pulumi.Input[str] job_name: The name of the job to get.
         :param pulumi.Input['JobScheduleArgs'] schedule: Schedule properties of the job.
         """
-        pulumi.set(__self__, "job_agent_name", job_agent_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        JobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_agent_name=job_agent_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            description=description,
+            job_name=job_name,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_agent_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             job_name: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['JobScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_agent_name is None and 'jobAgentName' in kwargs:
+            job_agent_name = kwargs['jobAgentName']
+        if job_agent_name is None:
+            raise TypeError("Missing 'job_agent_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+
+        _setter("job_agent_name", job_agent_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if description is None:
             description = ''
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter(name="jobAgentName")
@@ -166,6 +201,10 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -196,6 +235,7 @@ class Job(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            schedule = _utilities.configure(schedule, JobScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")

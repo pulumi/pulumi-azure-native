@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,25 +39,70 @@ class NetworkFabricControllerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]] workload_express_route_connections: As part of an update, the workload ExpressRoute CircuitID should be provided to create and Provision a NFC. This Express route is dedicated for Workload services. (This is a Mandatory attribute).
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkFabricControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            annotation=annotation,
+            infrastructure_express_route_connections=infrastructure_express_route_connections,
+            ipv4_address_space=ipv4_address_space,
+            ipv6_address_space=ipv6_address_space,
+            location=location,
+            managed_resource_group_configuration=managed_resource_group_configuration,
+            network_fabric_controller_name=network_fabric_controller_name,
+            tags=tags,
+            workload_express_route_connections=workload_express_route_connections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             infrastructure_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]]] = None,
+             ipv4_address_space: Optional[pulumi.Input[str]] = None,
+             ipv6_address_space: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
+             network_fabric_controller_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workload_express_route_connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionInformationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if infrastructure_express_route_connections is None and 'infrastructureExpressRouteConnections' in kwargs:
+            infrastructure_express_route_connections = kwargs['infrastructureExpressRouteConnections']
+        if ipv4_address_space is None and 'ipv4AddressSpace' in kwargs:
+            ipv4_address_space = kwargs['ipv4AddressSpace']
+        if ipv6_address_space is None and 'ipv6AddressSpace' in kwargs:
+            ipv6_address_space = kwargs['ipv6AddressSpace']
+        if managed_resource_group_configuration is None and 'managedResourceGroupConfiguration' in kwargs:
+            managed_resource_group_configuration = kwargs['managedResourceGroupConfiguration']
+        if network_fabric_controller_name is None and 'networkFabricControllerName' in kwargs:
+            network_fabric_controller_name = kwargs['networkFabricControllerName']
+        if workload_express_route_connections is None and 'workloadExpressRouteConnections' in kwargs:
+            workload_express_route_connections = kwargs['workloadExpressRouteConnections']
+
+        _setter("resource_group_name", resource_group_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if infrastructure_express_route_connections is not None:
-            pulumi.set(__self__, "infrastructure_express_route_connections", infrastructure_express_route_connections)
+            _setter("infrastructure_express_route_connections", infrastructure_express_route_connections)
         if ipv4_address_space is not None:
-            pulumi.set(__self__, "ipv4_address_space", ipv4_address_space)
+            _setter("ipv4_address_space", ipv4_address_space)
         if ipv6_address_space is not None:
-            pulumi.set(__self__, "ipv6_address_space", ipv6_address_space)
+            _setter("ipv6_address_space", ipv6_address_space)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+            _setter("managed_resource_group_configuration", managed_resource_group_configuration)
         if network_fabric_controller_name is not None:
-            pulumi.set(__self__, "network_fabric_controller_name", network_fabric_controller_name)
+            _setter("network_fabric_controller_name", network_fabric_controller_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workload_express_route_connections is not None:
-            pulumi.set(__self__, "workload_express_route_connections", workload_express_route_connections)
+            _setter("workload_express_route_connections", workload_express_route_connections)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -231,6 +276,10 @@ class NetworkFabricController(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkFabricControllerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -260,6 +309,7 @@ class NetworkFabricController(pulumi.CustomResource):
             __props__.__dict__["ipv4_address_space"] = ipv4_address_space
             __props__.__dict__["ipv6_address_space"] = ipv6_address_space
             __props__.__dict__["location"] = location
+            managed_resource_group_configuration = _utilities.configure(managed_resource_group_configuration, ManagedResourceGroupConfigurationArgs, True)
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
             __props__.__dict__["network_fabric_controller_name"] = network_fabric_controller_name
             if resource_group_name is None and not opts.urn:

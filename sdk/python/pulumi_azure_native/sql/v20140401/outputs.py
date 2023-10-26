@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -55,10 +55,39 @@ class OperationImpactResponse(dict):
         :param str name: The name of the impact dimension.
         :param str unit: The unit in which estimated impact to dimension is measured.
         """
-        pulumi.set(__self__, "change_value_absolute", change_value_absolute)
-        pulumi.set(__self__, "change_value_relative", change_value_relative)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "unit", unit)
+        OperationImpactResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            change_value_absolute=change_value_absolute,
+            change_value_relative=change_value_relative,
+            name=name,
+            unit=unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             change_value_absolute: Optional[float] = None,
+             change_value_relative: Optional[float] = None,
+             name: Optional[str] = None,
+             unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if change_value_absolute is None and 'changeValueAbsolute' in kwargs:
+            change_value_absolute = kwargs['changeValueAbsolute']
+        if change_value_absolute is None:
+            raise TypeError("Missing 'change_value_absolute' argument")
+        if change_value_relative is None and 'changeValueRelative' in kwargs:
+            change_value_relative = kwargs['changeValueRelative']
+        if change_value_relative is None:
+            raise TypeError("Missing 'change_value_relative' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+
+        _setter("change_value_absolute", change_value_absolute)
+        _setter("change_value_relative", change_value_relative)
+        _setter("name", name)
+        _setter("unit", unit)
 
     @property
     @pulumi.getter(name="changeValueAbsolute")
@@ -159,21 +188,102 @@ class RecommendedIndexResponse(dict):
         :param str table: The table on which to build index.
         :param str type: Resource type.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "created", created)
-        pulumi.set(__self__, "estimated_impact", estimated_impact)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "included_columns", included_columns)
-        pulumi.set(__self__, "index_script", index_script)
-        pulumi.set(__self__, "index_type", index_type)
-        pulumi.set(__self__, "last_modified", last_modified)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "reported_impact", reported_impact)
-        pulumi.set(__self__, "schema", schema)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table", table)
-        pulumi.set(__self__, "type", type)
+        RecommendedIndexResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            columns=columns,
+            created=created,
+            estimated_impact=estimated_impact,
+            id=id,
+            included_columns=included_columns,
+            index_script=index_script,
+            index_type=index_type,
+            last_modified=last_modified,
+            name=name,
+            reported_impact=reported_impact,
+            schema=schema,
+            state=state,
+            table=table,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             columns: Optional[Sequence[str]] = None,
+             created: Optional[str] = None,
+             estimated_impact: Optional[Sequence['outputs.OperationImpactResponse']] = None,
+             id: Optional[str] = None,
+             included_columns: Optional[Sequence[str]] = None,
+             index_script: Optional[str] = None,
+             index_type: Optional[str] = None,
+             last_modified: Optional[str] = None,
+             name: Optional[str] = None,
+             reported_impact: Optional[Sequence['outputs.OperationImpactResponse']] = None,
+             schema: Optional[str] = None,
+             state: Optional[str] = None,
+             table: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if columns is None:
+            raise TypeError("Missing 'columns' argument")
+        if created is None:
+            raise TypeError("Missing 'created' argument")
+        if estimated_impact is None and 'estimatedImpact' in kwargs:
+            estimated_impact = kwargs['estimatedImpact']
+        if estimated_impact is None:
+            raise TypeError("Missing 'estimated_impact' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if included_columns is None and 'includedColumns' in kwargs:
+            included_columns = kwargs['includedColumns']
+        if included_columns is None:
+            raise TypeError("Missing 'included_columns' argument")
+        if index_script is None and 'indexScript' in kwargs:
+            index_script = kwargs['indexScript']
+        if index_script is None:
+            raise TypeError("Missing 'index_script' argument")
+        if index_type is None and 'indexType' in kwargs:
+            index_type = kwargs['indexType']
+        if index_type is None:
+            raise TypeError("Missing 'index_type' argument")
+        if last_modified is None and 'lastModified' in kwargs:
+            last_modified = kwargs['lastModified']
+        if last_modified is None:
+            raise TypeError("Missing 'last_modified' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if reported_impact is None and 'reportedImpact' in kwargs:
+            reported_impact = kwargs['reportedImpact']
+        if reported_impact is None:
+            raise TypeError("Missing 'reported_impact' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("action", action)
+        _setter("columns", columns)
+        _setter("created", created)
+        _setter("estimated_impact", estimated_impact)
+        _setter("id", id)
+        _setter("included_columns", included_columns)
+        _setter("index_script", index_script)
+        _setter("index_type", index_type)
+        _setter("last_modified", last_modified)
+        _setter("name", name)
+        _setter("reported_impact", reported_impact)
+        _setter("schema", schema)
+        _setter("state", state)
+        _setter("table", table)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -400,28 +510,161 @@ class ServiceTierAdvisorResponse(dict):
         :param str usage_based_recommendation_service_level_objective: Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor.
         :param str usage_based_recommendation_service_level_objective_id: Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor.
         """
-        pulumi.set(__self__, "active_time_ratio", active_time_ratio)
-        pulumi.set(__self__, "avg_dtu", avg_dtu)
-        pulumi.set(__self__, "confidence", confidence)
-        pulumi.set(__self__, "current_service_level_objective", current_service_level_objective)
-        pulumi.set(__self__, "current_service_level_objective_id", current_service_level_objective_id)
-        pulumi.set(__self__, "database_size_based_recommendation_service_level_objective", database_size_based_recommendation_service_level_objective)
-        pulumi.set(__self__, "database_size_based_recommendation_service_level_objective_id", database_size_based_recommendation_service_level_objective_id)
-        pulumi.set(__self__, "disaster_plan_based_recommendation_service_level_objective", disaster_plan_based_recommendation_service_level_objective)
-        pulumi.set(__self__, "disaster_plan_based_recommendation_service_level_objective_id", disaster_plan_based_recommendation_service_level_objective_id)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "max_dtu", max_dtu)
-        pulumi.set(__self__, "max_size_in_gb", max_size_in_gb)
-        pulumi.set(__self__, "min_dtu", min_dtu)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "observation_period_end", observation_period_end)
-        pulumi.set(__self__, "observation_period_start", observation_period_start)
-        pulumi.set(__self__, "overall_recommendation_service_level_objective", overall_recommendation_service_level_objective)
-        pulumi.set(__self__, "overall_recommendation_service_level_objective_id", overall_recommendation_service_level_objective_id)
-        pulumi.set(__self__, "service_level_objective_usage_metrics", service_level_objective_usage_metrics)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "usage_based_recommendation_service_level_objective", usage_based_recommendation_service_level_objective)
-        pulumi.set(__self__, "usage_based_recommendation_service_level_objective_id", usage_based_recommendation_service_level_objective_id)
+        ServiceTierAdvisorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_time_ratio=active_time_ratio,
+            avg_dtu=avg_dtu,
+            confidence=confidence,
+            current_service_level_objective=current_service_level_objective,
+            current_service_level_objective_id=current_service_level_objective_id,
+            database_size_based_recommendation_service_level_objective=database_size_based_recommendation_service_level_objective,
+            database_size_based_recommendation_service_level_objective_id=database_size_based_recommendation_service_level_objective_id,
+            disaster_plan_based_recommendation_service_level_objective=disaster_plan_based_recommendation_service_level_objective,
+            disaster_plan_based_recommendation_service_level_objective_id=disaster_plan_based_recommendation_service_level_objective_id,
+            id=id,
+            max_dtu=max_dtu,
+            max_size_in_gb=max_size_in_gb,
+            min_dtu=min_dtu,
+            name=name,
+            observation_period_end=observation_period_end,
+            observation_period_start=observation_period_start,
+            overall_recommendation_service_level_objective=overall_recommendation_service_level_objective,
+            overall_recommendation_service_level_objective_id=overall_recommendation_service_level_objective_id,
+            service_level_objective_usage_metrics=service_level_objective_usage_metrics,
+            type=type,
+            usage_based_recommendation_service_level_objective=usage_based_recommendation_service_level_objective,
+            usage_based_recommendation_service_level_objective_id=usage_based_recommendation_service_level_objective_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_time_ratio: Optional[float] = None,
+             avg_dtu: Optional[float] = None,
+             confidence: Optional[float] = None,
+             current_service_level_objective: Optional[str] = None,
+             current_service_level_objective_id: Optional[str] = None,
+             database_size_based_recommendation_service_level_objective: Optional[str] = None,
+             database_size_based_recommendation_service_level_objective_id: Optional[str] = None,
+             disaster_plan_based_recommendation_service_level_objective: Optional[str] = None,
+             disaster_plan_based_recommendation_service_level_objective_id: Optional[str] = None,
+             id: Optional[str] = None,
+             max_dtu: Optional[float] = None,
+             max_size_in_gb: Optional[float] = None,
+             min_dtu: Optional[float] = None,
+             name: Optional[str] = None,
+             observation_period_end: Optional[str] = None,
+             observation_period_start: Optional[str] = None,
+             overall_recommendation_service_level_objective: Optional[str] = None,
+             overall_recommendation_service_level_objective_id: Optional[str] = None,
+             service_level_objective_usage_metrics: Optional[Sequence['outputs.SloUsageMetricResponse']] = None,
+             type: Optional[str] = None,
+             usage_based_recommendation_service_level_objective: Optional[str] = None,
+             usage_based_recommendation_service_level_objective_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_time_ratio is None and 'activeTimeRatio' in kwargs:
+            active_time_ratio = kwargs['activeTimeRatio']
+        if active_time_ratio is None:
+            raise TypeError("Missing 'active_time_ratio' argument")
+        if avg_dtu is None and 'avgDtu' in kwargs:
+            avg_dtu = kwargs['avgDtu']
+        if avg_dtu is None:
+            raise TypeError("Missing 'avg_dtu' argument")
+        if confidence is None:
+            raise TypeError("Missing 'confidence' argument")
+        if current_service_level_objective is None and 'currentServiceLevelObjective' in kwargs:
+            current_service_level_objective = kwargs['currentServiceLevelObjective']
+        if current_service_level_objective is None:
+            raise TypeError("Missing 'current_service_level_objective' argument")
+        if current_service_level_objective_id is None and 'currentServiceLevelObjectiveId' in kwargs:
+            current_service_level_objective_id = kwargs['currentServiceLevelObjectiveId']
+        if current_service_level_objective_id is None:
+            raise TypeError("Missing 'current_service_level_objective_id' argument")
+        if database_size_based_recommendation_service_level_objective is None and 'databaseSizeBasedRecommendationServiceLevelObjective' in kwargs:
+            database_size_based_recommendation_service_level_objective = kwargs['databaseSizeBasedRecommendationServiceLevelObjective']
+        if database_size_based_recommendation_service_level_objective is None:
+            raise TypeError("Missing 'database_size_based_recommendation_service_level_objective' argument")
+        if database_size_based_recommendation_service_level_objective_id is None and 'databaseSizeBasedRecommendationServiceLevelObjectiveId' in kwargs:
+            database_size_based_recommendation_service_level_objective_id = kwargs['databaseSizeBasedRecommendationServiceLevelObjectiveId']
+        if database_size_based_recommendation_service_level_objective_id is None:
+            raise TypeError("Missing 'database_size_based_recommendation_service_level_objective_id' argument")
+        if disaster_plan_based_recommendation_service_level_objective is None and 'disasterPlanBasedRecommendationServiceLevelObjective' in kwargs:
+            disaster_plan_based_recommendation_service_level_objective = kwargs['disasterPlanBasedRecommendationServiceLevelObjective']
+        if disaster_plan_based_recommendation_service_level_objective is None:
+            raise TypeError("Missing 'disaster_plan_based_recommendation_service_level_objective' argument")
+        if disaster_plan_based_recommendation_service_level_objective_id is None and 'disasterPlanBasedRecommendationServiceLevelObjectiveId' in kwargs:
+            disaster_plan_based_recommendation_service_level_objective_id = kwargs['disasterPlanBasedRecommendationServiceLevelObjectiveId']
+        if disaster_plan_based_recommendation_service_level_objective_id is None:
+            raise TypeError("Missing 'disaster_plan_based_recommendation_service_level_objective_id' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if max_dtu is None and 'maxDtu' in kwargs:
+            max_dtu = kwargs['maxDtu']
+        if max_dtu is None:
+            raise TypeError("Missing 'max_dtu' argument")
+        if max_size_in_gb is None and 'maxSizeInGB' in kwargs:
+            max_size_in_gb = kwargs['maxSizeInGB']
+        if max_size_in_gb is None:
+            raise TypeError("Missing 'max_size_in_gb' argument")
+        if min_dtu is None and 'minDtu' in kwargs:
+            min_dtu = kwargs['minDtu']
+        if min_dtu is None:
+            raise TypeError("Missing 'min_dtu' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if observation_period_end is None and 'observationPeriodEnd' in kwargs:
+            observation_period_end = kwargs['observationPeriodEnd']
+        if observation_period_end is None:
+            raise TypeError("Missing 'observation_period_end' argument")
+        if observation_period_start is None and 'observationPeriodStart' in kwargs:
+            observation_period_start = kwargs['observationPeriodStart']
+        if observation_period_start is None:
+            raise TypeError("Missing 'observation_period_start' argument")
+        if overall_recommendation_service_level_objective is None and 'overallRecommendationServiceLevelObjective' in kwargs:
+            overall_recommendation_service_level_objective = kwargs['overallRecommendationServiceLevelObjective']
+        if overall_recommendation_service_level_objective is None:
+            raise TypeError("Missing 'overall_recommendation_service_level_objective' argument")
+        if overall_recommendation_service_level_objective_id is None and 'overallRecommendationServiceLevelObjectiveId' in kwargs:
+            overall_recommendation_service_level_objective_id = kwargs['overallRecommendationServiceLevelObjectiveId']
+        if overall_recommendation_service_level_objective_id is None:
+            raise TypeError("Missing 'overall_recommendation_service_level_objective_id' argument")
+        if service_level_objective_usage_metrics is None and 'serviceLevelObjectiveUsageMetrics' in kwargs:
+            service_level_objective_usage_metrics = kwargs['serviceLevelObjectiveUsageMetrics']
+        if service_level_objective_usage_metrics is None:
+            raise TypeError("Missing 'service_level_objective_usage_metrics' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if usage_based_recommendation_service_level_objective is None and 'usageBasedRecommendationServiceLevelObjective' in kwargs:
+            usage_based_recommendation_service_level_objective = kwargs['usageBasedRecommendationServiceLevelObjective']
+        if usage_based_recommendation_service_level_objective is None:
+            raise TypeError("Missing 'usage_based_recommendation_service_level_objective' argument")
+        if usage_based_recommendation_service_level_objective_id is None and 'usageBasedRecommendationServiceLevelObjectiveId' in kwargs:
+            usage_based_recommendation_service_level_objective_id = kwargs['usageBasedRecommendationServiceLevelObjectiveId']
+        if usage_based_recommendation_service_level_objective_id is None:
+            raise TypeError("Missing 'usage_based_recommendation_service_level_objective_id' argument")
+
+        _setter("active_time_ratio", active_time_ratio)
+        _setter("avg_dtu", avg_dtu)
+        _setter("confidence", confidence)
+        _setter("current_service_level_objective", current_service_level_objective)
+        _setter("current_service_level_objective_id", current_service_level_objective_id)
+        _setter("database_size_based_recommendation_service_level_objective", database_size_based_recommendation_service_level_objective)
+        _setter("database_size_based_recommendation_service_level_objective_id", database_size_based_recommendation_service_level_objective_id)
+        _setter("disaster_plan_based_recommendation_service_level_objective", disaster_plan_based_recommendation_service_level_objective)
+        _setter("disaster_plan_based_recommendation_service_level_objective_id", disaster_plan_based_recommendation_service_level_objective_id)
+        _setter("id", id)
+        _setter("max_dtu", max_dtu)
+        _setter("max_size_in_gb", max_size_in_gb)
+        _setter("min_dtu", min_dtu)
+        _setter("name", name)
+        _setter("observation_period_end", observation_period_end)
+        _setter("observation_period_start", observation_period_start)
+        _setter("overall_recommendation_service_level_objective", overall_recommendation_service_level_objective)
+        _setter("overall_recommendation_service_level_objective_id", overall_recommendation_service_level_objective_id)
+        _setter("service_level_objective_usage_metrics", service_level_objective_usage_metrics)
+        _setter("type", type)
+        _setter("usage_based_recommendation_service_level_objective", usage_based_recommendation_service_level_objective)
+        _setter("usage_based_recommendation_service_level_objective_id", usage_based_recommendation_service_level_objective_id)
 
     @property
     @pulumi.getter(name="activeTimeRatio")
@@ -636,9 +879,36 @@ class SloUsageMetricResponse(dict):
         :param str service_level_objective: The serviceLevelObjective for SLO usage metric.
         :param str service_level_objective_id: The serviceLevelObjectiveId for SLO usage metric.
         """
-        pulumi.set(__self__, "in_range_time_ratio", in_range_time_ratio)
-        pulumi.set(__self__, "service_level_objective", service_level_objective)
-        pulumi.set(__self__, "service_level_objective_id", service_level_objective_id)
+        SloUsageMetricResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_range_time_ratio=in_range_time_ratio,
+            service_level_objective=service_level_objective,
+            service_level_objective_id=service_level_objective_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_range_time_ratio: Optional[float] = None,
+             service_level_objective: Optional[str] = None,
+             service_level_objective_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if in_range_time_ratio is None and 'inRangeTimeRatio' in kwargs:
+            in_range_time_ratio = kwargs['inRangeTimeRatio']
+        if in_range_time_ratio is None:
+            raise TypeError("Missing 'in_range_time_ratio' argument")
+        if service_level_objective is None and 'serviceLevelObjective' in kwargs:
+            service_level_objective = kwargs['serviceLevelObjective']
+        if service_level_objective is None:
+            raise TypeError("Missing 'service_level_objective' argument")
+        if service_level_objective_id is None and 'serviceLevelObjectiveId' in kwargs:
+            service_level_objective_id = kwargs['serviceLevelObjectiveId']
+        if service_level_objective_id is None:
+            raise TypeError("Missing 'service_level_objective_id' argument")
+
+        _setter("in_range_time_ratio", in_range_time_ratio)
+        _setter("service_level_objective", service_level_objective)
+        _setter("service_level_objective_id", service_level_objective_id)
 
     @property
     @pulumi.getter(name="inRangeTimeRatio")
@@ -684,12 +954,39 @@ class TransparentDataEncryptionResponse(dict):
         :param str type: Resource type.
         :param str status: The status of the database transparent data encryption.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        TransparentDataEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            name=name,
+            type=type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("location", location)
+        _setter("name", name)
+        _setter("type", type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter

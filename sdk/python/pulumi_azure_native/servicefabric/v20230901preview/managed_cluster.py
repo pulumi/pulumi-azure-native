@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -86,74 +86,215 @@ class ManagedClusterArgs:
         :param pulumi.Input[bool] zonal_resiliency: Indicates if the cluster has zone resiliency.
         :param pulumi.Input[Union[str, 'ZonalUpdateMode']] zonal_update_mode: Indicates the update mode for Cross Az clusters.
         """
-        pulumi.set(__self__, "admin_user_name", admin_user_name)
-        pulumi.set(__self__, "dns_name", dns_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ManagedClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_user_name=admin_user_name,
+            dns_name=dns_name,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            addon_features=addon_features,
+            admin_password=admin_password,
+            allow_rdp_access=allow_rdp_access,
+            application_type_versions_cleanup_policy=application_type_versions_cleanup_policy,
+            auxiliary_subnets=auxiliary_subnets,
+            azure_active_directory=azure_active_directory,
+            client_connection_port=client_connection_port,
+            clients=clients,
+            cluster_code_version=cluster_code_version,
+            cluster_name=cluster_name,
+            cluster_upgrade_cadence=cluster_upgrade_cadence,
+            cluster_upgrade_mode=cluster_upgrade_mode,
+            ddos_protection_plan_id=ddos_protection_plan_id,
+            enable_auto_os_upgrade=enable_auto_os_upgrade,
+            enable_ipv6=enable_ipv6,
+            enable_service_public_ip=enable_service_public_ip,
+            fabric_settings=fabric_settings,
+            http_gateway_connection_port=http_gateway_connection_port,
+            ip_tags=ip_tags,
+            load_balancing_rules=load_balancing_rules,
+            location=location,
+            network_security_rules=network_security_rules,
+            public_ip_prefix_id=public_ip_prefix_id,
+            service_endpoints=service_endpoints,
+            subnet_id=subnet_id,
+            tags=tags,
+            use_custom_vnet=use_custom_vnet,
+            zonal_resiliency=zonal_resiliency,
+            zonal_update_mode=zonal_update_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_user_name: Optional[pulumi.Input[str]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             addon_features: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ManagedClusterAddOnFeature']]]]] = None,
+             admin_password: Optional[pulumi.Input[str]] = None,
+             allow_rdp_access: Optional[pulumi.Input[bool]] = None,
+             application_type_versions_cleanup_policy: Optional[pulumi.Input['ApplicationTypeVersionsCleanupPolicyArgs']] = None,
+             auxiliary_subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
+             azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
+             client_connection_port: Optional[pulumi.Input[int]] = None,
+             clients: Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateArgs']]]] = None,
+             cluster_code_version: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
+             cluster_upgrade_mode: Optional[pulumi.Input[Union[str, 'ClusterUpgradeMode']]] = None,
+             ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
+             enable_auto_os_upgrade: Optional[pulumi.Input[bool]] = None,
+             enable_ipv6: Optional[pulumi.Input[bool]] = None,
+             enable_service_public_ip: Optional[pulumi.Input[bool]] = None,
+             fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]] = None,
+             http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
+             ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]] = None,
+             load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
+             public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_custom_vnet: Optional[pulumi.Input[bool]] = None,
+             zonal_resiliency: Optional[pulumi.Input[bool]] = None,
+             zonal_update_mode: Optional[pulumi.Input[Union[str, 'ZonalUpdateMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_user_name is None and 'adminUserName' in kwargs:
+            admin_user_name = kwargs['adminUserName']
+        if admin_user_name is None:
+            raise TypeError("Missing 'admin_user_name' argument")
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if dns_name is None:
+            raise TypeError("Missing 'dns_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if addon_features is None and 'addonFeatures' in kwargs:
+            addon_features = kwargs['addonFeatures']
+        if admin_password is None and 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if allow_rdp_access is None and 'allowRdpAccess' in kwargs:
+            allow_rdp_access = kwargs['allowRdpAccess']
+        if application_type_versions_cleanup_policy is None and 'applicationTypeVersionsCleanupPolicy' in kwargs:
+            application_type_versions_cleanup_policy = kwargs['applicationTypeVersionsCleanupPolicy']
+        if auxiliary_subnets is None and 'auxiliarySubnets' in kwargs:
+            auxiliary_subnets = kwargs['auxiliarySubnets']
+        if azure_active_directory is None and 'azureActiveDirectory' in kwargs:
+            azure_active_directory = kwargs['azureActiveDirectory']
+        if client_connection_port is None and 'clientConnectionPort' in kwargs:
+            client_connection_port = kwargs['clientConnectionPort']
+        if cluster_code_version is None and 'clusterCodeVersion' in kwargs:
+            cluster_code_version = kwargs['clusterCodeVersion']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_upgrade_cadence is None and 'clusterUpgradeCadence' in kwargs:
+            cluster_upgrade_cadence = kwargs['clusterUpgradeCadence']
+        if cluster_upgrade_mode is None and 'clusterUpgradeMode' in kwargs:
+            cluster_upgrade_mode = kwargs['clusterUpgradeMode']
+        if ddos_protection_plan_id is None and 'ddosProtectionPlanId' in kwargs:
+            ddos_protection_plan_id = kwargs['ddosProtectionPlanId']
+        if enable_auto_os_upgrade is None and 'enableAutoOSUpgrade' in kwargs:
+            enable_auto_os_upgrade = kwargs['enableAutoOSUpgrade']
+        if enable_ipv6 is None and 'enableIpv6' in kwargs:
+            enable_ipv6 = kwargs['enableIpv6']
+        if enable_service_public_ip is None and 'enableServicePublicIP' in kwargs:
+            enable_service_public_ip = kwargs['enableServicePublicIP']
+        if fabric_settings is None and 'fabricSettings' in kwargs:
+            fabric_settings = kwargs['fabricSettings']
+        if http_gateway_connection_port is None and 'httpGatewayConnectionPort' in kwargs:
+            http_gateway_connection_port = kwargs['httpGatewayConnectionPort']
+        if ip_tags is None and 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if load_balancing_rules is None and 'loadBalancingRules' in kwargs:
+            load_balancing_rules = kwargs['loadBalancingRules']
+        if network_security_rules is None and 'networkSecurityRules' in kwargs:
+            network_security_rules = kwargs['networkSecurityRules']
+        if public_ip_prefix_id is None and 'publicIPPrefixId' in kwargs:
+            public_ip_prefix_id = kwargs['publicIPPrefixId']
+        if service_endpoints is None and 'serviceEndpoints' in kwargs:
+            service_endpoints = kwargs['serviceEndpoints']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if use_custom_vnet is None and 'useCustomVnet' in kwargs:
+            use_custom_vnet = kwargs['useCustomVnet']
+        if zonal_resiliency is None and 'zonalResiliency' in kwargs:
+            zonal_resiliency = kwargs['zonalResiliency']
+        if zonal_update_mode is None and 'zonalUpdateMode' in kwargs:
+            zonal_update_mode = kwargs['zonalUpdateMode']
+
+        _setter("admin_user_name", admin_user_name)
+        _setter("dns_name", dns_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if addon_features is not None:
-            pulumi.set(__self__, "addon_features", addon_features)
+            _setter("addon_features", addon_features)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if allow_rdp_access is not None:
-            pulumi.set(__self__, "allow_rdp_access", allow_rdp_access)
+            _setter("allow_rdp_access", allow_rdp_access)
         if application_type_versions_cleanup_policy is not None:
-            pulumi.set(__self__, "application_type_versions_cleanup_policy", application_type_versions_cleanup_policy)
+            _setter("application_type_versions_cleanup_policy", application_type_versions_cleanup_policy)
         if auxiliary_subnets is not None:
-            pulumi.set(__self__, "auxiliary_subnets", auxiliary_subnets)
+            _setter("auxiliary_subnets", auxiliary_subnets)
         if azure_active_directory is not None:
-            pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+            _setter("azure_active_directory", azure_active_directory)
         if client_connection_port is None:
             client_connection_port = 19000
         if client_connection_port is not None:
-            pulumi.set(__self__, "client_connection_port", client_connection_port)
+            _setter("client_connection_port", client_connection_port)
         if clients is not None:
-            pulumi.set(__self__, "clients", clients)
+            _setter("clients", clients)
         if cluster_code_version is not None:
-            pulumi.set(__self__, "cluster_code_version", cluster_code_version)
+            _setter("cluster_code_version", cluster_code_version)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if cluster_upgrade_cadence is not None:
-            pulumi.set(__self__, "cluster_upgrade_cadence", cluster_upgrade_cadence)
+            _setter("cluster_upgrade_cadence", cluster_upgrade_cadence)
         if cluster_upgrade_mode is not None:
-            pulumi.set(__self__, "cluster_upgrade_mode", cluster_upgrade_mode)
+            _setter("cluster_upgrade_mode", cluster_upgrade_mode)
         if ddos_protection_plan_id is not None:
-            pulumi.set(__self__, "ddos_protection_plan_id", ddos_protection_plan_id)
+            _setter("ddos_protection_plan_id", ddos_protection_plan_id)
         if enable_auto_os_upgrade is not None:
-            pulumi.set(__self__, "enable_auto_os_upgrade", enable_auto_os_upgrade)
+            _setter("enable_auto_os_upgrade", enable_auto_os_upgrade)
         if enable_ipv6 is not None:
-            pulumi.set(__self__, "enable_ipv6", enable_ipv6)
+            _setter("enable_ipv6", enable_ipv6)
         if enable_service_public_ip is not None:
-            pulumi.set(__self__, "enable_service_public_ip", enable_service_public_ip)
+            _setter("enable_service_public_ip", enable_service_public_ip)
         if fabric_settings is not None:
-            pulumi.set(__self__, "fabric_settings", fabric_settings)
+            _setter("fabric_settings", fabric_settings)
         if http_gateway_connection_port is None:
             http_gateway_connection_port = 19080
         if http_gateway_connection_port is not None:
-            pulumi.set(__self__, "http_gateway_connection_port", http_gateway_connection_port)
+            _setter("http_gateway_connection_port", http_gateway_connection_port)
         if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
+            _setter("ip_tags", ip_tags)
         if load_balancing_rules is not None:
-            pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+            _setter("load_balancing_rules", load_balancing_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_security_rules is not None:
-            pulumi.set(__self__, "network_security_rules", network_security_rules)
+            _setter("network_security_rules", network_security_rules)
         if public_ip_prefix_id is not None:
-            pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
+            _setter("public_ip_prefix_id", public_ip_prefix_id)
         if service_endpoints is not None:
-            pulumi.set(__self__, "service_endpoints", service_endpoints)
+            _setter("service_endpoints", service_endpoints)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_custom_vnet is not None:
-            pulumi.set(__self__, "use_custom_vnet", use_custom_vnet)
+            _setter("use_custom_vnet", use_custom_vnet)
         if zonal_resiliency is None:
             zonal_resiliency = False
         if zonal_resiliency is not None:
-            pulumi.set(__self__, "zonal_resiliency", zonal_resiliency)
+            _setter("zonal_resiliency", zonal_resiliency)
         if zonal_update_mode is not None:
-            pulumi.set(__self__, "zonal_update_mode", zonal_update_mode)
+            _setter("zonal_update_mode", zonal_update_mode)
 
     @property
     @pulumi.getter(name="adminUserName")
@@ -649,6 +790,10 @@ class ManagedCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -702,8 +847,10 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'admin_user_name'")
             __props__.__dict__["admin_user_name"] = admin_user_name
             __props__.__dict__["allow_rdp_access"] = allow_rdp_access
+            application_type_versions_cleanup_policy = _utilities.configure(application_type_versions_cleanup_policy, ApplicationTypeVersionsCleanupPolicyArgs, True)
             __props__.__dict__["application_type_versions_cleanup_policy"] = application_type_versions_cleanup_policy
             __props__.__dict__["auxiliary_subnets"] = auxiliary_subnets
+            azure_active_directory = _utilities.configure(azure_active_directory, AzureActiveDirectoryArgs, True)
             __props__.__dict__["azure_active_directory"] = azure_active_directory
             if client_connection_port is None:
                 client_connection_port = 19000
@@ -733,6 +880,7 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_endpoints"] = service_endpoints
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

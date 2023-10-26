@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,27 +42,74 @@ class MarketplaceGalleryImageArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['GalleryImageVersionArgs'] version: Specifies information about the gallery image version that you want to create or update.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MarketplaceGalleryImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            cloud_init_data_source=cloud_init_data_source,
+            container_name=container_name,
+            extended_location=extended_location,
+            hyper_v_generation=hyper_v_generation,
+            identifier=identifier,
+            location=location,
+            marketplace_gallery_image_name=marketplace_gallery_image_name,
+            os_type=os_type,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             cloud_init_data_source: Optional[pulumi.Input[Union[str, 'CloudInitDataSource']]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
+             identifier: Optional[pulumi.Input['GalleryImageIdentifierArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             marketplace_gallery_image_name: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input['GalleryImageVersionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if cloud_init_data_source is None and 'cloudInitDataSource' in kwargs:
+            cloud_init_data_source = kwargs['cloudInitDataSource']
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if marketplace_gallery_image_name is None and 'marketplaceGalleryImageName' in kwargs:
+            marketplace_gallery_image_name = kwargs['marketplaceGalleryImageName']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+
+        _setter("resource_group_name", resource_group_name)
         if cloud_init_data_source is not None:
-            pulumi.set(__self__, "cloud_init_data_source", cloud_init_data_source)
+            _setter("cloud_init_data_source", cloud_init_data_source)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hyper_v_generation is not None:
-            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+            _setter("hyper_v_generation", hyper_v_generation)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if marketplace_gallery_image_name is not None:
-            pulumi.set(__self__, "marketplace_gallery_image_name", marketplace_gallery_image_name)
+            _setter("marketplace_gallery_image_name", marketplace_gallery_image_name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -256,6 +303,10 @@ class MarketplaceGalleryImage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MarketplaceGalleryImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -283,8 +334,10 @@ class MarketplaceGalleryImage(pulumi.CustomResource):
 
             __props__.__dict__["cloud_init_data_source"] = cloud_init_data_source
             __props__.__dict__["container_name"] = container_name
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
+            identifier = _utilities.configure(identifier, GalleryImageIdentifierArgs, True)
             __props__.__dict__["identifier"] = identifier
             __props__.__dict__["location"] = location
             __props__.__dict__["marketplace_gallery_image_name"] = marketplace_gallery_image_name
@@ -293,6 +346,7 @@ class MarketplaceGalleryImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            version = _utilities.configure(version, GalleryImageVersionArgs, True)
             __props__.__dict__["version"] = version
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

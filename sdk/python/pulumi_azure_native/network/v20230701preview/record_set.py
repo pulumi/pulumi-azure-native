@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,43 +59,134 @@ class RecordSetArgs:
         :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]] txt_records: The list of TXT records in the record set.
         """
-        pulumi.set(__self__, "record_type", record_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "zone_name", zone_name)
+        RecordSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            record_type=record_type,
+            resource_group_name=resource_group_name,
+            zone_name=zone_name,
+            a_records=a_records,
+            aaaa_records=aaaa_records,
+            caa_records=caa_records,
+            cname_record=cname_record,
+            ds_records=ds_records,
+            metadata=metadata,
+            mx_records=mx_records,
+            naptr_records=naptr_records,
+            ns_records=ns_records,
+            ptr_records=ptr_records,
+            relative_record_set_name=relative_record_set_name,
+            soa_record=soa_record,
+            srv_records=srv_records,
+            target_resource=target_resource,
+            tlsa_records=tlsa_records,
+            ttl=ttl,
+            txt_records=txt_records,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             record_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
+             a_records: Optional[pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]]] = None,
+             aaaa_records: Optional[pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]]] = None,
+             caa_records: Optional[pulumi.Input[Sequence[pulumi.Input['CaaRecordArgs']]]] = None,
+             cname_record: Optional[pulumi.Input['CnameRecordArgs']] = None,
+             ds_records: Optional[pulumi.Input[Sequence[pulumi.Input['DsRecordArgs']]]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             mx_records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]]] = None,
+             naptr_records: Optional[pulumi.Input[Sequence[pulumi.Input['NaptrRecordArgs']]]] = None,
+             ns_records: Optional[pulumi.Input[Sequence[pulumi.Input['NsRecordArgs']]]] = None,
+             ptr_records: Optional[pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
+             relative_record_set_name: Optional[pulumi.Input[str]] = None,
+             soa_record: Optional[pulumi.Input['SoaRecordArgs']] = None,
+             srv_records: Optional[pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]]] = None,
+             target_resource: Optional[pulumi.Input['SubResourceArgs']] = None,
+             tlsa_records: Optional[pulumi.Input[Sequence[pulumi.Input['TlsaRecordArgs']]]] = None,
+             ttl: Optional[pulumi.Input[float]] = None,
+             txt_records: Optional[pulumi.Input[Sequence[pulumi.Input['TxtRecordArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+        if record_type is None:
+            raise TypeError("Missing 'record_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if zone_name is None and 'zoneName' in kwargs:
+            zone_name = kwargs['zoneName']
+        if zone_name is None:
+            raise TypeError("Missing 'zone_name' argument")
+        if a_records is None and 'aRecords' in kwargs:
+            a_records = kwargs['aRecords']
+        if aaaa_records is None and 'aaaaRecords' in kwargs:
+            aaaa_records = kwargs['aaaaRecords']
+        if caa_records is None and 'caaRecords' in kwargs:
+            caa_records = kwargs['caaRecords']
+        if cname_record is None and 'cnameRecord' in kwargs:
+            cname_record = kwargs['cnameRecord']
+        if ds_records is None and 'dsRecords' in kwargs:
+            ds_records = kwargs['dsRecords']
+        if mx_records is None and 'mxRecords' in kwargs:
+            mx_records = kwargs['mxRecords']
+        if naptr_records is None and 'naptrRecords' in kwargs:
+            naptr_records = kwargs['naptrRecords']
+        if ns_records is None and 'nsRecords' in kwargs:
+            ns_records = kwargs['nsRecords']
+        if ptr_records is None and 'ptrRecords' in kwargs:
+            ptr_records = kwargs['ptrRecords']
+        if relative_record_set_name is None and 'relativeRecordSetName' in kwargs:
+            relative_record_set_name = kwargs['relativeRecordSetName']
+        if soa_record is None and 'soaRecord' in kwargs:
+            soa_record = kwargs['soaRecord']
+        if srv_records is None and 'srvRecords' in kwargs:
+            srv_records = kwargs['srvRecords']
+        if target_resource is None and 'targetResource' in kwargs:
+            target_resource = kwargs['targetResource']
+        if tlsa_records is None and 'tlsaRecords' in kwargs:
+            tlsa_records = kwargs['tlsaRecords']
+        if txt_records is None and 'txtRecords' in kwargs:
+            txt_records = kwargs['txtRecords']
+
+        _setter("record_type", record_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("zone_name", zone_name)
         if a_records is not None:
-            pulumi.set(__self__, "a_records", a_records)
+            _setter("a_records", a_records)
         if aaaa_records is not None:
-            pulumi.set(__self__, "aaaa_records", aaaa_records)
+            _setter("aaaa_records", aaaa_records)
         if caa_records is not None:
-            pulumi.set(__self__, "caa_records", caa_records)
+            _setter("caa_records", caa_records)
         if cname_record is not None:
-            pulumi.set(__self__, "cname_record", cname_record)
+            _setter("cname_record", cname_record)
         if ds_records is not None:
-            pulumi.set(__self__, "ds_records", ds_records)
+            _setter("ds_records", ds_records)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if mx_records is not None:
-            pulumi.set(__self__, "mx_records", mx_records)
+            _setter("mx_records", mx_records)
         if naptr_records is not None:
-            pulumi.set(__self__, "naptr_records", naptr_records)
+            _setter("naptr_records", naptr_records)
         if ns_records is not None:
-            pulumi.set(__self__, "ns_records", ns_records)
+            _setter("ns_records", ns_records)
         if ptr_records is not None:
-            pulumi.set(__self__, "ptr_records", ptr_records)
+            _setter("ptr_records", ptr_records)
         if relative_record_set_name is not None:
-            pulumi.set(__self__, "relative_record_set_name", relative_record_set_name)
+            _setter("relative_record_set_name", relative_record_set_name)
         if soa_record is not None:
-            pulumi.set(__self__, "soa_record", soa_record)
+            _setter("soa_record", soa_record)
         if srv_records is not None:
-            pulumi.set(__self__, "srv_records", srv_records)
+            _setter("srv_records", srv_records)
         if target_resource is not None:
-            pulumi.set(__self__, "target_resource", target_resource)
+            _setter("target_resource", target_resource)
         if tlsa_records is not None:
-            pulumi.set(__self__, "tlsa_records", tlsa_records)
+            _setter("tlsa_records", tlsa_records)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if txt_records is not None:
-            pulumi.set(__self__, "txt_records", txt_records)
+            _setter("txt_records", txt_records)
 
     @property
     @pulumi.getter(name="recordType")
@@ -409,6 +500,10 @@ class RecordSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RecordSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -446,6 +541,7 @@ class RecordSet(pulumi.CustomResource):
             __props__.__dict__["a_records"] = a_records
             __props__.__dict__["aaaa_records"] = aaaa_records
             __props__.__dict__["caa_records"] = caa_records
+            cname_record = _utilities.configure(cname_record, CnameRecordArgs, True)
             __props__.__dict__["cname_record"] = cname_record
             __props__.__dict__["ds_records"] = ds_records
             __props__.__dict__["metadata"] = metadata
@@ -460,8 +556,10 @@ class RecordSet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            soa_record = _utilities.configure(soa_record, SoaRecordArgs, True)
             __props__.__dict__["soa_record"] = soa_record
             __props__.__dict__["srv_records"] = srv_records
+            target_resource = _utilities.configure(target_resource, SubResourceArgs, True)
             __props__.__dict__["target_resource"] = target_resource
             __props__.__dict__["tlsa_records"] = tlsa_records
             __props__.__dict__["ttl"] = ttl

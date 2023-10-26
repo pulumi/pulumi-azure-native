@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -51,20 +51,95 @@ class EventImpactedResourceResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param Sequence['KeyValueItemResponse'] info: Additional information.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "maintenance_end_time", maintenance_end_time)
-        pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "target_region", target_region)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_resource_type", target_resource_type)
-        pulumi.set(__self__, "type", type)
+        EventImpactedResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            maintenance_end_time=maintenance_end_time,
+            maintenance_start_time=maintenance_start_time,
+            name=name,
+            resource_group=resource_group,
+            resource_name=resource_name,
+            status=status,
+            system_data=system_data,
+            target_region=target_region,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            type=type,
+            info=info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             maintenance_end_time: Optional[str] = None,
+             maintenance_start_time: Optional[str] = None,
+             name: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             status: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             target_region: Optional[str] = None,
+             target_resource_id: Optional[str] = None,
+             target_resource_type: Optional[str] = None,
+             type: Optional[str] = None,
+             info: Optional[Sequence['outputs.KeyValueItemResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if maintenance_end_time is None and 'maintenanceEndTime' in kwargs:
+            maintenance_end_time = kwargs['maintenanceEndTime']
+        if maintenance_end_time is None:
+            raise TypeError("Missing 'maintenance_end_time' argument")
+        if maintenance_start_time is None and 'maintenanceStartTime' in kwargs:
+            maintenance_start_time = kwargs['maintenanceStartTime']
+        if maintenance_start_time is None:
+            raise TypeError("Missing 'maintenance_start_time' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if target_region is None and 'targetRegion' in kwargs:
+            target_region = kwargs['targetRegion']
+        if target_region is None:
+            raise TypeError("Missing 'target_region' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if target_resource_type is None:
+            raise TypeError("Missing 'target_resource_type' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("maintenance_end_time", maintenance_end_time)
+        _setter("maintenance_start_time", maintenance_start_time)
+        _setter("name", name)
+        _setter("resource_group", resource_group)
+        _setter("resource_name", resource_name)
+        _setter("status", status)
+        _setter("system_data", system_data)
+        _setter("target_region", target_region)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_resource_type", target_resource_type)
+        _setter("type", type)
         if info is not None:
-            pulumi.set(__self__, "info", info)
+            _setter("info", info)
 
     @property
     @pulumi.getter
@@ -184,8 +259,25 @@ class KeyValueItemResponse(dict):
         :param str key: Key of tuple.
         :param str value: Value of tuple.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        KeyValueItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -225,18 +317,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

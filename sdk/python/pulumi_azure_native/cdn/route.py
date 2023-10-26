@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,38 +50,115 @@ class RouteArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] rule_sets: rule sets referenced by this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]] supported_protocols: List of supported protocols for this route.
         """
-        pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "origin_group", origin_group)
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_name=endpoint_name,
+            origin_group=origin_group,
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            cache_configuration=cache_configuration,
+            custom_domains=custom_domains,
+            enabled_state=enabled_state,
+            forwarding_protocol=forwarding_protocol,
+            https_redirect=https_redirect,
+            link_to_default_domain=link_to_default_domain,
+            origin_path=origin_path,
+            patterns_to_match=patterns_to_match,
+            route_name=route_name,
+            rule_sets=rule_sets,
+            supported_protocols=supported_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             origin_group: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             profile_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             cache_configuration: Optional[pulumi.Input['AfdRouteCacheConfigurationArgs']] = None,
+             custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]] = None,
+             enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
+             forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
+             https_redirect: Optional[pulumi.Input[Union[str, 'HttpsRedirect']]] = None,
+             link_to_default_domain: Optional[pulumi.Input[Union[str, 'LinkToDefaultDomain']]] = None,
+             origin_path: Optional[pulumi.Input[str]] = None,
+             patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             route_name: Optional[pulumi.Input[str]] = None,
+             rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
+             supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if endpoint_name is None:
+            raise TypeError("Missing 'endpoint_name' argument")
+        if origin_group is None and 'originGroup' in kwargs:
+            origin_group = kwargs['originGroup']
+        if origin_group is None:
+            raise TypeError("Missing 'origin_group' argument")
+        if profile_name is None and 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if profile_name is None:
+            raise TypeError("Missing 'profile_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if cache_configuration is None and 'cacheConfiguration' in kwargs:
+            cache_configuration = kwargs['cacheConfiguration']
+        if custom_domains is None and 'customDomains' in kwargs:
+            custom_domains = kwargs['customDomains']
+        if enabled_state is None and 'enabledState' in kwargs:
+            enabled_state = kwargs['enabledState']
+        if forwarding_protocol is None and 'forwardingProtocol' in kwargs:
+            forwarding_protocol = kwargs['forwardingProtocol']
+        if https_redirect is None and 'httpsRedirect' in kwargs:
+            https_redirect = kwargs['httpsRedirect']
+        if link_to_default_domain is None and 'linkToDefaultDomain' in kwargs:
+            link_to_default_domain = kwargs['linkToDefaultDomain']
+        if origin_path is None and 'originPath' in kwargs:
+            origin_path = kwargs['originPath']
+        if patterns_to_match is None and 'patternsToMatch' in kwargs:
+            patterns_to_match = kwargs['patternsToMatch']
+        if route_name is None and 'routeName' in kwargs:
+            route_name = kwargs['routeName']
+        if rule_sets is None and 'ruleSets' in kwargs:
+            rule_sets = kwargs['ruleSets']
+        if supported_protocols is None and 'supportedProtocols' in kwargs:
+            supported_protocols = kwargs['supportedProtocols']
+
+        _setter("endpoint_name", endpoint_name)
+        _setter("origin_group", origin_group)
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if cache_configuration is not None:
-            pulumi.set(__self__, "cache_configuration", cache_configuration)
+            _setter("cache_configuration", cache_configuration)
         if custom_domains is not None:
-            pulumi.set(__self__, "custom_domains", custom_domains)
+            _setter("custom_domains", custom_domains)
         if enabled_state is not None:
-            pulumi.set(__self__, "enabled_state", enabled_state)
+            _setter("enabled_state", enabled_state)
         if forwarding_protocol is None:
             forwarding_protocol = 'MatchRequest'
         if forwarding_protocol is not None:
-            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+            _setter("forwarding_protocol", forwarding_protocol)
         if https_redirect is None:
             https_redirect = 'Disabled'
         if https_redirect is not None:
-            pulumi.set(__self__, "https_redirect", https_redirect)
+            _setter("https_redirect", https_redirect)
         if link_to_default_domain is None:
             link_to_default_domain = 'Disabled'
         if link_to_default_domain is not None:
-            pulumi.set(__self__, "link_to_default_domain", link_to_default_domain)
+            _setter("link_to_default_domain", link_to_default_domain)
         if origin_path is not None:
-            pulumi.set(__self__, "origin_path", origin_path)
+            _setter("origin_path", origin_path)
         if patterns_to_match is not None:
-            pulumi.set(__self__, "patterns_to_match", patterns_to_match)
+            _setter("patterns_to_match", patterns_to_match)
         if route_name is not None:
-            pulumi.set(__self__, "route_name", route_name)
+            _setter("route_name", route_name)
         if rule_sets is not None:
-            pulumi.set(__self__, "rule_sets", rule_sets)
+            _setter("rule_sets", rule_sets)
         if supported_protocols is not None:
-            pulumi.set(__self__, "supported_protocols", supported_protocols)
+            _setter("supported_protocols", supported_protocols)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -331,6 +408,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -360,6 +441,7 @@ class Route(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RouteArgs.__new__(RouteArgs)
 
+            cache_configuration = _utilities.configure(cache_configuration, AfdRouteCacheConfigurationArgs, True)
             __props__.__dict__["cache_configuration"] = cache_configuration
             __props__.__dict__["custom_domains"] = custom_domains
             __props__.__dict__["enabled_state"] = enabled_state
@@ -375,6 +457,7 @@ class Route(pulumi.CustomResource):
             if link_to_default_domain is None:
                 link_to_default_domain = 'Disabled'
             __props__.__dict__["link_to_default_domain"] = link_to_default_domain
+            origin_group = _utilities.configure(origin_group, ResourceReferenceArgs, True)
             if origin_group is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_group'")
             __props__.__dict__["origin_group"] = origin_group

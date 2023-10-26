@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,78 @@ class DscpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['QosPortRangeArgs']]] source_port_ranges: Sources port ranges.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DscpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            destination_ip_ranges=destination_ip_ranges,
+            destination_port_ranges=destination_port_ranges,
+            dscp_configuration_name=dscp_configuration_name,
+            id=id,
+            location=location,
+            markings=markings,
+            protocol=protocol,
+            qos_definition_collection=qos_definition_collection,
+            source_ip_ranges=source_ip_ranges,
+            source_port_ranges=source_port_ranges,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             destination_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['QosIpRangeArgs']]]] = None,
+             destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['QosPortRangeArgs']]]] = None,
+             dscp_configuration_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             markings: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
+             qos_definition_collection: Optional[pulumi.Input[Sequence[pulumi.Input['QosDefinitionArgs']]]] = None,
+             source_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['QosIpRangeArgs']]]] = None,
+             source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['QosPortRangeArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if destination_ip_ranges is None and 'destinationIpRanges' in kwargs:
+            destination_ip_ranges = kwargs['destinationIpRanges']
+        if destination_port_ranges is None and 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if dscp_configuration_name is None and 'dscpConfigurationName' in kwargs:
+            dscp_configuration_name = kwargs['dscpConfigurationName']
+        if qos_definition_collection is None and 'qosDefinitionCollection' in kwargs:
+            qos_definition_collection = kwargs['qosDefinitionCollection']
+        if source_ip_ranges is None and 'sourceIpRanges' in kwargs:
+            source_ip_ranges = kwargs['sourceIpRanges']
+        if source_port_ranges is None and 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
+        _setter("resource_group_name", resource_group_name)
         if destination_ip_ranges is not None:
-            pulumi.set(__self__, "destination_ip_ranges", destination_ip_ranges)
+            _setter("destination_ip_ranges", destination_ip_ranges)
         if destination_port_ranges is not None:
-            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+            _setter("destination_port_ranges", destination_port_ranges)
         if dscp_configuration_name is not None:
-            pulumi.set(__self__, "dscp_configuration_name", dscp_configuration_name)
+            _setter("dscp_configuration_name", dscp_configuration_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if markings is not None:
-            pulumi.set(__self__, "markings", markings)
+            _setter("markings", markings)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if qos_definition_collection is not None:
-            pulumi.set(__self__, "qos_definition_collection", qos_definition_collection)
+            _setter("qos_definition_collection", qos_definition_collection)
         if source_ip_ranges is not None:
-            pulumi.set(__self__, "source_ip_ranges", source_ip_ranges)
+            _setter("source_ip_ranges", source_ip_ranges)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -274,6 +323,10 @@ class DscpConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DscpConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

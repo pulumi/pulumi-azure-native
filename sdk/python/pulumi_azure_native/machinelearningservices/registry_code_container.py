@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,42 @@ class RegistryCodeContainerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] code_name: Container name.
         """
-        pulumi.set(__self__, "code_container_properties", code_container_properties)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RegistryCodeContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code_container_properties=code_container_properties,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            code_name=code_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code_container_properties: Optional[pulumi.Input['CodeContainerArgs']] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             code_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code_container_properties is None and 'codeContainerProperties' in kwargs:
+            code_container_properties = kwargs['codeContainerProperties']
+        if code_container_properties is None:
+            raise TypeError("Missing 'code_container_properties' argument")
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if code_name is None and 'codeName' in kwargs:
+            code_name = kwargs['codeName']
+
+        _setter("code_container_properties", code_container_properties)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if code_name is not None:
-            pulumi.set(__self__, "code_name", code_name)
+            _setter("code_name", code_name)
 
     @property
     @pulumi.getter(name="codeContainerProperties")
@@ -127,6 +158,10 @@ class RegistryCodeContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryCodeContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +180,7 @@ class RegistryCodeContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegistryCodeContainerArgs.__new__(RegistryCodeContainerArgs)
 
+            code_container_properties = _utilities.configure(code_container_properties, CodeContainerArgs, True)
             if code_container_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'code_container_properties'")
             __props__.__dict__["code_container_properties"] = code_container_properties

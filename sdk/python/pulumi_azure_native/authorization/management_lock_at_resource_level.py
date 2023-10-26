@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,18 +38,69 @@ class ManagementLockAtResourceLevelArgs:
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]] owners: The owners of the lock.
         """
-        pulumi.set(__self__, "level", level)
-        pulumi.set(__self__, "parent_resource_path", parent_resource_path)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
-        pulumi.set(__self__, "resource_type", resource_type)
+        ManagementLockAtResourceLevelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            level=level,
+            parent_resource_path=parent_resource_path,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            resource_provider_namespace=resource_provider_namespace,
+            resource_type=resource_type,
+            lock_name=lock_name,
+            notes=notes,
+            owners=owners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             level: Optional[pulumi.Input[Union[str, 'LockLevel']]] = None,
+             parent_resource_path: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             resource_provider_namespace: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             lock_name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if parent_resource_path is None and 'parentResourcePath' in kwargs:
+            parent_resource_path = kwargs['parentResourcePath']
+        if parent_resource_path is None:
+            raise TypeError("Missing 'parent_resource_path' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if resource_provider_namespace is None and 'resourceProviderNamespace' in kwargs:
+            resource_provider_namespace = kwargs['resourceProviderNamespace']
+        if resource_provider_namespace is None:
+            raise TypeError("Missing 'resource_provider_namespace' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if lock_name is None and 'lockName' in kwargs:
+            lock_name = kwargs['lockName']
+
+        _setter("level", level)
+        _setter("parent_resource_path", parent_resource_path)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
+        _setter("resource_provider_namespace", resource_provider_namespace)
+        _setter("resource_type", resource_type)
         if lock_name is not None:
-            pulumi.set(__self__, "lock_name", lock_name)
+            _setter("lock_name", lock_name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if owners is not None:
-            pulumi.set(__self__, "owners", owners)
+            _setter("owners", owners)
 
     @property
     @pulumi.getter
@@ -211,6 +262,10 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagementLockAtResourceLevelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

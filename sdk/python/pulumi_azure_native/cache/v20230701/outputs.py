@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,10 +54,27 @@ class DatabasePropertiesResponseGeoReplication(dict):
         :param str group_nickname: Name for the group of linked database resources
         :param Sequence['LinkedDatabaseResponse'] linked_databases: List of database resources to link with this database
         """
+        DatabasePropertiesResponseGeoReplication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_nickname=group_nickname,
+            linked_databases=linked_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_nickname: Optional[str] = None,
+             linked_databases: Optional[Sequence['outputs.LinkedDatabaseResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_nickname is None and 'groupNickname' in kwargs:
+            group_nickname = kwargs['groupNickname']
+        if linked_databases is None and 'linkedDatabases' in kwargs:
+            linked_databases = kwargs['linkedDatabases']
+
         if group_nickname is not None:
-            pulumi.set(__self__, "group_nickname", group_nickname)
+            _setter("group_nickname", group_nickname)
         if linked_databases is not None:
-            pulumi.set(__self__, "linked_databases", linked_databases)
+            _setter("linked_databases", linked_databases)
 
     @property
     @pulumi.getter(name="groupNickname")
@@ -89,9 +106,24 @@ class EnterpriseSkuResponse(dict):
         :param str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
         :param int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
         """
-        pulumi.set(__self__, "name", name)
+        EnterpriseSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -123,9 +155,24 @@ class LinkedDatabaseResponse(dict):
         :param str state: State of the link between the database resources.
         :param str id: Resource ID of a database resource to link with this database.
         """
-        pulumi.set(__self__, "state", state)
+        LinkedDatabaseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("state", state)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -159,10 +206,29 @@ class ModuleResponse(dict):
         :param str version: The version of the module, e.g. '1.0'.
         :param str args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        ModuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+            args=args,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             args: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("name", name)
+        _setter("version", version)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
 
     @property
     @pulumi.getter
@@ -229,14 +295,39 @@ class PersistenceResponse(dict):
         :param bool rdb_enabled: Sets whether RDB is enabled.
         :param str rdb_frequency: Sets the frequency at which a snapshot of the database is created.
         """
+        PersistenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aof_enabled=aof_enabled,
+            aof_frequency=aof_frequency,
+            rdb_enabled=rdb_enabled,
+            rdb_frequency=rdb_frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aof_enabled: Optional[bool] = None,
+             aof_frequency: Optional[str] = None,
+             rdb_enabled: Optional[bool] = None,
+             rdb_frequency: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aof_enabled is None and 'aofEnabled' in kwargs:
+            aof_enabled = kwargs['aofEnabled']
+        if aof_frequency is None and 'aofFrequency' in kwargs:
+            aof_frequency = kwargs['aofFrequency']
+        if rdb_enabled is None and 'rdbEnabled' in kwargs:
+            rdb_enabled = kwargs['rdbEnabled']
+        if rdb_frequency is None and 'rdbFrequency' in kwargs:
+            rdb_frequency = kwargs['rdbFrequency']
+
         if aof_enabled is not None:
-            pulumi.set(__self__, "aof_enabled", aof_enabled)
+            _setter("aof_enabled", aof_enabled)
         if aof_frequency is not None:
-            pulumi.set(__self__, "aof_frequency", aof_frequency)
+            _setter("aof_frequency", aof_frequency)
         if rdb_enabled is not None:
-            pulumi.set(__self__, "rdb_enabled", rdb_enabled)
+            _setter("rdb_enabled", rdb_enabled)
         if rdb_frequency is not None:
-            pulumi.set(__self__, "rdb_frequency", rdb_frequency)
+            _setter("rdb_frequency", rdb_frequency)
 
     @property
     @pulumi.getter(name="aofEnabled")
@@ -313,13 +404,50 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             type: Optional[str] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -381,7 +509,20 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -424,12 +565,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")

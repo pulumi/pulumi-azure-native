@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,21 +42,82 @@ class JobStepArgs:
         :param pulumi.Input[int] step_id: The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
         :param pulumi.Input[str] step_name: The name of the job step.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "credential", credential)
-        pulumi.set(__self__, "job_agent_name", job_agent_name)
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "target_group", target_group)
+        JobStepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            credential=credential,
+            job_agent_name=job_agent_name,
+            job_name=job_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            target_group=target_group,
+            execution_options=execution_options,
+            output=output,
+            step_id=step_id,
+            step_name=step_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['JobStepActionArgs']] = None,
+             credential: Optional[pulumi.Input[str]] = None,
+             job_agent_name: Optional[pulumi.Input[str]] = None,
+             job_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             target_group: Optional[pulumi.Input[str]] = None,
+             execution_options: Optional[pulumi.Input['JobStepExecutionOptionsArgs']] = None,
+             output: Optional[pulumi.Input['JobStepOutputArgs']] = None,
+             step_id: Optional[pulumi.Input[int]] = None,
+             step_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if credential is None:
+            raise TypeError("Missing 'credential' argument")
+        if job_agent_name is None and 'jobAgentName' in kwargs:
+            job_agent_name = kwargs['jobAgentName']
+        if job_agent_name is None:
+            raise TypeError("Missing 'job_agent_name' argument")
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if job_name is None:
+            raise TypeError("Missing 'job_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if target_group is None and 'targetGroup' in kwargs:
+            target_group = kwargs['targetGroup']
+        if target_group is None:
+            raise TypeError("Missing 'target_group' argument")
+        if execution_options is None and 'executionOptions' in kwargs:
+            execution_options = kwargs['executionOptions']
+        if step_id is None and 'stepId' in kwargs:
+            step_id = kwargs['stepId']
+        if step_name is None and 'stepName' in kwargs:
+            step_name = kwargs['stepName']
+
+        _setter("action", action)
+        _setter("credential", credential)
+        _setter("job_agent_name", job_agent_name)
+        _setter("job_name", job_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("target_group", target_group)
         if execution_options is not None:
-            pulumi.set(__self__, "execution_options", execution_options)
+            _setter("execution_options", execution_options)
         if output is not None:
-            pulumi.set(__self__, "output", output)
+            _setter("output", output)
         if step_id is not None:
-            pulumi.set(__self__, "step_id", step_id)
+            _setter("step_id", step_id)
         if step_name is not None:
-            pulumi.set(__self__, "step_name", step_name)
+            _setter("step_name", step_name)
 
     @property
     @pulumi.getter
@@ -250,6 +311,10 @@ class JobStep(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobStepArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -275,12 +340,14 @@ class JobStep(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobStepArgs.__new__(JobStepArgs)
 
+            action = _utilities.configure(action, JobStepActionArgs, True)
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
             if credential is None and not opts.urn:
                 raise TypeError("Missing required property 'credential'")
             __props__.__dict__["credential"] = credential
+            execution_options = _utilities.configure(execution_options, JobStepExecutionOptionsArgs, True)
             __props__.__dict__["execution_options"] = execution_options
             if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")
@@ -288,6 +355,7 @@ class JobStep(pulumi.CustomResource):
             if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
+            output = _utilities.configure(output, JobStepOutputArgs, True)
             __props__.__dict__["output"] = output
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

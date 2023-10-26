@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,97 @@ class PrivateCloudArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
         """
-        pulumi.set(__self__, "management_cluster", management_cluster)
-        pulumi.set(__self__, "network_block", network_block)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        PrivateCloudArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_cluster=management_cluster,
+            network_block=network_block,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            availability=availability,
+            encryption=encryption,
+            extended_network_blocks=extended_network_blocks,
+            identity=identity,
+            identity_sources=identity_sources,
+            internet=internet,
+            location=location,
+            nsxt_password=nsxt_password,
+            private_cloud_name=private_cloud_name,
+            tags=tags,
+            vcenter_password=vcenter_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_cluster: Optional[pulumi.Input['ManagementClusterArgs']] = None,
+             network_block: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             availability: Optional[pulumi.Input['AvailabilityPropertiesArgs']] = None,
+             encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+             extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             identity: Optional[pulumi.Input['PrivateCloudIdentityArgs']] = None,
+             identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
+             internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             nsxt_password: Optional[pulumi.Input[str]] = None,
+             private_cloud_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vcenter_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if management_cluster is None and 'managementCluster' in kwargs:
+            management_cluster = kwargs['managementCluster']
+        if management_cluster is None:
+            raise TypeError("Missing 'management_cluster' argument")
+        if network_block is None and 'networkBlock' in kwargs:
+            network_block = kwargs['networkBlock']
+        if network_block is None:
+            raise TypeError("Missing 'network_block' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if extended_network_blocks is None and 'extendedNetworkBlocks' in kwargs:
+            extended_network_blocks = kwargs['extendedNetworkBlocks']
+        if identity_sources is None and 'identitySources' in kwargs:
+            identity_sources = kwargs['identitySources']
+        if nsxt_password is None and 'nsxtPassword' in kwargs:
+            nsxt_password = kwargs['nsxtPassword']
+        if private_cloud_name is None and 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if vcenter_password is None and 'vcenterPassword' in kwargs:
+            vcenter_password = kwargs['vcenterPassword']
+
+        _setter("management_cluster", management_cluster)
+        _setter("network_block", network_block)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if availability is not None:
-            pulumi.set(__self__, "availability", availability)
+            _setter("availability", availability)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if extended_network_blocks is not None:
-            pulumi.set(__self__, "extended_network_blocks", extended_network_blocks)
+            _setter("extended_network_blocks", extended_network_blocks)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if identity_sources is not None:
-            pulumi.set(__self__, "identity_sources", identity_sources)
+            _setter("identity_sources", identity_sources)
         if internet is None:
             internet = 'Disabled'
         if internet is not None:
-            pulumi.set(__self__, "internet", internet)
+            _setter("internet", internet)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if nsxt_password is not None:
-            pulumi.set(__self__, "nsxt_password", nsxt_password)
+            _setter("nsxt_password", nsxt_password)
         if private_cloud_name is not None:
-            pulumi.set(__self__, "private_cloud_name", private_cloud_name)
+            _setter("private_cloud_name", private_cloud_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vcenter_password is not None:
-            pulumi.set(__self__, "vcenter_password", vcenter_password)
+            _setter("vcenter_password", vcenter_password)
 
     @property
     @pulumi.getter(name="managementCluster")
@@ -321,6 +384,10 @@ class PrivateCloud(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateCloudArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,15 +417,19 @@ class PrivateCloud(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateCloudArgs.__new__(PrivateCloudArgs)
 
+            availability = _utilities.configure(availability, AvailabilityPropertiesArgs, True)
             __props__.__dict__["availability"] = availability
+            encryption = _utilities.configure(encryption, EncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["extended_network_blocks"] = extended_network_blocks
+            identity = _utilities.configure(identity, PrivateCloudIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["identity_sources"] = identity_sources
             if internet is None:
                 internet = 'Disabled'
             __props__.__dict__["internet"] = internet
             __props__.__dict__["location"] = location
+            management_cluster = _utilities.configure(management_cluster, ManagementClusterArgs, True)
             if management_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'management_cluster'")
             __props__.__dict__["management_cluster"] = management_cluster
@@ -370,6 +441,7 @@ class PrivateCloud(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,11 +27,40 @@ class EnvironmentContainerInitArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] name: Container name. This is case-sensitive.
         """
-        pulumi.set(__self__, "environment_container_details", environment_container_details)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        EnvironmentContainerInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_container_details=environment_container_details,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_container_details: Optional[pulumi.Input['EnvironmentContainerArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_container_details is None and 'environmentContainerDetails' in kwargs:
+            environment_container_details = kwargs['environmentContainerDetails']
+        if environment_container_details is None:
+            raise TypeError("Missing 'environment_container_details' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+
+        _setter("environment_container_details", environment_container_details)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="environmentContainerDetails")
@@ -121,6 +150,10 @@ class EnvironmentContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentContainerInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -139,6 +172,7 @@ class EnvironmentContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnvironmentContainerInitArgs.__new__(EnvironmentContainerInitArgs)
 
+            environment_container_details = _utilities.configure(environment_container_details, EnvironmentContainerArgs, True)
             if environment_container_details is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_container_details'")
             __props__.__dict__["environment_container_details"] = environment_container_details

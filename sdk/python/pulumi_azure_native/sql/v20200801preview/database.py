@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -102,60 +102,177 @@ class DatabaseArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        DatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            auto_pause_delay=auto_pause_delay,
+            catalog_collation=catalog_collation,
+            collation=collation,
+            create_mode=create_mode,
+            database_name=database_name,
+            elastic_pool_id=elastic_pool_id,
+            high_availability_replica_count=high_availability_replica_count,
+            license_type=license_type,
+            location=location,
+            long_term_retention_backup_resource_id=long_term_retention_backup_resource_id,
+            maintenance_configuration_id=maintenance_configuration_id,
+            max_size_bytes=max_size_bytes,
+            min_capacity=min_capacity,
+            read_scale=read_scale,
+            recoverable_database_id=recoverable_database_id,
+            recovery_services_recovery_point_id=recovery_services_recovery_point_id,
+            restorable_dropped_database_id=restorable_dropped_database_id,
+            restore_point_in_time=restore_point_in_time,
+            sample_name=sample_name,
+            secondary_type=secondary_type,
+            sku=sku,
+            source_database_deletion_date=source_database_deletion_date,
+            source_database_id=source_database_id,
+            storage_account_type=storage_account_type,
+            tags=tags,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             auto_pause_delay: Optional[pulumi.Input[int]] = None,
+             catalog_collation: Optional[pulumi.Input[Union[str, 'CatalogCollationType']]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             elastic_pool_id: Optional[pulumi.Input[str]] = None,
+             high_availability_replica_count: Optional[pulumi.Input[int]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             max_size_bytes: Optional[pulumi.Input[float]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
+             read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
+             recoverable_database_id: Optional[pulumi.Input[str]] = None,
+             recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
+             restorable_dropped_database_id: Optional[pulumi.Input[str]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             sample_name: Optional[pulumi.Input[Union[str, 'SampleName']]] = None,
+             secondary_type: Optional[pulumi.Input[Union[str, 'SecondaryType']]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             source_database_deletion_date: Optional[pulumi.Input[str]] = None,
+             source_database_id: Optional[pulumi.Input[str]] = None,
+             storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if auto_pause_delay is None and 'autoPauseDelay' in kwargs:
+            auto_pause_delay = kwargs['autoPauseDelay']
+        if catalog_collation is None and 'catalogCollation' in kwargs:
+            catalog_collation = kwargs['catalogCollation']
+        if create_mode is None and 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if elastic_pool_id is None and 'elasticPoolId' in kwargs:
+            elastic_pool_id = kwargs['elasticPoolId']
+        if high_availability_replica_count is None and 'highAvailabilityReplicaCount' in kwargs:
+            high_availability_replica_count = kwargs['highAvailabilityReplicaCount']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if long_term_retention_backup_resource_id is None and 'longTermRetentionBackupResourceId' in kwargs:
+            long_term_retention_backup_resource_id = kwargs['longTermRetentionBackupResourceId']
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
+            max_size_bytes = kwargs['maxSizeBytes']
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if read_scale is None and 'readScale' in kwargs:
+            read_scale = kwargs['readScale']
+        if recoverable_database_id is None and 'recoverableDatabaseId' in kwargs:
+            recoverable_database_id = kwargs['recoverableDatabaseId']
+        if recovery_services_recovery_point_id is None and 'recoveryServicesRecoveryPointId' in kwargs:
+            recovery_services_recovery_point_id = kwargs['recoveryServicesRecoveryPointId']
+        if restorable_dropped_database_id is None and 'restorableDroppedDatabaseId' in kwargs:
+            restorable_dropped_database_id = kwargs['restorableDroppedDatabaseId']
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if sample_name is None and 'sampleName' in kwargs:
+            sample_name = kwargs['sampleName']
+        if secondary_type is None and 'secondaryType' in kwargs:
+            secondary_type = kwargs['secondaryType']
+        if source_database_deletion_date is None and 'sourceDatabaseDeletionDate' in kwargs:
+            source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
+        if source_database_id is None and 'sourceDatabaseId' in kwargs:
+            source_database_id = kwargs['sourceDatabaseId']
+        if storage_account_type is None and 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if auto_pause_delay is not None:
-            pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
+            _setter("auto_pause_delay", auto_pause_delay)
         if catalog_collation is not None:
-            pulumi.set(__self__, "catalog_collation", catalog_collation)
+            _setter("catalog_collation", catalog_collation)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if elastic_pool_id is not None:
-            pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
+            _setter("elastic_pool_id", elastic_pool_id)
         if high_availability_replica_count is not None:
-            pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
+            _setter("high_availability_replica_count", high_availability_replica_count)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if long_term_retention_backup_resource_id is not None:
-            pulumi.set(__self__, "long_term_retention_backup_resource_id", long_term_retention_backup_resource_id)
+            _setter("long_term_retention_backup_resource_id", long_term_retention_backup_resource_id)
         if maintenance_configuration_id is not None:
-            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+            _setter("maintenance_configuration_id", maintenance_configuration_id)
         if max_size_bytes is not None:
-            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+            _setter("max_size_bytes", max_size_bytes)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
         if read_scale is not None:
-            pulumi.set(__self__, "read_scale", read_scale)
+            _setter("read_scale", read_scale)
         if recoverable_database_id is not None:
-            pulumi.set(__self__, "recoverable_database_id", recoverable_database_id)
+            _setter("recoverable_database_id", recoverable_database_id)
         if recovery_services_recovery_point_id is not None:
-            pulumi.set(__self__, "recovery_services_recovery_point_id", recovery_services_recovery_point_id)
+            _setter("recovery_services_recovery_point_id", recovery_services_recovery_point_id)
         if restorable_dropped_database_id is not None:
-            pulumi.set(__self__, "restorable_dropped_database_id", restorable_dropped_database_id)
+            _setter("restorable_dropped_database_id", restorable_dropped_database_id)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if sample_name is not None:
-            pulumi.set(__self__, "sample_name", sample_name)
+            _setter("sample_name", sample_name)
         if secondary_type is not None:
-            pulumi.set(__self__, "secondary_type", secondary_type)
+            _setter("secondary_type", secondary_type)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if source_database_deletion_date is not None:
-            pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
+            _setter("source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
-            pulumi.set(__self__, "source_database_id", source_database_id)
+            _setter("source_database_id", source_database_id)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -633,6 +750,10 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -701,6 +822,7 @@ class Database(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id

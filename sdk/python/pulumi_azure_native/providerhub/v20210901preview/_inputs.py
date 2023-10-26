@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -83,10 +83,23 @@ class AuthorizationActionMappingArgs:
     def __init__(__self__, *,
                  desired: Optional[pulumi.Input[str]] = None,
                  original: Optional[pulumi.Input[str]] = None):
+        AuthorizationActionMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired=desired,
+            original=original,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired: Optional[pulumi.Input[str]] = None,
+             original: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if desired is not None:
-            pulumi.set(__self__, "desired", desired)
+            _setter("desired", desired)
         if original is not None:
-            pulumi.set(__self__, "original", original)
+            _setter("original", original)
 
     @property
     @pulumi.getter
@@ -119,24 +132,67 @@ class DefaultRolloutPropertiesSpecificationArgs:
                  resource_type_registrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]] = None,
                  rest_of_the_world_group_one: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']] = None,
                  rest_of_the_world_group_two: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']] = None):
+        DefaultRolloutPropertiesSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            canary=canary,
+            expedited_rollout=expedited_rollout,
+            high_traffic=high_traffic,
+            low_traffic=low_traffic,
+            medium_traffic=medium_traffic,
+            provider_registration=provider_registration,
+            resource_type_registrations=resource_type_registrations,
+            rest_of_the_world_group_one=rest_of_the_world_group_one,
+            rest_of_the_world_group_two=rest_of_the_world_group_two,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             canary: Optional[pulumi.Input['DefaultRolloutSpecificationCanaryArgs']] = None,
+             expedited_rollout: Optional[pulumi.Input['DefaultRolloutSpecificationExpeditedRolloutArgs']] = None,
+             high_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationHighTrafficArgs']] = None,
+             low_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationLowTrafficArgs']] = None,
+             medium_traffic: Optional[pulumi.Input['DefaultRolloutSpecificationMediumTrafficArgs']] = None,
+             provider_registration: Optional[pulumi.Input['DefaultRolloutSpecificationProviderRegistrationArgs']] = None,
+             resource_type_registrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeRegistrationArgs']]]] = None,
+             rest_of_the_world_group_one: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs']] = None,
+             rest_of_the_world_group_two: Optional[pulumi.Input['DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expedited_rollout is None and 'expeditedRollout' in kwargs:
+            expedited_rollout = kwargs['expeditedRollout']
+        if high_traffic is None and 'highTraffic' in kwargs:
+            high_traffic = kwargs['highTraffic']
+        if low_traffic is None and 'lowTraffic' in kwargs:
+            low_traffic = kwargs['lowTraffic']
+        if medium_traffic is None and 'mediumTraffic' in kwargs:
+            medium_traffic = kwargs['mediumTraffic']
+        if provider_registration is None and 'providerRegistration' in kwargs:
+            provider_registration = kwargs['providerRegistration']
+        if resource_type_registrations is None and 'resourceTypeRegistrations' in kwargs:
+            resource_type_registrations = kwargs['resourceTypeRegistrations']
+        if rest_of_the_world_group_one is None and 'restOfTheWorldGroupOne' in kwargs:
+            rest_of_the_world_group_one = kwargs['restOfTheWorldGroupOne']
+        if rest_of_the_world_group_two is None and 'restOfTheWorldGroupTwo' in kwargs:
+            rest_of_the_world_group_two = kwargs['restOfTheWorldGroupTwo']
+
         if canary is not None:
-            pulumi.set(__self__, "canary", canary)
+            _setter("canary", canary)
         if expedited_rollout is not None:
-            pulumi.set(__self__, "expedited_rollout", expedited_rollout)
+            _setter("expedited_rollout", expedited_rollout)
         if high_traffic is not None:
-            pulumi.set(__self__, "high_traffic", high_traffic)
+            _setter("high_traffic", high_traffic)
         if low_traffic is not None:
-            pulumi.set(__self__, "low_traffic", low_traffic)
+            _setter("low_traffic", low_traffic)
         if medium_traffic is not None:
-            pulumi.set(__self__, "medium_traffic", medium_traffic)
+            _setter("medium_traffic", medium_traffic)
         if provider_registration is not None:
-            pulumi.set(__self__, "provider_registration", provider_registration)
+            _setter("provider_registration", provider_registration)
         if resource_type_registrations is not None:
-            pulumi.set(__self__, "resource_type_registrations", resource_type_registrations)
+            _setter("resource_type_registrations", resource_type_registrations)
         if rest_of_the_world_group_one is not None:
-            pulumi.set(__self__, "rest_of_the_world_group_one", rest_of_the_world_group_one)
+            _setter("rest_of_the_world_group_one", rest_of_the_world_group_one)
         if rest_of_the_world_group_two is not None:
-            pulumi.set(__self__, "rest_of_the_world_group_two", rest_of_the_world_group_two)
+            _setter("rest_of_the_world_group_two", rest_of_the_world_group_two)
 
     @property
     @pulumi.getter
@@ -228,16 +284,45 @@ class DefaultRolloutPropertiesStatusArgs:
                  next_traffic_region: Optional[pulumi.Input[Union[str, 'TrafficRegionCategory']]] = None,
                  next_traffic_region_scheduled_time: Optional[pulumi.Input[str]] = None,
                  subscription_reregistration_result: Optional[pulumi.Input[Union[str, 'SubscriptionReregistrationResult']]] = None):
+        DefaultRolloutPropertiesStatusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completed_regions=completed_regions,
+            failed_or_skipped_regions=failed_or_skipped_regions,
+            next_traffic_region=next_traffic_region,
+            next_traffic_region_scheduled_time=next_traffic_region_scheduled_time,
+            subscription_reregistration_result=subscription_reregistration_result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             failed_or_skipped_regions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
+             next_traffic_region: Optional[pulumi.Input[Union[str, 'TrafficRegionCategory']]] = None,
+             next_traffic_region_scheduled_time: Optional[pulumi.Input[str]] = None,
+             subscription_reregistration_result: Optional[pulumi.Input[Union[str, 'SubscriptionReregistrationResult']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if completed_regions is None and 'completedRegions' in kwargs:
+            completed_regions = kwargs['completedRegions']
+        if failed_or_skipped_regions is None and 'failedOrSkippedRegions' in kwargs:
+            failed_or_skipped_regions = kwargs['failedOrSkippedRegions']
+        if next_traffic_region is None and 'nextTrafficRegion' in kwargs:
+            next_traffic_region = kwargs['nextTrafficRegion']
+        if next_traffic_region_scheduled_time is None and 'nextTrafficRegionScheduledTime' in kwargs:
+            next_traffic_region_scheduled_time = kwargs['nextTrafficRegionScheduledTime']
+        if subscription_reregistration_result is None and 'subscriptionReregistrationResult' in kwargs:
+            subscription_reregistration_result = kwargs['subscriptionReregistrationResult']
+
         if completed_regions is not None:
-            pulumi.set(__self__, "completed_regions", completed_regions)
+            _setter("completed_regions", completed_regions)
         if failed_or_skipped_regions is not None:
-            pulumi.set(__self__, "failed_or_skipped_regions", failed_or_skipped_regions)
+            _setter("failed_or_skipped_regions", failed_or_skipped_regions)
         if next_traffic_region is not None:
-            pulumi.set(__self__, "next_traffic_region", next_traffic_region)
+            _setter("next_traffic_region", next_traffic_region)
         if next_traffic_region_scheduled_time is not None:
-            pulumi.set(__self__, "next_traffic_region_scheduled_time", next_traffic_region_scheduled_time)
+            _setter("next_traffic_region_scheduled_time", next_traffic_region_scheduled_time)
         if subscription_reregistration_result is not None:
-            pulumi.set(__self__, "subscription_reregistration_result", subscription_reregistration_result)
+            _setter("subscription_reregistration_result", subscription_reregistration_result)
 
     @property
     @pulumi.getter(name="completedRegions")
@@ -295,12 +380,29 @@ class DefaultRolloutPropertiesArgs:
         Properties of the rollout.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
         """
+        DefaultRolloutPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            specification=specification,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             specification: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']] = None,
+             status: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if specification is not None:
-            pulumi.set(__self__, "specification", specification)
+            _setter("specification", specification)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -338,10 +440,25 @@ class DefaultRolloutSpecificationCanaryArgs:
     def __init__(__self__, *,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        DefaultRolloutSpecificationCanaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regions=regions,
+            skip_regions=skip_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             skip_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if skip_regions is None and 'skipRegions' in kwargs:
+            skip_regions = kwargs['skipRegions']
+
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if skip_regions is not None:
-            pulumi.set(__self__, "skip_regions", skip_regions)
+            _setter("skip_regions", skip_regions)
 
     @property
     @pulumi.getter
@@ -369,8 +486,19 @@ class DefaultRolloutSpecificationExpeditedRolloutArgs:
         """
         :param pulumi.Input[bool] enabled: Indicates whether expedited rollout is enabled/disabled
         """
+        DefaultRolloutSpecificationExpeditedRolloutArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -390,10 +518,25 @@ class DefaultRolloutSpecificationHighTrafficArgs:
     def __init__(__self__, *,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_duration: Optional[pulumi.Input[str]] = None):
+        DefaultRolloutSpecificationHighTrafficArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regions=regions,
+            wait_duration=wait_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if wait_duration is None and 'waitDuration' in kwargs:
+            wait_duration = kwargs['waitDuration']
+
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if wait_duration is not None:
-            pulumi.set(__self__, "wait_duration", wait_duration)
+            _setter("wait_duration", wait_duration)
 
     @property
     @pulumi.getter
@@ -419,10 +562,25 @@ class DefaultRolloutSpecificationLowTrafficArgs:
     def __init__(__self__, *,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_duration: Optional[pulumi.Input[str]] = None):
+        DefaultRolloutSpecificationLowTrafficArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regions=regions,
+            wait_duration=wait_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if wait_duration is None and 'waitDuration' in kwargs:
+            wait_duration = kwargs['waitDuration']
+
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if wait_duration is not None:
-            pulumi.set(__self__, "wait_duration", wait_duration)
+            _setter("wait_duration", wait_duration)
 
     @property
     @pulumi.getter
@@ -448,10 +606,25 @@ class DefaultRolloutSpecificationMediumTrafficArgs:
     def __init__(__self__, *,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_duration: Optional[pulumi.Input[str]] = None):
+        DefaultRolloutSpecificationMediumTrafficArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regions=regions,
+            wait_duration=wait_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if wait_duration is None and 'waitDuration' in kwargs:
+            wait_duration = kwargs['waitDuration']
+
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if wait_duration is not None:
-            pulumi.set(__self__, "wait_duration", wait_duration)
+            _setter("wait_duration", wait_duration)
 
     @property
     @pulumi.getter
@@ -476,8 +649,19 @@ class DefaultRolloutSpecificationMediumTrafficArgs:
 class DefaultRolloutSpecificationProviderRegistrationArgs:
     def __init__(__self__, *,
                  properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None):
+        DefaultRolloutSpecificationProviderRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['ProviderRegistrationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -494,10 +678,25 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs:
     def __init__(__self__, *,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_duration: Optional[pulumi.Input[str]] = None):
+        DefaultRolloutSpecificationRestOfTheWorldGroupOneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regions=regions,
+            wait_duration=wait_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if wait_duration is None and 'waitDuration' in kwargs:
+            wait_duration = kwargs['waitDuration']
+
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if wait_duration is not None:
-            pulumi.set(__self__, "wait_duration", wait_duration)
+            _setter("wait_duration", wait_duration)
 
     @property
     @pulumi.getter
@@ -523,10 +722,25 @@ class DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs:
     def __init__(__self__, *,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_duration: Optional[pulumi.Input[str]] = None):
+        DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            regions=regions,
+            wait_duration=wait_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if wait_duration is None and 'waitDuration' in kwargs:
+            wait_duration = kwargs['waitDuration']
+
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if wait_duration is not None:
-            pulumi.set(__self__, "wait_duration", wait_duration)
+            _setter("wait_duration", wait_duration)
 
     @property
     @pulumi.getter
@@ -555,16 +769,37 @@ class ExtendedErrorInfoArgs:
                  details: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None):
+        ExtendedErrorInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Optional[pulumi.Input[Sequence[pulumi.Input['TypedErrorInfoArgs']]]] = None,
+             code: Optional[pulumi.Input[str]] = None,
+             details: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedErrorInfoArgs']]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_info is None and 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+
         if additional_info is not None:
-            pulumi.set(__self__, "additional_info", additional_info)
+            _setter("additional_info", additional_info)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -617,10 +852,25 @@ class ExtendedLocationOptionsArgs:
     def __init__(__self__, *,
                  supported_policy: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        ExtendedLocationOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            supported_policy=supported_policy,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             supported_policy: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if supported_policy is None and 'supportedPolicy' in kwargs:
+            supported_policy = kwargs['supportedPolicy']
+
         if supported_policy is not None:
-            pulumi.set(__self__, "supported_policy", supported_policy)
+            _setter("supported_policy", supported_policy)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="supportedPolicy")
@@ -646,8 +896,29 @@ class LightHouseAuthorizationArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
                  role_definition_id: pulumi.Input[str]):
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        LightHouseAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -676,16 +947,45 @@ class LinkedAccessCheckArgs:
                  linked_action_verb: Optional[pulumi.Input[str]] = None,
                  linked_property: Optional[pulumi.Input[str]] = None,
                  linked_type: Optional[pulumi.Input[str]] = None):
+        LinkedAccessCheckArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_name=action_name,
+            linked_action=linked_action,
+            linked_action_verb=linked_action_verb,
+            linked_property=linked_property,
+            linked_type=linked_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_name: Optional[pulumi.Input[str]] = None,
+             linked_action: Optional[pulumi.Input[str]] = None,
+             linked_action_verb: Optional[pulumi.Input[str]] = None,
+             linked_property: Optional[pulumi.Input[str]] = None,
+             linked_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_name is None and 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+        if linked_action is None and 'linkedAction' in kwargs:
+            linked_action = kwargs['linkedAction']
+        if linked_action_verb is None and 'linkedActionVerb' in kwargs:
+            linked_action_verb = kwargs['linkedActionVerb']
+        if linked_property is None and 'linkedProperty' in kwargs:
+            linked_property = kwargs['linkedProperty']
+        if linked_type is None and 'linkedType' in kwargs:
+            linked_type = kwargs['linkedType']
+
         if action_name is not None:
-            pulumi.set(__self__, "action_name", action_name)
+            _setter("action_name", action_name)
         if linked_action is not None:
-            pulumi.set(__self__, "linked_action", linked_action)
+            _setter("linked_action", linked_action)
         if linked_action_verb is not None:
-            pulumi.set(__self__, "linked_action_verb", linked_action_verb)
+            _setter("linked_action_verb", linked_action_verb)
         if linked_property is not None:
-            pulumi.set(__self__, "linked_property", linked_property)
+            _setter("linked_property", linked_property)
         if linked_type is not None:
-            pulumi.set(__self__, "linked_type", linked_type)
+            _setter("linked_type", linked_type)
 
     @property
     @pulumi.getter(name="actionName")
@@ -738,10 +1038,27 @@ class LoggingRuleHiddenPropertyPathsArgs:
     def __init__(__self__, *,
                  hidden_paths_on_request: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hidden_paths_on_response: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        LoggingRuleHiddenPropertyPathsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hidden_paths_on_request=hidden_paths_on_request,
+            hidden_paths_on_response=hidden_paths_on_response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hidden_paths_on_request: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hidden_paths_on_response: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hidden_paths_on_request is None and 'hiddenPathsOnRequest' in kwargs:
+            hidden_paths_on_request = kwargs['hiddenPathsOnRequest']
+        if hidden_paths_on_response is None and 'hiddenPathsOnResponse' in kwargs:
+            hidden_paths_on_response = kwargs['hiddenPathsOnResponse']
+
         if hidden_paths_on_request is not None:
-            pulumi.set(__self__, "hidden_paths_on_request", hidden_paths_on_request)
+            _setter("hidden_paths_on_request", hidden_paths_on_request)
         if hidden_paths_on_response is not None:
-            pulumi.set(__self__, "hidden_paths_on_response", hidden_paths_on_response)
+            _setter("hidden_paths_on_response", hidden_paths_on_response)
 
     @property
     @pulumi.getter(name="hiddenPathsOnRequest")
@@ -769,11 +1086,38 @@ class LoggingRuleArgs:
                  detail_level: pulumi.Input[Union[str, 'LoggingDetails']],
                  direction: pulumi.Input[Union[str, 'LoggingDirections']],
                  hidden_property_paths: Optional[pulumi.Input['LoggingRuleHiddenPropertyPathsArgs']] = None):
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "detail_level", detail_level)
-        pulumi.set(__self__, "direction", direction)
+        LoggingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            detail_level=detail_level,
+            direction=direction,
+            hidden_property_paths=hidden_property_paths,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             detail_level: Optional[pulumi.Input[Union[str, 'LoggingDetails']]] = None,
+             direction: Optional[pulumi.Input[Union[str, 'LoggingDirections']]] = None,
+             hidden_property_paths: Optional[pulumi.Input['LoggingRuleHiddenPropertyPathsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if detail_level is None and 'detailLevel' in kwargs:
+            detail_level = kwargs['detailLevel']
+        if detail_level is None:
+            raise TypeError("Missing 'detail_level' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if hidden_property_paths is None and 'hiddenPropertyPaths' in kwargs:
+            hidden_property_paths = kwargs['hiddenPropertyPaths']
+
+        _setter("action", action)
+        _setter("detail_level", detail_level)
+        _setter("direction", direction)
         if hidden_property_paths is not None:
-            pulumi.set(__self__, "hidden_property_paths", hidden_property_paths)
+            _setter("hidden_property_paths", hidden_property_paths)
 
     @property
     @pulumi.getter
@@ -817,10 +1161,25 @@ class NotificationEndpointArgs:
     def __init__(__self__, *,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notification_destination: Optional[pulumi.Input[str]] = None):
+        NotificationEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+            notification_destination=notification_destination,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notification_destination: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if notification_destination is None and 'notificationDestination' in kwargs:
+            notification_destination = kwargs['notificationDestination']
+
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if notification_destination is not None:
-            pulumi.set(__self__, "notification_destination", notification_destination)
+            _setter("notification_destination", notification_destination)
 
     @property
     @pulumi.getter
@@ -852,16 +1211,45 @@ class NotificationRegistrationPropertiesArgs:
         """
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
         """
+        NotificationRegistrationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            included_events=included_events,
+            message_scope=message_scope,
+            notification_endpoints=notification_endpoints,
+            notification_mode=notification_mode,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             included_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             message_scope: Optional[pulumi.Input[Union[str, 'MessageScope']]] = None,
+             notification_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgs']]]] = None,
+             notification_mode: Optional[pulumi.Input[Union[str, 'NotificationMode']]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if included_events is None and 'includedEvents' in kwargs:
+            included_events = kwargs['includedEvents']
+        if message_scope is None and 'messageScope' in kwargs:
+            message_scope = kwargs['messageScope']
+        if notification_endpoints is None and 'notificationEndpoints' in kwargs:
+            notification_endpoints = kwargs['notificationEndpoints']
+        if notification_mode is None and 'notificationMode' in kwargs:
+            notification_mode = kwargs['notificationMode']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
         if included_events is not None:
-            pulumi.set(__self__, "included_events", included_events)
+            _setter("included_events", included_events)
         if message_scope is not None:
-            pulumi.set(__self__, "message_scope", message_scope)
+            _setter("message_scope", message_scope)
         if notification_endpoints is not None:
-            pulumi.set(__self__, "notification_endpoints", notification_endpoints)
+            _setter("notification_endpoints", notification_endpoints)
         if notification_mode is not None:
-            pulumi.set(__self__, "notification_mode", notification_mode)
+            _setter("notification_mode", notification_mode)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="includedEvents")
@@ -916,8 +1304,19 @@ class NotificationRegistrationPropertiesArgs:
 class OpenApiConfigurationArgs:
     def __init__(__self__, *,
                  validation: Optional[pulumi.Input['OpenApiValidationArgs']] = None):
+        OpenApiConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validation=validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validation: Optional[pulumi.Input['OpenApiValidationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if validation is not None:
-            pulumi.set(__self__, "validation", validation)
+            _setter("validation", validation)
 
     @property
     @pulumi.getter
@@ -936,8 +1335,21 @@ class OpenApiValidationArgs:
         """
         :param pulumi.Input[bool] allow_noncompliant_collection_response: Indicates whether a non compliance response is allowed for a LIST call
         """
+        OpenApiValidationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_noncompliant_collection_response=allow_noncompliant_collection_response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_noncompliant_collection_response: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_noncompliant_collection_response is None and 'allowNoncompliantCollectionResponse' in kwargs:
+            allow_noncompliant_collection_response = kwargs['allowNoncompliantCollectionResponse']
+
         if allow_noncompliant_collection_response is not None:
-            pulumi.set(__self__, "allow_noncompliant_collection_response", allow_noncompliant_collection_response)
+            _setter("allow_noncompliant_collection_response", allow_noncompliant_collection_response)
 
     @property
     @pulumi.getter(name="allowNoncompliantCollectionResponse")
@@ -956,7 +1368,22 @@ class OpenApiValidationArgs:
 class ProviderHubMetadataProviderAuthenticationArgs:
     def __init__(__self__, *,
                  allowed_audiences: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        ProviderHubMetadataProviderAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_audiences=allowed_audiences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if allowed_audiences is None:
+            raise TypeError("Missing 'allowed_audiences' argument")
+
+        _setter("allowed_audiences", allowed_audiences)
 
     @property
     @pulumi.getter(name="allowedAudiences")
@@ -973,10 +1400,25 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
     def __init__(__self__, *,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]]] = None,
                  managed_by_tenant_id: Optional[pulumi.Input[str]] = None):
+        ProviderHubMetadataThirdPartyProviderAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorizations=authorizations,
+            managed_by_tenant_id=managed_by_tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['LightHouseAuthorizationArgs']]]] = None,
+             managed_by_tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if managed_by_tenant_id is None and 'managedByTenantId' in kwargs:
+            managed_by_tenant_id = kwargs['managedByTenantId']
+
         if authorizations is not None:
-            pulumi.set(__self__, "authorizations", authorizations)
+            _setter("authorizations", authorizations)
         if managed_by_tenant_id is not None:
-            pulumi.set(__self__, "managed_by_tenant_id", managed_by_tenant_id)
+            _setter("managed_by_tenant_id", managed_by_tenant_id)
 
     @property
     @pulumi.getter
@@ -1003,12 +1445,33 @@ class ProviderRegistrationPropertiesProviderHubMetadataArgs:
                  provider_authentication: Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']] = None,
                  provider_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
                  third_party_provider_authorization: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']] = None):
+        ProviderRegistrationPropertiesProviderHubMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_authentication=provider_authentication,
+            provider_authorizations=provider_authorizations,
+            third_party_provider_authorization=third_party_provider_authorization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_authentication: Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']] = None,
+             provider_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
+             third_party_provider_authorization: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provider_authentication is None and 'providerAuthentication' in kwargs:
+            provider_authentication = kwargs['providerAuthentication']
+        if provider_authorizations is None and 'providerAuthorizations' in kwargs:
+            provider_authorizations = kwargs['providerAuthorizations']
+        if third_party_provider_authorization is None and 'thirdPartyProviderAuthorization' in kwargs:
+            third_party_provider_authorization = kwargs['thirdPartyProviderAuthorization']
+
         if provider_authentication is not None:
-            pulumi.set(__self__, "provider_authentication", provider_authentication)
+            _setter("provider_authentication", provider_authentication)
         if provider_authorizations is not None:
-            pulumi.set(__self__, "provider_authorizations", provider_authorizations)
+            _setter("provider_authorizations", provider_authorizations)
         if third_party_provider_authorization is not None:
-            pulumi.set(__self__, "third_party_provider_authorization", third_party_provider_authorization)
+            _setter("third_party_provider_authorization", third_party_provider_authorization)
 
     @property
     @pulumi.getter(name="providerAuthentication")
@@ -1043,10 +1506,27 @@ class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificati
     def __init__(__self__, *,
                  soft_delete_ttl: Optional[pulumi.Input[str]] = None,
                  subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
+        ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            soft_delete_ttl=soft_delete_ttl,
+            subscription_state_override_actions=subscription_state_override_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             soft_delete_ttl: Optional[pulumi.Input[str]] = None,
+             subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if soft_delete_ttl is None and 'softDeleteTTL' in kwargs:
+            soft_delete_ttl = kwargs['softDeleteTTL']
+        if subscription_state_override_actions is None and 'subscriptionStateOverrideActions' in kwargs:
+            subscription_state_override_actions = kwargs['subscriptionStateOverrideActions']
+
         if soft_delete_ttl is not None:
-            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
+            _setter("soft_delete_ttl", soft_delete_ttl)
         if subscription_state_override_actions is not None:
-            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
+            _setter("subscription_state_override_actions", subscription_state_override_actions)
 
     @property
     @pulumi.getter(name="softDeleteTTL")
@@ -1088,36 +1568,97 @@ class ProviderRegistrationPropertiesArgs:
         """
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
         """
+        ProviderRegistrationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capabilities=capabilities,
+            features_rule=features_rule,
+            management=management,
+            metadata=metadata,
+            namespace=namespace,
+            provider_authentication=provider_authentication,
+            provider_authorizations=provider_authorizations,
+            provider_hub_metadata=provider_hub_metadata,
+            provider_type=provider_type,
+            provider_version=provider_version,
+            provisioning_state=provisioning_state,
+            request_header_options=request_header_options,
+            required_features=required_features,
+            subscription_lifecycle_notification_specifications=subscription_lifecycle_notification_specifications,
+            template_deployment_options=template_deployment_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderCapabilitiesArgs']]]] = None,
+             features_rule: Optional[pulumi.Input['ResourceProviderManifestPropertiesFeaturesRuleArgs']] = None,
+             management: Optional[pulumi.Input['ResourceProviderManifestPropertiesManagementArgs']] = None,
+             metadata: Optional[Any] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             provider_authentication: Optional[pulumi.Input['ResourceProviderManifestPropertiesProviderAuthenticationArgs']] = None,
+             provider_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
+             provider_hub_metadata: Optional[pulumi.Input['ProviderRegistrationPropertiesProviderHubMetadataArgs']] = None,
+             provider_type: Optional[pulumi.Input[Union[str, 'ResourceProviderType']]] = None,
+             provider_version: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             request_header_options: Optional[pulumi.Input['ResourceProviderManifestPropertiesRequestHeaderOptionsArgs']] = None,
+             required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subscription_lifecycle_notification_specifications: Optional[pulumi.Input['ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']] = None,
+             template_deployment_options: Optional[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if features_rule is None and 'featuresRule' in kwargs:
+            features_rule = kwargs['featuresRule']
+        if provider_authentication is None and 'providerAuthentication' in kwargs:
+            provider_authentication = kwargs['providerAuthentication']
+        if provider_authorizations is None and 'providerAuthorizations' in kwargs:
+            provider_authorizations = kwargs['providerAuthorizations']
+        if provider_hub_metadata is None and 'providerHubMetadata' in kwargs:
+            provider_hub_metadata = kwargs['providerHubMetadata']
+        if provider_type is None and 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if provider_version is None and 'providerVersion' in kwargs:
+            provider_version = kwargs['providerVersion']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if request_header_options is None and 'requestHeaderOptions' in kwargs:
+            request_header_options = kwargs['requestHeaderOptions']
+        if required_features is None and 'requiredFeatures' in kwargs:
+            required_features = kwargs['requiredFeatures']
+        if subscription_lifecycle_notification_specifications is None and 'subscriptionLifecycleNotificationSpecifications' in kwargs:
+            subscription_lifecycle_notification_specifications = kwargs['subscriptionLifecycleNotificationSpecifications']
+        if template_deployment_options is None and 'templateDeploymentOptions' in kwargs:
+            template_deployment_options = kwargs['templateDeploymentOptions']
+
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if features_rule is not None:
-            pulumi.set(__self__, "features_rule", features_rule)
+            _setter("features_rule", features_rule)
         if management is not None:
-            pulumi.set(__self__, "management", management)
+            _setter("management", management)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if provider_authentication is not None:
-            pulumi.set(__self__, "provider_authentication", provider_authentication)
+            _setter("provider_authentication", provider_authentication)
         if provider_authorizations is not None:
-            pulumi.set(__self__, "provider_authorizations", provider_authorizations)
+            _setter("provider_authorizations", provider_authorizations)
         if provider_hub_metadata is not None:
-            pulumi.set(__self__, "provider_hub_metadata", provider_hub_metadata)
+            _setter("provider_hub_metadata", provider_hub_metadata)
         if provider_type is not None:
-            pulumi.set(__self__, "provider_type", provider_type)
+            _setter("provider_type", provider_type)
         if provider_version is not None:
-            pulumi.set(__self__, "provider_version", provider_version)
+            _setter("provider_version", provider_version)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if request_header_options is not None:
-            pulumi.set(__self__, "request_header_options", request_header_options)
+            _setter("request_header_options", request_header_options)
         if required_features is not None:
-            pulumi.set(__self__, "required_features", required_features)
+            _setter("required_features", required_features)
         if subscription_lifecycle_notification_specifications is not None:
-            pulumi.set(__self__, "subscription_lifecycle_notification_specifications", subscription_lifecycle_notification_specifications)
+            _setter("subscription_lifecycle_notification_specifications", subscription_lifecycle_notification_specifications)
         if template_deployment_options is not None:
-            pulumi.set(__self__, "template_deployment_options", template_deployment_options)
+            _setter("template_deployment_options", template_deployment_options)
 
     @property
     @pulumi.getter
@@ -1262,8 +1803,19 @@ class ProviderRegistrationPropertiesArgs:
 class ResourceConcurrencyControlOptionArgs:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[Union[str, 'Policy']]] = None):
+        ResourceConcurrencyControlOptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[Union[str, 'Policy']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -1281,12 +1833,33 @@ class ResourceProviderAuthorizationArgs:
                  application_id: Optional[pulumi.Input[str]] = None,
                  managed_by_role_definition_id: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None):
+        ResourceProviderAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            managed_by_role_definition_id=managed_by_role_definition_id,
+            role_definition_id=role_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             managed_by_role_definition_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if managed_by_role_definition_id is None and 'managedByRoleDefinitionId' in kwargs:
+            managed_by_role_definition_id = kwargs['managedByRoleDefinitionId']
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if managed_by_role_definition_id is not None:
-            pulumi.set(__self__, "managed_by_role_definition_id", managed_by_role_definition_id)
+            _setter("managed_by_role_definition_id", managed_by_role_definition_id)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -1322,10 +1895,33 @@ class ResourceProviderCapabilitiesArgs:
                  effect: pulumi.Input[Union[str, 'ResourceProviderCapabilitiesEffect']],
                  quota_id: pulumi.Input[str],
                  required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "effect", effect)
-        pulumi.set(__self__, "quota_id", quota_id)
+        ResourceProviderCapabilitiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effect=effect,
+            quota_id=quota_id,
+            required_features=required_features,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effect: Optional[pulumi.Input[Union[str, 'ResourceProviderCapabilitiesEffect']]] = None,
+             quota_id: Optional[pulumi.Input[str]] = None,
+             required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if effect is None:
+            raise TypeError("Missing 'effect' argument")
+        if quota_id is None and 'quotaId' in kwargs:
+            quota_id = kwargs['quotaId']
+        if quota_id is None:
+            raise TypeError("Missing 'quota_id' argument")
+        if required_features is None and 'requiredFeatures' in kwargs:
+            required_features = kwargs['requiredFeatures']
+
+        _setter("effect", effect)
+        _setter("quota_id", quota_id)
         if required_features is not None:
-            pulumi.set(__self__, "required_features", required_features)
+            _setter("required_features", required_features)
 
     @property
     @pulumi.getter
@@ -1359,7 +1955,22 @@ class ResourceProviderCapabilitiesArgs:
 class ResourceProviderManifestPropertiesFeaturesRuleArgs:
     def __init__(__self__, *,
                  required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]):
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
+        ResourceProviderManifestPropertiesFeaturesRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            required_features_policy=required_features_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             required_features_policy: Optional[pulumi.Input[Union[str, 'FeaturesPolicy']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if required_features_policy is None and 'requiredFeaturesPolicy' in kwargs:
+            required_features_policy = kwargs['requiredFeaturesPolicy']
+        if required_features_policy is None:
+            raise TypeError("Missing 'required_features_policy' argument")
+
+        _setter("required_features_policy", required_features_policy)
 
     @property
     @pulumi.getter(name="requiredFeaturesPolicy")
@@ -1382,22 +1993,63 @@ class ResourceProviderManifestPropertiesManagementArgs:
                  resource_access_roles: Optional[pulumi.Input[Sequence[Any]]] = None,
                  schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
+        ResourceProviderManifestPropertiesManagementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_contact_email=incident_contact_email,
+            incident_routing_service=incident_routing_service,
+            incident_routing_team=incident_routing_team,
+            manifest_owners=manifest_owners,
+            resource_access_policy=resource_access_policy,
+            resource_access_roles=resource_access_roles,
+            schema_owners=schema_owners,
+            service_tree_infos=service_tree_infos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_contact_email: Optional[pulumi.Input[str]] = None,
+             incident_routing_service: Optional[pulumi.Input[str]] = None,
+             incident_routing_team: Optional[pulumi.Input[str]] = None,
+             manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_access_policy: Optional[pulumi.Input[str]] = None,
+             resource_access_roles: Optional[pulumi.Input[Sequence[Any]]] = None,
+             schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if incident_contact_email is None and 'incidentContactEmail' in kwargs:
+            incident_contact_email = kwargs['incidentContactEmail']
+        if incident_routing_service is None and 'incidentRoutingService' in kwargs:
+            incident_routing_service = kwargs['incidentRoutingService']
+        if incident_routing_team is None and 'incidentRoutingTeam' in kwargs:
+            incident_routing_team = kwargs['incidentRoutingTeam']
+        if manifest_owners is None and 'manifestOwners' in kwargs:
+            manifest_owners = kwargs['manifestOwners']
+        if resource_access_policy is None and 'resourceAccessPolicy' in kwargs:
+            resource_access_policy = kwargs['resourceAccessPolicy']
+        if resource_access_roles is None and 'resourceAccessRoles' in kwargs:
+            resource_access_roles = kwargs['resourceAccessRoles']
+        if schema_owners is None and 'schemaOwners' in kwargs:
+            schema_owners = kwargs['schemaOwners']
+        if service_tree_infos is None and 'serviceTreeInfos' in kwargs:
+            service_tree_infos = kwargs['serviceTreeInfos']
+
         if incident_contact_email is not None:
-            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
+            _setter("incident_contact_email", incident_contact_email)
         if incident_routing_service is not None:
-            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
+            _setter("incident_routing_service", incident_routing_service)
         if incident_routing_team is not None:
-            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
+            _setter("incident_routing_team", incident_routing_team)
         if manifest_owners is not None:
-            pulumi.set(__self__, "manifest_owners", manifest_owners)
+            _setter("manifest_owners", manifest_owners)
         if resource_access_policy is not None:
-            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
+            _setter("resource_access_policy", resource_access_policy)
         if resource_access_roles is not None:
-            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
+            _setter("resource_access_roles", resource_access_roles)
         if schema_owners is not None:
-            pulumi.set(__self__, "schema_owners", schema_owners)
+            _setter("schema_owners", schema_owners)
         if service_tree_infos is not None:
-            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
+            _setter("service_tree_infos", service_tree_infos)
 
     @property
     @pulumi.getter(name="incidentContactEmail")
@@ -1476,7 +2128,22 @@ class ResourceProviderManifestPropertiesManagementArgs:
 class ResourceProviderManifestPropertiesProviderAuthenticationArgs:
     def __init__(__self__, *,
                  allowed_audiences: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        ResourceProviderManifestPropertiesProviderAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_audiences=allowed_audiences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if allowed_audiences is None:
+            raise TypeError("Missing 'allowed_audiences' argument")
+
+        _setter("allowed_audiences", allowed_audiences)
 
     @property
     @pulumi.getter(name="allowedAudiences")
@@ -1492,8 +2159,21 @@ class ResourceProviderManifestPropertiesProviderAuthenticationArgs:
 class ResourceProviderManifestPropertiesRequestHeaderOptionsArgs:
     def __init__(__self__, *,
                  opt_in_headers: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]] = None):
+        ResourceProviderManifestPropertiesRequestHeaderOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            opt_in_headers=opt_in_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opt_in_headers: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if opt_in_headers is None and 'optInHeaders' in kwargs:
+            opt_in_headers = kwargs['optInHeaders']
+
         if opt_in_headers is not None:
-            pulumi.set(__self__, "opt_in_headers", opt_in_headers)
+            _setter("opt_in_headers", opt_in_headers)
 
     @property
     @pulumi.getter(name="optInHeaders")
@@ -1510,10 +2190,27 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
     def __init__(__self__, *,
                  preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]] = None,
                  preflight_supported: Optional[pulumi.Input[bool]] = None):
+        ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preflight_options=preflight_options,
+            preflight_supported=preflight_supported,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]] = None,
+             preflight_supported: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preflight_options is None and 'preflightOptions' in kwargs:
+            preflight_options = kwargs['preflightOptions']
+        if preflight_supported is None and 'preflightSupported' in kwargs:
+            preflight_supported = kwargs['preflightSupported']
+
         if preflight_options is not None:
-            pulumi.set(__self__, "preflight_options", preflight_options)
+            _setter("preflight_options", preflight_options)
         if preflight_supported is not None:
-            pulumi.set(__self__, "preflight_supported", preflight_supported)
+            _setter("preflight_supported", preflight_supported)
 
     @property
     @pulumi.getter(name="preflightOptions")
@@ -1538,7 +2235,22 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
 class ResourceTypeEndpointFeaturesRuleArgs:
     def __init__(__self__, *,
                  required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]):
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
+        ResourceTypeEndpointFeaturesRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            required_features_policy=required_features_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             required_features_policy: Optional[pulumi.Input[Union[str, 'FeaturesPolicy']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if required_features_policy is None and 'requiredFeaturesPolicy' in kwargs:
+            required_features_policy = kwargs['requiredFeaturesPolicy']
+        if required_features_policy is None:
+            raise TypeError("Missing 'required_features_policy' argument")
+
+        _setter("required_features_policy", required_features_policy)
 
     @property
     @pulumi.getter(name="requiredFeaturesPolicy")
@@ -1561,22 +2273,55 @@ class ResourceTypeEndpointArgs:
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None):
+        ResourceTypeEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_versions=api_versions,
+            enabled=enabled,
+            endpoint_type=endpoint_type,
+            extensions=extensions,
+            features_rule=features_rule,
+            locations=locations,
+            required_features=required_features,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             endpoint_type: Optional[pulumi.Input[Union[str, 'EndpointType']]] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgs']]]] = None,
+             features_rule: Optional[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgs']] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_versions is None and 'apiVersions' in kwargs:
+            api_versions = kwargs['apiVersions']
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if features_rule is None and 'featuresRule' in kwargs:
+            features_rule = kwargs['featuresRule']
+        if required_features is None and 'requiredFeatures' in kwargs:
+            required_features = kwargs['requiredFeatures']
+
         if api_versions is not None:
-            pulumi.set(__self__, "api_versions", api_versions)
+            _setter("api_versions", api_versions)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if endpoint_type is not None:
-            pulumi.set(__self__, "endpoint_type", endpoint_type)
+            _setter("endpoint_type", endpoint_type)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if features_rule is not None:
-            pulumi.set(__self__, "features_rule", features_rule)
+            _setter("features_rule", features_rule)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if required_features is not None:
-            pulumi.set(__self__, "required_features", required_features)
+            _setter("required_features", required_features)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="apiVersions")
@@ -1656,10 +2401,23 @@ class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
     def __init__(__self__, *,
                  request: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]] = None,
                  response: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]] = None):
+        ResourceTypeExtensionOptionsResourceCreationBeginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            request=request,
+            response=response,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             request: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]] = None,
+             response: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if response is not None:
-            pulumi.set(__self__, "response", response)
+            _setter("response", response)
 
     @property
     @pulumi.getter
@@ -1686,12 +2444,31 @@ class ResourceTypeExtensionArgs:
                  endpoint_uri: Optional[pulumi.Input[str]] = None,
                  extension_categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionCategory']]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None):
+        ResourceTypeExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_uri=endpoint_uri,
+            extension_categories=extension_categories,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             extension_categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionCategory']]]]] = None,
+             timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_uri is None and 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if extension_categories is None and 'extensionCategories' in kwargs:
+            extension_categories = kwargs['extensionCategories']
+
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if extension_categories is not None:
-            pulumi.set(__self__, "extension_categories", extension_categories)
+            _setter("extension_categories", extension_categories)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="endpointUri")
@@ -1726,10 +2503,27 @@ class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
     def __init__(__self__, *,
                  enable_default_validation: Optional[pulumi.Input[bool]] = None,
                  resource_types_with_custom_validation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_default_validation=enable_default_validation,
+            resource_types_with_custom_validation=resource_types_with_custom_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_default_validation: Optional[pulumi.Input[bool]] = None,
+             resource_types_with_custom_validation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_default_validation is None and 'enableDefaultValidation' in kwargs:
+            enable_default_validation = kwargs['enableDefaultValidation']
+        if resource_types_with_custom_validation is None and 'resourceTypesWithCustomValidation' in kwargs:
+            resource_types_with_custom_validation = kwargs['resourceTypesWithCustomValidation']
+
         if enable_default_validation is not None:
-            pulumi.set(__self__, "enable_default_validation", enable_default_validation)
+            _setter("enable_default_validation", enable_default_validation)
         if resource_types_with_custom_validation is not None:
-            pulumi.set(__self__, "resource_types_with_custom_validation", resource_types_with_custom_validation)
+            _setter("resource_types_with_custom_validation", resource_types_with_custom_validation)
 
     @property
     @pulumi.getter(name="enableDefaultValidation")
@@ -1754,8 +2548,21 @@ class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
 class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
     def __init__(__self__, *,
                  resource_creation_begin: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']] = None):
+        ResourceTypeRegistrationPropertiesExtensionOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_creation_begin=resource_creation_begin,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_creation_begin: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_creation_begin is None and 'resourceCreationBegin' in kwargs:
+            resource_creation_begin = kwargs['resourceCreationBegin']
+
         if resource_creation_begin is not None:
-            pulumi.set(__self__, "resource_creation_begin", resource_creation_begin)
+            _setter("resource_creation_begin", resource_creation_begin)
 
     @property
     @pulumi.getter(name="resourceCreationBegin")
@@ -1771,7 +2578,22 @@ class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
 class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
     def __init__(__self__, *,
                  required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]):
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
+        ResourceTypeRegistrationPropertiesFeaturesRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            required_features_policy=required_features_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             required_features_policy: Optional[pulumi.Input[Union[str, 'FeaturesPolicy']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if required_features_policy is None and 'requiredFeaturesPolicy' in kwargs:
+            required_features_policy = kwargs['requiredFeaturesPolicy']
+        if required_features_policy is None:
+            raise TypeError("Missing 'required_features_policy' argument")
+
+        _setter("required_features_policy", required_features_policy)
 
     @property
     @pulumi.getter(name="requiredFeaturesPolicy")
@@ -1788,10 +2610,25 @@ class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]] = None):
+        ResourceTypeRegistrationPropertiesIdentityManagementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -1823,22 +2660,63 @@ class ResourceTypeRegistrationPropertiesManagementArgs:
                  resource_access_roles: Optional[pulumi.Input[Sequence[Any]]] = None,
                  schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
+        ResourceTypeRegistrationPropertiesManagementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_contact_email=incident_contact_email,
+            incident_routing_service=incident_routing_service,
+            incident_routing_team=incident_routing_team,
+            manifest_owners=manifest_owners,
+            resource_access_policy=resource_access_policy,
+            resource_access_roles=resource_access_roles,
+            schema_owners=schema_owners,
+            service_tree_infos=service_tree_infos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_contact_email: Optional[pulumi.Input[str]] = None,
+             incident_routing_service: Optional[pulumi.Input[str]] = None,
+             incident_routing_team: Optional[pulumi.Input[str]] = None,
+             manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_access_policy: Optional[pulumi.Input[str]] = None,
+             resource_access_roles: Optional[pulumi.Input[Sequence[Any]]] = None,
+             schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if incident_contact_email is None and 'incidentContactEmail' in kwargs:
+            incident_contact_email = kwargs['incidentContactEmail']
+        if incident_routing_service is None and 'incidentRoutingService' in kwargs:
+            incident_routing_service = kwargs['incidentRoutingService']
+        if incident_routing_team is None and 'incidentRoutingTeam' in kwargs:
+            incident_routing_team = kwargs['incidentRoutingTeam']
+        if manifest_owners is None and 'manifestOwners' in kwargs:
+            manifest_owners = kwargs['manifestOwners']
+        if resource_access_policy is None and 'resourceAccessPolicy' in kwargs:
+            resource_access_policy = kwargs['resourceAccessPolicy']
+        if resource_access_roles is None and 'resourceAccessRoles' in kwargs:
+            resource_access_roles = kwargs['resourceAccessRoles']
+        if schema_owners is None and 'schemaOwners' in kwargs:
+            schema_owners = kwargs['schemaOwners']
+        if service_tree_infos is None and 'serviceTreeInfos' in kwargs:
+            service_tree_infos = kwargs['serviceTreeInfos']
+
         if incident_contact_email is not None:
-            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
+            _setter("incident_contact_email", incident_contact_email)
         if incident_routing_service is not None:
-            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
+            _setter("incident_routing_service", incident_routing_service)
         if incident_routing_team is not None:
-            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
+            _setter("incident_routing_team", incident_routing_team)
         if manifest_owners is not None:
-            pulumi.set(__self__, "manifest_owners", manifest_owners)
+            _setter("manifest_owners", manifest_owners)
         if resource_access_policy is not None:
-            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
+            _setter("resource_access_policy", resource_access_policy)
         if resource_access_roles is not None:
-            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
+            _setter("resource_access_roles", resource_access_roles)
         if schema_owners is not None:
-            pulumi.set(__self__, "schema_owners", schema_owners)
+            _setter("schema_owners", schema_owners)
         if service_tree_infos is not None:
-            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
+            _setter("service_tree_infos", service_tree_infos)
 
     @property
     @pulumi.getter(name="incidentContactEmail")
@@ -1917,8 +2795,21 @@ class ResourceTypeRegistrationPropertiesManagementArgs:
 class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
     def __init__(__self__, *,
                  opt_in_headers: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]] = None):
+        ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            opt_in_headers=opt_in_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             opt_in_headers: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if opt_in_headers is None and 'optInHeaders' in kwargs:
+            opt_in_headers = kwargs['optInHeaders']
+
         if opt_in_headers is not None:
-            pulumi.set(__self__, "opt_in_headers", opt_in_headers)
+            _setter("opt_in_headers", opt_in_headers)
 
     @property
     @pulumi.getter(name="optInHeaders")
@@ -1935,10 +2826,25 @@ class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
     def __init__(__self__, *,
                  api_version: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
+        ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_version is None and 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="apiVersion")
@@ -1965,12 +2871,33 @@ class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
                  cross_resource_group_move_enabled: Optional[pulumi.Input[bool]] = None,
                  cross_subscription_move_enabled: Optional[pulumi.Input[bool]] = None,
                  validation_required: Optional[pulumi.Input[bool]] = None):
+        ResourceTypeRegistrationPropertiesResourceMovePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_resource_group_move_enabled=cross_resource_group_move_enabled,
+            cross_subscription_move_enabled=cross_subscription_move_enabled,
+            validation_required=validation_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_resource_group_move_enabled: Optional[pulumi.Input[bool]] = None,
+             cross_subscription_move_enabled: Optional[pulumi.Input[bool]] = None,
+             validation_required: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cross_resource_group_move_enabled is None and 'crossResourceGroupMoveEnabled' in kwargs:
+            cross_resource_group_move_enabled = kwargs['crossResourceGroupMoveEnabled']
+        if cross_subscription_move_enabled is None and 'crossSubscriptionMoveEnabled' in kwargs:
+            cross_subscription_move_enabled = kwargs['crossSubscriptionMoveEnabled']
+        if validation_required is None and 'validationRequired' in kwargs:
+            validation_required = kwargs['validationRequired']
+
         if cross_resource_group_move_enabled is not None:
-            pulumi.set(__self__, "cross_resource_group_move_enabled", cross_resource_group_move_enabled)
+            _setter("cross_resource_group_move_enabled", cross_resource_group_move_enabled)
         if cross_subscription_move_enabled is not None:
-            pulumi.set(__self__, "cross_subscription_move_enabled", cross_subscription_move_enabled)
+            _setter("cross_subscription_move_enabled", cross_subscription_move_enabled)
         if validation_required is not None:
-            pulumi.set(__self__, "validation_required", validation_required)
+            _setter("validation_required", validation_required)
 
     @property
     @pulumi.getter(name="crossResourceGroupMoveEnabled")
@@ -2005,10 +2932,27 @@ class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecifi
     def __init__(__self__, *,
                  soft_delete_ttl: Optional[pulumi.Input[str]] = None,
                  subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
+        ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            soft_delete_ttl=soft_delete_ttl,
+            subscription_state_override_actions=subscription_state_override_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             soft_delete_ttl: Optional[pulumi.Input[str]] = None,
+             subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if soft_delete_ttl is None and 'softDeleteTTL' in kwargs:
+            soft_delete_ttl = kwargs['softDeleteTTL']
+        if subscription_state_override_actions is None and 'subscriptionStateOverrideActions' in kwargs:
+            subscription_state_override_actions = kwargs['subscriptionStateOverrideActions']
+
         if soft_delete_ttl is not None:
-            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
+            _setter("soft_delete_ttl", soft_delete_ttl)
         if subscription_state_override_actions is not None:
-            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
+            _setter("subscription_state_override_actions", subscription_state_override_actions)
 
     @property
     @pulumi.getter(name="softDeleteTTL")
@@ -2034,10 +2978,27 @@ class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
     def __init__(__self__, *,
                  preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]] = None,
                  preflight_supported: Optional[pulumi.Input[bool]] = None):
+        ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preflight_options=preflight_options,
+            preflight_supported=preflight_supported,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]] = None,
+             preflight_supported: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preflight_options is None and 'preflightOptions' in kwargs:
+            preflight_options = kwargs['preflightOptions']
+        if preflight_supported is None and 'preflightSupported' in kwargs:
+            preflight_supported = kwargs['preflightSupported']
+
         if preflight_options is not None:
-            pulumi.set(__self__, "preflight_options", preflight_options)
+            _setter("preflight_options", preflight_options)
         if preflight_supported is not None:
-            pulumi.set(__self__, "preflight_supported", preflight_supported)
+            _setter("preflight_supported", preflight_supported)
 
     @property
     @pulumi.getter(name="preflightOptions")
@@ -2097,72 +3058,207 @@ class ResourceTypeRegistrationPropertiesArgs:
         """
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
         """
+        ResourceTypeRegistrationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_unauthorized_actions=allowed_unauthorized_actions,
+            authorization_action_mappings=authorization_action_mappings,
+            check_name_availability_specifications=check_name_availability_specifications,
+            default_api_version=default_api_version,
+            disallowed_action_verbs=disallowed_action_verbs,
+            enable_async_operation=enable_async_operation,
+            enable_third_party_s2_s=enable_third_party_s2_s,
+            endpoints=endpoints,
+            extended_locations=extended_locations,
+            extension_options=extension_options,
+            features_rule=features_rule,
+            identity_management=identity_management,
+            is_pure_proxy=is_pure_proxy,
+            linked_access_checks=linked_access_checks,
+            logging_rules=logging_rules,
+            management=management,
+            marketplace_type=marketplace_type,
+            open_api_configuration=open_api_configuration,
+            provisioning_state=provisioning_state,
+            regionality=regionality,
+            request_header_options=request_header_options,
+            required_features=required_features,
+            resource_concurrency_control_options=resource_concurrency_control_options,
+            resource_deletion_policy=resource_deletion_policy,
+            resource_graph_configuration=resource_graph_configuration,
+            resource_move_policy=resource_move_policy,
+            routing_type=routing_type,
+            service_tree_infos=service_tree_infos,
+            subscription_lifecycle_notification_specifications=subscription_lifecycle_notification_specifications,
+            subscription_state_rules=subscription_state_rules,
+            swagger_specifications=swagger_specifications,
+            template_deployment_options=template_deployment_options,
+            throttling_rules=throttling_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_unauthorized_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authorization_action_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationActionMappingArgs']]]] = None,
+             check_name_availability_specifications: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs']] = None,
+             default_api_version: Optional[pulumi.Input[str]] = None,
+             disallowed_action_verbs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_async_operation: Optional[pulumi.Input[bool]] = None,
+             enable_third_party_s2_s: Optional[pulumi.Input[bool]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeEndpointArgs']]]] = None,
+             extended_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExtendedLocationOptionsArgs']]]] = None,
+             extension_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesExtensionOptionsArgs']] = None,
+             features_rule: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesFeaturesRuleArgs']] = None,
+             identity_management: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesIdentityManagementArgs']] = None,
+             is_pure_proxy: Optional[pulumi.Input[bool]] = None,
+             linked_access_checks: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgs']]]] = None,
+             logging_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgs']]]] = None,
+             management: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgs']] = None,
+             marketplace_type: Optional[pulumi.Input[str]] = None,
+             open_api_configuration: Optional[pulumi.Input['OpenApiConfigurationArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             regionality: Optional[pulumi.Input[Union[str, 'Regionality']]] = None,
+             request_header_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']] = None,
+             required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_concurrency_control_options: Optional[pulumi.Input[Mapping[str, pulumi.Input['ResourceConcurrencyControlOptionArgs']]]] = None,
+             resource_deletion_policy: Optional[pulumi.Input[Union[str, 'ResourceDeletionPolicy']]] = None,
+             resource_graph_configuration: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs']] = None,
+             resource_move_policy: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesResourceMovePolicyArgs']] = None,
+             routing_type: Optional[pulumi.Input[Union[str, 'RoutingType']]] = None,
+             service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None,
+             subscription_lifecycle_notification_specifications: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs']] = None,
+             subscription_state_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateRuleArgs']]]] = None,
+             swagger_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SwaggerSpecificationArgs']]]] = None,
+             template_deployment_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs']] = None,
+             throttling_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_unauthorized_actions is None and 'allowedUnauthorizedActions' in kwargs:
+            allowed_unauthorized_actions = kwargs['allowedUnauthorizedActions']
+        if authorization_action_mappings is None and 'authorizationActionMappings' in kwargs:
+            authorization_action_mappings = kwargs['authorizationActionMappings']
+        if check_name_availability_specifications is None and 'checkNameAvailabilitySpecifications' in kwargs:
+            check_name_availability_specifications = kwargs['checkNameAvailabilitySpecifications']
+        if default_api_version is None and 'defaultApiVersion' in kwargs:
+            default_api_version = kwargs['defaultApiVersion']
+        if disallowed_action_verbs is None and 'disallowedActionVerbs' in kwargs:
+            disallowed_action_verbs = kwargs['disallowedActionVerbs']
+        if enable_async_operation is None and 'enableAsyncOperation' in kwargs:
+            enable_async_operation = kwargs['enableAsyncOperation']
+        if enable_third_party_s2_s is None and 'enableThirdPartyS2S' in kwargs:
+            enable_third_party_s2_s = kwargs['enableThirdPartyS2S']
+        if extended_locations is None and 'extendedLocations' in kwargs:
+            extended_locations = kwargs['extendedLocations']
+        if extension_options is None and 'extensionOptions' in kwargs:
+            extension_options = kwargs['extensionOptions']
+        if features_rule is None and 'featuresRule' in kwargs:
+            features_rule = kwargs['featuresRule']
+        if identity_management is None and 'identityManagement' in kwargs:
+            identity_management = kwargs['identityManagement']
+        if is_pure_proxy is None and 'isPureProxy' in kwargs:
+            is_pure_proxy = kwargs['isPureProxy']
+        if linked_access_checks is None and 'linkedAccessChecks' in kwargs:
+            linked_access_checks = kwargs['linkedAccessChecks']
+        if logging_rules is None and 'loggingRules' in kwargs:
+            logging_rules = kwargs['loggingRules']
+        if marketplace_type is None and 'marketplaceType' in kwargs:
+            marketplace_type = kwargs['marketplaceType']
+        if open_api_configuration is None and 'openApiConfiguration' in kwargs:
+            open_api_configuration = kwargs['openApiConfiguration']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if request_header_options is None and 'requestHeaderOptions' in kwargs:
+            request_header_options = kwargs['requestHeaderOptions']
+        if required_features is None and 'requiredFeatures' in kwargs:
+            required_features = kwargs['requiredFeatures']
+        if resource_concurrency_control_options is None and 'resourceConcurrencyControlOptions' in kwargs:
+            resource_concurrency_control_options = kwargs['resourceConcurrencyControlOptions']
+        if resource_deletion_policy is None and 'resourceDeletionPolicy' in kwargs:
+            resource_deletion_policy = kwargs['resourceDeletionPolicy']
+        if resource_graph_configuration is None and 'resourceGraphConfiguration' in kwargs:
+            resource_graph_configuration = kwargs['resourceGraphConfiguration']
+        if resource_move_policy is None and 'resourceMovePolicy' in kwargs:
+            resource_move_policy = kwargs['resourceMovePolicy']
+        if routing_type is None and 'routingType' in kwargs:
+            routing_type = kwargs['routingType']
+        if service_tree_infos is None and 'serviceTreeInfos' in kwargs:
+            service_tree_infos = kwargs['serviceTreeInfos']
+        if subscription_lifecycle_notification_specifications is None and 'subscriptionLifecycleNotificationSpecifications' in kwargs:
+            subscription_lifecycle_notification_specifications = kwargs['subscriptionLifecycleNotificationSpecifications']
+        if subscription_state_rules is None and 'subscriptionStateRules' in kwargs:
+            subscription_state_rules = kwargs['subscriptionStateRules']
+        if swagger_specifications is None and 'swaggerSpecifications' in kwargs:
+            swagger_specifications = kwargs['swaggerSpecifications']
+        if template_deployment_options is None and 'templateDeploymentOptions' in kwargs:
+            template_deployment_options = kwargs['templateDeploymentOptions']
+        if throttling_rules is None and 'throttlingRules' in kwargs:
+            throttling_rules = kwargs['throttlingRules']
+
         if allowed_unauthorized_actions is not None:
-            pulumi.set(__self__, "allowed_unauthorized_actions", allowed_unauthorized_actions)
+            _setter("allowed_unauthorized_actions", allowed_unauthorized_actions)
         if authorization_action_mappings is not None:
-            pulumi.set(__self__, "authorization_action_mappings", authorization_action_mappings)
+            _setter("authorization_action_mappings", authorization_action_mappings)
         if check_name_availability_specifications is not None:
-            pulumi.set(__self__, "check_name_availability_specifications", check_name_availability_specifications)
+            _setter("check_name_availability_specifications", check_name_availability_specifications)
         if default_api_version is not None:
-            pulumi.set(__self__, "default_api_version", default_api_version)
+            _setter("default_api_version", default_api_version)
         if disallowed_action_verbs is not None:
-            pulumi.set(__self__, "disallowed_action_verbs", disallowed_action_verbs)
+            _setter("disallowed_action_verbs", disallowed_action_verbs)
         if enable_async_operation is not None:
-            pulumi.set(__self__, "enable_async_operation", enable_async_operation)
+            _setter("enable_async_operation", enable_async_operation)
         if enable_third_party_s2_s is not None:
-            pulumi.set(__self__, "enable_third_party_s2_s", enable_third_party_s2_s)
+            _setter("enable_third_party_s2_s", enable_third_party_s2_s)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if extended_locations is not None:
-            pulumi.set(__self__, "extended_locations", extended_locations)
+            _setter("extended_locations", extended_locations)
         if extension_options is not None:
-            pulumi.set(__self__, "extension_options", extension_options)
+            _setter("extension_options", extension_options)
         if features_rule is not None:
-            pulumi.set(__self__, "features_rule", features_rule)
+            _setter("features_rule", features_rule)
         if identity_management is not None:
-            pulumi.set(__self__, "identity_management", identity_management)
+            _setter("identity_management", identity_management)
         if is_pure_proxy is not None:
-            pulumi.set(__self__, "is_pure_proxy", is_pure_proxy)
+            _setter("is_pure_proxy", is_pure_proxy)
         if linked_access_checks is not None:
-            pulumi.set(__self__, "linked_access_checks", linked_access_checks)
+            _setter("linked_access_checks", linked_access_checks)
         if logging_rules is not None:
-            pulumi.set(__self__, "logging_rules", logging_rules)
+            _setter("logging_rules", logging_rules)
         if management is not None:
-            pulumi.set(__self__, "management", management)
+            _setter("management", management)
         if marketplace_type is not None:
-            pulumi.set(__self__, "marketplace_type", marketplace_type)
+            _setter("marketplace_type", marketplace_type)
         if open_api_configuration is not None:
-            pulumi.set(__self__, "open_api_configuration", open_api_configuration)
+            _setter("open_api_configuration", open_api_configuration)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if regionality is not None:
-            pulumi.set(__self__, "regionality", regionality)
+            _setter("regionality", regionality)
         if request_header_options is not None:
-            pulumi.set(__self__, "request_header_options", request_header_options)
+            _setter("request_header_options", request_header_options)
         if required_features is not None:
-            pulumi.set(__self__, "required_features", required_features)
+            _setter("required_features", required_features)
         if resource_concurrency_control_options is not None:
-            pulumi.set(__self__, "resource_concurrency_control_options", resource_concurrency_control_options)
+            _setter("resource_concurrency_control_options", resource_concurrency_control_options)
         if resource_deletion_policy is not None:
-            pulumi.set(__self__, "resource_deletion_policy", resource_deletion_policy)
+            _setter("resource_deletion_policy", resource_deletion_policy)
         if resource_graph_configuration is not None:
-            pulumi.set(__self__, "resource_graph_configuration", resource_graph_configuration)
+            _setter("resource_graph_configuration", resource_graph_configuration)
         if resource_move_policy is not None:
-            pulumi.set(__self__, "resource_move_policy", resource_move_policy)
+            _setter("resource_move_policy", resource_move_policy)
         if routing_type is not None:
-            pulumi.set(__self__, "routing_type", routing_type)
+            _setter("routing_type", routing_type)
         if service_tree_infos is not None:
-            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
+            _setter("service_tree_infos", service_tree_infos)
         if subscription_lifecycle_notification_specifications is not None:
-            pulumi.set(__self__, "subscription_lifecycle_notification_specifications", subscription_lifecycle_notification_specifications)
+            _setter("subscription_lifecycle_notification_specifications", subscription_lifecycle_notification_specifications)
         if subscription_state_rules is not None:
-            pulumi.set(__self__, "subscription_state_rules", subscription_state_rules)
+            _setter("subscription_state_rules", subscription_state_rules)
         if swagger_specifications is not None:
-            pulumi.set(__self__, "swagger_specifications", swagger_specifications)
+            _setter("swagger_specifications", swagger_specifications)
         if template_deployment_options is not None:
-            pulumi.set(__self__, "template_deployment_options", template_deployment_options)
+            _setter("template_deployment_options", template_deployment_options)
         if throttling_rules is not None:
-            pulumi.set(__self__, "throttling_rules", throttling_rules)
+            _setter("throttling_rules", throttling_rules)
 
     @property
     @pulumi.getter(name="allowedUnauthorizedActions")
@@ -2469,8 +3565,19 @@ class ResourceTypeRegistrationPropertiesArgs:
 class ResourceTypeRegistrationArgs:
     def __init__(__self__, *,
                  properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None):
+        ResourceTypeRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -2488,12 +3595,31 @@ class ServiceTreeInfoArgs:
                  component_id: Optional[pulumi.Input[str]] = None,
                  readiness: Optional[pulumi.Input[Union[str, 'Readiness']]] = None,
                  service_id: Optional[pulumi.Input[str]] = None):
+        ServiceTreeInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_id=component_id,
+            readiness=readiness,
+            service_id=service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_id: Optional[pulumi.Input[str]] = None,
+             readiness: Optional[pulumi.Input[Union[str, 'Readiness']]] = None,
+             service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_id is None and 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+
         if component_id is not None:
-            pulumi.set(__self__, "component_id", component_id)
+            _setter("component_id", component_id)
         if readiness is not None:
-            pulumi.set(__self__, "readiness", readiness)
+            _setter("readiness", readiness)
         if service_id is not None:
-            pulumi.set(__self__, "service_id", service_id)
+            _setter("service_id", service_id)
 
     @property
     @pulumi.getter(name="componentId")
@@ -2528,8 +3654,25 @@ class SkuCapabilityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        SkuCapabilityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2556,11 +3699,32 @@ class SkuCostArgs:
                  meter_id: pulumi.Input[str],
                  extended_unit: Optional[pulumi.Input[str]] = None,
                  quantity: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "meter_id", meter_id)
+        SkuCostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            meter_id=meter_id,
+            extended_unit=extended_unit,
+            quantity=quantity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             meter_id: Optional[pulumi.Input[str]] = None,
+             extended_unit: Optional[pulumi.Input[str]] = None,
+             quantity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if meter_id is None and 'meterId' in kwargs:
+            meter_id = kwargs['meterId']
+        if meter_id is None:
+            raise TypeError("Missing 'meter_id' argument")
+        if extended_unit is None and 'extendedUnit' in kwargs:
+            extended_unit = kwargs['extendedUnit']
+
+        _setter("meter_id", meter_id)
         if extended_unit is not None:
-            pulumi.set(__self__, "extended_unit", extended_unit)
+            _setter("extended_unit", extended_unit)
         if quantity is not None:
-            pulumi.set(__self__, "quantity", quantity)
+            _setter("quantity", quantity)
 
     @property
     @pulumi.getter(name="meterId")
@@ -2598,15 +3762,40 @@ class SkuLocationInfoArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  zone_details: Optional[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgs']]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "location", location)
+        SkuLocationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            extended_locations=extended_locations,
+            type=type,
+            zone_details=zone_details,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             extended_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             zone_details: Optional[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgs']]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if extended_locations is None and 'extendedLocations' in kwargs:
+            extended_locations = kwargs['extendedLocations']
+        if zone_details is None and 'zoneDetails' in kwargs:
+            zone_details = kwargs['zoneDetails']
+
+        _setter("location", location)
         if extended_locations is not None:
-            pulumi.set(__self__, "extended_locations", extended_locations)
+            _setter("extended_locations", extended_locations)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if zone_details is not None:
-            pulumi.set(__self__, "zone_details", zone_details)
+            _setter("zone_details", zone_details)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -2662,9 +3851,28 @@ class SkuResourcePropertiesArgs:
         """
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
         """
-        pulumi.set(__self__, "sku_settings", sku_settings)
+        SkuResourcePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sku_settings=sku_settings,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sku_settings: Optional[pulumi.Input[Sequence[pulumi.Input['SkuSettingArgs']]]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sku_settings is None and 'skuSettings' in kwargs:
+            sku_settings = kwargs['skuSettings']
+        if sku_settings is None:
+            raise TypeError("Missing 'sku_settings' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("sku_settings", sku_settings)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="skuSettings")
@@ -2695,13 +3903,34 @@ class SkuSettingCapacityArgs:
                  default: Optional[pulumi.Input[int]] = None,
                  maximum: Optional[pulumi.Input[int]] = None,
                  scale_type: Optional[pulumi.Input[Union[str, 'SkuScaleType']]] = None):
-        pulumi.set(__self__, "minimum", minimum)
+        SkuSettingCapacityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minimum=minimum,
+            default=default,
+            maximum=maximum,
+            scale_type=scale_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minimum: Optional[pulumi.Input[int]] = None,
+             default: Optional[pulumi.Input[int]] = None,
+             maximum: Optional[pulumi.Input[int]] = None,
+             scale_type: Optional[pulumi.Input[Union[str, 'SkuScaleType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if minimum is None:
+            raise TypeError("Missing 'minimum' argument")
+        if scale_type is None and 'scaleType' in kwargs:
+            scale_type = kwargs['scaleType']
+
+        _setter("minimum", minimum)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if maximum is not None:
-            pulumi.set(__self__, "maximum", maximum)
+            _setter("maximum", maximum)
         if scale_type is not None:
-            pulumi.set(__self__, "scale_type", scale_type)
+            _setter("scale_type", scale_type)
 
     @property
     @pulumi.getter
@@ -2755,29 +3984,70 @@ class SkuSettingArgs:
                  required_quota_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "name", name)
+        SkuSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capabilities=capabilities,
+            capacity=capacity,
+            costs=costs,
+            family=family,
+            kind=kind,
+            location_info=location_info,
+            locations=locations,
+            required_features=required_features,
+            required_quota_ids=required_quota_ids,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]] = None,
+             capacity: Optional[pulumi.Input['SkuSettingCapacityArgs']] = None,
+             costs: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCostArgs']]]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location_info: Optional[pulumi.Input[Sequence[pulumi.Input['SkuLocationInfoArgs']]]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             required_quota_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if location_info is None and 'locationInfo' in kwargs:
+            location_info = kwargs['locationInfo']
+        if required_features is None and 'requiredFeatures' in kwargs:
+            required_features = kwargs['requiredFeatures']
+        if required_quota_ids is None and 'requiredQuotaIds' in kwargs:
+            required_quota_ids = kwargs['requiredQuotaIds']
+
+        _setter("name", name)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if costs is not None:
-            pulumi.set(__self__, "costs", costs)
+            _setter("costs", costs)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location_info is not None:
-            pulumi.set(__self__, "location_info", location_info)
+            _setter("location_info", location_info)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if required_features is not None:
-            pulumi.set(__self__, "required_features", required_features)
+            _setter("required_features", required_features)
         if required_quota_ids is not None:
-            pulumi.set(__self__, "required_quota_ids", required_quota_ids)
+            _setter("required_quota_ids", required_quota_ids)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -2893,10 +4163,23 @@ class SkuZoneDetailArgs:
     def __init__(__self__, *,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]] = None,
                  name: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        SkuZoneDetailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capabilities=capabilities,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['SkuCapabilityArgs']]]] = None,
+             name: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2922,8 +4205,25 @@ class SubscriptionStateOverrideActionArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[Union[str, 'SubscriptionNotificationOperation']],
                  state: pulumi.Input[Union[str, 'SubscriptionTransitioningState']]):
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "state", state)
+        SubscriptionStateOverrideActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'SubscriptionNotificationOperation']]] = None,
+             state: Optional[pulumi.Input[Union[str, 'SubscriptionTransitioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("action", action)
+        _setter("state", state)
 
     @property
     @pulumi.getter
@@ -2949,10 +4249,25 @@ class SubscriptionStateRuleArgs:
     def __init__(__self__, *,
                  allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  state: Optional[pulumi.Input[Union[str, 'SubscriptionState']]] = None):
+        SubscriptionStateRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_actions=allowed_actions,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             state: Optional[pulumi.Input[Union[str, 'SubscriptionState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+
         if allowed_actions is not None:
-            pulumi.set(__self__, "allowed_actions", allowed_actions)
+            _setter("allowed_actions", allowed_actions)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="allowedActions")
@@ -2978,10 +4293,27 @@ class SwaggerSpecificationArgs:
     def __init__(__self__, *,
                  api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  swagger_spec_folder_uri: Optional[pulumi.Input[str]] = None):
+        SwaggerSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_versions=api_versions,
+            swagger_spec_folder_uri=swagger_spec_folder_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             swagger_spec_folder_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_versions is None and 'apiVersions' in kwargs:
+            api_versions = kwargs['apiVersions']
+        if swagger_spec_folder_uri is None and 'swaggerSpecFolderUri' in kwargs:
+            swagger_spec_folder_uri = kwargs['swaggerSpecFolderUri']
+
         if api_versions is not None:
-            pulumi.set(__self__, "api_versions", api_versions)
+            _setter("api_versions", api_versions)
         if swagger_spec_folder_uri is not None:
-            pulumi.set(__self__, "swagger_spec_folder_uri", swagger_spec_folder_uri)
+            _setter("swagger_spec_folder_uri", swagger_spec_folder_uri)
 
     @property
     @pulumi.getter(name="apiVersions")
@@ -3008,10 +4340,29 @@ class ThrottlingMetricArgs:
                  limit: pulumi.Input[float],
                  type: pulumi.Input[Union[str, 'ThrottlingMetricType']],
                  interval: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "limit", limit)
-        pulumi.set(__self__, "type", type)
+        ThrottlingMetricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            limit=limit,
+            type=type,
+            interval=interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             limit: Optional[pulumi.Input[float]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ThrottlingMetricType']]] = None,
+             interval: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if limit is None:
+            raise TypeError("Missing 'limit' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("limit", limit)
+        _setter("type", type)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
 
     @property
     @pulumi.getter
@@ -3047,10 +4398,31 @@ class ThrottlingRuleArgs:
                  action: pulumi.Input[str],
                  metrics: pulumi.Input[Sequence[pulumi.Input['ThrottlingMetricArgs']]],
                  required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "metrics", metrics)
+        ThrottlingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            metrics=metrics,
+            required_features=required_features,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingMetricArgs']]]] = None,
+             required_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if metrics is None:
+            raise TypeError("Missing 'metrics' argument")
+        if required_features is None and 'requiredFeatures' in kwargs:
+            required_features = kwargs['requiredFeatures']
+
+        _setter("action", action)
+        _setter("metrics", metrics)
         if required_features is not None:
-            pulumi.set(__self__, "required_features", required_features)
+            _setter("required_features", required_features)
 
     @property
     @pulumi.getter
@@ -3084,7 +4456,20 @@ class ThrottlingRuleArgs:
 class TypedErrorInfoArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
-        pulumi.set(__self__, "type", type)
+        TypedErrorInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter

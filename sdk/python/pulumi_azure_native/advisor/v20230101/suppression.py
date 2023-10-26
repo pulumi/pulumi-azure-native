@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,14 +28,43 @@ class SuppressionArgs:
         :param pulumi.Input[str] suppression_id: The GUID of the suppression.
         :param pulumi.Input[str] ttl: The duration for which the suppression is valid.
         """
-        pulumi.set(__self__, "recommendation_id", recommendation_id)
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        SuppressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recommendation_id=recommendation_id,
+            resource_uri=resource_uri,
+            name=name,
+            suppression_id=suppression_id,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recommendation_id: Optional[pulumi.Input[str]] = None,
+             resource_uri: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             suppression_id: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recommendation_id is None and 'recommendationId' in kwargs:
+            recommendation_id = kwargs['recommendationId']
+        if recommendation_id is None:
+            raise TypeError("Missing 'recommendation_id' argument")
+        if resource_uri is None and 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+        if resource_uri is None:
+            raise TypeError("Missing 'resource_uri' argument")
+        if suppression_id is None and 'suppressionId' in kwargs:
+            suppression_id = kwargs['suppressionId']
+
+        _setter("recommendation_id", recommendation_id)
+        _setter("resource_uri", resource_uri)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if suppression_id is not None:
-            pulumi.set(__self__, "suppression_id", suppression_id)
+            _setter("suppression_id", suppression_id)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter(name="recommendationId")
@@ -139,6 +168,10 @@ class Suppression(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SuppressionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

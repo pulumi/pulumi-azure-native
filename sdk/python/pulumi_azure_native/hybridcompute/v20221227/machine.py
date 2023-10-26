@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,37 +52,104 @@ class MachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            agent_upgrade=agent_upgrade,
+            client_public_key=client_public_key,
+            extensions=extensions,
+            identity=identity,
+            location=location,
+            location_data=location_data,
+            machine_name=machine_name,
+            mssql_discovered=mssql_discovered,
+            os_profile=os_profile,
+            os_type=os_type,
+            parent_cluster_resource_id=parent_cluster_resource_id,
+            private_link_scope_resource_id=private_link_scope_resource_id,
+            service_statuses=service_statuses,
+            tags=tags,
+            vm_id=vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             agent_upgrade: Optional[pulumi.Input['AgentUpgradeArgs']] = None,
+             client_public_key: Optional[pulumi.Input[str]] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['MachineExtensionInstanceViewArgs']]]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             location_data: Optional[pulumi.Input['LocationDataArgs']] = None,
+             machine_name: Optional[pulumi.Input[str]] = None,
+             mssql_discovered: Optional[pulumi.Input[str]] = None,
+             os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             parent_cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
+             service_statuses: Optional[pulumi.Input['ServiceStatusesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vm_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if agent_upgrade is None and 'agentUpgrade' in kwargs:
+            agent_upgrade = kwargs['agentUpgrade']
+        if client_public_key is None and 'clientPublicKey' in kwargs:
+            client_public_key = kwargs['clientPublicKey']
+        if location_data is None and 'locationData' in kwargs:
+            location_data = kwargs['locationData']
+        if machine_name is None and 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if mssql_discovered is None and 'mssqlDiscovered' in kwargs:
+            mssql_discovered = kwargs['mssqlDiscovered']
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if parent_cluster_resource_id is None and 'parentClusterResourceId' in kwargs:
+            parent_cluster_resource_id = kwargs['parentClusterResourceId']
+        if private_link_scope_resource_id is None and 'privateLinkScopeResourceId' in kwargs:
+            private_link_scope_resource_id = kwargs['privateLinkScopeResourceId']
+        if service_statuses is None and 'serviceStatuses' in kwargs:
+            service_statuses = kwargs['serviceStatuses']
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+
+        _setter("resource_group_name", resource_group_name)
         if agent_upgrade is not None:
-            pulumi.set(__self__, "agent_upgrade", agent_upgrade)
+            _setter("agent_upgrade", agent_upgrade)
         if client_public_key is not None:
-            pulumi.set(__self__, "client_public_key", client_public_key)
+            _setter("client_public_key", client_public_key)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if location_data is not None:
-            pulumi.set(__self__, "location_data", location_data)
+            _setter("location_data", location_data)
         if machine_name is not None:
-            pulumi.set(__self__, "machine_name", machine_name)
+            _setter("machine_name", machine_name)
         if mssql_discovered is not None:
-            pulumi.set(__self__, "mssql_discovered", mssql_discovered)
+            _setter("mssql_discovered", mssql_discovered)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if parent_cluster_resource_id is not None:
-            pulumi.set(__self__, "parent_cluster_resource_id", parent_cluster_resource_id)
+            _setter("parent_cluster_resource_id", parent_cluster_resource_id)
         if private_link_scope_resource_id is not None:
-            pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
+            _setter("private_link_scope_resource_id", private_link_scope_resource_id)
         if service_statuses is not None:
-            pulumi.set(__self__, "service_statuses", service_statuses)
+            _setter("service_statuses", service_statuses)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -340,6 +407,10 @@ class Machine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -370,14 +441,18 @@ class Machine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MachineArgs.__new__(MachineArgs)
 
+            agent_upgrade = _utilities.configure(agent_upgrade, AgentUpgradeArgs, True)
             __props__.__dict__["agent_upgrade"] = agent_upgrade
             __props__.__dict__["client_public_key"] = client_public_key
             __props__.__dict__["extensions"] = extensions
+            identity = _utilities.configure(identity, IdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            location_data = _utilities.configure(location_data, LocationDataArgs, True)
             __props__.__dict__["location_data"] = location_data
             __props__.__dict__["machine_name"] = machine_name
             __props__.__dict__["mssql_discovered"] = mssql_discovered
+            os_profile = _utilities.configure(os_profile, OSProfileArgs, True)
             __props__.__dict__["os_profile"] = os_profile
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["parent_cluster_resource_id"] = parent_cluster_resource_id
@@ -385,6 +460,7 @@ class Machine(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            service_statuses = _utilities.configure(service_statuses, ServiceStatusesArgs, True)
             __props__.__dict__["service_statuses"] = service_statuses
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vm_id"] = vm_id

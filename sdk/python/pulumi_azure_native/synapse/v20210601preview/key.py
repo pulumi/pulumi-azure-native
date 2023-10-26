@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['KeyArgs', 'Key']
@@ -27,14 +27,47 @@ class KeyArgs:
         :param pulumi.Input[str] key_name: The name of the workspace key
         :param pulumi.Input[str] key_vault_url: The Key Vault Url of the workspace key.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        KeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            is_active_cmk=is_active_cmk,
+            key_name=key_name,
+            key_vault_url=key_vault_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             is_active_cmk: Optional[pulumi.Input[bool]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if is_active_cmk is None and 'isActiveCMK' in kwargs:
+            is_active_cmk = kwargs['isActiveCMK']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_vault_url is None and 'keyVaultUrl' in kwargs:
+            key_vault_url = kwargs['keyVaultUrl']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if is_active_cmk is not None:
-            pulumi.set(__self__, "is_active_cmk", is_active_cmk)
+            _setter("is_active_cmk", is_active_cmk)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_url is not None:
-            pulumi.set(__self__, "key_vault_url", key_vault_url)
+            _setter("key_vault_url", key_vault_url)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -138,6 +171,10 @@ class Key(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

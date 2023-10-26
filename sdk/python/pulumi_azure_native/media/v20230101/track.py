@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,46 @@ class TrackArgs:
         :param pulumi.Input[Union['AudioTrackArgs', 'TextTrackArgs', 'VideoTrackArgs']] track: Detailed information about a track in the asset.
         :param pulumi.Input[str] track_name: The Asset Track name.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TrackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            asset_name=asset_name,
+            resource_group_name=resource_group_name,
+            track=track,
+            track_name=track_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             asset_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             track: Optional[pulumi.Input[Union['AudioTrackArgs', 'TextTrackArgs', 'VideoTrackArgs']]] = None,
+             track_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if track_name is None and 'trackName' in kwargs:
+            track_name = kwargs['trackName']
+
+        _setter("account_name", account_name)
+        _setter("asset_name", asset_name)
+        _setter("resource_group_name", resource_group_name)
         if track is not None:
-            pulumi.set(__self__, "track", track)
+            _setter("track", track)
         if track_name is not None:
-            pulumi.set(__self__, "track_name", track_name)
+            _setter("track_name", track_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -140,6 +173,10 @@ class Track(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

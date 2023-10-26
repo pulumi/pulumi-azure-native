@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,29 +43,82 @@ class ApplicationGroupArgs:
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "application_group_type", application_group_type)
-        pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_group_type=application_group_type,
+            host_pool_arm_path=host_pool_arm_path,
+            resource_group_name=resource_group_name,
+            application_group_name=application_group_name,
+            description=description,
+            friendly_name=friendly_name,
+            identity=identity,
+            kind=kind,
+            location=location,
+            managed_by=managed_by,
+            plan=plan,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_group_type: Optional[pulumi.Input[Union[str, 'ApplicationGroupType']]] = None,
+             host_pool_arm_path: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             application_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+             sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_group_type is None and 'applicationGroupType' in kwargs:
+            application_group_type = kwargs['applicationGroupType']
+        if application_group_type is None:
+            raise TypeError("Missing 'application_group_type' argument")
+        if host_pool_arm_path is None and 'hostPoolArmPath' in kwargs:
+            host_pool_arm_path = kwargs['hostPoolArmPath']
+        if host_pool_arm_path is None:
+            raise TypeError("Missing 'host_pool_arm_path' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if application_group_name is None and 'applicationGroupName' in kwargs:
+            application_group_name = kwargs['applicationGroupName']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if managed_by is None and 'managedBy' in kwargs:
+            managed_by = kwargs['managedBy']
+
+        _setter("application_group_type", application_group_type)
+        _setter("host_pool_arm_path", host_pool_arm_path)
+        _setter("resource_group_name", resource_group_name)
         if application_group_name is not None:
-            pulumi.set(__self__, "application_group_name", application_group_name)
+            _setter("application_group_name", application_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationGroupType")
@@ -275,6 +328,10 @@ class ApplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -311,14 +368,17 @@ class ApplicationGroup(pulumi.CustomResource):
             if host_pool_arm_path is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_arm_path'")
             __props__.__dict__["host_pool_arm_path"] = host_pool_arm_path
+            identity = _utilities.configure(identity, ResourceModelWithAllowedPropertySetIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
+            plan = _utilities.configure(plan, ResourceModelWithAllowedPropertySetPlanArgs, True)
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, ResourceModelWithAllowedPropertySetSkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cloud_pc_resource"] = None

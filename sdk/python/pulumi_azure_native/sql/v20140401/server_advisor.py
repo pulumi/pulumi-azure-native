@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,11 +26,42 @@ class ServerAdvisorArgs:
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] advisor_name: The name of the Server Advisor.
         """
-        pulumi.set(__self__, "auto_execute_value", auto_execute_value)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        ServerAdvisorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_execute_value=auto_execute_value,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            advisor_name=advisor_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_execute_value: Optional[pulumi.Input['AutoExecuteStatus']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             advisor_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_execute_value is None and 'autoExecuteValue' in kwargs:
+            auto_execute_value = kwargs['autoExecuteValue']
+        if auto_execute_value is None:
+            raise TypeError("Missing 'auto_execute_value' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if advisor_name is None and 'advisorName' in kwargs:
+            advisor_name = kwargs['advisorName']
+
+        _setter("auto_execute_value", auto_execute_value)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if advisor_name is not None:
-            pulumi.set(__self__, "advisor_name", advisor_name)
+            _setter("advisor_name", advisor_name)
 
     @property
     @pulumi.getter(name="autoExecuteValue")
@@ -120,6 +151,10 @@ class ServerAdvisor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerAdvisorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

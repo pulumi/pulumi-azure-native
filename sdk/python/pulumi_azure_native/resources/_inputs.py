@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -45,8 +45,21 @@ class ContainerConfigurationArgs:
         Settings to customize ACI container instance.
         :param pulumi.Input[str] container_group_name: Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
         """
+        ContainerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_group_name=container_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_group_name is None and 'containerGroupName' in kwargs:
+            container_group_name = kwargs['containerGroupName']
+
         if container_group_name is not None:
-            pulumi.set(__self__, "container_group_name", container_group_name)
+            _setter("container_group_name", container_group_name)
 
     @property
     @pulumi.getter(name="containerGroupName")
@@ -69,8 +82,21 @@ class DebugSettingArgs:
         The debug setting.
         :param pulumi.Input[str] detail_level: Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
         """
+        DebugSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detail_level=detail_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detail_level: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detail_level is None and 'detailLevel' in kwargs:
+            detail_level = kwargs['detailLevel']
+
         if detail_level is not None:
-            pulumi.set(__self__, "detail_level", detail_level)
+            _setter("detail_level", detail_level)
 
     @property
     @pulumi.getter(name="detailLevel")
@@ -99,13 +125,38 @@ class DenySettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_principals: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
         """
-        pulumi.set(__self__, "mode", mode)
+        DenySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            apply_to_child_scopes=apply_to_child_scopes,
+            excluded_actions=excluded_actions,
+            excluded_principals=excluded_principals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[Union[str, 'DenySettingsMode']]] = None,
+             apply_to_child_scopes: Optional[pulumi.Input[bool]] = None,
+             excluded_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if apply_to_child_scopes is None and 'applyToChildScopes' in kwargs:
+            apply_to_child_scopes = kwargs['applyToChildScopes']
+        if excluded_actions is None and 'excludedActions' in kwargs:
+            excluded_actions = kwargs['excludedActions']
+        if excluded_principals is None and 'excludedPrincipals' in kwargs:
+            excluded_principals = kwargs['excludedPrincipals']
+
+        _setter("mode", mode)
         if apply_to_child_scopes is not None:
-            pulumi.set(__self__, "apply_to_child_scopes", apply_to_child_scopes)
+            _setter("apply_to_child_scopes", apply_to_child_scopes)
         if excluded_actions is not None:
-            pulumi.set(__self__, "excluded_actions", excluded_actions)
+            _setter("excluded_actions", excluded_actions)
         if excluded_principals is not None:
-            pulumi.set(__self__, "excluded_principals", excluded_principals)
+            _setter("excluded_principals", excluded_principals)
 
     @property
     @pulumi.getter
@@ -166,10 +217,23 @@ class DeploymentParameterArgs:
         :param pulumi.Input['KeyVaultParameterReferenceArgs'] reference: Azure Key Vault parameter reference.
         :param Any value: Input value to the parameter .
         """
+        DeploymentParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reference=reference,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reference: Optional[pulumi.Input['KeyVaultParameterReferenceArgs']] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if reference is not None:
-            pulumi.set(__self__, "reference", reference)
+            _setter("reference", reference)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -218,21 +282,58 @@ class DeploymentPropertiesArgs:
         :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         :param pulumi.Input['TemplateLinkArgs'] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
         """
-        pulumi.set(__self__, "mode", mode)
+        DeploymentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            debug_setting=debug_setting,
+            expression_evaluation_options=expression_evaluation_options,
+            on_error_deployment=on_error_deployment,
+            parameters=parameters,
+            parameters_link=parameters_link,
+            template=template,
+            template_link=template_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input['DeploymentMode']] = None,
+             debug_setting: Optional[pulumi.Input['DebugSettingArgs']] = None,
+             expression_evaluation_options: Optional[pulumi.Input['ExpressionEvaluationOptionsArgs']] = None,
+             on_error_deployment: Optional[pulumi.Input['OnErrorDeploymentArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
+             parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
+             template: Optional[Any] = None,
+             template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if debug_setting is None and 'debugSetting' in kwargs:
+            debug_setting = kwargs['debugSetting']
+        if expression_evaluation_options is None and 'expressionEvaluationOptions' in kwargs:
+            expression_evaluation_options = kwargs['expressionEvaluationOptions']
+        if on_error_deployment is None and 'onErrorDeployment' in kwargs:
+            on_error_deployment = kwargs['onErrorDeployment']
+        if parameters_link is None and 'parametersLink' in kwargs:
+            parameters_link = kwargs['parametersLink']
+        if template_link is None and 'templateLink' in kwargs:
+            template_link = kwargs['templateLink']
+
+        _setter("mode", mode)
         if debug_setting is not None:
-            pulumi.set(__self__, "debug_setting", debug_setting)
+            _setter("debug_setting", debug_setting)
         if expression_evaluation_options is not None:
-            pulumi.set(__self__, "expression_evaluation_options", expression_evaluation_options)
+            _setter("expression_evaluation_options", expression_evaluation_options)
         if on_error_deployment is not None:
-            pulumi.set(__self__, "on_error_deployment", on_error_deployment)
+            _setter("on_error_deployment", on_error_deployment)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if parameters_link is not None:
-            pulumi.set(__self__, "parameters_link", parameters_link)
+            _setter("parameters_link", parameters_link)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if template_link is not None:
-            pulumi.set(__self__, "template_link", template_link)
+            _setter("template_link", template_link)
 
     @property
     @pulumi.getter
@@ -343,11 +444,32 @@ class DeploymentStackPropertiesActionOnUnmanageArgs:
         :param pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']] management_groups: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']] resource_groups: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         """
-        pulumi.set(__self__, "resources", resources)
+        DeploymentStackPropertiesActionOnUnmanageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resources=resources,
+            management_groups=management_groups,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resources: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]] = None,
+             management_groups: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]] = None,
+             resource_groups: Optional[pulumi.Input[Union[str, 'DeploymentStacksDeleteDetachEnum']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resources is None:
+            raise TypeError("Missing 'resources' argument")
+        if management_groups is None and 'managementGroups' in kwargs:
+            management_groups = kwargs['managementGroups']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
+        _setter("resources", resources)
         if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
+            _setter("management_groups", management_groups)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter
@@ -394,8 +516,21 @@ class DeploymentStacksDebugSettingArgs:
         The debug setting.
         :param pulumi.Input[str] detail_level: Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
         """
+        DeploymentStacksDebugSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detail_level=detail_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detail_level: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detail_level is None and 'detailLevel' in kwargs:
+            detail_level = kwargs['detailLevel']
+
         if detail_level is not None:
-            pulumi.set(__self__, "detail_level", detail_level)
+            _setter("detail_level", detail_level)
 
     @property
     @pulumi.getter(name="detailLevel")
@@ -420,9 +555,26 @@ class DeploymentStacksParametersLinkArgs:
         :param pulumi.Input[str] uri: The URI of the parameters file.
         :param pulumi.Input[str] content_version: If included, must match the ContentVersion in the template.
         """
-        pulumi.set(__self__, "uri", uri)
+        DeploymentStacksParametersLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+            content_version=content_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[pulumi.Input[str]] = None,
+             content_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if content_version is None and 'contentVersion' in kwargs:
+            content_version = kwargs['contentVersion']
+
+        _setter("uri", uri)
         if content_version is not None:
-            pulumi.set(__self__, "content_version", content_version)
+            _setter("content_version", content_version)
 
     @property
     @pulumi.getter
@@ -465,16 +617,41 @@ class DeploymentStacksTemplateLinkArgs:
         :param pulumi.Input[str] relative_path: The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
         :param pulumi.Input[str] uri: The URI of the template to deploy. Use either the uri or id property, but not both.
         """
+        DeploymentStacksTemplateLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_version=content_version,
+            id=id,
+            query_string=query_string,
+            relative_path=relative_path,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_version: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
+             relative_path: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_version is None and 'contentVersion' in kwargs:
+            content_version = kwargs['contentVersion']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if relative_path is None and 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
         if content_version is not None:
-            pulumi.set(__self__, "content_version", content_version)
+            _setter("content_version", content_version)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if relative_path is not None:
-            pulumi.set(__self__, "relative_path", relative_path)
+            _setter("relative_path", relative_path)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="contentVersion")
@@ -549,11 +726,30 @@ class EnvironmentVariableArgs:
         :param pulumi.Input[str] secure_value: The value of the secure environment variable.
         :param pulumi.Input[str] value: The value of the environment variable.
         """
-        pulumi.set(__self__, "name", name)
+        EnvironmentVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secure_value=secure_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             secure_value: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secure_value is None and 'secureValue' in kwargs:
+            secure_value = kwargs['secureValue']
+
+        _setter("name", name)
         if secure_value is not None:
-            pulumi.set(__self__, "secure_value", secure_value)
+            _setter("secure_value", secure_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -600,8 +796,19 @@ class ExpressionEvaluationOptionsArgs:
         Specifies whether template expressions are evaluated within the scope of the parent template or nested template.
         :param pulumi.Input[Union[str, 'ExpressionEvaluationOptionsScopeType']] scope: The scope to be used for evaluation of parameters, variables and functions in a nested template.
         """
+        ExpressionEvaluationOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: Optional[pulumi.Input[Union[str, 'ExpressionEvaluationOptionsScopeType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter
@@ -626,10 +833,23 @@ class ExtendedLocationArgs:
         :param pulumi.Input[str] name: The extended location name.
         :param pulumi.Input[Union[str, 'ExtendedLocationType']] type: The extended location type.
         """
+        ExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ExtendedLocationType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -666,10 +886,25 @@ class IdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -708,10 +943,35 @@ class KeyVaultParameterReferenceArgs:
         :param pulumi.Input[str] secret_name: Azure Key Vault secret name.
         :param pulumi.Input[str] secret_version: Azure Key Vault secret version.
         """
-        pulumi.set(__self__, "key_vault", key_vault)
-        pulumi.set(__self__, "secret_name", secret_name)
+        KeyVaultParameterReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault=key_vault,
+            secret_name=secret_name,
+            secret_version=secret_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault: Optional[pulumi.Input['KeyVaultReferenceArgs']] = None,
+             secret_name: Optional[pulumi.Input[str]] = None,
+             secret_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if key_vault is None:
+            raise TypeError("Missing 'key_vault' argument")
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if secret_version is None and 'secretVersion' in kwargs:
+            secret_version = kwargs['secretVersion']
+
+        _setter("key_vault", key_vault)
+        _setter("secret_name", secret_name)
         if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
+            _setter("secret_version", secret_version)
 
     @property
     @pulumi.getter(name="keyVault")
@@ -758,7 +1018,20 @@ class KeyVaultReferenceArgs:
         Azure Key Vault reference.
         :param pulumi.Input[str] id: Azure Key Vault resource id.
         """
-        pulumi.set(__self__, "id", id)
+        KeyVaultReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -783,8 +1056,25 @@ class LinkedTemplateArtifactArgs:
         :param pulumi.Input[str] path: A filesystem safe relative path of the artifact.
         :param Any template: The Azure Resource Manager template.
         """
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "template", template)
+        LinkedTemplateArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[pulumi.Input[str]] = None,
+             template: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+
+        _setter("path", path)
+        _setter("template", template)
 
     @property
     @pulumi.getter
@@ -821,10 +1111,25 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -861,10 +1166,25 @@ class OnErrorDeploymentArgs:
         :param pulumi.Input[str] deployment_name: The deployment to be used on error case.
         :param pulumi.Input['OnErrorDeploymentType'] type: The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
         """
+        OnErrorDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_name=deployment_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['OnErrorDeploymentType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_name is None and 'deploymentName' in kwargs:
+            deployment_name = kwargs['deploymentName']
+
         if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
+            _setter("deployment_name", deployment_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="deploymentName")
@@ -901,9 +1221,26 @@ class ParametersLinkArgs:
         :param pulumi.Input[str] uri: The URI of the parameters file.
         :param pulumi.Input[str] content_version: If included, must match the ContentVersion in the template.
         """
-        pulumi.set(__self__, "uri", uri)
+        ParametersLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+            content_version=content_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[pulumi.Input[str]] = None,
+             content_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if content_version is None and 'contentVersion' in kwargs:
+            content_version = kwargs['contentVersion']
+
+        _setter("uri", uri)
         if content_version is not None:
-            pulumi.set(__self__, "content_version", content_version)
+            _setter("content_version", content_version)
 
     @property
     @pulumi.getter
@@ -946,16 +1283,37 @@ class PlanArgs:
         :param pulumi.Input[str] publisher: The publisher ID.
         :param pulumi.Input[str] version: The plan's version.
         """
+        PlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            promotion_code=promotion_code,
+            publisher=publisher,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             product: Optional[pulumi.Input[str]] = None,
+             promotion_code: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if promotion_code is None and 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product is not None:
-            pulumi.set(__self__, "product", product)
+            _setter("product", product)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -1036,18 +1394,39 @@ class SkuArgs:
         :param pulumi.Input[str] size: The SKU size.
         :param pulumi.Input[str] tier: The SKU tier.
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            model=model,
+            name=name,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             model: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if model is not None:
-            pulumi.set(__self__, "model", model)
+            _setter("model", model)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1132,10 +1511,27 @@ class StorageAccountConfigurationArgs:
         :param pulumi.Input[str] storage_account_key: The storage account access key.
         :param pulumi.Input[str] storage_account_name: The storage account name.
         """
+        StorageAccountConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_key=storage_account_key,
+            storage_account_name=storage_account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
 
     @property
     @pulumi.getter(name="storageAccountKey")
@@ -1169,8 +1565,19 @@ class TagsArgs:
         """
         A dictionary of name and value pairs.
         """
+        TagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -1198,16 +1605,41 @@ class TemplateLinkArgs:
         :param pulumi.Input[str] relative_path: The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
         :param pulumi.Input[str] uri: The URI of the template to deploy. Use either the uri or id property, but not both.
         """
+        TemplateLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_version=content_version,
+            id=id,
+            query_string=query_string,
+            relative_path=relative_path,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_version: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
+             relative_path: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_version is None and 'contentVersion' in kwargs:
+            content_version = kwargs['contentVersion']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if relative_path is None and 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
         if content_version is not None:
-            pulumi.set(__self__, "content_version", content_version)
+            _setter("content_version", content_version)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if query_string is not None:
-            pulumi.set(__self__, "query_string", query_string)
+            _setter("query_string", query_string)
         if relative_path is not None:
-            pulumi.set(__self__, "relative_path", relative_path)
+            _setter("relative_path", relative_path)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="contentVersion")

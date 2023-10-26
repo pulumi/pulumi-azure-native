@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -62,51 +62,144 @@ class EndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['UrlSigningKeyArgs']]] url_signing_keys: List of keys used to validate the signed URL hashes.
         :param pulumi.Input['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs'] web_application_firewall_policy_link: Defines the Web Application Firewall policy for the endpoint (if applicable)
         """
-        pulumi.set(__self__, "origins", origins)
-        pulumi.set(__self__, "profile_name", profile_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            origins=origins,
+            profile_name=profile_name,
+            resource_group_name=resource_group_name,
+            content_types_to_compress=content_types_to_compress,
+            default_origin_group=default_origin_group,
+            delivery_policy=delivery_policy,
+            endpoint_name=endpoint_name,
+            geo_filters=geo_filters,
+            is_compression_enabled=is_compression_enabled,
+            is_http_allowed=is_http_allowed,
+            is_https_allowed=is_https_allowed,
+            location=location,
+            optimization_type=optimization_type,
+            origin_groups=origin_groups,
+            origin_host_header=origin_host_header,
+            origin_path=origin_path,
+            probe_path=probe_path,
+            query_string_caching_behavior=query_string_caching_behavior,
+            tags=tags,
+            url_signing_keys=url_signing_keys,
+            web_application_firewall_policy_link=web_application_firewall_policy_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             origins: Optional[pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginArgs']]]] = None,
+             profile_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             content_types_to_compress: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_origin_group: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
+             delivery_policy: Optional[pulumi.Input['EndpointPropertiesUpdateParametersDeliveryPolicyArgs']] = None,
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             geo_filters: Optional[pulumi.Input[Sequence[pulumi.Input['GeoFilterArgs']]]] = None,
+             is_compression_enabled: Optional[pulumi.Input[bool]] = None,
+             is_http_allowed: Optional[pulumi.Input[bool]] = None,
+             is_https_allowed: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             optimization_type: Optional[pulumi.Input[Union[str, 'OptimizationType']]] = None,
+             origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginGroupArgs']]]] = None,
+             origin_host_header: Optional[pulumi.Input[str]] = None,
+             origin_path: Optional[pulumi.Input[str]] = None,
+             probe_path: Optional[pulumi.Input[str]] = None,
+             query_string_caching_behavior: Optional[pulumi.Input['QueryStringCachingBehavior']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             url_signing_keys: Optional[pulumi.Input[Sequence[pulumi.Input['UrlSigningKeyArgs']]]] = None,
+             web_application_firewall_policy_link: Optional[pulumi.Input['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origins is None:
+            raise TypeError("Missing 'origins' argument")
+        if profile_name is None and 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if profile_name is None:
+            raise TypeError("Missing 'profile_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if content_types_to_compress is None and 'contentTypesToCompress' in kwargs:
+            content_types_to_compress = kwargs['contentTypesToCompress']
+        if default_origin_group is None and 'defaultOriginGroup' in kwargs:
+            default_origin_group = kwargs['defaultOriginGroup']
+        if delivery_policy is None and 'deliveryPolicy' in kwargs:
+            delivery_policy = kwargs['deliveryPolicy']
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if geo_filters is None and 'geoFilters' in kwargs:
+            geo_filters = kwargs['geoFilters']
+        if is_compression_enabled is None and 'isCompressionEnabled' in kwargs:
+            is_compression_enabled = kwargs['isCompressionEnabled']
+        if is_http_allowed is None and 'isHttpAllowed' in kwargs:
+            is_http_allowed = kwargs['isHttpAllowed']
+        if is_https_allowed is None and 'isHttpsAllowed' in kwargs:
+            is_https_allowed = kwargs['isHttpsAllowed']
+        if optimization_type is None and 'optimizationType' in kwargs:
+            optimization_type = kwargs['optimizationType']
+        if origin_groups is None and 'originGroups' in kwargs:
+            origin_groups = kwargs['originGroups']
+        if origin_host_header is None and 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if origin_path is None and 'originPath' in kwargs:
+            origin_path = kwargs['originPath']
+        if probe_path is None and 'probePath' in kwargs:
+            probe_path = kwargs['probePath']
+        if query_string_caching_behavior is None and 'queryStringCachingBehavior' in kwargs:
+            query_string_caching_behavior = kwargs['queryStringCachingBehavior']
+        if url_signing_keys is None and 'urlSigningKeys' in kwargs:
+            url_signing_keys = kwargs['urlSigningKeys']
+        if web_application_firewall_policy_link is None and 'webApplicationFirewallPolicyLink' in kwargs:
+            web_application_firewall_policy_link = kwargs['webApplicationFirewallPolicyLink']
+
+        _setter("origins", origins)
+        _setter("profile_name", profile_name)
+        _setter("resource_group_name", resource_group_name)
         if content_types_to_compress is not None:
-            pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
+            _setter("content_types_to_compress", content_types_to_compress)
         if default_origin_group is not None:
-            pulumi.set(__self__, "default_origin_group", default_origin_group)
+            _setter("default_origin_group", default_origin_group)
         if delivery_policy is not None:
-            pulumi.set(__self__, "delivery_policy", delivery_policy)
+            _setter("delivery_policy", delivery_policy)
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if geo_filters is not None:
-            pulumi.set(__self__, "geo_filters", geo_filters)
+            _setter("geo_filters", geo_filters)
         if is_compression_enabled is not None:
-            pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
+            _setter("is_compression_enabled", is_compression_enabled)
         if is_http_allowed is None:
             is_http_allowed = True
         if is_http_allowed is not None:
-            pulumi.set(__self__, "is_http_allowed", is_http_allowed)
+            _setter("is_http_allowed", is_http_allowed)
         if is_https_allowed is None:
             is_https_allowed = True
         if is_https_allowed is not None:
-            pulumi.set(__self__, "is_https_allowed", is_https_allowed)
+            _setter("is_https_allowed", is_https_allowed)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if optimization_type is not None:
-            pulumi.set(__self__, "optimization_type", optimization_type)
+            _setter("optimization_type", optimization_type)
         if origin_groups is not None:
-            pulumi.set(__self__, "origin_groups", origin_groups)
+            _setter("origin_groups", origin_groups)
         if origin_host_header is not None:
-            pulumi.set(__self__, "origin_host_header", origin_host_header)
+            _setter("origin_host_header", origin_host_header)
         if origin_path is not None:
-            pulumi.set(__self__, "origin_path", origin_path)
+            _setter("origin_path", origin_path)
         if probe_path is not None:
-            pulumi.set(__self__, "probe_path", probe_path)
+            _setter("probe_path", probe_path)
         if query_string_caching_behavior is None:
             query_string_caching_behavior = 'NotSet'
         if query_string_caching_behavior is not None:
-            pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
+            _setter("query_string_caching_behavior", query_string_caching_behavior)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if url_signing_keys is not None:
-            pulumi.set(__self__, "url_signing_keys", url_signing_keys)
+            _setter("url_signing_keys", url_signing_keys)
         if web_application_firewall_policy_link is not None:
-            pulumi.set(__self__, "web_application_firewall_policy_link", web_application_firewall_policy_link)
+            _setter("web_application_firewall_policy_link", web_application_firewall_policy_link)
 
     @property
     @pulumi.getter
@@ -434,6 +527,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -470,7 +567,9 @@ class Endpoint(pulumi.CustomResource):
             __props__ = EndpointArgs.__new__(EndpointArgs)
 
             __props__.__dict__["content_types_to_compress"] = content_types_to_compress
+            default_origin_group = _utilities.configure(default_origin_group, ResourceReferenceArgs, True)
             __props__.__dict__["default_origin_group"] = default_origin_group
+            delivery_policy = _utilities.configure(delivery_policy, EndpointPropertiesUpdateParametersDeliveryPolicyArgs, True)
             __props__.__dict__["delivery_policy"] = delivery_policy
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["geo_filters"] = geo_filters
@@ -501,6 +600,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url_signing_keys"] = url_signing_keys
+            web_application_firewall_policy_link = _utilities.configure(web_application_firewall_policy_link, EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs, True)
             __props__.__dict__["web_application_firewall_policy_link"] = web_application_firewall_policy_link
             __props__.__dict__["custom_domains"] = None
             __props__.__dict__["host_name"] = None

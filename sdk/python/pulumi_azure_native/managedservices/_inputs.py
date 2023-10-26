@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,12 +34,41 @@ class AuthorizationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] delegated_role_definition_ids: The delegatedRoleDefinitionIds field is required when the roleDefinitionId refers to the User Access Administrator Role. It is the list of role definition ids which define all the permissions that the user in the authorization can assign to other principals.
         :param pulumi.Input[str] principal_id_display_name: The display name of the Azure Active Directory principal.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        AuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+            delegated_role_definition_ids=delegated_role_definition_ids,
+            principal_id_display_name=principal_id_display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             delegated_role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id_display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+        if delegated_role_definition_ids is None and 'delegatedRoleDefinitionIds' in kwargs:
+            delegated_role_definition_ids = kwargs['delegatedRoleDefinitionIds']
+        if principal_id_display_name is None and 'principalIdDisplayName' in kwargs:
+            principal_id_display_name = kwargs['principalIdDisplayName']
+
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
         if delegated_role_definition_ids is not None:
-            pulumi.set(__self__, "delegated_role_definition_ids", delegated_role_definition_ids)
+            _setter("delegated_role_definition_ids", delegated_role_definition_ids)
         if principal_id_display_name is not None:
-            pulumi.set(__self__, "principal_id_display_name", principal_id_display_name)
+            _setter("principal_id_display_name", principal_id_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -100,9 +129,28 @@ class EligibleApproverArgs:
         :param pulumi.Input[str] principal_id: The identifier of the Azure Active Directory principal.
         :param pulumi.Input[str] principal_id_display_name: The display name of the Azure Active Directory principal.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
+        EligibleApproverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            principal_id_display_name=principal_id_display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_id_display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if principal_id_display_name is None and 'principalIdDisplayName' in kwargs:
+            principal_id_display_name = kwargs['principalIdDisplayName']
+
+        _setter("principal_id", principal_id)
         if principal_id_display_name is not None:
-            pulumi.set(__self__, "principal_id_display_name", principal_id_display_name)
+            _setter("principal_id_display_name", principal_id_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -143,12 +191,41 @@ class EligibleAuthorizationArgs:
         :param pulumi.Input['JustInTimeAccessPolicyArgs'] just_in_time_access_policy: The just-in-time access policy setting.
         :param pulumi.Input[str] principal_id_display_name: The display name of the Azure Active Directory principal.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        EligibleAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+            just_in_time_access_policy=just_in_time_access_policy,
+            principal_id_display_name=principal_id_display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             just_in_time_access_policy: Optional[pulumi.Input['JustInTimeAccessPolicyArgs']] = None,
+             principal_id_display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+        if just_in_time_access_policy is None and 'justInTimeAccessPolicy' in kwargs:
+            just_in_time_access_policy = kwargs['justInTimeAccessPolicy']
+        if principal_id_display_name is None and 'principalIdDisplayName' in kwargs:
+            principal_id_display_name = kwargs['principalIdDisplayName']
+
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
         if just_in_time_access_policy is not None:
-            pulumi.set(__self__, "just_in_time_access_policy", just_in_time_access_policy)
+            _setter("just_in_time_access_policy", just_in_time_access_policy)
         if principal_id_display_name is not None:
-            pulumi.set(__self__, "principal_id_display_name", principal_id_display_name)
+            _setter("principal_id_display_name", principal_id_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -211,15 +288,36 @@ class JustInTimeAccessPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EligibleApproverArgs']]] managed_by_tenant_approvers: The list of managedByTenant approvers for the eligible authorization.
         :param pulumi.Input[str] maximum_activation_duration: The maximum access duration in ISO 8601 format for just-in-time access requests.
         """
+        JustInTimeAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multi_factor_auth_provider=multi_factor_auth_provider,
+            managed_by_tenant_approvers=managed_by_tenant_approvers,
+            maximum_activation_duration=maximum_activation_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multi_factor_auth_provider: Optional[pulumi.Input[Union[str, 'MultiFactorAuthProvider']]] = None,
+             managed_by_tenant_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['EligibleApproverArgs']]]] = None,
+             maximum_activation_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if multi_factor_auth_provider is None and 'multiFactorAuthProvider' in kwargs:
+            multi_factor_auth_provider = kwargs['multiFactorAuthProvider']
+        if managed_by_tenant_approvers is None and 'managedByTenantApprovers' in kwargs:
+            managed_by_tenant_approvers = kwargs['managedByTenantApprovers']
+        if maximum_activation_duration is None and 'maximumActivationDuration' in kwargs:
+            maximum_activation_duration = kwargs['maximumActivationDuration']
+
         if multi_factor_auth_provider is None:
             multi_factor_auth_provider = 'None'
-        pulumi.set(__self__, "multi_factor_auth_provider", multi_factor_auth_provider)
+        _setter("multi_factor_auth_provider", multi_factor_auth_provider)
         if managed_by_tenant_approvers is not None:
-            pulumi.set(__self__, "managed_by_tenant_approvers", managed_by_tenant_approvers)
+            _setter("managed_by_tenant_approvers", managed_by_tenant_approvers)
         if maximum_activation_duration is None:
             maximum_activation_duration = 'PT8H'
         if maximum_activation_duration is not None:
-            pulumi.set(__self__, "maximum_activation_duration", maximum_activation_duration)
+            _setter("maximum_activation_duration", maximum_activation_duration)
 
     @property
     @pulumi.getter(name="multiFactorAuthProvider")
@@ -272,10 +370,35 @@ class PlanArgs:
         :param pulumi.Input[str] publisher: Azure Marketplace publisher ID.
         :param pulumi.Input[str] version: Azure Marketplace plan's version.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "version", version)
+        PlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             product: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -334,7 +457,22 @@ class RegistrationAssignmentPropertiesArgs:
         The properties of the registration assignment.
         :param pulumi.Input[str] registration_definition_id: The fully qualified path of the registration definition.
         """
-        pulumi.set(__self__, "registration_definition_id", registration_definition_id)
+        RegistrationAssignmentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registration_definition_id=registration_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registration_definition_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registration_definition_id is None and 'registrationDefinitionId' in kwargs:
+            registration_definition_id = kwargs['registrationDefinitionId']
+        if registration_definition_id is None:
+            raise TypeError("Missing 'registration_definition_id' argument")
+
+        _setter("registration_definition_id", registration_definition_id)
 
     @property
     @pulumi.getter(name="registrationDefinitionId")
@@ -365,14 +503,43 @@ class RegistrationDefinitionPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]] eligible_authorizations: The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         :param pulumi.Input[str] registration_definition_name: The name of the registration definition.
         """
-        pulumi.set(__self__, "authorizations", authorizations)
-        pulumi.set(__self__, "managed_by_tenant_id", managed_by_tenant_id)
+        RegistrationDefinitionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorizations=authorizations,
+            managed_by_tenant_id=managed_by_tenant_id,
+            description=description,
+            eligible_authorizations=eligible_authorizations,
+            registration_definition_name=registration_definition_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationArgs']]]] = None,
+             managed_by_tenant_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             eligible_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['EligibleAuthorizationArgs']]]] = None,
+             registration_definition_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorizations is None:
+            raise TypeError("Missing 'authorizations' argument")
+        if managed_by_tenant_id is None and 'managedByTenantId' in kwargs:
+            managed_by_tenant_id = kwargs['managedByTenantId']
+        if managed_by_tenant_id is None:
+            raise TypeError("Missing 'managed_by_tenant_id' argument")
+        if eligible_authorizations is None and 'eligibleAuthorizations' in kwargs:
+            eligible_authorizations = kwargs['eligibleAuthorizations']
+        if registration_definition_name is None and 'registrationDefinitionName' in kwargs:
+            registration_definition_name = kwargs['registrationDefinitionName']
+
+        _setter("authorizations", authorizations)
+        _setter("managed_by_tenant_id", managed_by_tenant_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if eligible_authorizations is not None:
-            pulumi.set(__self__, "eligible_authorizations", eligible_authorizations)
+            _setter("eligible_authorizations", eligible_authorizations)
         if registration_definition_name is not None:
-            pulumi.set(__self__, "registration_definition_name", registration_definition_name)
+            _setter("registration_definition_name", registration_definition_name)
 
     @property
     @pulumi.getter

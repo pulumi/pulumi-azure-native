@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,24 +39,63 @@ class SignalRReplicaArgs:
         :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        SignalRReplicaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            location=location,
+            region_endpoint_enabled=region_endpoint_enabled,
+            replica_name=replica_name,
+            resource_stopped=resource_stopped,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
+             replica_name: Optional[pulumi.Input[str]] = None,
+             resource_stopped: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if region_endpoint_enabled is None and 'regionEndpointEnabled' in kwargs:
+            region_endpoint_enabled = kwargs['regionEndpointEnabled']
+        if replica_name is None and 'replicaName' in kwargs:
+            replica_name = kwargs['replicaName']
+        if resource_stopped is None and 'resourceStopped' in kwargs:
+            resource_stopped = kwargs['resourceStopped']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if region_endpoint_enabled is None:
             region_endpoint_enabled = 'Enabled'
         if region_endpoint_enabled is not None:
-            pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
+            _setter("region_endpoint_enabled", region_endpoint_enabled)
         if replica_name is not None:
-            pulumi.set(__self__, "replica_name", replica_name)
+            _setter("replica_name", replica_name)
         if resource_stopped is None:
             resource_stopped = 'false'
         if resource_stopped is not None:
-            pulumi.set(__self__, "resource_stopped", resource_stopped)
+            _setter("resource_stopped", resource_stopped)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -208,6 +247,10 @@ class SignalRReplica(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SignalRReplicaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -244,6 +287,7 @@ class SignalRReplica(pulumi.CustomResource):
             if resource_stopped is None:
                 resource_stopped = 'false'
             __props__.__dict__["resource_stopped"] = resource_stopped
+            sku = _utilities.configure(sku, ResourceSkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

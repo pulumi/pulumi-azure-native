@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,47 @@ class WorkspaceManagerAssignmentArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] workspace_manager_assignment_name: The name of the workspace manager assignment
         """
-        pulumi.set(__self__, "items", items)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        WorkspaceManagerAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            items=items,
+            resource_group_name=resource_group_name,
+            target_resource_name=target_resource_name,
+            workspace_name=workspace_name,
+            workspace_manager_assignment_name=workspace_manager_assignment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['AssignmentItemArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_resource_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             workspace_manager_assignment_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_resource_name is None and 'targetResourceName' in kwargs:
+            target_resource_name = kwargs['targetResourceName']
+        if target_resource_name is None:
+            raise TypeError("Missing 'target_resource_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if workspace_manager_assignment_name is None and 'workspaceManagerAssignmentName' in kwargs:
+            workspace_manager_assignment_name = kwargs['workspaceManagerAssignmentName']
+
+        _setter("items", items)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_resource_name", target_resource_name)
+        _setter("workspace_name", workspace_name)
         if workspace_manager_assignment_name is not None:
-            pulumi.set(__self__, "workspace_manager_assignment_name", workspace_manager_assignment_name)
+            _setter("workspace_manager_assignment_name", workspace_manager_assignment_name)
 
     @property
     @pulumi.getter
@@ -138,6 +173,10 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceManagerAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

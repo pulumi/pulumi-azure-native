@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,19 +40,76 @@ class BmcKeySetArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "azure_group_id", azure_group_id)
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "expiration", expiration)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "privilege_level", privilege_level)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_list", user_list)
+        BmcKeySetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_group_id=azure_group_id,
+            cluster_name=cluster_name,
+            expiration=expiration,
+            extended_location=extended_location,
+            privilege_level=privilege_level,
+            resource_group_name=resource_group_name,
+            user_list=user_list,
+            bmc_key_set_name=bmc_key_set_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_group_id: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             privilege_level: Optional[pulumi.Input[Union[str, 'BmcKeySetPrivilegeLevel']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user_list: Optional[pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]]] = None,
+             bmc_key_set_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_group_id is None and 'azureGroupId' in kwargs:
+            azure_group_id = kwargs['azureGroupId']
+        if azure_group_id is None:
+            raise TypeError("Missing 'azure_group_id' argument")
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if expiration is None:
+            raise TypeError("Missing 'expiration' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if extended_location is None:
+            raise TypeError("Missing 'extended_location' argument")
+        if privilege_level is None and 'privilegeLevel' in kwargs:
+            privilege_level = kwargs['privilegeLevel']
+        if privilege_level is None:
+            raise TypeError("Missing 'privilege_level' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user_list is None and 'userList' in kwargs:
+            user_list = kwargs['userList']
+        if user_list is None:
+            raise TypeError("Missing 'user_list' argument")
+        if bmc_key_set_name is None and 'bmcKeySetName' in kwargs:
+            bmc_key_set_name = kwargs['bmcKeySetName']
+
+        _setter("azure_group_id", azure_group_id)
+        _setter("cluster_name", cluster_name)
+        _setter("expiration", expiration)
+        _setter("extended_location", extended_location)
+        _setter("privilege_level", privilege_level)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_list", user_list)
         if bmc_key_set_name is not None:
-            pulumi.set(__self__, "bmc_key_set_name", bmc_key_set_name)
+            _setter("bmc_key_set_name", bmc_key_set_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="azureGroupId")
@@ -224,6 +281,10 @@ class BmcKeySet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BmcKeySetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,6 +319,7 @@ class BmcKeySet(pulumi.CustomResource):
             if expiration is None and not opts.urn:
                 raise TypeError("Missing required property 'expiration'")
             __props__.__dict__["expiration"] = expiration
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

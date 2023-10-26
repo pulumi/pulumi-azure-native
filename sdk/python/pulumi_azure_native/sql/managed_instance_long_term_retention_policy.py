@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedInstanceLongTermRetentionPolicyArgs', 'ManagedInstanceLongTermRetentionPolicy']
@@ -33,19 +33,66 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
         :param pulumi.Input[str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format.
         :param pulumi.Input[str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedInstanceLongTermRetentionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            monthly_retention=monthly_retention,
+            policy_name=policy_name,
+            week_of_year=week_of_year,
+            weekly_retention=weekly_retention,
+            yearly_retention=yearly_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             managed_instance_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             monthly_retention: Optional[pulumi.Input[str]] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             week_of_year: Optional[pulumi.Input[int]] = None,
+             weekly_retention: Optional[pulumi.Input[str]] = None,
+             yearly_retention: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if managed_instance_name is None:
+            raise TypeError("Missing 'managed_instance_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if monthly_retention is None and 'monthlyRetention' in kwargs:
+            monthly_retention = kwargs['monthlyRetention']
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if week_of_year is None and 'weekOfYear' in kwargs:
+            week_of_year = kwargs['weekOfYear']
+        if weekly_retention is None and 'weeklyRetention' in kwargs:
+            weekly_retention = kwargs['weeklyRetention']
+        if yearly_retention is None and 'yearlyRetention' in kwargs:
+            yearly_retention = kwargs['yearlyRetention']
+
+        _setter("database_name", database_name)
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
         if monthly_retention is not None:
-            pulumi.set(__self__, "monthly_retention", monthly_retention)
+            _setter("monthly_retention", monthly_retention)
         if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
+            _setter("policy_name", policy_name)
         if week_of_year is not None:
-            pulumi.set(__self__, "week_of_year", week_of_year)
+            _setter("week_of_year", week_of_year)
         if weekly_retention is not None:
-            pulumi.set(__self__, "weekly_retention", weekly_retention)
+            _setter("weekly_retention", weekly_retention)
         if yearly_retention is not None:
-            pulumi.set(__self__, "yearly_retention", yearly_retention)
+            _setter("yearly_retention", yearly_retention)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -197,6 +244,10 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedInstanceLongTermRetentionPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

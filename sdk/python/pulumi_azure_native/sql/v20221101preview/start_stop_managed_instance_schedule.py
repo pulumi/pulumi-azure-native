@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,19 +32,56 @@ class StartStopManagedInstanceScheduleArgs:
         :param pulumi.Input[str] start_stop_schedule_name: Name of the managed instance Start/Stop schedule.
         :param pulumi.Input[str] time_zone_id: The time zone of the schedule.
         """
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schedule_list", schedule_list)
+        StartStopManagedInstanceScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            schedule_list=schedule_list,
+            description=description,
+            start_stop_schedule_name=start_stop_schedule_name,
+            time_zone_id=time_zone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schedule_list: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleItemArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             start_stop_schedule_name: Optional[pulumi.Input[str]] = None,
+             time_zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if managed_instance_name is None:
+            raise TypeError("Missing 'managed_instance_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schedule_list is None and 'scheduleList' in kwargs:
+            schedule_list = kwargs['scheduleList']
+        if schedule_list is None:
+            raise TypeError("Missing 'schedule_list' argument")
+        if start_stop_schedule_name is None and 'startStopScheduleName' in kwargs:
+            start_stop_schedule_name = kwargs['startStopScheduleName']
+        if time_zone_id is None and 'timeZoneId' in kwargs:
+            time_zone_id = kwargs['timeZoneId']
+
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("schedule_list", schedule_list)
         if description is None:
             description = ''
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if start_stop_schedule_name is not None:
-            pulumi.set(__self__, "start_stop_schedule_name", start_stop_schedule_name)
+            _setter("start_stop_schedule_name", start_stop_schedule_name)
         if time_zone_id is None:
             time_zone_id = 'UTC'
         if time_zone_id is not None:
-            pulumi.set(__self__, "time_zone_id", time_zone_id)
+            _setter("time_zone_id", time_zone_id)
 
     @property
     @pulumi.getter(name="managedInstanceName")
@@ -162,6 +199,10 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StartStopManagedInstanceScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

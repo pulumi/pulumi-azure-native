@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -45,11 +45,28 @@ class BasicAuthenticationArgs:
         :param pulumi.Input[str] password: Gets or sets the password, return value will always be empty.
         :param pulumi.Input[str] username: Gets or sets the username.
         """
-        pulumi.set(__self__, "type", 'Basic')
+        BasicAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Basic')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -107,17 +124,46 @@ class ClientCertAuthenticationArgs:
         :param pulumi.Input[str] password: Gets or sets the certificate password, return value will always be empty.
         :param pulumi.Input[str] pfx: Gets or sets the pfx certificate. Accepts certification in base64 encoding, return value will always be empty.
         """
-        pulumi.set(__self__, "type", 'ClientCertificate')
+        ClientCertAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            certificate_expiration_date=certificate_expiration_date,
+            certificate_subject_name=certificate_subject_name,
+            certificate_thumbprint=certificate_thumbprint,
+            password=password,
+            pfx=pfx,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             certificate_expiration_date: Optional[pulumi.Input[str]] = None,
+             certificate_subject_name: Optional[pulumi.Input[str]] = None,
+             certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             pfx: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if certificate_expiration_date is None and 'certificateExpirationDate' in kwargs:
+            certificate_expiration_date = kwargs['certificateExpirationDate']
+        if certificate_subject_name is None and 'certificateSubjectName' in kwargs:
+            certificate_subject_name = kwargs['certificateSubjectName']
+        if certificate_thumbprint is None and 'certificateThumbprint' in kwargs:
+            certificate_thumbprint = kwargs['certificateThumbprint']
+
+        _setter("type", 'ClientCertificate')
         if certificate_expiration_date is not None:
-            pulumi.set(__self__, "certificate_expiration_date", certificate_expiration_date)
+            _setter("certificate_expiration_date", certificate_expiration_date)
         if certificate_subject_name is not None:
-            pulumi.set(__self__, "certificate_subject_name", certificate_subject_name)
+            _setter("certificate_subject_name", certificate_subject_name)
         if certificate_thumbprint is not None:
-            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
+            _setter("certificate_thumbprint", certificate_thumbprint)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if pfx is not None:
-            pulumi.set(__self__, "pfx", pfx)
+            _setter("pfx", pfx)
 
     @property
     @pulumi.getter
@@ -208,16 +254,35 @@ class HttpRequestArgs:
         :param pulumi.Input[str] method: Gets or sets the method of the request.
         :param pulumi.Input[str] uri: Gets or sets the URI of the request.
         """
+        HttpRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            body=body,
+            headers=headers,
+            method=method,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input[Union['BasicAuthenticationArgs', 'ClientCertAuthenticationArgs', 'OAuthAuthenticationArgs']]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -299,20 +364,53 @@ class JobActionArgs:
         :param pulumi.Input['ServiceBusTopicMessageArgs'] service_bus_topic_message: Gets or sets the service bus topic message.
         :param pulumi.Input['JobActionType'] type: Gets or sets the job action type.
         """
+        JobActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_action=error_action,
+            queue_message=queue_message,
+            request=request,
+            retry_policy=retry_policy,
+            service_bus_queue_message=service_bus_queue_message,
+            service_bus_topic_message=service_bus_topic_message,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_action: Optional[pulumi.Input['JobErrorActionArgs']] = None,
+             queue_message: Optional[pulumi.Input['StorageQueueMessageArgs']] = None,
+             request: Optional[pulumi.Input['HttpRequestArgs']] = None,
+             retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None,
+             service_bus_queue_message: Optional[pulumi.Input['ServiceBusQueueMessageArgs']] = None,
+             service_bus_topic_message: Optional[pulumi.Input['ServiceBusTopicMessageArgs']] = None,
+             type: Optional[pulumi.Input['JobActionType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_action is None and 'errorAction' in kwargs:
+            error_action = kwargs['errorAction']
+        if queue_message is None and 'queueMessage' in kwargs:
+            queue_message = kwargs['queueMessage']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if service_bus_queue_message is None and 'serviceBusQueueMessage' in kwargs:
+            service_bus_queue_message = kwargs['serviceBusQueueMessage']
+        if service_bus_topic_message is None and 'serviceBusTopicMessage' in kwargs:
+            service_bus_topic_message = kwargs['serviceBusTopicMessage']
+
         if error_action is not None:
-            pulumi.set(__self__, "error_action", error_action)
+            _setter("error_action", error_action)
         if queue_message is not None:
-            pulumi.set(__self__, "queue_message", queue_message)
+            _setter("queue_message", queue_message)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if service_bus_queue_message is not None:
-            pulumi.set(__self__, "service_bus_queue_message", service_bus_queue_message)
+            _setter("service_bus_queue_message", service_bus_queue_message)
         if service_bus_topic_message is not None:
-            pulumi.set(__self__, "service_bus_topic_message", service_bus_topic_message)
+            _setter("service_bus_topic_message", service_bus_topic_message)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="errorAction")
@@ -410,12 +508,27 @@ class JobCollectionPropertiesArgs:
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU.
         :param pulumi.Input['JobCollectionState'] state: Gets or sets the state.
         """
+        JobCollectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quota=quota,
+            sku=sku,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quota: Optional[pulumi.Input['JobCollectionQuotaArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             state: Optional[pulumi.Input['JobCollectionState']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -465,12 +578,33 @@ class JobCollectionQuotaArgs:
         :param pulumi.Input[int] max_job_occurrence: Gets or sets the maximum job occurrence.
         :param pulumi.Input['JobMaxRecurrenceArgs'] max_recurrence: Gets or set the maximum recurrence.
         """
+        JobCollectionQuotaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_job_count=max_job_count,
+            max_job_occurrence=max_job_occurrence,
+            max_recurrence=max_recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_job_count: Optional[pulumi.Input[int]] = None,
+             max_job_occurrence: Optional[pulumi.Input[int]] = None,
+             max_recurrence: Optional[pulumi.Input['JobMaxRecurrenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_job_count is None and 'maxJobCount' in kwargs:
+            max_job_count = kwargs['maxJobCount']
+        if max_job_occurrence is None and 'maxJobOccurrence' in kwargs:
+            max_job_occurrence = kwargs['maxJobOccurrence']
+        if max_recurrence is None and 'maxRecurrence' in kwargs:
+            max_recurrence = kwargs['maxRecurrence']
+
         if max_job_count is not None:
-            pulumi.set(__self__, "max_job_count", max_job_count)
+            _setter("max_job_count", max_job_count)
         if max_job_occurrence is not None:
-            pulumi.set(__self__, "max_job_occurrence", max_job_occurrence)
+            _setter("max_job_occurrence", max_job_occurrence)
         if max_recurrence is not None:
-            pulumi.set(__self__, "max_recurrence", max_recurrence)
+            _setter("max_recurrence", max_recurrence)
 
     @property
     @pulumi.getter(name="maxJobCount")
@@ -526,18 +660,47 @@ class JobErrorActionArgs:
         :param pulumi.Input['ServiceBusTopicMessageArgs'] service_bus_topic_message: Gets or sets the service bus topic message.
         :param pulumi.Input['JobActionType'] type: Gets or sets the job error action type.
         """
+        JobErrorActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            queue_message=queue_message,
+            request=request,
+            retry_policy=retry_policy,
+            service_bus_queue_message=service_bus_queue_message,
+            service_bus_topic_message=service_bus_topic_message,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             queue_message: Optional[pulumi.Input['StorageQueueMessageArgs']] = None,
+             request: Optional[pulumi.Input['HttpRequestArgs']] = None,
+             retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None,
+             service_bus_queue_message: Optional[pulumi.Input['ServiceBusQueueMessageArgs']] = None,
+             service_bus_topic_message: Optional[pulumi.Input['ServiceBusTopicMessageArgs']] = None,
+             type: Optional[pulumi.Input['JobActionType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if queue_message is None and 'queueMessage' in kwargs:
+            queue_message = kwargs['queueMessage']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if service_bus_queue_message is None and 'serviceBusQueueMessage' in kwargs:
+            service_bus_queue_message = kwargs['serviceBusQueueMessage']
+        if service_bus_topic_message is None and 'serviceBusTopicMessage' in kwargs:
+            service_bus_topic_message = kwargs['serviceBusTopicMessage']
+
         if queue_message is not None:
-            pulumi.set(__self__, "queue_message", queue_message)
+            _setter("queue_message", queue_message)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if service_bus_queue_message is not None:
-            pulumi.set(__self__, "service_bus_queue_message", service_bus_queue_message)
+            _setter("service_bus_queue_message", service_bus_queue_message)
         if service_bus_topic_message is not None:
-            pulumi.set(__self__, "service_bus_topic_message", service_bus_topic_message)
+            _setter("service_bus_topic_message", service_bus_topic_message)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="queueMessage")
@@ -621,10 +784,23 @@ class JobMaxRecurrenceArgs:
         :param pulumi.Input['RecurrenceFrequency'] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         :param pulumi.Input[int] interval: Gets or sets the interval between retries.
         """
+        JobMaxRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            interval=interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: Optional[pulumi.Input['RecurrenceFrequency']] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
 
     @property
     @pulumi.getter
@@ -664,14 +840,33 @@ class JobPropertiesArgs:
         :param pulumi.Input[str] start_time: Gets or sets the job start time.
         :param pulumi.Input['JobState'] state: Gets or set the job state.
         """
+        JobPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            recurrence=recurrence,
+            start_time=start_time,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['JobActionArgs']] = None,
+             recurrence: Optional[pulumi.Input['JobRecurrenceArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input['JobState']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -731,10 +926,23 @@ class JobRecurrenceScheduleMonthlyOccurrenceArgs:
         :param pulumi.Input['JobScheduleDay'] day: Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         :param pulumi.Input[int] occurrence: Gets or sets the occurrence. Must be between -5 and 5.
         """
+        JobRecurrenceScheduleMonthlyOccurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day=day,
+            occurrence=occurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day: Optional[pulumi.Input['JobScheduleDay']] = None,
+             occurrence: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if day is not None:
-            pulumi.set(__self__, "day", day)
+            _setter("day", day)
         if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
+            _setter("occurrence", occurrence)
 
     @property
     @pulumi.getter
@@ -776,16 +984,41 @@ class JobRecurrenceScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: Gets or sets the occurrences of days within a month.
         :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] week_days: Gets or sets the days of the week that the job should execute on.
         """
+        JobRecurrenceScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hours=hours,
+            minutes=minutes,
+            month_days=month_days,
+            monthly_occurrences=monthly_occurrences,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]]] = None,
+             week_days: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if month_days is None and 'monthDays' in kwargs:
+            month_days = kwargs['monthDays']
+        if monthly_occurrences is None and 'monthlyOccurrences' in kwargs:
+            monthly_occurrences = kwargs['monthlyOccurrences']
+        if week_days is None and 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
         if hours is not None:
-            pulumi.set(__self__, "hours", hours)
+            _setter("hours", hours)
         if minutes is not None:
-            pulumi.set(__self__, "minutes", minutes)
+            _setter("minutes", minutes)
         if month_days is not None:
-            pulumi.set(__self__, "month_days", month_days)
+            _setter("month_days", month_days)
         if monthly_occurrences is not None:
-            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+            _setter("monthly_occurrences", monthly_occurrences)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter
@@ -862,16 +1095,37 @@ class JobRecurrenceArgs:
         :param pulumi.Input['RecurrenceFrequency'] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         :param pulumi.Input[int] interval: Gets or sets the interval between retries.
         """
+        JobRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            end_time=end_time,
+            frequency=frequency,
+            interval=interval,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input['RecurrenceFrequency']] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             schedule: Optional[pulumi.Input['JobRecurrenceScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -947,15 +1201,38 @@ class OAuthAuthenticationArgs:
         :param pulumi.Input[str] secret: Gets or sets the secret, return value will always be empty.
         :param pulumi.Input[str] tenant: Gets or sets the tenant.
         """
-        pulumi.set(__self__, "type", 'ActiveDirectoryOAuth')
+        OAuthAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            audience=audience,
+            client_id=client_id,
+            secret=secret,
+            tenant=tenant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             audience: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
+        _setter("type", 'ActiveDirectoryOAuth')
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if tenant is not None:
-            pulumi.set(__self__, "tenant", tenant)
+            _setter("tenant", tenant)
 
     @property
     @pulumi.getter
@@ -1030,12 +1307,33 @@ class RetryPolicyArgs:
         :param pulumi.Input[str] retry_interval: Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
         :param pulumi.Input['RetryType'] retry_type: Gets or sets the retry strategy to be used.
         """
+        RetryPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retry_count=retry_count,
+            retry_interval=retry_interval,
+            retry_type=retry_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retry_count: Optional[pulumi.Input[int]] = None,
+             retry_interval: Optional[pulumi.Input[str]] = None,
+             retry_type: Optional[pulumi.Input['RetryType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retry_count is None and 'retryCount' in kwargs:
+            retry_count = kwargs['retryCount']
+        if retry_interval is None and 'retryInterval' in kwargs:
+            retry_interval = kwargs['retryInterval']
+        if retry_type is None and 'retryType' in kwargs:
+            retry_type = kwargs['retryType']
+
         if retry_count is not None:
-            pulumi.set(__self__, "retry_count", retry_count)
+            _setter("retry_count", retry_count)
         if retry_interval is not None:
-            pulumi.set(__self__, "retry_interval", retry_interval)
+            _setter("retry_interval", retry_interval)
         if retry_type is not None:
-            pulumi.set(__self__, "retry_type", retry_type)
+            _setter("retry_type", retry_type)
 
     @property
     @pulumi.getter(name="retryCount")
@@ -1085,12 +1383,31 @@ class ServiceBusAuthenticationArgs:
         :param pulumi.Input[str] sas_key_name: Gets or sets the SAS key name.
         :param pulumi.Input['ServiceBusAuthenticationType'] type: Gets or sets the authentication type.
         """
+        ServiceBusAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sas_key=sas_key,
+            sas_key_name=sas_key_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sas_key: Optional[pulumi.Input[str]] = None,
+             sas_key_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['ServiceBusAuthenticationType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sas_key is None and 'sasKey' in kwargs:
+            sas_key = kwargs['sasKey']
+        if sas_key_name is None and 'sasKeyName' in kwargs:
+            sas_key_name = kwargs['sasKeyName']
+
         if sas_key is not None:
-            pulumi.set(__self__, "sas_key", sas_key)
+            _setter("sas_key", sas_key)
         if sas_key_name is not None:
-            pulumi.set(__self__, "sas_key_name", sas_key_name)
+            _setter("sas_key_name", sas_key_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="sasKey")
@@ -1160,32 +1477,89 @@ class ServiceBusBrokeredMessagePropertiesArgs:
         :param pulumi.Input[str] to: Gets or sets the to.
         :param pulumi.Input[str] via_partition_key: Gets or sets the via partition key.
         """
+        ServiceBusBrokeredMessagePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            correlation_id=correlation_id,
+            force_persistence=force_persistence,
+            label=label,
+            message_id=message_id,
+            partition_key=partition_key,
+            reply_to=reply_to,
+            reply_to_session_id=reply_to_session_id,
+            scheduled_enqueue_time_utc=scheduled_enqueue_time_utc,
+            session_id=session_id,
+            time_to_live=time_to_live,
+            to=to,
+            via_partition_key=via_partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[pulumi.Input[str]] = None,
+             correlation_id: Optional[pulumi.Input[str]] = None,
+             force_persistence: Optional[pulumi.Input[bool]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             reply_to: Optional[pulumi.Input[str]] = None,
+             reply_to_session_id: Optional[pulumi.Input[str]] = None,
+             scheduled_enqueue_time_utc: Optional[pulumi.Input[str]] = None,
+             session_id: Optional[pulumi.Input[str]] = None,
+             time_to_live: Optional[pulumi.Input[str]] = None,
+             to: Optional[pulumi.Input[str]] = None,
+             via_partition_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if correlation_id is None and 'correlationId' in kwargs:
+            correlation_id = kwargs['correlationId']
+        if force_persistence is None and 'forcePersistence' in kwargs:
+            force_persistence = kwargs['forcePersistence']
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if reply_to is None and 'replyTo' in kwargs:
+            reply_to = kwargs['replyTo']
+        if reply_to_session_id is None and 'replyToSessionId' in kwargs:
+            reply_to_session_id = kwargs['replyToSessionId']
+        if scheduled_enqueue_time_utc is None and 'scheduledEnqueueTimeUtc' in kwargs:
+            scheduled_enqueue_time_utc = kwargs['scheduledEnqueueTimeUtc']
+        if session_id is None and 'sessionId' in kwargs:
+            session_id = kwargs['sessionId']
+        if time_to_live is None and 'timeToLive' in kwargs:
+            time_to_live = kwargs['timeToLive']
+        if via_partition_key is None and 'viaPartitionKey' in kwargs:
+            via_partition_key = kwargs['viaPartitionKey']
+
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if correlation_id is not None:
-            pulumi.set(__self__, "correlation_id", correlation_id)
+            _setter("correlation_id", correlation_id)
         if force_persistence is not None:
-            pulumi.set(__self__, "force_persistence", force_persistence)
+            _setter("force_persistence", force_persistence)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if reply_to is not None:
-            pulumi.set(__self__, "reply_to", reply_to)
+            _setter("reply_to", reply_to)
         if reply_to_session_id is not None:
-            pulumi.set(__self__, "reply_to_session_id", reply_to_session_id)
+            _setter("reply_to_session_id", reply_to_session_id)
         if scheduled_enqueue_time_utc is not None:
-            pulumi.set(__self__, "scheduled_enqueue_time_utc", scheduled_enqueue_time_utc)
+            _setter("scheduled_enqueue_time_utc", scheduled_enqueue_time_utc)
         if session_id is not None:
-            pulumi.set(__self__, "session_id", session_id)
+            _setter("session_id", session_id)
         if time_to_live is not None:
-            pulumi.set(__self__, "time_to_live", time_to_live)
+            _setter("time_to_live", time_to_live)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
         if via_partition_key is not None:
-            pulumi.set(__self__, "via_partition_key", via_partition_key)
+            _setter("via_partition_key", via_partition_key)
 
     @property
     @pulumi.getter(name="contentType")
@@ -1363,20 +1737,51 @@ class ServiceBusQueueMessageArgs:
         :param pulumi.Input[str] queue_name: Gets or sets the queue name.
         :param pulumi.Input['ServiceBusTransportType'] transport_type: Gets or sets the transport type.
         """
+        ServiceBusQueueMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            brokered_message_properties=brokered_message_properties,
+            custom_message_properties=custom_message_properties,
+            message=message,
+            namespace=namespace,
+            queue_name=queue_name,
+            transport_type=transport_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input['ServiceBusAuthenticationArgs']] = None,
+             brokered_message_properties: Optional[pulumi.Input['ServiceBusBrokeredMessagePropertiesArgs']] = None,
+             custom_message_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             queue_name: Optional[pulumi.Input[str]] = None,
+             transport_type: Optional[pulumi.Input['ServiceBusTransportType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if brokered_message_properties is None and 'brokeredMessageProperties' in kwargs:
+            brokered_message_properties = kwargs['brokeredMessageProperties']
+        if custom_message_properties is None and 'customMessageProperties' in kwargs:
+            custom_message_properties = kwargs['customMessageProperties']
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if transport_type is None and 'transportType' in kwargs:
+            transport_type = kwargs['transportType']
+
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if brokered_message_properties is not None:
-            pulumi.set(__self__, "brokered_message_properties", brokered_message_properties)
+            _setter("brokered_message_properties", brokered_message_properties)
         if custom_message_properties is not None:
-            pulumi.set(__self__, "custom_message_properties", custom_message_properties)
+            _setter("custom_message_properties", custom_message_properties)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
+            _setter("queue_name", queue_name)
         if transport_type is not None:
-            pulumi.set(__self__, "transport_type", transport_type)
+            _setter("transport_type", transport_type)
 
     @property
     @pulumi.getter
@@ -1482,20 +1887,51 @@ class ServiceBusTopicMessageArgs:
         :param pulumi.Input[str] topic_path: Gets or sets the topic path.
         :param pulumi.Input['ServiceBusTransportType'] transport_type: Gets or sets the transport type.
         """
+        ServiceBusTopicMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            brokered_message_properties=brokered_message_properties,
+            custom_message_properties=custom_message_properties,
+            message=message,
+            namespace=namespace,
+            topic_path=topic_path,
+            transport_type=transport_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input['ServiceBusAuthenticationArgs']] = None,
+             brokered_message_properties: Optional[pulumi.Input['ServiceBusBrokeredMessagePropertiesArgs']] = None,
+             custom_message_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             topic_path: Optional[pulumi.Input[str]] = None,
+             transport_type: Optional[pulumi.Input['ServiceBusTransportType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if brokered_message_properties is None and 'brokeredMessageProperties' in kwargs:
+            brokered_message_properties = kwargs['brokeredMessageProperties']
+        if custom_message_properties is None and 'customMessageProperties' in kwargs:
+            custom_message_properties = kwargs['customMessageProperties']
+        if topic_path is None and 'topicPath' in kwargs:
+            topic_path = kwargs['topicPath']
+        if transport_type is None and 'transportType' in kwargs:
+            transport_type = kwargs['transportType']
+
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if brokered_message_properties is not None:
-            pulumi.set(__self__, "brokered_message_properties", brokered_message_properties)
+            _setter("brokered_message_properties", brokered_message_properties)
         if custom_message_properties is not None:
-            pulumi.set(__self__, "custom_message_properties", custom_message_properties)
+            _setter("custom_message_properties", custom_message_properties)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
         if topic_path is not None:
-            pulumi.set(__self__, "topic_path", topic_path)
+            _setter("topic_path", topic_path)
         if transport_type is not None:
-            pulumi.set(__self__, "transport_type", transport_type)
+            _setter("transport_type", transport_type)
 
     @property
     @pulumi.getter
@@ -1589,8 +2025,19 @@ class SkuArgs:
         """
         :param pulumi.Input['SkuDefinition'] name: Gets or set the SKU.
         """
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input['SkuDefinition']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1618,14 +2065,37 @@ class StorageQueueMessageArgs:
         :param pulumi.Input[str] sas_token: Gets or sets the SAS key.
         :param pulumi.Input[str] storage_account: Gets or sets the storage account name.
         """
+        StorageQueueMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message=message,
+            queue_name=queue_name,
+            sas_token=sas_token,
+            storage_account=storage_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message: Optional[pulumi.Input[str]] = None,
+             queue_name: Optional[pulumi.Input[str]] = None,
+             sas_token: Optional[pulumi.Input[str]] = None,
+             storage_account: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if sas_token is None and 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if storage_account is None and 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
+            _setter("queue_name", queue_name)
         if sas_token is not None:
-            pulumi.set(__self__, "sas_token", sas_token)
+            _setter("sas_token", sas_token)
         if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+            _setter("storage_account", storage_account)
 
     @property
     @pulumi.getter

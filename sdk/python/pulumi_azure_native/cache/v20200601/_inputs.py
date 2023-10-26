@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -41,26 +41,75 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         :param pulumi.Input[str] rdb_backup_max_snapshot_count: Specifies the maximum number of snapshots for rdb backup
         :param pulumi.Input[str] rdb_storage_connection_string: The storage account connection string for storing rdb file
         """
+        RedisCommonPropertiesRedisConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aof_storage_connection_string0=aof_storage_connection_string0,
+            aof_storage_connection_string1=aof_storage_connection_string1,
+            maxfragmentationmemory_reserved=maxfragmentationmemory_reserved,
+            maxmemory_delta=maxmemory_delta,
+            maxmemory_policy=maxmemory_policy,
+            maxmemory_reserved=maxmemory_reserved,
+            rdb_backup_enabled=rdb_backup_enabled,
+            rdb_backup_frequency=rdb_backup_frequency,
+            rdb_backup_max_snapshot_count=rdb_backup_max_snapshot_count,
+            rdb_storage_connection_string=rdb_storage_connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aof_storage_connection_string0: Optional[pulumi.Input[str]] = None,
+             aof_storage_connection_string1: Optional[pulumi.Input[str]] = None,
+             maxfragmentationmemory_reserved: Optional[pulumi.Input[str]] = None,
+             maxmemory_delta: Optional[pulumi.Input[str]] = None,
+             maxmemory_policy: Optional[pulumi.Input[str]] = None,
+             maxmemory_reserved: Optional[pulumi.Input[str]] = None,
+             rdb_backup_enabled: Optional[pulumi.Input[str]] = None,
+             rdb_backup_frequency: Optional[pulumi.Input[str]] = None,
+             rdb_backup_max_snapshot_count: Optional[pulumi.Input[str]] = None,
+             rdb_storage_connection_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aof_storage_connection_string0 is None and 'aofStorageConnectionString0' in kwargs:
+            aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
+        if aof_storage_connection_string1 is None and 'aofStorageConnectionString1' in kwargs:
+            aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
+        if maxfragmentationmemory_reserved is None and 'maxfragmentationmemoryReserved' in kwargs:
+            maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
+        if maxmemory_delta is None and 'maxmemoryDelta' in kwargs:
+            maxmemory_delta = kwargs['maxmemoryDelta']
+        if maxmemory_policy is None and 'maxmemoryPolicy' in kwargs:
+            maxmemory_policy = kwargs['maxmemoryPolicy']
+        if maxmemory_reserved is None and 'maxmemoryReserved' in kwargs:
+            maxmemory_reserved = kwargs['maxmemoryReserved']
+        if rdb_backup_enabled is None and 'rdbBackupEnabled' in kwargs:
+            rdb_backup_enabled = kwargs['rdbBackupEnabled']
+        if rdb_backup_frequency is None and 'rdbBackupFrequency' in kwargs:
+            rdb_backup_frequency = kwargs['rdbBackupFrequency']
+        if rdb_backup_max_snapshot_count is None and 'rdbBackupMaxSnapshotCount' in kwargs:
+            rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
+        if rdb_storage_connection_string is None and 'rdbStorageConnectionString' in kwargs:
+            rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
+
         if aof_storage_connection_string0 is not None:
-            pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
+            _setter("aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
-            pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+            _setter("aof_storage_connection_string1", aof_storage_connection_string1)
         if maxfragmentationmemory_reserved is not None:
-            pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
+            _setter("maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
         if maxmemory_delta is not None:
-            pulumi.set(__self__, "maxmemory_delta", maxmemory_delta)
+            _setter("maxmemory_delta", maxmemory_delta)
         if maxmemory_policy is not None:
-            pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
+            _setter("maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
-            pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+            _setter("maxmemory_reserved", maxmemory_reserved)
         if rdb_backup_enabled is not None:
-            pulumi.set(__self__, "rdb_backup_enabled", rdb_backup_enabled)
+            _setter("rdb_backup_enabled", rdb_backup_enabled)
         if rdb_backup_frequency is not None:
-            pulumi.set(__self__, "rdb_backup_frequency", rdb_backup_frequency)
+            _setter("rdb_backup_frequency", rdb_backup_frequency)
         if rdb_backup_max_snapshot_count is not None:
-            pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
+            _setter("rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
-            pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+            _setter("rdb_storage_connection_string", rdb_storage_connection_string)
 
     @property
     @pulumi.getter(name="aofStorageConnectionString0")
@@ -195,9 +244,30 @@ class SkuArgs:
         :param pulumi.Input[Union[str, 'SkuFamily']] family: The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
         :param pulumi.Input[Union[str, 'SkuName']] name: The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[Union[str, 'SkuFamily']]] = None,
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if family is None:
+            raise TypeError("Missing 'family' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("capacity", capacity)
+        _setter("family", family)
+        _setter("name", name)
 
     @property
     @pulumi.getter

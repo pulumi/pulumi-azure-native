@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -96,10 +96,43 @@ class AccountCredentialDetailsResponse(dict):
         :param str data_account_type: Type of the account.
         :param Sequence['ShareCredentialDetailsResponse'] share_credential_details: Per share level unencrypted access credentials.
         """
-        pulumi.set(__self__, "account_connection_string", account_connection_string)
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data_account_type", data_account_type)
-        pulumi.set(__self__, "share_credential_details", share_credential_details)
+        AccountCredentialDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_connection_string=account_connection_string,
+            account_name=account_name,
+            data_account_type=data_account_type,
+            share_credential_details=share_credential_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_connection_string: Optional[str] = None,
+             account_name: Optional[str] = None,
+             data_account_type: Optional[str] = None,
+             share_credential_details: Optional[Sequence['outputs.ShareCredentialDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_connection_string is None and 'accountConnectionString' in kwargs:
+            account_connection_string = kwargs['accountConnectionString']
+        if account_connection_string is None:
+            raise TypeError("Missing 'account_connection_string' argument")
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if data_account_type is None and 'dataAccountType' in kwargs:
+            data_account_type = kwargs['dataAccountType']
+        if data_account_type is None:
+            raise TypeError("Missing 'data_account_type' argument")
+        if share_credential_details is None and 'shareCredentialDetails' in kwargs:
+            share_credential_details = kwargs['shareCredentialDetails']
+        if share_credential_details is None:
+            raise TypeError("Missing 'share_credential_details' argument")
+
+        _setter("account_connection_string", account_connection_string)
+        _setter("account_name", account_name)
+        _setter("data_account_type", data_account_type)
+        _setter("share_credential_details", share_credential_details)
 
     @property
     @pulumi.getter(name="accountConnectionString")
@@ -147,10 +180,23 @@ class AdditionalErrorInfoResponse(dict):
         :param Any info: Additional information of the type of error.
         :param str type: Type of error (e.g. CustomerIntervention, PolicyViolation, SecurityViolation).
         """
+        AdditionalErrorInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Optional[Any] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if info is not None:
-            pulumi.set(__self__, "info", info)
+            _setter("info", info)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -182,8 +228,27 @@ class ApplianceNetworkConfigurationResponse(dict):
         :param str mac_address: Mac Address.
         :param str name: Name of the network.
         """
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "name", name)
+        ApplianceNetworkConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mac_address=mac_address,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mac_address: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if mac_address is None:
+            raise TypeError("Missing 'mac_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("mac_address", mac_address)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="macAddress")
@@ -238,12 +303,33 @@ class AzureFileFilterDetailsResponse(dict):
         :param Sequence[str] file_prefix_list: Prefix list of the Azure files to be transferred.
         :param Sequence[str] file_share_list: List of file shares to be transferred.
         """
+        AzureFileFilterDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_path_list=file_path_list,
+            file_prefix_list=file_prefix_list,
+            file_share_list=file_share_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_path_list: Optional[Sequence[str]] = None,
+             file_prefix_list: Optional[Sequence[str]] = None,
+             file_share_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_path_list is None and 'filePathList' in kwargs:
+            file_path_list = kwargs['filePathList']
+        if file_prefix_list is None and 'filePrefixList' in kwargs:
+            file_prefix_list = kwargs['filePrefixList']
+        if file_share_list is None and 'fileShareList' in kwargs:
+            file_share_list = kwargs['fileShareList']
+
         if file_path_list is not None:
-            pulumi.set(__self__, "file_path_list", file_path_list)
+            _setter("file_path_list", file_path_list)
         if file_prefix_list is not None:
-            pulumi.set(__self__, "file_prefix_list", file_prefix_list)
+            _setter("file_prefix_list", file_prefix_list)
         if file_share_list is not None:
-            pulumi.set(__self__, "file_share_list", file_share_list)
+            _setter("file_share_list", file_share_list)
 
     @property
     @pulumi.getter(name="filePathList")
@@ -306,12 +392,33 @@ class BlobFilterDetailsResponse(dict):
         :param Sequence[str] blob_prefix_list: Prefix list of the Azure blobs to be transferred.
         :param Sequence[str] container_list: List of blob containers to be transferred.
         """
+        BlobFilterDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_path_list=blob_path_list,
+            blob_prefix_list=blob_prefix_list,
+            container_list=container_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_path_list: Optional[Sequence[str]] = None,
+             blob_prefix_list: Optional[Sequence[str]] = None,
+             container_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blob_path_list is None and 'blobPathList' in kwargs:
+            blob_path_list = kwargs['blobPathList']
+        if blob_prefix_list is None and 'blobPrefixList' in kwargs:
+            blob_prefix_list = kwargs['blobPrefixList']
+        if container_list is None and 'containerList' in kwargs:
+            container_list = kwargs['containerList']
+
         if blob_path_list is not None:
-            pulumi.set(__self__, "blob_path_list", blob_path_list)
+            _setter("blob_path_list", blob_path_list)
         if blob_prefix_list is not None:
-            pulumi.set(__self__, "blob_prefix_list", blob_prefix_list)
+            _setter("blob_prefix_list", blob_prefix_list)
         if container_list is not None:
-            pulumi.set(__self__, "container_list", container_list)
+            _setter("container_list", container_list)
 
     @property
     @pulumi.getter(name="blobPathList")
@@ -374,14 +481,39 @@ class CloudErrorResponse(dict):
         :param str message: The error message parsed from the body of the http error response.
         :param str target: Gets or sets the target of the error.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "details", details)
+        CloudErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            details=details,
+            code=code,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Optional[Sequence['outputs.AdditionalErrorInfoResponse']] = None,
+             details: Optional[Sequence['outputs.CloudErrorResponse']] = None,
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_info is None and 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+        if additional_info is None:
+            raise TypeError("Missing 'additional_info' argument")
+        if details is None:
+            raise TypeError("Missing 'details' argument")
+
+        _setter("additional_info", additional_info)
+        _setter("details", details)
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -468,15 +600,50 @@ class ContactDetailsResponse(dict):
         :param Sequence['NotificationPreferenceResponse'] notification_preference: Notification preference for a job stage.
         :param str phone_extension: Phone extension number of the contact person.
         """
-        pulumi.set(__self__, "contact_name", contact_name)
-        pulumi.set(__self__, "email_list", email_list)
-        pulumi.set(__self__, "phone", phone)
+        ContactDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_name=contact_name,
+            email_list=email_list,
+            phone=phone,
+            mobile=mobile,
+            notification_preference=notification_preference,
+            phone_extension=phone_extension,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_name: Optional[str] = None,
+             email_list: Optional[Sequence[str]] = None,
+             phone: Optional[str] = None,
+             mobile: Optional[str] = None,
+             notification_preference: Optional[Sequence['outputs.NotificationPreferenceResponse']] = None,
+             phone_extension: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_name is None and 'contactName' in kwargs:
+            contact_name = kwargs['contactName']
+        if contact_name is None:
+            raise TypeError("Missing 'contact_name' argument")
+        if email_list is None and 'emailList' in kwargs:
+            email_list = kwargs['emailList']
+        if email_list is None:
+            raise TypeError("Missing 'email_list' argument")
+        if phone is None:
+            raise TypeError("Missing 'phone' argument")
+        if notification_preference is None and 'notificationPreference' in kwargs:
+            notification_preference = kwargs['notificationPreference']
+        if phone_extension is None and 'phoneExtension' in kwargs:
+            phone_extension = kwargs['phoneExtension']
+
+        _setter("contact_name", contact_name)
+        _setter("email_list", email_list)
+        _setter("phone", phone)
         if mobile is not None:
-            pulumi.set(__self__, "mobile", mobile)
+            _setter("mobile", mobile)
         if notification_preference is not None:
-            pulumi.set(__self__, "notification_preference", notification_preference)
+            _setter("notification_preference", notification_preference)
         if phone_extension is not None:
-            pulumi.set(__self__, "phone_extension", phone_extension)
+            _setter("phone_extension", phone_extension)
 
     @property
     @pulumi.getter(name="contactName")
@@ -563,12 +730,37 @@ class ContactInfoResponse(dict):
         :param str mobile: Mobile number of the contact person.
         :param str phone_extension: Phone extension number of the contact person.
         """
-        pulumi.set(__self__, "contact_name", contact_name)
-        pulumi.set(__self__, "phone", phone)
+        ContactInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_name=contact_name,
+            phone=phone,
+            mobile=mobile,
+            phone_extension=phone_extension,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_name: Optional[str] = None,
+             phone: Optional[str] = None,
+             mobile: Optional[str] = None,
+             phone_extension: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_name is None and 'contactName' in kwargs:
+            contact_name = kwargs['contactName']
+        if contact_name is None:
+            raise TypeError("Missing 'contact_name' argument")
+        if phone is None:
+            raise TypeError("Missing 'phone' argument")
+        if phone_extension is None and 'phoneExtension' in kwargs:
+            phone_extension = kwargs['phoneExtension']
+
+        _setter("contact_name", contact_name)
+        _setter("phone", phone)
         if mobile is not None:
-            pulumi.set(__self__, "mobile", mobile)
+            _setter("mobile", mobile)
         if phone_extension is not None:
-            pulumi.set(__self__, "phone_extension", phone_extension)
+            _setter("phone_extension", phone_extension)
 
     @property
     @pulumi.getter(name="contactName")
@@ -692,23 +884,130 @@ class CopyProgressResponse(dict):
         :param float total_files_to_process: Total files to process
         :param str transfer_type: Transfer type of data
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "bytes_processed", bytes_processed)
-        pulumi.set(__self__, "data_account_type", data_account_type)
-        pulumi.set(__self__, "directories_errored_out", directories_errored_out)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "files_errored_out", files_errored_out)
-        pulumi.set(__self__, "files_processed", files_processed)
-        pulumi.set(__self__, "invalid_directories_processed", invalid_directories_processed)
-        pulumi.set(__self__, "invalid_file_bytes_uploaded", invalid_file_bytes_uploaded)
-        pulumi.set(__self__, "invalid_files_processed", invalid_files_processed)
-        pulumi.set(__self__, "is_enumeration_in_progress", is_enumeration_in_progress)
-        pulumi.set(__self__, "renamed_container_count", renamed_container_count)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "total_bytes_to_process", total_bytes_to_process)
-        pulumi.set(__self__, "total_files_to_process", total_files_to_process)
-        pulumi.set(__self__, "transfer_type", transfer_type)
+        CopyProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            actions=actions,
+            bytes_processed=bytes_processed,
+            data_account_type=data_account_type,
+            directories_errored_out=directories_errored_out,
+            error=error,
+            files_errored_out=files_errored_out,
+            files_processed=files_processed,
+            invalid_directories_processed=invalid_directories_processed,
+            invalid_file_bytes_uploaded=invalid_file_bytes_uploaded,
+            invalid_files_processed=invalid_files_processed,
+            is_enumeration_in_progress=is_enumeration_in_progress,
+            renamed_container_count=renamed_container_count,
+            storage_account_name=storage_account_name,
+            total_bytes_to_process=total_bytes_to_process,
+            total_files_to_process=total_files_to_process,
+            transfer_type=transfer_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             actions: Optional[Sequence[str]] = None,
+             bytes_processed: Optional[float] = None,
+             data_account_type: Optional[str] = None,
+             directories_errored_out: Optional[float] = None,
+             error: Optional['outputs.CloudErrorResponse'] = None,
+             files_errored_out: Optional[float] = None,
+             files_processed: Optional[float] = None,
+             invalid_directories_processed: Optional[float] = None,
+             invalid_file_bytes_uploaded: Optional[float] = None,
+             invalid_files_processed: Optional[float] = None,
+             is_enumeration_in_progress: Optional[bool] = None,
+             renamed_container_count: Optional[float] = None,
+             storage_account_name: Optional[str] = None,
+             total_bytes_to_process: Optional[float] = None,
+             total_files_to_process: Optional[float] = None,
+             transfer_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if bytes_processed is None and 'bytesProcessed' in kwargs:
+            bytes_processed = kwargs['bytesProcessed']
+        if bytes_processed is None:
+            raise TypeError("Missing 'bytes_processed' argument")
+        if data_account_type is None and 'dataAccountType' in kwargs:
+            data_account_type = kwargs['dataAccountType']
+        if data_account_type is None:
+            raise TypeError("Missing 'data_account_type' argument")
+        if directories_errored_out is None and 'directoriesErroredOut' in kwargs:
+            directories_errored_out = kwargs['directoriesErroredOut']
+        if directories_errored_out is None:
+            raise TypeError("Missing 'directories_errored_out' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if files_errored_out is None and 'filesErroredOut' in kwargs:
+            files_errored_out = kwargs['filesErroredOut']
+        if files_errored_out is None:
+            raise TypeError("Missing 'files_errored_out' argument")
+        if files_processed is None and 'filesProcessed' in kwargs:
+            files_processed = kwargs['filesProcessed']
+        if files_processed is None:
+            raise TypeError("Missing 'files_processed' argument")
+        if invalid_directories_processed is None and 'invalidDirectoriesProcessed' in kwargs:
+            invalid_directories_processed = kwargs['invalidDirectoriesProcessed']
+        if invalid_directories_processed is None:
+            raise TypeError("Missing 'invalid_directories_processed' argument")
+        if invalid_file_bytes_uploaded is None and 'invalidFileBytesUploaded' in kwargs:
+            invalid_file_bytes_uploaded = kwargs['invalidFileBytesUploaded']
+        if invalid_file_bytes_uploaded is None:
+            raise TypeError("Missing 'invalid_file_bytes_uploaded' argument")
+        if invalid_files_processed is None and 'invalidFilesProcessed' in kwargs:
+            invalid_files_processed = kwargs['invalidFilesProcessed']
+        if invalid_files_processed is None:
+            raise TypeError("Missing 'invalid_files_processed' argument")
+        if is_enumeration_in_progress is None and 'isEnumerationInProgress' in kwargs:
+            is_enumeration_in_progress = kwargs['isEnumerationInProgress']
+        if is_enumeration_in_progress is None:
+            raise TypeError("Missing 'is_enumeration_in_progress' argument")
+        if renamed_container_count is None and 'renamedContainerCount' in kwargs:
+            renamed_container_count = kwargs['renamedContainerCount']
+        if renamed_container_count is None:
+            raise TypeError("Missing 'renamed_container_count' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if total_bytes_to_process is None and 'totalBytesToProcess' in kwargs:
+            total_bytes_to_process = kwargs['totalBytesToProcess']
+        if total_bytes_to_process is None:
+            raise TypeError("Missing 'total_bytes_to_process' argument")
+        if total_files_to_process is None and 'totalFilesToProcess' in kwargs:
+            total_files_to_process = kwargs['totalFilesToProcess']
+        if total_files_to_process is None:
+            raise TypeError("Missing 'total_files_to_process' argument")
+        if transfer_type is None and 'transferType' in kwargs:
+            transfer_type = kwargs['transferType']
+        if transfer_type is None:
+            raise TypeError("Missing 'transfer_type' argument")
+
+        _setter("account_id", account_id)
+        _setter("actions", actions)
+        _setter("bytes_processed", bytes_processed)
+        _setter("data_account_type", data_account_type)
+        _setter("directories_errored_out", directories_errored_out)
+        _setter("error", error)
+        _setter("files_errored_out", files_errored_out)
+        _setter("files_processed", files_processed)
+        _setter("invalid_directories_processed", invalid_directories_processed)
+        _setter("invalid_file_bytes_uploaded", invalid_file_bytes_uploaded)
+        _setter("invalid_files_processed", invalid_files_processed)
+        _setter("is_enumeration_in_progress", is_enumeration_in_progress)
+        _setter("renamed_container_count", renamed_container_count)
+        _setter("storage_account_name", storage_account_name)
+        _setter("total_bytes_to_process", total_bytes_to_process)
+        _setter("total_files_to_process", total_files_to_process)
+        _setter("transfer_type", transfer_type)
 
     @property
     @pulumi.getter(name="accountId")
@@ -868,11 +1167,48 @@ class CustomerDiskJobSecretsResponse(dict):
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBoxCustomerDisk'.
         """
-        pulumi.set(__self__, "carrier_account_number", carrier_account_number)
-        pulumi.set(__self__, "dc_access_security_code", dc_access_security_code)
-        pulumi.set(__self__, "disk_secrets", disk_secrets)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "job_secrets_type", 'DataBoxCustomerDisk')
+        CustomerDiskJobSecretsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_account_number=carrier_account_number,
+            dc_access_security_code=dc_access_security_code,
+            disk_secrets=disk_secrets,
+            error=error,
+            job_secrets_type=job_secrets_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_account_number: Optional[str] = None,
+             dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponse'] = None,
+             disk_secrets: Optional[Sequence['outputs.DiskSecretResponse']] = None,
+             error: Optional['outputs.CloudErrorResponse'] = None,
+             job_secrets_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if carrier_account_number is None and 'carrierAccountNumber' in kwargs:
+            carrier_account_number = kwargs['carrierAccountNumber']
+        if carrier_account_number is None:
+            raise TypeError("Missing 'carrier_account_number' argument")
+        if dc_access_security_code is None and 'dcAccessSecurityCode' in kwargs:
+            dc_access_security_code = kwargs['dcAccessSecurityCode']
+        if dc_access_security_code is None:
+            raise TypeError("Missing 'dc_access_security_code' argument")
+        if disk_secrets is None and 'diskSecrets' in kwargs:
+            disk_secrets = kwargs['diskSecrets']
+        if disk_secrets is None:
+            raise TypeError("Missing 'disk_secrets' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if job_secrets_type is None and 'jobSecretsType' in kwargs:
+            job_secrets_type = kwargs['jobSecretsType']
+        if job_secrets_type is None:
+            raise TypeError("Missing 'job_secrets_type' argument")
+
+        _setter("carrier_account_number", carrier_account_number)
+        _setter("dc_access_security_code", dc_access_security_code)
+        _setter("disk_secrets", disk_secrets)
+        _setter("error", error)
+        _setter("job_secrets_type", 'DataBoxCustomerDisk')
 
     @property
     @pulumi.getter(name="carrierAccountNumber")
@@ -957,10 +1293,43 @@ class DataBoxAccountCopyLogDetailsResponse(dict):
         :param str copy_log_link: Link for copy logs.
         :param str copy_verbose_log_link: Link for copy verbose logs. This will be set only when LogCollectionLevel is set to Verbose.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "copy_log_details_type", 'DataBox')
-        pulumi.set(__self__, "copy_log_link", copy_log_link)
-        pulumi.set(__self__, "copy_verbose_log_link", copy_verbose_log_link)
+        DataBoxAccountCopyLogDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            copy_log_details_type=copy_log_details_type,
+            copy_log_link=copy_log_link,
+            copy_verbose_log_link=copy_verbose_log_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[str] = None,
+             copy_log_details_type: Optional[str] = None,
+             copy_log_link: Optional[str] = None,
+             copy_verbose_log_link: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if copy_log_details_type is None and 'copyLogDetailsType' in kwargs:
+            copy_log_details_type = kwargs['copyLogDetailsType']
+        if copy_log_details_type is None:
+            raise TypeError("Missing 'copy_log_details_type' argument")
+        if copy_log_link is None and 'copyLogLink' in kwargs:
+            copy_log_link = kwargs['copyLogLink']
+        if copy_log_link is None:
+            raise TypeError("Missing 'copy_log_link' argument")
+        if copy_verbose_log_link is None and 'copyVerboseLogLink' in kwargs:
+            copy_verbose_log_link = kwargs['copyVerboseLogLink']
+        if copy_verbose_log_link is None:
+            raise TypeError("Missing 'copy_verbose_log_link' argument")
+
+        _setter("account_name", account_name)
+        _setter("copy_log_details_type", 'DataBox')
+        _setter("copy_log_link", copy_log_link)
+        _setter("copy_verbose_log_link", copy_verbose_log_link)
 
     @property
     @pulumi.getter(name="accountName")
@@ -1037,10 +1406,43 @@ class DataBoxCustomerDiskCopyLogDetailsResponse(dict):
         :param str serial_number: Disk Serial Number.
         :param str verbose_log_link: Link for copy verbose logs.
         """
-        pulumi.set(__self__, "copy_log_details_type", 'DataBoxCustomerDisk')
-        pulumi.set(__self__, "error_log_link", error_log_link)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "verbose_log_link", verbose_log_link)
+        DataBoxCustomerDiskCopyLogDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_log_details_type=copy_log_details_type,
+            error_log_link=error_log_link,
+            serial_number=serial_number,
+            verbose_log_link=verbose_log_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_log_details_type: Optional[str] = None,
+             error_log_link: Optional[str] = None,
+             serial_number: Optional[str] = None,
+             verbose_log_link: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_log_details_type is None and 'copyLogDetailsType' in kwargs:
+            copy_log_details_type = kwargs['copyLogDetailsType']
+        if copy_log_details_type is None:
+            raise TypeError("Missing 'copy_log_details_type' argument")
+        if error_log_link is None and 'errorLogLink' in kwargs:
+            error_log_link = kwargs['errorLogLink']
+        if error_log_link is None:
+            raise TypeError("Missing 'error_log_link' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if verbose_log_link is None and 'verboseLogLink' in kwargs:
+            verbose_log_link = kwargs['verboseLogLink']
+        if verbose_log_link is None:
+            raise TypeError("Missing 'verbose_log_link' argument")
+
+        _setter("copy_log_details_type", 'DataBoxCustomerDisk')
+        _setter("error_log_link", error_log_link)
+        _setter("serial_number", serial_number)
+        _setter("verbose_log_link", verbose_log_link)
 
     @property
     @pulumi.getter(name="copyLogDetailsType")
@@ -1173,25 +1575,144 @@ class DataBoxCustomerDiskCopyProgressResponse(dict):
         :param float total_files_to_process: Total files to process
         :param str transfer_type: Transfer type of data
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "bytes_processed", bytes_processed)
-        pulumi.set(__self__, "copy_status", copy_status)
-        pulumi.set(__self__, "data_account_type", data_account_type)
-        pulumi.set(__self__, "directories_errored_out", directories_errored_out)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "files_errored_out", files_errored_out)
-        pulumi.set(__self__, "files_processed", files_processed)
-        pulumi.set(__self__, "invalid_directories_processed", invalid_directories_processed)
-        pulumi.set(__self__, "invalid_file_bytes_uploaded", invalid_file_bytes_uploaded)
-        pulumi.set(__self__, "invalid_files_processed", invalid_files_processed)
-        pulumi.set(__self__, "is_enumeration_in_progress", is_enumeration_in_progress)
-        pulumi.set(__self__, "renamed_container_count", renamed_container_count)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "total_bytes_to_process", total_bytes_to_process)
-        pulumi.set(__self__, "total_files_to_process", total_files_to_process)
-        pulumi.set(__self__, "transfer_type", transfer_type)
+        DataBoxCustomerDiskCopyProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            actions=actions,
+            bytes_processed=bytes_processed,
+            copy_status=copy_status,
+            data_account_type=data_account_type,
+            directories_errored_out=directories_errored_out,
+            error=error,
+            files_errored_out=files_errored_out,
+            files_processed=files_processed,
+            invalid_directories_processed=invalid_directories_processed,
+            invalid_file_bytes_uploaded=invalid_file_bytes_uploaded,
+            invalid_files_processed=invalid_files_processed,
+            is_enumeration_in_progress=is_enumeration_in_progress,
+            renamed_container_count=renamed_container_count,
+            serial_number=serial_number,
+            storage_account_name=storage_account_name,
+            total_bytes_to_process=total_bytes_to_process,
+            total_files_to_process=total_files_to_process,
+            transfer_type=transfer_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             actions: Optional[Sequence[str]] = None,
+             bytes_processed: Optional[float] = None,
+             copy_status: Optional[str] = None,
+             data_account_type: Optional[str] = None,
+             directories_errored_out: Optional[float] = None,
+             error: Optional['outputs.CloudErrorResponse'] = None,
+             files_errored_out: Optional[float] = None,
+             files_processed: Optional[float] = None,
+             invalid_directories_processed: Optional[float] = None,
+             invalid_file_bytes_uploaded: Optional[float] = None,
+             invalid_files_processed: Optional[float] = None,
+             is_enumeration_in_progress: Optional[bool] = None,
+             renamed_container_count: Optional[float] = None,
+             serial_number: Optional[str] = None,
+             storage_account_name: Optional[str] = None,
+             total_bytes_to_process: Optional[float] = None,
+             total_files_to_process: Optional[float] = None,
+             transfer_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if bytes_processed is None and 'bytesProcessed' in kwargs:
+            bytes_processed = kwargs['bytesProcessed']
+        if bytes_processed is None:
+            raise TypeError("Missing 'bytes_processed' argument")
+        if copy_status is None and 'copyStatus' in kwargs:
+            copy_status = kwargs['copyStatus']
+        if copy_status is None:
+            raise TypeError("Missing 'copy_status' argument")
+        if data_account_type is None and 'dataAccountType' in kwargs:
+            data_account_type = kwargs['dataAccountType']
+        if data_account_type is None:
+            raise TypeError("Missing 'data_account_type' argument")
+        if directories_errored_out is None and 'directoriesErroredOut' in kwargs:
+            directories_errored_out = kwargs['directoriesErroredOut']
+        if directories_errored_out is None:
+            raise TypeError("Missing 'directories_errored_out' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if files_errored_out is None and 'filesErroredOut' in kwargs:
+            files_errored_out = kwargs['filesErroredOut']
+        if files_errored_out is None:
+            raise TypeError("Missing 'files_errored_out' argument")
+        if files_processed is None and 'filesProcessed' in kwargs:
+            files_processed = kwargs['filesProcessed']
+        if files_processed is None:
+            raise TypeError("Missing 'files_processed' argument")
+        if invalid_directories_processed is None and 'invalidDirectoriesProcessed' in kwargs:
+            invalid_directories_processed = kwargs['invalidDirectoriesProcessed']
+        if invalid_directories_processed is None:
+            raise TypeError("Missing 'invalid_directories_processed' argument")
+        if invalid_file_bytes_uploaded is None and 'invalidFileBytesUploaded' in kwargs:
+            invalid_file_bytes_uploaded = kwargs['invalidFileBytesUploaded']
+        if invalid_file_bytes_uploaded is None:
+            raise TypeError("Missing 'invalid_file_bytes_uploaded' argument")
+        if invalid_files_processed is None and 'invalidFilesProcessed' in kwargs:
+            invalid_files_processed = kwargs['invalidFilesProcessed']
+        if invalid_files_processed is None:
+            raise TypeError("Missing 'invalid_files_processed' argument")
+        if is_enumeration_in_progress is None and 'isEnumerationInProgress' in kwargs:
+            is_enumeration_in_progress = kwargs['isEnumerationInProgress']
+        if is_enumeration_in_progress is None:
+            raise TypeError("Missing 'is_enumeration_in_progress' argument")
+        if renamed_container_count is None and 'renamedContainerCount' in kwargs:
+            renamed_container_count = kwargs['renamedContainerCount']
+        if renamed_container_count is None:
+            raise TypeError("Missing 'renamed_container_count' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if total_bytes_to_process is None and 'totalBytesToProcess' in kwargs:
+            total_bytes_to_process = kwargs['totalBytesToProcess']
+        if total_bytes_to_process is None:
+            raise TypeError("Missing 'total_bytes_to_process' argument")
+        if total_files_to_process is None and 'totalFilesToProcess' in kwargs:
+            total_files_to_process = kwargs['totalFilesToProcess']
+        if total_files_to_process is None:
+            raise TypeError("Missing 'total_files_to_process' argument")
+        if transfer_type is None and 'transferType' in kwargs:
+            transfer_type = kwargs['transferType']
+        if transfer_type is None:
+            raise TypeError("Missing 'transfer_type' argument")
+
+        _setter("account_id", account_id)
+        _setter("actions", actions)
+        _setter("bytes_processed", bytes_processed)
+        _setter("copy_status", copy_status)
+        _setter("data_account_type", data_account_type)
+        _setter("directories_errored_out", directories_errored_out)
+        _setter("error", error)
+        _setter("files_errored_out", files_errored_out)
+        _setter("files_processed", files_processed)
+        _setter("invalid_directories_processed", invalid_directories_processed)
+        _setter("invalid_file_bytes_uploaded", invalid_file_bytes_uploaded)
+        _setter("invalid_files_processed", invalid_files_processed)
+        _setter("is_enumeration_in_progress", is_enumeration_in_progress)
+        _setter("renamed_container_count", renamed_container_count)
+        _setter("serial_number", serial_number)
+        _setter("storage_account_name", storage_account_name)
+        _setter("total_bytes_to_process", total_bytes_to_process)
+        _setter("total_files_to_process", total_files_to_process)
+        _setter("transfer_type", transfer_type)
 
     @property
     @pulumi.getter(name="accountId")
@@ -1472,43 +1993,186 @@ class DataBoxCustomerDiskJobDetailsResponse(dict):
         :param 'ReverseShippingDetailsResponse' reverse_shipping_details: Optional Reverse Shipping details for order.
         :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "copy_log_details", copy_log_details)
-        pulumi.set(__self__, "copy_progress", copy_progress)
-        pulumi.set(__self__, "data_center_code", data_center_code)
-        pulumi.set(__self__, "datacenter_address", datacenter_address)
-        pulumi.set(__self__, "deliver_to_dc_package_details", deliver_to_dc_package_details)
-        pulumi.set(__self__, "delivery_package", delivery_package)
-        pulumi.set(__self__, "device_erasure_details", device_erasure_details)
-        pulumi.set(__self__, "export_disk_details_collection", export_disk_details_collection)
-        pulumi.set(__self__, "job_details_type", 'DataBoxCustomerDisk')
-        pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "last_mitigation_action_on_job", last_mitigation_action_on_job)
-        pulumi.set(__self__, "return_package", return_package)
-        pulumi.set(__self__, "return_to_customer_package_details", return_to_customer_package_details)
-        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        DataBoxCustomerDiskJobDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            chain_of_custody_sas_key=chain_of_custody_sas_key,
+            contact_details=contact_details,
+            copy_log_details=copy_log_details,
+            copy_progress=copy_progress,
+            data_center_code=data_center_code,
+            datacenter_address=datacenter_address,
+            deliver_to_dc_package_details=deliver_to_dc_package_details,
+            delivery_package=delivery_package,
+            device_erasure_details=device_erasure_details,
+            export_disk_details_collection=export_disk_details_collection,
+            job_details_type=job_details_type,
+            job_stages=job_stages,
+            last_mitigation_action_on_job=last_mitigation_action_on_job,
+            return_package=return_package,
+            return_to_customer_package_details=return_to_customer_package_details,
+            reverse_shipment_label_sas_key=reverse_shipment_label_sas_key,
+            data_export_details=data_export_details,
+            data_import_details=data_import_details,
+            enable_manifest_backup=enable_manifest_backup,
+            expected_data_size_in_tera_bytes=expected_data_size_in_tera_bytes,
+            import_disk_details_collection=import_disk_details_collection,
+            key_encryption_key=key_encryption_key,
+            preferences=preferences,
+            reverse_shipping_details=reverse_shipping_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence[str]] = None,
+             chain_of_custody_sas_key: Optional[str] = None,
+             contact_details: Optional['outputs.ContactDetailsResponse'] = None,
+             copy_log_details: Optional[Sequence[Any]] = None,
+             copy_progress: Optional[Sequence['outputs.DataBoxCustomerDiskCopyProgressResponse']] = None,
+             data_center_code: Optional[str] = None,
+             datacenter_address: Optional[Any] = None,
+             deliver_to_dc_package_details: Optional['outputs.PackageCarrierInfoResponse'] = None,
+             delivery_package: Optional['outputs.PackageShippingDetailsResponse'] = None,
+             device_erasure_details: Optional['outputs.DeviceErasureDetailsResponse'] = None,
+             export_disk_details_collection: Optional[Mapping[str, 'outputs.ExportDiskDetailsResponse']] = None,
+             job_details_type: Optional[str] = None,
+             job_stages: Optional[Sequence['outputs.JobStagesResponse']] = None,
+             last_mitigation_action_on_job: Optional['outputs.LastMitigationActionOnJobResponse'] = None,
+             return_package: Optional['outputs.PackageShippingDetailsResponse'] = None,
+             return_to_customer_package_details: Optional['outputs.PackageCarrierDetailsResponse'] = None,
+             reverse_shipment_label_sas_key: Optional[str] = None,
+             data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
+             data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
+             enable_manifest_backup: Optional[bool] = None,
+             expected_data_size_in_tera_bytes: Optional[int] = None,
+             import_disk_details_collection: Optional[Mapping[str, 'outputs.ImportDiskDetailsResponse']] = None,
+             key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
+             preferences: Optional['outputs.PreferencesResponse'] = None,
+             reverse_shipping_details: Optional['outputs.ReverseShippingDetailsResponse'] = None,
+             shipping_address: Optional['outputs.ShippingAddressResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if chain_of_custody_sas_key is None and 'chainOfCustodySasKey' in kwargs:
+            chain_of_custody_sas_key = kwargs['chainOfCustodySasKey']
+        if chain_of_custody_sas_key is None:
+            raise TypeError("Missing 'chain_of_custody_sas_key' argument")
+        if contact_details is None and 'contactDetails' in kwargs:
+            contact_details = kwargs['contactDetails']
+        if contact_details is None:
+            raise TypeError("Missing 'contact_details' argument")
+        if copy_log_details is None and 'copyLogDetails' in kwargs:
+            copy_log_details = kwargs['copyLogDetails']
+        if copy_log_details is None:
+            raise TypeError("Missing 'copy_log_details' argument")
+        if copy_progress is None and 'copyProgress' in kwargs:
+            copy_progress = kwargs['copyProgress']
+        if copy_progress is None:
+            raise TypeError("Missing 'copy_progress' argument")
+        if data_center_code is None and 'dataCenterCode' in kwargs:
+            data_center_code = kwargs['dataCenterCode']
+        if data_center_code is None:
+            raise TypeError("Missing 'data_center_code' argument")
+        if datacenter_address is None and 'datacenterAddress' in kwargs:
+            datacenter_address = kwargs['datacenterAddress']
+        if datacenter_address is None:
+            raise TypeError("Missing 'datacenter_address' argument")
+        if deliver_to_dc_package_details is None and 'deliverToDcPackageDetails' in kwargs:
+            deliver_to_dc_package_details = kwargs['deliverToDcPackageDetails']
+        if deliver_to_dc_package_details is None:
+            raise TypeError("Missing 'deliver_to_dc_package_details' argument")
+        if delivery_package is None and 'deliveryPackage' in kwargs:
+            delivery_package = kwargs['deliveryPackage']
+        if delivery_package is None:
+            raise TypeError("Missing 'delivery_package' argument")
+        if device_erasure_details is None and 'deviceErasureDetails' in kwargs:
+            device_erasure_details = kwargs['deviceErasureDetails']
+        if device_erasure_details is None:
+            raise TypeError("Missing 'device_erasure_details' argument")
+        if export_disk_details_collection is None and 'exportDiskDetailsCollection' in kwargs:
+            export_disk_details_collection = kwargs['exportDiskDetailsCollection']
+        if export_disk_details_collection is None:
+            raise TypeError("Missing 'export_disk_details_collection' argument")
+        if job_details_type is None and 'jobDetailsType' in kwargs:
+            job_details_type = kwargs['jobDetailsType']
+        if job_details_type is None:
+            raise TypeError("Missing 'job_details_type' argument")
+        if job_stages is None and 'jobStages' in kwargs:
+            job_stages = kwargs['jobStages']
+        if job_stages is None:
+            raise TypeError("Missing 'job_stages' argument")
+        if last_mitigation_action_on_job is None and 'lastMitigationActionOnJob' in kwargs:
+            last_mitigation_action_on_job = kwargs['lastMitigationActionOnJob']
+        if last_mitigation_action_on_job is None:
+            raise TypeError("Missing 'last_mitigation_action_on_job' argument")
+        if return_package is None and 'returnPackage' in kwargs:
+            return_package = kwargs['returnPackage']
+        if return_package is None:
+            raise TypeError("Missing 'return_package' argument")
+        if return_to_customer_package_details is None and 'returnToCustomerPackageDetails' in kwargs:
+            return_to_customer_package_details = kwargs['returnToCustomerPackageDetails']
+        if return_to_customer_package_details is None:
+            raise TypeError("Missing 'return_to_customer_package_details' argument")
+        if reverse_shipment_label_sas_key is None and 'reverseShipmentLabelSasKey' in kwargs:
+            reverse_shipment_label_sas_key = kwargs['reverseShipmentLabelSasKey']
+        if reverse_shipment_label_sas_key is None:
+            raise TypeError("Missing 'reverse_shipment_label_sas_key' argument")
+        if data_export_details is None and 'dataExportDetails' in kwargs:
+            data_export_details = kwargs['dataExportDetails']
+        if data_import_details is None and 'dataImportDetails' in kwargs:
+            data_import_details = kwargs['dataImportDetails']
+        if enable_manifest_backup is None and 'enableManifestBackup' in kwargs:
+            enable_manifest_backup = kwargs['enableManifestBackup']
+        if expected_data_size_in_tera_bytes is None and 'expectedDataSizeInTeraBytes' in kwargs:
+            expected_data_size_in_tera_bytes = kwargs['expectedDataSizeInTeraBytes']
+        if import_disk_details_collection is None and 'importDiskDetailsCollection' in kwargs:
+            import_disk_details_collection = kwargs['importDiskDetailsCollection']
+        if key_encryption_key is None and 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+        if reverse_shipping_details is None and 'reverseShippingDetails' in kwargs:
+            reverse_shipping_details = kwargs['reverseShippingDetails']
+        if shipping_address is None and 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("actions", actions)
+        _setter("chain_of_custody_sas_key", chain_of_custody_sas_key)
+        _setter("contact_details", contact_details)
+        _setter("copy_log_details", copy_log_details)
+        _setter("copy_progress", copy_progress)
+        _setter("data_center_code", data_center_code)
+        _setter("datacenter_address", datacenter_address)
+        _setter("deliver_to_dc_package_details", deliver_to_dc_package_details)
+        _setter("delivery_package", delivery_package)
+        _setter("device_erasure_details", device_erasure_details)
+        _setter("export_disk_details_collection", export_disk_details_collection)
+        _setter("job_details_type", 'DataBoxCustomerDisk')
+        _setter("job_stages", job_stages)
+        _setter("last_mitigation_action_on_job", last_mitigation_action_on_job)
+        _setter("return_package", return_package)
+        _setter("return_to_customer_package_details", return_to_customer_package_details)
+        _setter("reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
+            _setter("data_export_details", data_export_details)
         if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
+            _setter("data_import_details", data_import_details)
         if enable_manifest_backup is None:
             enable_manifest_backup = False
         if enable_manifest_backup is not None:
-            pulumi.set(__self__, "enable_manifest_backup", enable_manifest_backup)
+            _setter("enable_manifest_backup", enable_manifest_backup)
         if expected_data_size_in_tera_bytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+            _setter("expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if import_disk_details_collection is not None:
-            pulumi.set(__self__, "import_disk_details_collection", import_disk_details_collection)
+            _setter("import_disk_details_collection", import_disk_details_collection)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
         if reverse_shipping_details is not None:
-            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+            _setter("reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter
@@ -1761,10 +2425,43 @@ class DataBoxDiskCopyLogDetailsResponse(dict):
         :param str error_log_link: Link for copy error logs.
         :param str verbose_log_link: Link for copy verbose logs.
         """
-        pulumi.set(__self__, "copy_log_details_type", 'DataBoxDisk')
-        pulumi.set(__self__, "disk_serial_number", disk_serial_number)
-        pulumi.set(__self__, "error_log_link", error_log_link)
-        pulumi.set(__self__, "verbose_log_link", verbose_log_link)
+        DataBoxDiskCopyLogDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_log_details_type=copy_log_details_type,
+            disk_serial_number=disk_serial_number,
+            error_log_link=error_log_link,
+            verbose_log_link=verbose_log_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_log_details_type: Optional[str] = None,
+             disk_serial_number: Optional[str] = None,
+             error_log_link: Optional[str] = None,
+             verbose_log_link: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_log_details_type is None and 'copyLogDetailsType' in kwargs:
+            copy_log_details_type = kwargs['copyLogDetailsType']
+        if copy_log_details_type is None:
+            raise TypeError("Missing 'copy_log_details_type' argument")
+        if disk_serial_number is None and 'diskSerialNumber' in kwargs:
+            disk_serial_number = kwargs['diskSerialNumber']
+        if disk_serial_number is None:
+            raise TypeError("Missing 'disk_serial_number' argument")
+        if error_log_link is None and 'errorLogLink' in kwargs:
+            error_log_link = kwargs['errorLogLink']
+        if error_log_link is None:
+            raise TypeError("Missing 'error_log_link' argument")
+        if verbose_log_link is None and 'verboseLogLink' in kwargs:
+            verbose_log_link = kwargs['verboseLogLink']
+        if verbose_log_link is None:
+            raise TypeError("Missing 'verbose_log_link' argument")
+
+        _setter("copy_log_details_type", 'DataBoxDisk')
+        _setter("disk_serial_number", disk_serial_number)
+        _setter("error_log_link", error_log_link)
+        _setter("verbose_log_link", verbose_log_link)
 
     @property
     @pulumi.getter(name="copyLogDetailsType")
@@ -1842,12 +2539,51 @@ class DataBoxDiskCopyProgressResponse(dict):
         :param str serial_number: The serial number of the disk
         :param str status: The Status of the copy
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "bytes_copied", bytes_copied)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "percent_complete", percent_complete)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "status", status)
+        DataBoxDiskCopyProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            bytes_copied=bytes_copied,
+            error=error,
+            percent_complete=percent_complete,
+            serial_number=serial_number,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence[str]] = None,
+             bytes_copied: Optional[float] = None,
+             error: Optional['outputs.CloudErrorResponse'] = None,
+             percent_complete: Optional[int] = None,
+             serial_number: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if bytes_copied is None and 'bytesCopied' in kwargs:
+            bytes_copied = kwargs['bytesCopied']
+        if bytes_copied is None:
+            raise TypeError("Missing 'bytes_copied' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if percent_complete is None and 'percentComplete' in kwargs:
+            percent_complete = kwargs['percentComplete']
+        if percent_complete is None:
+            raise TypeError("Missing 'percent_complete' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("actions", actions)
+        _setter("bytes_copied", bytes_copied)
+        _setter("error", error)
+        _setter("percent_complete", percent_complete)
+        _setter("serial_number", serial_number)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -1943,11 +2679,50 @@ class DataBoxDiskGranularCopyLogDetailsResponse(dict):
         :param str serial_number: Disk Serial Number.
         :param str verbose_log_link: Link for copy verbose logs.
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "copy_log_details_type", 'DataBoxCustomerDisk')
-        pulumi.set(__self__, "error_log_link", error_log_link)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "verbose_log_link", verbose_log_link)
+        DataBoxDiskGranularCopyLogDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            copy_log_details_type=copy_log_details_type,
+            error_log_link=error_log_link,
+            serial_number=serial_number,
+            verbose_log_link=verbose_log_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             copy_log_details_type: Optional[str] = None,
+             error_log_link: Optional[str] = None,
+             serial_number: Optional[str] = None,
+             verbose_log_link: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if copy_log_details_type is None and 'copyLogDetailsType' in kwargs:
+            copy_log_details_type = kwargs['copyLogDetailsType']
+        if copy_log_details_type is None:
+            raise TypeError("Missing 'copy_log_details_type' argument")
+        if error_log_link is None and 'errorLogLink' in kwargs:
+            error_log_link = kwargs['errorLogLink']
+        if error_log_link is None:
+            raise TypeError("Missing 'error_log_link' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if verbose_log_link is None and 'verboseLogLink' in kwargs:
+            verbose_log_link = kwargs['verboseLogLink']
+        if verbose_log_link is None:
+            raise TypeError("Missing 'verbose_log_link' argument")
+
+        _setter("account_id", account_id)
+        _setter("copy_log_details_type", 'DataBoxCustomerDisk')
+        _setter("error_log_link", error_log_link)
+        _setter("serial_number", serial_number)
+        _setter("verbose_log_link", verbose_log_link)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2088,25 +2863,144 @@ class DataBoxDiskGranularCopyProgressResponse(dict):
         :param float total_files_to_process: Total files to process
         :param str transfer_type: Transfer type of data
         """
-        pulumi.set(__self__, "account_id", account_id)
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "bytes_processed", bytes_processed)
-        pulumi.set(__self__, "copy_status", copy_status)
-        pulumi.set(__self__, "data_account_type", data_account_type)
-        pulumi.set(__self__, "directories_errored_out", directories_errored_out)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "files_errored_out", files_errored_out)
-        pulumi.set(__self__, "files_processed", files_processed)
-        pulumi.set(__self__, "invalid_directories_processed", invalid_directories_processed)
-        pulumi.set(__self__, "invalid_file_bytes_uploaded", invalid_file_bytes_uploaded)
-        pulumi.set(__self__, "invalid_files_processed", invalid_files_processed)
-        pulumi.set(__self__, "is_enumeration_in_progress", is_enumeration_in_progress)
-        pulumi.set(__self__, "renamed_container_count", renamed_container_count)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "total_bytes_to_process", total_bytes_to_process)
-        pulumi.set(__self__, "total_files_to_process", total_files_to_process)
-        pulumi.set(__self__, "transfer_type", transfer_type)
+        DataBoxDiskGranularCopyProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            actions=actions,
+            bytes_processed=bytes_processed,
+            copy_status=copy_status,
+            data_account_type=data_account_type,
+            directories_errored_out=directories_errored_out,
+            error=error,
+            files_errored_out=files_errored_out,
+            files_processed=files_processed,
+            invalid_directories_processed=invalid_directories_processed,
+            invalid_file_bytes_uploaded=invalid_file_bytes_uploaded,
+            invalid_files_processed=invalid_files_processed,
+            is_enumeration_in_progress=is_enumeration_in_progress,
+            renamed_container_count=renamed_container_count,
+            serial_number=serial_number,
+            storage_account_name=storage_account_name,
+            total_bytes_to_process=total_bytes_to_process,
+            total_files_to_process=total_files_to_process,
+            transfer_type=transfer_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             actions: Optional[Sequence[str]] = None,
+             bytes_processed: Optional[float] = None,
+             copy_status: Optional[str] = None,
+             data_account_type: Optional[str] = None,
+             directories_errored_out: Optional[float] = None,
+             error: Optional['outputs.CloudErrorResponse'] = None,
+             files_errored_out: Optional[float] = None,
+             files_processed: Optional[float] = None,
+             invalid_directories_processed: Optional[float] = None,
+             invalid_file_bytes_uploaded: Optional[float] = None,
+             invalid_files_processed: Optional[float] = None,
+             is_enumeration_in_progress: Optional[bool] = None,
+             renamed_container_count: Optional[float] = None,
+             serial_number: Optional[str] = None,
+             storage_account_name: Optional[str] = None,
+             total_bytes_to_process: Optional[float] = None,
+             total_files_to_process: Optional[float] = None,
+             transfer_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if bytes_processed is None and 'bytesProcessed' in kwargs:
+            bytes_processed = kwargs['bytesProcessed']
+        if bytes_processed is None:
+            raise TypeError("Missing 'bytes_processed' argument")
+        if copy_status is None and 'copyStatus' in kwargs:
+            copy_status = kwargs['copyStatus']
+        if copy_status is None:
+            raise TypeError("Missing 'copy_status' argument")
+        if data_account_type is None and 'dataAccountType' in kwargs:
+            data_account_type = kwargs['dataAccountType']
+        if data_account_type is None:
+            raise TypeError("Missing 'data_account_type' argument")
+        if directories_errored_out is None and 'directoriesErroredOut' in kwargs:
+            directories_errored_out = kwargs['directoriesErroredOut']
+        if directories_errored_out is None:
+            raise TypeError("Missing 'directories_errored_out' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if files_errored_out is None and 'filesErroredOut' in kwargs:
+            files_errored_out = kwargs['filesErroredOut']
+        if files_errored_out is None:
+            raise TypeError("Missing 'files_errored_out' argument")
+        if files_processed is None and 'filesProcessed' in kwargs:
+            files_processed = kwargs['filesProcessed']
+        if files_processed is None:
+            raise TypeError("Missing 'files_processed' argument")
+        if invalid_directories_processed is None and 'invalidDirectoriesProcessed' in kwargs:
+            invalid_directories_processed = kwargs['invalidDirectoriesProcessed']
+        if invalid_directories_processed is None:
+            raise TypeError("Missing 'invalid_directories_processed' argument")
+        if invalid_file_bytes_uploaded is None and 'invalidFileBytesUploaded' in kwargs:
+            invalid_file_bytes_uploaded = kwargs['invalidFileBytesUploaded']
+        if invalid_file_bytes_uploaded is None:
+            raise TypeError("Missing 'invalid_file_bytes_uploaded' argument")
+        if invalid_files_processed is None and 'invalidFilesProcessed' in kwargs:
+            invalid_files_processed = kwargs['invalidFilesProcessed']
+        if invalid_files_processed is None:
+            raise TypeError("Missing 'invalid_files_processed' argument")
+        if is_enumeration_in_progress is None and 'isEnumerationInProgress' in kwargs:
+            is_enumeration_in_progress = kwargs['isEnumerationInProgress']
+        if is_enumeration_in_progress is None:
+            raise TypeError("Missing 'is_enumeration_in_progress' argument")
+        if renamed_container_count is None and 'renamedContainerCount' in kwargs:
+            renamed_container_count = kwargs['renamedContainerCount']
+        if renamed_container_count is None:
+            raise TypeError("Missing 'renamed_container_count' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if total_bytes_to_process is None and 'totalBytesToProcess' in kwargs:
+            total_bytes_to_process = kwargs['totalBytesToProcess']
+        if total_bytes_to_process is None:
+            raise TypeError("Missing 'total_bytes_to_process' argument")
+        if total_files_to_process is None and 'totalFilesToProcess' in kwargs:
+            total_files_to_process = kwargs['totalFilesToProcess']
+        if total_files_to_process is None:
+            raise TypeError("Missing 'total_files_to_process' argument")
+        if transfer_type is None and 'transferType' in kwargs:
+            transfer_type = kwargs['transferType']
+        if transfer_type is None:
+            raise TypeError("Missing 'transfer_type' argument")
+
+        _setter("account_id", account_id)
+        _setter("actions", actions)
+        _setter("bytes_processed", bytes_processed)
+        _setter("copy_status", copy_status)
+        _setter("data_account_type", data_account_type)
+        _setter("directories_errored_out", directories_errored_out)
+        _setter("error", error)
+        _setter("files_errored_out", files_errored_out)
+        _setter("files_processed", files_processed)
+        _setter("invalid_directories_processed", invalid_directories_processed)
+        _setter("invalid_file_bytes_uploaded", invalid_file_bytes_uploaded)
+        _setter("invalid_files_processed", invalid_files_processed)
+        _setter("is_enumeration_in_progress", is_enumeration_in_progress)
+        _setter("renamed_container_count", renamed_container_count)
+        _setter("serial_number", serial_number)
+        _setter("storage_account_name", storage_account_name)
+        _setter("total_bytes_to_process", total_bytes_to_process)
+        _setter("total_files_to_process", total_files_to_process)
+        _setter("transfer_type", transfer_type)
 
     @property
     @pulumi.getter(name="accountId")
@@ -2385,41 +3279,182 @@ class DataBoxDiskJobDetailsResponse(dict):
         :param 'ReverseShippingDetailsResponse' reverse_shipping_details: Optional Reverse Shipping details for order.
         :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "copy_log_details", copy_log_details)
-        pulumi.set(__self__, "copy_progress", copy_progress)
-        pulumi.set(__self__, "data_center_code", data_center_code)
-        pulumi.set(__self__, "datacenter_address", datacenter_address)
-        pulumi.set(__self__, "delivery_package", delivery_package)
-        pulumi.set(__self__, "device_erasure_details", device_erasure_details)
-        pulumi.set(__self__, "disks_and_size_details", disks_and_size_details)
-        pulumi.set(__self__, "granular_copy_log_details", granular_copy_log_details)
-        pulumi.set(__self__, "granular_copy_progress", granular_copy_progress)
-        pulumi.set(__self__, "job_details_type", 'DataBoxDisk')
-        pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "last_mitigation_action_on_job", last_mitigation_action_on_job)
-        pulumi.set(__self__, "return_package", return_package)
-        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        DataBoxDiskJobDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            chain_of_custody_sas_key=chain_of_custody_sas_key,
+            contact_details=contact_details,
+            copy_log_details=copy_log_details,
+            copy_progress=copy_progress,
+            data_center_code=data_center_code,
+            datacenter_address=datacenter_address,
+            delivery_package=delivery_package,
+            device_erasure_details=device_erasure_details,
+            disks_and_size_details=disks_and_size_details,
+            granular_copy_log_details=granular_copy_log_details,
+            granular_copy_progress=granular_copy_progress,
+            job_details_type=job_details_type,
+            job_stages=job_stages,
+            last_mitigation_action_on_job=last_mitigation_action_on_job,
+            return_package=return_package,
+            reverse_shipment_label_sas_key=reverse_shipment_label_sas_key,
+            data_export_details=data_export_details,
+            data_import_details=data_import_details,
+            expected_data_size_in_tera_bytes=expected_data_size_in_tera_bytes,
+            key_encryption_key=key_encryption_key,
+            passkey=passkey,
+            preferences=preferences,
+            preferred_disks=preferred_disks,
+            reverse_shipping_details=reverse_shipping_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence[str]] = None,
+             chain_of_custody_sas_key: Optional[str] = None,
+             contact_details: Optional['outputs.ContactDetailsResponse'] = None,
+             copy_log_details: Optional[Sequence[Any]] = None,
+             copy_progress: Optional[Sequence['outputs.DataBoxDiskCopyProgressResponse']] = None,
+             data_center_code: Optional[str] = None,
+             datacenter_address: Optional[Any] = None,
+             delivery_package: Optional['outputs.PackageShippingDetailsResponse'] = None,
+             device_erasure_details: Optional['outputs.DeviceErasureDetailsResponse'] = None,
+             disks_and_size_details: Optional[Mapping[str, int]] = None,
+             granular_copy_log_details: Optional[Sequence['outputs.DataBoxDiskGranularCopyLogDetailsResponse']] = None,
+             granular_copy_progress: Optional[Sequence['outputs.DataBoxDiskGranularCopyProgressResponse']] = None,
+             job_details_type: Optional[str] = None,
+             job_stages: Optional[Sequence['outputs.JobStagesResponse']] = None,
+             last_mitigation_action_on_job: Optional['outputs.LastMitigationActionOnJobResponse'] = None,
+             return_package: Optional['outputs.PackageShippingDetailsResponse'] = None,
+             reverse_shipment_label_sas_key: Optional[str] = None,
+             data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
+             data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
+             expected_data_size_in_tera_bytes: Optional[int] = None,
+             key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
+             passkey: Optional[str] = None,
+             preferences: Optional['outputs.PreferencesResponse'] = None,
+             preferred_disks: Optional[Mapping[str, int]] = None,
+             reverse_shipping_details: Optional['outputs.ReverseShippingDetailsResponse'] = None,
+             shipping_address: Optional['outputs.ShippingAddressResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if chain_of_custody_sas_key is None and 'chainOfCustodySasKey' in kwargs:
+            chain_of_custody_sas_key = kwargs['chainOfCustodySasKey']
+        if chain_of_custody_sas_key is None:
+            raise TypeError("Missing 'chain_of_custody_sas_key' argument")
+        if contact_details is None and 'contactDetails' in kwargs:
+            contact_details = kwargs['contactDetails']
+        if contact_details is None:
+            raise TypeError("Missing 'contact_details' argument")
+        if copy_log_details is None and 'copyLogDetails' in kwargs:
+            copy_log_details = kwargs['copyLogDetails']
+        if copy_log_details is None:
+            raise TypeError("Missing 'copy_log_details' argument")
+        if copy_progress is None and 'copyProgress' in kwargs:
+            copy_progress = kwargs['copyProgress']
+        if copy_progress is None:
+            raise TypeError("Missing 'copy_progress' argument")
+        if data_center_code is None and 'dataCenterCode' in kwargs:
+            data_center_code = kwargs['dataCenterCode']
+        if data_center_code is None:
+            raise TypeError("Missing 'data_center_code' argument")
+        if datacenter_address is None and 'datacenterAddress' in kwargs:
+            datacenter_address = kwargs['datacenterAddress']
+        if datacenter_address is None:
+            raise TypeError("Missing 'datacenter_address' argument")
+        if delivery_package is None and 'deliveryPackage' in kwargs:
+            delivery_package = kwargs['deliveryPackage']
+        if delivery_package is None:
+            raise TypeError("Missing 'delivery_package' argument")
+        if device_erasure_details is None and 'deviceErasureDetails' in kwargs:
+            device_erasure_details = kwargs['deviceErasureDetails']
+        if device_erasure_details is None:
+            raise TypeError("Missing 'device_erasure_details' argument")
+        if disks_and_size_details is None and 'disksAndSizeDetails' in kwargs:
+            disks_and_size_details = kwargs['disksAndSizeDetails']
+        if disks_and_size_details is None:
+            raise TypeError("Missing 'disks_and_size_details' argument")
+        if granular_copy_log_details is None and 'granularCopyLogDetails' in kwargs:
+            granular_copy_log_details = kwargs['granularCopyLogDetails']
+        if granular_copy_log_details is None:
+            raise TypeError("Missing 'granular_copy_log_details' argument")
+        if granular_copy_progress is None and 'granularCopyProgress' in kwargs:
+            granular_copy_progress = kwargs['granularCopyProgress']
+        if granular_copy_progress is None:
+            raise TypeError("Missing 'granular_copy_progress' argument")
+        if job_details_type is None and 'jobDetailsType' in kwargs:
+            job_details_type = kwargs['jobDetailsType']
+        if job_details_type is None:
+            raise TypeError("Missing 'job_details_type' argument")
+        if job_stages is None and 'jobStages' in kwargs:
+            job_stages = kwargs['jobStages']
+        if job_stages is None:
+            raise TypeError("Missing 'job_stages' argument")
+        if last_mitigation_action_on_job is None and 'lastMitigationActionOnJob' in kwargs:
+            last_mitigation_action_on_job = kwargs['lastMitigationActionOnJob']
+        if last_mitigation_action_on_job is None:
+            raise TypeError("Missing 'last_mitigation_action_on_job' argument")
+        if return_package is None and 'returnPackage' in kwargs:
+            return_package = kwargs['returnPackage']
+        if return_package is None:
+            raise TypeError("Missing 'return_package' argument")
+        if reverse_shipment_label_sas_key is None and 'reverseShipmentLabelSasKey' in kwargs:
+            reverse_shipment_label_sas_key = kwargs['reverseShipmentLabelSasKey']
+        if reverse_shipment_label_sas_key is None:
+            raise TypeError("Missing 'reverse_shipment_label_sas_key' argument")
+        if data_export_details is None and 'dataExportDetails' in kwargs:
+            data_export_details = kwargs['dataExportDetails']
+        if data_import_details is None and 'dataImportDetails' in kwargs:
+            data_import_details = kwargs['dataImportDetails']
+        if expected_data_size_in_tera_bytes is None and 'expectedDataSizeInTeraBytes' in kwargs:
+            expected_data_size_in_tera_bytes = kwargs['expectedDataSizeInTeraBytes']
+        if key_encryption_key is None and 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+        if preferred_disks is None and 'preferredDisks' in kwargs:
+            preferred_disks = kwargs['preferredDisks']
+        if reverse_shipping_details is None and 'reverseShippingDetails' in kwargs:
+            reverse_shipping_details = kwargs['reverseShippingDetails']
+        if shipping_address is None and 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("actions", actions)
+        _setter("chain_of_custody_sas_key", chain_of_custody_sas_key)
+        _setter("contact_details", contact_details)
+        _setter("copy_log_details", copy_log_details)
+        _setter("copy_progress", copy_progress)
+        _setter("data_center_code", data_center_code)
+        _setter("datacenter_address", datacenter_address)
+        _setter("delivery_package", delivery_package)
+        _setter("device_erasure_details", device_erasure_details)
+        _setter("disks_and_size_details", disks_and_size_details)
+        _setter("granular_copy_log_details", granular_copy_log_details)
+        _setter("granular_copy_progress", granular_copy_progress)
+        _setter("job_details_type", 'DataBoxDisk')
+        _setter("job_stages", job_stages)
+        _setter("last_mitigation_action_on_job", last_mitigation_action_on_job)
+        _setter("return_package", return_package)
+        _setter("reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
+            _setter("data_export_details", data_export_details)
         if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
+            _setter("data_import_details", data_import_details)
         if expected_data_size_in_tera_bytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+            _setter("expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if passkey is not None:
-            pulumi.set(__self__, "passkey", passkey)
+            _setter("passkey", passkey)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
         if preferred_disks is not None:
-            pulumi.set(__self__, "preferred_disks", preferred_disks)
+            _setter("preferred_disks", preferred_disks)
         if reverse_shipping_details is not None:
-            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+            _setter("reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter
@@ -2653,12 +3688,55 @@ class DataBoxDiskJobSecretsResponse(dict):
                Expected value is 'DataBoxDisk'.
         :param str pass_key: PassKey for the disk Job.
         """
-        pulumi.set(__self__, "dc_access_security_code", dc_access_security_code)
-        pulumi.set(__self__, "disk_secrets", disk_secrets)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "is_passkey_user_defined", is_passkey_user_defined)
-        pulumi.set(__self__, "job_secrets_type", 'DataBoxDisk')
-        pulumi.set(__self__, "pass_key", pass_key)
+        DataBoxDiskJobSecretsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dc_access_security_code=dc_access_security_code,
+            disk_secrets=disk_secrets,
+            error=error,
+            is_passkey_user_defined=is_passkey_user_defined,
+            job_secrets_type=job_secrets_type,
+            pass_key=pass_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponse'] = None,
+             disk_secrets: Optional[Sequence['outputs.DiskSecretResponse']] = None,
+             error: Optional['outputs.CloudErrorResponse'] = None,
+             is_passkey_user_defined: Optional[bool] = None,
+             job_secrets_type: Optional[str] = None,
+             pass_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dc_access_security_code is None and 'dcAccessSecurityCode' in kwargs:
+            dc_access_security_code = kwargs['dcAccessSecurityCode']
+        if dc_access_security_code is None:
+            raise TypeError("Missing 'dc_access_security_code' argument")
+        if disk_secrets is None and 'diskSecrets' in kwargs:
+            disk_secrets = kwargs['diskSecrets']
+        if disk_secrets is None:
+            raise TypeError("Missing 'disk_secrets' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if is_passkey_user_defined is None and 'isPasskeyUserDefined' in kwargs:
+            is_passkey_user_defined = kwargs['isPasskeyUserDefined']
+        if is_passkey_user_defined is None:
+            raise TypeError("Missing 'is_passkey_user_defined' argument")
+        if job_secrets_type is None and 'jobSecretsType' in kwargs:
+            job_secrets_type = kwargs['jobSecretsType']
+        if job_secrets_type is None:
+            raise TypeError("Missing 'job_secrets_type' argument")
+        if pass_key is None and 'passKey' in kwargs:
+            pass_key = kwargs['passKey']
+        if pass_key is None:
+            raise TypeError("Missing 'pass_key' argument")
+
+        _setter("dc_access_security_code", dc_access_security_code)
+        _setter("disk_secrets", disk_secrets)
+        _setter("error", error)
+        _setter("is_passkey_user_defined", is_passkey_user_defined)
+        _setter("job_secrets_type", 'DataBoxDisk')
+        _setter("pass_key", pass_key)
 
     @property
     @pulumi.getter(name="dcAccessSecurityCode")
@@ -2751,10 +3829,43 @@ class DataBoxHeavyAccountCopyLogDetailsResponse(dict):
         :param Sequence[str] copy_log_link: Link for copy logs.
         :param Sequence[str] copy_verbose_log_link: Link for copy verbose logs. This will be set only when the LogCollectionLevel is set to verbose.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "copy_log_details_type", 'DataBoxHeavy')
-        pulumi.set(__self__, "copy_log_link", copy_log_link)
-        pulumi.set(__self__, "copy_verbose_log_link", copy_verbose_log_link)
+        DataBoxHeavyAccountCopyLogDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            copy_log_details_type=copy_log_details_type,
+            copy_log_link=copy_log_link,
+            copy_verbose_log_link=copy_verbose_log_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[str] = None,
+             copy_log_details_type: Optional[str] = None,
+             copy_log_link: Optional[Sequence[str]] = None,
+             copy_verbose_log_link: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if copy_log_details_type is None and 'copyLogDetailsType' in kwargs:
+            copy_log_details_type = kwargs['copyLogDetailsType']
+        if copy_log_details_type is None:
+            raise TypeError("Missing 'copy_log_details_type' argument")
+        if copy_log_link is None and 'copyLogLink' in kwargs:
+            copy_log_link = kwargs['copyLogLink']
+        if copy_log_link is None:
+            raise TypeError("Missing 'copy_log_link' argument")
+        if copy_verbose_log_link is None and 'copyVerboseLogLink' in kwargs:
+            copy_verbose_log_link = kwargs['copyVerboseLogLink']
+        if copy_verbose_log_link is None:
+            raise TypeError("Missing 'copy_verbose_log_link' argument")
+
+        _setter("account_name", account_name)
+        _setter("copy_log_details_type", 'DataBoxHeavy')
+        _setter("copy_log_link", copy_log_link)
+        _setter("copy_verbose_log_link", copy_verbose_log_link)
 
     @property
     @pulumi.getter(name="accountName")
@@ -2899,36 +4010,157 @@ class DataBoxHeavyJobDetailsResponse(dict):
         :param 'ReverseShippingDetailsResponse' reverse_shipping_details: Optional Reverse Shipping details for order.
         :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "copy_log_details", copy_log_details)
-        pulumi.set(__self__, "copy_progress", copy_progress)
-        pulumi.set(__self__, "data_center_code", data_center_code)
-        pulumi.set(__self__, "datacenter_address", datacenter_address)
-        pulumi.set(__self__, "delivery_package", delivery_package)
-        pulumi.set(__self__, "device_erasure_details", device_erasure_details)
-        pulumi.set(__self__, "job_details_type", 'DataBoxHeavy')
-        pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "last_mitigation_action_on_job", last_mitigation_action_on_job)
-        pulumi.set(__self__, "return_package", return_package)
-        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        DataBoxHeavyJobDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            chain_of_custody_sas_key=chain_of_custody_sas_key,
+            contact_details=contact_details,
+            copy_log_details=copy_log_details,
+            copy_progress=copy_progress,
+            data_center_code=data_center_code,
+            datacenter_address=datacenter_address,
+            delivery_package=delivery_package,
+            device_erasure_details=device_erasure_details,
+            job_details_type=job_details_type,
+            job_stages=job_stages,
+            last_mitigation_action_on_job=last_mitigation_action_on_job,
+            return_package=return_package,
+            reverse_shipment_label_sas_key=reverse_shipment_label_sas_key,
+            data_export_details=data_export_details,
+            data_import_details=data_import_details,
+            device_password=device_password,
+            expected_data_size_in_tera_bytes=expected_data_size_in_tera_bytes,
+            key_encryption_key=key_encryption_key,
+            preferences=preferences,
+            reverse_shipping_details=reverse_shipping_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence[str]] = None,
+             chain_of_custody_sas_key: Optional[str] = None,
+             contact_details: Optional['outputs.ContactDetailsResponse'] = None,
+             copy_log_details: Optional[Sequence[Any]] = None,
+             copy_progress: Optional[Sequence['outputs.CopyProgressResponse']] = None,
+             data_center_code: Optional[str] = None,
+             datacenter_address: Optional[Any] = None,
+             delivery_package: Optional['outputs.PackageShippingDetailsResponse'] = None,
+             device_erasure_details: Optional['outputs.DeviceErasureDetailsResponse'] = None,
+             job_details_type: Optional[str] = None,
+             job_stages: Optional[Sequence['outputs.JobStagesResponse']] = None,
+             last_mitigation_action_on_job: Optional['outputs.LastMitigationActionOnJobResponse'] = None,
+             return_package: Optional['outputs.PackageShippingDetailsResponse'] = None,
+             reverse_shipment_label_sas_key: Optional[str] = None,
+             data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
+             data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
+             device_password: Optional[str] = None,
+             expected_data_size_in_tera_bytes: Optional[int] = None,
+             key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
+             preferences: Optional['outputs.PreferencesResponse'] = None,
+             reverse_shipping_details: Optional['outputs.ReverseShippingDetailsResponse'] = None,
+             shipping_address: Optional['outputs.ShippingAddressResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if chain_of_custody_sas_key is None and 'chainOfCustodySasKey' in kwargs:
+            chain_of_custody_sas_key = kwargs['chainOfCustodySasKey']
+        if chain_of_custody_sas_key is None:
+            raise TypeError("Missing 'chain_of_custody_sas_key' argument")
+        if contact_details is None and 'contactDetails' in kwargs:
+            contact_details = kwargs['contactDetails']
+        if contact_details is None:
+            raise TypeError("Missing 'contact_details' argument")
+        if copy_log_details is None and 'copyLogDetails' in kwargs:
+            copy_log_details = kwargs['copyLogDetails']
+        if copy_log_details is None:
+            raise TypeError("Missing 'copy_log_details' argument")
+        if copy_progress is None and 'copyProgress' in kwargs:
+            copy_progress = kwargs['copyProgress']
+        if copy_progress is None:
+            raise TypeError("Missing 'copy_progress' argument")
+        if data_center_code is None and 'dataCenterCode' in kwargs:
+            data_center_code = kwargs['dataCenterCode']
+        if data_center_code is None:
+            raise TypeError("Missing 'data_center_code' argument")
+        if datacenter_address is None and 'datacenterAddress' in kwargs:
+            datacenter_address = kwargs['datacenterAddress']
+        if datacenter_address is None:
+            raise TypeError("Missing 'datacenter_address' argument")
+        if delivery_package is None and 'deliveryPackage' in kwargs:
+            delivery_package = kwargs['deliveryPackage']
+        if delivery_package is None:
+            raise TypeError("Missing 'delivery_package' argument")
+        if device_erasure_details is None and 'deviceErasureDetails' in kwargs:
+            device_erasure_details = kwargs['deviceErasureDetails']
+        if device_erasure_details is None:
+            raise TypeError("Missing 'device_erasure_details' argument")
+        if job_details_type is None and 'jobDetailsType' in kwargs:
+            job_details_type = kwargs['jobDetailsType']
+        if job_details_type is None:
+            raise TypeError("Missing 'job_details_type' argument")
+        if job_stages is None and 'jobStages' in kwargs:
+            job_stages = kwargs['jobStages']
+        if job_stages is None:
+            raise TypeError("Missing 'job_stages' argument")
+        if last_mitigation_action_on_job is None and 'lastMitigationActionOnJob' in kwargs:
+            last_mitigation_action_on_job = kwargs['lastMitigationActionOnJob']
+        if last_mitigation_action_on_job is None:
+            raise TypeError("Missing 'last_mitigation_action_on_job' argument")
+        if return_package is None and 'returnPackage' in kwargs:
+            return_package = kwargs['returnPackage']
+        if return_package is None:
+            raise TypeError("Missing 'return_package' argument")
+        if reverse_shipment_label_sas_key is None and 'reverseShipmentLabelSasKey' in kwargs:
+            reverse_shipment_label_sas_key = kwargs['reverseShipmentLabelSasKey']
+        if reverse_shipment_label_sas_key is None:
+            raise TypeError("Missing 'reverse_shipment_label_sas_key' argument")
+        if data_export_details is None and 'dataExportDetails' in kwargs:
+            data_export_details = kwargs['dataExportDetails']
+        if data_import_details is None and 'dataImportDetails' in kwargs:
+            data_import_details = kwargs['dataImportDetails']
+        if device_password is None and 'devicePassword' in kwargs:
+            device_password = kwargs['devicePassword']
+        if expected_data_size_in_tera_bytes is None and 'expectedDataSizeInTeraBytes' in kwargs:
+            expected_data_size_in_tera_bytes = kwargs['expectedDataSizeInTeraBytes']
+        if key_encryption_key is None and 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+        if reverse_shipping_details is None and 'reverseShippingDetails' in kwargs:
+            reverse_shipping_details = kwargs['reverseShippingDetails']
+        if shipping_address is None and 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("actions", actions)
+        _setter("chain_of_custody_sas_key", chain_of_custody_sas_key)
+        _setter("contact_details", contact_details)
+        _setter("copy_log_details", copy_log_details)
+        _setter("copy_progress", copy_progress)
+        _setter("data_center_code", data_center_code)
+        _setter("datacenter_address", datacenter_address)
+        _setter("delivery_package", delivery_package)
+        _setter("device_erasure_details", device_erasure_details)
+        _setter("job_details_type", 'DataBoxHeavy')
+        _setter("job_stages", job_stages)
+        _setter("last_mitigation_action_on_job", last_mitigation_action_on_job)
+        _setter("return_package", return_package)
+        _setter("reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
+            _setter("data_export_details", data_export_details)
         if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
+            _setter("data_import_details", data_import_details)
         if device_password is not None:
-            pulumi.set(__self__, "device_password", device_password)
+            _setter("device_password", device_password)
         if expected_data_size_in_tera_bytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+            _setter("expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
         if reverse_shipping_details is not None:
-            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+            _setter("reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter
@@ -3126,10 +4358,41 @@ class DataBoxHeavyJobSecretsResponse(dict):
         :param str job_secrets_type: Used to indicate what type of job secrets object.
                Expected value is 'DataBoxHeavy'.
         """
-        pulumi.set(__self__, "cabinet_pod_secrets", cabinet_pod_secrets)
-        pulumi.set(__self__, "dc_access_security_code", dc_access_security_code)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "job_secrets_type", 'DataBoxHeavy')
+        DataBoxHeavyJobSecretsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cabinet_pod_secrets=cabinet_pod_secrets,
+            dc_access_security_code=dc_access_security_code,
+            error=error,
+            job_secrets_type=job_secrets_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cabinet_pod_secrets: Optional[Sequence['outputs.DataBoxHeavySecretResponse']] = None,
+             dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponse'] = None,
+             error: Optional['outputs.CloudErrorResponse'] = None,
+             job_secrets_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cabinet_pod_secrets is None and 'cabinetPodSecrets' in kwargs:
+            cabinet_pod_secrets = kwargs['cabinetPodSecrets']
+        if cabinet_pod_secrets is None:
+            raise TypeError("Missing 'cabinet_pod_secrets' argument")
+        if dc_access_security_code is None and 'dcAccessSecurityCode' in kwargs:
+            dc_access_security_code = kwargs['dcAccessSecurityCode']
+        if dc_access_security_code is None:
+            raise TypeError("Missing 'dc_access_security_code' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if job_secrets_type is None and 'jobSecretsType' in kwargs:
+            job_secrets_type = kwargs['jobSecretsType']
+        if job_secrets_type is None:
+            raise TypeError("Missing 'job_secrets_type' argument")
+
+        _setter("cabinet_pod_secrets", cabinet_pod_secrets)
+        _setter("dc_access_security_code", dc_access_security_code)
+        _setter("error", error)
+        _setter("job_secrets_type", 'DataBoxHeavy')
 
     @property
     @pulumi.getter(name="cabinetPodSecrets")
@@ -3184,11 +4447,50 @@ class DataBoxHeavySecretResponse(dict):
         :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
         :param Sequence['ApplianceNetworkConfigurationResponse'] network_configurations: Network configuration of the appliance.
         """
-        pulumi.set(__self__, "account_credential_details", account_credential_details)
-        pulumi.set(__self__, "device_password", device_password)
-        pulumi.set(__self__, "device_serial_number", device_serial_number)
-        pulumi.set(__self__, "encoded_validation_cert_pub_key", encoded_validation_cert_pub_key)
-        pulumi.set(__self__, "network_configurations", network_configurations)
+        DataBoxHeavySecretResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_credential_details=account_credential_details,
+            device_password=device_password,
+            device_serial_number=device_serial_number,
+            encoded_validation_cert_pub_key=encoded_validation_cert_pub_key,
+            network_configurations=network_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_credential_details: Optional[Sequence['outputs.AccountCredentialDetailsResponse']] = None,
+             device_password: Optional[str] = None,
+             device_serial_number: Optional[str] = None,
+             encoded_validation_cert_pub_key: Optional[str] = None,
+             network_configurations: Optional[Sequence['outputs.ApplianceNetworkConfigurationResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_credential_details is None and 'accountCredentialDetails' in kwargs:
+            account_credential_details = kwargs['accountCredentialDetails']
+        if account_credential_details is None:
+            raise TypeError("Missing 'account_credential_details' argument")
+        if device_password is None and 'devicePassword' in kwargs:
+            device_password = kwargs['devicePassword']
+        if device_password is None:
+            raise TypeError("Missing 'device_password' argument")
+        if device_serial_number is None and 'deviceSerialNumber' in kwargs:
+            device_serial_number = kwargs['deviceSerialNumber']
+        if device_serial_number is None:
+            raise TypeError("Missing 'device_serial_number' argument")
+        if encoded_validation_cert_pub_key is None and 'encodedValidationCertPubKey' in kwargs:
+            encoded_validation_cert_pub_key = kwargs['encodedValidationCertPubKey']
+        if encoded_validation_cert_pub_key is None:
+            raise TypeError("Missing 'encoded_validation_cert_pub_key' argument")
+        if network_configurations is None and 'networkConfigurations' in kwargs:
+            network_configurations = kwargs['networkConfigurations']
+        if network_configurations is None:
+            raise TypeError("Missing 'network_configurations' argument")
+
+        _setter("account_credential_details", account_credential_details)
+        _setter("device_password", device_password)
+        _setter("device_serial_number", device_serial_number)
+        _setter("encoded_validation_cert_pub_key", encoded_validation_cert_pub_key)
+        _setter("network_configurations", network_configurations)
 
     @property
     @pulumi.getter(name="accountCredentialDetails")
@@ -3340,36 +4642,157 @@ class DataBoxJobDetailsResponse(dict):
         :param 'ReverseShippingDetailsResponse' reverse_shipping_details: Optional Reverse Shipping details for order.
         :param 'ShippingAddressResponse' shipping_address: Shipping address of the customer.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "chain_of_custody_sas_key", chain_of_custody_sas_key)
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "copy_log_details", copy_log_details)
-        pulumi.set(__self__, "copy_progress", copy_progress)
-        pulumi.set(__self__, "data_center_code", data_center_code)
-        pulumi.set(__self__, "datacenter_address", datacenter_address)
-        pulumi.set(__self__, "delivery_package", delivery_package)
-        pulumi.set(__self__, "device_erasure_details", device_erasure_details)
-        pulumi.set(__self__, "job_details_type", 'DataBox')
-        pulumi.set(__self__, "job_stages", job_stages)
-        pulumi.set(__self__, "last_mitigation_action_on_job", last_mitigation_action_on_job)
-        pulumi.set(__self__, "return_package", return_package)
-        pulumi.set(__self__, "reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
+        DataBoxJobDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            chain_of_custody_sas_key=chain_of_custody_sas_key,
+            contact_details=contact_details,
+            copy_log_details=copy_log_details,
+            copy_progress=copy_progress,
+            data_center_code=data_center_code,
+            datacenter_address=datacenter_address,
+            delivery_package=delivery_package,
+            device_erasure_details=device_erasure_details,
+            job_details_type=job_details_type,
+            job_stages=job_stages,
+            last_mitigation_action_on_job=last_mitigation_action_on_job,
+            return_package=return_package,
+            reverse_shipment_label_sas_key=reverse_shipment_label_sas_key,
+            data_export_details=data_export_details,
+            data_import_details=data_import_details,
+            device_password=device_password,
+            expected_data_size_in_tera_bytes=expected_data_size_in_tera_bytes,
+            key_encryption_key=key_encryption_key,
+            preferences=preferences,
+            reverse_shipping_details=reverse_shipping_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence[str]] = None,
+             chain_of_custody_sas_key: Optional[str] = None,
+             contact_details: Optional['outputs.ContactDetailsResponse'] = None,
+             copy_log_details: Optional[Sequence[Any]] = None,
+             copy_progress: Optional[Sequence['outputs.CopyProgressResponse']] = None,
+             data_center_code: Optional[str] = None,
+             datacenter_address: Optional[Any] = None,
+             delivery_package: Optional['outputs.PackageShippingDetailsResponse'] = None,
+             device_erasure_details: Optional['outputs.DeviceErasureDetailsResponse'] = None,
+             job_details_type: Optional[str] = None,
+             job_stages: Optional[Sequence['outputs.JobStagesResponse']] = None,
+             last_mitigation_action_on_job: Optional['outputs.LastMitigationActionOnJobResponse'] = None,
+             return_package: Optional['outputs.PackageShippingDetailsResponse'] = None,
+             reverse_shipment_label_sas_key: Optional[str] = None,
+             data_export_details: Optional[Sequence['outputs.DataExportDetailsResponse']] = None,
+             data_import_details: Optional[Sequence['outputs.DataImportDetailsResponse']] = None,
+             device_password: Optional[str] = None,
+             expected_data_size_in_tera_bytes: Optional[int] = None,
+             key_encryption_key: Optional['outputs.KeyEncryptionKeyResponse'] = None,
+             preferences: Optional['outputs.PreferencesResponse'] = None,
+             reverse_shipping_details: Optional['outputs.ReverseShippingDetailsResponse'] = None,
+             shipping_address: Optional['outputs.ShippingAddressResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if chain_of_custody_sas_key is None and 'chainOfCustodySasKey' in kwargs:
+            chain_of_custody_sas_key = kwargs['chainOfCustodySasKey']
+        if chain_of_custody_sas_key is None:
+            raise TypeError("Missing 'chain_of_custody_sas_key' argument")
+        if contact_details is None and 'contactDetails' in kwargs:
+            contact_details = kwargs['contactDetails']
+        if contact_details is None:
+            raise TypeError("Missing 'contact_details' argument")
+        if copy_log_details is None and 'copyLogDetails' in kwargs:
+            copy_log_details = kwargs['copyLogDetails']
+        if copy_log_details is None:
+            raise TypeError("Missing 'copy_log_details' argument")
+        if copy_progress is None and 'copyProgress' in kwargs:
+            copy_progress = kwargs['copyProgress']
+        if copy_progress is None:
+            raise TypeError("Missing 'copy_progress' argument")
+        if data_center_code is None and 'dataCenterCode' in kwargs:
+            data_center_code = kwargs['dataCenterCode']
+        if data_center_code is None:
+            raise TypeError("Missing 'data_center_code' argument")
+        if datacenter_address is None and 'datacenterAddress' in kwargs:
+            datacenter_address = kwargs['datacenterAddress']
+        if datacenter_address is None:
+            raise TypeError("Missing 'datacenter_address' argument")
+        if delivery_package is None and 'deliveryPackage' in kwargs:
+            delivery_package = kwargs['deliveryPackage']
+        if delivery_package is None:
+            raise TypeError("Missing 'delivery_package' argument")
+        if device_erasure_details is None and 'deviceErasureDetails' in kwargs:
+            device_erasure_details = kwargs['deviceErasureDetails']
+        if device_erasure_details is None:
+            raise TypeError("Missing 'device_erasure_details' argument")
+        if job_details_type is None and 'jobDetailsType' in kwargs:
+            job_details_type = kwargs['jobDetailsType']
+        if job_details_type is None:
+            raise TypeError("Missing 'job_details_type' argument")
+        if job_stages is None and 'jobStages' in kwargs:
+            job_stages = kwargs['jobStages']
+        if job_stages is None:
+            raise TypeError("Missing 'job_stages' argument")
+        if last_mitigation_action_on_job is None and 'lastMitigationActionOnJob' in kwargs:
+            last_mitigation_action_on_job = kwargs['lastMitigationActionOnJob']
+        if last_mitigation_action_on_job is None:
+            raise TypeError("Missing 'last_mitigation_action_on_job' argument")
+        if return_package is None and 'returnPackage' in kwargs:
+            return_package = kwargs['returnPackage']
+        if return_package is None:
+            raise TypeError("Missing 'return_package' argument")
+        if reverse_shipment_label_sas_key is None and 'reverseShipmentLabelSasKey' in kwargs:
+            reverse_shipment_label_sas_key = kwargs['reverseShipmentLabelSasKey']
+        if reverse_shipment_label_sas_key is None:
+            raise TypeError("Missing 'reverse_shipment_label_sas_key' argument")
+        if data_export_details is None and 'dataExportDetails' in kwargs:
+            data_export_details = kwargs['dataExportDetails']
+        if data_import_details is None and 'dataImportDetails' in kwargs:
+            data_import_details = kwargs['dataImportDetails']
+        if device_password is None and 'devicePassword' in kwargs:
+            device_password = kwargs['devicePassword']
+        if expected_data_size_in_tera_bytes is None and 'expectedDataSizeInTeraBytes' in kwargs:
+            expected_data_size_in_tera_bytes = kwargs['expectedDataSizeInTeraBytes']
+        if key_encryption_key is None and 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+        if reverse_shipping_details is None and 'reverseShippingDetails' in kwargs:
+            reverse_shipping_details = kwargs['reverseShippingDetails']
+        if shipping_address is None and 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("actions", actions)
+        _setter("chain_of_custody_sas_key", chain_of_custody_sas_key)
+        _setter("contact_details", contact_details)
+        _setter("copy_log_details", copy_log_details)
+        _setter("copy_progress", copy_progress)
+        _setter("data_center_code", data_center_code)
+        _setter("datacenter_address", datacenter_address)
+        _setter("delivery_package", delivery_package)
+        _setter("device_erasure_details", device_erasure_details)
+        _setter("job_details_type", 'DataBox')
+        _setter("job_stages", job_stages)
+        _setter("last_mitigation_action_on_job", last_mitigation_action_on_job)
+        _setter("return_package", return_package)
+        _setter("reverse_shipment_label_sas_key", reverse_shipment_label_sas_key)
         if data_export_details is not None:
-            pulumi.set(__self__, "data_export_details", data_export_details)
+            _setter("data_export_details", data_export_details)
         if data_import_details is not None:
-            pulumi.set(__self__, "data_import_details", data_import_details)
+            _setter("data_import_details", data_import_details)
         if device_password is not None:
-            pulumi.set(__self__, "device_password", device_password)
+            _setter("device_password", device_password)
         if expected_data_size_in_tera_bytes is not None:
-            pulumi.set(__self__, "expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
+            _setter("expected_data_size_in_tera_bytes", expected_data_size_in_tera_bytes)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
         if reverse_shipping_details is not None:
-            pulumi.set(__self__, "reverse_shipping_details", reverse_shipping_details)
+            _setter("reverse_shipping_details", reverse_shipping_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter
@@ -3568,11 +4991,50 @@ class DataBoxSecretResponse(dict):
         :param str encoded_validation_cert_pub_key: The base 64 encoded public key to authenticate with the device
         :param Sequence['ApplianceNetworkConfigurationResponse'] network_configurations: Network configuration of the appliance.
         """
-        pulumi.set(__self__, "account_credential_details", account_credential_details)
-        pulumi.set(__self__, "device_password", device_password)
-        pulumi.set(__self__, "device_serial_number", device_serial_number)
-        pulumi.set(__self__, "encoded_validation_cert_pub_key", encoded_validation_cert_pub_key)
-        pulumi.set(__self__, "network_configurations", network_configurations)
+        DataBoxSecretResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_credential_details=account_credential_details,
+            device_password=device_password,
+            device_serial_number=device_serial_number,
+            encoded_validation_cert_pub_key=encoded_validation_cert_pub_key,
+            network_configurations=network_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_credential_details: Optional[Sequence['outputs.AccountCredentialDetailsResponse']] = None,
+             device_password: Optional[str] = None,
+             device_serial_number: Optional[str] = None,
+             encoded_validation_cert_pub_key: Optional[str] = None,
+             network_configurations: Optional[Sequence['outputs.ApplianceNetworkConfigurationResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_credential_details is None and 'accountCredentialDetails' in kwargs:
+            account_credential_details = kwargs['accountCredentialDetails']
+        if account_credential_details is None:
+            raise TypeError("Missing 'account_credential_details' argument")
+        if device_password is None and 'devicePassword' in kwargs:
+            device_password = kwargs['devicePassword']
+        if device_password is None:
+            raise TypeError("Missing 'device_password' argument")
+        if device_serial_number is None and 'deviceSerialNumber' in kwargs:
+            device_serial_number = kwargs['deviceSerialNumber']
+        if device_serial_number is None:
+            raise TypeError("Missing 'device_serial_number' argument")
+        if encoded_validation_cert_pub_key is None and 'encodedValidationCertPubKey' in kwargs:
+            encoded_validation_cert_pub_key = kwargs['encodedValidationCertPubKey']
+        if encoded_validation_cert_pub_key is None:
+            raise TypeError("Missing 'encoded_validation_cert_pub_key' argument")
+        if network_configurations is None and 'networkConfigurations' in kwargs:
+            network_configurations = kwargs['networkConfigurations']
+        if network_configurations is None:
+            raise TypeError("Missing 'network_configurations' argument")
+
+        _setter("account_credential_details", account_credential_details)
+        _setter("device_password", device_password)
+        _setter("device_serial_number", device_serial_number)
+        _setter("encoded_validation_cert_pub_key", encoded_validation_cert_pub_key)
+        _setter("network_configurations", network_configurations)
 
     @property
     @pulumi.getter(name="accountCredentialDetails")
@@ -3651,12 +5113,37 @@ class DataExportDetailsResponse(dict):
         :param 'TransferConfigurationResponse' transfer_configuration: Configuration for the data transfer.
         :param str log_collection_level: Level of the logs to be collected.
         """
-        pulumi.set(__self__, "account_details", account_details)
-        pulumi.set(__self__, "transfer_configuration", transfer_configuration)
+        DataExportDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_details=account_details,
+            transfer_configuration=transfer_configuration,
+            log_collection_level=log_collection_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_details: Optional[Any] = None,
+             transfer_configuration: Optional['outputs.TransferConfigurationResponse'] = None,
+             log_collection_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_details is None and 'accountDetails' in kwargs:
+            account_details = kwargs['accountDetails']
+        if account_details is None:
+            raise TypeError("Missing 'account_details' argument")
+        if transfer_configuration is None and 'transferConfiguration' in kwargs:
+            transfer_configuration = kwargs['transferConfiguration']
+        if transfer_configuration is None:
+            raise TypeError("Missing 'transfer_configuration' argument")
+        if log_collection_level is None and 'logCollectionLevel' in kwargs:
+            log_collection_level = kwargs['logCollectionLevel']
+
+        _setter("account_details", account_details)
+        _setter("transfer_configuration", transfer_configuration)
         if log_collection_level is None:
             log_collection_level = 'Error'
         if log_collection_level is not None:
-            pulumi.set(__self__, "log_collection_level", log_collection_level)
+            _setter("log_collection_level", log_collection_level)
 
     @property
     @pulumi.getter(name="accountDetails")
@@ -3715,11 +5202,30 @@ class DataImportDetailsResponse(dict):
         :param Union['ManagedDiskDetailsResponse', 'StorageAccountDetailsResponse'] account_details: Account details of the data to be transferred
         :param str log_collection_level: Level of the logs to be collected.
         """
-        pulumi.set(__self__, "account_details", account_details)
+        DataImportDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_details=account_details,
+            log_collection_level=log_collection_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_details: Optional[Any] = None,
+             log_collection_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_details is None and 'accountDetails' in kwargs:
+            account_details = kwargs['accountDetails']
+        if account_details is None:
+            raise TypeError("Missing 'account_details' argument")
+        if log_collection_level is None and 'logCollectionLevel' in kwargs:
+            log_collection_level = kwargs['logCollectionLevel']
+
+        _setter("account_details", account_details)
         if log_collection_level is None:
             log_collection_level = 'Error'
         if log_collection_level is not None:
-            pulumi.set(__self__, "log_collection_level", log_collection_level)
+            _setter("log_collection_level", log_collection_level)
 
     @property
     @pulumi.getter(name="accountDetails")
@@ -3756,11 +5262,40 @@ class DataboxJobSecretsResponse(dict):
                Expected value is 'DataBox'.
         :param Sequence['DataBoxSecretResponse'] pod_secrets: Contains the list of secret objects for a job.
         """
-        pulumi.set(__self__, "dc_access_security_code", dc_access_security_code)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "job_secrets_type", 'DataBox')
+        DataboxJobSecretsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dc_access_security_code=dc_access_security_code,
+            error=error,
+            job_secrets_type=job_secrets_type,
+            pod_secrets=pod_secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dc_access_security_code: Optional['outputs.DcAccessSecurityCodeResponse'] = None,
+             error: Optional['outputs.CloudErrorResponse'] = None,
+             job_secrets_type: Optional[str] = None,
+             pod_secrets: Optional[Sequence['outputs.DataBoxSecretResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dc_access_security_code is None and 'dcAccessSecurityCode' in kwargs:
+            dc_access_security_code = kwargs['dcAccessSecurityCode']
+        if dc_access_security_code is None:
+            raise TypeError("Missing 'dc_access_security_code' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if job_secrets_type is None and 'jobSecretsType' in kwargs:
+            job_secrets_type = kwargs['jobSecretsType']
+        if job_secrets_type is None:
+            raise TypeError("Missing 'job_secrets_type' argument")
+        if pod_secrets is None and 'podSecrets' in kwargs:
+            pod_secrets = kwargs['podSecrets']
+
+        _setter("dc_access_security_code", dc_access_security_code)
+        _setter("error", error)
+        _setter("job_secrets_type", 'DataBox')
         if pod_secrets is not None:
-            pulumi.set(__self__, "pod_secrets", pod_secrets)
+            _setter("pod_secrets", pod_secrets)
 
     @property
     @pulumi.getter(name="dcAccessSecurityCode")
@@ -3837,10 +5372,43 @@ class DatacenterAddressInstructionResponseResponse(dict):
                Expected value is 'DatacenterAddressInstruction'.
         :param Sequence[str] supported_carriers_for_return_shipment: List of supported carriers for return shipment.
         """
-        pulumi.set(__self__, "communication_instruction", communication_instruction)
-        pulumi.set(__self__, "data_center_azure_location", data_center_azure_location)
-        pulumi.set(__self__, "datacenter_address_type", 'DatacenterAddressInstruction')
-        pulumi.set(__self__, "supported_carriers_for_return_shipment", supported_carriers_for_return_shipment)
+        DatacenterAddressInstructionResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            communication_instruction=communication_instruction,
+            data_center_azure_location=data_center_azure_location,
+            datacenter_address_type=datacenter_address_type,
+            supported_carriers_for_return_shipment=supported_carriers_for_return_shipment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             communication_instruction: Optional[str] = None,
+             data_center_azure_location: Optional[str] = None,
+             datacenter_address_type: Optional[str] = None,
+             supported_carriers_for_return_shipment: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if communication_instruction is None and 'communicationInstruction' in kwargs:
+            communication_instruction = kwargs['communicationInstruction']
+        if communication_instruction is None:
+            raise TypeError("Missing 'communication_instruction' argument")
+        if data_center_azure_location is None and 'dataCenterAzureLocation' in kwargs:
+            data_center_azure_location = kwargs['dataCenterAzureLocation']
+        if data_center_azure_location is None:
+            raise TypeError("Missing 'data_center_azure_location' argument")
+        if datacenter_address_type is None and 'datacenterAddressType' in kwargs:
+            datacenter_address_type = kwargs['datacenterAddressType']
+        if datacenter_address_type is None:
+            raise TypeError("Missing 'datacenter_address_type' argument")
+        if supported_carriers_for_return_shipment is None and 'supportedCarriersForReturnShipment' in kwargs:
+            supported_carriers_for_return_shipment = kwargs['supportedCarriersForReturnShipment']
+        if supported_carriers_for_return_shipment is None:
+            raise TypeError("Missing 'supported_carriers_for_return_shipment' argument")
+
+        _setter("communication_instruction", communication_instruction)
+        _setter("data_center_azure_location", data_center_azure_location)
+        _setter("datacenter_address_type", 'DatacenterAddressInstruction')
+        _setter("supported_carriers_for_return_shipment", supported_carriers_for_return_shipment)
 
     @property
     @pulumi.getter(name="communicationInstruction")
@@ -3947,22 +5515,109 @@ class DatacenterAddressLocationResponseResponse(dict):
         :param Sequence[str] supported_carriers_for_return_shipment: List of supported carriers for return shipment.
         :param str zip: Zip code
         """
-        pulumi.set(__self__, "additional_shipping_information", additional_shipping_information)
-        pulumi.set(__self__, "address_type", address_type)
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "company", company)
-        pulumi.set(__self__, "contact_person_name", contact_person_name)
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "data_center_azure_location", data_center_azure_location)
-        pulumi.set(__self__, "datacenter_address_type", 'DatacenterAddressLocation')
-        pulumi.set(__self__, "phone", phone)
-        pulumi.set(__self__, "phone_extension", phone_extension)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "street1", street1)
-        pulumi.set(__self__, "street2", street2)
-        pulumi.set(__self__, "street3", street3)
-        pulumi.set(__self__, "supported_carriers_for_return_shipment", supported_carriers_for_return_shipment)
-        pulumi.set(__self__, "zip", zip)
+        DatacenterAddressLocationResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_shipping_information=additional_shipping_information,
+            address_type=address_type,
+            city=city,
+            company=company,
+            contact_person_name=contact_person_name,
+            country=country,
+            data_center_azure_location=data_center_azure_location,
+            datacenter_address_type=datacenter_address_type,
+            phone=phone,
+            phone_extension=phone_extension,
+            state=state,
+            street1=street1,
+            street2=street2,
+            street3=street3,
+            supported_carriers_for_return_shipment=supported_carriers_for_return_shipment,
+            zip=zip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_shipping_information: Optional[str] = None,
+             address_type: Optional[str] = None,
+             city: Optional[str] = None,
+             company: Optional[str] = None,
+             contact_person_name: Optional[str] = None,
+             country: Optional[str] = None,
+             data_center_azure_location: Optional[str] = None,
+             datacenter_address_type: Optional[str] = None,
+             phone: Optional[str] = None,
+             phone_extension: Optional[str] = None,
+             state: Optional[str] = None,
+             street1: Optional[str] = None,
+             street2: Optional[str] = None,
+             street3: Optional[str] = None,
+             supported_carriers_for_return_shipment: Optional[Sequence[str]] = None,
+             zip: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_shipping_information is None and 'additionalShippingInformation' in kwargs:
+            additional_shipping_information = kwargs['additionalShippingInformation']
+        if additional_shipping_information is None:
+            raise TypeError("Missing 'additional_shipping_information' argument")
+        if address_type is None and 'addressType' in kwargs:
+            address_type = kwargs['addressType']
+        if address_type is None:
+            raise TypeError("Missing 'address_type' argument")
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if company is None:
+            raise TypeError("Missing 'company' argument")
+        if contact_person_name is None and 'contactPersonName' in kwargs:
+            contact_person_name = kwargs['contactPersonName']
+        if contact_person_name is None:
+            raise TypeError("Missing 'contact_person_name' argument")
+        if country is None:
+            raise TypeError("Missing 'country' argument")
+        if data_center_azure_location is None and 'dataCenterAzureLocation' in kwargs:
+            data_center_azure_location = kwargs['dataCenterAzureLocation']
+        if data_center_azure_location is None:
+            raise TypeError("Missing 'data_center_azure_location' argument")
+        if datacenter_address_type is None and 'datacenterAddressType' in kwargs:
+            datacenter_address_type = kwargs['datacenterAddressType']
+        if datacenter_address_type is None:
+            raise TypeError("Missing 'datacenter_address_type' argument")
+        if phone is None:
+            raise TypeError("Missing 'phone' argument")
+        if phone_extension is None and 'phoneExtension' in kwargs:
+            phone_extension = kwargs['phoneExtension']
+        if phone_extension is None:
+            raise TypeError("Missing 'phone_extension' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if street1 is None:
+            raise TypeError("Missing 'street1' argument")
+        if street2 is None:
+            raise TypeError("Missing 'street2' argument")
+        if street3 is None:
+            raise TypeError("Missing 'street3' argument")
+        if supported_carriers_for_return_shipment is None and 'supportedCarriersForReturnShipment' in kwargs:
+            supported_carriers_for_return_shipment = kwargs['supportedCarriersForReturnShipment']
+        if supported_carriers_for_return_shipment is None:
+            raise TypeError("Missing 'supported_carriers_for_return_shipment' argument")
+        if zip is None:
+            raise TypeError("Missing 'zip' argument")
+
+        _setter("additional_shipping_information", additional_shipping_information)
+        _setter("address_type", address_type)
+        _setter("city", city)
+        _setter("company", company)
+        _setter("contact_person_name", contact_person_name)
+        _setter("country", country)
+        _setter("data_center_azure_location", data_center_azure_location)
+        _setter("datacenter_address_type", 'DatacenterAddressLocation')
+        _setter("phone", phone)
+        _setter("phone_extension", phone_extension)
+        _setter("state", state)
+        _setter("street1", street1)
+        _setter("street2", street2)
+        _setter("street3", street3)
+        _setter("supported_carriers_for_return_shipment", supported_carriers_for_return_shipment)
+        _setter("zip", zip)
 
     @property
     @pulumi.getter(name="additionalShippingInformation")
@@ -4107,10 +5762,27 @@ class DcAccessSecurityCodeResponse(dict):
         :param str forward_dc_access_code: Forward Dc access security code.
         :param str reverse_dc_access_code: Reverse Dc access security code.
         """
+        DcAccessSecurityCodeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forward_dc_access_code=forward_dc_access_code,
+            reverse_dc_access_code=reverse_dc_access_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forward_dc_access_code: Optional[str] = None,
+             reverse_dc_access_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forward_dc_access_code is None and 'forwardDCAccessCode' in kwargs:
+            forward_dc_access_code = kwargs['forwardDCAccessCode']
+        if reverse_dc_access_code is None and 'reverseDCAccessCode' in kwargs:
+            reverse_dc_access_code = kwargs['reverseDCAccessCode']
+
         if forward_dc_access_code is not None:
-            pulumi.set(__self__, "forward_dc_access_code", forward_dc_access_code)
+            _setter("forward_dc_access_code", forward_dc_access_code)
         if reverse_dc_access_code is not None:
-            pulumi.set(__self__, "reverse_dc_access_code", reverse_dc_access_code)
+            _setter("reverse_dc_access_code", reverse_dc_access_code)
 
     @property
     @pulumi.getter(name="forwardDCAccessCode")
@@ -4161,8 +5833,29 @@ class DeviceErasureDetailsResponse(dict):
         :param str device_erasure_status: Holds the device erasure completion status
         :param str erasure_or_destruction_certificate_sas_key: Shared access key to download cleanup or destruction certificate for device
         """
-        pulumi.set(__self__, "device_erasure_status", device_erasure_status)
-        pulumi.set(__self__, "erasure_or_destruction_certificate_sas_key", erasure_or_destruction_certificate_sas_key)
+        DeviceErasureDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_erasure_status=device_erasure_status,
+            erasure_or_destruction_certificate_sas_key=erasure_or_destruction_certificate_sas_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_erasure_status: Optional[str] = None,
+             erasure_or_destruction_certificate_sas_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_erasure_status is None and 'deviceErasureStatus' in kwargs:
+            device_erasure_status = kwargs['deviceErasureStatus']
+        if device_erasure_status is None:
+            raise TypeError("Missing 'device_erasure_status' argument")
+        if erasure_or_destruction_certificate_sas_key is None and 'erasureOrDestructionCertificateSasKey' in kwargs:
+            erasure_or_destruction_certificate_sas_key = kwargs['erasureOrDestructionCertificateSasKey']
+        if erasure_or_destruction_certificate_sas_key is None:
+            raise TypeError("Missing 'erasure_or_destruction_certificate_sas_key' argument")
+
+        _setter("device_erasure_status", device_erasure_status)
+        _setter("erasure_or_destruction_certificate_sas_key", erasure_or_destruction_certificate_sas_key)
 
     @property
     @pulumi.getter(name="deviceErasureStatus")
@@ -4194,8 +5887,29 @@ class DiskSecretResponse(dict):
         :param str bit_locker_key: Bit Locker key of the disk which can be used to unlock the disk to copy data.
         :param str disk_serial_number: Serial number of the assigned disk.
         """
-        pulumi.set(__self__, "bit_locker_key", bit_locker_key)
-        pulumi.set(__self__, "disk_serial_number", disk_serial_number)
+        DiskSecretResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bit_locker_key=bit_locker_key,
+            disk_serial_number=disk_serial_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bit_locker_key: Optional[str] = None,
+             disk_serial_number: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bit_locker_key is None and 'bitLockerKey' in kwargs:
+            bit_locker_key = kwargs['bitLockerKey']
+        if bit_locker_key is None:
+            raise TypeError("Missing 'bit_locker_key' argument")
+        if disk_serial_number is None and 'diskSerialNumber' in kwargs:
+            disk_serial_number = kwargs['diskSerialNumber']
+        if disk_serial_number is None:
+            raise TypeError("Missing 'disk_serial_number' argument")
+
+        _setter("bit_locker_key", bit_locker_key)
+        _setter("disk_serial_number", disk_serial_number)
 
     @property
     @pulumi.getter(name="bitLockerKey")
@@ -4246,12 +5960,29 @@ class EncryptionPreferencesResponse(dict):
         :param str double_encryption: Defines secondary layer of software-based encryption enablement.
         :param str hardware_encryption: Defines Hardware level encryption (Only for disk)
         """
+        EncryptionPreferencesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            double_encryption=double_encryption,
+            hardware_encryption=hardware_encryption,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             double_encryption: Optional[str] = None,
+             hardware_encryption: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if double_encryption is None and 'doubleEncryption' in kwargs:
+            double_encryption = kwargs['doubleEncryption']
+        if hardware_encryption is None and 'hardwareEncryption' in kwargs:
+            hardware_encryption = kwargs['hardwareEncryption']
+
         if double_encryption is None:
             double_encryption = 'Disabled'
         if double_encryption is not None:
-            pulumi.set(__self__, "double_encryption", double_encryption)
+            _setter("double_encryption", double_encryption)
         if hardware_encryption is not None:
-            pulumi.set(__self__, "hardware_encryption", hardware_encryption)
+            _setter("hardware_encryption", hardware_encryption)
 
     @property
     @pulumi.getter(name="doubleEncryption")
@@ -4306,9 +6037,36 @@ class ExportDiskDetailsResponse(dict):
         :param str manifest_file: The relative path of the manifest file on the disk.
         :param str manifest_hash: The Base16-encoded MD5 hash of the manifest file on the disk.
         """
-        pulumi.set(__self__, "backup_manifest_cloud_path", backup_manifest_cloud_path)
-        pulumi.set(__self__, "manifest_file", manifest_file)
-        pulumi.set(__self__, "manifest_hash", manifest_hash)
+        ExportDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_manifest_cloud_path=backup_manifest_cloud_path,
+            manifest_file=manifest_file,
+            manifest_hash=manifest_hash,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_manifest_cloud_path: Optional[str] = None,
+             manifest_file: Optional[str] = None,
+             manifest_hash: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_manifest_cloud_path is None and 'backupManifestCloudPath' in kwargs:
+            backup_manifest_cloud_path = kwargs['backupManifestCloudPath']
+        if backup_manifest_cloud_path is None:
+            raise TypeError("Missing 'backup_manifest_cloud_path' argument")
+        if manifest_file is None and 'manifestFile' in kwargs:
+            manifest_file = kwargs['manifestFile']
+        if manifest_file is None:
+            raise TypeError("Missing 'manifest_file' argument")
+        if manifest_hash is None and 'manifestHash' in kwargs:
+            manifest_hash = kwargs['manifestHash']
+        if manifest_hash is None:
+            raise TypeError("Missing 'manifest_hash' argument")
+
+        _setter("backup_manifest_cloud_path", backup_manifest_cloud_path)
+        _setter("manifest_file", manifest_file)
+        _setter("manifest_hash", manifest_hash)
 
     @property
     @pulumi.getter(name="backupManifestCloudPath")
@@ -4367,8 +6125,29 @@ class FilterFileDetailsResponse(dict):
         :param str filter_file_path: Path of the file that contains the details of all items to transfer.
         :param str filter_file_type: Type of the filter file.
         """
-        pulumi.set(__self__, "filter_file_path", filter_file_path)
-        pulumi.set(__self__, "filter_file_type", filter_file_type)
+        FilterFileDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_file_path=filter_file_path,
+            filter_file_type=filter_file_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_file_path: Optional[str] = None,
+             filter_file_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter_file_path is None and 'filterFilePath' in kwargs:
+            filter_file_path = kwargs['filterFilePath']
+        if filter_file_path is None:
+            raise TypeError("Missing 'filter_file_path' argument")
+        if filter_file_type is None and 'filterFileType' in kwargs:
+            filter_file_type = kwargs['filterFileType']
+        if filter_file_type is None:
+            raise TypeError("Missing 'filter_file_type' argument")
+
+        _setter("filter_file_path", filter_file_path)
+        _setter("filter_file_type", filter_file_type)
 
     @property
     @pulumi.getter(name="filterFilePath")
@@ -4417,10 +6196,25 @@ class IdentityPropertiesResponse(dict):
         :param str type: Managed service identity type.
         :param 'UserAssignedPropertiesResponse' user_assigned: User assigned identity properties.
         """
+        IdentityPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned=user_assigned,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             user_assigned: Optional['outputs.UserAssignedPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned is None and 'userAssigned' in kwargs:
+            user_assigned = kwargs['userAssigned']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned is not None:
-            pulumi.set(__self__, "user_assigned", user_assigned)
+            _setter("user_assigned", user_assigned)
 
     @property
     @pulumi.getter
@@ -4479,10 +6273,43 @@ class ImportDiskDetailsResponse(dict):
         :param str manifest_file: The relative path of the manifest file on the disk.
         :param str manifest_hash: The Base16-encoded MD5 hash of the manifest file on the disk.
         """
-        pulumi.set(__self__, "backup_manifest_cloud_path", backup_manifest_cloud_path)
-        pulumi.set(__self__, "bit_locker_key", bit_locker_key)
-        pulumi.set(__self__, "manifest_file", manifest_file)
-        pulumi.set(__self__, "manifest_hash", manifest_hash)
+        ImportDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_manifest_cloud_path=backup_manifest_cloud_path,
+            bit_locker_key=bit_locker_key,
+            manifest_file=manifest_file,
+            manifest_hash=manifest_hash,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_manifest_cloud_path: Optional[str] = None,
+             bit_locker_key: Optional[str] = None,
+             manifest_file: Optional[str] = None,
+             manifest_hash: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_manifest_cloud_path is None and 'backupManifestCloudPath' in kwargs:
+            backup_manifest_cloud_path = kwargs['backupManifestCloudPath']
+        if backup_manifest_cloud_path is None:
+            raise TypeError("Missing 'backup_manifest_cloud_path' argument")
+        if bit_locker_key is None and 'bitLockerKey' in kwargs:
+            bit_locker_key = kwargs['bitLockerKey']
+        if bit_locker_key is None:
+            raise TypeError("Missing 'bit_locker_key' argument")
+        if manifest_file is None and 'manifestFile' in kwargs:
+            manifest_file = kwargs['manifestFile']
+        if manifest_file is None:
+            raise TypeError("Missing 'manifest_file' argument")
+        if manifest_hash is None and 'manifestHash' in kwargs:
+            manifest_hash = kwargs['manifestHash']
+        if manifest_hash is None:
+            raise TypeError("Missing 'manifest_hash' argument")
+
+        _setter("backup_manifest_cloud_path", backup_manifest_cloud_path)
+        _setter("bit_locker_key", bit_locker_key)
+        _setter("manifest_file", manifest_file)
+        _setter("manifest_hash", manifest_hash)
 
     @property
     @pulumi.getter(name="backupManifestCloudPath")
@@ -4545,8 +6372,21 @@ class JobDeliveryInfoResponse(dict):
         Additional delivery info.
         :param str scheduled_date_time: Scheduled date time.
         """
+        JobDeliveryInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scheduled_date_time=scheduled_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scheduled_date_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scheduled_date_time is None and 'scheduledDateTime' in kwargs:
+            scheduled_date_time = kwargs['scheduledDateTime']
+
         if scheduled_date_time is not None:
-            pulumi.set(__self__, "scheduled_date_time", scheduled_date_time)
+            _setter("scheduled_date_time", scheduled_date_time)
 
     @property
     @pulumi.getter(name="scheduledDateTime")
@@ -4601,11 +6441,50 @@ class JobStagesResponse(dict):
         :param str stage_status: Status of the job stage.
         :param str stage_time: Time for the job stage in UTC ISO 8601 format.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "job_stage_details", job_stage_details)
-        pulumi.set(__self__, "stage_name", stage_name)
-        pulumi.set(__self__, "stage_status", stage_status)
-        pulumi.set(__self__, "stage_time", stage_time)
+        JobStagesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            job_stage_details=job_stage_details,
+            stage_name=stage_name,
+            stage_status=stage_status,
+            stage_time=stage_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             job_stage_details: Optional[Any] = None,
+             stage_name: Optional[str] = None,
+             stage_status: Optional[str] = None,
+             stage_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if job_stage_details is None and 'jobStageDetails' in kwargs:
+            job_stage_details = kwargs['jobStageDetails']
+        if job_stage_details is None:
+            raise TypeError("Missing 'job_stage_details' argument")
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if stage_name is None:
+            raise TypeError("Missing 'stage_name' argument")
+        if stage_status is None and 'stageStatus' in kwargs:
+            stage_status = kwargs['stageStatus']
+        if stage_status is None:
+            raise TypeError("Missing 'stage_status' argument")
+        if stage_time is None and 'stageTime' in kwargs:
+            stage_time = kwargs['stageTime']
+        if stage_time is None:
+            raise TypeError("Missing 'stage_time' argument")
+
+        _setter("display_name", display_name)
+        _setter("job_stage_details", job_stage_details)
+        _setter("stage_name", stage_name)
+        _setter("stage_status", stage_status)
+        _setter("stage_time", stage_time)
 
     @property
     @pulumi.getter(name="displayName")
@@ -4688,15 +6567,40 @@ class KeyEncryptionKeyResponse(dict):
         :param str kek_url: Key encryption key. It is required in case of Customer managed KekType.
         :param str kek_vault_resource_id: Kek vault resource id. It is required in case of Customer managed KekType.
         """
+        KeyEncryptionKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kek_type=kek_type,
+            identity_properties=identity_properties,
+            kek_url=kek_url,
+            kek_vault_resource_id=kek_vault_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kek_type: Optional[str] = None,
+             identity_properties: Optional['outputs.IdentityPropertiesResponse'] = None,
+             kek_url: Optional[str] = None,
+             kek_vault_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kek_type is None and 'kekType' in kwargs:
+            kek_type = kwargs['kekType']
+        if identity_properties is None and 'identityProperties' in kwargs:
+            identity_properties = kwargs['identityProperties']
+        if kek_url is None and 'kekUrl' in kwargs:
+            kek_url = kwargs['kekUrl']
+        if kek_vault_resource_id is None and 'kekVaultResourceID' in kwargs:
+            kek_vault_resource_id = kwargs['kekVaultResourceID']
+
         if kek_type is None:
             kek_type = 'MicrosoftManaged'
-        pulumi.set(__self__, "kek_type", kek_type)
+        _setter("kek_type", kek_type)
         if identity_properties is not None:
-            pulumi.set(__self__, "identity_properties", identity_properties)
+            _setter("identity_properties", identity_properties)
         if kek_url is not None:
-            pulumi.set(__self__, "kek_url", kek_url)
+            _setter("kek_url", kek_url)
         if kek_vault_resource_id is not None:
-            pulumi.set(__self__, "kek_vault_resource_id", kek_vault_resource_id)
+            _setter("kek_vault_resource_id", kek_vault_resource_id)
 
     @property
     @pulumi.getter(name="kekType")
@@ -4768,12 +6672,33 @@ class LastMitigationActionOnJobResponse(dict):
         :param bool is_performed_by_customer: Action performed by customer,
                possibility is that mitigation might happen by customer or service or by ops
         """
+        LastMitigationActionOnJobResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_date_time_in_utc=action_date_time_in_utc,
+            customer_resolution=customer_resolution,
+            is_performed_by_customer=is_performed_by_customer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_date_time_in_utc: Optional[str] = None,
+             customer_resolution: Optional[str] = None,
+             is_performed_by_customer: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_date_time_in_utc is None and 'actionDateTimeInUtc' in kwargs:
+            action_date_time_in_utc = kwargs['actionDateTimeInUtc']
+        if customer_resolution is None and 'customerResolution' in kwargs:
+            customer_resolution = kwargs['customerResolution']
+        if is_performed_by_customer is None and 'isPerformedByCustomer' in kwargs:
+            is_performed_by_customer = kwargs['isPerformedByCustomer']
+
         if action_date_time_in_utc is not None:
-            pulumi.set(__self__, "action_date_time_in_utc", action_date_time_in_utc)
+            _setter("action_date_time_in_utc", action_date_time_in_utc)
         if customer_resolution is not None:
-            pulumi.set(__self__, "customer_resolution", customer_resolution)
+            _setter("customer_resolution", customer_resolution)
         if is_performed_by_customer is not None:
-            pulumi.set(__self__, "is_performed_by_customer", is_performed_by_customer)
+            _setter("is_performed_by_customer", is_performed_by_customer)
 
     @property
     @pulumi.getter(name="actionDateTimeInUtc")
@@ -4838,11 +6763,36 @@ class ManagedDiskDetailsResponse(dict):
         :param str resource_group_id: Resource Group Id of the compute disks.
         :param str staging_storage_account_id: Resource Id of the storage account that can be used to copy the vhd for staging.
         """
+        ManagedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_account_type=data_account_type,
+            resource_group_id=resource_group_id,
+            staging_storage_account_id=staging_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_account_type: Optional[str] = None,
+             resource_group_id: Optional[str] = None,
+             staging_storage_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_account_type is None and 'dataAccountType' in kwargs:
+            data_account_type = kwargs['dataAccountType']
+        if resource_group_id is None and 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+        if resource_group_id is None:
+            raise TypeError("Missing 'resource_group_id' argument")
+        if staging_storage_account_id is None and 'stagingStorageAccountId' in kwargs:
+            staging_storage_account_id = kwargs['stagingStorageAccountId']
+        if staging_storage_account_id is None:
+            raise TypeError("Missing 'staging_storage_account_id' argument")
+
         if data_account_type is None:
             data_account_type = 'StorageAccount'
-        pulumi.set(__self__, "data_account_type", 'ManagedDisk')
-        pulumi.set(__self__, "resource_group_id", resource_group_id)
-        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
+        _setter("data_account_type", 'ManagedDisk')
+        _setter("resource_group_id", resource_group_id)
+        _setter("staging_storage_account_id", staging_storage_account_id)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -4902,10 +6852,29 @@ class NotificationPreferenceResponse(dict):
         :param bool send_notification: Notification is required or not.
         :param str stage_name: Name of the stage.
         """
+        NotificationPreferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            send_notification=send_notification,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             send_notification: Optional[bool] = None,
+             stage_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if send_notification is None and 'sendNotification' in kwargs:
+            send_notification = kwargs['sendNotification']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if stage_name is None:
+            raise TypeError("Missing 'stage_name' argument")
+
         if send_notification is None:
             send_notification = True
-        pulumi.set(__self__, "send_notification", send_notification)
-        pulumi.set(__self__, "stage_name", stage_name)
+        _setter("send_notification", send_notification)
+        _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="sendNotification")
@@ -4960,12 +6929,33 @@ class PackageCarrierDetailsResponse(dict):
         :param str carrier_name: Name of the carrier.
         :param str tracking_id: Tracking Id of shipment.
         """
+        PackageCarrierDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_account_number=carrier_account_number,
+            carrier_name=carrier_name,
+            tracking_id=tracking_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_account_number: Optional[str] = None,
+             carrier_name: Optional[str] = None,
+             tracking_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if carrier_account_number is None and 'carrierAccountNumber' in kwargs:
+            carrier_account_number = kwargs['carrierAccountNumber']
+        if carrier_name is None and 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if tracking_id is None and 'trackingId' in kwargs:
+            tracking_id = kwargs['trackingId']
+
         if carrier_account_number is not None:
-            pulumi.set(__self__, "carrier_account_number", carrier_account_number)
+            _setter("carrier_account_number", carrier_account_number)
         if carrier_name is not None:
-            pulumi.set(__self__, "carrier_name", carrier_name)
+            _setter("carrier_name", carrier_name)
         if tracking_id is not None:
-            pulumi.set(__self__, "tracking_id", tracking_id)
+            _setter("tracking_id", tracking_id)
 
     @property
     @pulumi.getter(name="carrierAccountNumber")
@@ -5024,10 +7014,27 @@ class PackageCarrierInfoResponse(dict):
         :param str carrier_name: Name of the carrier.
         :param str tracking_id: Tracking Id of shipment.
         """
+        PackageCarrierInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_name=carrier_name,
+            tracking_id=tracking_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_name: Optional[str] = None,
+             tracking_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if carrier_name is None and 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if tracking_id is None and 'trackingId' in kwargs:
+            tracking_id = kwargs['trackingId']
+
         if carrier_name is not None:
-            pulumi.set(__self__, "carrier_name", carrier_name)
+            _setter("carrier_name", carrier_name)
         if tracking_id is not None:
-            pulumi.set(__self__, "tracking_id", tracking_id)
+            _setter("tracking_id", tracking_id)
 
     @property
     @pulumi.getter(name="carrierName")
@@ -5082,9 +7089,36 @@ class PackageShippingDetailsResponse(dict):
         :param str tracking_id: Tracking Id of shipment.
         :param str tracking_url: Url where shipment can be tracked.
         """
-        pulumi.set(__self__, "carrier_name", carrier_name)
-        pulumi.set(__self__, "tracking_id", tracking_id)
-        pulumi.set(__self__, "tracking_url", tracking_url)
+        PackageShippingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_name=carrier_name,
+            tracking_id=tracking_id,
+            tracking_url=tracking_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_name: Optional[str] = None,
+             tracking_id: Optional[str] = None,
+             tracking_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if carrier_name is None and 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if carrier_name is None:
+            raise TypeError("Missing 'carrier_name' argument")
+        if tracking_id is None and 'trackingId' in kwargs:
+            tracking_id = kwargs['trackingId']
+        if tracking_id is None:
+            raise TypeError("Missing 'tracking_id' argument")
+        if tracking_url is None and 'trackingUrl' in kwargs:
+            tracking_url = kwargs['trackingUrl']
+        if tracking_url is None:
+            raise TypeError("Missing 'tracking_url' argument")
+
+        _setter("carrier_name", carrier_name)
+        _setter("tracking_id", tracking_id)
+        _setter("tracking_url", tracking_url)
 
     @property
     @pulumi.getter(name="carrierName")
@@ -5155,16 +7189,45 @@ class PreferencesResponse(dict):
         :param Sequence[str] storage_account_access_tier_preferences: Preferences related to the Access Tier of storage accounts.
         :param 'TransportPreferencesResponse' transport_preferences: Preferences related to the shipment logistics of the sku.
         """
+        PreferencesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_preferences=encryption_preferences,
+            preferred_data_center_region=preferred_data_center_region,
+            reverse_transport_preferences=reverse_transport_preferences,
+            storage_account_access_tier_preferences=storage_account_access_tier_preferences,
+            transport_preferences=transport_preferences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_preferences: Optional['outputs.EncryptionPreferencesResponse'] = None,
+             preferred_data_center_region: Optional[Sequence[str]] = None,
+             reverse_transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None,
+             storage_account_access_tier_preferences: Optional[Sequence[str]] = None,
+             transport_preferences: Optional['outputs.TransportPreferencesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_preferences is None and 'encryptionPreferences' in kwargs:
+            encryption_preferences = kwargs['encryptionPreferences']
+        if preferred_data_center_region is None and 'preferredDataCenterRegion' in kwargs:
+            preferred_data_center_region = kwargs['preferredDataCenterRegion']
+        if reverse_transport_preferences is None and 'reverseTransportPreferences' in kwargs:
+            reverse_transport_preferences = kwargs['reverseTransportPreferences']
+        if storage_account_access_tier_preferences is None and 'storageAccountAccessTierPreferences' in kwargs:
+            storage_account_access_tier_preferences = kwargs['storageAccountAccessTierPreferences']
+        if transport_preferences is None and 'transportPreferences' in kwargs:
+            transport_preferences = kwargs['transportPreferences']
+
         if encryption_preferences is not None:
-            pulumi.set(__self__, "encryption_preferences", encryption_preferences)
+            _setter("encryption_preferences", encryption_preferences)
         if preferred_data_center_region is not None:
-            pulumi.set(__self__, "preferred_data_center_region", preferred_data_center_region)
+            _setter("preferred_data_center_region", preferred_data_center_region)
         if reverse_transport_preferences is not None:
-            pulumi.set(__self__, "reverse_transport_preferences", reverse_transport_preferences)
+            _setter("reverse_transport_preferences", reverse_transport_preferences)
         if storage_account_access_tier_preferences is not None:
-            pulumi.set(__self__, "storage_account_access_tier_preferences", storage_account_access_tier_preferences)
+            _setter("storage_account_access_tier_preferences", storage_account_access_tier_preferences)
         if transport_preferences is not None:
-            pulumi.set(__self__, "transport_preferences", transport_preferences)
+            _setter("transport_preferences", transport_preferences)
 
     @property
     @pulumi.getter(name="encryptionPreferences")
@@ -5245,14 +7308,41 @@ class ResourceIdentityResponse(dict):
         :param str type: Identity type
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: User Assigned Identities
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is None:
             type = 'None'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -5324,11 +7414,34 @@ class ReverseShippingDetailsResponse(dict):
         :param 'ContactInfoResponse' contact_details: Contact Info.
         :param 'ShippingAddressResponse' shipping_address: Shipping address where customer wishes to receive the device.
         """
-        pulumi.set(__self__, "is_updated", is_updated)
+        ReverseShippingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_updated=is_updated,
+            contact_details=contact_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_updated: Optional[bool] = None,
+             contact_details: Optional['outputs.ContactInfoResponse'] = None,
+             shipping_address: Optional['outputs.ShippingAddressResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_updated is None and 'isUpdated' in kwargs:
+            is_updated = kwargs['isUpdated']
+        if is_updated is None:
+            raise TypeError("Missing 'is_updated' argument")
+        if contact_details is None and 'contactDetails' in kwargs:
+            contact_details = kwargs['contactDetails']
+        if shipping_address is None and 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("is_updated", is_updated)
         if contact_details is not None:
-            pulumi.set(__self__, "contact_details", contact_details)
+            _setter("contact_details", contact_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="isUpdated")
@@ -5375,11 +7488,48 @@ class ShareCredentialDetailsResponse(dict):
         :param Sequence[str] supported_access_protocols: Access protocols supported on the device.
         :param str user_name: User name for the share.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "share_type", share_type)
-        pulumi.set(__self__, "supported_access_protocols", supported_access_protocols)
-        pulumi.set(__self__, "user_name", user_name)
+        ShareCredentialDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            share_name=share_name,
+            share_type=share_type,
+            supported_access_protocols=supported_access_protocols,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             share_name: Optional[str] = None,
+             share_type: Optional[str] = None,
+             supported_access_protocols: Optional[Sequence[str]] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if share_type is None and 'shareType' in kwargs:
+            share_type = kwargs['shareType']
+        if share_type is None:
+            raise TypeError("Missing 'share_type' argument")
+        if supported_access_protocols is None and 'supportedAccessProtocols' in kwargs:
+            supported_access_protocols = kwargs['supportedAccessProtocols']
+        if supported_access_protocols is None:
+            raise TypeError("Missing 'supported_access_protocols' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+
+        _setter("password", password)
+        _setter("share_name", share_name)
+        _setter("share_type", share_type)
+        _setter("supported_access_protocols", supported_access_protocols)
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -5490,30 +7640,87 @@ class ShippingAddressResponse(dict):
         :param str tax_identification_number: Tax Identification Number
         :param str zip_extended_code: Extended Zip Code.
         """
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "street_address1", street_address1)
+        ShippingAddressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country=country,
+            street_address1=street_address1,
+            address_type=address_type,
+            city=city,
+            company_name=company_name,
+            postal_code=postal_code,
+            skip_address_validation=skip_address_validation,
+            state_or_province=state_or_province,
+            street_address2=street_address2,
+            street_address3=street_address3,
+            tax_identification_number=tax_identification_number,
+            zip_extended_code=zip_extended_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country: Optional[str] = None,
+             street_address1: Optional[str] = None,
+             address_type: Optional[str] = None,
+             city: Optional[str] = None,
+             company_name: Optional[str] = None,
+             postal_code: Optional[str] = None,
+             skip_address_validation: Optional[bool] = None,
+             state_or_province: Optional[str] = None,
+             street_address2: Optional[str] = None,
+             street_address3: Optional[str] = None,
+             tax_identification_number: Optional[str] = None,
+             zip_extended_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country is None:
+            raise TypeError("Missing 'country' argument")
+        if street_address1 is None and 'streetAddress1' in kwargs:
+            street_address1 = kwargs['streetAddress1']
+        if street_address1 is None:
+            raise TypeError("Missing 'street_address1' argument")
+        if address_type is None and 'addressType' in kwargs:
+            address_type = kwargs['addressType']
+        if company_name is None and 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if postal_code is None and 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if skip_address_validation is None and 'skipAddressValidation' in kwargs:
+            skip_address_validation = kwargs['skipAddressValidation']
+        if state_or_province is None and 'stateOrProvince' in kwargs:
+            state_or_province = kwargs['stateOrProvince']
+        if street_address2 is None and 'streetAddress2' in kwargs:
+            street_address2 = kwargs['streetAddress2']
+        if street_address3 is None and 'streetAddress3' in kwargs:
+            street_address3 = kwargs['streetAddress3']
+        if tax_identification_number is None and 'taxIdentificationNumber' in kwargs:
+            tax_identification_number = kwargs['taxIdentificationNumber']
+        if zip_extended_code is None and 'zipExtendedCode' in kwargs:
+            zip_extended_code = kwargs['zipExtendedCode']
+
+        _setter("country", country)
+        _setter("street_address1", street_address1)
         if address_type is None:
             address_type = 'None'
         if address_type is not None:
-            pulumi.set(__self__, "address_type", address_type)
+            _setter("address_type", address_type)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if skip_address_validation is not None:
-            pulumi.set(__self__, "skip_address_validation", skip_address_validation)
+            _setter("skip_address_validation", skip_address_validation)
         if state_or_province is not None:
-            pulumi.set(__self__, "state_or_province", state_or_province)
+            _setter("state_or_province", state_or_province)
         if street_address2 is not None:
-            pulumi.set(__self__, "street_address2", street_address2)
+            _setter("street_address2", street_address2)
         if street_address3 is not None:
-            pulumi.set(__self__, "street_address3", street_address3)
+            _setter("street_address3", street_address3)
         if tax_identification_number is not None:
-            pulumi.set(__self__, "tax_identification_number", tax_identification_number)
+            _setter("tax_identification_number", tax_identification_number)
         if zip_extended_code is not None:
-            pulumi.set(__self__, "zip_extended_code", zip_extended_code)
+            _setter("zip_extended_code", zip_extended_code)
 
     @property
     @pulumi.getter
@@ -5644,11 +7851,30 @@ class SkuResponse(dict):
         :param str display_name: The display name of the sku.
         :param str family: The sku family.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            display_name=display_name,
+            family=family,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             display_name: Optional[str] = None,
+             family: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("name", name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
 
     @property
     @pulumi.getter
@@ -5708,10 +7934,29 @@ class StorageAccountDetailsResponse(dict):
                Expected value is 'StorageAccount'.
         :param str storage_account_id: Storage Account Resource Id.
         """
+        StorageAccountDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_account_type=data_account_type,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_account_type: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_account_type is None and 'dataAccountType' in kwargs:
+            data_account_type = kwargs['dataAccountType']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+
         if data_account_type is None:
             data_account_type = 'StorageAccount'
-        pulumi.set(__self__, "data_account_type", 'StorageAccount')
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        _setter("data_account_type", 'StorageAccount')
+        _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -5779,12 +8024,57 @@ class SystemDataResponse(dict):
         :param str last_modified_by: A string identifier for the identity that last modified the resource
         :param str last_modified_by_type: The type of identity that last modified the resource: user, application, managedIdentity
         """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "created_by", created_by)
-        pulumi.set(__self__, "created_by_type", created_by_type)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by is None:
+            raise TypeError("Missing 'created_by' argument")
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if created_by_type is None:
+            raise TypeError("Missing 'created_by_type' argument")
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_at is None:
+            raise TypeError("Missing 'last_modified_at' argument")
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by is None:
+            raise TypeError("Missing 'last_modified_by' argument")
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+        if last_modified_by_type is None:
+            raise TypeError("Missing 'last_modified_by_type' argument")
+
+        _setter("created_at", created_at)
+        _setter("created_by", created_by)
+        _setter("created_by_type", created_by_type)
+        _setter("last_modified_at", last_modified_at)
+        _setter("last_modified_by", last_modified_by)
+        _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -5871,13 +8161,34 @@ class TransferAllDetailsResponse(dict):
         :param bool transfer_all_blobs: To indicate if all Azure blobs have to be transferred
         :param bool transfer_all_files: To indicate if all Azure Files have to be transferred
         """
+        TransferAllDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_account_type=data_account_type,
+            transfer_all_blobs=transfer_all_blobs,
+            transfer_all_files=transfer_all_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_account_type: Optional[str] = None,
+             transfer_all_blobs: Optional[bool] = None,
+             transfer_all_files: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_account_type is None and 'dataAccountType' in kwargs:
+            data_account_type = kwargs['dataAccountType']
+        if transfer_all_blobs is None and 'transferAllBlobs' in kwargs:
+            transfer_all_blobs = kwargs['transferAllBlobs']
+        if transfer_all_files is None and 'transferAllFiles' in kwargs:
+            transfer_all_files = kwargs['transferAllFiles']
+
         if data_account_type is None:
             data_account_type = 'StorageAccount'
-        pulumi.set(__self__, "data_account_type", data_account_type)
+        _setter("data_account_type", data_account_type)
         if transfer_all_blobs is not None:
-            pulumi.set(__self__, "transfer_all_blobs", transfer_all_blobs)
+            _setter("transfer_all_blobs", transfer_all_blobs)
         if transfer_all_files is not None:
-            pulumi.set(__self__, "transfer_all_files", transfer_all_files)
+            _setter("transfer_all_files", transfer_all_files)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -5940,11 +8251,34 @@ class TransferConfigurationResponse(dict):
         :param 'TransferConfigurationResponseTransferAllDetails' transfer_all_details: Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
         :param 'TransferConfigurationResponseTransferFilterDetails' transfer_filter_details: Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
         """
-        pulumi.set(__self__, "transfer_configuration_type", transfer_configuration_type)
+        TransferConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            transfer_configuration_type=transfer_configuration_type,
+            transfer_all_details=transfer_all_details,
+            transfer_filter_details=transfer_filter_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             transfer_configuration_type: Optional[str] = None,
+             transfer_all_details: Optional['outputs.TransferConfigurationResponseTransferAllDetails'] = None,
+             transfer_filter_details: Optional['outputs.TransferConfigurationResponseTransferFilterDetails'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transfer_configuration_type is None and 'transferConfigurationType' in kwargs:
+            transfer_configuration_type = kwargs['transferConfigurationType']
+        if transfer_configuration_type is None:
+            raise TypeError("Missing 'transfer_configuration_type' argument")
+        if transfer_all_details is None and 'transferAllDetails' in kwargs:
+            transfer_all_details = kwargs['transferAllDetails']
+        if transfer_filter_details is None and 'transferFilterDetails' in kwargs:
+            transfer_filter_details = kwargs['transferFilterDetails']
+
+        _setter("transfer_configuration_type", transfer_configuration_type)
         if transfer_all_details is not None:
-            pulumi.set(__self__, "transfer_all_details", transfer_all_details)
+            _setter("transfer_all_details", transfer_all_details)
         if transfer_filter_details is not None:
-            pulumi.set(__self__, "transfer_filter_details", transfer_filter_details)
+            _setter("transfer_filter_details", transfer_filter_details)
 
     @property
     @pulumi.getter(name="transferConfigurationType")
@@ -5982,8 +8316,19 @@ class TransferConfigurationResponseTransferAllDetails(dict):
         Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
         :param 'TransferAllDetailsResponse' include: Details to transfer all data.
         """
+        TransferConfigurationResponseTransferAllDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include=include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include: Optional['outputs.TransferAllDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if include is not None:
-            pulumi.set(__self__, "include", include)
+            _setter("include", include)
 
     @property
     @pulumi.getter
@@ -6005,8 +8350,19 @@ class TransferConfigurationResponseTransferFilterDetails(dict):
         Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
         :param 'TransferFilterDetailsResponse' include: Details of the filtering the transfer of data.
         """
+        TransferConfigurationResponseTransferFilterDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            include=include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             include: Optional['outputs.TransferFilterDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if include is not None:
-            pulumi.set(__self__, "include", include)
+            _setter("include", include)
 
     @property
     @pulumi.getter
@@ -6057,15 +8413,40 @@ class TransferFilterDetailsResponse(dict):
         :param 'BlobFilterDetailsResponse' blob_filter_details: Filter details to transfer blobs.
         :param Sequence['FilterFileDetailsResponse'] filter_file_details: Details of the filter files to be used for data transfer.
         """
+        TransferFilterDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_account_type=data_account_type,
+            azure_file_filter_details=azure_file_filter_details,
+            blob_filter_details=blob_filter_details,
+            filter_file_details=filter_file_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_account_type: Optional[str] = None,
+             azure_file_filter_details: Optional['outputs.AzureFileFilterDetailsResponse'] = None,
+             blob_filter_details: Optional['outputs.BlobFilterDetailsResponse'] = None,
+             filter_file_details: Optional[Sequence['outputs.FilterFileDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_account_type is None and 'dataAccountType' in kwargs:
+            data_account_type = kwargs['dataAccountType']
+        if azure_file_filter_details is None and 'azureFileFilterDetails' in kwargs:
+            azure_file_filter_details = kwargs['azureFileFilterDetails']
+        if blob_filter_details is None and 'blobFilterDetails' in kwargs:
+            blob_filter_details = kwargs['blobFilterDetails']
+        if filter_file_details is None and 'filterFileDetails' in kwargs:
+            filter_file_details = kwargs['filterFileDetails']
+
         if data_account_type is None:
             data_account_type = 'StorageAccount'
-        pulumi.set(__self__, "data_account_type", data_account_type)
+        _setter("data_account_type", data_account_type)
         if azure_file_filter_details is not None:
-            pulumi.set(__self__, "azure_file_filter_details", azure_file_filter_details)
+            _setter("azure_file_filter_details", azure_file_filter_details)
         if blob_filter_details is not None:
-            pulumi.set(__self__, "blob_filter_details", blob_filter_details)
+            _setter("blob_filter_details", blob_filter_details)
         if filter_file_details is not None:
-            pulumi.set(__self__, "filter_file_details", filter_file_details)
+            _setter("filter_file_details", filter_file_details)
 
     @property
     @pulumi.getter(name="dataAccountType")
@@ -6132,8 +8513,29 @@ class TransportPreferencesResponse(dict):
         :param bool is_updated: Read only property which indicates whether transport preferences has been updated or not after device is prepared.
         :param str preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
-        pulumi.set(__self__, "is_updated", is_updated)
-        pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
+        TransportPreferencesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_updated=is_updated,
+            preferred_shipment_type=preferred_shipment_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_updated: Optional[bool] = None,
+             preferred_shipment_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_updated is None and 'isUpdated' in kwargs:
+            is_updated = kwargs['isUpdated']
+        if is_updated is None:
+            raise TypeError("Missing 'is_updated' argument")
+        if preferred_shipment_type is None and 'preferredShipmentType' in kwargs:
+            preferred_shipment_type = kwargs['preferredShipmentType']
+        if preferred_shipment_type is None:
+            raise TypeError("Missing 'preferred_shipment_type' argument")
+
+        _setter("is_updated", is_updated)
+        _setter("preferred_shipment_type", preferred_shipment_type)
 
     @property
     @pulumi.getter(name="isUpdated")
@@ -6165,8 +8567,29 @@ class UnencryptedCredentialsResponse(dict):
         :param str job_name: Name of the job.
         :param Union['CustomerDiskJobSecretsResponse', 'DataBoxDiskJobSecretsResponse', 'DataBoxHeavyJobSecretsResponse', 'DataboxJobSecretsResponse'] job_secrets: Secrets related to this job.
         """
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "job_secrets", job_secrets)
+        UnencryptedCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_name=job_name,
+            job_secrets=job_secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_name: Optional[str] = None,
+             job_secrets: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if job_name is None:
+            raise TypeError("Missing 'job_name' argument")
+        if job_secrets is None and 'jobSecrets' in kwargs:
+            job_secrets = kwargs['jobSecrets']
+        if job_secrets is None:
+            raise TypeError("Missing 'job_secrets' argument")
+
+        _setter("job_name", job_name)
+        _setter("job_secrets", job_secrets)
 
     @property
     @pulumi.getter(name="jobName")
@@ -6217,8 +8640,29 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -6265,8 +8709,21 @@ class UserAssignedPropertiesResponse(dict):
         User assigned identity properties.
         :param str resource_id: Arm resource id for user assigned identity to be used to fetch MSI token.
         """
+        UserAssignedPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,44 @@ class ContentKeyPolicyArgs:
         :param pulumi.Input[str] content_key_policy_name: The Content Key Policy name.
         :param pulumi.Input[str] description: A description for the Policy.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "options", options)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ContentKeyPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            options=options,
+            resource_group_name=resource_group_name,
+            content_key_policy_name=content_key_policy_name,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyOptionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             content_key_policy_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if options is None:
+            raise TypeError("Missing 'options' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if content_key_policy_name is None and 'contentKeyPolicyName' in kwargs:
+            content_key_policy_name = kwargs['contentKeyPolicyName']
+
+        _setter("account_name", account_name)
+        _setter("options", options)
+        _setter("resource_group_name", resource_group_name)
         if content_key_policy_name is not None:
-            pulumi.set(__self__, "content_key_policy_name", content_key_policy_name)
+            _setter("content_key_policy_name", content_key_policy_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="accountName")
@@ -142,6 +173,10 @@ class ContentKeyPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContentKeyPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

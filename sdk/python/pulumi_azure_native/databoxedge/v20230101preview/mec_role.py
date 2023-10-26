@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,18 +37,63 @@ class MECRoleArgs:
         :param pulumi.Input[str] name: The role name.
         :param pulumi.Input[str] resource_unique_id: Unique Id of the Resource.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "kind", 'MEC')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_status", role_status)
+        MECRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            role_status=role_status,
+            connection_string=connection_string,
+            controller_endpoint=controller_endpoint,
+            name=name,
+            resource_unique_id=resource_unique_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
+             connection_string: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+             controller_endpoint: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_unique_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if role_status is None and 'roleStatus' in kwargs:
+            role_status = kwargs['roleStatus']
+        if role_status is None:
+            raise TypeError("Missing 'role_status' argument")
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if controller_endpoint is None and 'controllerEndpoint' in kwargs:
+            controller_endpoint = kwargs['controllerEndpoint']
+        if resource_unique_id is None and 'resourceUniqueId' in kwargs:
+            resource_unique_id = kwargs['resourceUniqueId']
+
+        _setter("device_name", device_name)
+        _setter("kind", 'MEC')
+        _setter("resource_group_name", resource_group_name)
+        _setter("role_status", role_status)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if controller_endpoint is not None:
-            pulumi.set(__self__, "controller_endpoint", controller_endpoint)
+            _setter("controller_endpoint", controller_endpoint)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_unique_id is not None:
-            pulumi.set(__self__, "resource_unique_id", resource_unique_id)
+            _setter("resource_unique_id", resource_unique_id)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -196,6 +241,10 @@ class MECRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MECRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,6 +267,7 @@ class MECRole(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MECRoleArgs.__new__(MECRoleArgs)
 
+            connection_string = _utilities.configure(connection_string, AsymmetricEncryptedSecretArgs, True)
             __props__.__dict__["connection_string"] = connection_string
             __props__.__dict__["controller_endpoint"] = controller_endpoint
             if device_name is None and not opts.urn:

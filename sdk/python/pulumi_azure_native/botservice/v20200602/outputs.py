@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -37,12 +37,49 @@ class ServiceProviderParameterResponse(dict):
         :param str name: Name of the Service Provider
         :param str type: Type of the Service Provider
         """
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "help_url", help_url)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ServiceProviderParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default=default,
+            description=description,
+            display_name=display_name,
+            help_url=help_url,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             help_url: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default is None:
+            raise TypeError("Missing 'default' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if help_url is None and 'helpUrl' in kwargs:
+            help_url = kwargs['helpUrl']
+        if help_url is None:
+            raise TypeError("Missing 'help_url' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("default", default)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("help_url", help_url)
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -114,13 +151,52 @@ class ServiceProviderPropertiesResponse(dict):
         :param str service_provider_name: Display Name of the Service Provider
         :param Sequence['ServiceProviderParameterResponse'] parameters: The list of parameters for the Service Provider
         """
-        pulumi.set(__self__, "dev_portal_url", dev_portal_url)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "icon_url", icon_url)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "service_provider_name", service_provider_name)
+        ServiceProviderPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_portal_url=dev_portal_url,
+            display_name=display_name,
+            icon_url=icon_url,
+            id=id,
+            service_provider_name=service_provider_name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_portal_url: Optional[str] = None,
+             display_name: Optional[str] = None,
+             icon_url: Optional[str] = None,
+             id: Optional[str] = None,
+             service_provider_name: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.ServiceProviderParameterResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dev_portal_url is None and 'devPortalUrl' in kwargs:
+            dev_portal_url = kwargs['devPortalUrl']
+        if dev_portal_url is None:
+            raise TypeError("Missing 'dev_portal_url' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if icon_url is None and 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if icon_url is None:
+            raise TypeError("Missing 'icon_url' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if service_provider_name is None and 'serviceProviderName' in kwargs:
+            service_provider_name = kwargs['serviceProviderName']
+        if service_provider_name is None:
+            raise TypeError("Missing 'service_provider_name' argument")
+
+        _setter("dev_portal_url", dev_portal_url)
+        _setter("display_name", display_name)
+        _setter("icon_url", icon_url)
+        _setter("id", id)
+        _setter("service_provider_name", service_provider_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="devPortalUrl")
@@ -182,8 +258,19 @@ class ServiceProviderResponse(dict):
         Service Provider Definition
         :param 'ServiceProviderPropertiesResponse' properties: The Properties of a Service Provider Object
         """
+        ServiceProviderResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.ServiceProviderPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -22,7 +22,20 @@ class SkuArgs:
         The SKU of a container registry.
         :param pulumi.Input[str] name: The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -47,8 +60,27 @@ class StorageAccountParametersArgs:
         :param pulumi.Input[str] access_key: The access key to the storage account.
         :param pulumi.Input[str] name: The name of the storage account.
         """
-        pulumi.set(__self__, "access_key", access_key)
-        pulumi.set(__self__, "name", name)
+        StorageAccountParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("access_key", access_key)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="accessKey")

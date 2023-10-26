@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -45,27 +45,78 @@ class AssessmentProjectsOperationArgs:
                exclusive access method.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AssessmentProjectsOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            assessment_solution_id=assessment_solution_id,
+            customer_storage_account_arm_id=customer_storage_account_arm_id,
+            customer_workspace_id=customer_workspace_id,
+            customer_workspace_location=customer_workspace_location,
+            location=location,
+            project_name=project_name,
+            project_status=project_status,
+            provisioning_state=provisioning_state,
+            public_network_access=public_network_access,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             assessment_solution_id: Optional[pulumi.Input[str]] = None,
+             customer_storage_account_arm_id: Optional[pulumi.Input[str]] = None,
+             customer_workspace_id: Optional[pulumi.Input[str]] = None,
+             customer_workspace_location: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             project_status: Optional[pulumi.Input[Union[str, 'ProjectStatus']]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if assessment_solution_id is None and 'assessmentSolutionId' in kwargs:
+            assessment_solution_id = kwargs['assessmentSolutionId']
+        if customer_storage_account_arm_id is None and 'customerStorageAccountArmId' in kwargs:
+            customer_storage_account_arm_id = kwargs['customerStorageAccountArmId']
+        if customer_workspace_id is None and 'customerWorkspaceId' in kwargs:
+            customer_workspace_id = kwargs['customerWorkspaceId']
+        if customer_workspace_location is None and 'customerWorkspaceLocation' in kwargs:
+            customer_workspace_location = kwargs['customerWorkspaceLocation']
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_status is None and 'projectStatus' in kwargs:
+            project_status = kwargs['projectStatus']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
+        _setter("resource_group_name", resource_group_name)
         if assessment_solution_id is not None:
-            pulumi.set(__self__, "assessment_solution_id", assessment_solution_id)
+            _setter("assessment_solution_id", assessment_solution_id)
         if customer_storage_account_arm_id is not None:
-            pulumi.set(__self__, "customer_storage_account_arm_id", customer_storage_account_arm_id)
+            _setter("customer_storage_account_arm_id", customer_storage_account_arm_id)
         if customer_workspace_id is not None:
-            pulumi.set(__self__, "customer_workspace_id", customer_workspace_id)
+            _setter("customer_workspace_id", customer_workspace_id)
         if customer_workspace_location is not None:
-            pulumi.set(__self__, "customer_workspace_location", customer_workspace_location)
+            _setter("customer_workspace_location", customer_workspace_location)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if project_name is not None:
-            pulumi.set(__self__, "project_name", project_name)
+            _setter("project_name", project_name)
         if project_status is not None:
-            pulumi.set(__self__, "project_status", project_status)
+            _setter("project_status", project_status)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -263,6 +314,10 @@ class AssessmentProjectsOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentProjectsOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GraphQLApiResolverArgs', 'GraphQLApiResolver']
@@ -31,17 +31,56 @@ class GraphQLApiResolverArgs:
         :param pulumi.Input[str] path: Path is type/field being resolved.
         :param pulumi.Input[str] resolver_id: Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        GraphQLApiResolverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            description=description,
+            display_name=display_name,
+            path=path,
+            resolver_id=resolver_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             resolver_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if resolver_id is None and 'resolverId' in kwargs:
+            resolver_id = kwargs['resolverId']
+
+        _setter("api_id", api_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if resolver_id is not None:
-            pulumi.set(__self__, "resolver_id", resolver_id)
+            _setter("resolver_id", resolver_id)
 
     @property
     @pulumi.getter(name="apiId")
@@ -179,6 +218,10 @@ class GraphQLApiResolver(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GraphQLApiResolverArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

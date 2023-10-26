@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -58,43 +58,122 @@ class VirtualHubArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
         :param pulumi.Input['SubResourceArgs'] vpn_gateway: The VpnGateway associated with this VirtualHub.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            address_prefix=address_prefix,
+            azure_firewall=azure_firewall,
+            enable_virtual_router_route_propogation=enable_virtual_router_route_propogation,
+            express_route_gateway=express_route_gateway,
+            id=id,
+            location=location,
+            p2_s_vpn_gateway=p2_s_vpn_gateway,
+            route_table=route_table,
+            security_partner_provider=security_partner_provider,
+            security_provider_name=security_provider_name,
+            sku=sku,
+            tags=tags,
+            virtual_hub_name=virtual_hub_name,
+            virtual_hub_route_table_v2s=virtual_hub_route_table_v2s,
+            virtual_router_asn=virtual_router_asn,
+            virtual_router_ips=virtual_router_ips,
+            virtual_wan=virtual_wan,
+            vpn_gateway=vpn_gateway,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             azure_firewall: Optional[pulumi.Input['SubResourceArgs']] = None,
+             enable_virtual_router_route_propogation: Optional[pulumi.Input[bool]] = None,
+             express_route_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             p2_s_vpn_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+             route_table: Optional[pulumi.Input['VirtualHubRouteTableArgs']] = None,
+             security_partner_provider: Optional[pulumi.Input['SubResourceArgs']] = None,
+             security_provider_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub_name: Optional[pulumi.Input[str]] = None,
+             virtual_hub_route_table_v2s: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableV2Args']]]] = None,
+             virtual_router_asn: Optional[pulumi.Input[float]] = None,
+             virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_wan: Optional[pulumi.Input['SubResourceArgs']] = None,
+             vpn_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if address_prefix is None and 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if azure_firewall is None and 'azureFirewall' in kwargs:
+            azure_firewall = kwargs['azureFirewall']
+        if enable_virtual_router_route_propogation is None and 'enableVirtualRouterRoutePropogation' in kwargs:
+            enable_virtual_router_route_propogation = kwargs['enableVirtualRouterRoutePropogation']
+        if express_route_gateway is None and 'expressRouteGateway' in kwargs:
+            express_route_gateway = kwargs['expressRouteGateway']
+        if p2_s_vpn_gateway is None and 'p2SVpnGateway' in kwargs:
+            p2_s_vpn_gateway = kwargs['p2SVpnGateway']
+        if route_table is None and 'routeTable' in kwargs:
+            route_table = kwargs['routeTable']
+        if security_partner_provider is None and 'securityPartnerProvider' in kwargs:
+            security_partner_provider = kwargs['securityPartnerProvider']
+        if security_provider_name is None and 'securityProviderName' in kwargs:
+            security_provider_name = kwargs['securityProviderName']
+        if virtual_hub_name is None and 'virtualHubName' in kwargs:
+            virtual_hub_name = kwargs['virtualHubName']
+        if virtual_hub_route_table_v2s is None and 'virtualHubRouteTableV2s' in kwargs:
+            virtual_hub_route_table_v2s = kwargs['virtualHubRouteTableV2s']
+        if virtual_router_asn is None and 'virtualRouterAsn' in kwargs:
+            virtual_router_asn = kwargs['virtualRouterAsn']
+        if virtual_router_ips is None and 'virtualRouterIps' in kwargs:
+            virtual_router_ips = kwargs['virtualRouterIps']
+        if virtual_wan is None and 'virtualWan' in kwargs:
+            virtual_wan = kwargs['virtualWan']
+        if vpn_gateway is None and 'vpnGateway' in kwargs:
+            vpn_gateway = kwargs['vpnGateway']
+
+        _setter("resource_group_name", resource_group_name)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if azure_firewall is not None:
-            pulumi.set(__self__, "azure_firewall", azure_firewall)
+            _setter("azure_firewall", azure_firewall)
         if enable_virtual_router_route_propogation is not None:
-            pulumi.set(__self__, "enable_virtual_router_route_propogation", enable_virtual_router_route_propogation)
+            _setter("enable_virtual_router_route_propogation", enable_virtual_router_route_propogation)
         if express_route_gateway is not None:
-            pulumi.set(__self__, "express_route_gateway", express_route_gateway)
+            _setter("express_route_gateway", express_route_gateway)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if p2_s_vpn_gateway is not None:
-            pulumi.set(__self__, "p2_s_vpn_gateway", p2_s_vpn_gateway)
+            _setter("p2_s_vpn_gateway", p2_s_vpn_gateway)
         if route_table is not None:
-            pulumi.set(__self__, "route_table", route_table)
+            _setter("route_table", route_table)
         if security_partner_provider is not None:
-            pulumi.set(__self__, "security_partner_provider", security_partner_provider)
+            _setter("security_partner_provider", security_partner_provider)
         if security_provider_name is not None:
-            pulumi.set(__self__, "security_provider_name", security_provider_name)
+            _setter("security_provider_name", security_provider_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub_name is not None:
-            pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+            _setter("virtual_hub_name", virtual_hub_name)
         if virtual_hub_route_table_v2s is not None:
-            pulumi.set(__self__, "virtual_hub_route_table_v2s", virtual_hub_route_table_v2s)
+            _setter("virtual_hub_route_table_v2s", virtual_hub_route_table_v2s)
         if virtual_router_asn is not None:
-            pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
+            _setter("virtual_router_asn", virtual_router_asn)
         if virtual_router_ips is not None:
-            pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
+            _setter("virtual_router_ips", virtual_router_ips)
         if virtual_wan is not None:
-            pulumi.set(__self__, "virtual_wan", virtual_wan)
+            _setter("virtual_wan", virtual_wan)
         if vpn_gateway is not None:
-            pulumi.set(__self__, "vpn_gateway", vpn_gateway)
+            _setter("vpn_gateway", vpn_gateway)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -396,6 +475,10 @@ class VirtualHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -430,16 +513,21 @@ class VirtualHub(pulumi.CustomResource):
             __props__ = VirtualHubArgs.__new__(VirtualHubArgs)
 
             __props__.__dict__["address_prefix"] = address_prefix
+            azure_firewall = _utilities.configure(azure_firewall, SubResourceArgs, True)
             __props__.__dict__["azure_firewall"] = azure_firewall
             __props__.__dict__["enable_virtual_router_route_propogation"] = enable_virtual_router_route_propogation
+            express_route_gateway = _utilities.configure(express_route_gateway, SubResourceArgs, True)
             __props__.__dict__["express_route_gateway"] = express_route_gateway
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
+            p2_s_vpn_gateway = _utilities.configure(p2_s_vpn_gateway, SubResourceArgs, True)
             __props__.__dict__["p2_s_vpn_gateway"] = p2_s_vpn_gateway
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            route_table = _utilities.configure(route_table, VirtualHubRouteTableArgs, True)
             __props__.__dict__["route_table"] = route_table
+            security_partner_provider = _utilities.configure(security_partner_provider, SubResourceArgs, True)
             __props__.__dict__["security_partner_provider"] = security_partner_provider
             __props__.__dict__["security_provider_name"] = security_provider_name
             __props__.__dict__["sku"] = sku
@@ -448,7 +536,9 @@ class VirtualHub(pulumi.CustomResource):
             __props__.__dict__["virtual_hub_route_table_v2s"] = virtual_hub_route_table_v2s
             __props__.__dict__["virtual_router_asn"] = virtual_router_asn
             __props__.__dict__["virtual_router_ips"] = virtual_router_ips
+            virtual_wan = _utilities.configure(virtual_wan, SubResourceArgs, True)
             __props__.__dict__["virtual_wan"] = virtual_wan
+            vpn_gateway = _utilities.configure(vpn_gateway, SubResourceArgs, True)
             __props__.__dict__["vpn_gateway"] = vpn_gateway
             __props__.__dict__["bgp_connections"] = None
             __props__.__dict__["etag"] = None

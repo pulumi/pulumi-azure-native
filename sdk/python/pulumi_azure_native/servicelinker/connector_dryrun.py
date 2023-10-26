@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,43 @@ class ConnectorDryrunArgs:
         :param pulumi.Input['CreateOrUpdateDryrunParametersArgs'] parameters: The parameters of the dryrun
         :param pulumi.Input[str] subscription_id: The ID of the target subscription.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectorDryrunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            resource_group_name=resource_group_name,
+            dryrun_name=dryrun_name,
+            parameters=parameters,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             dryrun_name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dryrun_name is None and 'dryrunName' in kwargs:
+            dryrun_name = kwargs['dryrunName']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
+        _setter("location", location)
+        _setter("resource_group_name", resource_group_name)
         if dryrun_name is not None:
-            pulumi.set(__self__, "dryrun_name", dryrun_name)
+            _setter("dryrun_name", dryrun_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -143,6 +172,10 @@ class ConnectorDryrun(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorDryrunArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -166,6 +199,7 @@ class ConnectorDryrun(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
+            parameters = _utilities.configure(parameters, CreateOrUpdateDryrunParametersArgs, True)
             __props__.__dict__["parameters"] = parameters
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

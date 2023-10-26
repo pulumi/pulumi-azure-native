@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -68,12 +68,45 @@ class AdditionalLocationResponse(dict):
         :param Sequence[str] static_ips: Static IP addresses of the location's virtual machines.
         :param 'VirtualNetworkConfigurationResponse' virtual_network_configuration: Virtual network configuration for the location.
         """
-        pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "static_ips", static_ips)
+        AdditionalLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_regional_url=gateway_regional_url,
+            location=location,
+            sku=sku,
+            static_ips=static_ips,
+            virtual_network_configuration=virtual_network_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_regional_url: Optional[str] = None,
+             location: Optional[str] = None,
+             sku: Optional['outputs.ApiManagementServiceSkuPropertiesResponse'] = None,
+             static_ips: Optional[Sequence[str]] = None,
+             virtual_network_configuration: Optional['outputs.VirtualNetworkConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_regional_url is None and 'gatewayRegionalUrl' in kwargs:
+            gateway_regional_url = kwargs['gatewayRegionalUrl']
+        if gateway_regional_url is None:
+            raise TypeError("Missing 'gateway_regional_url' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if static_ips is None and 'staticIps' in kwargs:
+            static_ips = kwargs['staticIps']
+        if static_ips is None:
+            raise TypeError("Missing 'static_ips' argument")
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+
+        _setter("gateway_regional_url", gateway_regional_url)
+        _setter("location", location)
+        _setter("sku", sku)
+        _setter("static_ips", static_ips)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
 
     @property
     @pulumi.getter(name="gatewayRegionalUrl")
@@ -150,9 +183,34 @@ class ApiManagementServiceIdentityResponse(dict):
         :param str tenant_id: The client tenant id of the identity.
         :param str type: The identity type. Currently the only supported type is 'SystemAssigned'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ApiManagementServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -192,11 +250,26 @@ class ApiManagementServiceSkuPropertiesResponse(dict):
         :param str name: Name of the Sku.
         :param int capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
-        pulumi.set(__self__, "name", name)
+        ApiManagementServiceSkuPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is None:
             capacity = 1
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -263,17 +336,60 @@ class ApiVersionSetContractResponse(dict):
         :param str version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param str version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "versioning_scheme", versioning_scheme)
+        ApiVersionSetContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            id=id,
+            name=name,
+            type=type,
+            versioning_scheme=versioning_scheme,
+            description=description,
+            version_header_name=version_header_name,
+            version_query_name=version_query_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             versioning_scheme: Optional[str] = None,
+             description: Optional[str] = None,
+             version_header_name: Optional[str] = None,
+             version_query_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if versioning_scheme is None and 'versioningScheme' in kwargs:
+            versioning_scheme = kwargs['versioningScheme']
+        if versioning_scheme is None:
+            raise TypeError("Missing 'versioning_scheme' argument")
+        if version_header_name is None and 'versionHeaderName' in kwargs:
+            version_header_name = kwargs['versionHeaderName']
+        if version_query_name is None and 'versionQueryName' in kwargs:
+            version_query_name = kwargs['versionQueryName']
+
+        _setter("display_name", display_name)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
+        _setter("versioning_scheme", versioning_scheme)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if version_header_name is not None:
-            pulumi.set(__self__, "version_header_name", version_header_name)
+            _setter("version_header_name", version_header_name)
         if version_query_name is not None:
-            pulumi.set(__self__, "version_query_name", version_query_name)
+            _setter("version_query_name", version_query_name)
 
     @property
     @pulumi.getter(name="displayName")
@@ -368,8 +484,21 @@ class AuthenticationSettingsContractResponse(dict):
         API Authentication Settings.
         :param 'OAuth2AuthenticationSettingsContractResponse' o_auth2: OAuth2 Authentication settings
         """
+        AuthenticationSettingsContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            o_auth2=o_auth2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             o_auth2: Optional['outputs.OAuth2AuthenticationSettingsContractResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if o_auth2 is None and 'oAuth2' in kwargs:
+            o_auth2 = kwargs['oAuth2']
+
         if o_auth2 is not None:
-            pulumi.set(__self__, "o_auth2", o_auth2)
+            _setter("o_auth2", o_auth2)
 
     @property
     @pulumi.getter(name="oAuth2")
@@ -418,12 +547,39 @@ class CertificateConfigurationResponse(dict):
         :param str certificate_password: Certificate Password.
         :param str encoded_certificate: Base64 Encoded certificate.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "store_name", store_name)
+        CertificateConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            store_name=store_name,
+            certificate_password=certificate_password,
+            encoded_certificate=encoded_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional['outputs.CertificateInformationResponse'] = None,
+             store_name: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             encoded_certificate: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if store_name is None and 'storeName' in kwargs:
+            store_name = kwargs['storeName']
+        if store_name is None:
+            raise TypeError("Missing 'store_name' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if encoded_certificate is None and 'encodedCertificate' in kwargs:
+            encoded_certificate = kwargs['encodedCertificate']
+
+        _setter("certificate", certificate)
+        _setter("store_name", store_name)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if encoded_certificate is not None:
-            pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+            _setter("encoded_certificate", encoded_certificate)
 
     @property
     @pulumi.getter
@@ -473,9 +629,30 @@ class CertificateInformationResponse(dict):
         :param str subject: Subject of the certificate.
         :param str thumbprint: Thumbprint of the certificate.
         """
-        pulumi.set(__self__, "expiry", expiry)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "thumbprint", thumbprint)
+        CertificateInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry=expiry,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expiry is None:
+            raise TypeError("Missing 'expiry' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+
+        _setter("expiry", expiry)
+        _setter("subject", subject)
+        _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter
@@ -546,15 +723,54 @@ class GroupContractResponse(dict):
         :param str description: Group description. Can contain HTML formatting tags.
         :param str external_id: For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
         """
-        pulumi.set(__self__, "built_in", built_in)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        GroupContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            built_in=built_in,
+            display_name=display_name,
+            id=id,
+            name=name,
+            type=type,
+            description=description,
+            external_id=external_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             built_in: Optional[bool] = None,
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             description: Optional[str] = None,
+             external_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if built_in is None and 'builtIn' in kwargs:
+            built_in = kwargs['builtIn']
+        if built_in is None:
+            raise TypeError("Missing 'built_in' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+
+        _setter("built_in", built_in)
+        _setter("display_name", display_name)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
 
     @property
     @pulumi.getter(name="builtIn")
@@ -665,23 +881,66 @@ class HostnameConfigurationResponse(dict):
         :param str key_vault_id: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
         :param bool negotiate_client_certificate: Specify true to always negotiate client certificate on the hostname. Default Value is false.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "type", type)
+        HostnameConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            host_name=host_name,
+            type=type,
+            certificate_password=certificate_password,
+            default_ssl_binding=default_ssl_binding,
+            encoded_certificate=encoded_certificate,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional['outputs.CertificateInformationResponse'] = None,
+             host_name: Optional[str] = None,
+             type: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             default_ssl_binding: Optional[bool] = None,
+             encoded_certificate: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if certificate_password is None and 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if default_ssl_binding is None and 'defaultSslBinding' in kwargs:
+            default_ssl_binding = kwargs['defaultSslBinding']
+        if encoded_certificate is None and 'encodedCertificate' in kwargs:
+            encoded_certificate = kwargs['encodedCertificate']
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if negotiate_client_certificate is None and 'negotiateClientCertificate' in kwargs:
+            negotiate_client_certificate = kwargs['negotiateClientCertificate']
+
+        _setter("certificate", certificate)
+        _setter("host_name", host_name)
+        _setter("type", type)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if default_ssl_binding is None:
             default_ssl_binding = False
         if default_ssl_binding is not None:
-            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+            _setter("default_ssl_binding", default_ssl_binding)
         if encoded_certificate is not None:
-            pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+            _setter("encoded_certificate", encoded_certificate)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is None:
             negotiate_client_certificate = False
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter
@@ -810,26 +1069,73 @@ class LoggerSamplingContractResponse(dict):
         :param str percentage_increase_timeout: Duration in ISO8601 format after which it's allowed to increase the sampling rate.
         :param str sampling_type: Sampling type.
         """
+        LoggerSamplingContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            evaluation_interval=evaluation_interval,
+            initial_percentage=initial_percentage,
+            max_percentage=max_percentage,
+            max_telemetry_items_per_second=max_telemetry_items_per_second,
+            min_percentage=min_percentage,
+            moving_average_ratio=moving_average_ratio,
+            percentage=percentage,
+            percentage_decrease_timeout=percentage_decrease_timeout,
+            percentage_increase_timeout=percentage_increase_timeout,
+            sampling_type=sampling_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             evaluation_interval: Optional[str] = None,
+             initial_percentage: Optional[float] = None,
+             max_percentage: Optional[float] = None,
+             max_telemetry_items_per_second: Optional[int] = None,
+             min_percentage: Optional[float] = None,
+             moving_average_ratio: Optional[float] = None,
+             percentage: Optional[float] = None,
+             percentage_decrease_timeout: Optional[str] = None,
+             percentage_increase_timeout: Optional[str] = None,
+             sampling_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if evaluation_interval is None and 'evaluationInterval' in kwargs:
+            evaluation_interval = kwargs['evaluationInterval']
+        if initial_percentage is None and 'initialPercentage' in kwargs:
+            initial_percentage = kwargs['initialPercentage']
+        if max_percentage is None and 'maxPercentage' in kwargs:
+            max_percentage = kwargs['maxPercentage']
+        if max_telemetry_items_per_second is None and 'maxTelemetryItemsPerSecond' in kwargs:
+            max_telemetry_items_per_second = kwargs['maxTelemetryItemsPerSecond']
+        if min_percentage is None and 'minPercentage' in kwargs:
+            min_percentage = kwargs['minPercentage']
+        if moving_average_ratio is None and 'movingAverageRatio' in kwargs:
+            moving_average_ratio = kwargs['movingAverageRatio']
+        if percentage_decrease_timeout is None and 'percentageDecreaseTimeout' in kwargs:
+            percentage_decrease_timeout = kwargs['percentageDecreaseTimeout']
+        if percentage_increase_timeout is None and 'percentageIncreaseTimeout' in kwargs:
+            percentage_increase_timeout = kwargs['percentageIncreaseTimeout']
+        if sampling_type is None and 'samplingType' in kwargs:
+            sampling_type = kwargs['samplingType']
+
         if evaluation_interval is not None:
-            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
+            _setter("evaluation_interval", evaluation_interval)
         if initial_percentage is not None:
-            pulumi.set(__self__, "initial_percentage", initial_percentage)
+            _setter("initial_percentage", initial_percentage)
         if max_percentage is not None:
-            pulumi.set(__self__, "max_percentage", max_percentage)
+            _setter("max_percentage", max_percentage)
         if max_telemetry_items_per_second is not None:
-            pulumi.set(__self__, "max_telemetry_items_per_second", max_telemetry_items_per_second)
+            _setter("max_telemetry_items_per_second", max_telemetry_items_per_second)
         if min_percentage is not None:
-            pulumi.set(__self__, "min_percentage", min_percentage)
+            _setter("min_percentage", min_percentage)
         if moving_average_ratio is not None:
-            pulumi.set(__self__, "moving_average_ratio", moving_average_ratio)
+            _setter("moving_average_ratio", moving_average_ratio)
         if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
+            _setter("percentage", percentage)
         if percentage_decrease_timeout is not None:
-            pulumi.set(__self__, "percentage_decrease_timeout", percentage_decrease_timeout)
+            _setter("percentage_decrease_timeout", percentage_decrease_timeout)
         if percentage_increase_timeout is not None:
-            pulumi.set(__self__, "percentage_increase_timeout", percentage_increase_timeout)
+            _setter("percentage_increase_timeout", percentage_increase_timeout)
         if sampling_type is not None:
-            pulumi.set(__self__, "sampling_type", sampling_type)
+            _setter("sampling_type", sampling_type)
 
     @property
     @pulumi.getter(name="evaluationInterval")
@@ -942,10 +1248,25 @@ class OAuth2AuthenticationSettingsContractResponse(dict):
         :param str authorization_server_id: OAuth authorization server identifier.
         :param str scope: operations scope.
         """
+        OAuth2AuthenticationSettingsContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_server_id=authorization_server_id,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_server_id: Optional[str] = None,
+             scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_server_id is None and 'authorizationServerId' in kwargs:
+            authorization_server_id = kwargs['authorizationServerId']
+
         if authorization_server_id is not None:
-            pulumi.set(__self__, "authorization_server_id", authorization_server_id)
+            _setter("authorization_server_id", authorization_server_id)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="authorizationServerId")
@@ -977,10 +1298,23 @@ class SubscriptionKeyParameterNamesContractResponse(dict):
         :param str header: Subscription key header name.
         :param str query: Subscription key query string parameter name.
         """
+        SubscriptionKeyParameterNamesContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: Optional[str] = None,
+             query: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
 
     @property
     @pulumi.getter
@@ -1012,10 +1346,23 @@ class UserIdentityContractResponse(dict):
         :param str id: Identifier value within provider.
         :param str provider: Identity provider name.
         """
+        UserIdentityContractResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             provider: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
 
     @property
     @pulumi.getter
@@ -1066,10 +1413,31 @@ class VirtualNetworkConfigurationResponse(dict):
         :param str vnetid: The virtual network ID. This is typically a GUID. Expect a null GUID by default.
         :param str subnet_resource_id: The full resource ID of a subnet in a virtual network to deploy the API Management service in.
         """
-        pulumi.set(__self__, "subnetname", subnetname)
-        pulumi.set(__self__, "vnetid", vnetid)
+        VirtualNetworkConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnetname=subnetname,
+            vnetid=vnetid,
+            subnet_resource_id=subnet_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnetname: Optional[str] = None,
+             vnetid: Optional[str] = None,
+             subnet_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnetname is None:
+            raise TypeError("Missing 'subnetname' argument")
+        if vnetid is None:
+            raise TypeError("Missing 'vnetid' argument")
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
+            subnet_resource_id = kwargs['subnetResourceId']
+
+        _setter("subnetname", subnetname)
+        _setter("vnetid", vnetid)
         if subnet_resource_id is not None:
-            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+            _setter("subnet_resource_id", subnet_resource_id)
 
     @property
     @pulumi.getter

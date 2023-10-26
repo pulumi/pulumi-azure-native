@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,13 +30,56 @@ class ActionArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] action_id: Action ID
         """
-        pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_id", rule_id)
-        pulumi.set(__self__, "trigger_uri", trigger_uri)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logic_app_resource_id=logic_app_resource_id,
+            resource_group_name=resource_group_name,
+            rule_id=rule_id,
+            trigger_uri=trigger_uri,
+            workspace_name=workspace_name,
+            action_id=action_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logic_app_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             trigger_uri: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             action_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logic_app_resource_id is None and 'logicAppResourceId' in kwargs:
+            logic_app_resource_id = kwargs['logicAppResourceId']
+        if logic_app_resource_id is None:
+            raise TypeError("Missing 'logic_app_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if rule_id is None:
+            raise TypeError("Missing 'rule_id' argument")
+        if trigger_uri is None and 'triggerUri' in kwargs:
+            trigger_uri = kwargs['triggerUri']
+        if trigger_uri is None:
+            raise TypeError("Missing 'trigger_uri' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if action_id is None and 'actionId' in kwargs:
+            action_id = kwargs['actionId']
+
+        _setter("logic_app_resource_id", logic_app_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("rule_id", rule_id)
+        _setter("trigger_uri", trigger_uri)
+        _setter("workspace_name", workspace_name)
         if action_id is not None:
-            pulumi.set(__self__, "action_id", action_id)
+            _setter("action_id", action_id)
 
     @property
     @pulumi.getter(name="logicAppResourceId")
@@ -160,6 +203,10 @@ class Action(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

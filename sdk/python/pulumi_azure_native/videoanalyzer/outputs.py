@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -94,12 +94,35 @@ class AccountEncryptionResponse(dict):
         :param 'ResourceIdentityResponse' identity: The Key Vault identity.
         :param 'KeyVaultPropertiesResponse' key_vault_properties: The properties of the key used to encrypt the account.
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "type", type)
+        AccountEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            type=type,
+            identity=identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             type: Optional[str] = None,
+             identity: Optional['outputs.ResourceIdentityResponse'] = None,
+             key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if key_vault_properties is None and 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
+        _setter("status", status)
+        _setter("type", type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter
@@ -165,9 +188,26 @@ class AudioEncoderAacResponse(dict):
                Expected value is '#Microsoft.VideoAnalyzer.AudioEncoderAac'.
         :param str bitrate_kbps: Bitrate, in kilobits per second or Kbps, at which audio should be encoded (2-channel stereo audio at a sampling rate of 48 kHz). Allowed values are 96, 112, 128, 160, 192, 224, and 256. If omitted, the bitrate of the input audio is used.
         """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.AudioEncoderAac')
+        AudioEncoderAacResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            bitrate_kbps=bitrate_kbps,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             bitrate_kbps: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if bitrate_kbps is None and 'bitrateKbps' in kwargs:
+            bitrate_kbps = kwargs['bitrateKbps']
+
+        _setter("type", '#Microsoft.VideoAnalyzer.AudioEncoderAac')
         if bitrate_kbps is not None:
-            pulumi.set(__self__, "bitrate_kbps", bitrate_kbps)
+            _setter("bitrate_kbps", bitrate_kbps)
 
     @property
     @pulumi.getter
@@ -207,11 +247,40 @@ class EccTokenKeyResponse(dict):
         :param str x: X coordinate.
         :param str y: Y coordinate.
         """
-        pulumi.set(__self__, "alg", alg)
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EccTokenKey')
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
+        EccTokenKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alg=alg,
+            kid=kid,
+            type=type,
+            x=x,
+            y=y,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alg: Optional[str] = None,
+             kid: Optional[str] = None,
+             type: Optional[str] = None,
+             x: Optional[str] = None,
+             y: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alg is None:
+            raise TypeError("Missing 'alg' argument")
+        if kid is None:
+            raise TypeError("Missing 'kid' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if x is None:
+            raise TypeError("Missing 'x' argument")
+        if y is None:
+            raise TypeError("Missing 'y' argument")
+
+        _setter("alg", alg)
+        _setter("kid", kid)
+        _setter("type", '#Microsoft.VideoAnalyzer.EccTokenKey')
+        _setter("x", x)
+        _setter("y", y)
 
     @property
     @pulumi.getter
@@ -290,11 +359,32 @@ class EncoderCustomPresetResponse(dict):
         :param 'AudioEncoderAacResponse' audio_encoder: Describes a custom preset for encoding audio.
         :param 'VideoEncoderH264Response' video_encoder: Describes a custom preset for encoding video.
         """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderCustomPreset')
+        EncoderCustomPresetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            audio_encoder=audio_encoder,
+            video_encoder=video_encoder,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             audio_encoder: Optional['outputs.AudioEncoderAacResponse'] = None,
+             video_encoder: Optional['outputs.VideoEncoderH264Response'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if audio_encoder is None and 'audioEncoder' in kwargs:
+            audio_encoder = kwargs['audioEncoder']
+        if video_encoder is None and 'videoEncoder' in kwargs:
+            video_encoder = kwargs['videoEncoder']
+
+        _setter("type", '#Microsoft.VideoAnalyzer.EncoderCustomPreset')
         if audio_encoder is not None:
-            pulumi.set(__self__, "audio_encoder", audio_encoder)
+            _setter("audio_encoder", audio_encoder)
         if video_encoder is not None:
-            pulumi.set(__self__, "video_encoder", video_encoder)
+            _setter("video_encoder", video_encoder)
 
     @property
     @pulumi.getter
@@ -340,10 +430,35 @@ class EncoderProcessorResponse(dict):
         :param str type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.EncoderProcessor'.
         """
-        pulumi.set(__self__, "inputs", inputs)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "preset", preset)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderProcessor')
+        EncoderProcessorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inputs=inputs,
+            name=name,
+            preset=preset,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inputs: Optional[Sequence['outputs.NodeInputResponse']] = None,
+             name: Optional[str] = None,
+             preset: Optional[Any] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inputs is None:
+            raise TypeError("Missing 'inputs' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if preset is None:
+            raise TypeError("Missing 'preset' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("inputs", inputs)
+        _setter("name", name)
+        _setter("preset", preset)
+        _setter("type", '#Microsoft.VideoAnalyzer.EncoderProcessor')
 
     @property
     @pulumi.getter
@@ -393,8 +508,25 @@ class EncoderSystemPresetResponse(dict):
         :param str type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.EncoderSystemPreset'.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EncoderSystemPreset')
+        EncoderSystemPresetResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", '#Microsoft.VideoAnalyzer.EncoderSystemPreset')
 
     @property
     @pulumi.getter
@@ -444,9 +576,26 @@ class EndpointResponse(dict):
         :param str type: The type of the endpoint.
         :param str endpoint_url: The URL of the endpoint.
         """
-        pulumi.set(__self__, "type", type)
+        EndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            endpoint_url=endpoint_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             endpoint_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if endpoint_url is None and 'endpointUrl' in kwargs:
+            endpoint_url = kwargs['endpointUrl']
+
+        _setter("type", type)
         if endpoint_url is not None:
-            pulumi.set(__self__, "endpoint_url", endpoint_url)
+            _setter("endpoint_url", endpoint_url)
 
     @property
     @pulumi.getter
@@ -493,8 +642,21 @@ class GroupLevelAccessControlResponse(dict):
         Group level network access control.
         :param str public_network_access: Whether or not public network access is allowed for specified resources under the Video Analyzer account.
         """
+        GroupLevelAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_network_access: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
@@ -520,9 +682,30 @@ class IotHubResponse(dict):
         :param 'ResourceIdentityResponse' identity: The IoT Hub identity.
         :param str status: The current status of the Iot Hub mapping.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "status", status)
+        IotHubResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            identity=identity,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             identity: Optional['outputs.ResourceIdentityResponse'] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("id", id)
+        _setter("identity", identity)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -569,15 +752,36 @@ class JwtAuthenticationResponse(dict):
         :param Sequence[str] issuers: List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
         :param Sequence[Union['EccTokenKeyResponse', 'RsaTokenKeyResponse']] keys: List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
         """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.JwtAuthentication')
+        JwtAuthenticationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            audiences=audiences,
+            claims=claims,
+            issuers=issuers,
+            keys=keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             audiences: Optional[Sequence[str]] = None,
+             claims: Optional[Sequence['outputs.TokenClaimResponse']] = None,
+             issuers: Optional[Sequence[str]] = None,
+             keys: Optional[Sequence[Any]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", '#Microsoft.VideoAnalyzer.JwtAuthentication')
         if audiences is not None:
-            pulumi.set(__self__, "audiences", audiences)
+            _setter("audiences", audiences)
         if claims is not None:
-            pulumi.set(__self__, "claims", claims)
+            _setter("claims", claims)
         if issuers is not None:
-            pulumi.set(__self__, "issuers", issuers)
+            _setter("issuers", issuers)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
 
     @property
     @pulumi.getter
@@ -653,8 +857,29 @@ class KeyVaultPropertiesResponse(dict):
         :param str current_key_identifier: The current key used to encrypt Video Analyzer account, including the key version.
         :param str key_identifier: The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
         """
-        pulumi.set(__self__, "current_key_identifier", current_key_identifier)
-        pulumi.set(__self__, "key_identifier", key_identifier)
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_key_identifier=current_key_identifier,
+            key_identifier=key_identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_key_identifier: Optional[str] = None,
+             key_identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_key_identifier is None and 'currentKeyIdentifier' in kwargs:
+            current_key_identifier = kwargs['currentKeyIdentifier']
+        if current_key_identifier is None:
+            raise TypeError("Missing 'current_key_identifier' argument")
+        if key_identifier is None and 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+        if key_identifier is None:
+            raise TypeError("Missing 'key_identifier' argument")
+
+        _setter("current_key_identifier", current_key_identifier)
+        _setter("key_identifier", key_identifier)
 
     @property
     @pulumi.getter(name="currentKeyIdentifier")
@@ -688,12 +913,27 @@ class NetworkAccessControlResponse(dict):
         :param 'GroupLevelAccessControlResponse' ingestion: Public network access for ingestion group.
         :param 'GroupLevelAccessControlResponse' integration: Public network access for integration group.
         """
+        NetworkAccessControlResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumption=consumption,
+            ingestion=ingestion,
+            integration=integration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumption: Optional['outputs.GroupLevelAccessControlResponse'] = None,
+             ingestion: Optional['outputs.GroupLevelAccessControlResponse'] = None,
+             integration: Optional['outputs.GroupLevelAccessControlResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if consumption is not None:
-            pulumi.set(__self__, "consumption", consumption)
+            _setter("consumption", consumption)
         if ingestion is not None:
-            pulumi.set(__self__, "ingestion", ingestion)
+            _setter("ingestion", ingestion)
         if integration is not None:
-            pulumi.set(__self__, "integration", integration)
+            _setter("integration", integration)
 
     @property
     @pulumi.getter
@@ -748,7 +988,22 @@ class NodeInputResponse(dict):
         Describes an input signal to be used on a pipeline node.
         :param str node_name: The name of the upstream node in the pipeline which output is used as input of the current node.
         """
-        pulumi.set(__self__, "node_name", node_name)
+        NodeInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_name=node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+        if node_name is None:
+            raise TypeError("Missing 'node_name' argument")
+
+        _setter("node_name", node_name)
 
     @property
     @pulumi.getter(name="nodeName")
@@ -776,12 +1031,33 @@ class ParameterDeclarationResponse(dict):
         :param str default: The default value for the parameter to be used if the pipeline does not specify a value.
         :param str description: Description of the parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ParameterDeclarationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            default=default,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             default: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -829,9 +1105,24 @@ class ParameterDefinitionResponse(dict):
         :param str name: Name of the parameter declared in the pipeline topology.
         :param str value: Parameter value to be applied on this specific pipeline.
         """
-        pulumi.set(__self__, "name", name)
+        ParameterDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -864,8 +1155,25 @@ class PemCertificateListResponse(dict):
         :param str type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.PemCertificateList'.
         """
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.PemCertificateList')
+        PemCertificateListResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("certificates", certificates)
+        _setter("type", '#Microsoft.VideoAnalyzer.PemCertificateList')
 
     @property
     @pulumi.getter
@@ -898,10 +1206,23 @@ class PipelineJobErrorResponse(dict):
         :param str code: The error code.
         :param str message: The error message.
         """
+        PipelineJobErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -966,14 +1287,57 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            private_endpoint=private_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
 
     @property
     @pulumi.getter
@@ -1043,7 +1407,20 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1086,12 +1463,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1146,7 +1540,22 @@ class ResourceIdentityResponse(dict):
         The user assigned managed identity to use when accessing a resource.
         :param str user_assigned_identity: The user assigned managed identity's resource identifier to use when accessing a resource.
         """
-        pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+        ResourceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+        if user_assigned_identity is None:
+            raise TypeError("Missing 'user_assigned_identity' argument")
+
+        _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="userAssignedIdentity")
@@ -1177,11 +1586,40 @@ class RsaTokenKeyResponse(dict):
         :param str type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
         """
-        pulumi.set(__self__, "alg", alg)
-        pulumi.set(__self__, "e", e)
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "n", n)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.RsaTokenKey')
+        RsaTokenKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alg=alg,
+            e=e,
+            kid=kid,
+            n=n,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alg: Optional[str] = None,
+             e: Optional[str] = None,
+             kid: Optional[str] = None,
+             n: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alg is None:
+            raise TypeError("Missing 'alg' argument")
+        if e is None:
+            raise TypeError("Missing 'e' argument")
+        if kid is None:
+            raise TypeError("Missing 'kid' argument")
+        if n is None:
+            raise TypeError("Missing 'n' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("alg", alg)
+        _setter("e", e)
+        _setter("kid", kid)
+        _setter("n", n)
+        _setter("type", '#Microsoft.VideoAnalyzer.RsaTokenKey')
 
     @property
     @pulumi.getter
@@ -1243,11 +1681,34 @@ class RtspSourceResponse(dict):
                Expected value is '#Microsoft.VideoAnalyzer.RtspSource'.
         :param str transport: Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.RtspSource')
+        RtspSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+            type=type,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[Any] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("endpoint", endpoint)
+        _setter("name", name)
+        _setter("type", '#Microsoft.VideoAnalyzer.RtspSource')
         if transport is not None:
-            pulumi.set(__self__, "transport", transport)
+            _setter("transport", transport)
 
     @property
     @pulumi.getter
@@ -1318,9 +1779,34 @@ class SecureIotDeviceRemoteTunnelResponse(dict):
         :param str type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel'.
         """
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "iot_hub_name", iot_hub_name)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel')
+        SecureIotDeviceRemoteTunnelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_id=device_id,
+            iot_hub_name=iot_hub_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_id: Optional[str] = None,
+             iot_hub_name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if device_id is None:
+            raise TypeError("Missing 'device_id' argument")
+        if iot_hub_name is None and 'iotHubName' in kwargs:
+            iot_hub_name = kwargs['iotHubName']
+        if iot_hub_name is None:
+            raise TypeError("Missing 'iot_hub_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("device_id", device_id)
+        _setter("iot_hub_name", iot_hub_name)
+        _setter("type", '#Microsoft.VideoAnalyzer.SecureIotDeviceRemoteTunnel')
 
     @property
     @pulumi.getter(name="deviceId")
@@ -1361,8 +1847,25 @@ class SkuResponse(dict):
         :param str name: The SKU name.
         :param str tier: The SKU tier.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1396,10 +1899,29 @@ class StorageAccountResponse(dict):
         :param str status: The current status of the storage account mapping.
         :param 'ResourceIdentityResponse' identity: A managed identity that Video Analyzer will use to access the storage account.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "status", status)
+        StorageAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            status=status,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             status: Optional[str] = None,
+             identity: Optional['outputs.ResourceIdentityResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("id", id)
+        _setter("status", status)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter
@@ -1474,18 +1996,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1577,15 +2132,46 @@ class TlsEndpointResponse(dict):
         :param 'SecureIotDeviceRemoteTunnelResponse' tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         :param 'TlsValidationOptionsResponse' validation_options: Validation options to use when authenticating a TLS connection. By default, strict validation is used.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.TlsEndpoint')
-        pulumi.set(__self__, "url", url)
+        TlsEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            type=type,
+            url=url,
+            trusted_certificates=trusted_certificates,
+            tunnel=tunnel,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional['outputs.UsernamePasswordCredentialsResponse'] = None,
+             type: Optional[str] = None,
+             url: Optional[str] = None,
+             trusted_certificates: Optional['outputs.PemCertificateListResponse'] = None,
+             tunnel: Optional['outputs.SecureIotDeviceRemoteTunnelResponse'] = None,
+             validation_options: Optional['outputs.TlsValidationOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if trusted_certificates is None and 'trustedCertificates' in kwargs:
+            trusted_certificates = kwargs['trustedCertificates']
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
+        _setter("credentials", credentials)
+        _setter("type", '#Microsoft.VideoAnalyzer.TlsEndpoint')
+        _setter("url", url)
         if trusted_certificates is not None:
-            pulumi.set(__self__, "trusted_certificates", trusted_certificates)
+            _setter("trusted_certificates", trusted_certificates)
         if tunnel is not None:
-            pulumi.set(__self__, "tunnel", tunnel)
+            _setter("tunnel", tunnel)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter
@@ -1669,10 +2255,27 @@ class TlsValidationOptionsResponse(dict):
         :param str ignore_hostname: When set to 'true' causes the certificate subject name validation to be skipped. Default is 'false'.
         :param str ignore_signature: When set to 'true' causes the certificate chain trust validation to be skipped. Default is 'false'.
         """
+        TlsValidationOptionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_hostname=ignore_hostname,
+            ignore_signature=ignore_signature,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_hostname: Optional[str] = None,
+             ignore_signature: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ignore_hostname is None and 'ignoreHostname' in kwargs:
+            ignore_hostname = kwargs['ignoreHostname']
+        if ignore_signature is None and 'ignoreSignature' in kwargs:
+            ignore_signature = kwargs['ignoreSignature']
+
         if ignore_hostname is not None:
-            pulumi.set(__self__, "ignore_hostname", ignore_hostname)
+            _setter("ignore_hostname", ignore_hostname)
         if ignore_signature is not None:
-            pulumi.set(__self__, "ignore_signature", ignore_signature)
+            _setter("ignore_signature", ignore_signature)
 
     @property
     @pulumi.getter(name="ignoreHostname")
@@ -1704,8 +2307,25 @@ class TokenClaimResponse(dict):
         :param str name: Name of the claim which must be present on the token.
         :param str value: Expected value of the claim to be present on the token.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TokenClaimResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1742,11 +2362,34 @@ class UnsecuredEndpointResponse(dict):
         :param str url: The endpoint URL for Video Analyzer to connect to.
         :param 'SecureIotDeviceRemoteTunnelResponse' tunnel: Describes the tunnel through which Video Analyzer can connect to the endpoint URL. This is an optional property, typically used when the endpoint is behind a firewall.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.UnsecuredEndpoint')
-        pulumi.set(__self__, "url", url)
+        UnsecuredEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            type=type,
+            url=url,
+            tunnel=tunnel,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional['outputs.UsernamePasswordCredentialsResponse'] = None,
+             type: Optional[str] = None,
+             url: Optional[str] = None,
+             tunnel: Optional['outputs.SecureIotDeviceRemoteTunnelResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
+        _setter("credentials", credentials)
+        _setter("type", '#Microsoft.VideoAnalyzer.UnsecuredEndpoint')
+        _setter("url", url)
         if tunnel is not None:
-            pulumi.set(__self__, "tunnel", tunnel)
+            _setter("tunnel", tunnel)
 
     @property
     @pulumi.getter
@@ -1814,8 +2457,29 @@ class UserAssignedManagedIdentityResponse(dict):
         :param str client_id: The client ID.
         :param str principal_id: The principal ID.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedManagedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1850,9 +2514,30 @@ class UsernamePasswordCredentialsResponse(dict):
                Expected value is '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials'.
         :param str username: Username to be presented as part of the credentials.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials')
-        pulumi.set(__self__, "username", username)
+        UsernamePasswordCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            type=type,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             type: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("type", '#Microsoft.VideoAnalyzer.UsernamePasswordCredentials')
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1910,9 +2595,26 @@ class VideoAnalyzerIdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'UserAssignedManagedIdentityResponse'] user_assigned_identities: The User Assigned Managed Identities.
         """
-        pulumi.set(__self__, "type", type)
+        VideoAnalyzerIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1959,8 +2661,21 @@ class VideoArchivalResponse(dict):
         Video archival properties.
         :param str retention_period: Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
         """
+        VideoArchivalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_period=retention_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_period: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
 
     @property
     @pulumi.getter(name="retentionPeriod")
@@ -2017,14 +2732,39 @@ class VideoContentUrlsResponse(dict):
         :param 'VideoPreviewImageUrlsResponse' preview_image_urls: Video preview image URLs. These URLs can be used in conjunction with the video content authorization token to download the most recent still image from the video archive in different resolutions. They are available when the video type is 'archive' and preview images are enabled.
         :param str rtsp_tunnel_url: Video low-latency streaming URL. The live content can be automatically played by the Azure Video Analyzer player widget. Alternatively, this URL can be used in conjunction with the video content authorization token to expose a WebSocket tunneled RTSP stream. It is available when the video type is 'archive' and a live, low-latency feed is available from the source.
         """
+        VideoContentUrlsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_base_url=archive_base_url,
+            download_url=download_url,
+            preview_image_urls=preview_image_urls,
+            rtsp_tunnel_url=rtsp_tunnel_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_base_url: Optional[str] = None,
+             download_url: Optional[str] = None,
+             preview_image_urls: Optional['outputs.VideoPreviewImageUrlsResponse'] = None,
+             rtsp_tunnel_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if archive_base_url is None and 'archiveBaseUrl' in kwargs:
+            archive_base_url = kwargs['archiveBaseUrl']
+        if download_url is None and 'downloadUrl' in kwargs:
+            download_url = kwargs['downloadUrl']
+        if preview_image_urls is None and 'previewImageUrls' in kwargs:
+            preview_image_urls = kwargs['previewImageUrls']
+        if rtsp_tunnel_url is None and 'rtspTunnelUrl' in kwargs:
+            rtsp_tunnel_url = kwargs['rtspTunnelUrl']
+
         if archive_base_url is not None:
-            pulumi.set(__self__, "archive_base_url", archive_base_url)
+            _setter("archive_base_url", archive_base_url)
         if download_url is not None:
-            pulumi.set(__self__, "download_url", download_url)
+            _setter("download_url", download_url)
         if preview_image_urls is not None:
-            pulumi.set(__self__, "preview_image_urls", preview_image_urls)
+            _setter("preview_image_urls", preview_image_urls)
         if rtsp_tunnel_url is not None:
-            pulumi.set(__self__, "rtsp_tunnel_url", rtsp_tunnel_url)
+            _setter("rtsp_tunnel_url", rtsp_tunnel_url)
 
     @property
     @pulumi.getter(name="archiveBaseUrl")
@@ -2101,14 +2841,35 @@ class VideoCreationPropertiesResponse(dict):
         :param str segment_length: Segment length indicates the length of individual content files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments. Changing this value after the initial call to create the video resource can lead to errors when uploading content to the archive. Default value is 30 seconds. This property is only allowed for topologies where "kind" is set to "live".
         :param str title: Optional title provided by the user. Value can be up to 256 characters long.
         """
+        VideoCreationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            retention_period=retention_period,
+            segment_length=segment_length,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             retention_period: Optional[str] = None,
+             segment_length: Optional[str] = None,
+             title: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if segment_length is None and 'segmentLength' in kwargs:
+            segment_length = kwargs['segmentLength']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if retention_period is not None:
-            pulumi.set(__self__, "retention_period", retention_period)
+            _setter("retention_period", retention_period)
         if segment_length is not None:
-            pulumi.set(__self__, "segment_length", segment_length)
+            _setter("segment_length", segment_length)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter
@@ -2180,13 +2941,36 @@ class VideoEncoderH264Response(dict):
         :param str frame_rate: The frame rate (in frames per second) of the encoded video. The value must be greater than zero, and less than or equal to 300. If omitted, the encoder uses the average frame rate of the input video.
         :param 'VideoScaleResponse' scale: Describes the resolution of the encoded video. If omitted, the encoder uses the resolution of the input video.
         """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoEncoderH264')
+        VideoEncoderH264Response._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            bitrate_kbps=bitrate_kbps,
+            frame_rate=frame_rate,
+            scale=scale,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             bitrate_kbps: Optional[str] = None,
+             frame_rate: Optional[str] = None,
+             scale: Optional['outputs.VideoScaleResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if bitrate_kbps is None and 'bitrateKbps' in kwargs:
+            bitrate_kbps = kwargs['bitrateKbps']
+        if frame_rate is None and 'frameRate' in kwargs:
+            frame_rate = kwargs['frameRate']
+
+        _setter("type", '#Microsoft.VideoAnalyzer.VideoEncoderH264')
         if bitrate_kbps is not None:
-            pulumi.set(__self__, "bitrate_kbps", bitrate_kbps)
+            _setter("bitrate_kbps", bitrate_kbps)
         if frame_rate is not None:
-            pulumi.set(__self__, "frame_rate", frame_rate)
+            _setter("frame_rate", frame_rate)
         if scale is not None:
-            pulumi.set(__self__, "scale", scale)
+            _setter("scale", scale)
 
     @property
     @pulumi.getter
@@ -2258,9 +3042,36 @@ class VideoFlagsResponse(dict):
         :param bool has_data: Value indicating whether or not there has ever been data recorded or uploaded into the video. Newly created videos have this value set to false.
         :param bool is_in_use: Value indicating whether or not the video is currently being referenced be an active pipeline. The fact that is being referenced, doesn't necessarily indicate that data is being received. For example, video recording may be gated on events or camera may not be accessible at the time.
         """
-        pulumi.set(__self__, "can_stream", can_stream)
-        pulumi.set(__self__, "has_data", has_data)
-        pulumi.set(__self__, "is_in_use", is_in_use)
+        VideoFlagsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            can_stream=can_stream,
+            has_data=has_data,
+            is_in_use=is_in_use,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             can_stream: Optional[bool] = None,
+             has_data: Optional[bool] = None,
+             is_in_use: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if can_stream is None and 'canStream' in kwargs:
+            can_stream = kwargs['canStream']
+        if can_stream is None:
+            raise TypeError("Missing 'can_stream' argument")
+        if has_data is None and 'hasData' in kwargs:
+            has_data = kwargs['hasData']
+        if has_data is None:
+            raise TypeError("Missing 'has_data' argument")
+        if is_in_use is None and 'isInUse' in kwargs:
+            is_in_use = kwargs['isInUse']
+        if is_in_use is None:
+            raise TypeError("Missing 'is_in_use' argument")
+
+        _setter("can_stream", can_stream)
+        _setter("has_data", has_data)
+        _setter("is_in_use", is_in_use)
 
     @property
     @pulumi.getter(name="canStream")
@@ -2315,8 +3126,21 @@ class VideoMediaInfoResponse(dict):
         Contains information about the video and audio content.
         :param str segment_length: Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
         """
+        VideoMediaInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            segment_length=segment_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             segment_length: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if segment_length is None and 'segmentLength' in kwargs:
+            segment_length = kwargs['segmentLength']
+
         if segment_length is not None:
-            pulumi.set(__self__, "segment_length", segment_length)
+            _setter("segment_length", segment_length)
 
     @property
     @pulumi.getter(name="segmentLength")
@@ -2342,12 +3166,27 @@ class VideoPreviewImageUrlsResponse(dict):
         :param str medium: Medium resolution preview image URL.
         :param str small: Low resolution preview image URL.
         """
+        VideoPreviewImageUrlsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            large=large,
+            medium=medium,
+            small=small,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             large: Optional[str] = None,
+             medium: Optional[str] = None,
+             small: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if large is not None:
-            pulumi.set(__self__, "large", large)
+            _setter("large", large)
         if medium is not None:
-            pulumi.set(__self__, "medium", medium)
+            _setter("medium", medium)
         if small is not None:
-            pulumi.set(__self__, "small", small)
+            _setter("small", small)
 
     @property
     @pulumi.getter
@@ -2406,10 +3245,27 @@ class VideoPublishingOptionsResponse(dict):
         :param str disable_archive: When set to 'true' content will not be archived or recorded. This is used, for example, when the topology is used only for low latency video streaming. Default is 'false'.  If set to 'true', then "disableRtspPublishing" must be set to 'false'.
         :param str disable_rtsp_publishing: When set to 'true' the RTSP playback URL will not be published, disabling low latency streaming. This is used, for example, when the topology is used only for archiving content. Default is 'false'.  If set to 'true', then "disableArchive" must be set to 'false'.
         """
+        VideoPublishingOptionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_archive=disable_archive,
+            disable_rtsp_publishing=disable_rtsp_publishing,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_archive: Optional[str] = None,
+             disable_rtsp_publishing: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disable_archive is None and 'disableArchive' in kwargs:
+            disable_archive = kwargs['disableArchive']
+        if disable_rtsp_publishing is None and 'disableRtspPublishing' in kwargs:
+            disable_rtsp_publishing = kwargs['disableRtspPublishing']
+
         if disable_archive is not None:
-            pulumi.set(__self__, "disable_archive", disable_archive)
+            _setter("disable_archive", disable_archive)
         if disable_rtsp_publishing is not None:
-            pulumi.set(__self__, "disable_rtsp_publishing", disable_rtsp_publishing)
+            _setter("disable_rtsp_publishing", disable_rtsp_publishing)
 
     @property
     @pulumi.getter(name="disableArchive")
@@ -2443,12 +3299,27 @@ class VideoScaleResponse(dict):
         :param str mode: Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
         :param str width: The desired output video width.
         """
+        VideoScaleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            height=height,
+            mode=mode,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             height: Optional[str] = None,
+             mode: Optional[str] = None,
+             width: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -2489,8 +3360,25 @@ class VideoSequenceAbsoluteTimeMarkersResponse(dict):
         :param str type: The discriminator for derived types.
                Expected value is '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers'.
         """
-        pulumi.set(__self__, "ranges", ranges)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers')
+        VideoSequenceAbsoluteTimeMarkersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ranges=ranges,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ranges: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ranges is None:
+            raise TypeError("Missing 'ranges' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("ranges", ranges)
+        _setter("type", '#Microsoft.VideoAnalyzer.VideoSequenceAbsoluteTimeMarkers')
 
     @property
     @pulumi.getter
@@ -2553,14 +3441,49 @@ class VideoSinkResponse(dict):
         :param 'VideoCreationPropertiesResponse' video_creation_properties: Optional video properties to be used in case a new video resource needs to be created on the service.
         :param 'VideoPublishingOptionsResponse' video_publishing_options: Options to change how the video sink publishes content via the video resource. This property is only allowed for topologies where "kind" is set to "live".
         """
-        pulumi.set(__self__, "inputs", inputs)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSink')
-        pulumi.set(__self__, "video_name", video_name)
+        VideoSinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inputs=inputs,
+            name=name,
+            type=type,
+            video_name=video_name,
+            video_creation_properties=video_creation_properties,
+            video_publishing_options=video_publishing_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inputs: Optional[Sequence['outputs.NodeInputResponse']] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             video_name: Optional[str] = None,
+             video_creation_properties: Optional['outputs.VideoCreationPropertiesResponse'] = None,
+             video_publishing_options: Optional['outputs.VideoPublishingOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inputs is None:
+            raise TypeError("Missing 'inputs' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if video_name is None and 'videoName' in kwargs:
+            video_name = kwargs['videoName']
+        if video_name is None:
+            raise TypeError("Missing 'video_name' argument")
+        if video_creation_properties is None and 'videoCreationProperties' in kwargs:
+            video_creation_properties = kwargs['videoCreationProperties']
+        if video_publishing_options is None and 'videoPublishingOptions' in kwargs:
+            video_publishing_options = kwargs['videoPublishingOptions']
+
+        _setter("inputs", inputs)
+        _setter("name", name)
+        _setter("type", '#Microsoft.VideoAnalyzer.VideoSink')
+        _setter("video_name", video_name)
         if video_creation_properties is not None:
-            pulumi.set(__self__, "video_creation_properties", video_creation_properties)
+            _setter("video_creation_properties", video_creation_properties)
         if video_publishing_options is not None:
-            pulumi.set(__self__, "video_publishing_options", video_publishing_options)
+            _setter("video_publishing_options", video_publishing_options)
 
     @property
     @pulumi.getter
@@ -2649,10 +3572,39 @@ class VideoSourceResponse(dict):
                Expected value is '#Microsoft.VideoAnalyzer.VideoSource'.
         :param str video_name: Name of the Video Analyzer video resource to be used as the source.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "time_sequences", time_sequences)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.VideoSource')
-        pulumi.set(__self__, "video_name", video_name)
+        VideoSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            time_sequences=time_sequences,
+            type=type,
+            video_name=video_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             time_sequences: Optional['outputs.VideoSequenceAbsoluteTimeMarkersResponse'] = None,
+             type: Optional[str] = None,
+             video_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if time_sequences is None and 'timeSequences' in kwargs:
+            time_sequences = kwargs['timeSequences']
+        if time_sequences is None:
+            raise TypeError("Missing 'time_sequences' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if video_name is None and 'videoName' in kwargs:
+            video_name = kwargs['videoName']
+        if video_name is None:
+            raise TypeError("Missing 'video_name' argument")
+
+        _setter("name", name)
+        _setter("time_sequences", time_sequences)
+        _setter("type", '#Microsoft.VideoAnalyzer.VideoSource')
+        _setter("video_name", video_name)
 
     @property
     @pulumi.getter

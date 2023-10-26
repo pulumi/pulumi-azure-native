@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,11 +26,32 @@ class LinkerDryrunArgs:
         :param pulumi.Input[str] dryrun_name: The name of dryrun.
         :param pulumi.Input['CreateOrUpdateDryrunParametersArgs'] parameters: The parameters of the dryrun
         """
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        LinkerDryrunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_uri=resource_uri,
+            dryrun_name=dryrun_name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_uri: Optional[pulumi.Input[str]] = None,
+             dryrun_name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['CreateOrUpdateDryrunParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_uri is None and 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+        if resource_uri is None:
+            raise TypeError("Missing 'resource_uri' argument")
+        if dryrun_name is None and 'dryrunName' in kwargs:
+            dryrun_name = kwargs['dryrunName']
+
+        _setter("resource_uri", resource_uri)
         if dryrun_name is not None:
-            pulumi.set(__self__, "dryrun_name", dryrun_name)
+            _setter("dryrun_name", dryrun_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -108,6 +129,10 @@ class LinkerDryrun(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkerDryrunArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -126,6 +151,7 @@ class LinkerDryrun(pulumi.CustomResource):
             __props__ = LinkerDryrunArgs.__new__(LinkerDryrunArgs)
 
             __props__.__dict__["dryrun_name"] = dryrun_name
+            parameters = _utilities.configure(parameters, CreateOrUpdateDryrunParametersArgs, True)
             __props__.__dict__["parameters"] = parameters
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")

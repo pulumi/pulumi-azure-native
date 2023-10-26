@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -58,17 +58,48 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
         :param str publisher_id: Publisher Id
         :param str term_unit: Offer Plan Term unit
         """
-        pulumi.set(__self__, "status", status)
+        OrganizationResourcePropertiesResponseOfferDetail._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            id=id,
+            plan_id=plan_id,
+            plan_name=plan_name,
+            publisher_id=publisher_id,
+            term_unit=term_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             id: Optional[str] = None,
+             plan_id: Optional[str] = None,
+             plan_name: Optional[str] = None,
+             publisher_id: Optional[str] = None,
+             term_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if plan_name is None and 'planName' in kwargs:
+            plan_name = kwargs['planName']
+        if publisher_id is None and 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if term_unit is None and 'termUnit' in kwargs:
+            term_unit = kwargs['termUnit']
+
+        _setter("status", status)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if plan_id is not None:
-            pulumi.set(__self__, "plan_id", plan_id)
+            _setter("plan_id", plan_id)
         if plan_name is not None:
-            pulumi.set(__self__, "plan_name", plan_name)
+            _setter("plan_name", plan_name)
         if publisher_id is not None:
-            pulumi.set(__self__, "publisher_id", publisher_id)
+            _setter("publisher_id", publisher_id)
         if term_unit is not None:
-            pulumi.set(__self__, "term_unit", term_unit)
+            _setter("term_unit", term_unit)
 
     @property
     @pulumi.getter
@@ -155,12 +186,33 @@ class OrganizationResourcePropertiesResponseUserDetail(dict):
         :param str first_name: First name
         :param str last_name: Last name
         """
+        OrganizationResourcePropertiesResponseUserDetail._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[str] = None,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
 
     @property
     @pulumi.getter(name="emailAddress")

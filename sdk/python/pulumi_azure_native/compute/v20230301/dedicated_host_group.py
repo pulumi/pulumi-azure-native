@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,59 @@ class DedicatedHostGroupArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """
-        pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DedicatedHostGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            platform_fault_domain_count=platform_fault_domain_count,
+            resource_group_name=resource_group_name,
+            additional_capabilities=additional_capabilities,
+            host_group_name=host_group_name,
+            location=location,
+            support_automatic_placement=support_automatic_placement,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             additional_capabilities: Optional[pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']] = None,
+             host_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             support_automatic_placement: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if platform_fault_domain_count is None and 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if platform_fault_domain_count is None:
+            raise TypeError("Missing 'platform_fault_domain_count' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if host_group_name is None and 'hostGroupName' in kwargs:
+            host_group_name = kwargs['hostGroupName']
+        if support_automatic_placement is None and 'supportAutomaticPlacement' in kwargs:
+            support_automatic_placement = kwargs['supportAutomaticPlacement']
+
+        _setter("platform_fault_domain_count", platform_fault_domain_count)
+        _setter("resource_group_name", resource_group_name)
         if additional_capabilities is not None:
-            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+            _setter("additional_capabilities", additional_capabilities)
         if host_group_name is not None:
-            pulumi.set(__self__, "host_group_name", host_group_name)
+            _setter("host_group_name", host_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if support_automatic_placement is not None:
-            pulumi.set(__self__, "support_automatic_placement", support_automatic_placement)
+            _setter("support_automatic_placement", support_automatic_placement)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
@@ -194,6 +233,10 @@ class DedicatedHostGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedHostGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -216,6 +259,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DedicatedHostGroupArgs.__new__(DedicatedHostGroupArgs)
 
+            additional_capabilities = _utilities.configure(additional_capabilities, DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs, True)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["host_group_name"] = host_group_name
             __props__.__dict__["location"] = location

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -33,16 +33,55 @@ class TestLineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] test_line_name: Unique identifier for this test line
         """
-        pulumi.set(__self__, "communications_gateway_name", communications_gateway_name)
-        pulumi.set(__self__, "phone_number", phone_number)
-        pulumi.set(__self__, "purpose", purpose)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TestLineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            communications_gateway_name=communications_gateway_name,
+            phone_number=phone_number,
+            purpose=purpose,
+            resource_group_name=resource_group_name,
+            location=location,
+            tags=tags,
+            test_line_name=test_line_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             communications_gateway_name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             purpose: Optional[pulumi.Input[Union[str, 'TestLinePurpose']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             test_line_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if communications_gateway_name is None and 'communicationsGatewayName' in kwargs:
+            communications_gateway_name = kwargs['communicationsGatewayName']
+        if communications_gateway_name is None:
+            raise TypeError("Missing 'communications_gateway_name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
+        if purpose is None:
+            raise TypeError("Missing 'purpose' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if test_line_name is None and 'testLineName' in kwargs:
+            test_line_name = kwargs['testLineName']
+
+        _setter("communications_gateway_name", communications_gateway_name)
+        _setter("phone_number", phone_number)
+        _setter("purpose", purpose)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if test_line_name is not None:
-            pulumi.set(__self__, "test_line_name", test_line_name)
+            _setter("test_line_name", test_line_name)
 
     @property
     @pulumi.getter(name="communicationsGatewayName")
@@ -174,6 +213,10 @@ class TestLine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TestLineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

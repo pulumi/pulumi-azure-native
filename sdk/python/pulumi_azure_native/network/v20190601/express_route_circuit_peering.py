@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -67,50 +67,145 @@ class ExpressRouteCircuitPeeringInitArgs:
         :param pulumi.Input['ExpressRouteCircuitStatsArgs'] stats: Gets peering stats.
         :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
-        pulumi.set(__self__, "circuit_name", circuit_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRouteCircuitPeeringInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            circuit_name=circuit_name,
+            resource_group_name=resource_group_name,
+            azure_asn=azure_asn,
+            connections=connections,
+            gateway_manager_etag=gateway_manager_etag,
+            id=id,
+            ipv6_peering_config=ipv6_peering_config,
+            last_modified_by=last_modified_by,
+            microsoft_peering_config=microsoft_peering_config,
+            name=name,
+            peer_asn=peer_asn,
+            peering_name=peering_name,
+            peering_type=peering_type,
+            primary_azure_port=primary_azure_port,
+            primary_peer_address_prefix=primary_peer_address_prefix,
+            provisioning_state=provisioning_state,
+            route_filter=route_filter,
+            secondary_azure_port=secondary_azure_port,
+            secondary_peer_address_prefix=secondary_peer_address_prefix,
+            shared_key=shared_key,
+            state=state,
+            stats=stats,
+            vlan_id=vlan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             circuit_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             azure_asn: Optional[pulumi.Input[int]] = None,
+             connections: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitConnectionArgs']]]] = None,
+             gateway_manager_etag: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ipv6_peering_config: Optional[pulumi.Input['Ipv6ExpressRouteCircuitPeeringConfigArgs']] = None,
+             last_modified_by: Optional[pulumi.Input[str]] = None,
+             microsoft_peering_config: Optional[pulumi.Input['ExpressRouteCircuitPeeringConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             peer_asn: Optional[pulumi.Input[float]] = None,
+             peering_name: Optional[pulumi.Input[str]] = None,
+             peering_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]] = None,
+             primary_azure_port: Optional[pulumi.Input[str]] = None,
+             primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             route_filter: Optional[pulumi.Input['SubResourceArgs']] = None,
+             secondary_azure_port: Optional[pulumi.Input[str]] = None,
+             secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
+             shared_key: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]] = None,
+             stats: Optional[pulumi.Input['ExpressRouteCircuitStatsArgs']] = None,
+             vlan_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if circuit_name is None and 'circuitName' in kwargs:
+            circuit_name = kwargs['circuitName']
+        if circuit_name is None:
+            raise TypeError("Missing 'circuit_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if azure_asn is None and 'azureASN' in kwargs:
+            azure_asn = kwargs['azureASN']
+        if gateway_manager_etag is None and 'gatewayManagerEtag' in kwargs:
+            gateway_manager_etag = kwargs['gatewayManagerEtag']
+        if ipv6_peering_config is None and 'ipv6PeeringConfig' in kwargs:
+            ipv6_peering_config = kwargs['ipv6PeeringConfig']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if microsoft_peering_config is None and 'microsoftPeeringConfig' in kwargs:
+            microsoft_peering_config = kwargs['microsoftPeeringConfig']
+        if peer_asn is None and 'peerASN' in kwargs:
+            peer_asn = kwargs['peerASN']
+        if peering_name is None and 'peeringName' in kwargs:
+            peering_name = kwargs['peeringName']
+        if peering_type is None and 'peeringType' in kwargs:
+            peering_type = kwargs['peeringType']
+        if primary_azure_port is None and 'primaryAzurePort' in kwargs:
+            primary_azure_port = kwargs['primaryAzurePort']
+        if primary_peer_address_prefix is None and 'primaryPeerAddressPrefix' in kwargs:
+            primary_peer_address_prefix = kwargs['primaryPeerAddressPrefix']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if route_filter is None and 'routeFilter' in kwargs:
+            route_filter = kwargs['routeFilter']
+        if secondary_azure_port is None and 'secondaryAzurePort' in kwargs:
+            secondary_azure_port = kwargs['secondaryAzurePort']
+        if secondary_peer_address_prefix is None and 'secondaryPeerAddressPrefix' in kwargs:
+            secondary_peer_address_prefix = kwargs['secondaryPeerAddressPrefix']
+        if shared_key is None and 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+        if vlan_id is None and 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+
+        _setter("circuit_name", circuit_name)
+        _setter("resource_group_name", resource_group_name)
         if azure_asn is not None:
-            pulumi.set(__self__, "azure_asn", azure_asn)
+            _setter("azure_asn", azure_asn)
         if connections is not None:
-            pulumi.set(__self__, "connections", connections)
+            _setter("connections", connections)
         if gateway_manager_etag is not None:
-            pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+            _setter("gateway_manager_etag", gateway_manager_etag)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ipv6_peering_config is not None:
-            pulumi.set(__self__, "ipv6_peering_config", ipv6_peering_config)
+            _setter("ipv6_peering_config", ipv6_peering_config)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if microsoft_peering_config is not None:
-            pulumi.set(__self__, "microsoft_peering_config", microsoft_peering_config)
+            _setter("microsoft_peering_config", microsoft_peering_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
         if peering_name is not None:
-            pulumi.set(__self__, "peering_name", peering_name)
+            _setter("peering_name", peering_name)
         if peering_type is not None:
-            pulumi.set(__self__, "peering_type", peering_type)
+            _setter("peering_type", peering_type)
         if primary_azure_port is not None:
-            pulumi.set(__self__, "primary_azure_port", primary_azure_port)
+            _setter("primary_azure_port", primary_azure_port)
         if primary_peer_address_prefix is not None:
-            pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
+            _setter("primary_peer_address_prefix", primary_peer_address_prefix)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if route_filter is not None:
-            pulumi.set(__self__, "route_filter", route_filter)
+            _setter("route_filter", route_filter)
         if secondary_azure_port is not None:
-            pulumi.set(__self__, "secondary_azure_port", secondary_azure_port)
+            _setter("secondary_azure_port", secondary_azure_port)
         if secondary_peer_address_prefix is not None:
-            pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+            _setter("secondary_peer_address_prefix", secondary_peer_address_prefix)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if stats is not None:
-            pulumi.set(__self__, "stats", stats)
+            _setter("stats", stats)
         if vlan_id is not None:
-            pulumi.set(__self__, "vlan_id", vlan_id)
+            _setter("vlan_id", vlan_id)
 
     @property
     @pulumi.getter(name="circuitName")
@@ -468,6 +563,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteCircuitPeeringInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -512,8 +611,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__.__dict__["connections"] = connections
             __props__.__dict__["gateway_manager_etag"] = gateway_manager_etag
             __props__.__dict__["id"] = id
+            ipv6_peering_config = _utilities.configure(ipv6_peering_config, Ipv6ExpressRouteCircuitPeeringConfigArgs, True)
             __props__.__dict__["ipv6_peering_config"] = ipv6_peering_config
             __props__.__dict__["last_modified_by"] = last_modified_by
+            microsoft_peering_config = _utilities.configure(microsoft_peering_config, ExpressRouteCircuitPeeringConfigArgs, True)
             __props__.__dict__["microsoft_peering_config"] = microsoft_peering_config
             __props__.__dict__["name"] = name
             __props__.__dict__["peer_asn"] = peer_asn
@@ -525,11 +626,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            route_filter = _utilities.configure(route_filter, SubResourceArgs, True)
             __props__.__dict__["route_filter"] = route_filter
             __props__.__dict__["secondary_azure_port"] = secondary_azure_port
             __props__.__dict__["secondary_peer_address_prefix"] = secondary_peer_address_prefix
             __props__.__dict__["shared_key"] = shared_key
             __props__.__dict__["state"] = state
+            stats = _utilities.configure(stats, ExpressRouteCircuitStatsArgs, True)
             __props__.__dict__["stats"] = stats
             __props__.__dict__["vlan_id"] = vlan_id
             __props__.__dict__["etag"] = None

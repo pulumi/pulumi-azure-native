@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,14 +28,47 @@ class HybridIdentityMetadataArgs:
         :param pulumi.Input[str] public_key: Gets or sets the Public Key.
         :param pulumi.Input[str] resource_uid: Gets or sets the Vm Id.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+        HybridIdentityMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_machine_name=virtual_machine_name,
+            metadata_name=metadata_name,
+            public_key=public_key,
+            resource_uid=resource_uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_machine_name: Optional[pulumi.Input[str]] = None,
+             metadata_name: Optional[pulumi.Input[str]] = None,
+             public_key: Optional[pulumi.Input[str]] = None,
+             resource_uid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_machine_name is None and 'virtualMachineName' in kwargs:
+            virtual_machine_name = kwargs['virtualMachineName']
+        if virtual_machine_name is None:
+            raise TypeError("Missing 'virtual_machine_name' argument")
+        if metadata_name is None and 'metadataName' in kwargs:
+            metadata_name = kwargs['metadataName']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if resource_uid is None and 'resourceUid' in kwargs:
+            resource_uid = kwargs['resourceUid']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_machine_name", virtual_machine_name)
         if metadata_name is not None:
-            pulumi.set(__self__, "metadata_name", metadata_name)
+            _setter("metadata_name", metadata_name)
         if public_key is not None:
-            pulumi.set(__self__, "public_key", public_key)
+            _setter("public_key", public_key)
         if resource_uid is not None:
-            pulumi.set(__self__, "resource_uid", resource_uid)
+            _setter("resource_uid", resource_uid)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -139,6 +172,10 @@ class HybridIdentityMetadata(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HybridIdentityMetadataArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

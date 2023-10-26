@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,34 +52,111 @@ class ServiceArgs:
         :param pulumi.Input[str] service_type_name: The name of the service type
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_kind", service_kind)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            service_kind=service_kind,
+            correlation_scheme=correlation_scheme,
+            default_move_cost=default_move_cost,
+            location=location,
+            partition_description=partition_description,
+            placement_constraints=placement_constraints,
+            service_dns_name=service_dns_name,
+            service_load_metrics=service_load_metrics,
+            service_name=service_name,
+            service_package_activation_mode=service_package_activation_mode,
+            service_placement_policies=service_placement_policies,
+            service_type_name=service_type_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
+             correlation_scheme: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorrelationDescriptionArgs']]]] = None,
+             default_move_cost: Optional[pulumi.Input[Union[str, 'MoveCost']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             partition_description: Optional[pulumi.Input[Union['NamedPartitionSchemeDescriptionArgs', 'SingletonPartitionSchemeDescriptionArgs', 'UniformInt64RangePartitionSchemeDescriptionArgs']]] = None,
+             placement_constraints: Optional[pulumi.Input[str]] = None,
+             service_dns_name: Optional[pulumi.Input[str]] = None,
+             service_load_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadMetricDescriptionArgs']]]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             service_package_activation_mode: Optional[pulumi.Input[Union[str, 'ArmServicePackageActivationMode']]] = None,
+             service_placement_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementPolicyDescriptionArgs']]]] = None,
+             service_type_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_kind is None and 'serviceKind' in kwargs:
+            service_kind = kwargs['serviceKind']
+        if service_kind is None:
+            raise TypeError("Missing 'service_kind' argument")
+        if correlation_scheme is None and 'correlationScheme' in kwargs:
+            correlation_scheme = kwargs['correlationScheme']
+        if default_move_cost is None and 'defaultMoveCost' in kwargs:
+            default_move_cost = kwargs['defaultMoveCost']
+        if partition_description is None and 'partitionDescription' in kwargs:
+            partition_description = kwargs['partitionDescription']
+        if placement_constraints is None and 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if service_dns_name is None and 'serviceDnsName' in kwargs:
+            service_dns_name = kwargs['serviceDnsName']
+        if service_load_metrics is None and 'serviceLoadMetrics' in kwargs:
+            service_load_metrics = kwargs['serviceLoadMetrics']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_package_activation_mode is None and 'servicePackageActivationMode' in kwargs:
+            service_package_activation_mode = kwargs['servicePackageActivationMode']
+        if service_placement_policies is None and 'servicePlacementPolicies' in kwargs:
+            service_placement_policies = kwargs['servicePlacementPolicies']
+        if service_type_name is None and 'serviceTypeName' in kwargs:
+            service_type_name = kwargs['serviceTypeName']
+
+        _setter("application_name", application_name)
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_kind", service_kind)
         if correlation_scheme is not None:
-            pulumi.set(__self__, "correlation_scheme", correlation_scheme)
+            _setter("correlation_scheme", correlation_scheme)
         if default_move_cost is not None:
-            pulumi.set(__self__, "default_move_cost", default_move_cost)
+            _setter("default_move_cost", default_move_cost)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if partition_description is not None:
-            pulumi.set(__self__, "partition_description", partition_description)
+            _setter("partition_description", partition_description)
         if placement_constraints is not None:
-            pulumi.set(__self__, "placement_constraints", placement_constraints)
+            _setter("placement_constraints", placement_constraints)
         if service_dns_name is not None:
-            pulumi.set(__self__, "service_dns_name", service_dns_name)
+            _setter("service_dns_name", service_dns_name)
         if service_load_metrics is not None:
-            pulumi.set(__self__, "service_load_metrics", service_load_metrics)
+            _setter("service_load_metrics", service_load_metrics)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if service_package_activation_mode is not None:
-            pulumi.set(__self__, "service_package_activation_mode", service_package_activation_mode)
+            _setter("service_package_activation_mode", service_package_activation_mode)
         if service_placement_policies is not None:
-            pulumi.set(__self__, "service_placement_policies", service_placement_policies)
+            _setter("service_placement_policies", service_placement_policies)
         if service_type_name is not None:
-            pulumi.set(__self__, "service_type_name", service_type_name)
+            _setter("service_type_name", service_type_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -337,6 +414,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

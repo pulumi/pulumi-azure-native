@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -52,11 +52,40 @@ class AccessPolicyEntryArgs:
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] application_id:  Application ID of the client making request on behalf of a principal
         """
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        AccessPolicyEntryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            permissions=permissions,
+            tenant_id=tenant_id,
+            application_id=application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input['PermissionsArgs']] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             application_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+
+        _setter("object_id", object_id)
+        _setter("permissions", permissions)
+        _setter("tenant_id", tenant_id)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -114,8 +143,19 @@ class ActionArgs:
         """
         :param pulumi.Input['KeyRotationPolicyActionType'] type: The type of the action. The value should be compared case-insensitively.
         """
+        ActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['KeyRotationPolicyActionType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -138,7 +178,20 @@ class IPRuleArgs:
         A rule governing the accessibility of a vault from a specific ip address or ip range.
         :param pulumi.Input[str] value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
-        pulumi.set(__self__, "value", value)
+        IPRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -167,16 +220,35 @@ class KeyAttributesArgs:
         :param pulumi.Input[bool] exportable: Indicates if the private key can be exported.
         :param pulumi.Input[float] not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
         """
+        KeyAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            expires=expires,
+            exportable=exportable,
+            not_before=not_before,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             expires: Optional[pulumi.Input[float]] = None,
+             exportable: Optional[pulumi.Input[bool]] = None,
+             not_before: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if not_before is None and 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
         if exportable is None:
             exportable = False
         if exportable is not None:
-            pulumi.set(__self__, "exportable", exportable)
+            _setter("exportable", exportable)
         if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
+            _setter("not_before", not_before)
 
     @property
     @pulumi.getter
@@ -246,20 +318,53 @@ class KeyPropertiesArgs:
         :param pulumi.Input['KeyReleasePolicyArgs'] release_policy: Key release policy in response. It will be used for both output and input. Omitted if empty
         :param pulumi.Input['RotationPolicyArgs'] rotation_policy: Key rotation policy in response. It will be used for both output and input. Omitted if empty
         """
+        KeyPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            curve_name=curve_name,
+            key_ops=key_ops,
+            key_size=key_size,
+            kty=kty,
+            release_policy=release_policy,
+            rotation_policy=rotation_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input['KeyAttributesArgs']] = None,
+             curve_name: Optional[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]] = None,
+             key_ops: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]] = None,
+             key_size: Optional[pulumi.Input[int]] = None,
+             kty: Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]] = None,
+             release_policy: Optional[pulumi.Input['KeyReleasePolicyArgs']] = None,
+             rotation_policy: Optional[pulumi.Input['RotationPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if curve_name is None and 'curveName' in kwargs:
+            curve_name = kwargs['curveName']
+        if key_ops is None and 'keyOps' in kwargs:
+            key_ops = kwargs['keyOps']
+        if key_size is None and 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if release_policy is None and 'releasePolicy' in kwargs:
+            release_policy = kwargs['releasePolicy']
+        if rotation_policy is None and 'rotationPolicy' in kwargs:
+            rotation_policy = kwargs['rotationPolicy']
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if curve_name is not None:
-            pulumi.set(__self__, "curve_name", curve_name)
+            _setter("curve_name", curve_name)
         if key_ops is not None:
-            pulumi.set(__self__, "key_ops", key_ops)
+            _setter("key_ops", key_ops)
         if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
+            _setter("key_size", key_size)
         if kty is not None:
-            pulumi.set(__self__, "kty", kty)
+            _setter("kty", kty)
         if release_policy is not None:
-            pulumi.set(__self__, "release_policy", release_policy)
+            _setter("release_policy", release_policy)
         if rotation_policy is not None:
-            pulumi.set(__self__, "rotation_policy", rotation_policy)
+            _setter("rotation_policy", rotation_policy)
 
     @property
     @pulumi.getter
@@ -352,12 +457,27 @@ class KeyReleasePolicyArgs:
         :param pulumi.Input[str] content_type: Content type and version of key release policy
         :param pulumi.Input[str] data: Blob encoding the policy rules under which the key can be released.
         """
+        KeyReleasePolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            data=data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         if content_type is None:
             content_type = 'application/json; charset=utf-8'
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if data is not None:
-            pulumi.set(__self__, "data", data)
+            _setter("data", data)
 
     @property
     @pulumi.getter(name="contentType")
@@ -391,8 +511,21 @@ class KeyRotationPolicyAttributesArgs:
         """
         :param pulumi.Input[str] expiry_time: The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
         """
+        KeyRotationPolicyAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry_time=expiry_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expiry_time is None and 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+
         if expiry_time is not None:
-            pulumi.set(__self__, "expiry_time", expiry_time)
+            _setter("expiry_time", expiry_time)
 
     @property
     @pulumi.getter(name="expiryTime")
@@ -416,10 +549,23 @@ class LifetimeActionArgs:
         :param pulumi.Input['ActionArgs'] action: The action of key rotation policy lifetimeAction.
         :param pulumi.Input['TriggerArgs'] trigger: The trigger of key rotation policy lifetimeAction.
         """
+        LifetimeActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            trigger=trigger,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['ActionArgs']] = None,
+             trigger: Optional[pulumi.Input['TriggerArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if trigger is not None:
-            pulumi.set(__self__, "trigger", trigger)
+            _setter("trigger", trigger)
 
     @property
     @pulumi.getter
@@ -456,10 +602,25 @@ class MHSMGeoReplicatedRegionArgs:
         :param pulumi.Input[bool] is_primary: A boolean value that indicates whether the region is the primary region or a secondary region.
         :param pulumi.Input[str] name: Name of the geo replicated region.
         """
+        MHSMGeoReplicatedRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_primary=is_primary,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_primary: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_primary is None and 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+
         if is_primary is not None:
-            pulumi.set(__self__, "is_primary", is_primary)
+            _setter("is_primary", is_primary)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="isPrimary")
@@ -494,7 +655,20 @@ class MHSMIPRuleArgs:
         A rule governing the accessibility of a managed HSM pool from a specific IP address or IP range.
         :param pulumi.Input[str] value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
-        pulumi.set(__self__, "value", value)
+        MHSMIPRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -523,14 +697,37 @@ class MHSMNetworkRuleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]] ip_rules: The list of IP address rules.
         :param pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
+        MHSMNetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass=bypass,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass: Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]] = None,
+             default_action: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]]] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         if bypass is not None:
-            pulumi.set(__self__, "bypass", bypass)
+            _setter("bypass", bypass)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter
@@ -593,12 +790,29 @@ class MHSMPrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval or rejection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
+        MHSMPrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[Union[str, 'ActionsRequired']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -645,7 +859,20 @@ class MHSMVirtualNetworkRuleArgs:
         A rule governing the accessibility of a managed hsm pool from a specific virtual network.
         :param pulumi.Input[str] id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         """
-        pulumi.set(__self__, "id", id)
+        MHSMVirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -684,32 +911,75 @@ class ManagedHsmPropertiesArgs:
         :param pulumi.Input[int] soft_delete_retention_in_days: Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
         """
+        ManagedHsmPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_mode=create_mode,
+            enable_purge_protection=enable_purge_protection,
+            enable_soft_delete=enable_soft_delete,
+            initial_admin_object_ids=initial_admin_object_ids,
+            network_acls=network_acls,
+            public_network_access=public_network_access,
+            regions=regions,
+            soft_delete_retention_in_days=soft_delete_retention_in_days,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_mode: Optional[pulumi.Input['CreateMode']] = None,
+             enable_purge_protection: Optional[pulumi.Input[bool]] = None,
+             enable_soft_delete: Optional[pulumi.Input[bool]] = None,
+             initial_admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_acls: Optional[pulumi.Input['MHSMNetworkRuleSetArgs']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]] = None,
+             soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_mode is None and 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if enable_purge_protection is None and 'enablePurgeProtection' in kwargs:
+            enable_purge_protection = kwargs['enablePurgeProtection']
+        if enable_soft_delete is None and 'enableSoftDelete' in kwargs:
+            enable_soft_delete = kwargs['enableSoftDelete']
+        if initial_admin_object_ids is None and 'initialAdminObjectIds' in kwargs:
+            initial_admin_object_ids = kwargs['initialAdminObjectIds']
+        if network_acls is None and 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if soft_delete_retention_in_days is None and 'softDeleteRetentionInDays' in kwargs:
+            soft_delete_retention_in_days = kwargs['softDeleteRetentionInDays']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if enable_purge_protection is None:
             enable_purge_protection = True
         if enable_purge_protection is not None:
-            pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
+            _setter("enable_purge_protection", enable_purge_protection)
         if enable_soft_delete is None:
             enable_soft_delete = True
         if enable_soft_delete is not None:
-            pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
+            _setter("enable_soft_delete", enable_soft_delete)
         if initial_admin_object_ids is not None:
-            pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
+            _setter("initial_admin_object_ids", initial_admin_object_ids)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if regions is not None:
-            pulumi.set(__self__, "regions", regions)
+            _setter("regions", regions)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
-            pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
+            _setter("soft_delete_retention_in_days", soft_delete_retention_in_days)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="createMode")
@@ -830,8 +1100,25 @@ class ManagedHsmSkuArgs:
         :param pulumi.Input[Union[str, 'ManagedHsmSkuFamily']] family: SKU Family of the managed HSM Pool
         :param pulumi.Input['ManagedHsmSkuName'] name: SKU of the managed HSM Pool
         """
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "name", name)
+        ManagedHsmSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            family=family,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             family: Optional[pulumi.Input[Union[str, 'ManagedHsmSkuFamily']]] = None,
+             name: Optional[pulumi.Input['ManagedHsmSkuName']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if family is None:
+            raise TypeError("Missing 'family' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("family", family)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -872,14 +1159,37 @@ class NetworkRuleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: The list of IP address rules.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
+        NetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass=bypass,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass: Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]] = None,
+             default_action: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         if bypass is not None:
-            pulumi.set(__self__, "bypass", bypass)
+            _setter("bypass", bypass)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter
@@ -944,14 +1254,31 @@ class PermissionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]] secrets: Permissions to secrets
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'StoragePermissions']]]] storage: Permissions to storage accounts
         """
+        PermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            keys=keys,
+            secrets=secrets,
+            storage=storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]]] = None,
+             keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]]] = None,
+             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]]] = None,
+             storage: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StoragePermissions']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
 
     @property
     @pulumi.getter
@@ -1014,12 +1341,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval or rejection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[Union[str, 'ActionsRequired']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1067,10 +1411,25 @@ class RotationPolicyArgs:
         :param pulumi.Input['KeyRotationPolicyAttributesArgs'] attributes: The attributes of key rotation policy.
         :param pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]] lifetime_actions: The lifetimeActions for key rotation action.
         """
+        RotationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            lifetime_actions=lifetime_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']] = None,
+             lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lifetime_actions is None and 'lifetimeActions' in kwargs:
+            lifetime_actions = kwargs['lifetimeActions']
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if lifetime_actions is not None:
-            pulumi.set(__self__, "lifetime_actions", lifetime_actions)
+            _setter("lifetime_actions", lifetime_actions)
 
     @property
     @pulumi.getter
@@ -1109,12 +1468,29 @@ class SecretAttributesArgs:
         :param pulumi.Input[int] expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
         :param pulumi.Input[int] not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
         """
+        SecretAttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            expires=expires,
+            not_before=not_before,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             expires: Optional[pulumi.Input[int]] = None,
+             not_before: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if not_before is None and 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
         if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
+            _setter("not_before", not_before)
 
     @property
     @pulumi.getter
@@ -1165,12 +1541,29 @@ class SecretPropertiesArgs:
         :param pulumi.Input[str] content_type: The content type of the secret.
         :param pulumi.Input[str] value: The value of the secret. NOTE: 'value' will never be returned from the service, as APIs using this model are is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
         """
+        SecretPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attributes=attributes,
+            content_type=content_type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attributes: Optional[pulumi.Input['SecretAttributesArgs']] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1219,8 +1612,25 @@ class SkuArgs:
         :param pulumi.Input[Union[str, 'SkuFamily']] family: SKU family name
         :param pulumi.Input['SkuName'] name: SKU name to specify whether the key vault is a standard vault or a premium vault.
         """
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            family=family,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             family: Optional[pulumi.Input[Union[str, 'SkuFamily']]] = None,
+             name: Optional[pulumi.Input['SkuName']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if family is None:
+            raise TypeError("Missing 'family' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("family", family)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1256,10 +1666,27 @@ class TriggerArgs:
         :param pulumi.Input[str] time_after_create: The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         :param pulumi.Input[str] time_before_expiry: The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
         """
+        TriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_after_create=time_after_create,
+            time_before_expiry=time_before_expiry,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_after_create: Optional[pulumi.Input[str]] = None,
+             time_before_expiry: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_after_create is None and 'timeAfterCreate' in kwargs:
+            time_after_create = kwargs['timeAfterCreate']
+        if time_before_expiry is None and 'timeBeforeExpiry' in kwargs:
+            time_before_expiry = kwargs['timeBeforeExpiry']
+
         if time_after_create is not None:
-            pulumi.set(__self__, "time_after_create", time_after_create)
+            _setter("time_after_create", time_after_create)
         if time_before_expiry is not None:
-            pulumi.set(__self__, "time_before_expiry", time_before_expiry)
+            _setter("time_before_expiry", time_before_expiry)
 
     @property
     @pulumi.getter(name="timeAfterCreate")
@@ -1322,42 +1749,113 @@ class VaultPropertiesArgs:
         :param pulumi.Input[int] soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
         :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        VaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sku=sku,
+            tenant_id=tenant_id,
+            access_policies=access_policies,
+            create_mode=create_mode,
+            enable_purge_protection=enable_purge_protection,
+            enable_rbac_authorization=enable_rbac_authorization,
+            enable_soft_delete=enable_soft_delete,
+            enabled_for_deployment=enabled_for_deployment,
+            enabled_for_disk_encryption=enabled_for_disk_encryption,
+            enabled_for_template_deployment=enabled_for_template_deployment,
+            network_acls=network_acls,
+            provisioning_state=provisioning_state,
+            public_network_access=public_network_access,
+            soft_delete_retention_in_days=soft_delete_retention_in_days,
+            vault_uri=vault_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]] = None,
+             create_mode: Optional[pulumi.Input['CreateMode']] = None,
+             enable_purge_protection: Optional[pulumi.Input[bool]] = None,
+             enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
+             enable_soft_delete: Optional[pulumi.Input[bool]] = None,
+             enabled_for_deployment: Optional[pulumi.Input[bool]] = None,
+             enabled_for_disk_encryption: Optional[pulumi.Input[bool]] = None,
+             enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
+             network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'VaultProvisioningState']]] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
+             vault_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if access_policies is None and 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if create_mode is None and 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if enable_purge_protection is None and 'enablePurgeProtection' in kwargs:
+            enable_purge_protection = kwargs['enablePurgeProtection']
+        if enable_rbac_authorization is None and 'enableRbacAuthorization' in kwargs:
+            enable_rbac_authorization = kwargs['enableRbacAuthorization']
+        if enable_soft_delete is None and 'enableSoftDelete' in kwargs:
+            enable_soft_delete = kwargs['enableSoftDelete']
+        if enabled_for_deployment is None and 'enabledForDeployment' in kwargs:
+            enabled_for_deployment = kwargs['enabledForDeployment']
+        if enabled_for_disk_encryption is None and 'enabledForDiskEncryption' in kwargs:
+            enabled_for_disk_encryption = kwargs['enabledForDiskEncryption']
+        if enabled_for_template_deployment is None and 'enabledForTemplateDeployment' in kwargs:
+            enabled_for_template_deployment = kwargs['enabledForTemplateDeployment']
+        if network_acls is None and 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if soft_delete_retention_in_days is None and 'softDeleteRetentionInDays' in kwargs:
+            soft_delete_retention_in_days = kwargs['softDeleteRetentionInDays']
+        if vault_uri is None and 'vaultUri' in kwargs:
+            vault_uri = kwargs['vaultUri']
+
+        _setter("sku", sku)
+        _setter("tenant_id", tenant_id)
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if enable_purge_protection is not None:
-            pulumi.set(__self__, "enable_purge_protection", enable_purge_protection)
+            _setter("enable_purge_protection", enable_purge_protection)
         if enable_rbac_authorization is None:
             enable_rbac_authorization = False
         if enable_rbac_authorization is not None:
-            pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
+            _setter("enable_rbac_authorization", enable_rbac_authorization)
         if enable_soft_delete is None:
             enable_soft_delete = True
         if enable_soft_delete is not None:
-            pulumi.set(__self__, "enable_soft_delete", enable_soft_delete)
+            _setter("enable_soft_delete", enable_soft_delete)
         if enabled_for_deployment is not None:
-            pulumi.set(__self__, "enabled_for_deployment", enabled_for_deployment)
+            _setter("enabled_for_deployment", enabled_for_deployment)
         if enabled_for_disk_encryption is not None:
-            pulumi.set(__self__, "enabled_for_disk_encryption", enabled_for_disk_encryption)
+            _setter("enabled_for_disk_encryption", enabled_for_disk_encryption)
         if enabled_for_template_deployment is not None:
-            pulumi.set(__self__, "enabled_for_template_deployment", enabled_for_template_deployment)
+            _setter("enabled_for_template_deployment", enabled_for_template_deployment)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_network_access is None:
             public_network_access = 'enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
-            pulumi.set(__self__, "soft_delete_retention_in_days", soft_delete_retention_in_days)
+            _setter("soft_delete_retention_in_days", soft_delete_retention_in_days)
         if vault_uri is not None:
-            pulumi.set(__self__, "vault_uri", vault_uri)
+            _setter("vault_uri", vault_uri)
 
     @property
     @pulumi.getter
@@ -1550,9 +2048,26 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] id: Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Property to specify whether NRP will ignore the check if parent subnet has serviceEndpoints configured.
         """
-        pulumi.set(__self__, "id", id)
+        VirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
+        _setter("id", id)
         if ignore_missing_vnet_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
 
     @property
     @pulumi.getter

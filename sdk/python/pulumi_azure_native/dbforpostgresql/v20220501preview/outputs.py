@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,14 +50,33 @@ class DBServerMetadataResponse(dict):
         Database server metadata.
         :param 'ServerSkuResponse' sku: Sku information related properties of a server.
         """
+        DBServerMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            sku=sku,
+            storage_mb=storage_mb,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             sku: Optional['outputs.ServerSkuResponse'] = None,
+             storage_mb: Optional[int] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_mb is None and 'storageMB' in kwargs:
+            storage_mb = kwargs['storageMB']
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -114,9 +133,32 @@ class MigrationStatusResponse(dict):
         :param 'MigrationSubStateDetailsResponse' current_sub_state_details: Migration sub state details.
         :param str state: Migration state.
         """
-        pulumi.set(__self__, "current_sub_state_details", current_sub_state_details)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "state", state)
+        MigrationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_sub_state_details=current_sub_state_details,
+            error=error,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_sub_state_details: Optional['outputs.MigrationSubStateDetailsResponse'] = None,
+             error: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_sub_state_details is None and 'currentSubStateDetails' in kwargs:
+            current_sub_state_details = kwargs['currentSubStateDetails']
+        if current_sub_state_details is None:
+            raise TypeError("Missing 'current_sub_state_details' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("current_sub_state_details", current_sub_state_details)
+        _setter("error", error)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="currentSubStateDetails")
@@ -168,7 +210,22 @@ class MigrationSubStateDetailsResponse(dict):
         Migration sub state details.
         :param str current_sub_state: Migration sub state.
         """
-        pulumi.set(__self__, "current_sub_state", current_sub_state)
+        MigrationSubStateDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_sub_state=current_sub_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_sub_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_sub_state is None and 'currentSubState' in kwargs:
+            current_sub_state = kwargs['currentSubState']
+        if current_sub_state is None:
+            raise TypeError("Missing 'current_sub_state' argument")
+
+        _setter("current_sub_state", current_sub_state)
 
     @property
     @pulumi.getter(name="currentSubState")
@@ -192,8 +249,25 @@ class ServerSkuResponse(dict):
         :param str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         :param str tier: The tier of the particular SKU, e.g. Burstable.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        ServerSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -260,18 +334,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

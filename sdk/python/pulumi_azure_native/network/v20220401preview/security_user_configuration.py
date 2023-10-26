@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -29,14 +29,45 @@ class SecurityUserConfigurationArgs:
         :param pulumi.Input[Union[str, 'DeleteExistingNSGs']] delete_existing_nsgs: Flag if need to delete existing network security groups.
         :param pulumi.Input[str] description: A description of the security user configuration.
         """
-        pulumi.set(__self__, "network_manager_name", network_manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SecurityUserConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_manager_name=network_manager_name,
+            resource_group_name=resource_group_name,
+            configuration_name=configuration_name,
+            delete_existing_nsgs=delete_existing_nsgs,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_manager_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             configuration_name: Optional[pulumi.Input[str]] = None,
+             delete_existing_nsgs: Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_manager_name is None and 'networkManagerName' in kwargs:
+            network_manager_name = kwargs['networkManagerName']
+        if network_manager_name is None:
+            raise TypeError("Missing 'network_manager_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if configuration_name is None and 'configurationName' in kwargs:
+            configuration_name = kwargs['configurationName']
+        if delete_existing_nsgs is None and 'deleteExistingNSGs' in kwargs:
+            delete_existing_nsgs = kwargs['deleteExistingNSGs']
+
+        _setter("network_manager_name", network_manager_name)
+        _setter("resource_group_name", resource_group_name)
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if delete_existing_nsgs is not None:
-            pulumi.set(__self__, "delete_existing_nsgs", delete_existing_nsgs)
+            _setter("delete_existing_nsgs", delete_existing_nsgs)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="networkManagerName")
@@ -140,6 +171,10 @@ class SecurityUserConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityUserConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

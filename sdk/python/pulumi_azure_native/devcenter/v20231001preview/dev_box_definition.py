@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,20 +38,67 @@ class DevBoxDefinitionArgs:
         :param pulumi.Input[str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dev_center_name", dev_center_name)
-        pulumi.set(__self__, "image_reference", image_reference)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        DevBoxDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dev_center_name=dev_center_name,
+            image_reference=image_reference,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            dev_box_definition_name=dev_box_definition_name,
+            hibernate_support=hibernate_support,
+            location=location,
+            os_storage_type=os_storage_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dev_center_name: Optional[pulumi.Input[str]] = None,
+             image_reference: Optional[pulumi.Input['ImageReferenceArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             dev_box_definition_name: Optional[pulumi.Input[str]] = None,
+             hibernate_support: Optional[pulumi.Input[Union[str, 'HibernateSupport']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             os_storage_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dev_center_name is None and 'devCenterName' in kwargs:
+            dev_center_name = kwargs['devCenterName']
+        if dev_center_name is None:
+            raise TypeError("Missing 'dev_center_name' argument")
+        if image_reference is None and 'imageReference' in kwargs:
+            image_reference = kwargs['imageReference']
+        if image_reference is None:
+            raise TypeError("Missing 'image_reference' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if dev_box_definition_name is None and 'devBoxDefinitionName' in kwargs:
+            dev_box_definition_name = kwargs['devBoxDefinitionName']
+        if hibernate_support is None and 'hibernateSupport' in kwargs:
+            hibernate_support = kwargs['hibernateSupport']
+        if os_storage_type is None and 'osStorageType' in kwargs:
+            os_storage_type = kwargs['osStorageType']
+
+        _setter("dev_center_name", dev_center_name)
+        _setter("image_reference", image_reference)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if dev_box_definition_name is not None:
-            pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
+            _setter("dev_box_definition_name", dev_box_definition_name)
         if hibernate_support is not None:
-            pulumi.set(__self__, "hibernate_support", hibernate_support)
+            _setter("hibernate_support", hibernate_support)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if os_storage_type is not None:
-            pulumi.set(__self__, "os_storage_type", os_storage_type)
+            _setter("os_storage_type", os_storage_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="devCenterName")
@@ -211,6 +258,10 @@ class DevBoxDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DevBoxDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -239,6 +290,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
             __props__.__dict__["hibernate_support"] = hibernate_support
+            image_reference = _utilities.configure(image_reference, ImageReferenceArgs, True)
             if image_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'image_reference'")
             __props__.__dict__["image_reference"] = image_reference
@@ -247,6 +299,7 @@ class DevBoxDefinition(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

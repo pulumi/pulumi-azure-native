@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,51 @@ class FileServicePropertiesArgs:
         :param pulumi.Input['ProtocolSettingsArgs'] protocol_settings: Protocol settings for file service
         :param pulumi.Input['DeleteRetentionPolicyArgs'] share_delete_retention_policy: The file service properties for share soft delete.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FileServicePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            cors=cors,
+            file_services_name=file_services_name,
+            protocol_settings=protocol_settings,
+            share_delete_retention_policy=share_delete_retention_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
+             file_services_name: Optional[pulumi.Input[str]] = None,
+             protocol_settings: Optional[pulumi.Input['ProtocolSettingsArgs']] = None,
+             share_delete_retention_policy: Optional[pulumi.Input['DeleteRetentionPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if file_services_name is None and 'fileServicesName' in kwargs:
+            file_services_name = kwargs['fileServicesName']
+        if protocol_settings is None and 'protocolSettings' in kwargs:
+            protocol_settings = kwargs['protocolSettings']
+        if share_delete_retention_policy is None and 'shareDeleteRetentionPolicy' in kwargs:
+            share_delete_retention_policy = kwargs['shareDeleteRetentionPolicy']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if file_services_name is not None:
-            pulumi.set(__self__, "file_services_name", file_services_name)
+            _setter("file_services_name", file_services_name)
         if protocol_settings is not None:
-            pulumi.set(__self__, "protocol_settings", protocol_settings)
+            _setter("protocol_settings", protocol_settings)
         if share_delete_retention_policy is not None:
-            pulumi.set(__self__, "share_delete_retention_policy", share_delete_retention_policy)
+            _setter("share_delete_retention_policy", share_delete_retention_policy)
 
     @property
     @pulumi.getter(name="accountName")
@@ -159,6 +194,10 @@ class FileServiceProperties(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileServicePropertiesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,12 +221,15 @@ class FileServiceProperties(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            cors = _utilities.configure(cors, CorsRulesArgs, True)
             __props__.__dict__["cors"] = cors
             __props__.__dict__["file_services_name"] = file_services_name
+            protocol_settings = _utilities.configure(protocol_settings, ProtocolSettingsArgs, True)
             __props__.__dict__["protocol_settings"] = protocol_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            share_delete_retention_policy = _utilities.configure(share_delete_retention_policy, DeleteRetentionPolicyArgs, True)
             __props__.__dict__["share_delete_retention_policy"] = share_delete_retention_policy
             __props__.__dict__["name"] = None
             __props__.__dict__["sku"] = None

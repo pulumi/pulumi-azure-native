@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,16 +30,49 @@ class LicenseProfileArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LicenseProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machine_name=machine_name,
+            resource_group_name=resource_group_name,
+            assigned_license=assigned_license,
+            license_profile_name=license_profile_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machine_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             assigned_license: Optional[pulumi.Input[str]] = None,
+             license_profile_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if machine_name is None and 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if machine_name is None:
+            raise TypeError("Missing 'machine_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if assigned_license is None and 'assignedLicense' in kwargs:
+            assigned_license = kwargs['assignedLicense']
+        if license_profile_name is None and 'licenseProfileName' in kwargs:
+            license_profile_name = kwargs['licenseProfileName']
+
+        _setter("machine_name", machine_name)
+        _setter("resource_group_name", resource_group_name)
         if assigned_license is not None:
-            pulumi.set(__self__, "assigned_license", assigned_license)
+            _setter("assigned_license", assigned_license)
         if license_profile_name is not None:
-            pulumi.set(__self__, "license_profile_name", license_profile_name)
+            _setter("license_profile_name", license_profile_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="machineName")
@@ -159,6 +192,10 @@ class LicenseProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LicenseProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

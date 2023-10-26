@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -31,13 +31,54 @@ class SynapseWorkspaceSqlPoolTableDataSetArgs:
         :param pulumi.Input[str] synapse_workspace_sql_pool_table_resource_id: Resource id of the Synapse Workspace SQL Pool Table
         :param pulumi.Input[str] data_set_name: The name of the dataSet.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "kind", 'SynapseWorkspaceSqlPoolTable')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
+        SynapseWorkspaceSqlPoolTableDataSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            share_name=share_name,
+            synapse_workspace_sql_pool_table_resource_id=synapse_workspace_sql_pool_table_resource_id,
+            data_set_name=data_set_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_sql_pool_table_resource_id: Optional[pulumi.Input[str]] = None,
+             data_set_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if synapse_workspace_sql_pool_table_resource_id is None and 'synapseWorkspaceSqlPoolTableResourceId' in kwargs:
+            synapse_workspace_sql_pool_table_resource_id = kwargs['synapseWorkspaceSqlPoolTableResourceId']
+        if synapse_workspace_sql_pool_table_resource_id is None:
+            raise TypeError("Missing 'synapse_workspace_sql_pool_table_resource_id' argument")
+        if data_set_name is None and 'dataSetName' in kwargs:
+            data_set_name = kwargs['dataSetName']
+
+        _setter("account_name", account_name)
+        _setter("kind", 'SynapseWorkspaceSqlPoolTable')
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_name", share_name)
+        _setter("synapse_workspace_sql_pool_table_resource_id", synapse_workspace_sql_pool_table_resource_id)
         if data_set_name is not None:
-            pulumi.set(__self__, "data_set_name", data_set_name)
+            _setter("data_set_name", data_set_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -159,6 +200,10 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SynapseWorkspaceSqlPoolTableDataSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

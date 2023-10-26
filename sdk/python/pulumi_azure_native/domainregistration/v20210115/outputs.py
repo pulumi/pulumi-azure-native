@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -25,8 +25,19 @@ class NameIdentifierResponse(dict):
         Identifies an object.
         :param str name: Name of the object.
         """
+        NameIdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -54,11 +65,36 @@ class TldLegalAgreementResponse(dict):
         :param str title: Agreement title.
         :param str url: URL where a copy of the agreement details is hosted.
         """
-        pulumi.set(__self__, "agreement_key", agreement_key)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "title", title)
+        TldLegalAgreementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agreement_key=agreement_key,
+            content=content,
+            title=title,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agreement_key: Optional[str] = None,
+             content: Optional[str] = None,
+             title: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agreement_key is None and 'agreementKey' in kwargs:
+            agreement_key = kwargs['agreementKey']
+        if agreement_key is None:
+            raise TypeError("Missing 'agreement_key' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
+        _setter("agreement_key", agreement_key)
+        _setter("content", content)
+        _setter("title", title)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="agreementKey")

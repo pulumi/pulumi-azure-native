@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,39 @@ class ConnectedEnvironmentsStorageArgs:
         :param pulumi.Input['ConnectedEnvironmentStoragePropertiesArgs'] properties: Storage properties
         :param pulumi.Input[str] storage_name: Name of the storage.
         """
-        pulumi.set(__self__, "connected_environment_name", connected_environment_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectedEnvironmentsStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connected_environment_name=connected_environment_name,
+            resource_group_name=resource_group_name,
+            properties=properties,
+            storage_name=storage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connected_environment_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ConnectedEnvironmentStoragePropertiesArgs']] = None,
+             storage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connected_environment_name is None and 'connectedEnvironmentName' in kwargs:
+            connected_environment_name = kwargs['connectedEnvironmentName']
+        if connected_environment_name is None:
+            raise TypeError("Missing 'connected_environment_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_name is None and 'storageName' in kwargs:
+            storage_name = kwargs['storageName']
+
+        _setter("connected_environment_name", connected_environment_name)
+        _setter("resource_group_name", resource_group_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if storage_name is not None:
-            pulumi.set(__self__, "storage_name", storage_name)
+            _setter("storage_name", storage_name)
 
     @property
     @pulumi.getter(name="connectedEnvironmentName")
@@ -123,6 +150,10 @@ class ConnectedEnvironmentsStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectedEnvironmentsStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +175,7 @@ class ConnectedEnvironmentsStorage(pulumi.CustomResource):
             if connected_environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connected_environment_name'")
             __props__.__dict__["connected_environment_name"] = connected_environment_name
+            properties = _utilities.configure(properties, ConnectedEnvironmentStoragePropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

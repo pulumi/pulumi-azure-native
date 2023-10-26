@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,17 +32,46 @@ class DdosCustomPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]] protocol_custom_settings: The protocol-specific DDoS policy customization parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DdosCustomPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            ddos_custom_policy_name=ddos_custom_policy_name,
+            id=id,
+            location=location,
+            protocol_custom_settings=protocol_custom_settings,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             protocol_custom_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ProtocolCustomSettingsFormatArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ddos_custom_policy_name is None and 'ddosCustomPolicyName' in kwargs:
+            ddos_custom_policy_name = kwargs['ddosCustomPolicyName']
+        if protocol_custom_settings is None and 'protocolCustomSettings' in kwargs:
+            protocol_custom_settings = kwargs['protocolCustomSettings']
+
+        _setter("resource_group_name", resource_group_name)
         if ddos_custom_policy_name is not None:
-            pulumi.set(__self__, "ddos_custom_policy_name", ddos_custom_policy_name)
+            _setter("ddos_custom_policy_name", ddos_custom_policy_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if protocol_custom_settings is not None:
-            pulumi.set(__self__, "protocol_custom_settings", protocol_custom_settings)
+            _setter("protocol_custom_settings", protocol_custom_settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -160,6 +189,10 @@ class DdosCustomPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DdosCustomPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['StaticSiteLinkedBackendForBuildArgs', 'StaticSiteLinkedBackendForBuild']
@@ -31,17 +31,54 @@ class StaticSiteLinkedBackendForBuildArgs:
         :param pulumi.Input[str] linked_backend_name: Name of the backend to link to the static site
         :param pulumi.Input[str] region: The region of the backend linked to the static site
         """
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StaticSiteLinkedBackendForBuildArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            backend_resource_id=backend_resource_id,
+            kind=kind,
+            linked_backend_name=linked_backend_name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             backend_resource_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             linked_backend_name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if environment_name is None:
+            raise TypeError("Missing 'environment_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if backend_resource_id is None and 'backendResourceId' in kwargs:
+            backend_resource_id = kwargs['backendResourceId']
+        if linked_backend_name is None and 'linkedBackendName' in kwargs:
+            linked_backend_name = kwargs['linkedBackendName']
+
+        _setter("environment_name", environment_name)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if backend_resource_id is not None:
-            pulumi.set(__self__, "backend_resource_id", backend_resource_id)
+            _setter("backend_resource_id", backend_resource_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if linked_backend_name is not None:
-            pulumi.set(__self__, "linked_backend_name", linked_backend_name)
+            _setter("linked_backend_name", linked_backend_name)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -173,6 +210,10 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticSiteLinkedBackendForBuildArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

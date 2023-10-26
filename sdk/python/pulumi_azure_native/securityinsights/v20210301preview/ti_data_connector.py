@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,16 +37,67 @@ class TIDataConnectorArgs:
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[str] tip_lookback_period: The lookback period for the feed to be imported.
         """
-        pulumi.set(__self__, "data_types", data_types)
-        pulumi.set(__self__, "kind", 'ThreatIntelligence')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        TIDataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            kind=kind,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            resource_group_name=resource_group_name,
+            tenant_id=tenant_id,
+            workspace_name=workspace_name,
+            data_connector_id=data_connector_id,
+            tip_lookback_period=tip_lookback_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: Optional[pulumi.Input['TIDataConnectorDataTypesArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             tip_lookback_period: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_types is None and 'dataTypes' in kwargs:
+            data_types = kwargs['dataTypes']
+        if data_types is None:
+            raise TypeError("Missing 'data_types' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if operational_insights_resource_provider is None and 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if operational_insights_resource_provider is None:
+            raise TypeError("Missing 'operational_insights_resource_provider' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if data_connector_id is None and 'dataConnectorId' in kwargs:
+            data_connector_id = kwargs['dataConnectorId']
+        if tip_lookback_period is None and 'tipLookbackPeriod' in kwargs:
+            tip_lookback_period = kwargs['tipLookbackPeriod']
+
+        _setter("data_types", data_types)
+        _setter("kind", 'ThreatIntelligence')
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("resource_group_name", resource_group_name)
+        _setter("tenant_id", tenant_id)
+        _setter("workspace_name", workspace_name)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
         if tip_lookback_period is not None:
-            pulumi.set(__self__, "tip_lookback_period", tip_lookback_period)
+            _setter("tip_lookback_period", tip_lookback_period)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -194,6 +245,10 @@ class TIDataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TIDataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -217,6 +272,7 @@ class TIDataConnector(pulumi.CustomResource):
             __props__ = TIDataConnectorArgs.__new__(TIDataConnectorArgs)
 
             __props__.__dict__["data_connector_id"] = data_connector_id
+            data_types = _utilities.configure(data_types, TIDataConnectorDataTypesArgs, True)
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types

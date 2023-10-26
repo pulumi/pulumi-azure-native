@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,37 +54,106 @@ class UpdateRunArgs:
         :param pulumi.Input[str] time_started: Timestamp of the update run was started.
         :param pulumi.Input[str] update_run_name: The name of the Update Run
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "update_name", update_name)
+        UpdateRunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            update_name=update_name,
+            description=description,
+            duration=duration,
+            end_time_utc=end_time_utc,
+            error_message=error_message,
+            last_updated_time=last_updated_time,
+            last_updated_time_utc=last_updated_time_utc,
+            location=location,
+            name=name,
+            start_time_utc=start_time_utc,
+            state=state,
+            status=status,
+            steps=steps,
+            time_started=time_started,
+            update_run_name=update_run_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             update_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             duration: Optional[pulumi.Input[str]] = None,
+             end_time_utc: Optional[pulumi.Input[str]] = None,
+             error_message: Optional[pulumi.Input[str]] = None,
+             last_updated_time: Optional[pulumi.Input[str]] = None,
+             last_updated_time_utc: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_time_utc: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'UpdateRunPropertiesState']]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]] = None,
+             time_started: Optional[pulumi.Input[str]] = None,
+             update_run_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if update_name is None and 'updateName' in kwargs:
+            update_name = kwargs['updateName']
+        if update_name is None:
+            raise TypeError("Missing 'update_name' argument")
+        if end_time_utc is None and 'endTimeUtc' in kwargs:
+            end_time_utc = kwargs['endTimeUtc']
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if last_updated_time_utc is None and 'lastUpdatedTimeUtc' in kwargs:
+            last_updated_time_utc = kwargs['lastUpdatedTimeUtc']
+        if start_time_utc is None and 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+        if time_started is None and 'timeStarted' in kwargs:
+            time_started = kwargs['timeStarted']
+        if update_run_name is None and 'updateRunName' in kwargs:
+            update_run_name = kwargs['updateRunName']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("update_name", update_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if duration is not None:
-            pulumi.set(__self__, "duration", duration)
+            _setter("duration", duration)
         if end_time_utc is not None:
-            pulumi.set(__self__, "end_time_utc", end_time_utc)
+            _setter("end_time_utc", end_time_utc)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+            _setter("last_updated_time", last_updated_time)
         if last_updated_time_utc is not None:
-            pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
+            _setter("last_updated_time_utc", last_updated_time_utc)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
+            _setter("start_time_utc", start_time_utc)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+            _setter("steps", steps)
         if time_started is not None:
-            pulumi.set(__self__, "time_started", time_started)
+            _setter("time_started", time_started)
         if update_run_name is not None:
-            pulumi.set(__self__, "update_run_name", update_run_name)
+            _setter("update_run_name", update_run_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -356,6 +425,10 @@ class UpdateRun(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UpdateRunArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

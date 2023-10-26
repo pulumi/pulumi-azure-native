@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,22 +42,83 @@ class ConfigurationAssignmentParentArgs:
         :param pulumi.Input[str] maintenance_configuration_id: The maintenance configuration Id
         :param pulumi.Input[str] resource_id: The unique resourceId
         """
-        pulumi.set(__self__, "provider_name", provider_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "resource_parent_name", resource_parent_name)
-        pulumi.set(__self__, "resource_parent_type", resource_parent_type)
-        pulumi.set(__self__, "resource_type", resource_type)
+        ConfigurationAssignmentParentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_name=provider_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            resource_parent_name=resource_parent_name,
+            resource_parent_type=resource_parent_type,
+            resource_type=resource_type,
+            configuration_assignment_name=configuration_assignment_name,
+            filter=filter,
+            location=location,
+            maintenance_configuration_id=maintenance_configuration_id,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             resource_parent_name: Optional[pulumi.Input[str]] = None,
+             resource_parent_type: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             configuration_assignment_name: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['ConfigurationAssignmentFilterPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if provider_name is None:
+            raise TypeError("Missing 'provider_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if resource_parent_name is None and 'resourceParentName' in kwargs:
+            resource_parent_name = kwargs['resourceParentName']
+        if resource_parent_name is None:
+            raise TypeError("Missing 'resource_parent_name' argument")
+        if resource_parent_type is None and 'resourceParentType' in kwargs:
+            resource_parent_type = kwargs['resourceParentType']
+        if resource_parent_type is None:
+            raise TypeError("Missing 'resource_parent_type' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if configuration_assignment_name is None and 'configurationAssignmentName' in kwargs:
+            configuration_assignment_name = kwargs['configurationAssignmentName']
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("provider_name", provider_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
+        _setter("resource_parent_name", resource_parent_name)
+        _setter("resource_parent_type", resource_parent_type)
+        _setter("resource_type", resource_type)
         if configuration_assignment_name is not None:
-            pulumi.set(__self__, "configuration_assignment_name", configuration_assignment_name)
+            _setter("configuration_assignment_name", configuration_assignment_name)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_configuration_id is not None:
-            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+            _setter("maintenance_configuration_id", maintenance_configuration_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="providerName")
@@ -245,6 +306,10 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationAssignmentParentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -271,6 +336,7 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
             __props__ = ConfigurationAssignmentParentArgs.__new__(ConfigurationAssignmentParentArgs)
 
             __props__.__dict__["configuration_assignment_name"] = configuration_assignment_name
+            filter = _utilities.configure(filter, ConfigurationAssignmentFilterPropertiesArgs, True)
             __props__.__dict__["filter"] = filter
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id

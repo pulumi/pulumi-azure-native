@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -84,17 +84,44 @@ class AacAudioArgs:
         :param pulumi.Input[Union[str, 'AacAudioProfile']] profile: The encoding profile to be used when encoding audio with AAC.
         :param pulumi.Input[int] sampling_rate: The sampling rate to use for encoding in hertz.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AacAudio')
+        AacAudioArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            bitrate=bitrate,
+            channels=channels,
+            label=label,
+            profile=profile,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             bitrate: Optional[pulumi.Input[int]] = None,
+             channels: Optional[pulumi.Input[int]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             profile: Optional[pulumi.Input[Union[str, 'AacAudioProfile']]] = None,
+             sampling_rate: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
+        _setter("odata_type", '#Microsoft.Media.AacAudio')
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if channels is not None:
-            pulumi.set(__self__, "channels", channels)
+            _setter("channels", channels)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
+            _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter(name="odataType")
@@ -181,8 +208,27 @@ class AbsoluteClipTimeArgs:
                Expected value is '#Microsoft.Media.AbsoluteClipTime'.
         :param pulumi.Input[str] time: The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AbsoluteClipTime')
-        pulumi.set(__self__, "time", time)
+        AbsoluteClipTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
+
+        _setter("odata_type", '#Microsoft.Media.AbsoluteClipTime')
+        _setter("time", time)
 
     @property
     @pulumi.getter(name="odataType")
@@ -225,13 +271,38 @@ class AudioAnalyzerPresetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
         :param pulumi.Input[Union[str, 'AudioAnalysisMode']] mode: Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
+        AudioAnalyzerPresetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            audio_language=audio_language,
+            experimental_options=experimental_options,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             audio_language: Optional[pulumi.Input[str]] = None,
+             experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'AudioAnalysisMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if audio_language is None and 'audioLanguage' in kwargs:
+            audio_language = kwargs['audioLanguage']
+        if experimental_options is None and 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+
+        _setter("odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
         if audio_language is not None:
-            pulumi.set(__self__, "audio_language", audio_language)
+            _setter("audio_language", audio_language)
         if experimental_options is not None:
-            pulumi.set(__self__, "experimental_options", experimental_options)
+            _setter("experimental_options", experimental_options)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -304,18 +375,55 @@ class AudioOverlayArgs:
         :param pulumi.Input[str] fade_out_duration: The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as PT0S).
         :param pulumi.Input[str] start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
-        pulumi.set(__self__, "input_label", input_label)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioOverlay')
+        AudioOverlayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_label=input_label,
+            odata_type=odata_type,
+            audio_gain_level=audio_gain_level,
+            end=end,
+            fade_in_duration=fade_in_duration,
+            fade_out_duration=fade_out_duration,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_label: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             audio_gain_level: Optional[pulumi.Input[float]] = None,
+             end: Optional[pulumi.Input[str]] = None,
+             fade_in_duration: Optional[pulumi.Input[str]] = None,
+             fade_out_duration: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_label is None and 'inputLabel' in kwargs:
+            input_label = kwargs['inputLabel']
+        if input_label is None:
+            raise TypeError("Missing 'input_label' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if audio_gain_level is None and 'audioGainLevel' in kwargs:
+            audio_gain_level = kwargs['audioGainLevel']
+        if fade_in_duration is None and 'fadeInDuration' in kwargs:
+            fade_in_duration = kwargs['fadeInDuration']
+        if fade_out_duration is None and 'fadeOutDuration' in kwargs:
+            fade_out_duration = kwargs['fadeOutDuration']
+
+        _setter("input_label", input_label)
+        _setter("odata_type", '#Microsoft.Media.AudioOverlay')
         if audio_gain_level is not None:
-            pulumi.set(__self__, "audio_gain_level", audio_gain_level)
+            _setter("audio_gain_level", audio_gain_level)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if fade_in_duration is not None:
-            pulumi.set(__self__, "fade_in_duration", fade_in_duration)
+            _setter("fade_in_duration", fade_in_duration)
         if fade_out_duration is not None:
-            pulumi.set(__self__, "fade_out_duration", fade_out_duration)
+            _setter("fade_out_duration", fade_out_duration)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="inputLabel")
@@ -414,9 +522,28 @@ class AudioTrackDescriptorArgs:
                Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
         :param pulumi.Input[Union[str, 'ChannelMapping']] channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioTrackDescriptor')
+        AudioTrackDescriptorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            channel_mapping=channel_mapping,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             channel_mapping: Optional[pulumi.Input[Union[str, 'ChannelMapping']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if channel_mapping is None and 'channelMapping' in kwargs:
+            channel_mapping = kwargs['channelMapping']
+
+        _setter("odata_type", '#Microsoft.Media.AudioTrackDescriptor')
         if channel_mapping is not None:
-            pulumi.set(__self__, "channel_mapping", channel_mapping)
+            _setter("channel_mapping", channel_mapping)
 
     @property
     @pulumi.getter(name="odataType")
@@ -461,15 +588,40 @@ class AudioArgs:
         :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[int] sampling_rate: The sampling rate to use for encoding in hertz.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Audio')
+        AudioArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            bitrate=bitrate,
+            channels=channels,
+            label=label,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             bitrate: Optional[pulumi.Input[int]] = None,
+             channels: Optional[pulumi.Input[int]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             sampling_rate: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
+        _setter("odata_type", '#Microsoft.Media.Audio')
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if channels is not None:
-            pulumi.set(__self__, "channels", channels)
+            _setter("channels", channels)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
+            _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter(name="odataType")
@@ -546,10 +698,33 @@ class BuiltInStandardEncoderPresetArgs:
         :param pulumi.Input[Union[str, 'EncoderNamedPreset']] preset_name: The built-in preset to be used for encoding videos.
         :param pulumi.Input['PresetConfigurationsArgs'] configurations: Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.BuiltInStandardEncoderPreset')
-        pulumi.set(__self__, "preset_name", preset_name)
+        BuiltInStandardEncoderPresetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            preset_name=preset_name,
+            configurations=configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             preset_name: Optional[pulumi.Input[Union[str, 'EncoderNamedPreset']]] = None,
+             configurations: Optional[pulumi.Input['PresetConfigurationsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if preset_name is None and 'presetName' in kwargs:
+            preset_name = kwargs['presetName']
+        if preset_name is None:
+            raise TypeError("Missing 'preset_name' argument")
+
+        _setter("odata_type", '#Microsoft.Media.BuiltInStandardEncoderPreset')
+        _setter("preset_name", preset_name)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
 
     @property
     @pulumi.getter(name="odataType")
@@ -600,9 +775,26 @@ class CopyAudioArgs:
                Expected value is '#Microsoft.Media.CopyAudio'.
         :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.CopyAudio')
+        CopyAudioArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            label=label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.CopyAudio')
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
 
     @property
     @pulumi.getter(name="odataType")
@@ -641,9 +833,26 @@ class CopyVideoArgs:
                Expected value is '#Microsoft.Media.CopyVideo'.
         :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.CopyVideo')
+        CopyVideoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            label=label,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.CopyVideo')
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
 
     @property
     @pulumi.getter(name="odataType")
@@ -688,15 +897,40 @@ class DDAudioArgs:
         :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
         :param pulumi.Input[int] sampling_rate: The sampling rate to use for encoding in hertz.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.DDAudio')
+        DDAudioArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            bitrate=bitrate,
+            channels=channels,
+            label=label,
+            sampling_rate=sampling_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             bitrate: Optional[pulumi.Input[int]] = None,
+             channels: Optional[pulumi.Input[int]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             sampling_rate: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
+        _setter("odata_type", '#Microsoft.Media.DDAudio')
         if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
+            _setter("bitrate", bitrate)
         if channels is not None:
-            pulumi.set(__self__, "channels", channels)
+            _setter("channels", channels)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
+            _setter("sampling_rate", sampling_rate)
 
     @property
     @pulumi.getter(name="odataType")
@@ -770,10 +1004,23 @@ class DeinterlaceArgs:
         :param pulumi.Input[Union[str, 'DeinterlaceMode']] mode: The deinterlacing mode. Defaults to AutoPixelAdaptive.
         :param pulumi.Input[Union[str, 'DeinterlaceParity']] parity: The field parity for de-interlacing, defaults to Auto.
         """
+        DeinterlaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            parity=parity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[Union[str, 'DeinterlaceMode']]] = None,
+             parity: Optional[pulumi.Input[Union[str, 'DeinterlaceParity']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if parity is not None:
-            pulumi.set(__self__, "parity", parity)
+            _setter("parity", parity)
 
     @property
     @pulumi.getter
@@ -817,15 +1064,42 @@ class FaceDetectorPresetArgs:
         :param pulumi.Input[Union[str, 'FaceRedactorMode']] mode: This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
         :param pulumi.Input[Union[str, 'AnalysisResolution']] resolution: Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FaceDetectorPreset')
+        FaceDetectorPresetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            blur_type=blur_type,
+            experimental_options=experimental_options,
+            mode=mode,
+            resolution=resolution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             blur_type: Optional[pulumi.Input[Union[str, 'BlurType']]] = None,
+             experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'FaceRedactorMode']]] = None,
+             resolution: Optional[pulumi.Input[Union[str, 'AnalysisResolution']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if blur_type is None and 'blurType' in kwargs:
+            blur_type = kwargs['blurType']
+        if experimental_options is None and 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+
+        _setter("odata_type", '#Microsoft.Media.FaceDetectorPreset')
         if blur_type is not None:
-            pulumi.set(__self__, "blur_type", blur_type)
+            _setter("blur_type", blur_type)
         if experimental_options is not None:
-            pulumi.set(__self__, "experimental_options", experimental_options)
+            _setter("experimental_options", experimental_options)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if resolution is not None:
-            pulumi.set(__self__, "resolution", resolution)
+            _setter("resolution", resolution)
 
     @property
     @pulumi.getter(name="odataType")
@@ -901,10 +1175,31 @@ class FadeArgs:
         :param pulumi.Input[str] fade_color: The Color for the fade In/Out. it can be on the CSS Level1 colors https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords or an RGB/hex value: e.g: rgb(255,0,0), 0xFF0000 or #FF0000
         :param pulumi.Input[str] start: The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, PT05S to start at 5 seconds), or a frame count (For example, 10 to start at the 10th frame), or a relative value to stream duration (For example, 10% to start at 10% of stream duration). Default is 0
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "fade_color", fade_color)
+        FadeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            fade_color=fade_color,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[pulumi.Input[str]] = None,
+             fade_color: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if fade_color is None and 'fadeColor' in kwargs:
+            fade_color = kwargs['fadeColor']
+        if fade_color is None:
+            raise TypeError("Missing 'fade_color' argument")
+
+        _setter("duration", duration)
+        _setter("fade_color", fade_color)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter
@@ -961,18 +1256,43 @@ class FiltersArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['AudioOverlayArgs', 'VideoOverlayArgs']]]] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
         :param pulumi.Input[Union[str, 'Rotation']] rotation: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         """
+        FiltersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crop=crop,
+            deinterlace=deinterlace,
+            fade_in=fade_in,
+            fade_out=fade_out,
+            overlays=overlays,
+            rotation=rotation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crop: Optional[pulumi.Input['RectangleArgs']] = None,
+             deinterlace: Optional[pulumi.Input['DeinterlaceArgs']] = None,
+             fade_in: Optional[pulumi.Input['FadeArgs']] = None,
+             fade_out: Optional[pulumi.Input['FadeArgs']] = None,
+             overlays: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioOverlayArgs', 'VideoOverlayArgs']]]]] = None,
+             rotation: Optional[pulumi.Input[Union[str, 'Rotation']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fade_in is None and 'fadeIn' in kwargs:
+            fade_in = kwargs['fadeIn']
+        if fade_out is None and 'fadeOut' in kwargs:
+            fade_out = kwargs['fadeOut']
+
         if crop is not None:
-            pulumi.set(__self__, "crop", crop)
+            _setter("crop", crop)
         if deinterlace is not None:
-            pulumi.set(__self__, "deinterlace", deinterlace)
+            _setter("deinterlace", deinterlace)
         if fade_in is not None:
-            pulumi.set(__self__, "fade_in", fade_in)
+            _setter("fade_in", fade_in)
         if fade_out is not None:
-            pulumi.set(__self__, "fade_out", fade_out)
+            _setter("fade_out", fade_out)
         if overlays is not None:
-            pulumi.set(__self__, "overlays", overlays)
+            _setter("overlays", overlays)
         if rotation is not None:
-            pulumi.set(__self__, "rotation", rotation)
+            _setter("rotation", rotation)
 
     @property
     @pulumi.getter
@@ -1058,9 +1378,28 @@ class FromAllInputFileArgs:
                Expected value is '#Microsoft.Media.FromAllInputFile'.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FromAllInputFile')
+        FromAllInputFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            included_tracks=included_tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             included_tracks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if included_tracks is None and 'includedTracks' in kwargs:
+            included_tracks = kwargs['includedTracks']
+
+        _setter("odata_type", '#Microsoft.Media.FromAllInputFile')
         if included_tracks is not None:
-            pulumi.set(__self__, "included_tracks", included_tracks)
+            _setter("included_tracks", included_tracks)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1099,9 +1438,28 @@ class FromEachInputFileArgs:
                Expected value is '#Microsoft.Media.FromEachInputFile'.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.FromEachInputFile')
+        FromEachInputFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            included_tracks=included_tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             included_tracks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if included_tracks is None and 'includedTracks' in kwargs:
+            included_tracks = kwargs['includedTracks']
+
+        _setter("odata_type", '#Microsoft.Media.FromEachInputFile')
         if included_tracks is not None:
-            pulumi.set(__self__, "included_tracks", included_tracks)
+            _setter("included_tracks", included_tracks)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1165,35 +1523,90 @@ class H264LayerArgs:
         :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
         :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
-        pulumi.set(__self__, "bitrate", bitrate)
+        H264LayerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+            adaptive_b_frame=adaptive_b_frame,
+            b_frames=b_frames,
+            buffer_window=buffer_window,
+            crf=crf,
+            entropy_mode=entropy_mode,
+            frame_rate=frame_rate,
+            height=height,
+            label=label,
+            level=level,
+            max_bitrate=max_bitrate,
+            profile=profile,
+            reference_frames=reference_frames,
+            slices=slices,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[pulumi.Input[int]] = None,
+             adaptive_b_frame: Optional[pulumi.Input[bool]] = None,
+             b_frames: Optional[pulumi.Input[int]] = None,
+             buffer_window: Optional[pulumi.Input[str]] = None,
+             crf: Optional[pulumi.Input[float]] = None,
+             entropy_mode: Optional[pulumi.Input[Union[str, 'EntropyMode']]] = None,
+             frame_rate: Optional[pulumi.Input[str]] = None,
+             height: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input[str]] = None,
+             max_bitrate: Optional[pulumi.Input[int]] = None,
+             profile: Optional[pulumi.Input[Union[str, 'H264VideoProfile']]] = None,
+             reference_frames: Optional[pulumi.Input[int]] = None,
+             slices: Optional[pulumi.Input[int]] = None,
+             width: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bitrate is None:
+            raise TypeError("Missing 'bitrate' argument")
+        if adaptive_b_frame is None and 'adaptiveBFrame' in kwargs:
+            adaptive_b_frame = kwargs['adaptiveBFrame']
+        if b_frames is None and 'bFrames' in kwargs:
+            b_frames = kwargs['bFrames']
+        if buffer_window is None and 'bufferWindow' in kwargs:
+            buffer_window = kwargs['bufferWindow']
+        if entropy_mode is None and 'entropyMode' in kwargs:
+            entropy_mode = kwargs['entropyMode']
+        if frame_rate is None and 'frameRate' in kwargs:
+            frame_rate = kwargs['frameRate']
+        if max_bitrate is None and 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if reference_frames is None and 'referenceFrames' in kwargs:
+            reference_frames = kwargs['referenceFrames']
+
+        _setter("bitrate", bitrate)
         if adaptive_b_frame is not None:
-            pulumi.set(__self__, "adaptive_b_frame", adaptive_b_frame)
+            _setter("adaptive_b_frame", adaptive_b_frame)
         if b_frames is not None:
-            pulumi.set(__self__, "b_frames", b_frames)
+            _setter("b_frames", b_frames)
         if buffer_window is not None:
-            pulumi.set(__self__, "buffer_window", buffer_window)
+            _setter("buffer_window", buffer_window)
         if crf is not None:
-            pulumi.set(__self__, "crf", crf)
+            _setter("crf", crf)
         if entropy_mode is not None:
-            pulumi.set(__self__, "entropy_mode", entropy_mode)
+            _setter("entropy_mode", entropy_mode)
         if frame_rate is not None:
-            pulumi.set(__self__, "frame_rate", frame_rate)
+            _setter("frame_rate", frame_rate)
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if max_bitrate is not None:
-            pulumi.set(__self__, "max_bitrate", max_bitrate)
+            _setter("max_bitrate", max_bitrate)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if reference_frames is not None:
-            pulumi.set(__self__, "reference_frames", reference_frames)
+            _setter("reference_frames", reference_frames)
         if slices is not None:
-            pulumi.set(__self__, "slices", slices)
+            _setter("slices", slices)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -1401,23 +1814,64 @@ class H264VideoArgs:
         :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param pulumi.Input[Union[str, 'VideoSyncMode']] sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.H264Video')
+        H264VideoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            complexity=complexity,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            layers=layers,
+            rate_control_mode=rate_control_mode,
+            scene_change_detection=scene_change_detection,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             complexity: Optional[pulumi.Input[Union[str, 'H264Complexity']]] = None,
+             key_frame_interval: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input['H264LayerArgs']]]] = None,
+             rate_control_mode: Optional[pulumi.Input[Union[str, 'H264RateControlMode']]] = None,
+             scene_change_detection: Optional[pulumi.Input[bool]] = None,
+             stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+             sync_mode: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if rate_control_mode is None and 'rateControlMode' in kwargs:
+            rate_control_mode = kwargs['rateControlMode']
+        if scene_change_detection is None and 'sceneChangeDetection' in kwargs:
+            scene_change_detection = kwargs['sceneChangeDetection']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.H264Video')
         if complexity is not None:
-            pulumi.set(__self__, "complexity", complexity)
+            _setter("complexity", complexity)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if rate_control_mode is not None:
-            pulumi.set(__self__, "rate_control_mode", rate_control_mode)
+            _setter("rate_control_mode", rate_control_mode)
         if scene_change_detection is not None:
-            pulumi.set(__self__, "scene_change_detection", scene_change_detection)
+            _setter("scene_change_detection", scene_change_detection)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1563,33 +2017,84 @@ class H265LayerArgs:
         :param pulumi.Input[int] slices: The number of slices to be used when encoding this layer. If not specified, default is zero, which means that encoder will use a single slice for each frame.
         :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
-        pulumi.set(__self__, "bitrate", bitrate)
+        H265LayerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bitrate=bitrate,
+            adaptive_b_frame=adaptive_b_frame,
+            b_frames=b_frames,
+            buffer_window=buffer_window,
+            crf=crf,
+            frame_rate=frame_rate,
+            height=height,
+            label=label,
+            level=level,
+            max_bitrate=max_bitrate,
+            profile=profile,
+            reference_frames=reference_frames,
+            slices=slices,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bitrate: Optional[pulumi.Input[int]] = None,
+             adaptive_b_frame: Optional[pulumi.Input[bool]] = None,
+             b_frames: Optional[pulumi.Input[int]] = None,
+             buffer_window: Optional[pulumi.Input[str]] = None,
+             crf: Optional[pulumi.Input[float]] = None,
+             frame_rate: Optional[pulumi.Input[str]] = None,
+             height: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input[str]] = None,
+             max_bitrate: Optional[pulumi.Input[int]] = None,
+             profile: Optional[pulumi.Input[Union[str, 'H265VideoProfile']]] = None,
+             reference_frames: Optional[pulumi.Input[int]] = None,
+             slices: Optional[pulumi.Input[int]] = None,
+             width: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bitrate is None:
+            raise TypeError("Missing 'bitrate' argument")
+        if adaptive_b_frame is None and 'adaptiveBFrame' in kwargs:
+            adaptive_b_frame = kwargs['adaptiveBFrame']
+        if b_frames is None and 'bFrames' in kwargs:
+            b_frames = kwargs['bFrames']
+        if buffer_window is None and 'bufferWindow' in kwargs:
+            buffer_window = kwargs['bufferWindow']
+        if frame_rate is None and 'frameRate' in kwargs:
+            frame_rate = kwargs['frameRate']
+        if max_bitrate is None and 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if reference_frames is None and 'referenceFrames' in kwargs:
+            reference_frames = kwargs['referenceFrames']
+
+        _setter("bitrate", bitrate)
         if adaptive_b_frame is not None:
-            pulumi.set(__self__, "adaptive_b_frame", adaptive_b_frame)
+            _setter("adaptive_b_frame", adaptive_b_frame)
         if b_frames is not None:
-            pulumi.set(__self__, "b_frames", b_frames)
+            _setter("b_frames", b_frames)
         if buffer_window is not None:
-            pulumi.set(__self__, "buffer_window", buffer_window)
+            _setter("buffer_window", buffer_window)
         if crf is not None:
-            pulumi.set(__self__, "crf", crf)
+            _setter("crf", crf)
         if frame_rate is not None:
-            pulumi.set(__self__, "frame_rate", frame_rate)
+            _setter("frame_rate", frame_rate)
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if max_bitrate is not None:
-            pulumi.set(__self__, "max_bitrate", max_bitrate)
+            _setter("max_bitrate", max_bitrate)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if reference_frames is not None:
-            pulumi.set(__self__, "reference_frames", reference_frames)
+            _setter("reference_frames", reference_frames)
         if slices is not None:
-            pulumi.set(__self__, "slices", slices)
+            _setter("slices", slices)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -1783,21 +2288,58 @@ class H265VideoArgs:
         :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param pulumi.Input[Union[str, 'VideoSyncMode']] sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.H265Video')
+        H265VideoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            complexity=complexity,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            layers=layers,
+            scene_change_detection=scene_change_detection,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             complexity: Optional[pulumi.Input[Union[str, 'H265Complexity']]] = None,
+             key_frame_interval: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input['H265LayerArgs']]]] = None,
+             scene_change_detection: Optional[pulumi.Input[bool]] = None,
+             stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+             sync_mode: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if scene_change_detection is None and 'sceneChangeDetection' in kwargs:
+            scene_change_detection = kwargs['sceneChangeDetection']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.H265Video')
         if complexity is not None:
-            pulumi.set(__self__, "complexity", complexity)
+            _setter("complexity", complexity)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if scene_change_detection is not None:
-            pulumi.set(__self__, "scene_change_detection", scene_change_detection)
+            _setter("scene_change_detection", scene_change_detection)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -1908,8 +2450,29 @@ class ImageFormatArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.ImageFormat'.
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ImageFormat')
+        ImageFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.ImageFormat')
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -1960,20 +2523,57 @@ class ImageArgs:
         :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param pulumi.Input[Union[str, 'VideoSyncMode']] sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Image')
-        pulumi.set(__self__, "start", start)
+        ImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            start=start,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            range=range,
+            step=step,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             key_frame_interval: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             range: Optional[pulumi.Input[str]] = None,
+             step: Optional[pulumi.Input[str]] = None,
+             stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+             sync_mode: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.Image')
+        _setter("start", start)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if step is not None:
-            pulumi.set(__self__, "step", step)
+            _setter("step", step)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2086,11 +2686,32 @@ class InputFileArgs:
         :param pulumi.Input[str] filename: Name of the file that this input definition applies to.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]] included_tracks: The list of TrackDescriptors which define the metadata and selection of tracks in the input.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.InputFile')
+        InputFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            filename=filename,
+            included_tracks=included_tracks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             included_tracks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioTrackDescriptorArgs', 'SelectAudioTrackByAttributeArgs', 'SelectAudioTrackByIdArgs', 'SelectVideoTrackByAttributeArgs', 'SelectVideoTrackByIdArgs', 'VideoTrackDescriptorArgs']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if included_tracks is None and 'includedTracks' in kwargs:
+            included_tracks = kwargs['includedTracks']
+
+        _setter("odata_type", '#Microsoft.Media.InputFile')
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if included_tracks is not None:
-            pulumi.set(__self__, "included_tracks", included_tracks)
+            _setter("included_tracks", included_tracks)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2151,18 +2772,51 @@ class JobInputAssetArgs:
         :param pulumi.Input[str] label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputAsset')
+        JobInputAssetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            odata_type=odata_type,
+            end=end,
+            files=files,
+            input_definitions=input_definitions,
+            label=label,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             end: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
+             files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if input_definitions is None and 'inputDefinitions' in kwargs:
+            input_definitions = kwargs['inputDefinitions']
+
+        _setter("asset_name", asset_name)
+        _setter("odata_type", '#Microsoft.Media.JobInputAsset')
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if files is not None:
-            pulumi.set(__self__, "files", files)
+            _setter("files", files)
         if input_definitions is not None:
-            pulumi.set(__self__, "input_definitions", input_definitions)
+            _setter("input_definitions", input_definitions)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="assetName")
@@ -2269,17 +2923,44 @@ class JobInputClipArgs:
         :param pulumi.Input[str] label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputClip')
+        JobInputClipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            end=end,
+            files=files,
+            input_definitions=input_definitions,
+            label=label,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             end: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
+             files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if input_definitions is None and 'inputDefinitions' in kwargs:
+            input_definitions = kwargs['inputDefinitions']
+
+        _setter("odata_type", '#Microsoft.Media.JobInputClip')
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if files is not None:
-            pulumi.set(__self__, "files", files)
+            _setter("files", files)
         if input_definitions is not None:
-            pulumi.set(__self__, "input_definitions", input_definitions)
+            _setter("input_definitions", input_definitions)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2376,19 +3057,50 @@ class JobInputHttpArgs:
         :param pulumi.Input[str] label: A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
         :param pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']] start: Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputHttp')
+        JobInputHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            base_uri=base_uri,
+            end=end,
+            files=files,
+            input_definitions=input_definitions,
+            label=label,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             base_uri: Optional[pulumi.Input[str]] = None,
+             end: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
+             files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             input_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FromAllInputFileArgs', 'FromEachInputFileArgs', 'InputFileArgs']]]]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[Union['AbsoluteClipTimeArgs', 'UtcClipTimeArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if base_uri is None and 'baseUri' in kwargs:
+            base_uri = kwargs['baseUri']
+        if input_definitions is None and 'inputDefinitions' in kwargs:
+            input_definitions = kwargs['inputDefinitions']
+
+        _setter("odata_type", '#Microsoft.Media.JobInputHttp')
         if base_uri is not None:
-            pulumi.set(__self__, "base_uri", base_uri)
+            _setter("base_uri", base_uri)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if files is not None:
-            pulumi.set(__self__, "files", files)
+            _setter("files", files)
         if input_definitions is not None:
-            pulumi.set(__self__, "input_definitions", input_definitions)
+            _setter("input_definitions", input_definitions)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2487,9 +3199,26 @@ class JobInputSequenceArgs:
                Expected value is '#Microsoft.Media.JobInputSequence'.
         :param pulumi.Input[Sequence[pulumi.Input['JobInputClipArgs']]] inputs: JobInputs that make up the timeline.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputSequence')
+        JobInputSequenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            inputs=inputs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             inputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobInputClipArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.JobInputSequence')
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2528,9 +3257,26 @@ class JobInputsArgs:
                Expected value is '#Microsoft.Media.JobInputs'.
         :param pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputSequenceArgs', 'JobInputsArgs']]]] inputs: List of inputs to a Job.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobInputs')
+        JobInputsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            inputs=inputs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             inputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobInputAssetArgs', 'JobInputClipArgs', 'JobInputHttpArgs', 'JobInputSequenceArgs', 'JobInputsArgs']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.JobInputs')
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2573,12 +3319,39 @@ class JobOutputAssetArgs:
         :param pulumi.Input[str] label: A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
         :param pulumi.Input[Union['AudioAnalyzerPresetArgs', 'BuiltInStandardEncoderPresetArgs', 'FaceDetectorPresetArgs', 'StandardEncoderPresetArgs', 'VideoAnalyzerPresetArgs']] preset_override: A preset used to override the preset in the corresponding transform output.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JobOutputAsset')
+        JobOutputAssetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            odata_type=odata_type,
+            label=label,
+            preset_override=preset_override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             preset_override: Optional[pulumi.Input[Union['AudioAnalyzerPresetArgs', 'BuiltInStandardEncoderPresetArgs', 'FaceDetectorPresetArgs', 'StandardEncoderPresetArgs', 'VideoAnalyzerPresetArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if preset_override is None and 'presetOverride' in kwargs:
+            preset_override = kwargs['presetOverride']
+
+        _setter("asset_name", asset_name)
+        _setter("odata_type", '#Microsoft.Media.JobOutputAsset')
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if preset_override is not None:
-            pulumi.set(__self__, "preset_override", preset_override)
+            _setter("preset_override", preset_override)
 
     @property
     @pulumi.getter(name="assetName")
@@ -2641,8 +3414,29 @@ class JpgFormatArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.JpgFormat'.
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JpgFormat')
+        JpgFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.JpgFormat')
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -2697,24 +3491,67 @@ class JpgImageArgs:
         :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param pulumi.Input[Union[str, 'VideoSyncMode']] sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.JpgImage')
-        pulumi.set(__self__, "start", start)
+        JpgImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            start=start,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            layers=layers,
+            range=range,
+            sprite_column=sprite_column,
+            step=step,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             key_frame_interval: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input['JpgLayerArgs']]]] = None,
+             range: Optional[pulumi.Input[str]] = None,
+             sprite_column: Optional[pulumi.Input[int]] = None,
+             step: Optional[pulumi.Input[str]] = None,
+             stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+             sync_mode: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if sprite_column is None and 'spriteColumn' in kwargs:
+            sprite_column = kwargs['spriteColumn']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.JpgImage')
+        _setter("start", start)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if sprite_column is not None:
-            pulumi.set(__self__, "sprite_column", sprite_column)
+            _setter("sprite_column", sprite_column)
         if step is not None:
-            pulumi.set(__self__, "step", step)
+            _setter("step", step)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -2852,14 +3689,31 @@ class JpgLayerArgs:
         :param pulumi.Input[int] quality: The compression quality of the JPEG output. Range is from 0-100 and the default is 70.
         :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
+        JpgLayerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            height=height,
+            label=label,
+            quality=quality,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             height: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             quality: Optional[pulumi.Input[int]] = None,
+             width: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if quality is not None:
-            pulumi.set(__self__, "quality", quality)
+            _setter("quality", quality)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -2923,10 +3777,35 @@ class Mp4FormatArgs:
                Expected value is '#Microsoft.Media.Mp4Format'.
         :param pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Mp4Format')
+        Mp4FormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+            output_files=output_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             output_files: Optional[pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if output_files is None and 'outputFiles' in kwargs:
+            output_files = kwargs['outputFiles']
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.Mp4Format')
         if output_files is not None:
-            pulumi.set(__self__, "output_files", output_files)
+            _setter("output_files", output_files)
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -2979,10 +3858,35 @@ class MultiBitrateFormatArgs:
                Expected value is '#Microsoft.Media.MultiBitrateFormat'.
         :param pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.MultiBitrateFormat')
+        MultiBitrateFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+            output_files=output_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             output_files: Optional[pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if output_files is None and 'outputFiles' in kwargs:
+            output_files = kwargs['outputFiles']
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.MultiBitrateFormat')
         if output_files is not None:
-            pulumi.set(__self__, "output_files", output_files)
+            _setter("output_files", output_files)
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -3030,7 +3934,20 @@ class OutputFileArgs:
         Represents an output file produced.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels v1 and v2, and one audio layer with label a1, then an array like '[v1, a1]' tells the encoder to produce an output file with the video track represented by v1 and the audio track represented by a1.
         """
-        pulumi.set(__self__, "labels", labels)
+        OutputFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            labels=labels,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+
+        _setter("labels", labels)
 
     @property
     @pulumi.getter
@@ -3056,8 +3973,29 @@ class PngFormatArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.PngFormat'.
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.PngFormat')
+        PngFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.PngFormat')
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -3110,22 +4048,61 @@ class PngImageArgs:
         :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param pulumi.Input[Union[str, 'VideoSyncMode']] sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.PngImage')
-        pulumi.set(__self__, "start", start)
+        PngImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            start=start,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            layers=layers,
+            range=range,
+            step=step,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             key_frame_interval: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             layers: Optional[pulumi.Input[Sequence[pulumi.Input['PngLayerArgs']]]] = None,
+             range: Optional[pulumi.Input[str]] = None,
+             step: Optional[pulumi.Input[str]] = None,
+             stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+             sync_mode: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.PngImage')
+        _setter("start", start)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if layers is not None:
-            pulumi.set(__self__, "layers", layers)
+            _setter("layers", layers)
         if range is not None:
-            pulumi.set(__self__, "range", range)
+            _setter("range", range)
         if step is not None:
-            pulumi.set(__self__, "step", step)
+            _setter("step", step)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3249,12 +4226,27 @@ class PngLayerArgs:
         :param pulumi.Input[str] label: The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
         :param pulumi.Input[str] width: The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example 50% means the output video has half as many pixels in width as the input.
         """
+        PngLayerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            height=height,
+            label=label,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             height: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             width: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -3315,22 +4307,61 @@ class PresetConfigurationsArgs:
         :param pulumi.Input[int] min_bitrate_bps: The minimum bitrate in bits per second (threshold for the bottom video layer). Example: set MinBitrateBps as 200000 to have a bottom layer that covers users with low network bandwidth.
         :param pulumi.Input[int] min_height: The minimum height of output video layers. Example: set MinHeight as 360 to avoid output layers of smaller resolutions like 180P.
         """
+        PresetConfigurationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            complexity=complexity,
+            interleave_output=interleave_output,
+            key_frame_interval_in_seconds=key_frame_interval_in_seconds,
+            max_bitrate_bps=max_bitrate_bps,
+            max_height=max_height,
+            max_layers=max_layers,
+            min_bitrate_bps=min_bitrate_bps,
+            min_height=min_height,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             complexity: Optional[pulumi.Input[Union[str, 'Complexity']]] = None,
+             interleave_output: Optional[pulumi.Input[Union[str, 'InterleaveOutput']]] = None,
+             key_frame_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             max_bitrate_bps: Optional[pulumi.Input[int]] = None,
+             max_height: Optional[pulumi.Input[int]] = None,
+             max_layers: Optional[pulumi.Input[int]] = None,
+             min_bitrate_bps: Optional[pulumi.Input[int]] = None,
+             min_height: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interleave_output is None and 'interleaveOutput' in kwargs:
+            interleave_output = kwargs['interleaveOutput']
+        if key_frame_interval_in_seconds is None and 'keyFrameIntervalInSeconds' in kwargs:
+            key_frame_interval_in_seconds = kwargs['keyFrameIntervalInSeconds']
+        if max_bitrate_bps is None and 'maxBitrateBps' in kwargs:
+            max_bitrate_bps = kwargs['maxBitrateBps']
+        if max_height is None and 'maxHeight' in kwargs:
+            max_height = kwargs['maxHeight']
+        if max_layers is None and 'maxLayers' in kwargs:
+            max_layers = kwargs['maxLayers']
+        if min_bitrate_bps is None and 'minBitrateBps' in kwargs:
+            min_bitrate_bps = kwargs['minBitrateBps']
+        if min_height is None and 'minHeight' in kwargs:
+            min_height = kwargs['minHeight']
+
         if complexity is not None:
-            pulumi.set(__self__, "complexity", complexity)
+            _setter("complexity", complexity)
         if interleave_output is not None:
-            pulumi.set(__self__, "interleave_output", interleave_output)
+            _setter("interleave_output", interleave_output)
         if key_frame_interval_in_seconds is not None:
-            pulumi.set(__self__, "key_frame_interval_in_seconds", key_frame_interval_in_seconds)
+            _setter("key_frame_interval_in_seconds", key_frame_interval_in_seconds)
         if max_bitrate_bps is not None:
-            pulumi.set(__self__, "max_bitrate_bps", max_bitrate_bps)
+            _setter("max_bitrate_bps", max_bitrate_bps)
         if max_height is not None:
-            pulumi.set(__self__, "max_height", max_height)
+            _setter("max_height", max_height)
         if max_layers is not None:
-            pulumi.set(__self__, "max_layers", max_layers)
+            _setter("max_layers", max_layers)
         if min_bitrate_bps is not None:
-            pulumi.set(__self__, "min_bitrate_bps", min_bitrate_bps)
+            _setter("min_bitrate_bps", min_bitrate_bps)
         if min_height is not None:
-            pulumi.set(__self__, "min_height", min_height)
+            _setter("min_height", min_height)
 
     @property
     @pulumi.getter
@@ -3443,14 +4474,31 @@ class RectangleArgs:
         :param pulumi.Input[str] top: The number of pixels from the top-margin. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
         :param pulumi.Input[str] width: The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
         """
+        RectangleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            height=height,
+            left=left,
+            top=top,
+            width=width,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             height: Optional[pulumi.Input[str]] = None,
+             left: Optional[pulumi.Input[str]] = None,
+             top: Optional[pulumi.Input[str]] = None,
+             width: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if height is not None:
-            pulumi.set(__self__, "height", height)
+            _setter("height", height)
         if left is not None:
-            pulumi.set(__self__, "left", left)
+            _setter("left", left)
         if top is not None:
-            pulumi.set(__self__, "top", top)
+            _setter("top", top)
         if width is not None:
-            pulumi.set(__self__, "width", width)
+            _setter("width", width)
 
     @property
     @pulumi.getter
@@ -3518,13 +4566,44 @@ class SelectAudioTrackByAttributeArgs:
         :param pulumi.Input[Union[str, 'ChannelMapping']] channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
         :param pulumi.Input[str] filter_value: The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property.
         """
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.SelectAudioTrackByAttribute')
+        SelectAudioTrackByAttributeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute=attribute,
+            filter=filter,
+            odata_type=odata_type,
+            channel_mapping=channel_mapping,
+            filter_value=filter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute: Optional[pulumi.Input[Union[str, 'TrackAttribute']]] = None,
+             filter: Optional[pulumi.Input[Union[str, 'AttributeFilter']]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             channel_mapping: Optional[pulumi.Input[Union[str, 'ChannelMapping']]] = None,
+             filter_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if channel_mapping is None and 'channelMapping' in kwargs:
+            channel_mapping = kwargs['channelMapping']
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
+        _setter("attribute", attribute)
+        _setter("filter", filter)
+        _setter("odata_type", '#Microsoft.Media.SelectAudioTrackByAttribute')
         if channel_mapping is not None:
-            pulumi.set(__self__, "channel_mapping", channel_mapping)
+            _setter("channel_mapping", channel_mapping)
         if filter_value is not None:
-            pulumi.set(__self__, "filter_value", filter_value)
+            _setter("filter_value", filter_value)
 
     @property
     @pulumi.getter
@@ -3601,10 +4680,35 @@ class SelectAudioTrackByIdArgs:
         :param pulumi.Input[float] track_id: Track identifier to select
         :param pulumi.Input[Union[str, 'ChannelMapping']] channel_mapping: Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.SelectAudioTrackById')
-        pulumi.set(__self__, "track_id", track_id)
+        SelectAudioTrackByIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            track_id=track_id,
+            channel_mapping=channel_mapping,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             track_id: Optional[pulumi.Input[float]] = None,
+             channel_mapping: Optional[pulumi.Input[Union[str, 'ChannelMapping']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if track_id is None and 'trackId' in kwargs:
+            track_id = kwargs['trackId']
+        if track_id is None:
+            raise TypeError("Missing 'track_id' argument")
+        if channel_mapping is None and 'channelMapping' in kwargs:
+            channel_mapping = kwargs['channelMapping']
+
+        _setter("odata_type", '#Microsoft.Media.SelectAudioTrackById')
+        _setter("track_id", track_id)
         if channel_mapping is not None:
-            pulumi.set(__self__, "channel_mapping", channel_mapping)
+            _setter("channel_mapping", channel_mapping)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3659,11 +4763,38 @@ class SelectVideoTrackByAttributeArgs:
                Expected value is '#Microsoft.Media.SelectVideoTrackByAttribute'.
         :param pulumi.Input[str] filter_value: The value to filter the tracks by.  Only used when AttributeFilter.ValueEquals is specified for the Filter property. For TrackAttribute.Bitrate, this should be an integer value in bits per second (e.g: '1500000').  The TrackAttribute.Language is not supported for video tracks.
         """
-        pulumi.set(__self__, "attribute", attribute)
-        pulumi.set(__self__, "filter", filter)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.SelectVideoTrackByAttribute')
+        SelectVideoTrackByAttributeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attribute=attribute,
+            filter=filter,
+            odata_type=odata_type,
+            filter_value=filter_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attribute: Optional[pulumi.Input[Union[str, 'TrackAttribute']]] = None,
+             filter: Optional[pulumi.Input[Union[str, 'AttributeFilter']]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             filter_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if filter_value is None and 'filterValue' in kwargs:
+            filter_value = kwargs['filterValue']
+
+        _setter("attribute", attribute)
+        _setter("filter", filter)
+        _setter("odata_type", '#Microsoft.Media.SelectVideoTrackByAttribute')
         if filter_value is not None:
-            pulumi.set(__self__, "filter_value", filter_value)
+            _setter("filter_value", filter_value)
 
     @property
     @pulumi.getter
@@ -3726,8 +4857,29 @@ class SelectVideoTrackByIdArgs:
                Expected value is '#Microsoft.Media.SelectVideoTrackById'.
         :param pulumi.Input[float] track_id: Track identifier to select
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.SelectVideoTrackById')
-        pulumi.set(__self__, "track_id", track_id)
+        SelectVideoTrackByIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            track_id=track_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             track_id: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if track_id is None and 'trackId' in kwargs:
+            track_id = kwargs['trackId']
+        if track_id is None:
+            raise TypeError("Missing 'track_id' argument")
+
+        _setter("odata_type", '#Microsoft.Media.SelectVideoTrackById')
+        _setter("track_id", track_id)
 
     @property
     @pulumi.getter(name="odataType")
@@ -3772,13 +4924,42 @@ class StandardEncoderPresetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
         :param pulumi.Input['FiltersArgs'] filters: One or more filtering operations that are applied to the input media before encoding.
         """
-        pulumi.set(__self__, "codecs", codecs)
-        pulumi.set(__self__, "formats", formats)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.StandardEncoderPreset')
+        StandardEncoderPresetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            codecs=codecs,
+            formats=formats,
+            odata_type=odata_type,
+            experimental_options=experimental_options,
+            filters=filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             codecs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AacAudioArgs', 'AudioArgs', 'CopyAudioArgs', 'CopyVideoArgs', 'DDAudioArgs', 'H264VideoArgs', 'H265VideoArgs', 'ImageArgs', 'JpgImageArgs', 'PngImageArgs', 'VideoArgs']]]]] = None,
+             formats: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageFormatArgs', 'JpgFormatArgs', 'Mp4FormatArgs', 'MultiBitrateFormatArgs', 'PngFormatArgs', 'TransportStreamFormatArgs']]]]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             filters: Optional[pulumi.Input['FiltersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if codecs is None:
+            raise TypeError("Missing 'codecs' argument")
+        if formats is None:
+            raise TypeError("Missing 'formats' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if experimental_options is None and 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+
+        _setter("codecs", codecs)
+        _setter("formats", formats)
+        _setter("odata_type", '#Microsoft.Media.StandardEncoderPreset')
         if experimental_options is not None:
-            pulumi.set(__self__, "experimental_options", experimental_options)
+            _setter("experimental_options", experimental_options)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
 
     @property
     @pulumi.getter
@@ -3854,11 +5035,32 @@ class TransformOutputArgs:
         :param pulumi.Input[Union[str, 'OnErrorType']] on_error: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
         :param pulumi.Input[Union[str, 'Priority']] relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
-        pulumi.set(__self__, "preset", preset)
+        TransformOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preset=preset,
+            on_error=on_error,
+            relative_priority=relative_priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preset: Optional[pulumi.Input[Union['AudioAnalyzerPresetArgs', 'BuiltInStandardEncoderPresetArgs', 'FaceDetectorPresetArgs', 'StandardEncoderPresetArgs', 'VideoAnalyzerPresetArgs']]] = None,
+             on_error: Optional[pulumi.Input[Union[str, 'OnErrorType']]] = None,
+             relative_priority: Optional[pulumi.Input[Union[str, 'Priority']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preset is None:
+            raise TypeError("Missing 'preset' argument")
+        if on_error is None and 'onError' in kwargs:
+            on_error = kwargs['onError']
+        if relative_priority is None and 'relativePriority' in kwargs:
+            relative_priority = kwargs['relativePriority']
+
+        _setter("preset", preset)
         if on_error is not None:
-            pulumi.set(__self__, "on_error", on_error)
+            _setter("on_error", on_error)
         if relative_priority is not None:
-            pulumi.set(__self__, "relative_priority", relative_priority)
+            _setter("relative_priority", relative_priority)
 
     @property
     @pulumi.getter
@@ -3910,10 +5112,35 @@ class TransportStreamFormatArgs:
                Expected value is '#Microsoft.Media.TransportStreamFormat'.
         :param pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]] output_files: The list of output files to produce.  Each entry in the list is a set of audio and video layer labels to be muxed together .
         """
-        pulumi.set(__self__, "filename_pattern", filename_pattern)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.TransportStreamFormat')
+        TransportStreamFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename_pattern=filename_pattern,
+            odata_type=odata_type,
+            output_files=output_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename_pattern: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             output_files: Optional[pulumi.Input[Sequence[pulumi.Input['OutputFileArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filename_pattern is None and 'filenamePattern' in kwargs:
+            filename_pattern = kwargs['filenamePattern']
+        if filename_pattern is None:
+            raise TypeError("Missing 'filename_pattern' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if output_files is None and 'outputFiles' in kwargs:
+            output_files = kwargs['outputFiles']
+
+        _setter("filename_pattern", filename_pattern)
+        _setter("odata_type", '#Microsoft.Media.TransportStreamFormat')
         if output_files is not None:
-            pulumi.set(__self__, "output_files", output_files)
+            _setter("output_files", output_files)
 
     @property
     @pulumi.getter(name="filenamePattern")
@@ -3964,8 +5191,27 @@ class UtcClipTimeArgs:
                Expected value is '#Microsoft.Media.UtcClipTime'.
         :param pulumi.Input[str] time: The time position on the timeline of the input media based on Utc time.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.UtcClipTime')
-        pulumi.set(__self__, "time", time)
+        UtcClipTimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
+
+        _setter("odata_type", '#Microsoft.Media.UtcClipTime')
+        _setter("time", time)
 
     @property
     @pulumi.getter(name="odataType")
@@ -4010,15 +5256,44 @@ class VideoAnalyzerPresetArgs:
         :param pulumi.Input[Union[str, 'InsightsType']] insights_to_extract: Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
         :param pulumi.Input[Union[str, 'AudioAnalysisMode']] mode: Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoAnalyzerPreset')
+        VideoAnalyzerPresetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            audio_language=audio_language,
+            experimental_options=experimental_options,
+            insights_to_extract=insights_to_extract,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             audio_language: Optional[pulumi.Input[str]] = None,
+             experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             insights_to_extract: Optional[pulumi.Input[Union[str, 'InsightsType']]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'AudioAnalysisMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if audio_language is None and 'audioLanguage' in kwargs:
+            audio_language = kwargs['audioLanguage']
+        if experimental_options is None and 'experimentalOptions' in kwargs:
+            experimental_options = kwargs['experimentalOptions']
+        if insights_to_extract is None and 'insightsToExtract' in kwargs:
+            insights_to_extract = kwargs['insightsToExtract']
+
+        _setter("odata_type", '#Microsoft.Media.VideoAnalyzerPreset')
         if audio_language is not None:
-            pulumi.set(__self__, "audio_language", audio_language)
+            _setter("audio_language", audio_language)
         if experimental_options is not None:
-            pulumi.set(__self__, "experimental_options", experimental_options)
+            _setter("experimental_options", experimental_options)
         if insights_to_extract is not None:
-            pulumi.set(__self__, "insights_to_extract", insights_to_extract)
+            _setter("insights_to_extract", insights_to_extract)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter(name="odataType")
@@ -4109,24 +5384,69 @@ class VideoOverlayArgs:
         :param pulumi.Input['RectangleArgs'] position: The location in the input video where the overlay is applied.
         :param pulumi.Input[str] start: The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, PT05S to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
         """
-        pulumi.set(__self__, "input_label", input_label)
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoOverlay')
+        VideoOverlayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_label=input_label,
+            odata_type=odata_type,
+            audio_gain_level=audio_gain_level,
+            crop_rectangle=crop_rectangle,
+            end=end,
+            fade_in_duration=fade_in_duration,
+            fade_out_duration=fade_out_duration,
+            opacity=opacity,
+            position=position,
+            start=start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_label: Optional[pulumi.Input[str]] = None,
+             odata_type: Optional[pulumi.Input[str]] = None,
+             audio_gain_level: Optional[pulumi.Input[float]] = None,
+             crop_rectangle: Optional[pulumi.Input['RectangleArgs']] = None,
+             end: Optional[pulumi.Input[str]] = None,
+             fade_in_duration: Optional[pulumi.Input[str]] = None,
+             fade_out_duration: Optional[pulumi.Input[str]] = None,
+             opacity: Optional[pulumi.Input[float]] = None,
+             position: Optional[pulumi.Input['RectangleArgs']] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_label is None and 'inputLabel' in kwargs:
+            input_label = kwargs['inputLabel']
+        if input_label is None:
+            raise TypeError("Missing 'input_label' argument")
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if audio_gain_level is None and 'audioGainLevel' in kwargs:
+            audio_gain_level = kwargs['audioGainLevel']
+        if crop_rectangle is None and 'cropRectangle' in kwargs:
+            crop_rectangle = kwargs['cropRectangle']
+        if fade_in_duration is None and 'fadeInDuration' in kwargs:
+            fade_in_duration = kwargs['fadeInDuration']
+        if fade_out_duration is None and 'fadeOutDuration' in kwargs:
+            fade_out_duration = kwargs['fadeOutDuration']
+
+        _setter("input_label", input_label)
+        _setter("odata_type", '#Microsoft.Media.VideoOverlay')
         if audio_gain_level is not None:
-            pulumi.set(__self__, "audio_gain_level", audio_gain_level)
+            _setter("audio_gain_level", audio_gain_level)
         if crop_rectangle is not None:
-            pulumi.set(__self__, "crop_rectangle", crop_rectangle)
+            _setter("crop_rectangle", crop_rectangle)
         if end is not None:
-            pulumi.set(__self__, "end", end)
+            _setter("end", end)
         if fade_in_duration is not None:
-            pulumi.set(__self__, "fade_in_duration", fade_in_duration)
+            _setter("fade_in_duration", fade_in_duration)
         if fade_out_duration is not None:
-            pulumi.set(__self__, "fade_out_duration", fade_out_duration)
+            _setter("fade_out_duration", fade_out_duration)
         if opacity is not None:
-            pulumi.set(__self__, "opacity", opacity)
+            _setter("opacity", opacity)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
         if start is not None:
-            pulumi.set(__self__, "start", start)
+            _setter("start", start)
 
     @property
     @pulumi.getter(name="inputLabel")
@@ -4259,7 +5579,22 @@ class VideoTrackDescriptorArgs:
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
                Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.VideoTrackDescriptor')
+        VideoTrackDescriptorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+
+        _setter("odata_type", '#Microsoft.Media.VideoTrackDescriptor')
 
     @property
     @pulumi.getter(name="odataType")
@@ -4292,15 +5627,44 @@ class VideoArgs:
         :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         :param pulumi.Input[Union[str, 'VideoSyncMode']] sync_mode: The Video Sync Mode
         """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        VideoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            odata_type=odata_type,
+            key_frame_interval=key_frame_interval,
+            label=label,
+            stretch_mode=stretch_mode,
+            sync_mode=sync_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             odata_type: Optional[pulumi.Input[str]] = None,
+             key_frame_interval: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+             sync_mode: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if odata_type is None and 'odataType' in kwargs:
+            odata_type = kwargs['odataType']
+        if odata_type is None:
+            raise TypeError("Missing 'odata_type' argument")
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+        if sync_mode is None and 'syncMode' in kwargs:
+            sync_mode = kwargs['syncMode']
+
+        _setter("odata_type", '#Microsoft.Media.Video')
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
         if sync_mode is not None:
-            pulumi.set(__self__, "sync_mode", sync_mode)
+            _setter("sync_mode", sync_mode)
 
     @property
     @pulumi.getter(name="odataType")

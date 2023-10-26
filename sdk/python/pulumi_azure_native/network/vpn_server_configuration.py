@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -57,41 +57,116 @@ class VpnServerConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]] vpn_protocols: VPN protocols for the VpnServerConfiguration.
         :param pulumi.Input[str] vpn_server_configuration_name: The name of the VpnServerConfiguration being created or updated.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VpnServerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            aad_authentication_parameters=aad_authentication_parameters,
+            configuration_policy_groups=configuration_policy_groups,
+            id=id,
+            location=location,
+            name=name,
+            radius_client_root_certificates=radius_client_root_certificates,
+            radius_server_address=radius_server_address,
+            radius_server_root_certificates=radius_server_root_certificates,
+            radius_server_secret=radius_server_secret,
+            radius_servers=radius_servers,
+            tags=tags,
+            vpn_authentication_types=vpn_authentication_types,
+            vpn_client_ipsec_policies=vpn_client_ipsec_policies,
+            vpn_client_revoked_certificates=vpn_client_revoked_certificates,
+            vpn_client_root_certificates=vpn_client_root_certificates,
+            vpn_protocols=vpn_protocols,
+            vpn_server_configuration_name=vpn_server_configuration_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             aad_authentication_parameters: Optional[pulumi.Input['AadAuthenticationParametersArgs']] = None,
+             configuration_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             radius_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusClientRootCertificateArgs']]]] = None,
+             radius_server_address: Optional[pulumi.Input[str]] = None,
+             radius_server_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigRadiusServerRootCertificateArgs']]]] = None,
+             radius_server_secret: Optional[pulumi.Input[str]] = None,
+             radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RadiusServerArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]]] = None,
+             vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+             vpn_client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRevokedCertificateArgs']]]] = None,
+             vpn_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigVpnClientRootCertificateArgs']]]] = None,
+             vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]] = None,
+             vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if aad_authentication_parameters is None and 'aadAuthenticationParameters' in kwargs:
+            aad_authentication_parameters = kwargs['aadAuthenticationParameters']
+        if configuration_policy_groups is None and 'configurationPolicyGroups' in kwargs:
+            configuration_policy_groups = kwargs['configurationPolicyGroups']
+        if radius_client_root_certificates is None and 'radiusClientRootCertificates' in kwargs:
+            radius_client_root_certificates = kwargs['radiusClientRootCertificates']
+        if radius_server_address is None and 'radiusServerAddress' in kwargs:
+            radius_server_address = kwargs['radiusServerAddress']
+        if radius_server_root_certificates is None and 'radiusServerRootCertificates' in kwargs:
+            radius_server_root_certificates = kwargs['radiusServerRootCertificates']
+        if radius_server_secret is None and 'radiusServerSecret' in kwargs:
+            radius_server_secret = kwargs['radiusServerSecret']
+        if radius_servers is None and 'radiusServers' in kwargs:
+            radius_servers = kwargs['radiusServers']
+        if vpn_authentication_types is None and 'vpnAuthenticationTypes' in kwargs:
+            vpn_authentication_types = kwargs['vpnAuthenticationTypes']
+        if vpn_client_ipsec_policies is None and 'vpnClientIpsecPolicies' in kwargs:
+            vpn_client_ipsec_policies = kwargs['vpnClientIpsecPolicies']
+        if vpn_client_revoked_certificates is None and 'vpnClientRevokedCertificates' in kwargs:
+            vpn_client_revoked_certificates = kwargs['vpnClientRevokedCertificates']
+        if vpn_client_root_certificates is None and 'vpnClientRootCertificates' in kwargs:
+            vpn_client_root_certificates = kwargs['vpnClientRootCertificates']
+        if vpn_protocols is None and 'vpnProtocols' in kwargs:
+            vpn_protocols = kwargs['vpnProtocols']
+        if vpn_server_configuration_name is None and 'vpnServerConfigurationName' in kwargs:
+            vpn_server_configuration_name = kwargs['vpnServerConfigurationName']
+
+        _setter("resource_group_name", resource_group_name)
         if aad_authentication_parameters is not None:
-            pulumi.set(__self__, "aad_authentication_parameters", aad_authentication_parameters)
+            _setter("aad_authentication_parameters", aad_authentication_parameters)
         if configuration_policy_groups is not None:
-            pulumi.set(__self__, "configuration_policy_groups", configuration_policy_groups)
+            _setter("configuration_policy_groups", configuration_policy_groups)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if radius_client_root_certificates is not None:
-            pulumi.set(__self__, "radius_client_root_certificates", radius_client_root_certificates)
+            _setter("radius_client_root_certificates", radius_client_root_certificates)
         if radius_server_address is not None:
-            pulumi.set(__self__, "radius_server_address", radius_server_address)
+            _setter("radius_server_address", radius_server_address)
         if radius_server_root_certificates is not None:
-            pulumi.set(__self__, "radius_server_root_certificates", radius_server_root_certificates)
+            _setter("radius_server_root_certificates", radius_server_root_certificates)
         if radius_server_secret is not None:
-            pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+            _setter("radius_server_secret", radius_server_secret)
         if radius_servers is not None:
-            pulumi.set(__self__, "radius_servers", radius_servers)
+            _setter("radius_servers", radius_servers)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpn_authentication_types is not None:
-            pulumi.set(__self__, "vpn_authentication_types", vpn_authentication_types)
+            _setter("vpn_authentication_types", vpn_authentication_types)
         if vpn_client_ipsec_policies is not None:
-            pulumi.set(__self__, "vpn_client_ipsec_policies", vpn_client_ipsec_policies)
+            _setter("vpn_client_ipsec_policies", vpn_client_ipsec_policies)
         if vpn_client_revoked_certificates is not None:
-            pulumi.set(__self__, "vpn_client_revoked_certificates", vpn_client_revoked_certificates)
+            _setter("vpn_client_revoked_certificates", vpn_client_revoked_certificates)
         if vpn_client_root_certificates is not None:
-            pulumi.set(__self__, "vpn_client_root_certificates", vpn_client_root_certificates)
+            _setter("vpn_client_root_certificates", vpn_client_root_certificates)
         if vpn_protocols is not None:
-            pulumi.set(__self__, "vpn_protocols", vpn_protocols)
+            _setter("vpn_protocols", vpn_protocols)
         if vpn_server_configuration_name is not None:
-            pulumi.set(__self__, "vpn_server_configuration_name", vpn_server_configuration_name)
+            _setter("vpn_server_configuration_name", vpn_server_configuration_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -385,6 +460,10 @@ class VpnServerConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnServerConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -417,6 +496,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpnServerConfigurationArgs.__new__(VpnServerConfigurationArgs)
 
+            aad_authentication_parameters = _utilities.configure(aad_authentication_parameters, AadAuthenticationParametersArgs, True)
             __props__.__dict__["aad_authentication_parameters"] = aad_authentication_parameters
             __props__.__dict__["configuration_policy_groups"] = configuration_policy_groups
             __props__.__dict__["id"] = id

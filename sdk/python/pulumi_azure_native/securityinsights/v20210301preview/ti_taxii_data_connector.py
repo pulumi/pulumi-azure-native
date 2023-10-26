@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -51,29 +51,108 @@ class TiTaxiiDataConnectorArgs:
         :param pulumi.Input[str] user_name: The userName for the TAXII server.
         :param pulumi.Input[str] workspace_id: The workspace id.
         """
-        pulumi.set(__self__, "data_types", data_types)
-        pulumi.set(__self__, "kind", 'ThreatIntelligenceTaxii')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "polling_frequency", polling_frequency)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        TiTaxiiDataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            kind=kind,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            polling_frequency=polling_frequency,
+            resource_group_name=resource_group_name,
+            tenant_id=tenant_id,
+            workspace_name=workspace_name,
+            collection_id=collection_id,
+            data_connector_id=data_connector_id,
+            friendly_name=friendly_name,
+            password=password,
+            taxii_lookback_period=taxii_lookback_period,
+            taxii_server=taxii_server,
+            user_name=user_name,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: Optional[pulumi.Input['TiTaxiiDataConnectorDataTypesArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+             polling_frequency: Optional[pulumi.Input[Union[str, 'PollingFrequency']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             collection_id: Optional[pulumi.Input[str]] = None,
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             taxii_lookback_period: Optional[pulumi.Input[str]] = None,
+             taxii_server: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_types is None and 'dataTypes' in kwargs:
+            data_types = kwargs['dataTypes']
+        if data_types is None:
+            raise TypeError("Missing 'data_types' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if operational_insights_resource_provider is None and 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if operational_insights_resource_provider is None:
+            raise TypeError("Missing 'operational_insights_resource_provider' argument")
+        if polling_frequency is None and 'pollingFrequency' in kwargs:
+            polling_frequency = kwargs['pollingFrequency']
+        if polling_frequency is None:
+            raise TypeError("Missing 'polling_frequency' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if collection_id is None and 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if data_connector_id is None and 'dataConnectorId' in kwargs:
+            data_connector_id = kwargs['dataConnectorId']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if taxii_lookback_period is None and 'taxiiLookbackPeriod' in kwargs:
+            taxii_lookback_period = kwargs['taxiiLookbackPeriod']
+        if taxii_server is None and 'taxiiServer' in kwargs:
+            taxii_server = kwargs['taxiiServer']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
+        _setter("data_types", data_types)
+        _setter("kind", 'ThreatIntelligenceTaxii')
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("polling_frequency", polling_frequency)
+        _setter("resource_group_name", resource_group_name)
+        _setter("tenant_id", tenant_id)
+        _setter("workspace_name", workspace_name)
         if collection_id is not None:
-            pulumi.set(__self__, "collection_id", collection_id)
+            _setter("collection_id", collection_id)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if taxii_lookback_period is not None:
-            pulumi.set(__self__, "taxii_lookback_period", taxii_lookback_period)
+            _setter("taxii_lookback_period", taxii_lookback_period)
         if taxii_server is not None:
-            pulumi.set(__self__, "taxii_server", taxii_server)
+            _setter("taxii_server", taxii_server)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -319,6 +398,10 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TiTaxiiDataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,6 +433,7 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
 
             __props__.__dict__["collection_id"] = collection_id
             __props__.__dict__["data_connector_id"] = data_connector_id
+            data_types = _utilities.configure(data_types, TiTaxiiDataConnectorDataTypesArgs, True)
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")
             __props__.__dict__["data_types"] = data_types

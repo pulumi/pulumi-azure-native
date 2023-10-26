@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkloadNetworkDnsZoneArgs', 'WorkloadNetworkDnsZone']
@@ -35,22 +35,67 @@ class WorkloadNetworkDnsZoneArgs:
         :param pulumi.Input[float] revision: NSX revision number.
         :param pulumi.Input[str] source_ip: Source IP of the DNS Zone.
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadNetworkDnsZoneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            display_name=display_name,
+            dns_server_ips=dns_server_ips,
+            dns_services=dns_services,
+            dns_zone_id=dns_zone_id,
+            domain=domain,
+            revision=revision,
+            source_ip=source_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_services: Optional[pulumi.Input[float]] = None,
+             dns_zone_id: Optional[pulumi.Input[str]] = None,
+             domain: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             revision: Optional[pulumi.Input[float]] = None,
+             source_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_cloud_name is None and 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if private_cloud_name is None:
+            raise TypeError("Missing 'private_cloud_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if dns_server_ips is None and 'dnsServerIps' in kwargs:
+            dns_server_ips = kwargs['dnsServerIps']
+        if dns_services is None and 'dnsServices' in kwargs:
+            dns_services = kwargs['dnsServices']
+        if dns_zone_id is None and 'dnsZoneId' in kwargs:
+            dns_zone_id = kwargs['dnsZoneId']
+        if source_ip is None and 'sourceIp' in kwargs:
+            source_ip = kwargs['sourceIp']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if dns_server_ips is not None:
-            pulumi.set(__self__, "dns_server_ips", dns_server_ips)
+            _setter("dns_server_ips", dns_server_ips)
         if dns_services is not None:
-            pulumi.set(__self__, "dns_services", dns_services)
+            _setter("dns_services", dns_services)
         if dns_zone_id is not None:
-            pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+            _setter("dns_zone_id", dns_zone_id)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if source_ip is not None:
-            pulumi.set(__self__, "source_ip", source_ip)
+            _setter("source_ip", source_ip)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -216,6 +261,10 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadNetworkDnsZoneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

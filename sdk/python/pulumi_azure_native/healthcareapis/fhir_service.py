@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,99 @@ class FhirServiceArgs:
         :param pulumi.Input['ResourceVersionPolicyConfigurationArgs'] resource_version_policy_configuration: Determines tracking of history for resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        FhirServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            access_policies=access_policies,
+            acr_configuration=acr_configuration,
+            authentication_configuration=authentication_configuration,
+            cors_configuration=cors_configuration,
+            export_configuration=export_configuration,
+            fhir_service_name=fhir_service_name,
+            identity=identity,
+            implementation_guides_configuration=implementation_guides_configuration,
+            import_configuration=import_configuration,
+            kind=kind,
+            location=location,
+            resource_version_policy_configuration=resource_version_policy_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceAccessPolicyEntryArgs']]]] = None,
+             acr_configuration: Optional[pulumi.Input['FhirServiceAcrConfigurationArgs']] = None,
+             authentication_configuration: Optional[pulumi.Input['FhirServiceAuthenticationConfigurationArgs']] = None,
+             cors_configuration: Optional[pulumi.Input['FhirServiceCorsConfigurationArgs']] = None,
+             export_configuration: Optional[pulumi.Input['FhirServiceExportConfigurationArgs']] = None,
+             fhir_service_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
+             implementation_guides_configuration: Optional[pulumi.Input['ImplementationGuidesConfigurationArgs']] = None,
+             import_configuration: Optional[pulumi.Input['FhirServiceImportConfigurationArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_version_policy_configuration: Optional[pulumi.Input['ResourceVersionPolicyConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if access_policies is None and 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if acr_configuration is None and 'acrConfiguration' in kwargs:
+            acr_configuration = kwargs['acrConfiguration']
+        if authentication_configuration is None and 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if cors_configuration is None and 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if export_configuration is None and 'exportConfiguration' in kwargs:
+            export_configuration = kwargs['exportConfiguration']
+        if fhir_service_name is None and 'fhirServiceName' in kwargs:
+            fhir_service_name = kwargs['fhirServiceName']
+        if implementation_guides_configuration is None and 'implementationGuidesConfiguration' in kwargs:
+            implementation_guides_configuration = kwargs['implementationGuidesConfiguration']
+        if import_configuration is None and 'importConfiguration' in kwargs:
+            import_configuration = kwargs['importConfiguration']
+        if resource_version_policy_configuration is None and 'resourceVersionPolicyConfiguration' in kwargs:
+            resource_version_policy_configuration = kwargs['resourceVersionPolicyConfiguration']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
+            _setter("access_policies", access_policies)
         if acr_configuration is not None:
-            pulumi.set(__self__, "acr_configuration", acr_configuration)
+            _setter("acr_configuration", acr_configuration)
         if authentication_configuration is not None:
-            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+            _setter("authentication_configuration", authentication_configuration)
         if cors_configuration is not None:
-            pulumi.set(__self__, "cors_configuration", cors_configuration)
+            _setter("cors_configuration", cors_configuration)
         if export_configuration is not None:
-            pulumi.set(__self__, "export_configuration", export_configuration)
+            _setter("export_configuration", export_configuration)
         if fhir_service_name is not None:
-            pulumi.set(__self__, "fhir_service_name", fhir_service_name)
+            _setter("fhir_service_name", fhir_service_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if implementation_guides_configuration is not None:
-            pulumi.set(__self__, "implementation_guides_configuration", implementation_guides_configuration)
+            _setter("implementation_guides_configuration", implementation_guides_configuration)
         if import_configuration is not None:
-            pulumi.set(__self__, "import_configuration", import_configuration)
+            _setter("import_configuration", import_configuration)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_version_policy_configuration is not None:
-            pulumi.set(__self__, "resource_version_policy_configuration", resource_version_policy_configuration)
+            _setter("resource_version_policy_configuration", resource_version_policy_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -323,6 +388,10 @@ class FhirService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FhirServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -353,19 +422,27 @@ class FhirService(pulumi.CustomResource):
             __props__ = FhirServiceArgs.__new__(FhirServiceArgs)
 
             __props__.__dict__["access_policies"] = access_policies
+            acr_configuration = _utilities.configure(acr_configuration, FhirServiceAcrConfigurationArgs, True)
             __props__.__dict__["acr_configuration"] = acr_configuration
+            authentication_configuration = _utilities.configure(authentication_configuration, FhirServiceAuthenticationConfigurationArgs, True)
             __props__.__dict__["authentication_configuration"] = authentication_configuration
+            cors_configuration = _utilities.configure(cors_configuration, FhirServiceCorsConfigurationArgs, True)
             __props__.__dict__["cors_configuration"] = cors_configuration
+            export_configuration = _utilities.configure(export_configuration, FhirServiceExportConfigurationArgs, True)
             __props__.__dict__["export_configuration"] = export_configuration
             __props__.__dict__["fhir_service_name"] = fhir_service_name
+            identity = _utilities.configure(identity, ServiceManagedIdentityIdentityArgs, True)
             __props__.__dict__["identity"] = identity
+            implementation_guides_configuration = _utilities.configure(implementation_guides_configuration, ImplementationGuidesConfigurationArgs, True)
             __props__.__dict__["implementation_guides_configuration"] = implementation_guides_configuration
+            import_configuration = _utilities.configure(import_configuration, FhirServiceImportConfigurationArgs, True)
             __props__.__dict__["import_configuration"] = import_configuration
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            resource_version_policy_configuration = _utilities.configure(resource_version_policy_configuration, ResourceVersionPolicyConfigurationArgs, True)
             __props__.__dict__["resource_version_policy_configuration"] = resource_version_policy_configuration
             __props__.__dict__["tags"] = tags
             if workspace_name is None and not opts.urn:

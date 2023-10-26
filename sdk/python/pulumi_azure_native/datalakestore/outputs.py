@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,9 +50,26 @@ class EncryptionConfigResponse(dict):
         :param str type: The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
         :param 'KeyVaultMetaInfoResponse' key_vault_meta_info: The Key Vault information for connecting to user managed encryption keys.
         """
-        pulumi.set(__self__, "type", type)
+        EncryptionConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            key_vault_meta_info=key_vault_meta_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             key_vault_meta_info: Optional['outputs.KeyVaultMetaInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if key_vault_meta_info is None and 'keyVaultMetaInfo' in kwargs:
+            key_vault_meta_info = kwargs['keyVaultMetaInfo']
+
+        _setter("type", type)
         if key_vault_meta_info is not None:
-            pulumi.set(__self__, "key_vault_meta_info", key_vault_meta_info)
+            _setter("key_vault_meta_info", key_vault_meta_info)
 
     @property
     @pulumi.getter
@@ -105,9 +122,34 @@ class EncryptionIdentityResponse(dict):
         :param str tenant_id: The tenant identifier associated with the encryption.
         :param str type: The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        EncryptionIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -172,11 +214,44 @@ class FirewallRuleResponse(dict):
         :param str start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
-        pulumi.set(__self__, "type", type)
+        FirewallRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            id=id,
+            name=name,
+            start_ip_address=start_ip_address,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             start_ip_address: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_ip_address is None and 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("end_ip_address", end_ip_address)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("start_ip_address", start_ip_address)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -255,9 +330,36 @@ class KeyVaultMetaInfoResponse(dict):
         :param str encryption_key_version: The version of the user managed encryption key.
         :param str key_vault_resource_id: The resource identifier for the user managed Key Vault being used to encrypt.
         """
-        pulumi.set(__self__, "encryption_key_name", encryption_key_name)
-        pulumi.set(__self__, "encryption_key_version", encryption_key_version)
-        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        KeyVaultMetaInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_key_name=encryption_key_name,
+            encryption_key_version=encryption_key_version,
+            key_vault_resource_id=key_vault_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_key_name: Optional[str] = None,
+             encryption_key_version: Optional[str] = None,
+             key_vault_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_key_name is None and 'encryptionKeyName' in kwargs:
+            encryption_key_name = kwargs['encryptionKeyName']
+        if encryption_key_name is None:
+            raise TypeError("Missing 'encryption_key_name' argument")
+        if encryption_key_version is None and 'encryptionKeyVersion' in kwargs:
+            encryption_key_version = kwargs['encryptionKeyVersion']
+        if encryption_key_version is None:
+            raise TypeError("Missing 'encryption_key_version' argument")
+        if key_vault_resource_id is None and 'keyVaultResourceId' in kwargs:
+            key_vault_resource_id = kwargs['keyVaultResourceId']
+        if key_vault_resource_id is None:
+            raise TypeError("Missing 'key_vault_resource_id' argument")
+
+        _setter("encryption_key_name", encryption_key_name)
+        _setter("encryption_key_version", encryption_key_version)
+        _setter("key_vault_resource_id", key_vault_resource_id)
 
     @property
     @pulumi.getter(name="encryptionKeyName")
@@ -318,10 +420,37 @@ class TrustedIdProviderResponse(dict):
         :param str name: The resource name.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "id_provider", id_provider)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        TrustedIdProviderResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            id_provider=id_provider,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             id_provider: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if id_provider is None and 'idProvider' in kwargs:
+            id_provider = kwargs['idProvider']
+        if id_provider is None:
+            raise TypeError("Missing 'id_provider' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("id_provider", id_provider)
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -390,10 +519,37 @@ class VirtualNetworkRuleResponse(dict):
         :param str subnet_id: The resource identifier for the subnet.
         :param str type: The resource type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "type", type)
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            subnet_id=subnet_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("subnet_id", subnet_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter

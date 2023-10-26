@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,11 +26,40 @@ class NamespaceAuthorizationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rights", rights)
+        NamespaceAuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            rights=rights,
+            authorization_rule_name=authorization_rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+             authorization_rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rights is None:
+            raise TypeError("Missing 'rights' argument")
+        if authorization_rule_name is None and 'authorizationRuleName' in kwargs:
+            authorization_rule_name = kwargs['authorizationRuleName']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("rights", rights)
         if authorization_rule_name is not None:
-            pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
+            _setter("authorization_rule_name", authorization_rule_name)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -120,6 +149,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceAuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

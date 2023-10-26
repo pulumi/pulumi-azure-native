@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,21 +34,56 @@ class ZoneArgs:
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input['ZoneType'] zone_type: The type of this DNS zone (Public or Private).
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ZoneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            location=location,
+            registration_virtual_networks=registration_virtual_networks,
+            resolution_virtual_networks=resolution_virtual_networks,
+            tags=tags,
+            zone_name=zone_name,
+            zone_type=zone_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             registration_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+             resolution_virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
+             zone_type: Optional[pulumi.Input['ZoneType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if registration_virtual_networks is None and 'registrationVirtualNetworks' in kwargs:
+            registration_virtual_networks = kwargs['registrationVirtualNetworks']
+        if resolution_virtual_networks is None and 'resolutionVirtualNetworks' in kwargs:
+            resolution_virtual_networks = kwargs['resolutionVirtualNetworks']
+        if zone_name is None and 'zoneName' in kwargs:
+            zone_name = kwargs['zoneName']
+        if zone_type is None and 'zoneType' in kwargs:
+            zone_type = kwargs['zoneType']
+
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if registration_virtual_networks is not None:
-            pulumi.set(__self__, "registration_virtual_networks", registration_virtual_networks)
+            _setter("registration_virtual_networks", registration_virtual_networks)
         if resolution_virtual_networks is not None:
-            pulumi.set(__self__, "resolution_virtual_networks", resolution_virtual_networks)
+            _setter("resolution_virtual_networks", resolution_virtual_networks)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_name is not None:
-            pulumi.set(__self__, "zone_name", zone_name)
+            _setter("zone_name", zone_name)
         if zone_type is None:
             zone_type = 'Public'
         if zone_type is not None:
-            pulumi.set(__self__, "zone_type", zone_type)
+            _setter("zone_type", zone_type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -186,6 +221,10 @@ class Zone(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ZoneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

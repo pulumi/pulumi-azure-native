@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -36,23 +36,62 @@ class VirtualWanArgs:
         :param pulumi.Input[str] type: The type of the VirtualWAN.
         :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWAN being created or updated.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualWanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allow_branch_to_branch_traffic=allow_branch_to_branch_traffic,
+            allow_vnet_to_vnet_traffic=allow_vnet_to_vnet_traffic,
+            disable_vpn_encryption=disable_vpn_encryption,
+            id=id,
+            location=location,
+            tags=tags,
+            type=type,
+            virtual_wan_name=virtual_wan_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
+             allow_vnet_to_vnet_traffic: Optional[pulumi.Input[bool]] = None,
+             disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             virtual_wan_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if allow_branch_to_branch_traffic is None and 'allowBranchToBranchTraffic' in kwargs:
+            allow_branch_to_branch_traffic = kwargs['allowBranchToBranchTraffic']
+        if allow_vnet_to_vnet_traffic is None and 'allowVnetToVnetTraffic' in kwargs:
+            allow_vnet_to_vnet_traffic = kwargs['allowVnetToVnetTraffic']
+        if disable_vpn_encryption is None and 'disableVpnEncryption' in kwargs:
+            disable_vpn_encryption = kwargs['disableVpnEncryption']
+        if virtual_wan_name is None and 'virtualWANName' in kwargs:
+            virtual_wan_name = kwargs['virtualWANName']
+
+        _setter("resource_group_name", resource_group_name)
         if allow_branch_to_branch_traffic is not None:
-            pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
+            _setter("allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
         if allow_vnet_to_vnet_traffic is not None:
-            pulumi.set(__self__, "allow_vnet_to_vnet_traffic", allow_vnet_to_vnet_traffic)
+            _setter("allow_vnet_to_vnet_traffic", allow_vnet_to_vnet_traffic)
         if disable_vpn_encryption is not None:
-            pulumi.set(__self__, "disable_vpn_encryption", disable_vpn_encryption)
+            _setter("disable_vpn_encryption", disable_vpn_encryption)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if virtual_wan_name is not None:
-            pulumi.set(__self__, "virtual_wan_name", virtual_wan_name)
+            _setter("virtual_wan_name", virtual_wan_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -212,6 +251,10 @@ class VirtualWan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualWanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

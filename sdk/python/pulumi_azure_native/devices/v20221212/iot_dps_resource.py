@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,19 +36,54 @@ class IotDpsResourceArgs:
         :param pulumi.Input[str] subscriptionid: The subscription id of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        IotDpsResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            location=location,
+            provisioning_service_name=provisioning_service_name,
+            resourcegroup=resourcegroup,
+            subscriptionid=subscriptionid,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['IotDpsPropertiesDescriptionArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['IotDpsSkuInfoArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             provisioning_service_name: Optional[pulumi.Input[str]] = None,
+             resourcegroup: Optional[pulumi.Input[str]] = None,
+             subscriptionid: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if provisioning_service_name is None and 'provisioningServiceName' in kwargs:
+            provisioning_service_name = kwargs['provisioningServiceName']
+
+        _setter("properties", properties)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_service_name is not None:
-            pulumi.set(__self__, "provisioning_service_name", provisioning_service_name)
+            _setter("provisioning_service_name", provisioning_service_name)
         if resourcegroup is not None:
-            pulumi.set(__self__, "resourcegroup", resourcegroup)
+            _setter("resourcegroup", resourcegroup)
         if subscriptionid is not None:
-            pulumi.set(__self__, "subscriptionid", subscriptionid)
+            _setter("subscriptionid", subscriptionid)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -194,6 +229,10 @@ class IotDpsResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IotDpsResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -217,6 +256,7 @@ class IotDpsResource(pulumi.CustomResource):
             __props__ = IotDpsResourceArgs.__new__(IotDpsResourceArgs)
 
             __props__.__dict__["location"] = location
+            properties = _utilities.configure(properties, IotDpsPropertiesDescriptionArgs, True)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
@@ -225,6 +265,7 @@ class IotDpsResource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resourcegroup"] = resourcegroup
+            sku = _utilities.configure(sku, IotDpsSkuInfoArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

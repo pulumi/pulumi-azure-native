@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -54,10 +54,33 @@ class IdentityResponse(dict):
         :param str tenant_id: Tenant Id
         :param str type: Identity Type
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -100,11 +123,32 @@ class ScheduledSourceSynchronizationSettingResponse(dict):
         :param str recurrence_interval: Recurrence Interval
         :param str synchronization_time: Synchronization time
         """
-        pulumi.set(__self__, "kind", 'ScheduleBased')
+        ScheduledSourceSynchronizationSettingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            recurrence_interval=recurrence_interval,
+            synchronization_time=synchronization_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[str] = None,
+             recurrence_interval: Optional[str] = None,
+             synchronization_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if recurrence_interval is None and 'recurrenceInterval' in kwargs:
+            recurrence_interval = kwargs['recurrenceInterval']
+        if synchronization_time is None and 'synchronizationTime' in kwargs:
+            synchronization_time = kwargs['synchronizationTime']
+
+        _setter("kind", 'ScheduleBased')
         if recurrence_interval is not None:
-            pulumi.set(__self__, "recurrence_interval", recurrence_interval)
+            _setter("recurrence_interval", recurrence_interval)
         if synchronization_time is not None:
-            pulumi.set(__self__, "synchronization_time", synchronization_time)
+            _setter("synchronization_time", synchronization_time)
 
     @property
     @pulumi.getter
@@ -155,13 +199,60 @@ class ShareSubscriptionSynchronizationResponse(dict):
         :param str synchronization_id: Synchronization id
         :param str synchronization_mode: Synchronization Mode
         """
-        pulumi.set(__self__, "duration_ms", duration_ms)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "synchronization_id", synchronization_id)
-        pulumi.set(__self__, "synchronization_mode", synchronization_mode)
+        ShareSubscriptionSynchronizationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration_ms=duration_ms,
+            end_time=end_time,
+            message=message,
+            start_time=start_time,
+            status=status,
+            synchronization_id=synchronization_id,
+            synchronization_mode=synchronization_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration_ms: Optional[int] = None,
+             end_time: Optional[str] = None,
+             message: Optional[str] = None,
+             start_time: Optional[str] = None,
+             status: Optional[str] = None,
+             synchronization_id: Optional[str] = None,
+             synchronization_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_ms is None and 'durationMs' in kwargs:
+            duration_ms = kwargs['durationMs']
+        if duration_ms is None:
+            raise TypeError("Missing 'duration_ms' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if synchronization_id is None and 'synchronizationId' in kwargs:
+            synchronization_id = kwargs['synchronizationId']
+        if synchronization_id is None:
+            raise TypeError("Missing 'synchronization_id' argument")
+        if synchronization_mode is None and 'synchronizationMode' in kwargs:
+            synchronization_mode = kwargs['synchronizationMode']
+        if synchronization_mode is None:
+            raise TypeError("Missing 'synchronization_mode' argument")
+
+        _setter("duration_ms", duration_ms)
+        _setter("end_time", end_time)
+        _setter("message", message)
+        _setter("start_time", start_time)
+        _setter("status", status)
+        _setter("synchronization_id", synchronization_id)
+        _setter("synchronization_mode", synchronization_mode)
 
     @property
     @pulumi.getter(name="durationMs")
@@ -249,25 +340,72 @@ class ShareSynchronizationResponse(dict):
         :param str status: Raw Status
         :param str synchronization_id: Synchronization id
         """
-        pulumi.set(__self__, "synchronization_mode", synchronization_mode)
+        ShareSynchronizationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            synchronization_mode=synchronization_mode,
+            consumer_email=consumer_email,
+            consumer_name=consumer_name,
+            consumer_tenant_name=consumer_tenant_name,
+            duration_ms=duration_ms,
+            end_time=end_time,
+            message=message,
+            start_time=start_time,
+            status=status,
+            synchronization_id=synchronization_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             synchronization_mode: Optional[str] = None,
+             consumer_email: Optional[str] = None,
+             consumer_name: Optional[str] = None,
+             consumer_tenant_name: Optional[str] = None,
+             duration_ms: Optional[int] = None,
+             end_time: Optional[str] = None,
+             message: Optional[str] = None,
+             start_time: Optional[str] = None,
+             status: Optional[str] = None,
+             synchronization_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if synchronization_mode is None and 'synchronizationMode' in kwargs:
+            synchronization_mode = kwargs['synchronizationMode']
+        if synchronization_mode is None:
+            raise TypeError("Missing 'synchronization_mode' argument")
+        if consumer_email is None and 'consumerEmail' in kwargs:
+            consumer_email = kwargs['consumerEmail']
+        if consumer_name is None and 'consumerName' in kwargs:
+            consumer_name = kwargs['consumerName']
+        if consumer_tenant_name is None and 'consumerTenantName' in kwargs:
+            consumer_tenant_name = kwargs['consumerTenantName']
+        if duration_ms is None and 'durationMs' in kwargs:
+            duration_ms = kwargs['durationMs']
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if synchronization_id is None and 'synchronizationId' in kwargs:
+            synchronization_id = kwargs['synchronizationId']
+
+        _setter("synchronization_mode", synchronization_mode)
         if consumer_email is not None:
-            pulumi.set(__self__, "consumer_email", consumer_email)
+            _setter("consumer_email", consumer_email)
         if consumer_name is not None:
-            pulumi.set(__self__, "consumer_name", consumer_name)
+            _setter("consumer_name", consumer_name)
         if consumer_tenant_name is not None:
-            pulumi.set(__self__, "consumer_tenant_name", consumer_tenant_name)
+            _setter("consumer_tenant_name", consumer_tenant_name)
         if duration_ms is not None:
-            pulumi.set(__self__, "duration_ms", duration_ms)
+            _setter("duration_ms", duration_ms)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if synchronization_id is not None:
-            pulumi.set(__self__, "synchronization_id", synchronization_id)
+            _setter("synchronization_id", synchronization_id)
 
     @property
     @pulumi.getter(name="synchronizationMode")
@@ -389,21 +527,114 @@ class SynchronizationDetailsResponse(dict):
         :param str status: Raw Status
         :param float v_core: The vCore units consumed for the data set synchronization
         """
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "data_set_type", data_set_type)
-        pulumi.set(__self__, "duration_ms", duration_ms)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "files_read", files_read)
-        pulumi.set(__self__, "files_written", files_written)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rows_copied", rows_copied)
-        pulumi.set(__self__, "rows_read", rows_read)
-        pulumi.set(__self__, "size_read", size_read)
-        pulumi.set(__self__, "size_written", size_written)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "v_core", v_core)
+        SynchronizationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_set_id=data_set_id,
+            data_set_type=data_set_type,
+            duration_ms=duration_ms,
+            end_time=end_time,
+            files_read=files_read,
+            files_written=files_written,
+            message=message,
+            name=name,
+            rows_copied=rows_copied,
+            rows_read=rows_read,
+            size_read=size_read,
+            size_written=size_written,
+            start_time=start_time,
+            status=status,
+            v_core=v_core,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_set_id: Optional[str] = None,
+             data_set_type: Optional[str] = None,
+             duration_ms: Optional[int] = None,
+             end_time: Optional[str] = None,
+             files_read: Optional[float] = None,
+             files_written: Optional[float] = None,
+             message: Optional[str] = None,
+             name: Optional[str] = None,
+             rows_copied: Optional[float] = None,
+             rows_read: Optional[float] = None,
+             size_read: Optional[float] = None,
+             size_written: Optional[float] = None,
+             start_time: Optional[str] = None,
+             status: Optional[str] = None,
+             v_core: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if data_set_id is None:
+            raise TypeError("Missing 'data_set_id' argument")
+        if data_set_type is None and 'dataSetType' in kwargs:
+            data_set_type = kwargs['dataSetType']
+        if data_set_type is None:
+            raise TypeError("Missing 'data_set_type' argument")
+        if duration_ms is None and 'durationMs' in kwargs:
+            duration_ms = kwargs['durationMs']
+        if duration_ms is None:
+            raise TypeError("Missing 'duration_ms' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if files_read is None and 'filesRead' in kwargs:
+            files_read = kwargs['filesRead']
+        if files_read is None:
+            raise TypeError("Missing 'files_read' argument")
+        if files_written is None and 'filesWritten' in kwargs:
+            files_written = kwargs['filesWritten']
+        if files_written is None:
+            raise TypeError("Missing 'files_written' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if rows_copied is None and 'rowsCopied' in kwargs:
+            rows_copied = kwargs['rowsCopied']
+        if rows_copied is None:
+            raise TypeError("Missing 'rows_copied' argument")
+        if rows_read is None and 'rowsRead' in kwargs:
+            rows_read = kwargs['rowsRead']
+        if rows_read is None:
+            raise TypeError("Missing 'rows_read' argument")
+        if size_read is None and 'sizeRead' in kwargs:
+            size_read = kwargs['sizeRead']
+        if size_read is None:
+            raise TypeError("Missing 'size_read' argument")
+        if size_written is None and 'sizeWritten' in kwargs:
+            size_written = kwargs['sizeWritten']
+        if size_written is None:
+            raise TypeError("Missing 'size_written' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if v_core is None and 'vCore' in kwargs:
+            v_core = kwargs['vCore']
+        if v_core is None:
+            raise TypeError("Missing 'v_core' argument")
+
+        _setter("data_set_id", data_set_id)
+        _setter("data_set_type", data_set_type)
+        _setter("duration_ms", duration_ms)
+        _setter("end_time", end_time)
+        _setter("files_read", files_read)
+        _setter("files_written", files_written)
+        _setter("message", message)
+        _setter("name", name)
+        _setter("rows_copied", rows_copied)
+        _setter("rows_read", rows_read)
+        _setter("size_read", size_read)
+        _setter("size_written", size_written)
+        _setter("start_time", start_time)
+        _setter("status", status)
+        _setter("v_core", v_core)
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -574,18 +805,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -684,18 +948,51 @@ class TableLevelSharingPropertiesResponse(dict):
         :param Sequence[str] tables_to_exclude: Tables to be excluded in the data set
         :param Sequence[str] tables_to_include: Tables to be included in the data set
         """
+        TableLevelSharingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_tables_to_exclude=external_tables_to_exclude,
+            external_tables_to_include=external_tables_to_include,
+            materialized_views_to_exclude=materialized_views_to_exclude,
+            materialized_views_to_include=materialized_views_to_include,
+            tables_to_exclude=tables_to_exclude,
+            tables_to_include=tables_to_include,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_tables_to_exclude: Optional[Sequence[str]] = None,
+             external_tables_to_include: Optional[Sequence[str]] = None,
+             materialized_views_to_exclude: Optional[Sequence[str]] = None,
+             materialized_views_to_include: Optional[Sequence[str]] = None,
+             tables_to_exclude: Optional[Sequence[str]] = None,
+             tables_to_include: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if external_tables_to_exclude is None and 'externalTablesToExclude' in kwargs:
+            external_tables_to_exclude = kwargs['externalTablesToExclude']
+        if external_tables_to_include is None and 'externalTablesToInclude' in kwargs:
+            external_tables_to_include = kwargs['externalTablesToInclude']
+        if materialized_views_to_exclude is None and 'materializedViewsToExclude' in kwargs:
+            materialized_views_to_exclude = kwargs['materializedViewsToExclude']
+        if materialized_views_to_include is None and 'materializedViewsToInclude' in kwargs:
+            materialized_views_to_include = kwargs['materializedViewsToInclude']
+        if tables_to_exclude is None and 'tablesToExclude' in kwargs:
+            tables_to_exclude = kwargs['tablesToExclude']
+        if tables_to_include is None and 'tablesToInclude' in kwargs:
+            tables_to_include = kwargs['tablesToInclude']
+
         if external_tables_to_exclude is not None:
-            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
+            _setter("external_tables_to_exclude", external_tables_to_exclude)
         if external_tables_to_include is not None:
-            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+            _setter("external_tables_to_include", external_tables_to_include)
         if materialized_views_to_exclude is not None:
-            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
+            _setter("materialized_views_to_exclude", materialized_views_to_exclude)
         if materialized_views_to_include is not None:
-            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
+            _setter("materialized_views_to_include", materialized_views_to_include)
         if tables_to_exclude is not None:
-            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
+            _setter("tables_to_exclude", tables_to_exclude)
         if tables_to_include is not None:
-            pulumi.set(__self__, "tables_to_include", tables_to_include)
+            _setter("tables_to_include", tables_to_include)
 
     @property
     @pulumi.getter(name="externalTablesToExclude")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -72,53 +72,158 @@ class AppServiceEnvironmentArgs:
         :param pulumi.Input[str] vnet_resource_group_name: Resource group of the Virtual Network.
         :param pulumi.Input[str] vnet_subnet_name: Subnet of the Virtual Network.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network", virtual_network)
-        pulumi.set(__self__, "worker_pools", worker_pools)
+        AppServiceEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_network=virtual_network,
+            worker_pools=worker_pools,
+            api_management_account_id=api_management_account_id,
+            cluster_settings=cluster_settings,
+            dns_suffix=dns_suffix,
+            dynamic_cache_enabled=dynamic_cache_enabled,
+            front_end_scale_factor=front_end_scale_factor,
+            has_linux_workers=has_linux_workers,
+            internal_load_balancing_mode=internal_load_balancing_mode,
+            ipssl_address_count=ipssl_address_count,
+            kind=kind,
+            location=location,
+            multi_role_count=multi_role_count,
+            multi_size=multi_size,
+            name=name,
+            network_access_control_list=network_access_control_list,
+            ssl_cert_key_vault_id=ssl_cert_key_vault_id,
+            ssl_cert_key_vault_secret_name=ssl_cert_key_vault_secret_name,
+            suspended=suspended,
+            tags=tags,
+            user_whitelisted_ip_ranges=user_whitelisted_ip_ranges,
+            vnet_name=vnet_name,
+            vnet_resource_group_name=vnet_resource_group_name,
+            vnet_subnet_name=vnet_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None,
+             worker_pools: Optional[pulumi.Input[Sequence[pulumi.Input['WorkerPoolArgs']]]] = None,
+             api_management_account_id: Optional[pulumi.Input[str]] = None,
+             cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+             dns_suffix: Optional[pulumi.Input[str]] = None,
+             dynamic_cache_enabled: Optional[pulumi.Input[bool]] = None,
+             front_end_scale_factor: Optional[pulumi.Input[int]] = None,
+             has_linux_workers: Optional[pulumi.Input[bool]] = None,
+             internal_load_balancing_mode: Optional[pulumi.Input['InternalLoadBalancingMode']] = None,
+             ipssl_address_count: Optional[pulumi.Input[int]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             multi_role_count: Optional[pulumi.Input[int]] = None,
+             multi_size: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_access_control_list: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAccessControlEntryArgs']]]] = None,
+             ssl_cert_key_vault_id: Optional[pulumi.Input[str]] = None,
+             ssl_cert_key_vault_secret_name: Optional[pulumi.Input[str]] = None,
+             suspended: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vnet_name: Optional[pulumi.Input[str]] = None,
+             vnet_resource_group_name: Optional[pulumi.Input[str]] = None,
+             vnet_subnet_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network is None and 'virtualNetwork' in kwargs:
+            virtual_network = kwargs['virtualNetwork']
+        if virtual_network is None:
+            raise TypeError("Missing 'virtual_network' argument")
+        if worker_pools is None and 'workerPools' in kwargs:
+            worker_pools = kwargs['workerPools']
+        if worker_pools is None:
+            raise TypeError("Missing 'worker_pools' argument")
+        if api_management_account_id is None and 'apiManagementAccountId' in kwargs:
+            api_management_account_id = kwargs['apiManagementAccountId']
+        if cluster_settings is None and 'clusterSettings' in kwargs:
+            cluster_settings = kwargs['clusterSettings']
+        if dns_suffix is None and 'dnsSuffix' in kwargs:
+            dns_suffix = kwargs['dnsSuffix']
+        if dynamic_cache_enabled is None and 'dynamicCacheEnabled' in kwargs:
+            dynamic_cache_enabled = kwargs['dynamicCacheEnabled']
+        if front_end_scale_factor is None and 'frontEndScaleFactor' in kwargs:
+            front_end_scale_factor = kwargs['frontEndScaleFactor']
+        if has_linux_workers is None and 'hasLinuxWorkers' in kwargs:
+            has_linux_workers = kwargs['hasLinuxWorkers']
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
+            internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
+        if ipssl_address_count is None and 'ipsslAddressCount' in kwargs:
+            ipssl_address_count = kwargs['ipsslAddressCount']
+        if multi_role_count is None and 'multiRoleCount' in kwargs:
+            multi_role_count = kwargs['multiRoleCount']
+        if multi_size is None and 'multiSize' in kwargs:
+            multi_size = kwargs['multiSize']
+        if network_access_control_list is None and 'networkAccessControlList' in kwargs:
+            network_access_control_list = kwargs['networkAccessControlList']
+        if ssl_cert_key_vault_id is None and 'sslCertKeyVaultId' in kwargs:
+            ssl_cert_key_vault_id = kwargs['sslCertKeyVaultId']
+        if ssl_cert_key_vault_secret_name is None and 'sslCertKeyVaultSecretName' in kwargs:
+            ssl_cert_key_vault_secret_name = kwargs['sslCertKeyVaultSecretName']
+        if user_whitelisted_ip_ranges is None and 'userWhitelistedIpRanges' in kwargs:
+            user_whitelisted_ip_ranges = kwargs['userWhitelistedIpRanges']
+        if vnet_name is None and 'vnetName' in kwargs:
+            vnet_name = kwargs['vnetName']
+        if vnet_resource_group_name is None and 'vnetResourceGroupName' in kwargs:
+            vnet_resource_group_name = kwargs['vnetResourceGroupName']
+        if vnet_subnet_name is None and 'vnetSubnetName' in kwargs:
+            vnet_subnet_name = kwargs['vnetSubnetName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_network", virtual_network)
+        _setter("worker_pools", worker_pools)
         if api_management_account_id is not None:
-            pulumi.set(__self__, "api_management_account_id", api_management_account_id)
+            _setter("api_management_account_id", api_management_account_id)
         if cluster_settings is not None:
-            pulumi.set(__self__, "cluster_settings", cluster_settings)
+            _setter("cluster_settings", cluster_settings)
         if dns_suffix is not None:
-            pulumi.set(__self__, "dns_suffix", dns_suffix)
+            _setter("dns_suffix", dns_suffix)
         if dynamic_cache_enabled is not None:
-            pulumi.set(__self__, "dynamic_cache_enabled", dynamic_cache_enabled)
+            _setter("dynamic_cache_enabled", dynamic_cache_enabled)
         if front_end_scale_factor is not None:
-            pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
+            _setter("front_end_scale_factor", front_end_scale_factor)
         if has_linux_workers is not None:
-            pulumi.set(__self__, "has_linux_workers", has_linux_workers)
+            _setter("has_linux_workers", has_linux_workers)
         if internal_load_balancing_mode is not None:
-            pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
+            _setter("internal_load_balancing_mode", internal_load_balancing_mode)
         if ipssl_address_count is not None:
-            pulumi.set(__self__, "ipssl_address_count", ipssl_address_count)
+            _setter("ipssl_address_count", ipssl_address_count)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if multi_role_count is not None:
-            pulumi.set(__self__, "multi_role_count", multi_role_count)
+            _setter("multi_role_count", multi_role_count)
         if multi_size is not None:
-            pulumi.set(__self__, "multi_size", multi_size)
+            _setter("multi_size", multi_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_access_control_list is not None:
-            pulumi.set(__self__, "network_access_control_list", network_access_control_list)
+            _setter("network_access_control_list", network_access_control_list)
         if ssl_cert_key_vault_id is not None:
-            pulumi.set(__self__, "ssl_cert_key_vault_id", ssl_cert_key_vault_id)
+            _setter("ssl_cert_key_vault_id", ssl_cert_key_vault_id)
         if ssl_cert_key_vault_secret_name is not None:
-            pulumi.set(__self__, "ssl_cert_key_vault_secret_name", ssl_cert_key_vault_secret_name)
+            _setter("ssl_cert_key_vault_secret_name", ssl_cert_key_vault_secret_name)
         if suspended is not None:
-            pulumi.set(__self__, "suspended", suspended)
+            _setter("suspended", suspended)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_whitelisted_ip_ranges is not None:
-            pulumi.set(__self__, "user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
+            _setter("user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
         if vnet_name is not None:
-            pulumi.set(__self__, "vnet_name", vnet_name)
+            _setter("vnet_name", vnet_name)
         if vnet_resource_group_name is not None:
-            pulumi.set(__self__, "vnet_resource_group_name", vnet_resource_group_name)
+            _setter("vnet_resource_group_name", vnet_resource_group_name)
         if vnet_subnet_name is not None:
-            pulumi.set(__self__, "vnet_subnet_name", vnet_subnet_name)
+            _setter("vnet_subnet_name", vnet_subnet_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -506,6 +611,10 @@ class AppServiceEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppServiceEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -567,6 +676,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__.__dict__["suspended"] = suspended
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
+            virtual_network = _utilities.configure(virtual_network, VirtualNetworkProfileArgs, True)
             if virtual_network is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network'")
             __props__.__dict__["virtual_network"] = virtual_network

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -26,11 +26,32 @@ class GroupQuotaArgs:
         :param pulumi.Input[str] group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         :param pulumi.Input['GroupQuotasEntityBaseArgs'] properties: Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
         """
-        pulumi.set(__self__, "mg_id", mg_id)
+        GroupQuotaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mg_id=mg_id,
+            group_quota_name=group_quota_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mg_id: Optional[pulumi.Input[str]] = None,
+             group_quota_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['GroupQuotasEntityBaseArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mg_id is None and 'mgId' in kwargs:
+            mg_id = kwargs['mgId']
+        if mg_id is None:
+            raise TypeError("Missing 'mg_id' argument")
+        if group_quota_name is None and 'groupQuotaName' in kwargs:
+            group_quota_name = kwargs['groupQuotaName']
+
+        _setter("mg_id", mg_id)
         if group_quota_name is not None:
-            pulumi.set(__self__, "group_quota_name", group_quota_name)
+            _setter("group_quota_name", group_quota_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="mgId")
@@ -106,6 +127,10 @@ class GroupQuota(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupQuotaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -127,6 +152,7 @@ class GroupQuota(pulumi.CustomResource):
             if mg_id is None and not opts.urn:
                 raise TypeError("Missing required property 'mg_id'")
             __props__.__dict__["mg_id"] = mg_id
+            properties = _utilities.configure(properties, GroupQuotasEntityBaseArgs, True)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,9 +27,24 @@ class AddDataLakeStoreWithAccountParametersArgs:
         :param pulumi.Input[str] name: The unique name of the Data Lake Store account to add.
         :param pulumi.Input[str] suffix: The optional suffix for the Data Lake Store account.
         """
-        pulumi.set(__self__, "name", name)
+        AddDataLakeStoreWithAccountParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter
@@ -68,12 +83,33 @@ class AddStorageAccountWithAccountParametersArgs:
         :param pulumi.Input[str] name: The unique name of the Azure Storage account to add.
         :param pulumi.Input[str] suffix: The optional suffix for the storage account.
         """
-        pulumi.set(__self__, "access_key", access_key)
-        pulumi.set(__self__, "name", name)
+        AddStorageAccountWithAccountParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            name=name,
+            suffix=suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("access_key", access_key)
+        _setter("name", name)
         if suffix is None:
             suffix = 'azuredatalakestore.net'
         if suffix is not None:
-            pulumi.set(__self__, "suffix", suffix)
+            _setter("suffix", suffix)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -128,13 +164,46 @@ class CreateComputePolicyWithAccountParametersArgs:
         :param pulumi.Input[int] max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
         :param pulumi.Input[int] min_priority_per_job: The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "object_type", object_type)
+        CreateComputePolicyWithAccountParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            object_id=object_id,
+            object_type=object_type,
+            max_degree_of_parallelism_per_job=max_degree_of_parallelism_per_job,
+            min_priority_per_job=min_priority_per_job,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             object_type: Optional[pulumi.Input[Union[str, 'AADObjectType']]] = None,
+             max_degree_of_parallelism_per_job: Optional[pulumi.Input[int]] = None,
+             min_priority_per_job: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if object_type is None and 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if object_type is None:
+            raise TypeError("Missing 'object_type' argument")
+        if max_degree_of_parallelism_per_job is None and 'maxDegreeOfParallelismPerJob' in kwargs:
+            max_degree_of_parallelism_per_job = kwargs['maxDegreeOfParallelismPerJob']
+        if min_priority_per_job is None and 'minPriorityPerJob' in kwargs:
+            min_priority_per_job = kwargs['minPriorityPerJob']
+
+        _setter("name", name)
+        _setter("object_id", object_id)
+        _setter("object_type", object_type)
         if max_degree_of_parallelism_per_job is not None:
-            pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
+            _setter("max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
         if min_priority_per_job is not None:
-            pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
+            _setter("min_priority_per_job", min_priority_per_job)
 
     @property
     @pulumi.getter
@@ -209,9 +278,34 @@ class CreateFirewallRuleWithAccountParametersArgs:
         :param pulumi.Input[str] name: The unique name of the firewall rule to create.
         :param pulumi.Input[str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        CreateFirewallRuleWithAccountParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            name=name,
+            start_ip_address=start_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_ip_address is None and 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
+
+        _setter("end_ip_address", end_ip_address)
+        _setter("name", name)
+        _setter("start_ip_address", start_ip_address)
 
     @property
     @pulumi.getter(name="endIpAddress")

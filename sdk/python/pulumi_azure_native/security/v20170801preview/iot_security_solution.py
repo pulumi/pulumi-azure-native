@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,28 +44,83 @@ class IotSecuritySolutionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input['UserDefinedResourcesPropertiesArgs'] user_defined_resources: Properties of the solution's user defined resources.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "iot_hubs", iot_hubs)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace", workspace)
+        IotSecuritySolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            iot_hubs=iot_hubs,
+            resource_group_name=resource_group_name,
+            workspace=workspace,
+            disabled_data_sources=disabled_data_sources,
+            export=export,
+            location=location,
+            recommendations_configuration=recommendations_configuration,
+            solution_name=solution_name,
+            status=status,
+            tags=tags,
+            user_defined_resources=user_defined_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace: Optional[pulumi.Input[str]] = None,
+             disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]] = None,
+             export: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationConfigurationPropertiesArgs']]]] = None,
+             solution_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'SecuritySolutionStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_defined_resources: Optional[pulumi.Input['UserDefinedResourcesPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if iot_hubs is None and 'iotHubs' in kwargs:
+            iot_hubs = kwargs['iotHubs']
+        if iot_hubs is None:
+            raise TypeError("Missing 'iot_hubs' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace is None:
+            raise TypeError("Missing 'workspace' argument")
+        if disabled_data_sources is None and 'disabledDataSources' in kwargs:
+            disabled_data_sources = kwargs['disabledDataSources']
+        if recommendations_configuration is None and 'recommendationsConfiguration' in kwargs:
+            recommendations_configuration = kwargs['recommendationsConfiguration']
+        if solution_name is None and 'solutionName' in kwargs:
+            solution_name = kwargs['solutionName']
+        if user_defined_resources is None and 'userDefinedResources' in kwargs:
+            user_defined_resources = kwargs['userDefinedResources']
+
+        _setter("display_name", display_name)
+        _setter("iot_hubs", iot_hubs)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace", workspace)
         if disabled_data_sources is not None:
-            pulumi.set(__self__, "disabled_data_sources", disabled_data_sources)
+            _setter("disabled_data_sources", disabled_data_sources)
         if export is not None:
-            pulumi.set(__self__, "export", export)
+            _setter("export", export)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if recommendations_configuration is not None:
-            pulumi.set(__self__, "recommendations_configuration", recommendations_configuration)
+            _setter("recommendations_configuration", recommendations_configuration)
         if solution_name is not None:
-            pulumi.set(__self__, "solution_name", solution_name)
+            _setter("solution_name", solution_name)
         if status is None:
             status = 'Enabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_defined_resources is not None:
-            pulumi.set(__self__, "user_defined_resources", user_defined_resources)
+            _setter("user_defined_resources", user_defined_resources)
 
     @property
     @pulumi.getter(name="displayName")
@@ -267,6 +322,10 @@ class IotSecuritySolution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IotSecuritySolutionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -311,6 +370,7 @@ class IotSecuritySolution(pulumi.CustomResource):
                 status = 'Enabled'
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            user_defined_resources = _utilities.configure(user_defined_resources, UserDefinedResourcesPropertiesArgs, True)
             __props__.__dict__["user_defined_resources"] = user_defined_resources
             if workspace is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace'")

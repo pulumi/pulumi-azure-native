@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -37,18 +37,61 @@ class MachineGroupArgs:
         :param pulumi.Input[str] machine_group_name: Machine Group resource name.
         :param pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "kind", 'machineGroup')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        MachineGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            count=count,
+            group_type=group_type,
+            machine_group_name=machine_group_name,
+            machines=machines,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             count: Optional[pulumi.Input[int]] = None,
+             group_type: Optional[pulumi.Input[Union[str, 'MachineGroupType']]] = None,
+             machine_group_name: Optional[pulumi.Input[str]] = None,
+             machines: Optional[pulumi.Input[Sequence[pulumi.Input['MachineReferenceWithHintsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if group_type is None and 'groupType' in kwargs:
+            group_type = kwargs['groupType']
+        if machine_group_name is None and 'machineGroupName' in kwargs:
+            machine_group_name = kwargs['machineGroupName']
+
+        _setter("display_name", display_name)
+        _setter("kind", 'machineGroup')
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if group_type is not None:
-            pulumi.set(__self__, "group_type", group_type)
+            _setter("group_type", group_type)
         if machine_group_name is not None:
-            pulumi.set(__self__, "machine_group_name", machine_group_name)
+            _setter("machine_group_name", machine_group_name)
         if machines is not None:
-            pulumi.set(__self__, "machines", machines)
+            _setter("machines", machines)
 
     @property
     @pulumi.getter(name="displayName")
@@ -196,6 +239,10 @@ class MachineGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MachineGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -54,12 +54,33 @@ class OverviewStatusResponse(dict):
         :param int manual_count: The count of all manual control.
         :param int passed_count: The count of all passed full automation control.
         """
+        OverviewStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failed_count=failed_count,
+            manual_count=manual_count,
+            passed_count=passed_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failed_count: Optional[int] = None,
+             manual_count: Optional[int] = None,
+             passed_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failed_count is None and 'failedCount' in kwargs:
+            failed_count = kwargs['failedCount']
+        if manual_count is None and 'manualCount' in kwargs:
+            manual_count = kwargs['manualCount']
+        if passed_count is None and 'passedCount' in kwargs:
+            passed_count = kwargs['passedCount']
+
         if failed_count is not None:
-            pulumi.set(__self__, "failed_count", failed_count)
+            _setter("failed_count", failed_count)
         if manual_count is not None:
-            pulumi.set(__self__, "manual_count", manual_count)
+            _setter("manual_count", manual_count)
         if passed_count is not None:
-            pulumi.set(__self__, "passed_count", passed_count)
+            _setter("passed_count", passed_count)
 
     @property
     @pulumi.getter(name="failedCount")
@@ -97,8 +118,19 @@ class ReportComplianceStatusResponse(dict):
         A list which includes all the compliance result for one report.
         :param 'OverviewStatusResponse' m365: The Microsoft 365 certification name.
         """
+        ReportComplianceStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            m365=m365,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             m365: Optional['outputs.OverviewStatusResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if m365 is not None:
-            pulumi.set(__self__, "m365", m365)
+            _setter("m365", m365)
 
     @property
     @pulumi.getter
@@ -178,20 +210,97 @@ class ReportPropertiesResponse(dict):
         :param str trigger_time: Report collection trigger time.
         :param str offer_guid: Report offer Guid.
         """
-        pulumi.set(__self__, "compliance_status", compliance_status)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_trigger_time", last_trigger_time)
-        pulumi.set(__self__, "next_trigger_time", next_trigger_time)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "report_name", report_name)
-        pulumi.set(__self__, "resources", resources)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "subscriptions", subscriptions)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "time_zone", time_zone)
-        pulumi.set(__self__, "trigger_time", trigger_time)
+        ReportPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compliance_status=compliance_status,
+            id=id,
+            last_trigger_time=last_trigger_time,
+            next_trigger_time=next_trigger_time,
+            provisioning_state=provisioning_state,
+            report_name=report_name,
+            resources=resources,
+            status=status,
+            subscriptions=subscriptions,
+            tenant_id=tenant_id,
+            time_zone=time_zone,
+            trigger_time=trigger_time,
+            offer_guid=offer_guid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compliance_status: Optional['outputs.ReportComplianceStatusResponse'] = None,
+             id: Optional[str] = None,
+             last_trigger_time: Optional[str] = None,
+             next_trigger_time: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             report_name: Optional[str] = None,
+             resources: Optional[Sequence['outputs.ResourceMetadataResponse']] = None,
+             status: Optional[str] = None,
+             subscriptions: Optional[Sequence[str]] = None,
+             tenant_id: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             trigger_time: Optional[str] = None,
+             offer_guid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compliance_status is None and 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if compliance_status is None:
+            raise TypeError("Missing 'compliance_status' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_trigger_time is None and 'lastTriggerTime' in kwargs:
+            last_trigger_time = kwargs['lastTriggerTime']
+        if last_trigger_time is None:
+            raise TypeError("Missing 'last_trigger_time' argument")
+        if next_trigger_time is None and 'nextTriggerTime' in kwargs:
+            next_trigger_time = kwargs['nextTriggerTime']
+        if next_trigger_time is None:
+            raise TypeError("Missing 'next_trigger_time' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if report_name is None and 'reportName' in kwargs:
+            report_name = kwargs['reportName']
+        if report_name is None:
+            raise TypeError("Missing 'report_name' argument")
+        if resources is None:
+            raise TypeError("Missing 'resources' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if subscriptions is None:
+            raise TypeError("Missing 'subscriptions' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if trigger_time is None and 'triggerTime' in kwargs:
+            trigger_time = kwargs['triggerTime']
+        if trigger_time is None:
+            raise TypeError("Missing 'trigger_time' argument")
+        if offer_guid is None and 'offerGuid' in kwargs:
+            offer_guid = kwargs['offerGuid']
+
+        _setter("compliance_status", compliance_status)
+        _setter("id", id)
+        _setter("last_trigger_time", last_trigger_time)
+        _setter("next_trigger_time", next_trigger_time)
+        _setter("provisioning_state", provisioning_state)
+        _setter("report_name", report_name)
+        _setter("resources", resources)
+        _setter("status", status)
+        _setter("subscriptions", subscriptions)
+        _setter("tenant_id", tenant_id)
+        _setter("time_zone", time_zone)
+        _setter("trigger_time", trigger_time)
         if offer_guid is not None:
-            pulumi.set(__self__, "offer_guid", offer_guid)
+            _setter("offer_guid", offer_guid)
 
     @property
     @pulumi.getter(name="complianceStatus")
@@ -341,15 +450,44 @@ class ResourceMetadataResponse(dict):
         :param str resource_type: Resource type.
         :param Mapping[str, str] tags: Resource's tag type.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        ResourceMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            resource_kind=resource_kind,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[str] = None,
+             resource_kind: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             resource_type: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if resource_kind is None and 'resourceKind' in kwargs:
+            resource_kind = kwargs['resourceKind']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("resource_id", resource_id)
         if resource_kind is not None:
-            pulumi.set(__self__, "resource_kind", resource_kind)
+            _setter("resource_kind", resource_kind)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -440,18 +578,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

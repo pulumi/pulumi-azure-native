@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -59,15 +59,46 @@ class AdditionalRegionResponse(dict):
         :param int sku_unit_count: The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
         :param 'VirtualNetworkConfigurationResponse' vpnconfiguration: Virtual network configuration for the location.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "sku_type", sku_type)
-        pulumi.set(__self__, "static_ips", static_ips)
+        AdditionalRegionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            sku_type=sku_type,
+            static_ips=static_ips,
+            sku_unit_count=sku_unit_count,
+            vpnconfiguration=vpnconfiguration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             sku_type: Optional[str] = None,
+             static_ips: Optional[Sequence[str]] = None,
+             sku_unit_count: Optional[int] = None,
+             vpnconfiguration: Optional['outputs.VirtualNetworkConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if sku_type is None and 'skuType' in kwargs:
+            sku_type = kwargs['skuType']
+        if sku_type is None:
+            raise TypeError("Missing 'sku_type' argument")
+        if static_ips is None and 'staticIPs' in kwargs:
+            static_ips = kwargs['staticIPs']
+        if static_ips is None:
+            raise TypeError("Missing 'static_ips' argument")
+        if sku_unit_count is None and 'skuUnitCount' in kwargs:
+            sku_unit_count = kwargs['skuUnitCount']
+
+        _setter("location", location)
+        _setter("sku_type", sku_type)
+        _setter("static_ips", static_ips)
         if sku_unit_count is None:
             sku_unit_count = 1
         if sku_unit_count is not None:
-            pulumi.set(__self__, "sku_unit_count", sku_unit_count)
+            _setter("sku_unit_count", sku_unit_count)
         if vpnconfiguration is not None:
-            pulumi.set(__self__, "vpnconfiguration", vpnconfiguration)
+            _setter("vpnconfiguration", vpnconfiguration)
 
     @property
     @pulumi.getter
@@ -123,11 +154,26 @@ class ApiManagementServiceSkuPropertiesResponse(dict):
         :param str name: Name of the Sku.
         :param int capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
-        pulumi.set(__self__, "name", name)
+        ApiManagementServiceSkuPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             capacity: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is None:
             capacity = 1
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -161,9 +207,30 @@ class CertificateInformationResponse(dict):
         :param str subject: Subject of the certificate.
         :param str thumbprint: Thumbprint of the certificate.
         """
-        pulumi.set(__self__, "expiry", expiry)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "thumbprint", thumbprint)
+        CertificateInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry=expiry,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expiry is None:
+            raise TypeError("Missing 'expiry' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+
+        _setter("expiry", expiry)
+        _setter("subject", subject)
+        _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter
@@ -205,9 +272,30 @@ class HostnameConfigurationResponse(dict):
         :param str hostname: Hostname.
         :param str type: Hostname type.
         """
-        pulumi.set(__self__, "certificate", certificate)
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "type", type)
+        HostnameConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            hostname=hostname,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional['outputs.CertificateInformationResponse'] = None,
+             hostname: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if hostname is None:
+            raise TypeError("Missing 'hostname' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("certificate", certificate)
+        _setter("hostname", hostname)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -268,12 +356,35 @@ class VirtualNetworkConfigurationResponse(dict):
         :param str location: The location of the virtual network.
         :param str subnet_resource_id: The full resource ID of a subnet in a virtual network to deploy the API Management service in.
         """
-        pulumi.set(__self__, "subnetname", subnetname)
-        pulumi.set(__self__, "vnetid", vnetid)
+        VirtualNetworkConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnetname=subnetname,
+            vnetid=vnetid,
+            location=location,
+            subnet_resource_id=subnet_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnetname: Optional[str] = None,
+             vnetid: Optional[str] = None,
+             location: Optional[str] = None,
+             subnet_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnetname is None:
+            raise TypeError("Missing 'subnetname' argument")
+        if vnetid is None:
+            raise TypeError("Missing 'vnetid' argument")
+        if subnet_resource_id is None and 'subnetResourceId' in kwargs:
+            subnet_resource_id = kwargs['subnetResourceId']
+
+        _setter("subnetname", subnetname)
+        _setter("vnetid", vnetid)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if subnet_resource_id is not None:
-            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+            _setter("subnet_resource_id", subnet_resource_id)
 
     @property
     @pulumi.getter

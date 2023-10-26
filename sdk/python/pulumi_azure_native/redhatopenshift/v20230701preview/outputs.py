@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,12 +43,27 @@ class APIServerProfileResponse(dict):
         :param str url: The URL to access the cluster API server.
         :param str visibility: API server visibility.
         """
+        APIServerProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            url=url,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[str] = None,
+             url: Optional[str] = None,
+             visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter
@@ -115,16 +130,41 @@ class ClusterProfileResponse(dict):
         :param str resource_group_id: The ID of the cluster resource group.
         :param str version: The version of the cluster.
         """
+        ClusterProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain=domain,
+            fips_validated_modules=fips_validated_modules,
+            pull_secret=pull_secret,
+            resource_group_id=resource_group_id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain: Optional[str] = None,
+             fips_validated_modules: Optional[str] = None,
+             pull_secret: Optional[str] = None,
+             resource_group_id: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fips_validated_modules is None and 'fipsValidatedModules' in kwargs:
+            fips_validated_modules = kwargs['fipsValidatedModules']
+        if pull_secret is None and 'pullSecret' in kwargs:
+            pull_secret = kwargs['pullSecret']
+        if resource_group_id is None and 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if fips_validated_modules is not None:
-            pulumi.set(__self__, "fips_validated_modules", fips_validated_modules)
+            _setter("fips_validated_modules", fips_validated_modules)
         if pull_secret is not None:
-            pulumi.set(__self__, "pull_secret", pull_secret)
+            _setter("pull_secret", pull_secret)
         if resource_group_id is not None:
-            pulumi.set(__self__, "resource_group_id", resource_group_id)
+            _setter("resource_group_id", resource_group_id)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -178,8 +218,19 @@ class ConsoleProfileResponse(dict):
         ConsoleProfile represents a console profile.
         :param str url: The URL to access the cluster console.
         """
+        ConsoleProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -201,8 +252,19 @@ class EffectiveOutboundIPResponse(dict):
         EffectiveOutboundIP represents an effective outbound IP resource of the cluster public load balancer.
         :param str id: The fully qualified Azure resource id of an IP address resource.
         """
+        EffectiveOutboundIPResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -228,12 +290,27 @@ class IngressProfileResponse(dict):
         :param str name: The ingress profile name.
         :param str visibility: Ingress visibility.
         """
+        IngressProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            name=name,
+            visibility=visibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[str] = None,
+             name: Optional[str] = None,
+             visibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
 
     @property
     @pulumi.getter
@@ -304,15 +381,46 @@ class LoadBalancerProfileResponse(dict):
         :param Sequence['OutboundIPPrefixResponse'] outbound_ip_prefixes: The desired outbound IP Prefix resources for the cluster load balancer.
         :param Sequence['OutboundIPResponse'] outbound_ips: The desired outbound IP resources for the cluster load balancer.
         """
-        pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
+        LoadBalancerProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effective_outbound_ips=effective_outbound_ips,
+            allocated_outbound_ports=allocated_outbound_ports,
+            managed_outbound_ips=managed_outbound_ips,
+            outbound_ip_prefixes=outbound_ip_prefixes,
+            outbound_ips=outbound_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effective_outbound_ips: Optional[Sequence['outputs.EffectiveOutboundIPResponse']] = None,
+             allocated_outbound_ports: Optional[int] = None,
+             managed_outbound_ips: Optional['outputs.ManagedOutboundIPsResponse'] = None,
+             outbound_ip_prefixes: Optional[Sequence['outputs.OutboundIPPrefixResponse']] = None,
+             outbound_ips: Optional[Sequence['outputs.OutboundIPResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if effective_outbound_ips is None and 'effectiveOutboundIps' in kwargs:
+            effective_outbound_ips = kwargs['effectiveOutboundIps']
+        if effective_outbound_ips is None:
+            raise TypeError("Missing 'effective_outbound_ips' argument")
+        if allocated_outbound_ports is None and 'allocatedOutboundPorts' in kwargs:
+            allocated_outbound_ports = kwargs['allocatedOutboundPorts']
+        if managed_outbound_ips is None and 'managedOutboundIps' in kwargs:
+            managed_outbound_ips = kwargs['managedOutboundIps']
+        if outbound_ip_prefixes is None and 'outboundIpPrefixes' in kwargs:
+            outbound_ip_prefixes = kwargs['outboundIpPrefixes']
+        if outbound_ips is None and 'outboundIps' in kwargs:
+            outbound_ips = kwargs['outboundIps']
+
+        _setter("effective_outbound_ips", effective_outbound_ips)
         if allocated_outbound_ports is not None:
-            pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
+            _setter("allocated_outbound_ports", allocated_outbound_ports)
         if managed_outbound_ips is not None:
-            pulumi.set(__self__, "managed_outbound_ips", managed_outbound_ips)
+            _setter("managed_outbound_ips", managed_outbound_ips)
         if outbound_ip_prefixes is not None:
-            pulumi.set(__self__, "outbound_ip_prefixes", outbound_ip_prefixes)
+            _setter("outbound_ip_prefixes", outbound_ip_prefixes)
         if outbound_ips is not None:
-            pulumi.set(__self__, "outbound_ips", outbound_ips)
+            _setter("outbound_ips", outbound_ips)
 
     @property
     @pulumi.getter(name="effectiveOutboundIps")
@@ -366,8 +474,19 @@ class ManagedOutboundIPsResponse(dict):
         ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
         :param int count: Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
         """
+        ManagedOutboundIPsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
 
     @property
     @pulumi.getter
@@ -418,14 +537,39 @@ class MasterProfileResponse(dict):
         :param str subnet_id: The Azure resource ID of the master subnet.
         :param str vm_size: The size of the master VMs.
         """
+        MasterProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            encryption_at_host=encryption_at_host,
+            subnet_id=subnet_id,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[str] = None,
+             encryption_at_host: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             vm_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if encryption_at_host is None and 'encryptionAtHost' in kwargs:
+            encryption_at_host = kwargs['encryptionAtHost']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if encryption_at_host is not None:
-            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
+            _setter("encryption_at_host", encryption_at_host)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -500,14 +644,39 @@ class NetworkProfileResponse(dict):
         :param str pod_cidr: The CIDR used for OpenShift/Kubernetes Pods.
         :param str service_cidr: The CIDR used for OpenShift/Kubernetes Services.
         """
+        NetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_profile=load_balancer_profile,
+            outbound_type=outbound_type,
+            pod_cidr=pod_cidr,
+            service_cidr=service_cidr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_profile: Optional['outputs.LoadBalancerProfileResponse'] = None,
+             outbound_type: Optional[str] = None,
+             pod_cidr: Optional[str] = None,
+             service_cidr: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_profile is None and 'loadBalancerProfile' in kwargs:
+            load_balancer_profile = kwargs['loadBalancerProfile']
+        if outbound_type is None and 'outboundType' in kwargs:
+            outbound_type = kwargs['outboundType']
+        if pod_cidr is None and 'podCidr' in kwargs:
+            pod_cidr = kwargs['podCidr']
+        if service_cidr is None and 'serviceCidr' in kwargs:
+            service_cidr = kwargs['serviceCidr']
+
         if load_balancer_profile is not None:
-            pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
+            _setter("load_balancer_profile", load_balancer_profile)
         if outbound_type is not None:
-            pulumi.set(__self__, "outbound_type", outbound_type)
+            _setter("outbound_type", outbound_type)
         if pod_cidr is not None:
-            pulumi.set(__self__, "pod_cidr", pod_cidr)
+            _setter("pod_cidr", pod_cidr)
         if service_cidr is not None:
-            pulumi.set(__self__, "service_cidr", service_cidr)
+            _setter("service_cidr", service_cidr)
 
     @property
     @pulumi.getter(name="loadBalancerProfile")
@@ -553,8 +722,19 @@ class OutboundIPPrefixResponse(dict):
         OutboundIPPrefix represents a desired outbound IP Prefix resource for the cluster load balancer.
         :param str id: The fully qualified Azure resource id of an IP Prefix resource.
         """
+        OutboundIPPrefixResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -576,8 +756,19 @@ class OutboundIPResponse(dict):
         OutboundIP represents a desired outbound IP resource for the cluster load balancer.
         :param str id: The fully qualified Azure resource id of the IP address resource.
         """
+        OutboundIPResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -620,10 +811,27 @@ class ServicePrincipalProfileResponse(dict):
         :param str client_id: The client ID used for the cluster.
         :param str client_secret: The client secret used for the cluster.
         """
+        ServicePrincipalProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
 
     @property
     @pulumi.getter(name="clientId")
@@ -690,18 +898,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -800,20 +1041,53 @@ class WorkerProfileResponse(dict):
         :param str subnet_id: The Azure resource ID of the worker subnet.
         :param str vm_size: The size of the worker VMs.
         """
+        WorkerProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_size_gb=disk_size_gb,
+            encryption_at_host=encryption_at_host,
+            name=name,
+            subnet_id=subnet_id,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[int] = None,
+             disk_encryption_set_id: Optional[str] = None,
+             disk_size_gb: Optional[int] = None,
+             encryption_at_host: Optional[str] = None,
+             name: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             vm_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if encryption_at_host is None and 'encryptionAtHost' in kwargs:
+            encryption_at_host = kwargs['encryptionAtHost']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if encryption_at_host is not None:
-            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
+            _setter("encryption_at_host", encryption_at_host)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter

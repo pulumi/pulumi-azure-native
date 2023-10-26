@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,10 +32,25 @@ class CertificatePropertiesArgs:
         :param pulumi.Input[str] certificate: base-64 representation of X509 certificate .cer file or just .pem file content.
         :param pulumi.Input[bool] is_verified: Determines whether certificate has been verified.
         """
+        CertificatePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate=certificate,
+            is_verified=is_verified,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate: Optional[pulumi.Input[str]] = None,
+             is_verified: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_verified is None and 'isVerified' in kwargs:
+            is_verified = kwargs['isVerified']
+
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if is_verified is not None:
-            pulumi.set(__self__, "is_verified", is_verified)
+            _setter("is_verified", is_verified)
 
     @property
     @pulumi.getter
@@ -89,26 +104,73 @@ class IotDpsPropertiesDescriptionArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input[Union[str, 'State']] state: Current state of the provisioning service.
         """
+        IotDpsPropertiesDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_policy=allocation_policy,
+            authorization_policies=authorization_policies,
+            enable_data_residency=enable_data_residency,
+            iot_hubs=iot_hubs,
+            ip_filter_rules=ip_filter_rules,
+            portal_operations_host_name=portal_operations_host_name,
+            private_endpoint_connections=private_endpoint_connections,
+            provisioning_state=provisioning_state,
+            public_network_access=public_network_access,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_policy: Optional[pulumi.Input[Union[str, 'AllocationPolicy']]] = None,
+             authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
+             enable_data_residency: Optional[pulumi.Input[bool]] = None,
+             iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
+             ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['TargetIpFilterRuleArgs']]]] = None,
+             portal_operations_host_name: Optional[pulumi.Input[str]] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             state: Optional[pulumi.Input[Union[str, 'State']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_policy is None and 'allocationPolicy' in kwargs:
+            allocation_policy = kwargs['allocationPolicy']
+        if authorization_policies is None and 'authorizationPolicies' in kwargs:
+            authorization_policies = kwargs['authorizationPolicies']
+        if enable_data_residency is None and 'enableDataResidency' in kwargs:
+            enable_data_residency = kwargs['enableDataResidency']
+        if iot_hubs is None and 'iotHubs' in kwargs:
+            iot_hubs = kwargs['iotHubs']
+        if ip_filter_rules is None and 'ipFilterRules' in kwargs:
+            ip_filter_rules = kwargs['ipFilterRules']
+        if portal_operations_host_name is None and 'portalOperationsHostName' in kwargs:
+            portal_operations_host_name = kwargs['portalOperationsHostName']
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
         if allocation_policy is not None:
-            pulumi.set(__self__, "allocation_policy", allocation_policy)
+            _setter("allocation_policy", allocation_policy)
         if authorization_policies is not None:
-            pulumi.set(__self__, "authorization_policies", authorization_policies)
+            _setter("authorization_policies", authorization_policies)
         if enable_data_residency is not None:
-            pulumi.set(__self__, "enable_data_residency", enable_data_residency)
+            _setter("enable_data_residency", enable_data_residency)
         if iot_hubs is not None:
-            pulumi.set(__self__, "iot_hubs", iot_hubs)
+            _setter("iot_hubs", iot_hubs)
         if ip_filter_rules is not None:
-            pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
+            _setter("ip_filter_rules", ip_filter_rules)
         if portal_operations_host_name is not None:
-            pulumi.set(__self__, "portal_operations_host_name", portal_operations_host_name)
+            _setter("portal_operations_host_name", portal_operations_host_name)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="allocationPolicy")
@@ -242,10 +304,23 @@ class IotDpsSkuInfoArgs:
         :param pulumi.Input[float] capacity: The number of units to provision
         :param pulumi.Input[Union[str, 'IotDpsSku']] name: Sku name.
         """
+        IotDpsSkuInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[Union[str, 'IotDpsSku']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -286,12 +361,39 @@ class IotHubDefinitionDescriptionArgs:
         :param pulumi.Input[int] allocation_weight: weight to apply for a given iot h.
         :param pulumi.Input[bool] apply_allocation_policy: flag for applying allocationPolicy or not for a given iot hub.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "location", location)
+        IotHubDefinitionDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            location=location,
+            allocation_weight=allocation_weight,
+            apply_allocation_policy=apply_allocation_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             allocation_weight: Optional[pulumi.Input[int]] = None,
+             apply_allocation_policy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if allocation_weight is None and 'allocationWeight' in kwargs:
+            allocation_weight = kwargs['allocationWeight']
+        if apply_allocation_policy is None and 'applyAllocationPolicy' in kwargs:
+            apply_allocation_policy = kwargs['applyAllocationPolicy']
+
+        _setter("connection_string", connection_string)
+        _setter("location", location)
         if allocation_weight is not None:
-            pulumi.set(__self__, "allocation_weight", allocation_weight)
+            _setter("allocation_weight", allocation_weight)
         if apply_allocation_policy is not None:
-            pulumi.set(__self__, "apply_allocation_policy", apply_allocation_policy)
+            _setter("apply_allocation_policy", apply_allocation_policy)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -350,7 +452,22 @@ class PrivateEndpointConnectionPropertiesArgs:
         The properties of a private endpoint connection
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
         """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        PrivateEndpointConnectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -373,7 +490,20 @@ class PrivateEndpointConnectionArgs:
         The private endpoint connection of a provisioning service
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The properties of a private endpoint connection
         """
-        pulumi.set(__self__, "properties", properties)
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -400,10 +530,31 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection
         :param pulumi.Input[str] actions_required: Actions required for a private endpoint connection
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+            actions_required=actions_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]] = None,
+             actions_required: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
+        _setter("description", description)
+        _setter("status", status)
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
 
     @property
     @pulumi.getter
@@ -456,12 +607,39 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
         :param pulumi.Input[str] primary_key: Primary SAS key value.
         :param pulumi.Input[str] secondary_key: Secondary SAS key value.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "rights", rights)
+        SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            rights=rights,
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             rights: Optional[pulumi.Input[Union[str, 'AccessRightsDescription']]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if rights is None:
+            raise TypeError("Missing 'rights' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if secondary_key is None and 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
+        _setter("key_name", key_name)
+        _setter("rights", rights)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
 
     @property
     @pulumi.getter(name="keyName")
@@ -526,11 +704,38 @@ class TargetIpFilterRuleArgs:
         :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
         :param pulumi.Input['IpFilterTargetType'] target: Target for requests captured by this rule.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "filter_name", filter_name)
-        pulumi.set(__self__, "ip_mask", ip_mask)
+        TargetIpFilterRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            filter_name=filter_name,
+            ip_mask=ip_mask,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['IpFilterActionType']] = None,
+             filter_name: Optional[pulumi.Input[str]] = None,
+             ip_mask: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input['IpFilterTargetType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if filter_name is None and 'filterName' in kwargs:
+            filter_name = kwargs['filterName']
+        if filter_name is None:
+            raise TypeError("Missing 'filter_name' argument")
+        if ip_mask is None and 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+        if ip_mask is None:
+            raise TypeError("Missing 'ip_mask' argument")
+
+        _setter("action", action)
+        _setter("filter_name", filter_name)
+        _setter("ip_mask", ip_mask)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter

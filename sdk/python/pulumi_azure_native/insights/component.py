@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -57,49 +57,132 @@ class ComponentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] workspace_resource_id: Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
         """
+        ComponentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_type=application_type,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            disable_ip_masking=disable_ip_masking,
+            disable_local_auth=disable_local_auth,
+            flow_type=flow_type,
+            force_customer_storage_for_profiler=force_customer_storage_for_profiler,
+            hockey_app_id=hockey_app_id,
+            immediate_purge_data_on30_days=immediate_purge_data_on30_days,
+            ingestion_mode=ingestion_mode,
+            location=location,
+            public_network_access_for_ingestion=public_network_access_for_ingestion,
+            public_network_access_for_query=public_network_access_for_query,
+            request_source=request_source,
+            resource_name=resource_name,
+            retention_in_days=retention_in_days,
+            sampling_percentage=sampling_percentage,
+            tags=tags,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_type: Optional[pulumi.Input[Union[str, 'ApplicationType']]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
+             force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
+             hockey_app_id: Optional[pulumi.Input[str]] = None,
+             immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None,
+             ingestion_mode: Optional[pulumi.Input[Union[str, 'IngestionMode']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+             public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+             request_source: Optional[pulumi.Input[Union[str, 'RequestSource']]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sampling_percentage: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_type is None and 'applicationType' in kwargs:
+            application_type = kwargs['applicationType']
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disable_ip_masking is None and 'disableIpMasking' in kwargs:
+            disable_ip_masking = kwargs['disableIpMasking']
+        if disable_local_auth is None and 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if flow_type is None and 'flowType' in kwargs:
+            flow_type = kwargs['flowType']
+        if force_customer_storage_for_profiler is None and 'forceCustomerStorageForProfiler' in kwargs:
+            force_customer_storage_for_profiler = kwargs['forceCustomerStorageForProfiler']
+        if hockey_app_id is None and 'hockeyAppId' in kwargs:
+            hockey_app_id = kwargs['hockeyAppId']
+        if immediate_purge_data_on30_days is None and 'immediatePurgeDataOn30Days' in kwargs:
+            immediate_purge_data_on30_days = kwargs['immediatePurgeDataOn30Days']
+        if ingestion_mode is None and 'ingestionMode' in kwargs:
+            ingestion_mode = kwargs['ingestionMode']
+        if public_network_access_for_ingestion is None and 'publicNetworkAccessForIngestion' in kwargs:
+            public_network_access_for_ingestion = kwargs['publicNetworkAccessForIngestion']
+        if public_network_access_for_query is None and 'publicNetworkAccessForQuery' in kwargs:
+            public_network_access_for_query = kwargs['publicNetworkAccessForQuery']
+        if request_source is None and 'requestSource' in kwargs:
+            request_source = kwargs['requestSource']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if retention_in_days is None and 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if sampling_percentage is None and 'samplingPercentage' in kwargs:
+            sampling_percentage = kwargs['samplingPercentage']
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         if application_type is None:
             application_type = 'web'
-        pulumi.set(__self__, "application_type", application_type)
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        _setter("application_type", application_type)
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
         if disable_ip_masking is not None:
-            pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+            _setter("disable_ip_masking", disable_ip_masking)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if flow_type is None:
             flow_type = 'Bluefield'
         if flow_type is not None:
-            pulumi.set(__self__, "flow_type", flow_type)
+            _setter("flow_type", flow_type)
         if force_customer_storage_for_profiler is not None:
-            pulumi.set(__self__, "force_customer_storage_for_profiler", force_customer_storage_for_profiler)
+            _setter("force_customer_storage_for_profiler", force_customer_storage_for_profiler)
         if hockey_app_id is not None:
-            pulumi.set(__self__, "hockey_app_id", hockey_app_id)
+            _setter("hockey_app_id", hockey_app_id)
         if immediate_purge_data_on30_days is not None:
-            pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
+            _setter("immediate_purge_data_on30_days", immediate_purge_data_on30_days)
         if ingestion_mode is None:
             ingestion_mode = 'LogAnalytics'
         if ingestion_mode is not None:
-            pulumi.set(__self__, "ingestion_mode", ingestion_mode)
+            _setter("ingestion_mode", ingestion_mode)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if public_network_access_for_ingestion is not None:
-            pulumi.set(__self__, "public_network_access_for_ingestion", public_network_access_for_ingestion)
+            _setter("public_network_access_for_ingestion", public_network_access_for_ingestion)
         if public_network_access_for_query is not None:
-            pulumi.set(__self__, "public_network_access_for_query", public_network_access_for_query)
+            _setter("public_network_access_for_query", public_network_access_for_query)
         if request_source is None:
             request_source = 'rest'
         if request_source is not None:
-            pulumi.set(__self__, "request_source", request_source)
+            _setter("request_source", request_source)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if sampling_percentage is not None:
-            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+            _setter("sampling_percentage", sampling_percentage)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="applicationType")
@@ -405,6 +488,10 @@ class Component(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComponentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,14 +30,55 @@ class SignalRCustomCertificateArgs:
         :param pulumi.Input[str] certificate_name: Custom certificate name
         :param pulumi.Input[str] key_vault_secret_version: Certificate secret version.
         """
-        pulumi.set(__self__, "key_vault_base_uri", key_vault_base_uri)
-        pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        SignalRCustomCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_base_uri=key_vault_base_uri,
+            key_vault_secret_name=key_vault_secret_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            certificate_name=certificate_name,
+            key_vault_secret_version=key_vault_secret_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_base_uri: Optional[pulumi.Input[str]] = None,
+             key_vault_secret_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             key_vault_secret_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_vault_base_uri is None and 'keyVaultBaseUri' in kwargs:
+            key_vault_base_uri = kwargs['keyVaultBaseUri']
+        if key_vault_base_uri is None:
+            raise TypeError("Missing 'key_vault_base_uri' argument")
+        if key_vault_secret_name is None and 'keyVaultSecretName' in kwargs:
+            key_vault_secret_name = kwargs['keyVaultSecretName']
+        if key_vault_secret_name is None:
+            raise TypeError("Missing 'key_vault_secret_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if key_vault_secret_version is None and 'keyVaultSecretVersion' in kwargs:
+            key_vault_secret_version = kwargs['keyVaultSecretVersion']
+
+        _setter("key_vault_base_uri", key_vault_base_uri)
+        _setter("key_vault_secret_name", key_vault_secret_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if key_vault_secret_version is not None:
-            pulumi.set(__self__, "key_vault_secret_version", key_vault_secret_version)
+            _setter("key_vault_secret_version", key_vault_secret_version)
 
     @property
     @pulumi.getter(name="keyVaultBaseUri")
@@ -155,6 +196,10 @@ class SignalRCustomCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SignalRCustomCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

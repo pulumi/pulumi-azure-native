@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -51,30 +51,107 @@ class ClusterArgs:
         :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
-        pulumi.set(__self__, "cluster_type", cluster_type)
-        pulumi.set(__self__, "cluster_version", cluster_version)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aggregator_or_single_rack_definition=aggregator_or_single_rack_definition,
+            cluster_type=cluster_type,
+            cluster_version=cluster_version,
+            extended_location=extended_location,
+            network_fabric_id=network_fabric_id,
+            resource_group_name=resource_group_name,
+            analytics_workspace_id=analytics_workspace_id,
+            cluster_location=cluster_location,
+            cluster_name=cluster_name,
+            cluster_service_principal=cluster_service_principal,
+            compute_deployment_threshold=compute_deployment_threshold,
+            compute_rack_definitions=compute_rack_definitions,
+            location=location,
+            managed_resource_group_configuration=managed_resource_group_configuration,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aggregator_or_single_rack_definition: Optional[pulumi.Input['RackDefinitionArgs']] = None,
+             cluster_type: Optional[pulumi.Input[Union[str, 'ClusterType']]] = None,
+             cluster_version: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             network_fabric_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             cluster_location: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cluster_service_principal: Optional[pulumi.Input['ServicePrincipalInformationArgs']] = None,
+             compute_deployment_threshold: Optional[pulumi.Input['ValidationThresholdArgs']] = None,
+             compute_rack_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['RackDefinitionArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aggregator_or_single_rack_definition is None and 'aggregatorOrSingleRackDefinition' in kwargs:
+            aggregator_or_single_rack_definition = kwargs['aggregatorOrSingleRackDefinition']
+        if aggregator_or_single_rack_definition is None:
+            raise TypeError("Missing 'aggregator_or_single_rack_definition' argument")
+        if cluster_type is None and 'clusterType' in kwargs:
+            cluster_type = kwargs['clusterType']
+        if cluster_type is None:
+            raise TypeError("Missing 'cluster_type' argument")
+        if cluster_version is None and 'clusterVersion' in kwargs:
+            cluster_version = kwargs['clusterVersion']
+        if cluster_version is None:
+            raise TypeError("Missing 'cluster_version' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if extended_location is None:
+            raise TypeError("Missing 'extended_location' argument")
+        if network_fabric_id is None and 'networkFabricId' in kwargs:
+            network_fabric_id = kwargs['networkFabricId']
+        if network_fabric_id is None:
+            raise TypeError("Missing 'network_fabric_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if analytics_workspace_id is None and 'analyticsWorkspaceId' in kwargs:
+            analytics_workspace_id = kwargs['analyticsWorkspaceId']
+        if cluster_location is None and 'clusterLocation' in kwargs:
+            cluster_location = kwargs['clusterLocation']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_service_principal is None and 'clusterServicePrincipal' in kwargs:
+            cluster_service_principal = kwargs['clusterServicePrincipal']
+        if compute_deployment_threshold is None and 'computeDeploymentThreshold' in kwargs:
+            compute_deployment_threshold = kwargs['computeDeploymentThreshold']
+        if compute_rack_definitions is None and 'computeRackDefinitions' in kwargs:
+            compute_rack_definitions = kwargs['computeRackDefinitions']
+        if managed_resource_group_configuration is None and 'managedResourceGroupConfiguration' in kwargs:
+            managed_resource_group_configuration = kwargs['managedResourceGroupConfiguration']
+
+        _setter("aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
+        _setter("cluster_type", cluster_type)
+        _setter("cluster_version", cluster_version)
+        _setter("extended_location", extended_location)
+        _setter("network_fabric_id", network_fabric_id)
+        _setter("resource_group_name", resource_group_name)
         if analytics_workspace_id is not None:
-            pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
+            _setter("analytics_workspace_id", analytics_workspace_id)
         if cluster_location is not None:
-            pulumi.set(__self__, "cluster_location", cluster_location)
+            _setter("cluster_location", cluster_location)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if cluster_service_principal is not None:
-            pulumi.set(__self__, "cluster_service_principal", cluster_service_principal)
+            _setter("cluster_service_principal", cluster_service_principal)
         if compute_deployment_threshold is not None:
-            pulumi.set(__self__, "compute_deployment_threshold", compute_deployment_threshold)
+            _setter("compute_deployment_threshold", compute_deployment_threshold)
         if compute_rack_definitions is not None:
-            pulumi.set(__self__, "compute_rack_definitions", compute_rack_definitions)
+            _setter("compute_rack_definitions", compute_rack_definitions)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+            _setter("managed_resource_group_configuration", managed_resource_group_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="aggregatorOrSingleRackDefinition")
@@ -324,6 +401,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -353,12 +434,14 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            aggregator_or_single_rack_definition = _utilities.configure(aggregator_or_single_rack_definition, RackDefinitionArgs, True)
             if aggregator_or_single_rack_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'aggregator_or_single_rack_definition'")
             __props__.__dict__["aggregator_or_single_rack_definition"] = aggregator_or_single_rack_definition
             __props__.__dict__["analytics_workspace_id"] = analytics_workspace_id
             __props__.__dict__["cluster_location"] = cluster_location
             __props__.__dict__["cluster_name"] = cluster_name
+            cluster_service_principal = _utilities.configure(cluster_service_principal, ServicePrincipalInformationArgs, True)
             __props__.__dict__["cluster_service_principal"] = cluster_service_principal
             if cluster_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_type'")
@@ -366,12 +449,15 @@ class Cluster(pulumi.CustomResource):
             if cluster_version is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_version'")
             __props__.__dict__["cluster_version"] = cluster_version
+            compute_deployment_threshold = _utilities.configure(compute_deployment_threshold, ValidationThresholdArgs, True)
             __props__.__dict__["compute_deployment_threshold"] = compute_deployment_threshold
             __props__.__dict__["compute_rack_definitions"] = compute_rack_definitions
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            managed_resource_group_configuration = _utilities.configure(managed_resource_group_configuration, ManagedResourceGroupConfigurationArgs, True)
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
             if network_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_id'")

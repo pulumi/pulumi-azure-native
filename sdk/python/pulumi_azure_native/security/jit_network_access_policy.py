@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,15 +31,50 @@ class JitNetworkAccessPolicyArgs:
         :param pulumi.Input[str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] kind: Kind of the resource
         """
-        pulumi.set(__self__, "asc_location", asc_location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_machines", virtual_machines)
+        JitNetworkAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asc_location=asc_location,
+            resource_group_name=resource_group_name,
+            virtual_machines=virtual_machines,
+            jit_network_access_policy_name=jit_network_access_policy_name,
+            kind=kind,
+            requests=requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asc_location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]]] = None,
+             jit_network_access_policy_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             requests: Optional[pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asc_location is None and 'ascLocation' in kwargs:
+            asc_location = kwargs['ascLocation']
+        if asc_location is None:
+            raise TypeError("Missing 'asc_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_machines is None and 'virtualMachines' in kwargs:
+            virtual_machines = kwargs['virtualMachines']
+        if virtual_machines is None:
+            raise TypeError("Missing 'virtual_machines' argument")
+        if jit_network_access_policy_name is None and 'jitNetworkAccessPolicyName' in kwargs:
+            jit_network_access_policy_name = kwargs['jitNetworkAccessPolicyName']
+
+        _setter("asc_location", asc_location)
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_machines", virtual_machines)
         if jit_network_access_policy_name is not None:
-            pulumi.set(__self__, "jit_network_access_policy_name", jit_network_access_policy_name)
+            _setter("jit_network_access_policy_name", jit_network_access_policy_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
 
     @property
     @pulumi.getter(name="ascLocation")
@@ -153,6 +188,10 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JitNetworkAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

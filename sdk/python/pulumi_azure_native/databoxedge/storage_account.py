@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,17 +33,58 @@ class StorageAccountArgs:
         :param pulumi.Input[str] storage_account_name: The StorageAccount name.
         :param pulumi.Input[Union[str, 'StorageAccountStatus']] storage_account_status: Current status of the storage account
         """
-        pulumi.set(__self__, "data_policy", data_policy)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_policy=data_policy,
+            device_name=device_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            storage_account_credential_id=storage_account_credential_id,
+            storage_account_name=storage_account_name,
+            storage_account_status=storage_account_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             storage_account_credential_id: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_account_status: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_policy is None and 'dataPolicy' in kwargs:
+            data_policy = kwargs['dataPolicy']
+        if data_policy is None:
+            raise TypeError("Missing 'data_policy' argument")
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_credential_id is None and 'storageAccountCredentialId' in kwargs:
+            storage_account_credential_id = kwargs['storageAccountCredentialId']
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_status is None and 'storageAccountStatus' in kwargs:
+            storage_account_status = kwargs['storageAccountStatus']
+
+        _setter("data_policy", data_policy)
+        _setter("device_name", device_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if storage_account_credential_id is not None:
-            pulumi.set(__self__, "storage_account_credential_id", storage_account_credential_id)
+            _setter("storage_account_credential_id", storage_account_credential_id)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if storage_account_status is not None:
-            pulumi.set(__self__, "storage_account_status", storage_account_status)
+            _setter("storage_account_status", storage_account_status)
 
     @property
     @pulumi.getter(name="dataPolicy")
@@ -181,6 +222,10 @@ class StorageAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

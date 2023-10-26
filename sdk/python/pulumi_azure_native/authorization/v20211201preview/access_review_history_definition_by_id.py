@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,26 +40,65 @@ class AccessReviewHistoryDefinitionByIdArgs:
         :param pulumi.Input[str] start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
         :param pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']] type: The recurrence range type. The possible values are: endDate, noEnd, numbered.
         """
+        AccessReviewHistoryDefinitionByIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            decisions=decisions,
+            display_name=display_name,
+            end_date=end_date,
+            history_definition_id=history_definition_id,
+            instances=instances,
+            interval=interval,
+            number_of_occurrences=number_of_occurrences,
+            scopes=scopes,
+            start_date=start_date,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             decisions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessReviewResult']]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             history_definition_id: Optional[pulumi.Input[str]] = None,
+             instances: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             number_of_occurrences: Optional[pulumi.Input[int]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewScopeArgs']]]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'AccessReviewRecurrenceRangeType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if history_definition_id is None and 'historyDefinitionId' in kwargs:
+            history_definition_id = kwargs['historyDefinitionId']
+        if number_of_occurrences is None and 'numberOfOccurrences' in kwargs:
+            number_of_occurrences = kwargs['numberOfOccurrences']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         if decisions is not None:
-            pulumi.set(__self__, "decisions", decisions)
+            _setter("decisions", decisions)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if history_definition_id is not None:
-            pulumi.set(__self__, "history_definition_id", history_definition_id)
+            _setter("history_definition_id", history_definition_id)
         if instances is not None:
-            pulumi.set(__self__, "instances", instances)
+            _setter("instances", instances)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if number_of_occurrences is not None:
-            pulumi.set(__self__, "number_of_occurrences", number_of_occurrences)
+            _setter("number_of_occurrences", number_of_occurrences)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -233,6 +272,10 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessReviewHistoryDefinitionByIdArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -54,39 +54,102 @@ class FirewallPolicyArgs:
         :param pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs'] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
         :param pulumi.Input['FirewallPolicyTransportSecurityArgs'] transport_security: TLS Configuration definition.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FirewallPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            base_policy=base_policy,
+            dns_settings=dns_settings,
+            explicit_proxy_settings=explicit_proxy_settings,
+            firewall_policy_name=firewall_policy_name,
+            id=id,
+            identity=identity,
+            insights=insights,
+            intrusion_detection=intrusion_detection,
+            location=location,
+            sku=sku,
+            snat=snat,
+            sql=sql,
+            tags=tags,
+            threat_intel_mode=threat_intel_mode,
+            threat_intel_whitelist=threat_intel_whitelist,
+            transport_security=transport_security,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             base_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
+             dns_settings: Optional[pulumi.Input['DnsSettingsArgs']] = None,
+             explicit_proxy_settings: Optional[pulumi.Input['ExplicitProxySettingsArgs']] = None,
+             firewall_policy_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
+             intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['FirewallPolicySkuArgs']] = None,
+             snat: Optional[pulumi.Input['FirewallPolicySNATArgs']] = None,
+             sql: Optional[pulumi.Input['FirewallPolicySQLArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
+             threat_intel_whitelist: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']] = None,
+             transport_security: Optional[pulumi.Input['FirewallPolicyTransportSecurityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if base_policy is None and 'basePolicy' in kwargs:
+            base_policy = kwargs['basePolicy']
+        if dns_settings is None and 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if explicit_proxy_settings is None and 'explicitProxySettings' in kwargs:
+            explicit_proxy_settings = kwargs['explicitProxySettings']
+        if firewall_policy_name is None and 'firewallPolicyName' in kwargs:
+            firewall_policy_name = kwargs['firewallPolicyName']
+        if intrusion_detection is None and 'intrusionDetection' in kwargs:
+            intrusion_detection = kwargs['intrusionDetection']
+        if threat_intel_mode is None and 'threatIntelMode' in kwargs:
+            threat_intel_mode = kwargs['threatIntelMode']
+        if threat_intel_whitelist is None and 'threatIntelWhitelist' in kwargs:
+            threat_intel_whitelist = kwargs['threatIntelWhitelist']
+        if transport_security is None and 'transportSecurity' in kwargs:
+            transport_security = kwargs['transportSecurity']
+
+        _setter("resource_group_name", resource_group_name)
         if base_policy is not None:
-            pulumi.set(__self__, "base_policy", base_policy)
+            _setter("base_policy", base_policy)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if explicit_proxy_settings is not None:
-            pulumi.set(__self__, "explicit_proxy_settings", explicit_proxy_settings)
+            _setter("explicit_proxy_settings", explicit_proxy_settings)
         if firewall_policy_name is not None:
-            pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
+            _setter("firewall_policy_name", firewall_policy_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if insights is not None:
-            pulumi.set(__self__, "insights", insights)
+            _setter("insights", insights)
         if intrusion_detection is not None:
-            pulumi.set(__self__, "intrusion_detection", intrusion_detection)
+            _setter("intrusion_detection", intrusion_detection)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if snat is not None:
-            pulumi.set(__self__, "snat", snat)
+            _setter("snat", snat)
         if sql is not None:
-            pulumi.set(__self__, "sql", sql)
+            _setter("sql", sql)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_intel_mode is not None:
-            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+            _setter("threat_intel_mode", threat_intel_mode)
         if threat_intel_whitelist is not None:
-            pulumi.set(__self__, "threat_intel_whitelist", threat_intel_whitelist)
+            _setter("threat_intel_whitelist", threat_intel_whitelist)
         if transport_security is not None:
-            pulumi.set(__self__, "transport_security", transport_security)
+            _setter("transport_security", transport_security)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -358,6 +421,10 @@ class FirewallPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -389,24 +456,35 @@ class FirewallPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
 
+            base_policy = _utilities.configure(base_policy, SubResourceArgs, True)
             __props__.__dict__["base_policy"] = base_policy
+            dns_settings = _utilities.configure(dns_settings, DnsSettingsArgs, True)
             __props__.__dict__["dns_settings"] = dns_settings
+            explicit_proxy_settings = _utilities.configure(explicit_proxy_settings, ExplicitProxySettingsArgs, True)
             __props__.__dict__["explicit_proxy_settings"] = explicit_proxy_settings
             __props__.__dict__["firewall_policy_name"] = firewall_policy_name
             __props__.__dict__["id"] = id
+            identity = _utilities.configure(identity, ManagedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
+            insights = _utilities.configure(insights, FirewallPolicyInsightsArgs, True)
             __props__.__dict__["insights"] = insights
+            intrusion_detection = _utilities.configure(intrusion_detection, FirewallPolicyIntrusionDetectionArgs, True)
             __props__.__dict__["intrusion_detection"] = intrusion_detection
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, FirewallPolicySkuArgs, True)
             __props__.__dict__["sku"] = sku
+            snat = _utilities.configure(snat, FirewallPolicySNATArgs, True)
             __props__.__dict__["snat"] = snat
+            sql = _utilities.configure(sql, FirewallPolicySQLArgs, True)
             __props__.__dict__["sql"] = sql
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
+            threat_intel_whitelist = _utilities.configure(threat_intel_whitelist, FirewallPolicyThreatIntelWhitelistArgs, True)
             __props__.__dict__["threat_intel_whitelist"] = threat_intel_whitelist
+            transport_security = _utilities.configure(transport_security, FirewallPolicyTransportSecurityArgs, True)
             __props__.__dict__["transport_security"] = transport_security
             __props__.__dict__["child_policies"] = None
             __props__.__dict__["etag"] = None

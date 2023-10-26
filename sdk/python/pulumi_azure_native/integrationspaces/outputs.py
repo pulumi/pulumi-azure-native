@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -44,16 +44,41 @@ class BusinessProcessDevelopmentArtifactPropertiesResponse(dict):
         :param 'BusinessProcessIdentifierResponse' identifier: The business process identifier.
         :param Mapping[str, 'TrackingProfileDefinitionResponse'] tracking_profiles: The tracking profile for the business process.
         """
+        BusinessProcessDevelopmentArtifactPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business_process_mapping=business_process_mapping,
+            business_process_stages=business_process_stages,
+            description=description,
+            identifier=identifier,
+            tracking_profiles=tracking_profiles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business_process_mapping: Optional[Mapping[str, 'outputs.BusinessProcessMappingItemResponse']] = None,
+             business_process_stages: Optional[Mapping[str, 'outputs.BusinessProcessStageResponse']] = None,
+             description: Optional[str] = None,
+             identifier: Optional['outputs.BusinessProcessIdentifierResponse'] = None,
+             tracking_profiles: Optional[Mapping[str, 'outputs.TrackingProfileDefinitionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if business_process_mapping is None and 'businessProcessMapping' in kwargs:
+            business_process_mapping = kwargs['businessProcessMapping']
+        if business_process_stages is None and 'businessProcessStages' in kwargs:
+            business_process_stages = kwargs['businessProcessStages']
+        if tracking_profiles is None and 'trackingProfiles' in kwargs:
+            tracking_profiles = kwargs['trackingProfiles']
+
         if business_process_mapping is not None:
-            pulumi.set(__self__, "business_process_mapping", business_process_mapping)
+            _setter("business_process_mapping", business_process_mapping)
         if business_process_stages is not None:
-            pulumi.set(__self__, "business_process_stages", business_process_stages)
+            _setter("business_process_stages", business_process_stages)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if tracking_profiles is not None:
-            pulumi.set(__self__, "tracking_profiles", tracking_profiles)
+            _setter("tracking_profiles", tracking_profiles)
 
     @property
     @pulumi.getter(name="businessProcessMapping")
@@ -128,10 +153,27 @@ class BusinessProcessIdentifierResponse(dict):
         :param str property_name: The property name of the business process identifier.
         :param str property_type: The property type of the business process identifier.
         """
+        BusinessProcessIdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            property_name=property_name,
+            property_type=property_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             property_name: Optional[str] = None,
+             property_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property_name is None and 'propertyName' in kwargs:
+            property_name = kwargs['propertyName']
+        if property_type is None and 'propertyType' in kwargs:
+            property_type = kwargs['propertyType']
+
         if property_name is not None:
-            pulumi.set(__self__, "property_name", property_name)
+            _setter("property_name", property_name)
         if property_type is not None:
-            pulumi.set(__self__, "property_type", property_type)
+            _setter("property_type", property_type)
 
     @property
     @pulumi.getter(name="propertyName")
@@ -190,14 +232,39 @@ class BusinessProcessMappingItemResponse(dict):
         :param str operation_type: The mapping item operation type of the business process.
         :param str workflow_name: The workflow name within the logic app.
         """
+        BusinessProcessMappingItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logic_app_resource_id=logic_app_resource_id,
+            operation_name=operation_name,
+            operation_type=operation_type,
+            workflow_name=workflow_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logic_app_resource_id: Optional[str] = None,
+             operation_name: Optional[str] = None,
+             operation_type: Optional[str] = None,
+             workflow_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logic_app_resource_id is None and 'logicAppResourceId' in kwargs:
+            logic_app_resource_id = kwargs['logicAppResourceId']
+        if operation_name is None and 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if operation_type is None and 'operationType' in kwargs:
+            operation_type = kwargs['operationType']
+        if workflow_name is None and 'workflowName' in kwargs:
+            workflow_name = kwargs['workflowName']
+
         if logic_app_resource_id is not None:
-            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+            _setter("logic_app_resource_id", logic_app_resource_id)
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if operation_type is not None:
-            pulumi.set(__self__, "operation_type", operation_type)
+            _setter("operation_type", operation_type)
         if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
+            _setter("workflow_name", workflow_name)
 
     @property
     @pulumi.getter(name="logicAppResourceId")
@@ -245,10 +312,23 @@ class BusinessProcessReferenceResponse(dict):
         :param str name: The business process name.
         :param str version: The business process version.
         """
+        BusinessProcessReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -299,12 +379,29 @@ class BusinessProcessStageResponse(dict):
         :param Mapping[str, str] properties: The properties within the properties of the business process stage.
         :param Sequence[str] stages_before: The property to keep track of stages before current in the business process stage.
         """
+        BusinessProcessStageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            properties=properties,
+            stages_before=stages_before,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             stages_before: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stages_before is None and 'stagesBefore' in kwargs:
+            stages_before = kwargs['stagesBefore']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if stages_before is not None:
-            pulumi.set(__self__, "stages_before", stages_before)
+            _setter("stages_before", stages_before)
 
     @property
     @pulumi.getter
@@ -344,10 +441,25 @@ class FlowTrackingDefinitionResponse(dict):
         :param 'TrackingCorrelationContextResponse' correlation_context: The tracking correlation context.
         :param Mapping[str, 'TrackingEventDefinitionResponse'] events: The tracking events.
         """
+        FlowTrackingDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            correlation_context=correlation_context,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             correlation_context: Optional['outputs.TrackingCorrelationContextResponse'] = None,
+             events: Optional[Mapping[str, 'outputs.TrackingEventDefinitionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if correlation_context is None and 'correlationContext' in kwargs:
+            correlation_context = kwargs['correlationContext']
+
         if correlation_context is not None:
-            pulumi.set(__self__, "correlation_context", correlation_context)
+            _setter("correlation_context", correlation_context)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter(name="correlationContext")
@@ -381,10 +493,31 @@ class SaveOrGetBusinessProcessDevelopmentArtifactResponseResponse(dict):
         :param 'SystemDataResponse' system_data: The system data of the business process development artifact.
         :param 'BusinessProcessDevelopmentArtifactPropertiesResponse' properties: The properties of the business process development artifact.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
+        SaveOrGetBusinessProcessDevelopmentArtifactResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            system_data=system_data,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             properties: Optional['outputs.BusinessProcessDevelopmentArtifactPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+
+        _setter("name", name)
+        _setter("system_data", system_data)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -459,18 +592,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -538,14 +704,37 @@ class TrackingCorrelationContextResponse(dict):
         :param str property_name: The name of the correlation property.
         :param str value: The template expression for correlation context property value.
         """
+        TrackingCorrelationContextResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation_name=operation_name,
+            operation_type=operation_type,
+            property_name=property_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation_name: Optional[str] = None,
+             operation_type: Optional[str] = None,
+             property_name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operation_name is None and 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if operation_type is None and 'operationType' in kwargs:
+            operation_type = kwargs['operationType']
+        if property_name is None and 'propertyName' in kwargs:
+            property_name = kwargs['propertyName']
+
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if operation_type is not None:
-            pulumi.set(__self__, "operation_type", operation_type)
+            _setter("operation_type", operation_type)
         if property_name is not None:
-            pulumi.set(__self__, "property_name", property_name)
+            _setter("property_name", property_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="operationName")
@@ -620,10 +809,43 @@ class TrackingDataStoreResponse(dict):
         :param str data_store_uri: The data store URI.
         :param str database_name: The database name.
         """
-        pulumi.set(__self__, "data_store_ingestion_uri", data_store_ingestion_uri)
-        pulumi.set(__self__, "data_store_resource_id", data_store_resource_id)
-        pulumi.set(__self__, "data_store_uri", data_store_uri)
-        pulumi.set(__self__, "database_name", database_name)
+        TrackingDataStoreResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_store_ingestion_uri=data_store_ingestion_uri,
+            data_store_resource_id=data_store_resource_id,
+            data_store_uri=data_store_uri,
+            database_name=database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_store_ingestion_uri: Optional[str] = None,
+             data_store_resource_id: Optional[str] = None,
+             data_store_uri: Optional[str] = None,
+             database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_store_ingestion_uri is None and 'dataStoreIngestionUri' in kwargs:
+            data_store_ingestion_uri = kwargs['dataStoreIngestionUri']
+        if data_store_ingestion_uri is None:
+            raise TypeError("Missing 'data_store_ingestion_uri' argument")
+        if data_store_resource_id is None and 'dataStoreResourceId' in kwargs:
+            data_store_resource_id = kwargs['dataStoreResourceId']
+        if data_store_resource_id is None:
+            raise TypeError("Missing 'data_store_resource_id' argument")
+        if data_store_uri is None and 'dataStoreUri' in kwargs:
+            data_store_uri = kwargs['dataStoreUri']
+        if data_store_uri is None:
+            raise TypeError("Missing 'data_store_uri' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+
+        _setter("data_store_ingestion_uri", data_store_ingestion_uri)
+        _setter("data_store_resource_id", data_store_resource_id)
+        _setter("data_store_uri", data_store_uri)
+        _setter("database_name", database_name)
 
     @property
     @pulumi.getter(name="dataStoreIngestionUri")
@@ -673,12 +895,31 @@ class TrackingEventDefinitionResponse(dict):
         :param str operation_type: The operation type.
         :param Mapping[str, Any] properties: The properties to be collected for event.
         """
+        TrackingEventDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation_name=operation_name,
+            operation_type=operation_type,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation_name: Optional[str] = None,
+             operation_type: Optional[str] = None,
+             properties: Optional[Mapping[str, Any]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operation_name is None and 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if operation_type is None and 'operationType' in kwargs:
+            operation_type = kwargs['operationType']
+
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if operation_type is not None:
-            pulumi.set(__self__, "operation_type", operation_type)
+            _setter("operation_type", operation_type)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="operationName")
@@ -720,12 +961,31 @@ class TrackingProfileDefinitionResponse(dict):
         :param str schema: The tracking definition schema uri.
         :param Mapping[str, 'FlowTrackingDefinitionResponse'] tracking_definitions: The tracking definitions.
         """
+        TrackingProfileDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business_process=business_process,
+            schema=schema,
+            tracking_definitions=tracking_definitions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business_process: Optional['outputs.BusinessProcessReferenceResponse'] = None,
+             schema: Optional[str] = None,
+             tracking_definitions: Optional[Mapping[str, 'outputs.FlowTrackingDefinitionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if business_process is None and 'businessProcess' in kwargs:
+            business_process = kwargs['businessProcess']
+        if tracking_definitions is None and 'trackingDefinitions' in kwargs:
+            tracking_definitions = kwargs['trackingDefinitions']
+
         if business_process is not None:
-            pulumi.set(__self__, "business_process", business_process)
+            _setter("business_process", business_process)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if tracking_definitions is not None:
-            pulumi.set(__self__, "tracking_definitions", tracking_definitions)
+            _setter("tracking_definitions", tracking_definitions)
 
     @property
     @pulumi.getter(name="businessProcess")

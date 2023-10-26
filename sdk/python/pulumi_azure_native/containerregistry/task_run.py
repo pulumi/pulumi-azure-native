@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,55 @@ class TaskRunArgs:
         :param pulumi.Input[Union['DockerBuildRequestArgs', 'EncodedTaskRunRequestArgs', 'FileTaskRunRequestArgs', 'TaskRunRequestArgs']] run_request: The request (parameters) for the run
         :param pulumi.Input[str] task_run_name: The name of the task run.
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TaskRunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            force_update_tag=force_update_tag,
+            identity=identity,
+            location=location,
+            run_request=run_request,
+            task_run_name=task_run_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             force_update_tag: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             run_request: Optional[pulumi.Input[Union['DockerBuildRequestArgs', 'EncodedTaskRunRequestArgs', 'FileTaskRunRequestArgs', 'TaskRunRequestArgs']]] = None,
+             task_run_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if run_request is None and 'runRequest' in kwargs:
+            run_request = kwargs['runRequest']
+        if task_run_name is None and 'taskRunName' in kwargs:
+            task_run_name = kwargs['taskRunName']
+
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if run_request is not None:
-            pulumi.set(__self__, "run_request", run_request)
+            _setter("run_request", run_request)
         if task_run_name is not None:
-            pulumi.set(__self__, "task_run_name", task_run_name)
+            _setter("task_run_name", task_run_name)
 
     @property
     @pulumi.getter(name="registryName")
@@ -181,6 +218,10 @@ class TaskRun(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskRunArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -203,6 +244,7 @@ class TaskRun(pulumi.CustomResource):
             __props__ = TaskRunArgs.__new__(TaskRunArgs)
 
             __props__.__dict__["force_update_tag"] = force_update_tag
+            identity = _utilities.configure(identity, IdentityPropertiesArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if registry_name is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -66,47 +66,146 @@ class AvsAssessmentsOperationArgs:
                assessment.
         :param pulumi.Input[float] vcpu_oversubscription: VCPU over subscription.
         """
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AvsAssessmentsOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            assessment_name=assessment_name,
+            azure_location=azure_location,
+            azure_offer_code=azure_offer_code,
+            currency=currency,
+            dedupe_compression=dedupe_compression,
+            discount_percentage=discount_percentage,
+            failures_to_tolerate_and_raid_level=failures_to_tolerate_and_raid_level,
+            is_stretch_cluster_enabled=is_stretch_cluster_enabled,
+            mem_overcommit=mem_overcommit,
+            node_type=node_type,
+            percentile=percentile,
+            perf_data_end_time=perf_data_end_time,
+            perf_data_start_time=perf_data_start_time,
+            provisioning_state=provisioning_state,
+            reserved_instance=reserved_instance,
+            scaling_factor=scaling_factor,
+            sizing_criterion=sizing_criterion,
+            time_range=time_range,
+            vcpu_oversubscription=vcpu_oversubscription,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             assessment_name: Optional[pulumi.Input[str]] = None,
+             azure_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
+             azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+             currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
+             dedupe_compression: Optional[pulumi.Input[float]] = None,
+             discount_percentage: Optional[pulumi.Input[float]] = None,
+             failures_to_tolerate_and_raid_level: Optional[pulumi.Input[Union[str, 'FttAndRaidLevel']]] = None,
+             is_stretch_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+             mem_overcommit: Optional[pulumi.Input[float]] = None,
+             node_type: Optional[pulumi.Input[Union[str, 'AzureAvsNodeType']]] = None,
+             percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
+             perf_data_end_time: Optional[pulumi.Input[str]] = None,
+             perf_data_start_time: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             reserved_instance: Optional[pulumi.Input[Union[str, 'AzureReservedInstance']]] = None,
+             scaling_factor: Optional[pulumi.Input[float]] = None,
+             sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
+             time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
+             vcpu_oversubscription: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if assessment_name is None and 'assessmentName' in kwargs:
+            assessment_name = kwargs['assessmentName']
+        if azure_location is None and 'azureLocation' in kwargs:
+            azure_location = kwargs['azureLocation']
+        if azure_offer_code is None and 'azureOfferCode' in kwargs:
+            azure_offer_code = kwargs['azureOfferCode']
+        if dedupe_compression is None and 'dedupeCompression' in kwargs:
+            dedupe_compression = kwargs['dedupeCompression']
+        if discount_percentage is None and 'discountPercentage' in kwargs:
+            discount_percentage = kwargs['discountPercentage']
+        if failures_to_tolerate_and_raid_level is None and 'failuresToTolerateAndRaidLevel' in kwargs:
+            failures_to_tolerate_and_raid_level = kwargs['failuresToTolerateAndRaidLevel']
+        if is_stretch_cluster_enabled is None and 'isStretchClusterEnabled' in kwargs:
+            is_stretch_cluster_enabled = kwargs['isStretchClusterEnabled']
+        if mem_overcommit is None and 'memOvercommit' in kwargs:
+            mem_overcommit = kwargs['memOvercommit']
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if perf_data_end_time is None and 'perfDataEndTime' in kwargs:
+            perf_data_end_time = kwargs['perfDataEndTime']
+        if perf_data_start_time is None and 'perfDataStartTime' in kwargs:
+            perf_data_start_time = kwargs['perfDataStartTime']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if reserved_instance is None and 'reservedInstance' in kwargs:
+            reserved_instance = kwargs['reservedInstance']
+        if scaling_factor is None and 'scalingFactor' in kwargs:
+            scaling_factor = kwargs['scalingFactor']
+        if sizing_criterion is None and 'sizingCriterion' in kwargs:
+            sizing_criterion = kwargs['sizingCriterion']
+        if time_range is None and 'timeRange' in kwargs:
+            time_range = kwargs['timeRange']
+        if vcpu_oversubscription is None and 'vcpuOversubscription' in kwargs:
+            vcpu_oversubscription = kwargs['vcpuOversubscription']
+
+        _setter("group_name", group_name)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
+            _setter("assessment_name", assessment_name)
         if azure_location is not None:
-            pulumi.set(__self__, "azure_location", azure_location)
+            _setter("azure_location", azure_location)
         if azure_offer_code is not None:
-            pulumi.set(__self__, "azure_offer_code", azure_offer_code)
+            _setter("azure_offer_code", azure_offer_code)
         if currency is not None:
-            pulumi.set(__self__, "currency", currency)
+            _setter("currency", currency)
         if dedupe_compression is not None:
-            pulumi.set(__self__, "dedupe_compression", dedupe_compression)
+            _setter("dedupe_compression", dedupe_compression)
         if discount_percentage is not None:
-            pulumi.set(__self__, "discount_percentage", discount_percentage)
+            _setter("discount_percentage", discount_percentage)
         if failures_to_tolerate_and_raid_level is not None:
-            pulumi.set(__self__, "failures_to_tolerate_and_raid_level", failures_to_tolerate_and_raid_level)
+            _setter("failures_to_tolerate_and_raid_level", failures_to_tolerate_and_raid_level)
         if is_stretch_cluster_enabled is not None:
-            pulumi.set(__self__, "is_stretch_cluster_enabled", is_stretch_cluster_enabled)
+            _setter("is_stretch_cluster_enabled", is_stretch_cluster_enabled)
         if mem_overcommit is not None:
-            pulumi.set(__self__, "mem_overcommit", mem_overcommit)
+            _setter("mem_overcommit", mem_overcommit)
         if node_type is not None:
-            pulumi.set(__self__, "node_type", node_type)
+            _setter("node_type", node_type)
         if percentile is not None:
-            pulumi.set(__self__, "percentile", percentile)
+            _setter("percentile", percentile)
         if perf_data_end_time is not None:
-            pulumi.set(__self__, "perf_data_end_time", perf_data_end_time)
+            _setter("perf_data_end_time", perf_data_end_time)
         if perf_data_start_time is not None:
-            pulumi.set(__self__, "perf_data_start_time", perf_data_start_time)
+            _setter("perf_data_start_time", perf_data_start_time)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if reserved_instance is not None:
-            pulumi.set(__self__, "reserved_instance", reserved_instance)
+            _setter("reserved_instance", reserved_instance)
         if scaling_factor is not None:
-            pulumi.set(__self__, "scaling_factor", scaling_factor)
+            _setter("scaling_factor", scaling_factor)
         if sizing_criterion is not None:
-            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+            _setter("sizing_criterion", sizing_criterion)
         if time_range is not None:
-            pulumi.set(__self__, "time_range", time_range)
+            _setter("time_range", time_range)
         if vcpu_oversubscription is not None:
-            pulumi.set(__self__, "vcpu_oversubscription", vcpu_oversubscription)
+            _setter("vcpu_oversubscription", vcpu_oversubscription)
 
     @property
     @pulumi.getter(name="groupName")
@@ -454,6 +553,10 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AvsAssessmentsOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

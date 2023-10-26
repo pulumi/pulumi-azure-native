@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -25,12 +25,41 @@ class PrivateEndpointConnectionProxyControllerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] pec_proxy_name: Private endpoint proxy name.
         """
-        pulumi.set(__self__, "migrate_project_name", migrate_project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateEndpointConnectionProxyControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migrate_project_name=migrate_project_name,
+            resource_group_name=resource_group_name,
+            e_tag=e_tag,
+            pec_proxy_name=pec_proxy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migrate_project_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             pec_proxy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migrate_project_name is None and 'migrateProjectName' in kwargs:
+            migrate_project_name = kwargs['migrateProjectName']
+        if migrate_project_name is None:
+            raise TypeError("Missing 'migrate_project_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if pec_proxy_name is None and 'pecProxyName' in kwargs:
+            pec_proxy_name = kwargs['pecProxyName']
+
+        _setter("migrate_project_name", migrate_project_name)
+        _setter("resource_group_name", resource_group_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if pec_proxy_name is not None:
-            pulumi.set(__self__, "pec_proxy_name", pec_proxy_name)
+            _setter("pec_proxy_name", pec_proxy_name)
 
     @property
     @pulumi.getter(name="migrateProjectName")
@@ -118,6 +147,10 @@ class PrivateEndpointConnectionProxyController(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateEndpointConnectionProxyControllerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

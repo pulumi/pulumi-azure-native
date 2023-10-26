@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,51 +65,150 @@ class ClusterArgs:
         :param pulumi.Input[str] source_resource_id: The resource id of source cluster for read replica clusters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            administrator_login_password=administrator_login_password,
+            citus_version=citus_version,
+            cluster_name=cluster_name,
+            coordinator_enable_public_ip_access=coordinator_enable_public_ip_access,
+            coordinator_server_edition=coordinator_server_edition,
+            coordinator_storage_quota_in_mb=coordinator_storage_quota_in_mb,
+            coordinator_v_cores=coordinator_v_cores,
+            enable_ha=enable_ha,
+            enable_shards_on_coordinator=enable_shards_on_coordinator,
+            location=location,
+            maintenance_window=maintenance_window,
+            node_count=node_count,
+            node_enable_public_ip_access=node_enable_public_ip_access,
+            node_server_edition=node_server_edition,
+            node_storage_quota_in_mb=node_storage_quota_in_mb,
+            node_v_cores=node_v_cores,
+            point_in_time_utc=point_in_time_utc,
+            postgresql_version=postgresql_version,
+            preferred_primary_zone=preferred_primary_zone,
+            source_location=source_location,
+            source_resource_id=source_resource_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             citus_version: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             coordinator_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
+             coordinator_server_edition: Optional[pulumi.Input[str]] = None,
+             coordinator_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+             coordinator_v_cores: Optional[pulumi.Input[int]] = None,
+             enable_ha: Optional[pulumi.Input[bool]] = None,
+             enable_shards_on_coordinator: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             node_enable_public_ip_access: Optional[pulumi.Input[bool]] = None,
+             node_server_edition: Optional[pulumi.Input[str]] = None,
+             node_storage_quota_in_mb: Optional[pulumi.Input[int]] = None,
+             node_v_cores: Optional[pulumi.Input[int]] = None,
+             point_in_time_utc: Optional[pulumi.Input[str]] = None,
+             postgresql_version: Optional[pulumi.Input[str]] = None,
+             preferred_primary_zone: Optional[pulumi.Input[str]] = None,
+             source_location: Optional[pulumi.Input[str]] = None,
+             source_resource_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if citus_version is None and 'citusVersion' in kwargs:
+            citus_version = kwargs['citusVersion']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if coordinator_enable_public_ip_access is None and 'coordinatorEnablePublicIpAccess' in kwargs:
+            coordinator_enable_public_ip_access = kwargs['coordinatorEnablePublicIpAccess']
+        if coordinator_server_edition is None and 'coordinatorServerEdition' in kwargs:
+            coordinator_server_edition = kwargs['coordinatorServerEdition']
+        if coordinator_storage_quota_in_mb is None and 'coordinatorStorageQuotaInMb' in kwargs:
+            coordinator_storage_quota_in_mb = kwargs['coordinatorStorageQuotaInMb']
+        if coordinator_v_cores is None and 'coordinatorVCores' in kwargs:
+            coordinator_v_cores = kwargs['coordinatorVCores']
+        if enable_ha is None and 'enableHa' in kwargs:
+            enable_ha = kwargs['enableHa']
+        if enable_shards_on_coordinator is None and 'enableShardsOnCoordinator' in kwargs:
+            enable_shards_on_coordinator = kwargs['enableShardsOnCoordinator']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if node_count is None and 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if node_enable_public_ip_access is None and 'nodeEnablePublicIpAccess' in kwargs:
+            node_enable_public_ip_access = kwargs['nodeEnablePublicIpAccess']
+        if node_server_edition is None and 'nodeServerEdition' in kwargs:
+            node_server_edition = kwargs['nodeServerEdition']
+        if node_storage_quota_in_mb is None and 'nodeStorageQuotaInMb' in kwargs:
+            node_storage_quota_in_mb = kwargs['nodeStorageQuotaInMb']
+        if node_v_cores is None and 'nodeVCores' in kwargs:
+            node_v_cores = kwargs['nodeVCores']
+        if point_in_time_utc is None and 'pointInTimeUTC' in kwargs:
+            point_in_time_utc = kwargs['pointInTimeUTC']
+        if postgresql_version is None and 'postgresqlVersion' in kwargs:
+            postgresql_version = kwargs['postgresqlVersion']
+        if preferred_primary_zone is None and 'preferredPrimaryZone' in kwargs:
+            preferred_primary_zone = kwargs['preferredPrimaryZone']
+        if source_location is None and 'sourceLocation' in kwargs:
+            source_location = kwargs['sourceLocation']
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+
+        _setter("resource_group_name", resource_group_name)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if citus_version is not None:
-            pulumi.set(__self__, "citus_version", citus_version)
+            _setter("citus_version", citus_version)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if coordinator_enable_public_ip_access is not None:
-            pulumi.set(__self__, "coordinator_enable_public_ip_access", coordinator_enable_public_ip_access)
+            _setter("coordinator_enable_public_ip_access", coordinator_enable_public_ip_access)
         if coordinator_server_edition is not None:
-            pulumi.set(__self__, "coordinator_server_edition", coordinator_server_edition)
+            _setter("coordinator_server_edition", coordinator_server_edition)
         if coordinator_storage_quota_in_mb is not None:
-            pulumi.set(__self__, "coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
+            _setter("coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
         if coordinator_v_cores is not None:
-            pulumi.set(__self__, "coordinator_v_cores", coordinator_v_cores)
+            _setter("coordinator_v_cores", coordinator_v_cores)
         if enable_ha is not None:
-            pulumi.set(__self__, "enable_ha", enable_ha)
+            _setter("enable_ha", enable_ha)
         if enable_shards_on_coordinator is not None:
-            pulumi.set(__self__, "enable_shards_on_coordinator", enable_shards_on_coordinator)
+            _setter("enable_shards_on_coordinator", enable_shards_on_coordinator)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if node_enable_public_ip_access is not None:
-            pulumi.set(__self__, "node_enable_public_ip_access", node_enable_public_ip_access)
+            _setter("node_enable_public_ip_access", node_enable_public_ip_access)
         if node_server_edition is not None:
-            pulumi.set(__self__, "node_server_edition", node_server_edition)
+            _setter("node_server_edition", node_server_edition)
         if node_storage_quota_in_mb is not None:
-            pulumi.set(__self__, "node_storage_quota_in_mb", node_storage_quota_in_mb)
+            _setter("node_storage_quota_in_mb", node_storage_quota_in_mb)
         if node_v_cores is not None:
-            pulumi.set(__self__, "node_v_cores", node_v_cores)
+            _setter("node_v_cores", node_v_cores)
         if point_in_time_utc is not None:
-            pulumi.set(__self__, "point_in_time_utc", point_in_time_utc)
+            _setter("point_in_time_utc", point_in_time_utc)
         if postgresql_version is not None:
-            pulumi.set(__self__, "postgresql_version", postgresql_version)
+            _setter("postgresql_version", postgresql_version)
         if preferred_primary_zone is not None:
-            pulumi.set(__self__, "preferred_primary_zone", preferred_primary_zone)
+            _setter("preferred_primary_zone", preferred_primary_zone)
         if source_location is not None:
-            pulumi.set(__self__, "source_location", source_location)
+            _setter("source_location", source_location)
         if source_resource_id is not None:
-            pulumi.set(__self__, "source_resource_id", source_resource_id)
+            _setter("source_resource_id", source_resource_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -465,6 +564,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -512,6 +615,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["enable_ha"] = enable_ha
             __props__.__dict__["enable_shards_on_coordinator"] = enable_shards_on_coordinator
             __props__.__dict__["location"] = location
+            maintenance_window = _utilities.configure(maintenance_window, MaintenanceWindowArgs, True)
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["node_count"] = node_count
             __props__.__dict__["node_enable_public_ip_access"] = node_enable_public_ip_access

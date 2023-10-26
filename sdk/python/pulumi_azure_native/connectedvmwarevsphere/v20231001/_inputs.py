@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -38,10 +38,23 @@ class ExtendedLocationArgs:
         :param pulumi.Input[str] name: The extended location name.
         :param pulumi.Input[str] type: The extended location type.
         """
+        ExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -78,10 +91,23 @@ class GuestCredentialArgs:
         :param pulumi.Input[str] password: Gets or sets the password to connect with the guest.
         :param pulumi.Input[str] username: Gets or sets username to connect with the guest.
         """
+        GuestCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -120,12 +146,33 @@ class HardwareProfileArgs:
         :param pulumi.Input[int] num_cpus: Gets or sets the number of vCPUs for the vm.
         :param pulumi.Input[int] num_cores_per_socket: Gets or sets the number of cores per socket for the vm. Defaults to 1 if unspecified.
         """
+        HardwareProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            memory_size_mb=memory_size_mb,
+            num_cpus=num_cpus,
+            num_cores_per_socket=num_cores_per_socket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             memory_size_mb: Optional[pulumi.Input[int]] = None,
+             num_cpus: Optional[pulumi.Input[int]] = None,
+             num_cores_per_socket: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if memory_size_mb is None and 'memorySizeMB' in kwargs:
+            memory_size_mb = kwargs['memorySizeMB']
+        if num_cpus is None and 'numCPUs' in kwargs:
+            num_cpus = kwargs['numCPUs']
+        if num_cores_per_socket is None and 'numCoresPerSocket' in kwargs:
+            num_cores_per_socket = kwargs['numCoresPerSocket']
+
         if memory_size_mb is not None:
-            pulumi.set(__self__, "memory_size_mb", memory_size_mb)
+            _setter("memory_size_mb", memory_size_mb)
         if num_cpus is not None:
-            pulumi.set(__self__, "num_cpus", num_cpus)
+            _setter("num_cpus", num_cpus)
         if num_cores_per_socket is not None:
-            pulumi.set(__self__, "num_cores_per_socket", num_cores_per_socket)
+            _setter("num_cores_per_socket", num_cores_per_socket)
 
     @property
     @pulumi.getter(name="memorySizeMB")
@@ -172,8 +219,21 @@ class HttpProxyConfigurationArgs:
         HTTP Proxy configuration for the VM.
         :param pulumi.Input[str] https_proxy: Gets or sets httpsProxy url.
         """
+        HttpProxyConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            https_proxy=https_proxy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             https_proxy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if https_proxy is None and 'httpsProxy' in kwargs:
+            https_proxy = kwargs['httpsProxy']
+
         if https_proxy is not None:
-            pulumi.set(__self__, "https_proxy", https_proxy)
+            _setter("https_proxy", https_proxy)
 
     @property
     @pulumi.getter(name="httpsProxy")
@@ -204,16 +264,45 @@ class InfrastructureProfileArgs:
         :param pulumi.Input[str] template_id: Gets or sets the ARM Id of the template resource to deploy the virtual machine.
         :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
         """
+        InfrastructureProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firmware_type=firmware_type,
+            inventory_item_id=inventory_item_id,
+            smbios_uuid=smbios_uuid,
+            template_id=template_id,
+            v_center_id=v_center_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firmware_type: Optional[pulumi.Input[Union[str, 'FirmwareType']]] = None,
+             inventory_item_id: Optional[pulumi.Input[str]] = None,
+             smbios_uuid: Optional[pulumi.Input[str]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             v_center_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firmware_type is None and 'firmwareType' in kwargs:
+            firmware_type = kwargs['firmwareType']
+        if inventory_item_id is None and 'inventoryItemId' in kwargs:
+            inventory_item_id = kwargs['inventoryItemId']
+        if smbios_uuid is None and 'smbiosUuid' in kwargs:
+            smbios_uuid = kwargs['smbiosUuid']
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if v_center_id is None and 'vCenterId' in kwargs:
+            v_center_id = kwargs['vCenterId']
+
         if firmware_type is not None:
-            pulumi.set(__self__, "firmware_type", firmware_type)
+            _setter("firmware_type", firmware_type)
         if inventory_item_id is not None:
-            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+            _setter("inventory_item_id", inventory_item_id)
         if smbios_uuid is not None:
-            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+            _setter("smbios_uuid", smbios_uuid)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
         if v_center_id is not None:
-            pulumi.set(__self__, "v_center_id", v_center_id)
+            _setter("v_center_id", v_center_id)
 
     @property
     @pulumi.getter(name="firmwareType")
@@ -294,18 +383,49 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Union[str, 'NICType']] nic_type: NIC type
         :param pulumi.Input[Union[str, 'PowerOnBootOption']] power_on_boot: Gets or sets the power on boot.
         """
+        NetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_key=device_key,
+            ip_settings=ip_settings,
+            name=name,
+            network_id=network_id,
+            nic_type=nic_type,
+            power_on_boot=power_on_boot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_key: Optional[pulumi.Input[int]] = None,
+             ip_settings: Optional[pulumi.Input['NicIPSettingsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_id: Optional[pulumi.Input[str]] = None,
+             nic_type: Optional[pulumi.Input[Union[str, 'NICType']]] = None,
+             power_on_boot: Optional[pulumi.Input[Union[str, 'PowerOnBootOption']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_key is None and 'deviceKey' in kwargs:
+            device_key = kwargs['deviceKey']
+        if ip_settings is None and 'ipSettings' in kwargs:
+            ip_settings = kwargs['ipSettings']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if nic_type is None and 'nicType' in kwargs:
+            nic_type = kwargs['nicType']
+        if power_on_boot is None and 'powerOnBoot' in kwargs:
+            power_on_boot = kwargs['powerOnBoot']
+
         if device_key is not None:
-            pulumi.set(__self__, "device_key", device_key)
+            _setter("device_key", device_key)
         if ip_settings is not None:
-            pulumi.set(__self__, "ip_settings", ip_settings)
+            _setter("ip_settings", ip_settings)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_id is not None:
-            pulumi.set(__self__, "network_id", network_id)
+            _setter("network_id", network_id)
         if nic_type is not None:
-            pulumi.set(__self__, "nic_type", nic_type)
+            _setter("nic_type", nic_type)
         if power_on_boot is not None:
-            pulumi.set(__self__, "power_on_boot", power_on_boot)
+            _setter("power_on_boot", power_on_boot)
 
     @property
     @pulumi.getter(name="deviceKey")
@@ -388,8 +508,21 @@ class NetworkProfileArgs:
         Specifies the network interfaces of the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: Gets or sets the list of network interfaces associated with the virtual machine.
         """
+        NetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interfaces=network_interfaces,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -420,16 +553,43 @@ class NicIPSettingsArgs:
         :param pulumi.Input[str] ip_address: Gets or sets the ip address for the nic.
         :param pulumi.Input[str] subnet_mask: Gets or sets the mask.
         """
+        NicIPSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_method=allocation_method,
+            dns_servers=dns_servers,
+            gateway=gateway,
+            ip_address=ip_address,
+            subnet_mask=subnet_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_method: Optional[pulumi.Input[Union[str, 'IPAddressAllocationMethod']]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gateway: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             subnet_mask: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_method is None and 'allocationMethod' in kwargs:
+            allocation_method = kwargs['allocationMethod']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if subnet_mask is None and 'subnetMask' in kwargs:
+            subnet_mask = kwargs['subnetMask']
+
         if allocation_method is not None:
-            pulumi.set(__self__, "allocation_method", allocation_method)
+            _setter("allocation_method", allocation_method)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if gateway is not None:
-            pulumi.set(__self__, "gateway", gateway)
+            _setter("gateway", gateway)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if subnet_mask is not None:
-            pulumi.set(__self__, "subnet_mask", subnet_mask)
+            _setter("subnet_mask", subnet_mask)
 
     @property
     @pulumi.getter(name="allocationMethod")
@@ -508,16 +668,45 @@ class OsProfileForVMInstanceArgs:
         :param pulumi.Input[str] guest_id: Gets or sets the guestId.
         :param pulumi.Input[Union[str, 'OsType']] os_type: Gets or sets the type of the os.
         """
+        OsProfileForVMInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_password=admin_password,
+            admin_username=admin_username,
+            computer_name=computer_name,
+            guest_id=guest_id,
+            os_type=os_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_password: Optional[pulumi.Input[str]] = None,
+             admin_username: Optional[pulumi.Input[str]] = None,
+             computer_name: Optional[pulumi.Input[str]] = None,
+             guest_id: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_password is None and 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if computer_name is None and 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if guest_id is None and 'guestId' in kwargs:
+            guest_id = kwargs['guestId']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if guest_id is not None:
-            pulumi.set(__self__, "guest_id", guest_id)
+            _setter("guest_id", guest_id)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -594,14 +783,39 @@ class PlacementProfileArgs:
         :param pulumi.Input[str] host_id: Gets or sets the ARM Id of the host resource on which this virtual machine will deploy.
         :param pulumi.Input[str] resource_pool_id: Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will deploy.
         """
+        PlacementProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            datastore_id=datastore_id,
+            host_id=host_id,
+            resource_pool_id=resource_pool_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             datastore_id: Optional[pulumi.Input[str]] = None,
+             host_id: Optional[pulumi.Input[str]] = None,
+             resource_pool_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if datastore_id is None and 'datastoreId' in kwargs:
+            datastore_id = kwargs['datastoreId']
+        if host_id is None and 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if resource_pool_id is None and 'resourcePoolId' in kwargs:
+            resource_pool_id = kwargs['resourcePoolId']
+
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if datastore_id is not None:
-            pulumi.set(__self__, "datastore_id", datastore_id)
+            _setter("datastore_id", datastore_id)
         if host_id is not None:
-            pulumi.set(__self__, "host_id", host_id)
+            _setter("host_id", host_id)
         if resource_pool_id is not None:
-            pulumi.set(__self__, "resource_pool_id", resource_pool_id)
+            _setter("resource_pool_id", resource_pool_id)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -660,8 +874,21 @@ class SecurityProfileArgs:
         Specifies the Security profile settings for the virtual machine.
         :param pulumi.Input['UefiSettingsArgs'] uefi_settings: Specifies the security settings like secure boot used while creating the virtual machine.
         """
+        SecurityProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uefi_settings=uefi_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uefi_settings: Optional[pulumi.Input['UefiSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if uefi_settings is None and 'uefiSettings' in kwargs:
+            uefi_settings = kwargs['uefiSettings']
+
         if uefi_settings is not None:
-            pulumi.set(__self__, "uefi_settings", uefi_settings)
+            _setter("uefi_settings", uefi_settings)
 
     @property
     @pulumi.getter(name="uefiSettings")
@@ -684,8 +911,19 @@ class StorageProfileArgs:
         Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]] disks: Gets or sets the list of virtual disks associated with the virtual machine.
         """
+        StorageProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disks=disks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
 
     @property
     @pulumi.getter
@@ -708,8 +946,21 @@ class UefiSettingsArgs:
         Specifies the security settings like secure boot used while creating the virtual machine.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
         """
+        UefiSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secure_boot_enabled=secure_boot_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+
         if secure_boot_enabled is not None:
-            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+            _setter("secure_boot_enabled", secure_boot_enabled)
 
     @property
     @pulumi.getter(name="secureBootEnabled")
@@ -734,10 +985,23 @@ class VICredentialArgs:
         :param pulumi.Input[str] password: Gets or sets the password to connect with the vCenter.
         :param pulumi.Input[str] username: Gets or sets username to connect with the vCenter.
         """
+        VICredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -786,22 +1050,61 @@ class VirtualDiskArgs:
         :param pulumi.Input[str] name: Gets or sets the name of the virtual disk.
         :param pulumi.Input[int] unit_number: Gets or sets the unit number of the disk on the controller.
         """
+        VirtualDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            controller_key=controller_key,
+            device_key=device_key,
+            device_name=device_name,
+            disk_mode=disk_mode,
+            disk_size_gb=disk_size_gb,
+            disk_type=disk_type,
+            name=name,
+            unit_number=unit_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             controller_key: Optional[pulumi.Input[int]] = None,
+             device_key: Optional[pulumi.Input[int]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             disk_mode: Optional[pulumi.Input[Union[str, 'DiskMode']]] = None,
+             disk_size_gb: Optional[pulumi.Input[int]] = None,
+             disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             unit_number: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if controller_key is None and 'controllerKey' in kwargs:
+            controller_key = kwargs['controllerKey']
+        if device_key is None and 'deviceKey' in kwargs:
+            device_key = kwargs['deviceKey']
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if disk_mode is None and 'diskMode' in kwargs:
+            disk_mode = kwargs['diskMode']
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if disk_type is None and 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if unit_number is None and 'unitNumber' in kwargs:
+            unit_number = kwargs['unitNumber']
+
         if controller_key is not None:
-            pulumi.set(__self__, "controller_key", controller_key)
+            _setter("controller_key", controller_key)
         if device_key is not None:
-            pulumi.set(__self__, "device_key", device_key)
+            _setter("device_key", device_key)
         if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
+            _setter("device_name", device_name)
         if disk_mode is not None:
-            pulumi.set(__self__, "disk_mode", disk_mode)
+            _setter("disk_mode", disk_mode)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if unit_number is not None:
-            pulumi.set(__self__, "unit_number", unit_number)
+            _setter("unit_number", unit_number)
 
     @property
     @pulumi.getter(name="controllerKey")

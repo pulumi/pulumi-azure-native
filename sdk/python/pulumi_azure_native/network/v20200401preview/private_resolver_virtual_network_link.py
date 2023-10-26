@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,45 @@ class PrivateResolverVirtualNetworkLinkArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_network: The reference to the virtual network. This cannot be changed after creation.
         :param pulumi.Input[str] virtual_network_link_name: The name of the virtual network link.
         """
-        pulumi.set(__self__, "dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateResolverVirtualNetworkLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_forwarding_ruleset_name=dns_forwarding_ruleset_name,
+            resource_group_name=resource_group_name,
+            metadata=metadata,
+            virtual_network=virtual_network,
+            virtual_network_link_name=virtual_network_link_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_forwarding_ruleset_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+             virtual_network_link_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_forwarding_ruleset_name is None and 'dnsForwardingRulesetName' in kwargs:
+            dns_forwarding_ruleset_name = kwargs['dnsForwardingRulesetName']
+        if dns_forwarding_ruleset_name is None:
+            raise TypeError("Missing 'dns_forwarding_ruleset_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network is None and 'virtualNetwork' in kwargs:
+            virtual_network = kwargs['virtualNetwork']
+        if virtual_network_link_name is None and 'virtualNetworkLinkName' in kwargs:
+            virtual_network_link_name = kwargs['virtualNetworkLinkName']
+
+        _setter("dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
+        _setter("resource_group_name", resource_group_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if virtual_network is not None:
-            pulumi.set(__self__, "virtual_network", virtual_network)
+            _setter("virtual_network", virtual_network)
         if virtual_network_link_name is not None:
-            pulumi.set(__self__, "virtual_network_link_name", virtual_network_link_name)
+            _setter("virtual_network_link_name", virtual_network_link_name)
 
     @property
     @pulumi.getter(name="dnsForwardingRulesetName")
@@ -140,6 +171,10 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateResolverVirtualNetworkLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -166,6 +201,7 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            virtual_network = _utilities.configure(virtual_network, SubResourceArgs, True)
             __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["virtual_network_link_name"] = virtual_network_link_name
             __props__.__dict__["etag"] = None

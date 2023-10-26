@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -68,48 +68,147 @@ class ContentPackageArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_tactics: the tactics the resource covers
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_analysis_techniques: the techniques the resource covers, these have to be aligned with the tactics being used
         """
-        pulumi.set(__self__, "content_id", content_id)
-        pulumi.set(__self__, "content_kind", content_kind)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "version", version)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ContentPackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_id=content_id,
+            content_kind=content_kind,
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            version=version,
+            workspace_name=workspace_name,
+            author=author,
+            categories=categories,
+            content_schema_version=content_schema_version,
+            dependencies=dependencies,
+            description=description,
+            first_publish_date=first_publish_date,
+            icon=icon,
+            is_featured=is_featured,
+            is_new=is_new,
+            is_preview=is_preview,
+            last_publish_date=last_publish_date,
+            package_id=package_id,
+            providers=providers,
+            publisher_display_name=publisher_display_name,
+            source=source,
+            support=support,
+            threat_analysis_tactics=threat_analysis_tactics,
+            threat_analysis_techniques=threat_analysis_techniques,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_id: Optional[pulumi.Input[str]] = None,
+             content_kind: Optional[pulumi.Input[Union[str, 'PackageKind']]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             author: Optional[pulumi.Input['MetadataAuthorArgs']] = None,
+             categories: Optional[pulumi.Input['MetadataCategoriesArgs']] = None,
+             content_schema_version: Optional[pulumi.Input[str]] = None,
+             dependencies: Optional[pulumi.Input['MetadataDependenciesArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             first_publish_date: Optional[pulumi.Input[str]] = None,
+             icon: Optional[pulumi.Input[str]] = None,
+             is_featured: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
+             is_new: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
+             is_preview: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
+             last_publish_date: Optional[pulumi.Input[str]] = None,
+             package_id: Optional[pulumi.Input[str]] = None,
+             providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             publisher_display_name: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['MetadataSourceArgs']] = None,
+             support: Optional[pulumi.Input['MetadataSupportArgs']] = None,
+             threat_analysis_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_id is None and 'contentId' in kwargs:
+            content_id = kwargs['contentId']
+        if content_id is None:
+            raise TypeError("Missing 'content_id' argument")
+        if content_kind is None and 'contentKind' in kwargs:
+            content_kind = kwargs['contentKind']
+        if content_kind is None:
+            raise TypeError("Missing 'content_kind' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if content_schema_version is None and 'contentSchemaVersion' in kwargs:
+            content_schema_version = kwargs['contentSchemaVersion']
+        if first_publish_date is None and 'firstPublishDate' in kwargs:
+            first_publish_date = kwargs['firstPublishDate']
+        if is_featured is None and 'isFeatured' in kwargs:
+            is_featured = kwargs['isFeatured']
+        if is_new is None and 'isNew' in kwargs:
+            is_new = kwargs['isNew']
+        if is_preview is None and 'isPreview' in kwargs:
+            is_preview = kwargs['isPreview']
+        if last_publish_date is None and 'lastPublishDate' in kwargs:
+            last_publish_date = kwargs['lastPublishDate']
+        if package_id is None and 'packageId' in kwargs:
+            package_id = kwargs['packageId']
+        if publisher_display_name is None and 'publisherDisplayName' in kwargs:
+            publisher_display_name = kwargs['publisherDisplayName']
+        if threat_analysis_tactics is None and 'threatAnalysisTactics' in kwargs:
+            threat_analysis_tactics = kwargs['threatAnalysisTactics']
+        if threat_analysis_techniques is None and 'threatAnalysisTechniques' in kwargs:
+            threat_analysis_techniques = kwargs['threatAnalysisTechniques']
+
+        _setter("content_id", content_id)
+        _setter("content_kind", content_kind)
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("version", version)
+        _setter("workspace_name", workspace_name)
         if author is not None:
-            pulumi.set(__self__, "author", author)
+            _setter("author", author)
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if content_schema_version is not None:
-            pulumi.set(__self__, "content_schema_version", content_schema_version)
+            _setter("content_schema_version", content_schema_version)
         if dependencies is not None:
-            pulumi.set(__self__, "dependencies", dependencies)
+            _setter("dependencies", dependencies)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if first_publish_date is not None:
-            pulumi.set(__self__, "first_publish_date", first_publish_date)
+            _setter("first_publish_date", first_publish_date)
         if icon is not None:
-            pulumi.set(__self__, "icon", icon)
+            _setter("icon", icon)
         if is_featured is not None:
-            pulumi.set(__self__, "is_featured", is_featured)
+            _setter("is_featured", is_featured)
         if is_new is not None:
-            pulumi.set(__self__, "is_new", is_new)
+            _setter("is_new", is_new)
         if is_preview is not None:
-            pulumi.set(__self__, "is_preview", is_preview)
+            _setter("is_preview", is_preview)
         if last_publish_date is not None:
-            pulumi.set(__self__, "last_publish_date", last_publish_date)
+            _setter("last_publish_date", last_publish_date)
         if package_id is not None:
-            pulumi.set(__self__, "package_id", package_id)
+            _setter("package_id", package_id)
         if providers is not None:
-            pulumi.set(__self__, "providers", providers)
+            _setter("providers", providers)
         if publisher_display_name is not None:
-            pulumi.set(__self__, "publisher_display_name", publisher_display_name)
+            _setter("publisher_display_name", publisher_display_name)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if support is not None:
-            pulumi.set(__self__, "support", support)
+            _setter("support", support)
         if threat_analysis_tactics is not None:
-            pulumi.set(__self__, "threat_analysis_tactics", threat_analysis_tactics)
+            _setter("threat_analysis_tactics", threat_analysis_tactics)
         if threat_analysis_techniques is not None:
-            pulumi.set(__self__, "threat_analysis_techniques", threat_analysis_techniques)
+            _setter("threat_analysis_techniques", threat_analysis_techniques)
 
     @property
     @pulumi.getter(name="contentId")
@@ -485,6 +584,10 @@ class ContentPackage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContentPackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -523,7 +626,9 @@ class ContentPackage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContentPackageArgs.__new__(ContentPackageArgs)
 
+            author = _utilities.configure(author, MetadataAuthorArgs, True)
             __props__.__dict__["author"] = author
+            categories = _utilities.configure(categories, MetadataCategoriesArgs, True)
             __props__.__dict__["categories"] = categories
             if content_id is None and not opts.urn:
                 raise TypeError("Missing required property 'content_id'")
@@ -532,6 +637,7 @@ class ContentPackage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'content_kind'")
             __props__.__dict__["content_kind"] = content_kind
             __props__.__dict__["content_schema_version"] = content_schema_version
+            dependencies = _utilities.configure(dependencies, MetadataDependenciesArgs, True)
             __props__.__dict__["dependencies"] = dependencies
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:
@@ -549,7 +655,9 @@ class ContentPackage(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            source = _utilities.configure(source, MetadataSourceArgs, True)
             __props__.__dict__["source"] = source
+            support = _utilities.configure(support, MetadataSupportArgs, True)
             __props__.__dict__["support"] = support
             __props__.__dict__["threat_analysis_tactics"] = threat_analysis_tactics
             __props__.__dict__["threat_analysis_techniques"] = threat_analysis_techniques

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -29,11 +29,40 @@ class ReportPropertiesArgs:
         :param pulumi.Input[str] trigger_time: Report collection trigger time.
         :param pulumi.Input[str] offer_guid: Report offer Guid.
         """
-        pulumi.set(__self__, "resources", resources)
-        pulumi.set(__self__, "time_zone", time_zone)
-        pulumi.set(__self__, "trigger_time", trigger_time)
+        ReportPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resources=resources,
+            time_zone=time_zone,
+            trigger_time=trigger_time,
+            offer_guid=offer_guid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             trigger_time: Optional[pulumi.Input[str]] = None,
+             offer_guid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resources is None:
+            raise TypeError("Missing 'resources' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if trigger_time is None and 'triggerTime' in kwargs:
+            trigger_time = kwargs['triggerTime']
+        if trigger_time is None:
+            raise TypeError("Missing 'trigger_time' argument")
+        if offer_guid is None and 'offerGuid' in kwargs:
+            offer_guid = kwargs['offerGuid']
+
+        _setter("resources", resources)
+        _setter("time_zone", time_zone)
+        _setter("trigger_time", trigger_time)
         if offer_guid is not None:
-            pulumi.set(__self__, "offer_guid", offer_guid)
+            _setter("offer_guid", offer_guid)
 
     @property
     @pulumi.getter
@@ -101,15 +130,44 @@ class ResourceMetadataArgs:
         :param pulumi.Input[str] resource_type: Resource type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource's tag type.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        ResourceMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            resource_kind=resource_kind,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_kind: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if resource_kind is None and 'resourceKind' in kwargs:
+            resource_kind = kwargs['resourceKind']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("resource_id", resource_id)
         if resource_kind is not None:
-            pulumi.set(__self__, "resource_kind", resource_kind)
+            _setter("resource_kind", resource_kind)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceId")

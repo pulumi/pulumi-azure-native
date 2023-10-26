@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,16 +36,41 @@ class GuestOSCustomizationArgs:
         :param pulumi.Input[str] policy_id: id of customization policy
         :param pulumi.Input[str] username: Username for login
         """
+        GuestOSCustomizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_servers=dns_servers,
+            host_name=host_name,
+            password=password,
+            policy_id=policy_id,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -128,20 +153,51 @@ class GuestOSNICCustomizationArgs:
         :param pulumi.Input[str] primary_wins_server: primary WINS server for Windows
         :param pulumi.Input[str] secondary_wins_server: secondary WINS server for Windows
         """
+        GuestOSNICCustomizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation=allocation,
+            dns_servers=dns_servers,
+            gateway=gateway,
+            ip_address=ip_address,
+            mask=mask,
+            primary_wins_server=primary_wins_server,
+            secondary_wins_server=secondary_wins_server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             gateway: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             mask: Optional[pulumi.Input[str]] = None,
+             primary_wins_server: Optional[pulumi.Input[str]] = None,
+             secondary_wins_server: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if primary_wins_server is None and 'primaryWinsServer' in kwargs:
+            primary_wins_server = kwargs['primaryWinsServer']
+        if secondary_wins_server is None and 'secondaryWinsServer' in kwargs:
+            secondary_wins_server = kwargs['secondaryWinsServer']
+
         if allocation is not None:
-            pulumi.set(__self__, "allocation", allocation)
+            _setter("allocation", allocation)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if gateway is not None:
-            pulumi.set(__self__, "gateway", gateway)
+            _setter("gateway", gateway)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if mask is not None:
-            pulumi.set(__self__, "mask", mask)
+            _setter("mask", mask)
         if primary_wins_server is not None:
-            pulumi.set(__self__, "primary_wins_server", primary_wins_server)
+            _setter("primary_wins_server", primary_wins_server)
         if secondary_wins_server is not None:
-            pulumi.set(__self__, "secondary_wins_server", secondary_wins_server)
+            _setter("secondary_wins_server", secondary_wins_server)
 
     @property
     @pulumi.getter
@@ -236,7 +292,20 @@ class ResourcePoolArgs:
         Resource pool model
         :param pulumi.Input[str] id: resource pool id (privateCloudId:vsphereId)
         """
-        pulumi.set(__self__, "id", id)
+        ResourcePoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -267,15 +336,36 @@ class SkuArgs:
         :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here
         :param pulumi.Input[str] tier: The tier of the SKU
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            description=description,
+            family=family,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             capacity: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -352,11 +442,42 @@ class VirtualDiskArgs:
         :param pulumi.Input[int] total_size: Disk's total size
         :param pulumi.Input[str] virtual_disk_id: Disk's id
         """
-        pulumi.set(__self__, "controller_id", controller_id)
-        pulumi.set(__self__, "independence_mode", independence_mode)
-        pulumi.set(__self__, "total_size", total_size)
+        VirtualDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            controller_id=controller_id,
+            independence_mode=independence_mode,
+            total_size=total_size,
+            virtual_disk_id=virtual_disk_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             controller_id: Optional[pulumi.Input[str]] = None,
+             independence_mode: Optional[pulumi.Input['DiskIndependenceMode']] = None,
+             total_size: Optional[pulumi.Input[int]] = None,
+             virtual_disk_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if controller_id is None and 'controllerId' in kwargs:
+            controller_id = kwargs['controllerId']
+        if controller_id is None:
+            raise TypeError("Missing 'controller_id' argument")
+        if independence_mode is None and 'independenceMode' in kwargs:
+            independence_mode = kwargs['independenceMode']
+        if independence_mode is None:
+            raise TypeError("Missing 'independence_mode' argument")
+        if total_size is None and 'totalSize' in kwargs:
+            total_size = kwargs['totalSize']
+        if total_size is None:
+            raise TypeError("Missing 'total_size' argument")
+        if virtual_disk_id is None and 'virtualDiskId' in kwargs:
+            virtual_disk_id = kwargs['virtualDiskId']
+
+        _setter("controller_id", controller_id)
+        _setter("independence_mode", independence_mode)
+        _setter("total_size", total_size)
         if virtual_disk_id is not None:
-            pulumi.set(__self__, "virtual_disk_id", virtual_disk_id)
+            _setter("virtual_disk_id", virtual_disk_id)
 
     @property
     @pulumi.getter(name="controllerId")
@@ -415,7 +536,20 @@ class VirtualNetworkArgs:
         Virtual network model
         :param pulumi.Input[str] id: virtual network id (privateCloudId:vsphereId)
         """
-        pulumi.set(__self__, "id", id)
+        VirtualNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -450,18 +584,55 @@ class VirtualNicArgs:
         :param pulumi.Input[bool] power_on_boot: Is NIC powered on/off on boot
         :param pulumi.Input[str] virtual_nic_id: NIC id
         """
-        pulumi.set(__self__, "network", network)
-        pulumi.set(__self__, "nic_type", nic_type)
+        VirtualNicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network=network,
+            nic_type=nic_type,
+            customization=customization,
+            ip_addresses=ip_addresses,
+            mac_address=mac_address,
+            power_on_boot=power_on_boot,
+            virtual_nic_id=virtual_nic_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network: Optional[pulumi.Input['VirtualNetworkArgs']] = None,
+             nic_type: Optional[pulumi.Input['NICType']] = None,
+             customization: Optional[pulumi.Input['GuestOSNICCustomizationArgs']] = None,
+             ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mac_address: Optional[pulumi.Input[str]] = None,
+             power_on_boot: Optional[pulumi.Input[bool]] = None,
+             virtual_nic_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network is None:
+            raise TypeError("Missing 'network' argument")
+        if nic_type is None and 'nicType' in kwargs:
+            nic_type = kwargs['nicType']
+        if nic_type is None:
+            raise TypeError("Missing 'nic_type' argument")
+        if ip_addresses is None and 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if power_on_boot is None and 'powerOnBoot' in kwargs:
+            power_on_boot = kwargs['powerOnBoot']
+        if virtual_nic_id is None and 'virtualNicId' in kwargs:
+            virtual_nic_id = kwargs['virtualNicId']
+
+        _setter("network", network)
+        _setter("nic_type", nic_type)
         if customization is not None:
-            pulumi.set(__self__, "customization", customization)
+            _setter("customization", customization)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
         if power_on_boot is not None:
-            pulumi.set(__self__, "power_on_boot", power_on_boot)
+            _setter("power_on_boot", power_on_boot)
         if virtual_nic_id is not None:
-            pulumi.set(__self__, "virtual_nic_id", virtual_nic_id)
+            _setter("virtual_nic_id", virtual_nic_id)
 
     @property
     @pulumi.getter

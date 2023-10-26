@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -26,12 +26,39 @@ class ReplicaArgs:
         :param pulumi.Input[str] location: The location of the replica.
         :param pulumi.Input[str] replica_name: The name of the replica.
         """
-        pulumi.set(__self__, "config_store_name", config_store_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ReplicaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_store_name=config_store_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            replica_name=replica_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_store_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             replica_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config_store_name is None and 'configStoreName' in kwargs:
+            config_store_name = kwargs['configStoreName']
+        if config_store_name is None:
+            raise TypeError("Missing 'config_store_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if replica_name is None and 'replicaName' in kwargs:
+            replica_name = kwargs['replicaName']
+
+        _setter("config_store_name", config_store_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if replica_name is not None:
-            pulumi.set(__self__, "replica_name", replica_name)
+            _setter("replica_name", replica_name)
 
     @property
     @pulumi.getter(name="configStoreName")
@@ -123,6 +150,10 @@ class Replica(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

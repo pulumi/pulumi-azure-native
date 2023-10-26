@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,56 @@ class AssessmentArgs:
         :param pulumi.Input['SecurityAssessmentMetadataPropertiesArgs'] metadata: Describes properties of an assessment metadata.
         :param pulumi.Input['SecurityAssessmentPartnerDataArgs'] partners_data: Data regarding 3rd party partner integration
         """
-        pulumi.set(__self__, "resource_details", resource_details)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "status", status)
+        AssessmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_details=resource_details,
+            resource_id=resource_id,
+            status=status,
+            additional_data=additional_data,
+            assessment_name=assessment_name,
+            metadata=metadata,
+            partners_data=partners_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_details: Optional[pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
+             additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             assessment_name: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesArgs']] = None,
+             partners_data: Optional[pulumi.Input['SecurityAssessmentPartnerDataArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_details is None and 'resourceDetails' in kwargs:
+            resource_details = kwargs['resourceDetails']
+        if resource_details is None:
+            raise TypeError("Missing 'resource_details' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if additional_data is None and 'additionalData' in kwargs:
+            additional_data = kwargs['additionalData']
+        if assessment_name is None and 'assessmentName' in kwargs:
+            assessment_name = kwargs['assessmentName']
+        if partners_data is None and 'partnersData' in kwargs:
+            partners_data = kwargs['partnersData']
+
+        _setter("resource_details", resource_details)
+        _setter("resource_id", resource_id)
+        _setter("status", status)
         if additional_data is not None:
-            pulumi.set(__self__, "additional_data", additional_data)
+            _setter("additional_data", additional_data)
         if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
+            _setter("assessment_name", assessment_name)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if partners_data is not None:
-            pulumi.set(__self__, "partners_data", partners_data)
+            _setter("partners_data", partners_data)
 
     @property
     @pulumi.getter(name="resourceDetails")
@@ -176,6 +215,10 @@ class Assessment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,7 +242,9 @@ class Assessment(pulumi.CustomResource):
 
             __props__.__dict__["additional_data"] = additional_data
             __props__.__dict__["assessment_name"] = assessment_name
+            metadata = _utilities.configure(metadata, SecurityAssessmentMetadataPropertiesArgs, True)
             __props__.__dict__["metadata"] = metadata
+            partners_data = _utilities.configure(partners_data, SecurityAssessmentPartnerDataArgs, True)
             __props__.__dict__["partners_data"] = partners_data
             if resource_details is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_details'")
@@ -207,6 +252,7 @@ class Assessment(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
+            status = _utilities.configure(status, AssessmentStatusArgs, True)
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -78,70 +78,199 @@ class ScalingPlanPersonalScheduleArgs:
         :param pulumi.Input[Union[str, 'SetStartVMOnConnect']] ramp_up_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
         :param pulumi.Input[str] scaling_plan_schedule_name: The name of the ScalingPlanSchedule
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
+        ScalingPlanPersonalScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            scaling_plan_name=scaling_plan_name,
+            days_of_week=days_of_week,
+            off_peak_action_on_disconnect=off_peak_action_on_disconnect,
+            off_peak_action_on_logoff=off_peak_action_on_logoff,
+            off_peak_minutes_to_wait_on_disconnect=off_peak_minutes_to_wait_on_disconnect,
+            off_peak_minutes_to_wait_on_logoff=off_peak_minutes_to_wait_on_logoff,
+            off_peak_start_time=off_peak_start_time,
+            off_peak_start_vm_on_connect=off_peak_start_vm_on_connect,
+            peak_action_on_disconnect=peak_action_on_disconnect,
+            peak_action_on_logoff=peak_action_on_logoff,
+            peak_minutes_to_wait_on_disconnect=peak_minutes_to_wait_on_disconnect,
+            peak_minutes_to_wait_on_logoff=peak_minutes_to_wait_on_logoff,
+            peak_start_time=peak_start_time,
+            peak_start_vm_on_connect=peak_start_vm_on_connect,
+            ramp_down_action_on_disconnect=ramp_down_action_on_disconnect,
+            ramp_down_action_on_logoff=ramp_down_action_on_logoff,
+            ramp_down_minutes_to_wait_on_disconnect=ramp_down_minutes_to_wait_on_disconnect,
+            ramp_down_minutes_to_wait_on_logoff=ramp_down_minutes_to_wait_on_logoff,
+            ramp_down_start_time=ramp_down_start_time,
+            ramp_down_start_vm_on_connect=ramp_down_start_vm_on_connect,
+            ramp_up_action_on_disconnect=ramp_up_action_on_disconnect,
+            ramp_up_action_on_logoff=ramp_up_action_on_logoff,
+            ramp_up_auto_start_hosts=ramp_up_auto_start_hosts,
+            ramp_up_minutes_to_wait_on_disconnect=ramp_up_minutes_to_wait_on_disconnect,
+            ramp_up_minutes_to_wait_on_logoff=ramp_up_minutes_to_wait_on_logoff,
+            ramp_up_start_time=ramp_up_start_time,
+            ramp_up_start_vm_on_connect=ramp_up_start_vm_on_connect,
+            scaling_plan_schedule_name=scaling_plan_schedule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scaling_plan_name: Optional[pulumi.Input[str]] = None,
+             days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
+             off_peak_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
+             off_peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
+             off_peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
+             off_peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
+             off_peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             off_peak_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
+             peak_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
+             peak_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
+             peak_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
+             peak_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
+             peak_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             peak_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
+             ramp_down_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
+             ramp_down_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
+             ramp_down_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
+             ramp_down_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
+             ramp_down_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             ramp_down_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
+             ramp_up_action_on_disconnect: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
+             ramp_up_action_on_logoff: Optional[pulumi.Input[Union[str, 'SessionHandlingOperation']]] = None,
+             ramp_up_auto_start_hosts: Optional[pulumi.Input[Union[str, 'StartupBehavior']]] = None,
+             ramp_up_minutes_to_wait_on_disconnect: Optional[pulumi.Input[int]] = None,
+             ramp_up_minutes_to_wait_on_logoff: Optional[pulumi.Input[int]] = None,
+             ramp_up_start_time: Optional[pulumi.Input['TimeArgs']] = None,
+             ramp_up_start_vm_on_connect: Optional[pulumi.Input[Union[str, 'SetStartVMOnConnect']]] = None,
+             scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scaling_plan_name is None and 'scalingPlanName' in kwargs:
+            scaling_plan_name = kwargs['scalingPlanName']
+        if scaling_plan_name is None:
+            raise TypeError("Missing 'scaling_plan_name' argument")
+        if days_of_week is None and 'daysOfWeek' in kwargs:
+            days_of_week = kwargs['daysOfWeek']
+        if off_peak_action_on_disconnect is None and 'offPeakActionOnDisconnect' in kwargs:
+            off_peak_action_on_disconnect = kwargs['offPeakActionOnDisconnect']
+        if off_peak_action_on_logoff is None and 'offPeakActionOnLogoff' in kwargs:
+            off_peak_action_on_logoff = kwargs['offPeakActionOnLogoff']
+        if off_peak_minutes_to_wait_on_disconnect is None and 'offPeakMinutesToWaitOnDisconnect' in kwargs:
+            off_peak_minutes_to_wait_on_disconnect = kwargs['offPeakMinutesToWaitOnDisconnect']
+        if off_peak_minutes_to_wait_on_logoff is None and 'offPeakMinutesToWaitOnLogoff' in kwargs:
+            off_peak_minutes_to_wait_on_logoff = kwargs['offPeakMinutesToWaitOnLogoff']
+        if off_peak_start_time is None and 'offPeakStartTime' in kwargs:
+            off_peak_start_time = kwargs['offPeakStartTime']
+        if off_peak_start_vm_on_connect is None and 'offPeakStartVMOnConnect' in kwargs:
+            off_peak_start_vm_on_connect = kwargs['offPeakStartVMOnConnect']
+        if peak_action_on_disconnect is None and 'peakActionOnDisconnect' in kwargs:
+            peak_action_on_disconnect = kwargs['peakActionOnDisconnect']
+        if peak_action_on_logoff is None and 'peakActionOnLogoff' in kwargs:
+            peak_action_on_logoff = kwargs['peakActionOnLogoff']
+        if peak_minutes_to_wait_on_disconnect is None and 'peakMinutesToWaitOnDisconnect' in kwargs:
+            peak_minutes_to_wait_on_disconnect = kwargs['peakMinutesToWaitOnDisconnect']
+        if peak_minutes_to_wait_on_logoff is None and 'peakMinutesToWaitOnLogoff' in kwargs:
+            peak_minutes_to_wait_on_logoff = kwargs['peakMinutesToWaitOnLogoff']
+        if peak_start_time is None and 'peakStartTime' in kwargs:
+            peak_start_time = kwargs['peakStartTime']
+        if peak_start_vm_on_connect is None and 'peakStartVMOnConnect' in kwargs:
+            peak_start_vm_on_connect = kwargs['peakStartVMOnConnect']
+        if ramp_down_action_on_disconnect is None and 'rampDownActionOnDisconnect' in kwargs:
+            ramp_down_action_on_disconnect = kwargs['rampDownActionOnDisconnect']
+        if ramp_down_action_on_logoff is None and 'rampDownActionOnLogoff' in kwargs:
+            ramp_down_action_on_logoff = kwargs['rampDownActionOnLogoff']
+        if ramp_down_minutes_to_wait_on_disconnect is None and 'rampDownMinutesToWaitOnDisconnect' in kwargs:
+            ramp_down_minutes_to_wait_on_disconnect = kwargs['rampDownMinutesToWaitOnDisconnect']
+        if ramp_down_minutes_to_wait_on_logoff is None and 'rampDownMinutesToWaitOnLogoff' in kwargs:
+            ramp_down_minutes_to_wait_on_logoff = kwargs['rampDownMinutesToWaitOnLogoff']
+        if ramp_down_start_time is None and 'rampDownStartTime' in kwargs:
+            ramp_down_start_time = kwargs['rampDownStartTime']
+        if ramp_down_start_vm_on_connect is None and 'rampDownStartVMOnConnect' in kwargs:
+            ramp_down_start_vm_on_connect = kwargs['rampDownStartVMOnConnect']
+        if ramp_up_action_on_disconnect is None and 'rampUpActionOnDisconnect' in kwargs:
+            ramp_up_action_on_disconnect = kwargs['rampUpActionOnDisconnect']
+        if ramp_up_action_on_logoff is None and 'rampUpActionOnLogoff' in kwargs:
+            ramp_up_action_on_logoff = kwargs['rampUpActionOnLogoff']
+        if ramp_up_auto_start_hosts is None and 'rampUpAutoStartHosts' in kwargs:
+            ramp_up_auto_start_hosts = kwargs['rampUpAutoStartHosts']
+        if ramp_up_minutes_to_wait_on_disconnect is None and 'rampUpMinutesToWaitOnDisconnect' in kwargs:
+            ramp_up_minutes_to_wait_on_disconnect = kwargs['rampUpMinutesToWaitOnDisconnect']
+        if ramp_up_minutes_to_wait_on_logoff is None and 'rampUpMinutesToWaitOnLogoff' in kwargs:
+            ramp_up_minutes_to_wait_on_logoff = kwargs['rampUpMinutesToWaitOnLogoff']
+        if ramp_up_start_time is None and 'rampUpStartTime' in kwargs:
+            ramp_up_start_time = kwargs['rampUpStartTime']
+        if ramp_up_start_vm_on_connect is None and 'rampUpStartVMOnConnect' in kwargs:
+            ramp_up_start_vm_on_connect = kwargs['rampUpStartVMOnConnect']
+        if scaling_plan_schedule_name is None and 'scalingPlanScheduleName' in kwargs:
+            scaling_plan_schedule_name = kwargs['scalingPlanScheduleName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("scaling_plan_name", scaling_plan_name)
         if days_of_week is not None:
-            pulumi.set(__self__, "days_of_week", days_of_week)
+            _setter("days_of_week", days_of_week)
         if off_peak_action_on_disconnect is not None:
-            pulumi.set(__self__, "off_peak_action_on_disconnect", off_peak_action_on_disconnect)
+            _setter("off_peak_action_on_disconnect", off_peak_action_on_disconnect)
         if off_peak_action_on_logoff is not None:
-            pulumi.set(__self__, "off_peak_action_on_logoff", off_peak_action_on_logoff)
+            _setter("off_peak_action_on_logoff", off_peak_action_on_logoff)
         if off_peak_minutes_to_wait_on_disconnect is not None:
-            pulumi.set(__self__, "off_peak_minutes_to_wait_on_disconnect", off_peak_minutes_to_wait_on_disconnect)
+            _setter("off_peak_minutes_to_wait_on_disconnect", off_peak_minutes_to_wait_on_disconnect)
         if off_peak_minutes_to_wait_on_logoff is not None:
-            pulumi.set(__self__, "off_peak_minutes_to_wait_on_logoff", off_peak_minutes_to_wait_on_logoff)
+            _setter("off_peak_minutes_to_wait_on_logoff", off_peak_minutes_to_wait_on_logoff)
         if off_peak_start_time is not None:
-            pulumi.set(__self__, "off_peak_start_time", off_peak_start_time)
+            _setter("off_peak_start_time", off_peak_start_time)
         if off_peak_start_vm_on_connect is None:
             off_peak_start_vm_on_connect = 'Enable'
         if off_peak_start_vm_on_connect is not None:
-            pulumi.set(__self__, "off_peak_start_vm_on_connect", off_peak_start_vm_on_connect)
+            _setter("off_peak_start_vm_on_connect", off_peak_start_vm_on_connect)
         if peak_action_on_disconnect is not None:
-            pulumi.set(__self__, "peak_action_on_disconnect", peak_action_on_disconnect)
+            _setter("peak_action_on_disconnect", peak_action_on_disconnect)
         if peak_action_on_logoff is not None:
-            pulumi.set(__self__, "peak_action_on_logoff", peak_action_on_logoff)
+            _setter("peak_action_on_logoff", peak_action_on_logoff)
         if peak_minutes_to_wait_on_disconnect is not None:
-            pulumi.set(__self__, "peak_minutes_to_wait_on_disconnect", peak_minutes_to_wait_on_disconnect)
+            _setter("peak_minutes_to_wait_on_disconnect", peak_minutes_to_wait_on_disconnect)
         if peak_minutes_to_wait_on_logoff is not None:
-            pulumi.set(__self__, "peak_minutes_to_wait_on_logoff", peak_minutes_to_wait_on_logoff)
+            _setter("peak_minutes_to_wait_on_logoff", peak_minutes_to_wait_on_logoff)
         if peak_start_time is not None:
-            pulumi.set(__self__, "peak_start_time", peak_start_time)
+            _setter("peak_start_time", peak_start_time)
         if peak_start_vm_on_connect is None:
             peak_start_vm_on_connect = 'Enable'
         if peak_start_vm_on_connect is not None:
-            pulumi.set(__self__, "peak_start_vm_on_connect", peak_start_vm_on_connect)
+            _setter("peak_start_vm_on_connect", peak_start_vm_on_connect)
         if ramp_down_action_on_disconnect is not None:
-            pulumi.set(__self__, "ramp_down_action_on_disconnect", ramp_down_action_on_disconnect)
+            _setter("ramp_down_action_on_disconnect", ramp_down_action_on_disconnect)
         if ramp_down_action_on_logoff is not None:
-            pulumi.set(__self__, "ramp_down_action_on_logoff", ramp_down_action_on_logoff)
+            _setter("ramp_down_action_on_logoff", ramp_down_action_on_logoff)
         if ramp_down_minutes_to_wait_on_disconnect is not None:
-            pulumi.set(__self__, "ramp_down_minutes_to_wait_on_disconnect", ramp_down_minutes_to_wait_on_disconnect)
+            _setter("ramp_down_minutes_to_wait_on_disconnect", ramp_down_minutes_to_wait_on_disconnect)
         if ramp_down_minutes_to_wait_on_logoff is not None:
-            pulumi.set(__self__, "ramp_down_minutes_to_wait_on_logoff", ramp_down_minutes_to_wait_on_logoff)
+            _setter("ramp_down_minutes_to_wait_on_logoff", ramp_down_minutes_to_wait_on_logoff)
         if ramp_down_start_time is not None:
-            pulumi.set(__self__, "ramp_down_start_time", ramp_down_start_time)
+            _setter("ramp_down_start_time", ramp_down_start_time)
         if ramp_down_start_vm_on_connect is None:
             ramp_down_start_vm_on_connect = 'Enable'
         if ramp_down_start_vm_on_connect is not None:
-            pulumi.set(__self__, "ramp_down_start_vm_on_connect", ramp_down_start_vm_on_connect)
+            _setter("ramp_down_start_vm_on_connect", ramp_down_start_vm_on_connect)
         if ramp_up_action_on_disconnect is not None:
-            pulumi.set(__self__, "ramp_up_action_on_disconnect", ramp_up_action_on_disconnect)
+            _setter("ramp_up_action_on_disconnect", ramp_up_action_on_disconnect)
         if ramp_up_action_on_logoff is not None:
-            pulumi.set(__self__, "ramp_up_action_on_logoff", ramp_up_action_on_logoff)
+            _setter("ramp_up_action_on_logoff", ramp_up_action_on_logoff)
         if ramp_up_auto_start_hosts is not None:
-            pulumi.set(__self__, "ramp_up_auto_start_hosts", ramp_up_auto_start_hosts)
+            _setter("ramp_up_auto_start_hosts", ramp_up_auto_start_hosts)
         if ramp_up_minutes_to_wait_on_disconnect is not None:
-            pulumi.set(__self__, "ramp_up_minutes_to_wait_on_disconnect", ramp_up_minutes_to_wait_on_disconnect)
+            _setter("ramp_up_minutes_to_wait_on_disconnect", ramp_up_minutes_to_wait_on_disconnect)
         if ramp_up_minutes_to_wait_on_logoff is not None:
-            pulumi.set(__self__, "ramp_up_minutes_to_wait_on_logoff", ramp_up_minutes_to_wait_on_logoff)
+            _setter("ramp_up_minutes_to_wait_on_logoff", ramp_up_minutes_to_wait_on_logoff)
         if ramp_up_start_time is not None:
-            pulumi.set(__self__, "ramp_up_start_time", ramp_up_start_time)
+            _setter("ramp_up_start_time", ramp_up_start_time)
         if ramp_up_start_vm_on_connect is None:
             ramp_up_start_vm_on_connect = 'Enable'
         if ramp_up_start_vm_on_connect is not None:
-            pulumi.set(__self__, "ramp_up_start_vm_on_connect", ramp_up_start_vm_on_connect)
+            _setter("ramp_up_start_vm_on_connect", ramp_up_start_vm_on_connect)
         if scaling_plan_schedule_name is not None:
-            pulumi.set(__self__, "scaling_plan_schedule_name", scaling_plan_schedule_name)
+            _setter("scaling_plan_schedule_name", scaling_plan_schedule_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -581,6 +710,10 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScalingPlanPersonalScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -629,6 +762,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["off_peak_action_on_logoff"] = off_peak_action_on_logoff
             __props__.__dict__["off_peak_minutes_to_wait_on_disconnect"] = off_peak_minutes_to_wait_on_disconnect
             __props__.__dict__["off_peak_minutes_to_wait_on_logoff"] = off_peak_minutes_to_wait_on_logoff
+            off_peak_start_time = _utilities.configure(off_peak_start_time, TimeArgs, True)
             __props__.__dict__["off_peak_start_time"] = off_peak_start_time
             if off_peak_start_vm_on_connect is None:
                 off_peak_start_vm_on_connect = 'Enable'
@@ -637,6 +771,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["peak_action_on_logoff"] = peak_action_on_logoff
             __props__.__dict__["peak_minutes_to_wait_on_disconnect"] = peak_minutes_to_wait_on_disconnect
             __props__.__dict__["peak_minutes_to_wait_on_logoff"] = peak_minutes_to_wait_on_logoff
+            peak_start_time = _utilities.configure(peak_start_time, TimeArgs, True)
             __props__.__dict__["peak_start_time"] = peak_start_time
             if peak_start_vm_on_connect is None:
                 peak_start_vm_on_connect = 'Enable'
@@ -645,6 +780,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["ramp_down_action_on_logoff"] = ramp_down_action_on_logoff
             __props__.__dict__["ramp_down_minutes_to_wait_on_disconnect"] = ramp_down_minutes_to_wait_on_disconnect
             __props__.__dict__["ramp_down_minutes_to_wait_on_logoff"] = ramp_down_minutes_to_wait_on_logoff
+            ramp_down_start_time = _utilities.configure(ramp_down_start_time, TimeArgs, True)
             __props__.__dict__["ramp_down_start_time"] = ramp_down_start_time
             if ramp_down_start_vm_on_connect is None:
                 ramp_down_start_vm_on_connect = 'Enable'
@@ -654,6 +790,7 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             __props__.__dict__["ramp_up_auto_start_hosts"] = ramp_up_auto_start_hosts
             __props__.__dict__["ramp_up_minutes_to_wait_on_disconnect"] = ramp_up_minutes_to_wait_on_disconnect
             __props__.__dict__["ramp_up_minutes_to_wait_on_logoff"] = ramp_up_minutes_to_wait_on_logoff
+            ramp_up_start_time = _utilities.configure(ramp_up_start_time, TimeArgs, True)
             __props__.__dict__["ramp_up_start_time"] = ramp_up_start_time
             if ramp_up_start_vm_on_connect is None:
                 ramp_up_start_vm_on_connect = 'Enable'

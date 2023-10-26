@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,16 +31,51 @@ class ImageInitArgs:
         :param pulumi.Input[str] image_name: Image name. Use .default for image creation.
         :param pulumi.Input[Union[str, 'RegionalDataBoundary']] regional_data_boundary: Regional data boundary for an image
         """
-        pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ImageInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_name=catalog_name,
+            resource_group_name=resource_group_name,
+            image=image,
+            image_id=image_id,
+            image_name=image_name,
+            regional_data_boundary=regional_data_boundary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             image_id: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             regional_data_boundary: Optional[pulumi.Input[Union[str, 'RegionalDataBoundary']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_name is None and 'catalogName' in kwargs:
+            catalog_name = kwargs['catalogName']
+        if catalog_name is None:
+            raise TypeError("Missing 'catalog_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if regional_data_boundary is None and 'regionalDataBoundary' in kwargs:
+            regional_data_boundary = kwargs['regionalDataBoundary']
+
+        _setter("catalog_name", catalog_name)
+        _setter("resource_group_name", resource_group_name)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if regional_data_boundary is not None:
-            pulumi.set(__self__, "regional_data_boundary", regional_data_boundary)
+            _setter("regional_data_boundary", regional_data_boundary)
 
     @property
     @pulumi.getter(name="catalogName")
@@ -160,6 +195,10 @@ class Image(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ImageInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

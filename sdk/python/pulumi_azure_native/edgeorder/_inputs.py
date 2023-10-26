@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -43,8 +43,27 @@ class AdditionalConfigurationArgs:
         :param pulumi.Input['HierarchyInformationArgs'] hierarchy_information: Hierarchy of the product which uniquely identifies the configuration.
         :param pulumi.Input[int] quantity: Quantity of the product.
         """
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
-        pulumi.set(__self__, "quantity", quantity)
+        AdditionalConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hierarchy_information=hierarchy_information,
+            quantity=quantity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hierarchy_information: Optional[pulumi.Input['HierarchyInformationArgs']] = None,
+             quantity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hierarchy_information is None and 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if hierarchy_information is None:
+            raise TypeError("Missing 'hierarchy_information' argument")
+        if quantity is None:
+            raise TypeError("Missing 'quantity' argument")
+
+        _setter("hierarchy_information", hierarchy_information)
+        _setter("quantity", quantity)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
@@ -79,7 +98,22 @@ class AddressDetailsArgs:
         Address details for an order item.
         :param pulumi.Input['AddressPropertiesArgs'] forward_address: Customer address and contact details. It should be address resource
         """
-        pulumi.set(__self__, "forward_address", forward_address)
+        AddressDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forward_address=forward_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forward_address: Optional[pulumi.Input['AddressPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forward_address is None and 'forwardAddress' in kwargs:
+            forward_address = kwargs['forwardAddress']
+        if forward_address is None:
+            raise TypeError("Missing 'forward_address' argument")
+
+        _setter("forward_address", forward_address)
 
     @property
     @pulumi.getter(name="forwardAddress")
@@ -104,9 +138,28 @@ class AddressPropertiesArgs:
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for the address
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping details for the address
         """
-        pulumi.set(__self__, "contact_details", contact_details)
+        AddressPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_details=contact_details,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_details: Optional[pulumi.Input['ContactDetailsArgs']] = None,
+             shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_details is None and 'contactDetails' in kwargs:
+            contact_details = kwargs['contactDetails']
+        if contact_details is None:
+            raise TypeError("Missing 'contact_details' argument")
+        if shipping_address is None and 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("contact_details", contact_details)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -143,10 +196,27 @@ class ChildConfigurationFilter:
         :param Sequence[Union[str, 'ChildConfigurationType']] child_configuration_types: Filter to fetch all child configurations belonging to the given list of configuration types.
         :param Sequence['HierarchyInformation'] hierarchy_informations: The list of child configuration hierarchy customer wants to filter for the given configuration.
         """
+        ChildConfigurationFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            child_configuration_types=child_configuration_types,
+            hierarchy_informations=hierarchy_informations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             child_configuration_types: Optional[Sequence[Union[str, 'ChildConfigurationType']]] = None,
+             hierarchy_informations: Optional[Sequence['HierarchyInformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if child_configuration_types is None and 'childConfigurationTypes' in kwargs:
+            child_configuration_types = kwargs['childConfigurationTypes']
+        if hierarchy_informations is None and 'hierarchyInformations' in kwargs:
+            hierarchy_informations = kwargs['hierarchyInformations']
+
         if child_configuration_types is not None:
-            pulumi.set(__self__, "child_configuration_types", child_configuration_types)
+            _setter("child_configuration_types", child_configuration_types)
         if hierarchy_informations is not None:
-            pulumi.set(__self__, "hierarchy_informations", hierarchy_informations)
+            _setter("hierarchy_informations", hierarchy_informations)
 
     @property
     @pulumi.getter(name="childConfigurationTypes")
@@ -185,11 +255,34 @@ class ConfigurationFilter:
         :param 'ChildConfigurationFilter' child_configuration_filter: Filter to fetch specific child configurations that exist in the configuration. This must be passed to either fetch a list of specific child configurations, or all child configurations of specific types of child configurations.
         :param Sequence['FilterableProperty'] filterable_property: Filters specific to product.
         """
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
+        ConfigurationFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hierarchy_information=hierarchy_information,
+            child_configuration_filter=child_configuration_filter,
+            filterable_property=filterable_property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hierarchy_information: Optional['HierarchyInformation'] = None,
+             child_configuration_filter: Optional['ChildConfigurationFilter'] = None,
+             filterable_property: Optional[Sequence['FilterableProperty']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hierarchy_information is None and 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if hierarchy_information is None:
+            raise TypeError("Missing 'hierarchy_information' argument")
+        if child_configuration_filter is None and 'childConfigurationFilter' in kwargs:
+            child_configuration_filter = kwargs['childConfigurationFilter']
+        if filterable_property is None and 'filterableProperty' in kwargs:
+            filterable_property = kwargs['filterableProperty']
+
+        _setter("hierarchy_information", hierarchy_information)
         if child_configuration_filter is not None:
-            pulumi.set(__self__, "child_configuration_filter", child_configuration_filter)
+            _setter("child_configuration_filter", child_configuration_filter)
         if filterable_property is not None:
-            pulumi.set(__self__, "filterable_property", filterable_property)
+            _setter("filterable_property", filterable_property)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
@@ -238,9 +331,28 @@ class ConfigurationFilters:
         :param 'HierarchyInformation' hierarchy_information: Product hierarchy information
         :param Sequence['FilterableProperty'] filterable_property: Filters specific to product
         """
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
+        ConfigurationFilters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hierarchy_information=hierarchy_information,
+            filterable_property=filterable_property,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hierarchy_information: Optional['HierarchyInformation'] = None,
+             filterable_property: Optional[Sequence['FilterableProperty']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hierarchy_information is None and 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if hierarchy_information is None:
+            raise TypeError("Missing 'hierarchy_information' argument")
+        if filterable_property is None and 'filterableProperty' in kwargs:
+            filterable_property = kwargs['filterableProperty']
+
+        _setter("hierarchy_information", hierarchy_information)
         if filterable_property is not None:
-            pulumi.set(__self__, "filterable_property", filterable_property)
+            _setter("filterable_property", filterable_property)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
@@ -283,13 +395,44 @@ class ContactDetailsArgs:
         :param pulumi.Input[str] mobile: Mobile number of the contact person.
         :param pulumi.Input[str] phone_extension: Phone extension number of the contact person.
         """
-        pulumi.set(__self__, "contact_name", contact_name)
-        pulumi.set(__self__, "email_list", email_list)
-        pulumi.set(__self__, "phone", phone)
+        ContactDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_name=contact_name,
+            email_list=email_list,
+            phone=phone,
+            mobile=mobile,
+            phone_extension=phone_extension,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_name: Optional[pulumi.Input[str]] = None,
+             email_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             phone: Optional[pulumi.Input[str]] = None,
+             mobile: Optional[pulumi.Input[str]] = None,
+             phone_extension: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_name is None and 'contactName' in kwargs:
+            contact_name = kwargs['contactName']
+        if contact_name is None:
+            raise TypeError("Missing 'contact_name' argument")
+        if email_list is None and 'emailList' in kwargs:
+            email_list = kwargs['emailList']
+        if email_list is None:
+            raise TypeError("Missing 'email_list' argument")
+        if phone is None:
+            raise TypeError("Missing 'phone' argument")
+        if phone_extension is None and 'phoneExtension' in kwargs:
+            phone_extension = kwargs['phoneExtension']
+
+        _setter("contact_name", contact_name)
+        _setter("email_list", email_list)
+        _setter("phone", phone)
         if mobile is not None:
-            pulumi.set(__self__, "mobile", mobile)
+            _setter("mobile", mobile)
         if phone_extension is not None:
-            pulumi.set(__self__, "phone_extension", phone_extension)
+            _setter("phone_extension", phone_extension)
 
     @property
     @pulumi.getter(name="contactName")
@@ -364,11 +507,34 @@ class CustomerSubscriptionDetails:
         :param str location_placement_id: Location placement Id of a subscription.
         :param Sequence['CustomerSubscriptionRegisteredFeatures'] registered_features: List of registered feature flags for subscription.
         """
-        pulumi.set(__self__, "quota_id", quota_id)
+        CustomerSubscriptionDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            quota_id=quota_id,
+            location_placement_id=location_placement_id,
+            registered_features=registered_features,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             quota_id: Optional[str] = None,
+             location_placement_id: Optional[str] = None,
+             registered_features: Optional[Sequence['CustomerSubscriptionRegisteredFeatures']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if quota_id is None and 'quotaId' in kwargs:
+            quota_id = kwargs['quotaId']
+        if quota_id is None:
+            raise TypeError("Missing 'quota_id' argument")
+        if location_placement_id is None and 'locationPlacementId' in kwargs:
+            location_placement_id = kwargs['locationPlacementId']
+        if registered_features is None and 'registeredFeatures' in kwargs:
+            registered_features = kwargs['registeredFeatures']
+
+        _setter("quota_id", quota_id)
         if location_placement_id is not None:
-            pulumi.set(__self__, "location_placement_id", location_placement_id)
+            _setter("location_placement_id", location_placement_id)
         if registered_features is not None:
-            pulumi.set(__self__, "registered_features", registered_features)
+            _setter("registered_features", registered_features)
 
     @property
     @pulumi.getter(name="quotaId")
@@ -417,10 +583,23 @@ class CustomerSubscriptionRegisteredFeatures:
         :param str name: Name of subscription registered feature.
         :param str state: State of subscription registered feature.
         """
+        CustomerSubscriptionRegisteredFeatures._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -455,8 +634,21 @@ class EncryptionPreferencesArgs:
         Preferences related to the double encryption
         :param pulumi.Input[Union[str, 'DoubleEncryptionStatus']] double_encryption_status: Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
         """
+        EncryptionPreferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            double_encryption_status=double_encryption_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             double_encryption_status: Optional[pulumi.Input[Union[str, 'DoubleEncryptionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if double_encryption_status is None and 'doubleEncryptionStatus' in kwargs:
+            double_encryption_status = kwargs['doubleEncryptionStatus']
+
         if double_encryption_status is not None:
-            pulumi.set(__self__, "double_encryption_status", double_encryption_status)
+            _setter("double_encryption_status", double_encryption_status)
 
     @property
     @pulumi.getter(name="doubleEncryptionStatus")
@@ -481,8 +673,27 @@ class FilterableProperty:
         :param Sequence[str] supported_values: Values to be filtered.
         :param Union[str, 'SupportedFilterTypes'] type: Type of product filter.
         """
-        pulumi.set(__self__, "supported_values", supported_values)
-        pulumi.set(__self__, "type", type)
+        FilterableProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            supported_values=supported_values,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             supported_values: Optional[Sequence[str]] = None,
+             type: Optional[Union[str, 'SupportedFilterTypes']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if supported_values is None and 'supportedValues' in kwargs:
+            supported_values = kwargs['supportedValues']
+        if supported_values is None:
+            raise TypeError("Missing 'supported_values' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("supported_values", supported_values)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="supportedValues")
@@ -523,14 +734,39 @@ class HierarchyInformation:
         :param str product_line_name: Represents product line name that uniquely identifies product line.
         :param str product_name: Represents product name that uniquely identifies product.
         """
+        HierarchyInformation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_name=configuration_name,
+            product_family_name=product_family_name,
+            product_line_name=product_line_name,
+            product_name=product_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_name: Optional[str] = None,
+             product_family_name: Optional[str] = None,
+             product_line_name: Optional[str] = None,
+             product_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_name is None and 'configurationName' in kwargs:
+            configuration_name = kwargs['configurationName']
+        if product_family_name is None and 'productFamilyName' in kwargs:
+            product_family_name = kwargs['productFamilyName']
+        if product_line_name is None and 'productLineName' in kwargs:
+            product_line_name = kwargs['productLineName']
+        if product_name is None and 'productName' in kwargs:
+            product_name = kwargs['productName']
+
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if product_family_name is not None:
-            pulumi.set(__self__, "product_family_name", product_family_name)
+            _setter("product_family_name", product_family_name)
         if product_line_name is not None:
-            pulumi.set(__self__, "product_line_name", product_line_name)
+            _setter("product_line_name", product_line_name)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -595,14 +831,39 @@ class HierarchyInformationArgs:
         :param pulumi.Input[str] product_line_name: Represents product line name that uniquely identifies product line.
         :param pulumi.Input[str] product_name: Represents product name that uniquely identifies product.
         """
+        HierarchyInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_name=configuration_name,
+            product_family_name=product_family_name,
+            product_line_name=product_line_name,
+            product_name=product_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_name: Optional[pulumi.Input[str]] = None,
+             product_family_name: Optional[pulumi.Input[str]] = None,
+             product_line_name: Optional[pulumi.Input[str]] = None,
+             product_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_name is None and 'configurationName' in kwargs:
+            configuration_name = kwargs['configurationName']
+        if product_family_name is None and 'productFamilyName' in kwargs:
+            product_family_name = kwargs['productFamilyName']
+        if product_line_name is None and 'productLineName' in kwargs:
+            product_line_name = kwargs['productLineName']
+        if product_name is None and 'productName' in kwargs:
+            product_name = kwargs['productName']
+
         if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
+            _setter("configuration_name", configuration_name)
         if product_family_name is not None:
-            pulumi.set(__self__, "product_family_name", product_family_name)
+            _setter("product_family_name", product_family_name)
         if product_line_name is not None:
-            pulumi.set(__self__, "product_line_name", product_line_name)
+            _setter("product_line_name", product_line_name)
         if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
+            _setter("product_name", product_name)
 
     @property
     @pulumi.getter(name="configurationName")
@@ -661,8 +922,21 @@ class ManagementResourcePreferencesArgs:
         Management resource preference to link device
         :param pulumi.Input[str] preferred_management_resource_id: Customer preferred Management resource ARM ID
         """
+        ManagementResourcePreferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_management_resource_id=preferred_management_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_management_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preferred_management_resource_id is None and 'preferredManagementResourceId' in kwargs:
+            preferred_management_resource_id = kwargs['preferredManagementResourceId']
+
         if preferred_management_resource_id is not None:
-            pulumi.set(__self__, "preferred_management_resource_id", preferred_management_resource_id)
+            _setter("preferred_management_resource_id", preferred_management_resource_id)
 
     @property
     @pulumi.getter(name="preferredManagementResourceId")
@@ -687,8 +961,29 @@ class NotificationPreferenceArgs:
         :param pulumi.Input[bool] send_notification: Notification is required or not.
         :param pulumi.Input[Union[str, 'NotificationStageName']] stage_name: Name of the stage.
         """
-        pulumi.set(__self__, "send_notification", send_notification)
-        pulumi.set(__self__, "stage_name", stage_name)
+        NotificationPreferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            send_notification=send_notification,
+            stage_name=stage_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             send_notification: Optional[pulumi.Input[bool]] = None,
+             stage_name: Optional[pulumi.Input[Union[str, 'NotificationStageName']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if send_notification is None and 'sendNotification' in kwargs:
+            send_notification = kwargs['sendNotification']
+        if send_notification is None:
+            raise TypeError("Missing 'send_notification' argument")
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if stage_name is None:
+            raise TypeError("Missing 'stage_name' argument")
+
+        _setter("send_notification", send_notification)
+        _setter("stage_name", stage_name)
 
     @property
     @pulumi.getter(name="sendNotification")
@@ -731,14 +1026,45 @@ class OrderItemDetailsArgs:
         :param pulumi.Input[Union[str, 'OrderMode']] order_item_mode: Defines the mode of the Order item.
         :param pulumi.Input['PreferencesArgs'] preferences: Customer notification Preferences
         """
-        pulumi.set(__self__, "order_item_type", order_item_type)
-        pulumi.set(__self__, "product_details", product_details)
+        OrderItemDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order_item_type=order_item_type,
+            product_details=product_details,
+            notification_email_list=notification_email_list,
+            order_item_mode=order_item_mode,
+            preferences=preferences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order_item_type: Optional[pulumi.Input[Union[str, 'OrderItemType']]] = None,
+             product_details: Optional[pulumi.Input['ProductDetailsArgs']] = None,
+             notification_email_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             order_item_mode: Optional[pulumi.Input[Union[str, 'OrderMode']]] = None,
+             preferences: Optional[pulumi.Input['PreferencesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if order_item_type is None and 'orderItemType' in kwargs:
+            order_item_type = kwargs['orderItemType']
+        if order_item_type is None:
+            raise TypeError("Missing 'order_item_type' argument")
+        if product_details is None and 'productDetails' in kwargs:
+            product_details = kwargs['productDetails']
+        if product_details is None:
+            raise TypeError("Missing 'product_details' argument")
+        if notification_email_list is None and 'notificationEmailList' in kwargs:
+            notification_email_list = kwargs['notificationEmailList']
+        if order_item_mode is None and 'orderItemMode' in kwargs:
+            order_item_mode = kwargs['orderItemMode']
+
+        _setter("order_item_type", order_item_type)
+        _setter("product_details", product_details)
         if notification_email_list is not None:
-            pulumi.set(__self__, "notification_email_list", notification_email_list)
+            _setter("notification_email_list", notification_email_list)
         if order_item_mode is not None:
-            pulumi.set(__self__, "order_item_mode", order_item_mode)
+            _setter("order_item_mode", order_item_mode)
         if preferences is not None:
-            pulumi.set(__self__, "preferences", preferences)
+            _setter("preferences", preferences)
 
     @property
     @pulumi.getter(name="orderItemType")
@@ -815,14 +1141,39 @@ class PreferencesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]] notification_preferences: Notification preferences.
         :param pulumi.Input['TransportPreferencesArgs'] transport_preferences: Preferences related to the shipment logistics of the order.
         """
+        PreferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_preferences=encryption_preferences,
+            management_resource_preferences=management_resource_preferences,
+            notification_preferences=notification_preferences,
+            transport_preferences=transport_preferences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_preferences: Optional[pulumi.Input['EncryptionPreferencesArgs']] = None,
+             management_resource_preferences: Optional[pulumi.Input['ManagementResourcePreferencesArgs']] = None,
+             notification_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationPreferenceArgs']]]] = None,
+             transport_preferences: Optional[pulumi.Input['TransportPreferencesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_preferences is None and 'encryptionPreferences' in kwargs:
+            encryption_preferences = kwargs['encryptionPreferences']
+        if management_resource_preferences is None and 'managementResourcePreferences' in kwargs:
+            management_resource_preferences = kwargs['managementResourcePreferences']
+        if notification_preferences is None and 'notificationPreferences' in kwargs:
+            notification_preferences = kwargs['notificationPreferences']
+        if transport_preferences is None and 'transportPreferences' in kwargs:
+            transport_preferences = kwargs['transportPreferences']
+
         if encryption_preferences is not None:
-            pulumi.set(__self__, "encryption_preferences", encryption_preferences)
+            _setter("encryption_preferences", encryption_preferences)
         if management_resource_preferences is not None:
-            pulumi.set(__self__, "management_resource_preferences", management_resource_preferences)
+            _setter("management_resource_preferences", management_resource_preferences)
         if notification_preferences is not None:
-            pulumi.set(__self__, "notification_preferences", notification_preferences)
+            _setter("notification_preferences", notification_preferences)
         if transport_preferences is not None:
-            pulumi.set(__self__, "transport_preferences", transport_preferences)
+            _setter("transport_preferences", transport_preferences)
 
     @property
     @pulumi.getter(name="encryptionPreferences")
@@ -883,9 +1234,28 @@ class ProductDetailsArgs:
         :param pulumi.Input['HierarchyInformationArgs'] hierarchy_information: Hierarchy of the product which uniquely identifies the product
         :param pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgs']]] opt_in_additional_configurations: List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
         """
-        pulumi.set(__self__, "hierarchy_information", hierarchy_information)
+        ProductDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hierarchy_information=hierarchy_information,
+            opt_in_additional_configurations=opt_in_additional_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hierarchy_information: Optional[pulumi.Input['HierarchyInformationArgs']] = None,
+             opt_in_additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hierarchy_information is None and 'hierarchyInformation' in kwargs:
+            hierarchy_information = kwargs['hierarchyInformation']
+        if hierarchy_information is None:
+            raise TypeError("Missing 'hierarchy_information' argument")
+        if opt_in_additional_configurations is None and 'optInAdditionalConfigurations' in kwargs:
+            opt_in_additional_configurations = kwargs['optInAdditionalConfigurations']
+
+        _setter("hierarchy_information", hierarchy_information)
         if opt_in_additional_configurations is not None:
-            pulumi.set(__self__, "opt_in_additional_configurations", opt_in_additional_configurations)
+            _setter("opt_in_additional_configurations", opt_in_additional_configurations)
 
     @property
     @pulumi.getter(name="hierarchyInformation")
@@ -938,24 +1308,73 @@ class ShippingAddressArgs:
         :param pulumi.Input[str] street_address3: Street Address line 3.
         :param pulumi.Input[str] zip_extended_code: Extended Zip Code.
         """
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "street_address1", street_address1)
+        ShippingAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            country=country,
+            street_address1=street_address1,
+            address_type=address_type,
+            city=city,
+            company_name=company_name,
+            postal_code=postal_code,
+            state_or_province=state_or_province,
+            street_address2=street_address2,
+            street_address3=street_address3,
+            zip_extended_code=zip_extended_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             country: Optional[pulumi.Input[str]] = None,
+             street_address1: Optional[pulumi.Input[str]] = None,
+             address_type: Optional[pulumi.Input[Union[str, 'AddressType']]] = None,
+             city: Optional[pulumi.Input[str]] = None,
+             company_name: Optional[pulumi.Input[str]] = None,
+             postal_code: Optional[pulumi.Input[str]] = None,
+             state_or_province: Optional[pulumi.Input[str]] = None,
+             street_address2: Optional[pulumi.Input[str]] = None,
+             street_address3: Optional[pulumi.Input[str]] = None,
+             zip_extended_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country is None:
+            raise TypeError("Missing 'country' argument")
+        if street_address1 is None and 'streetAddress1' in kwargs:
+            street_address1 = kwargs['streetAddress1']
+        if street_address1 is None:
+            raise TypeError("Missing 'street_address1' argument")
+        if address_type is None and 'addressType' in kwargs:
+            address_type = kwargs['addressType']
+        if company_name is None and 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if postal_code is None and 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if state_or_province is None and 'stateOrProvince' in kwargs:
+            state_or_province = kwargs['stateOrProvince']
+        if street_address2 is None and 'streetAddress2' in kwargs:
+            street_address2 = kwargs['streetAddress2']
+        if street_address3 is None and 'streetAddress3' in kwargs:
+            street_address3 = kwargs['streetAddress3']
+        if zip_extended_code is None and 'zipExtendedCode' in kwargs:
+            zip_extended_code = kwargs['zipExtendedCode']
+
+        _setter("country", country)
+        _setter("street_address1", street_address1)
         if address_type is not None:
-            pulumi.set(__self__, "address_type", address_type)
+            _setter("address_type", address_type)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if state_or_province is not None:
-            pulumi.set(__self__, "state_or_province", state_or_province)
+            _setter("state_or_province", state_or_province)
         if street_address2 is not None:
-            pulumi.set(__self__, "street_address2", street_address2)
+            _setter("street_address2", street_address2)
         if street_address3 is not None:
-            pulumi.set(__self__, "street_address3", street_address3)
+            _setter("street_address3", street_address3)
         if zip_extended_code is not None:
-            pulumi.set(__self__, "zip_extended_code", zip_extended_code)
+            _setter("zip_extended_code", zip_extended_code)
 
     @property
     @pulumi.getter
@@ -1086,7 +1505,22 @@ class TransportPreferencesArgs:
         Preferences related to the shipment logistics of the sku
         :param pulumi.Input[Union[str, 'TransportShipmentTypes']] preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
-        pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
+        TransportPreferencesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_shipment_type=preferred_shipment_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_shipment_type: Optional[pulumi.Input[Union[str, 'TransportShipmentTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preferred_shipment_type is None and 'preferredShipmentType' in kwargs:
+            preferred_shipment_type = kwargs['preferredShipmentType']
+        if preferred_shipment_type is None:
+            raise TypeError("Missing 'preferred_shipment_type' argument")
+
+        _setter("preferred_shipment_type", preferred_shipment_type)
 
     @property
     @pulumi.getter(name="preferredShipmentType")

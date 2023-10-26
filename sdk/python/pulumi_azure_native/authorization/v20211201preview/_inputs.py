@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,18 +35,49 @@ class AccessReviewHistoryInstanceArgs:
         :param pulumi.Input[str] review_history_period_start_date_time: Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
         :param pulumi.Input[str] run_date_time: Date time when the history data report is scheduled to be generated.
         """
+        AccessReviewHistoryInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            expiration=expiration,
+            fulfilled_date_time=fulfilled_date_time,
+            review_history_period_end_date_time=review_history_period_end_date_time,
+            review_history_period_start_date_time=review_history_period_start_date_time,
+            run_date_time=run_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             fulfilled_date_time: Optional[pulumi.Input[str]] = None,
+             review_history_period_end_date_time: Optional[pulumi.Input[str]] = None,
+             review_history_period_start_date_time: Optional[pulumi.Input[str]] = None,
+             run_date_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if fulfilled_date_time is None and 'fulfilledDateTime' in kwargs:
+            fulfilled_date_time = kwargs['fulfilledDateTime']
+        if review_history_period_end_date_time is None and 'reviewHistoryPeriodEndDateTime' in kwargs:
+            review_history_period_end_date_time = kwargs['reviewHistoryPeriodEndDateTime']
+        if review_history_period_start_date_time is None and 'reviewHistoryPeriodStartDateTime' in kwargs:
+            review_history_period_start_date_time = kwargs['reviewHistoryPeriodStartDateTime']
+        if run_date_time is None and 'runDateTime' in kwargs:
+            run_date_time = kwargs['runDateTime']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if fulfilled_date_time is not None:
-            pulumi.set(__self__, "fulfilled_date_time", fulfilled_date_time)
+            _setter("fulfilled_date_time", fulfilled_date_time)
         if review_history_period_end_date_time is not None:
-            pulumi.set(__self__, "review_history_period_end_date_time", review_history_period_end_date_time)
+            _setter("review_history_period_end_date_time", review_history_period_end_date_time)
         if review_history_period_start_date_time is not None:
-            pulumi.set(__self__, "review_history_period_start_date_time", review_history_period_start_date_time)
+            _setter("review_history_period_start_date_time", review_history_period_start_date_time)
         if run_date_time is not None:
-            pulumi.set(__self__, "run_date_time", run_date_time)
+            _setter("run_date_time", run_date_time)
 
     @property
     @pulumi.getter(name="displayName")
@@ -135,14 +166,37 @@ class AccessReviewInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]] reviewers: This is the collection of reviewers.
         :param pulumi.Input[str] start_date_time: The DateTime when the review instance is scheduled to be start.
         """
+        AccessReviewInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_reviewers=backup_reviewers,
+            end_date_time=end_date_time,
+            reviewers=reviewers,
+            start_date_time=start_date_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+             end_date_time: Optional[pulumi.Input[str]] = None,
+             reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+             start_date_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_reviewers is None and 'backupReviewers' in kwargs:
+            backup_reviewers = kwargs['backupReviewers']
+        if end_date_time is None and 'endDateTime' in kwargs:
+            end_date_time = kwargs['endDateTime']
+        if start_date_time is None and 'startDateTime' in kwargs:
+            start_date_time = kwargs['startDateTime']
+
         if backup_reviewers is not None:
-            pulumi.set(__self__, "backup_reviewers", backup_reviewers)
+            _setter("backup_reviewers", backup_reviewers)
         if end_date_time is not None:
-            pulumi.set(__self__, "end_date_time", end_date_time)
+            _setter("end_date_time", end_date_time)
         if reviewers is not None:
-            pulumi.set(__self__, "reviewers", reviewers)
+            _setter("reviewers", reviewers)
         if start_date_time is not None:
-            pulumi.set(__self__, "start_date_time", start_date_time)
+            _setter("start_date_time", start_date_time)
 
     @property
     @pulumi.getter(name="backupReviewers")
@@ -201,8 +255,21 @@ class AccessReviewReviewerArgs:
         Descriptor for what needs to be reviewed
         :param pulumi.Input[str] principal_id: The id of the reviewer(user/servicePrincipal)
         """
+        AccessReviewReviewerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -235,18 +302,51 @@ class AccessReviewScopeArgs:
         :param pulumi.Input[bool] include_access_below_resource: Flag to indicate whether to expand nested memberships or not.
         :param pulumi.Input[bool] include_inherited_access: Flag to indicate whether to expand nested memberships or not.
         """
+        AccessReviewScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exclude_resource_id=exclude_resource_id,
+            exclude_role_definition_id=exclude_role_definition_id,
+            expand_nested_memberships=expand_nested_memberships,
+            inactive_duration=inactive_duration,
+            include_access_below_resource=include_access_below_resource,
+            include_inherited_access=include_inherited_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exclude_resource_id: Optional[pulumi.Input[str]] = None,
+             exclude_role_definition_id: Optional[pulumi.Input[str]] = None,
+             expand_nested_memberships: Optional[pulumi.Input[bool]] = None,
+             inactive_duration: Optional[pulumi.Input[str]] = None,
+             include_access_below_resource: Optional[pulumi.Input[bool]] = None,
+             include_inherited_access: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_resource_id is None and 'excludeResourceId' in kwargs:
+            exclude_resource_id = kwargs['excludeResourceId']
+        if exclude_role_definition_id is None and 'excludeRoleDefinitionId' in kwargs:
+            exclude_role_definition_id = kwargs['excludeRoleDefinitionId']
+        if expand_nested_memberships is None and 'expandNestedMemberships' in kwargs:
+            expand_nested_memberships = kwargs['expandNestedMemberships']
+        if inactive_duration is None and 'inactiveDuration' in kwargs:
+            inactive_duration = kwargs['inactiveDuration']
+        if include_access_below_resource is None and 'includeAccessBelowResource' in kwargs:
+            include_access_below_resource = kwargs['includeAccessBelowResource']
+        if include_inherited_access is None and 'includeInheritedAccess' in kwargs:
+            include_inherited_access = kwargs['includeInheritedAccess']
+
         if exclude_resource_id is not None:
-            pulumi.set(__self__, "exclude_resource_id", exclude_resource_id)
+            _setter("exclude_resource_id", exclude_resource_id)
         if exclude_role_definition_id is not None:
-            pulumi.set(__self__, "exclude_role_definition_id", exclude_role_definition_id)
+            _setter("exclude_role_definition_id", exclude_role_definition_id)
         if expand_nested_memberships is not None:
-            pulumi.set(__self__, "expand_nested_memberships", expand_nested_memberships)
+            _setter("expand_nested_memberships", expand_nested_memberships)
         if inactive_duration is not None:
-            pulumi.set(__self__, "inactive_duration", inactive_duration)
+            _setter("inactive_duration", inactive_duration)
         if include_access_below_resource is not None:
-            pulumi.set(__self__, "include_access_below_resource", include_access_below_resource)
+            _setter("include_access_below_resource", include_access_below_resource)
         if include_inherited_access is not None:
-            pulumi.set(__self__, "include_inherited_access", include_inherited_access)
+            _setter("include_inherited_access", include_inherited_access)
 
     @property
     @pulumi.getter(name="excludeResourceId")

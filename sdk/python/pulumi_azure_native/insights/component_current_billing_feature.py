@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,41 @@ class ComponentCurrentBillingFeatureArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] current_billing_features: Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
         :param pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs'] data_volume_cap: An Application Insights component daily data volume cap
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        ComponentCurrentBillingFeatureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            current_billing_features=current_billing_features,
+            data_volume_cap=data_volume_cap,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             current_billing_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_volume_cap: Optional[pulumi.Input['ApplicationInsightsComponentDataVolumeCapArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if current_billing_features is None and 'currentBillingFeatures' in kwargs:
+            current_billing_features = kwargs['currentBillingFeatures']
+        if data_volume_cap is None and 'dataVolumeCap' in kwargs:
+            data_volume_cap = kwargs['dataVolumeCap']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if current_billing_features is not None:
-            pulumi.set(__self__, "current_billing_features", current_billing_features)
+            _setter("current_billing_features", current_billing_features)
         if data_volume_cap is not None:
-            pulumi.set(__self__, "data_volume_cap", data_volume_cap)
+            _setter("data_volume_cap", data_volume_cap)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -124,6 +153,10 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComponentCurrentBillingFeatureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -143,6 +176,7 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
             __props__ = ComponentCurrentBillingFeatureArgs.__new__(ComponentCurrentBillingFeatureArgs)
 
             __props__.__dict__["current_billing_features"] = current_billing_features
+            data_volume_cap = _utilities.configure(data_volume_cap, ApplicationInsightsComponentDataVolumeCapArgs, True)
             __props__.__dict__["data_volume_cap"] = data_volume_cap
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

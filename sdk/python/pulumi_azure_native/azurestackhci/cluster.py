@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,30 +46,89 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "type", type)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            type=type,
+            aad_application_object_id=aad_application_object_id,
+            aad_client_id=aad_client_id,
+            aad_service_principal_object_id=aad_service_principal_object_id,
+            aad_tenant_id=aad_tenant_id,
+            cloud_management_endpoint=cloud_management_endpoint,
+            cluster_name=cluster_name,
+            desired_properties=desired_properties,
+            location=location,
+            software_assurance_properties=software_assurance_properties,
+            tags=tags,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             aad_application_object_id: Optional[pulumi.Input[str]] = None,
+             aad_client_id: Optional[pulumi.Input[str]] = None,
+             aad_service_principal_object_id: Optional[pulumi.Input[str]] = None,
+             aad_tenant_id: Optional[pulumi.Input[str]] = None,
+             cloud_management_endpoint: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             desired_properties: Optional[pulumi.Input['ClusterDesiredPropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             software_assurance_properties: Optional[pulumi.Input['SoftwareAssurancePropertiesArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if aad_application_object_id is None and 'aadApplicationObjectId' in kwargs:
+            aad_application_object_id = kwargs['aadApplicationObjectId']
+        if aad_client_id is None and 'aadClientId' in kwargs:
+            aad_client_id = kwargs['aadClientId']
+        if aad_service_principal_object_id is None and 'aadServicePrincipalObjectId' in kwargs:
+            aad_service_principal_object_id = kwargs['aadServicePrincipalObjectId']
+        if aad_tenant_id is None and 'aadTenantId' in kwargs:
+            aad_tenant_id = kwargs['aadTenantId']
+        if cloud_management_endpoint is None and 'cloudManagementEndpoint' in kwargs:
+            cloud_management_endpoint = kwargs['cloudManagementEndpoint']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if desired_properties is None and 'desiredProperties' in kwargs:
+            desired_properties = kwargs['desiredProperties']
+        if software_assurance_properties is None and 'softwareAssuranceProperties' in kwargs:
+            software_assurance_properties = kwargs['softwareAssuranceProperties']
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("type", type)
         if aad_application_object_id is not None:
-            pulumi.set(__self__, "aad_application_object_id", aad_application_object_id)
+            _setter("aad_application_object_id", aad_application_object_id)
         if aad_client_id is not None:
-            pulumi.set(__self__, "aad_client_id", aad_client_id)
+            _setter("aad_client_id", aad_client_id)
         if aad_service_principal_object_id is not None:
-            pulumi.set(__self__, "aad_service_principal_object_id", aad_service_principal_object_id)
+            _setter("aad_service_principal_object_id", aad_service_principal_object_id)
         if aad_tenant_id is not None:
-            pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
+            _setter("aad_tenant_id", aad_tenant_id)
         if cloud_management_endpoint is not None:
-            pulumi.set(__self__, "cloud_management_endpoint", cloud_management_endpoint)
+            _setter("cloud_management_endpoint", cloud_management_endpoint)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if desired_properties is not None:
-            pulumi.set(__self__, "desired_properties", desired_properties)
+            _setter("desired_properties", desired_properties)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if software_assurance_properties is not None:
-            pulumi.set(__self__, "software_assurance_properties", software_assurance_properties)
+            _setter("software_assurance_properties", software_assurance_properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -291,6 +350,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -324,11 +387,13 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["aad_tenant_id"] = aad_tenant_id
             __props__.__dict__["cloud_management_endpoint"] = cloud_management_endpoint
             __props__.__dict__["cluster_name"] = cluster_name
+            desired_properties = _utilities.configure(desired_properties, ClusterDesiredPropertiesArgs, True)
             __props__.__dict__["desired_properties"] = desired_properties
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            software_assurance_properties = _utilities.configure(software_assurance_properties, SoftwareAssurancePropertiesArgs, True)
             __props__.__dict__["software_assurance_properties"] = software_assurance_properties
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:

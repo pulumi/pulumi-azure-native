@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,12 +46,29 @@ class ClusterByokEntityResponse(dict):
         :param str related: API URL for accessing or modifying the referred object
         :param str resource_name: CRN reference to the referred resource
         """
+        ClusterByokEntityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            related=related,
+            resource_name=resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             related: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if related is not None:
-            pulumi.set(__self__, "related", related)
+            _setter("related", related)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
 
     @property
     @pulumi.getter
@@ -89,8 +106,19 @@ class ClusterConfigEntityResponse(dict):
         The configuration of the Kafka cluster
         :param str kind: The lifecycle phase of the cluster
         """
+        ClusterConfigEntityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter
@@ -118,14 +146,33 @@ class ClusterEnvironmentEntityResponse(dict):
         :param str related: API URL for accessing or modifying the referred object
         :param str resource_name: CRN reference to the referred resource
         """
+        ClusterEnvironmentEntityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            id=id,
+            related=related,
+            resource_name=resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: Optional[str] = None,
+             id: Optional[str] = None,
+             related: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if related is not None:
-            pulumi.set(__self__, "related", related)
+            _setter("related", related)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
 
     @property
     @pulumi.getter
@@ -177,14 +224,33 @@ class ClusterNetworkEntityResponse(dict):
         :param str related: API URL for accessing or modifying the referred object
         :param str resource_name: CRN reference to the referred resource
         """
+        ClusterNetworkEntityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment=environment,
+            id=id,
+            related=related,
+            resource_name=resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment: Optional[str] = None,
+             id: Optional[str] = None,
+             related: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if related is not None:
-            pulumi.set(__self__, "related", related)
+            _setter("related", related)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
 
     @property
     @pulumi.getter
@@ -240,18 +306,41 @@ class ClusterRecordResponse(dict):
         :param 'ClusterSpecEntityResponse' spec: Specification of the cluster
         :param 'ClusterStatusEntityResponse' status: Specification of the cluster
         """
+        ClusterRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            id=id,
+            kind=kind,
+            metadata=metadata,
+            spec=spec,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             kind: Optional[str] = None,
+             metadata: Optional['outputs.MetadataEntityResponse'] = None,
+             spec: Optional['outputs.ClusterSpecEntityResponse'] = None,
+             status: Optional['outputs.ClusterStatusEntityResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if spec is not None:
-            pulumi.set(__self__, "spec", spec)
+            _setter("spec", spec)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="displayName")
@@ -335,30 +424,71 @@ class ClusterSpecEntityResponse(dict):
         :param str region: The cloud service provider region
         :param str zone: type of zone availability
         """
+        ClusterSpecEntityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_endpoint=api_endpoint,
+            availability=availability,
+            byok=byok,
+            cloud=cloud,
+            config=config,
+            display_name=display_name,
+            environment=environment,
+            http_endpoint=http_endpoint,
+            kafka_bootstrap_endpoint=kafka_bootstrap_endpoint,
+            network=network,
+            region=region,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_endpoint: Optional[str] = None,
+             availability: Optional[str] = None,
+             byok: Optional['outputs.ClusterByokEntityResponse'] = None,
+             cloud: Optional[str] = None,
+             config: Optional['outputs.ClusterConfigEntityResponse'] = None,
+             display_name: Optional[str] = None,
+             environment: Optional['outputs.ClusterEnvironmentEntityResponse'] = None,
+             http_endpoint: Optional[str] = None,
+             kafka_bootstrap_endpoint: Optional[str] = None,
+             network: Optional['outputs.ClusterNetworkEntityResponse'] = None,
+             region: Optional[str] = None,
+             zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_endpoint is None and 'apiEndpoint' in kwargs:
+            api_endpoint = kwargs['apiEndpoint']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if http_endpoint is None and 'httpEndpoint' in kwargs:
+            http_endpoint = kwargs['httpEndpoint']
+        if kafka_bootstrap_endpoint is None and 'kafkaBootstrapEndpoint' in kwargs:
+            kafka_bootstrap_endpoint = kwargs['kafkaBootstrapEndpoint']
+
         if api_endpoint is not None:
-            pulumi.set(__self__, "api_endpoint", api_endpoint)
+            _setter("api_endpoint", api_endpoint)
         if availability is not None:
-            pulumi.set(__self__, "availability", availability)
+            _setter("availability", availability)
         if byok is not None:
-            pulumi.set(__self__, "byok", byok)
+            _setter("byok", byok)
         if cloud is not None:
-            pulumi.set(__self__, "cloud", cloud)
+            _setter("cloud", cloud)
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if http_endpoint is not None:
-            pulumi.set(__self__, "http_endpoint", http_endpoint)
+            _setter("http_endpoint", http_endpoint)
         if kafka_bootstrap_endpoint is not None:
-            pulumi.set(__self__, "kafka_bootstrap_endpoint", kafka_bootstrap_endpoint)
+            _setter("kafka_bootstrap_endpoint", kafka_bootstrap_endpoint)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="apiEndpoint")
@@ -470,10 +600,23 @@ class ClusterStatusEntityResponse(dict):
         :param int cku: The number of Confluent Kafka Units 
         :param str phase: The lifecycle phase of the cluster
         """
+        ClusterStatusEntityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cku=cku,
+            phase=phase,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cku: Optional[int] = None,
+             phase: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if cku is not None:
-            pulumi.set(__self__, "cku", cku)
+            _setter("cku", cku)
         if phase is not None:
-            pulumi.set(__self__, "phase", phase)
+            _setter("phase", phase)
 
     @property
     @pulumi.getter
@@ -511,16 +654,37 @@ class ConfluentListMetadataResponse(dict):
         :param str prev: Previous page of the list
         :param int total_size: Total size of the list
         """
+        ConfluentListMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            first=first,
+            last=last,
+            next=next,
+            prev=prev,
+            total_size=total_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             first: Optional[str] = None,
+             last: Optional[str] = None,
+             next: Optional[str] = None,
+             prev: Optional[str] = None,
+             total_size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if total_size is None and 'totalSize' in kwargs:
+            total_size = kwargs['totalSize']
+
         if first is not None:
-            pulumi.set(__self__, "first", first)
+            _setter("first", first)
         if last is not None:
-            pulumi.set(__self__, "last", last)
+            _setter("last", last)
         if next is not None:
-            pulumi.set(__self__, "next", next)
+            _setter("next", next)
         if prev is not None:
-            pulumi.set(__self__, "prev", prev)
+            _setter("prev", prev)
         if total_size is not None:
-            pulumi.set(__self__, "total_size", total_size)
+            _setter("total_size", total_size)
 
     @property
     @pulumi.getter
@@ -580,14 +744,33 @@ class EnvironmentRecordResponse(dict):
         :param str kind: Type of environment
         :param 'MetadataEntityResponse' metadata: Metadata of the record
         """
+        EnvironmentRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            id=id,
+            kind=kind,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             kind: Optional[str] = None,
+             metadata: Optional['outputs.MetadataEntityResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="displayName")
@@ -647,22 +830,53 @@ class InvitationRecordResponse(dict):
         :param 'MetadataEntityResponse' metadata: Metadata of the record
         :param str status: Status of the invitation
         """
+        InvitationRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accepted_at=accepted_at,
+            auth_type=auth_type,
+            email=email,
+            expires_at=expires_at,
+            id=id,
+            kind=kind,
+            metadata=metadata,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accepted_at: Optional[str] = None,
+             auth_type: Optional[str] = None,
+             email: Optional[str] = None,
+             expires_at: Optional[str] = None,
+             id: Optional[str] = None,
+             kind: Optional[str] = None,
+             metadata: Optional['outputs.MetadataEntityResponse'] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accepted_at is None and 'acceptedAt' in kwargs:
+            accepted_at = kwargs['acceptedAt']
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if expires_at is None and 'expiresAt' in kwargs:
+            expires_at = kwargs['expiresAt']
+
         if accepted_at is not None:
-            pulumi.set(__self__, "accepted_at", accepted_at)
+            _setter("accepted_at", accepted_at)
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if expires_at is not None:
-            pulumi.set(__self__, "expires_at", expires_at)
+            _setter("expires_at", expires_at)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="acceptedAt")
@@ -748,16 +962,43 @@ class MetadataEntityResponse(dict):
         :param str self: Self lookup url
         :param str updated_at: Updated Date time
         """
+        MetadataEntityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            deleted_at=deleted_at,
+            resource_name=resource_name,
+            self=self,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             deleted_at: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             self: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if deleted_at is None and 'deletedAt' in kwargs:
+            deleted_at = kwargs['deletedAt']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if deleted_at is not None:
-            pulumi.set(__self__, "deleted_at", deleted_at)
+            _setter("deleted_at", deleted_at)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if self is not None:
-            pulumi.set(__self__, "self", self)
+            _setter("self", self)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -856,19 +1097,70 @@ class OfferDetailResponse(dict):
         :param str status: SaaS Offer Status
         :param str term_id: Offer Plan Term Id
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "plan_name", plan_name)
-        pulumi.set(__self__, "publisher_id", publisher_id)
-        pulumi.set(__self__, "term_unit", term_unit)
+        OfferDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            plan_id=plan_id,
+            plan_name=plan_name,
+            publisher_id=publisher_id,
+            term_unit=term_unit,
+            private_offer_id=private_offer_id,
+            private_offer_ids=private_offer_ids,
+            status=status,
+            term_id=term_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             plan_id: Optional[str] = None,
+             plan_name: Optional[str] = None,
+             publisher_id: Optional[str] = None,
+             term_unit: Optional[str] = None,
+             private_offer_id: Optional[str] = None,
+             private_offer_ids: Optional[Sequence[str]] = None,
+             status: Optional[str] = None,
+             term_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if plan_id is None:
+            raise TypeError("Missing 'plan_id' argument")
+        if plan_name is None and 'planName' in kwargs:
+            plan_name = kwargs['planName']
+        if plan_name is None:
+            raise TypeError("Missing 'plan_name' argument")
+        if publisher_id is None and 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if publisher_id is None:
+            raise TypeError("Missing 'publisher_id' argument")
+        if term_unit is None and 'termUnit' in kwargs:
+            term_unit = kwargs['termUnit']
+        if term_unit is None:
+            raise TypeError("Missing 'term_unit' argument")
+        if private_offer_id is None and 'privateOfferId' in kwargs:
+            private_offer_id = kwargs['privateOfferId']
+        if private_offer_ids is None and 'privateOfferIds' in kwargs:
+            private_offer_ids = kwargs['privateOfferIds']
+        if term_id is None and 'termId' in kwargs:
+            term_id = kwargs['termId']
+
+        _setter("id", id)
+        _setter("plan_id", plan_id)
+        _setter("plan_name", plan_name)
+        _setter("publisher_id", publisher_id)
+        _setter("term_unit", term_unit)
         if private_offer_id is not None:
-            pulumi.set(__self__, "private_offer_id", private_offer_id)
+            _setter("private_offer_id", private_offer_id)
         if private_offer_ids is not None:
-            pulumi.set(__self__, "private_offer_ids", private_offer_ids)
+            _setter("private_offer_ids", private_offer_ids)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if term_id is not None:
-            pulumi.set(__self__, "term_id", term_id)
+            _setter("term_id", term_id)
 
     @property
     @pulumi.getter
@@ -964,18 +1256,43 @@ class RoleBindingRecordResponse(dict):
         :param str principal: The principal User or Group to bind the role to
         :param str role_name: The name of the role to bind to the principal
         """
+        RoleBindingRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            crn_pattern=crn_pattern,
+            id=id,
+            kind=kind,
+            metadata=metadata,
+            principal=principal,
+            role_name=role_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             crn_pattern: Optional[str] = None,
+             id: Optional[str] = None,
+             kind: Optional[str] = None,
+             metadata: Optional['outputs.MetadataEntityResponse'] = None,
+             principal: Optional[str] = None,
+             role_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if crn_pattern is None and 'crnPattern' in kwargs:
+            crn_pattern = kwargs['crnPattern']
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
         if crn_pattern is not None:
-            pulumi.set(__self__, "crn_pattern", crn_pattern)
+            _setter("crn_pattern", crn_pattern)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if role_name is not None:
-            pulumi.set(__self__, "role_name", role_name)
+            _setter("role_name", role_name)
 
     @property
     @pulumi.getter(name="crnPattern")
@@ -1045,16 +1362,37 @@ class ServiceAccountRecordResponse(dict):
         :param str kind: Type of account
         :param 'MetadataEntityResponse' metadata: Metadata of the record
         """
+        ServiceAccountRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            id=id,
+            kind=kind,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             kind: Optional[str] = None,
+             metadata: Optional['outputs.MetadataEntityResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter
@@ -1145,18 +1483,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1251,15 +1622,46 @@ class UserDetailResponse(dict):
         :param str last_name: Last name
         :param str user_principal_name: User principal name
         """
-        pulumi.set(__self__, "email_address", email_address)
+        UserDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            aad_email=aad_email,
+            first_name=first_name,
+            last_name=last_name,
+            user_principal_name=user_principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[str] = None,
+             aad_email: Optional[str] = None,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             user_principal_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if aad_email is None and 'aadEmail' in kwargs:
+            aad_email = kwargs['aadEmail']
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if user_principal_name is None and 'userPrincipalName' in kwargs:
+            user_principal_name = kwargs['userPrincipalName']
+
+        _setter("email_address", email_address)
         if aad_email is not None:
-            pulumi.set(__self__, "aad_email", aad_email)
+            _setter("aad_email", aad_email)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if user_principal_name is not None:
-            pulumi.set(__self__, "user_principal_name", user_principal_name)
+            _setter("user_principal_name", user_principal_name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -1323,18 +1725,43 @@ class UserRecordResponse(dict):
         :param str kind: Type of account
         :param 'MetadataEntityResponse' metadata: Metadata of the record
         """
+        UserRecordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_type=auth_type,
+            email=email,
+            full_name=full_name,
+            id=id,
+            kind=kind,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_type: Optional[str] = None,
+             email: Optional[str] = None,
+             full_name: Optional[str] = None,
+             id: Optional[str] = None,
+             kind: Optional[str] = None,
+             metadata: Optional['outputs.MetadataEntityResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if full_name is None and 'fullName' in kwargs:
+            full_name = kwargs['fullName']
+
         if auth_type is not None:
-            pulumi.set(__self__, "auth_type", auth_type)
+            _setter("auth_type", auth_type)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if full_name is not None:
-            pulumi.set(__self__, "full_name", full_name)
+            _setter("full_name", full_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="authType")

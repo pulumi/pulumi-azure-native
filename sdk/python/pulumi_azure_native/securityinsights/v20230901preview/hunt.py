@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,28 +42,81 @@ class HuntArgs:
         :param pulumi.Input['HuntOwnerArgs'] owner: Describes a user that the hunt is assigned to
         :param pulumi.Input[Union[str, 'Status']] status: The status of the hunt.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        HuntArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            attack_tactics=attack_tactics,
+            attack_techniques=attack_techniques,
+            hunt_id=hunt_id,
+            hypothesis_status=hypothesis_status,
+            labels=labels,
+            owner=owner,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             attack_tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+             attack_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hunt_id: Optional[pulumi.Input[str]] = None,
+             hypothesis_status: Optional[pulumi.Input[Union[str, 'HypothesisStatus']]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             owner: Optional[pulumi.Input['HuntOwnerArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if attack_tactics is None and 'attackTactics' in kwargs:
+            attack_tactics = kwargs['attackTactics']
+        if attack_techniques is None and 'attackTechniques' in kwargs:
+            attack_techniques = kwargs['attackTechniques']
+        if hunt_id is None and 'huntId' in kwargs:
+            hunt_id = kwargs['huntId']
+        if hypothesis_status is None and 'hypothesisStatus' in kwargs:
+            hypothesis_status = kwargs['hypothesisStatus']
+
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if attack_tactics is not None:
-            pulumi.set(__self__, "attack_tactics", attack_tactics)
+            _setter("attack_tactics", attack_tactics)
         if attack_techniques is not None:
-            pulumi.set(__self__, "attack_techniques", attack_techniques)
+            _setter("attack_techniques", attack_techniques)
         if hunt_id is not None:
-            pulumi.set(__self__, "hunt_id", hunt_id)
+            _setter("hunt_id", hunt_id)
         if hypothesis_status is None:
             hypothesis_status = 'Unknown'
         if hypothesis_status is not None:
-            pulumi.set(__self__, "hypothesis_status", hypothesis_status)
+            _setter("hypothesis_status", hypothesis_status)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if status is None:
             status = 'New'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -251,6 +304,10 @@ class Hunt(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HuntArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -289,6 +346,7 @@ class Hunt(pulumi.CustomResource):
                 hypothesis_status = 'Unknown'
             __props__.__dict__["hypothesis_status"] = hypothesis_status
             __props__.__dict__["labels"] = labels
+            owner = _utilities.configure(owner, HuntOwnerArgs, True)
             __props__.__dict__["owner"] = owner
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

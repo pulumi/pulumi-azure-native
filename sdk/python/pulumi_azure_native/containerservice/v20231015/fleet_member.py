@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,13 +28,46 @@ class FleetMemberArgs:
         :param pulumi.Input[str] fleet_member_name: The name of the Fleet member resource.
         :param pulumi.Input[str] group: The group this member belongs to for multi-cluster update management.
         """
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        pulumi.set(__self__, "fleet_name", fleet_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FleetMemberArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_resource_id=cluster_resource_id,
+            fleet_name=fleet_name,
+            resource_group_name=resource_group_name,
+            fleet_member_name=fleet_member_name,
+            group=group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             fleet_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             fleet_member_name: Optional[pulumi.Input[str]] = None,
+             group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if cluster_resource_id is None:
+            raise TypeError("Missing 'cluster_resource_id' argument")
+        if fleet_name is None and 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if fleet_name is None:
+            raise TypeError("Missing 'fleet_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if fleet_member_name is None and 'fleetMemberName' in kwargs:
+            fleet_member_name = kwargs['fleetMemberName']
+
+        _setter("cluster_resource_id", cluster_resource_id)
+        _setter("fleet_name", fleet_name)
+        _setter("resource_group_name", resource_group_name)
         if fleet_member_name is not None:
-            pulumi.set(__self__, "fleet_member_name", fleet_member_name)
+            _setter("fleet_member_name", fleet_member_name)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
 
     @property
     @pulumi.getter(name="clusterResourceId")
@@ -138,6 +171,10 @@ class FleetMember(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FleetMemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

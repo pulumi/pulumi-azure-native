@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,53 @@ class ReplicationStorageClassificationMappingArgs:
         :param pulumi.Input['StorageMappingInputPropertiesArgs'] properties: Storage mapping input properties.
         :param pulumi.Input[str] storage_classification_mapping_name: Storage classification mapping name.
         """
-        pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "storage_classification_name", storage_classification_name)
+        ReplicationStorageClassificationMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_name=fabric_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            storage_classification_name=storage_classification_name,
+            properties=properties,
+            storage_classification_mapping_name=storage_classification_mapping_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             storage_classification_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['StorageMappingInputPropertiesArgs']] = None,
+             storage_classification_mapping_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fabric_name is None and 'fabricName' in kwargs:
+            fabric_name = kwargs['fabricName']
+        if fabric_name is None:
+            raise TypeError("Missing 'fabric_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if storage_classification_name is None and 'storageClassificationName' in kwargs:
+            storage_classification_name = kwargs['storageClassificationName']
+        if storage_classification_name is None:
+            raise TypeError("Missing 'storage_classification_name' argument")
+        if storage_classification_mapping_name is None and 'storageClassificationMappingName' in kwargs:
+            storage_classification_mapping_name = kwargs['storageClassificationMappingName']
+
+        _setter("fabric_name", fabric_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
+        _setter("storage_classification_name", storage_classification_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if storage_classification_mapping_name is not None:
-            pulumi.set(__self__, "storage_classification_mapping_name", storage_classification_mapping_name)
+            _setter("storage_classification_mapping_name", storage_classification_mapping_name)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -162,6 +201,10 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationStorageClassificationMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -185,6 +228,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
+            properties = _utilities.configure(properties, StorageMappingInputPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

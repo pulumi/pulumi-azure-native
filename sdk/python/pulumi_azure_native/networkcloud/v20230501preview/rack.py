@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,18 +37,71 @@ class RackArgs:
         :param pulumi.Input[str] rack_name: The name of the rack.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "availability_zone", availability_zone)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "rack_location", rack_location)
-        pulumi.set(__self__, "rack_serial_number", rack_serial_number)
-        pulumi.set(__self__, "rack_sku_id", rack_sku_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone=availability_zone,
+            extended_location=extended_location,
+            rack_location=rack_location,
+            rack_serial_number=rack_serial_number,
+            rack_sku_id=rack_sku_id,
+            resource_group_name=resource_group_name,
+            location=location,
+            rack_name=rack_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             rack_location: Optional[pulumi.Input[str]] = None,
+             rack_serial_number: Optional[pulumi.Input[str]] = None,
+             rack_sku_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             rack_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if extended_location is None:
+            raise TypeError("Missing 'extended_location' argument")
+        if rack_location is None and 'rackLocation' in kwargs:
+            rack_location = kwargs['rackLocation']
+        if rack_location is None:
+            raise TypeError("Missing 'rack_location' argument")
+        if rack_serial_number is None and 'rackSerialNumber' in kwargs:
+            rack_serial_number = kwargs['rackSerialNumber']
+        if rack_serial_number is None:
+            raise TypeError("Missing 'rack_serial_number' argument")
+        if rack_sku_id is None and 'rackSkuId' in kwargs:
+            rack_sku_id = kwargs['rackSkuId']
+        if rack_sku_id is None:
+            raise TypeError("Missing 'rack_sku_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rack_name is None and 'rackName' in kwargs:
+            rack_name = kwargs['rackName']
+
+        _setter("availability_zone", availability_zone)
+        _setter("extended_location", extended_location)
+        _setter("rack_location", rack_location)
+        _setter("rack_serial_number", rack_serial_number)
+        _setter("rack_sku_id", rack_sku_id)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if rack_name is not None:
-            pulumi.set(__self__, "rack_name", rack_name)
+            _setter("rack_name", rack_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -206,6 +259,10 @@ class Rack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -232,6 +289,7 @@ class Rack(pulumi.CustomResource):
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

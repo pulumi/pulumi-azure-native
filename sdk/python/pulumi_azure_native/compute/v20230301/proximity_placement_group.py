@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,56 @@ class ProximityPlacementGroupArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProximityPlacementGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            colocation_status=colocation_status,
+            intent=intent,
+            location=location,
+            proximity_placement_group_name=proximity_placement_group_name,
+            proximity_placement_group_type=proximity_placement_group_type,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             colocation_status: Optional[pulumi.Input['InstanceViewStatusArgs']] = None,
+             intent: Optional[pulumi.Input['ProximityPlacementGroupPropertiesIntentArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             proximity_placement_group_name: Optional[pulumi.Input[str]] = None,
+             proximity_placement_group_type: Optional[pulumi.Input[Union[str, 'ProximityPlacementGroupType']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if colocation_status is None and 'colocationStatus' in kwargs:
+            colocation_status = kwargs['colocationStatus']
+        if proximity_placement_group_name is None and 'proximityPlacementGroupName' in kwargs:
+            proximity_placement_group_name = kwargs['proximityPlacementGroupName']
+        if proximity_placement_group_type is None and 'proximityPlacementGroupType' in kwargs:
+            proximity_placement_group_type = kwargs['proximityPlacementGroupType']
+
+        _setter("resource_group_name", resource_group_name)
         if colocation_status is not None:
-            pulumi.set(__self__, "colocation_status", colocation_status)
+            _setter("colocation_status", colocation_status)
         if intent is not None:
-            pulumi.set(__self__, "intent", intent)
+            _setter("intent", intent)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if proximity_placement_group_name is not None:
-            pulumi.set(__self__, "proximity_placement_group_name", proximity_placement_group_name)
+            _setter("proximity_placement_group_name", proximity_placement_group_name)
         if proximity_placement_group_type is not None:
-            pulumi.set(__self__, "proximity_placement_group_type", proximity_placement_group_type)
+            _setter("proximity_placement_group_type", proximity_placement_group_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +231,10 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProximityPlacementGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,7 +257,9 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProximityPlacementGroupArgs.__new__(ProximityPlacementGroupArgs)
 
+            colocation_status = _utilities.configure(colocation_status, InstanceViewStatusArgs, True)
             __props__.__dict__["colocation_status"] = colocation_status
+            intent = _utilities.configure(intent, ProximityPlacementGroupPropertiesIntentArgs, True)
             __props__.__dict__["intent"] = intent
             __props__.__dict__["location"] = location
             __props__.__dict__["proximity_placement_group_name"] = proximity_placement_group_name

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -34,12 +34,51 @@ class AzureResourceResponse(dict):
         :param str subscription_id: The ID of the subscription this resource belongs to.
         :param str type: The type of this resource.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "subscription_display_name", subscription_display_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "type", type)
+        AzureResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            resource_group=resource_group,
+            subscription_display_name=subscription_display_name,
+            subscription_id=subscription_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             subscription_display_name: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if subscription_display_name is None and 'subscriptionDisplayName' in kwargs:
+            subscription_display_name = kwargs['subscriptionDisplayName']
+        if subscription_display_name is None:
+            raise TypeError("Missing 'subscription_display_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("resource_group", resource_group)
+        _setter("subscription_display_name", subscription_display_name)
+        _setter("subscription_id", subscription_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter

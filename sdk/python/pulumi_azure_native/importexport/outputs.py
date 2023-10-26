@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -66,12 +66,41 @@ class DeliveryPackageInformationResponse(dict):
         :param float drive_count: The number of drives included in the package.
         :param str ship_date: The date when the package is shipped.
         """
-        pulumi.set(__self__, "carrier_name", carrier_name)
-        pulumi.set(__self__, "tracking_number", tracking_number)
+        DeliveryPackageInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_name=carrier_name,
+            tracking_number=tracking_number,
+            drive_count=drive_count,
+            ship_date=ship_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_name: Optional[str] = None,
+             tracking_number: Optional[str] = None,
+             drive_count: Optional[float] = None,
+             ship_date: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if carrier_name is None and 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if carrier_name is None:
+            raise TypeError("Missing 'carrier_name' argument")
+        if tracking_number is None and 'trackingNumber' in kwargs:
+            tracking_number = kwargs['trackingNumber']
+        if tracking_number is None:
+            raise TypeError("Missing 'tracking_number' argument")
+        if drive_count is None and 'driveCount' in kwargs:
+            drive_count = kwargs['driveCount']
+        if ship_date is None and 'shipDate' in kwargs:
+            ship_date = kwargs['shipDate']
+
+        _setter("carrier_name", carrier_name)
+        _setter("tracking_number", tracking_number)
         if drive_count is not None:
-            pulumi.set(__self__, "drive_count", drive_count)
+            _setter("drive_count", drive_count)
         if ship_date is not None:
-            pulumi.set(__self__, "ship_date", ship_date)
+            _setter("ship_date", ship_date)
 
     @property
     @pulumi.getter(name="carrierName")
@@ -119,10 +148,27 @@ class DriveBitLockerKeyResponse(dict):
         :param str bit_locker_key: BitLocker recovery key or password
         :param str drive_id: Drive ID
         """
+        DriveBitLockerKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bit_locker_key=bit_locker_key,
+            drive_id=drive_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bit_locker_key: Optional[str] = None,
+             drive_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bit_locker_key is None and 'bitLockerKey' in kwargs:
+            bit_locker_key = kwargs['bitLockerKey']
+        if drive_id is None and 'driveId' in kwargs:
+            drive_id = kwargs['driveId']
+
         if bit_locker_key is not None:
-            pulumi.set(__self__, "bit_locker_key", bit_locker_key)
+            _setter("bit_locker_key", bit_locker_key)
         if drive_id is not None:
-            pulumi.set(__self__, "drive_id", drive_id)
+            _setter("drive_id", drive_id)
 
     @property
     @pulumi.getter(name="bitLockerKey")
@@ -211,32 +257,87 @@ class DriveStatusResponse(dict):
         :param str state: The drive's current state. 
         :param str verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation. 
         """
+        DriveStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bit_locker_key=bit_locker_key,
+            bytes_succeeded=bytes_succeeded,
+            copy_status=copy_status,
+            drive_header_hash=drive_header_hash,
+            drive_id=drive_id,
+            error_log_uri=error_log_uri,
+            manifest_file=manifest_file,
+            manifest_hash=manifest_hash,
+            manifest_uri=manifest_uri,
+            percent_complete=percent_complete,
+            state=state,
+            verbose_log_uri=verbose_log_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bit_locker_key: Optional[str] = None,
+             bytes_succeeded: Optional[float] = None,
+             copy_status: Optional[str] = None,
+             drive_header_hash: Optional[str] = None,
+             drive_id: Optional[str] = None,
+             error_log_uri: Optional[str] = None,
+             manifest_file: Optional[str] = None,
+             manifest_hash: Optional[str] = None,
+             manifest_uri: Optional[str] = None,
+             percent_complete: Optional[float] = None,
+             state: Optional[str] = None,
+             verbose_log_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bit_locker_key is None and 'bitLockerKey' in kwargs:
+            bit_locker_key = kwargs['bitLockerKey']
+        if bytes_succeeded is None and 'bytesSucceeded' in kwargs:
+            bytes_succeeded = kwargs['bytesSucceeded']
+        if copy_status is None and 'copyStatus' in kwargs:
+            copy_status = kwargs['copyStatus']
+        if drive_header_hash is None and 'driveHeaderHash' in kwargs:
+            drive_header_hash = kwargs['driveHeaderHash']
+        if drive_id is None and 'driveId' in kwargs:
+            drive_id = kwargs['driveId']
+        if error_log_uri is None and 'errorLogUri' in kwargs:
+            error_log_uri = kwargs['errorLogUri']
+        if manifest_file is None and 'manifestFile' in kwargs:
+            manifest_file = kwargs['manifestFile']
+        if manifest_hash is None and 'manifestHash' in kwargs:
+            manifest_hash = kwargs['manifestHash']
+        if manifest_uri is None and 'manifestUri' in kwargs:
+            manifest_uri = kwargs['manifestUri']
+        if percent_complete is None and 'percentComplete' in kwargs:
+            percent_complete = kwargs['percentComplete']
+        if verbose_log_uri is None and 'verboseLogUri' in kwargs:
+            verbose_log_uri = kwargs['verboseLogUri']
+
         if bit_locker_key is not None:
-            pulumi.set(__self__, "bit_locker_key", bit_locker_key)
+            _setter("bit_locker_key", bit_locker_key)
         if bytes_succeeded is not None:
-            pulumi.set(__self__, "bytes_succeeded", bytes_succeeded)
+            _setter("bytes_succeeded", bytes_succeeded)
         if copy_status is not None:
-            pulumi.set(__self__, "copy_status", copy_status)
+            _setter("copy_status", copy_status)
         if drive_header_hash is not None:
-            pulumi.set(__self__, "drive_header_hash", drive_header_hash)
+            _setter("drive_header_hash", drive_header_hash)
         if drive_id is not None:
-            pulumi.set(__self__, "drive_id", drive_id)
+            _setter("drive_id", drive_id)
         if error_log_uri is not None:
-            pulumi.set(__self__, "error_log_uri", error_log_uri)
+            _setter("error_log_uri", error_log_uri)
         if manifest_file is not None:
-            pulumi.set(__self__, "manifest_file", manifest_file)
+            _setter("manifest_file", manifest_file)
         if manifest_hash is not None:
-            pulumi.set(__self__, "manifest_hash", manifest_hash)
+            _setter("manifest_hash", manifest_hash)
         if manifest_uri is not None:
-            pulumi.set(__self__, "manifest_uri", manifest_uri)
+            _setter("manifest_uri", manifest_uri)
         if percent_complete is not None:
-            pulumi.set(__self__, "percent_complete", percent_complete)
+            _setter("percent_complete", percent_complete)
         if state is None:
             state = 'Specified'
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if verbose_log_uri is not None:
-            pulumi.set(__self__, "verbose_log_uri", verbose_log_uri)
+            _setter("verbose_log_uri", verbose_log_uri)
 
     @property
     @pulumi.getter(name="bitLockerKey")
@@ -371,14 +472,35 @@ class EncryptionKeyDetailsResponse(dict):
         :param str kek_url: Specifies the url for kek encryption key. 
         :param str kek_vault_resource_id: Specifies the keyvault resource id for kek encryption key. 
         """
+        EncryptionKeyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kek_type=kek_type,
+            kek_url=kek_url,
+            kek_vault_resource_id=kek_vault_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kek_type: Optional[str] = None,
+             kek_url: Optional[str] = None,
+             kek_vault_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kek_type is None and 'kekType' in kwargs:
+            kek_type = kwargs['kekType']
+        if kek_url is None and 'kekUrl' in kwargs:
+            kek_url = kwargs['kekUrl']
+        if kek_vault_resource_id is None and 'kekVaultResourceID' in kwargs:
+            kek_vault_resource_id = kwargs['kekVaultResourceID']
+
         if kek_type is None:
             kek_type = 'MicrosoftManaged'
         if kek_type is not None:
-            pulumi.set(__self__, "kek_type", kek_type)
+            _setter("kek_type", kek_type)
         if kek_url is not None:
-            pulumi.set(__self__, "kek_url", kek_url)
+            _setter("kek_url", kek_url)
         if kek_vault_resource_id is not None:
-            pulumi.set(__self__, "kek_vault_resource_id", kek_vault_resource_id)
+            _setter("kek_vault_resource_id", kek_vault_resource_id)
 
     @property
     @pulumi.getter(name="kekType")
@@ -441,12 +563,33 @@ class ExportResponse(dict):
         :param Sequence[str] blob_path: A collection of blob-path strings.
         :param Sequence[str] blob_path_prefix: A collection of blob-prefix strings.
         """
+        ExportResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_list_blob_path=blob_list_blob_path,
+            blob_path=blob_path,
+            blob_path_prefix=blob_path_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_list_blob_path: Optional[str] = None,
+             blob_path: Optional[Sequence[str]] = None,
+             blob_path_prefix: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blob_list_blob_path is None and 'blobListBlobPath' in kwargs:
+            blob_list_blob_path = kwargs['blobListBlobPath']
+        if blob_path is None and 'blobPath' in kwargs:
+            blob_path = kwargs['blobPath']
+        if blob_path_prefix is None and 'blobPathPrefix' in kwargs:
+            blob_path_prefix = kwargs['blobPathPrefix']
+
         if blob_list_blob_path is not None:
-            pulumi.set(__self__, "blob_list_blob_path", blob_list_blob_path)
+            _setter("blob_list_blob_path", blob_list_blob_path)
         if blob_path is not None:
-            pulumi.set(__self__, "blob_path", blob_path)
+            _setter("blob_path", blob_path)
         if blob_path_prefix is not None:
-            pulumi.set(__self__, "blob_path_prefix", blob_path_prefix)
+            _setter("blob_path_prefix", blob_path_prefix)
 
     @property
     @pulumi.getter(name="blobListBlobPath")
@@ -507,12 +650,35 @@ class IdentityDetailsResponse(dict):
         :param str tenant_id: Specifies the tenant id for the identity for the job. 
         :param str type: The type of identity
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is None:
             type = 'None'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -631,48 +797,125 @@ class JobDetailsResponse(dict):
         :param str state: Current state of the job.
         :param str storage_account_id: The resource identifier of the storage account where data will be imported to or exported from.
         """
+        JobDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_drive_manifest=backup_drive_manifest,
+            cancel_requested=cancel_requested,
+            delivery_package=delivery_package,
+            diagnostics_path=diagnostics_path,
+            drive_list=drive_list,
+            encryption_key=encryption_key,
+            export=export,
+            incomplete_blob_list_uri=incomplete_blob_list_uri,
+            job_type=job_type,
+            log_level=log_level,
+            percent_complete=percent_complete,
+            provisioning_state=provisioning_state,
+            return_address=return_address,
+            return_package=return_package,
+            return_shipping=return_shipping,
+            shipping_information=shipping_information,
+            state=state,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_drive_manifest: Optional[bool] = None,
+             cancel_requested: Optional[bool] = None,
+             delivery_package: Optional['outputs.DeliveryPackageInformationResponse'] = None,
+             diagnostics_path: Optional[str] = None,
+             drive_list: Optional[Sequence['outputs.DriveStatusResponse']] = None,
+             encryption_key: Optional['outputs.EncryptionKeyDetailsResponse'] = None,
+             export: Optional['outputs.ExportResponse'] = None,
+             incomplete_blob_list_uri: Optional[str] = None,
+             job_type: Optional[str] = None,
+             log_level: Optional[str] = None,
+             percent_complete: Optional[float] = None,
+             provisioning_state: Optional[str] = None,
+             return_address: Optional['outputs.ReturnAddressResponse'] = None,
+             return_package: Optional['outputs.PackageInformationResponse'] = None,
+             return_shipping: Optional['outputs.ReturnShippingResponse'] = None,
+             shipping_information: Optional['outputs.ShippingInformationResponse'] = None,
+             state: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_drive_manifest is None and 'backupDriveManifest' in kwargs:
+            backup_drive_manifest = kwargs['backupDriveManifest']
+        if cancel_requested is None and 'cancelRequested' in kwargs:
+            cancel_requested = kwargs['cancelRequested']
+        if delivery_package is None and 'deliveryPackage' in kwargs:
+            delivery_package = kwargs['deliveryPackage']
+        if diagnostics_path is None and 'diagnosticsPath' in kwargs:
+            diagnostics_path = kwargs['diagnosticsPath']
+        if drive_list is None and 'driveList' in kwargs:
+            drive_list = kwargs['driveList']
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if incomplete_blob_list_uri is None and 'incompleteBlobListUri' in kwargs:
+            incomplete_blob_list_uri = kwargs['incompleteBlobListUri']
+        if job_type is None and 'jobType' in kwargs:
+            job_type = kwargs['jobType']
+        if log_level is None and 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if percent_complete is None and 'percentComplete' in kwargs:
+            percent_complete = kwargs['percentComplete']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if return_address is None and 'returnAddress' in kwargs:
+            return_address = kwargs['returnAddress']
+        if return_package is None and 'returnPackage' in kwargs:
+            return_package = kwargs['returnPackage']
+        if return_shipping is None and 'returnShipping' in kwargs:
+            return_shipping = kwargs['returnShipping']
+        if shipping_information is None and 'shippingInformation' in kwargs:
+            shipping_information = kwargs['shippingInformation']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if backup_drive_manifest is None:
             backup_drive_manifest = False
         if backup_drive_manifest is not None:
-            pulumi.set(__self__, "backup_drive_manifest", backup_drive_manifest)
+            _setter("backup_drive_manifest", backup_drive_manifest)
         if cancel_requested is None:
             cancel_requested = False
         if cancel_requested is not None:
-            pulumi.set(__self__, "cancel_requested", cancel_requested)
+            _setter("cancel_requested", cancel_requested)
         if delivery_package is not None:
-            pulumi.set(__self__, "delivery_package", delivery_package)
+            _setter("delivery_package", delivery_package)
         if diagnostics_path is not None:
-            pulumi.set(__self__, "diagnostics_path", diagnostics_path)
+            _setter("diagnostics_path", diagnostics_path)
         if drive_list is not None:
-            pulumi.set(__self__, "drive_list", drive_list)
+            _setter("drive_list", drive_list)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if export is not None:
-            pulumi.set(__self__, "export", export)
+            _setter("export", export)
         if incomplete_blob_list_uri is not None:
-            pulumi.set(__self__, "incomplete_blob_list_uri", incomplete_blob_list_uri)
+            _setter("incomplete_blob_list_uri", incomplete_blob_list_uri)
         if job_type is not None:
-            pulumi.set(__self__, "job_type", job_type)
+            _setter("job_type", job_type)
         if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
+            _setter("log_level", log_level)
         if percent_complete is not None:
-            pulumi.set(__self__, "percent_complete", percent_complete)
+            _setter("percent_complete", percent_complete)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if return_address is not None:
-            pulumi.set(__self__, "return_address", return_address)
+            _setter("return_address", return_address)
         if return_package is not None:
-            pulumi.set(__self__, "return_package", return_package)
+            _setter("return_package", return_package)
         if return_shipping is not None:
-            pulumi.set(__self__, "return_shipping", return_shipping)
+            _setter("return_shipping", return_shipping)
         if shipping_information is not None:
-            pulumi.set(__self__, "shipping_information", shipping_information)
+            _setter("shipping_information", shipping_information)
         if state is None:
             state = 'Creating'
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="backupDriveManifest")
@@ -859,10 +1102,43 @@ class PackageInformationResponse(dict):
         :param str ship_date: The date when the package is shipped.
         :param str tracking_number: The tracking number of the package.
         """
-        pulumi.set(__self__, "carrier_name", carrier_name)
-        pulumi.set(__self__, "drive_count", drive_count)
-        pulumi.set(__self__, "ship_date", ship_date)
-        pulumi.set(__self__, "tracking_number", tracking_number)
+        PackageInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_name=carrier_name,
+            drive_count=drive_count,
+            ship_date=ship_date,
+            tracking_number=tracking_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_name: Optional[str] = None,
+             drive_count: Optional[float] = None,
+             ship_date: Optional[str] = None,
+             tracking_number: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if carrier_name is None and 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if carrier_name is None:
+            raise TypeError("Missing 'carrier_name' argument")
+        if drive_count is None and 'driveCount' in kwargs:
+            drive_count = kwargs['driveCount']
+        if drive_count is None:
+            raise TypeError("Missing 'drive_count' argument")
+        if ship_date is None and 'shipDate' in kwargs:
+            ship_date = kwargs['shipDate']
+        if ship_date is None:
+            raise TypeError("Missing 'ship_date' argument")
+        if tracking_number is None and 'trackingNumber' in kwargs:
+            tracking_number = kwargs['trackingNumber']
+        if tracking_number is None:
+            raise TypeError("Missing 'tracking_number' argument")
+
+        _setter("carrier_name", carrier_name)
+        _setter("drive_count", drive_count)
+        _setter("ship_date", ship_date)
+        _setter("tracking_number", tracking_number)
 
     @property
     @pulumi.getter(name="carrierName")
@@ -951,17 +1227,70 @@ class ReturnAddressResponse(dict):
         :param str state_or_province: The state or province to use when returning the drives.
         :param str street_address2: The second line of the street address to use when returning the drives. 
         """
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country_or_region", country_or_region)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "phone", phone)
-        pulumi.set(__self__, "postal_code", postal_code)
-        pulumi.set(__self__, "recipient_name", recipient_name)
-        pulumi.set(__self__, "street_address1", street_address1)
+        ReturnAddressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            city=city,
+            country_or_region=country_or_region,
+            email=email,
+            phone=phone,
+            postal_code=postal_code,
+            recipient_name=recipient_name,
+            street_address1=street_address1,
+            state_or_province=state_or_province,
+            street_address2=street_address2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             city: Optional[str] = None,
+             country_or_region: Optional[str] = None,
+             email: Optional[str] = None,
+             phone: Optional[str] = None,
+             postal_code: Optional[str] = None,
+             recipient_name: Optional[str] = None,
+             street_address1: Optional[str] = None,
+             state_or_province: Optional[str] = None,
+             street_address2: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if city is None:
+            raise TypeError("Missing 'city' argument")
+        if country_or_region is None and 'countryOrRegion' in kwargs:
+            country_or_region = kwargs['countryOrRegion']
+        if country_or_region is None:
+            raise TypeError("Missing 'country_or_region' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if phone is None:
+            raise TypeError("Missing 'phone' argument")
+        if postal_code is None and 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if postal_code is None:
+            raise TypeError("Missing 'postal_code' argument")
+        if recipient_name is None and 'recipientName' in kwargs:
+            recipient_name = kwargs['recipientName']
+        if recipient_name is None:
+            raise TypeError("Missing 'recipient_name' argument")
+        if street_address1 is None and 'streetAddress1' in kwargs:
+            street_address1 = kwargs['streetAddress1']
+        if street_address1 is None:
+            raise TypeError("Missing 'street_address1' argument")
+        if state_or_province is None and 'stateOrProvince' in kwargs:
+            state_or_province = kwargs['stateOrProvince']
+        if street_address2 is None and 'streetAddress2' in kwargs:
+            street_address2 = kwargs['streetAddress2']
+
+        _setter("city", city)
+        _setter("country_or_region", country_or_region)
+        _setter("email", email)
+        _setter("phone", phone)
+        _setter("postal_code", postal_code)
+        _setter("recipient_name", recipient_name)
+        _setter("street_address1", street_address1)
         if state_or_province is not None:
-            pulumi.set(__self__, "state_or_province", state_or_province)
+            _setter("state_or_province", state_or_province)
         if street_address2 is not None:
-            pulumi.set(__self__, "street_address2", street_address2)
+            _setter("street_address2", street_address2)
 
     @property
     @pulumi.getter
@@ -1068,8 +1397,29 @@ class ReturnShippingResponse(dict):
         :param str carrier_account_number: The customer's account number with the carrier.
         :param str carrier_name: The carrier's name.
         """
-        pulumi.set(__self__, "carrier_account_number", carrier_account_number)
-        pulumi.set(__self__, "carrier_name", carrier_name)
+        ReturnShippingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_account_number=carrier_account_number,
+            carrier_name=carrier_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_account_number: Optional[str] = None,
+             carrier_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if carrier_account_number is None and 'carrierAccountNumber' in kwargs:
+            carrier_account_number = kwargs['carrierAccountNumber']
+        if carrier_account_number is None:
+            raise TypeError("Missing 'carrier_account_number' argument")
+        if carrier_name is None and 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if carrier_name is None:
+            raise TypeError("Missing 'carrier_name' argument")
+
+        _setter("carrier_account_number", carrier_account_number)
+        _setter("carrier_name", carrier_name)
 
     @property
     @pulumi.getter(name="carrierAccountNumber")
@@ -1144,23 +1494,66 @@ class ShippingInformationResponse(dict):
         :param str street_address1: The first line of the street address to use when returning the drives. 
         :param str street_address2: The second line of the street address to use when returning the drives. 
         """
-        pulumi.set(__self__, "additional_information", additional_information)
+        ShippingInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_information=additional_information,
+            city=city,
+            country_or_region=country_or_region,
+            phone=phone,
+            postal_code=postal_code,
+            recipient_name=recipient_name,
+            state_or_province=state_or_province,
+            street_address1=street_address1,
+            street_address2=street_address2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_information: Optional[str] = None,
+             city: Optional[str] = None,
+             country_or_region: Optional[str] = None,
+             phone: Optional[str] = None,
+             postal_code: Optional[str] = None,
+             recipient_name: Optional[str] = None,
+             state_or_province: Optional[str] = None,
+             street_address1: Optional[str] = None,
+             street_address2: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_information is None and 'additionalInformation' in kwargs:
+            additional_information = kwargs['additionalInformation']
+        if additional_information is None:
+            raise TypeError("Missing 'additional_information' argument")
+        if country_or_region is None and 'countryOrRegion' in kwargs:
+            country_or_region = kwargs['countryOrRegion']
+        if postal_code is None and 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+        if recipient_name is None and 'recipientName' in kwargs:
+            recipient_name = kwargs['recipientName']
+        if state_or_province is None and 'stateOrProvince' in kwargs:
+            state_or_province = kwargs['stateOrProvince']
+        if street_address1 is None and 'streetAddress1' in kwargs:
+            street_address1 = kwargs['streetAddress1']
+        if street_address2 is None and 'streetAddress2' in kwargs:
+            street_address2 = kwargs['streetAddress2']
+
+        _setter("additional_information", additional_information)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if country_or_region is not None:
-            pulumi.set(__self__, "country_or_region", country_or_region)
+            _setter("country_or_region", country_or_region)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
         if postal_code is not None:
-            pulumi.set(__self__, "postal_code", postal_code)
+            _setter("postal_code", postal_code)
         if recipient_name is not None:
-            pulumi.set(__self__, "recipient_name", recipient_name)
+            _setter("recipient_name", recipient_name)
         if state_or_province is not None:
-            pulumi.set(__self__, "state_or_province", state_or_province)
+            _setter("state_or_province", state_or_province)
         if street_address1 is not None:
-            pulumi.set(__self__, "street_address1", street_address1)
+            _setter("street_address1", street_address1)
         if street_address2 is not None:
-            pulumi.set(__self__, "street_address2", street_address2)
+            _setter("street_address2", street_address2)
 
     @property
     @pulumi.getter(name="additionalInformation")
@@ -1283,18 +1676,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

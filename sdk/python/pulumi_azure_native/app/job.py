@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,60 @@ class JobArgs:
         :param pulumi.Input['JobTemplateArgs'] template: Container Apps job definition.
         :param pulumi.Input[str] workload_profile_name: Workload profile name to pin for container apps job execution.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        JobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            configuration=configuration,
+            environment_id=environment_id,
+            identity=identity,
+            job_name=job_name,
+            location=location,
+            tags=tags,
+            template=template,
+            workload_profile_name=workload_profile_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input['JobConfigurationArgs']] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             job_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template: Optional[pulumi.Input['JobTemplateArgs']] = None,
+             workload_profile_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if workload_profile_name is None and 'workloadProfileName' in kwargs:
+            workload_profile_name = kwargs['workloadProfileName']
+
+        _setter("resource_group_name", resource_group_name)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
+            _setter("job_name", job_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if workload_profile_name is not None:
-            pulumi.set(__self__, "workload_profile_name", workload_profile_name)
+            _setter("workload_profile_name", workload_profile_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -220,6 +257,10 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -243,8 +284,10 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobArgs.__new__(JobArgs)
 
+            configuration = _utilities.configure(configuration, JobConfigurationArgs, True)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["environment_id"] = environment_id
+            identity = _utilities.configure(identity, ManagedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["location"] = location
@@ -252,6 +295,7 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            template = _utilities.configure(template, JobTemplateArgs, True)
             __props__.__dict__["template"] = template
             __props__.__dict__["workload_profile_name"] = workload_profile_name
             __props__.__dict__["event_stream_endpoint"] = None

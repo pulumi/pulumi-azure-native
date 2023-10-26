@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,56 @@ class PacketCoreDataPlaneArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_plane_access_virtual_ipv4_addresses: The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
         """
-        pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_plane_access_interface", user_plane_access_interface)
+        PacketCoreDataPlaneArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            packet_core_control_plane_name=packet_core_control_plane_name,
+            resource_group_name=resource_group_name,
+            user_plane_access_interface=user_plane_access_interface,
+            location=location,
+            packet_core_data_plane_name=packet_core_data_plane_name,
+            tags=tags,
+            user_plane_access_virtual_ipv4_addresses=user_plane_access_virtual_ipv4_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user_plane_access_interface: Optional[pulumi.Input['InterfacePropertiesArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_plane_access_virtual_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if packet_core_control_plane_name is None and 'packetCoreControlPlaneName' in kwargs:
+            packet_core_control_plane_name = kwargs['packetCoreControlPlaneName']
+        if packet_core_control_plane_name is None:
+            raise TypeError("Missing 'packet_core_control_plane_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user_plane_access_interface is None and 'userPlaneAccessInterface' in kwargs:
+            user_plane_access_interface = kwargs['userPlaneAccessInterface']
+        if user_plane_access_interface is None:
+            raise TypeError("Missing 'user_plane_access_interface' argument")
+        if packet_core_data_plane_name is None and 'packetCoreDataPlaneName' in kwargs:
+            packet_core_data_plane_name = kwargs['packetCoreDataPlaneName']
+        if user_plane_access_virtual_ipv4_addresses is None and 'userPlaneAccessVirtualIpv4Addresses' in kwargs:
+            user_plane_access_virtual_ipv4_addresses = kwargs['userPlaneAccessVirtualIpv4Addresses']
+
+        _setter("packet_core_control_plane_name", packet_core_control_plane_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_plane_access_interface", user_plane_access_interface)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if packet_core_data_plane_name is not None:
-            pulumi.set(__self__, "packet_core_data_plane_name", packet_core_data_plane_name)
+            _setter("packet_core_data_plane_name", packet_core_data_plane_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_plane_access_virtual_ipv4_addresses is not None:
-            pulumi.set(__self__, "user_plane_access_virtual_ipv4_addresses", user_plane_access_virtual_ipv4_addresses)
+            _setter("user_plane_access_virtual_ipv4_addresses", user_plane_access_virtual_ipv4_addresses)
 
     @property
     @pulumi.getter(name="packetCoreControlPlaneName")
@@ -175,6 +214,10 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PacketCoreDataPlaneArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -205,6 +248,7 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            user_plane_access_interface = _utilities.configure(user_plane_access_interface, InterfacePropertiesArgs, True)
             if user_plane_access_interface is None and not opts.urn:
                 raise TypeError("Missing required property 'user_plane_access_interface'")
             __props__.__dict__["user_plane_access_interface"] = user_plane_access_interface

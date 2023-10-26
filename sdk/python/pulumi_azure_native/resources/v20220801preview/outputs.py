@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -63,13 +63,38 @@ class DenySettingsResponse(dict):
         :param Sequence[str] excluded_actions: List of role-based management operations that are excluded from the denySettings. Up to 200 actions are permitted. If the denySetting mode is set to 'denyWriteAndDelete', then the following actions are automatically appended to 'excludedActions': '*/read' and 'Microsoft.Authorization/locks/delete'. If the denySetting mode is set to 'denyDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will be removed.
         :param Sequence[str] excluded_principals: List of AAD principal IDs excluded from the lock. Up to 5 principals are permitted.
         """
-        pulumi.set(__self__, "mode", mode)
+        DenySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            apply_to_child_scopes=apply_to_child_scopes,
+            excluded_actions=excluded_actions,
+            excluded_principals=excluded_principals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[str] = None,
+             apply_to_child_scopes: Optional[bool] = None,
+             excluded_actions: Optional[Sequence[str]] = None,
+             excluded_principals: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if apply_to_child_scopes is None and 'applyToChildScopes' in kwargs:
+            apply_to_child_scopes = kwargs['applyToChildScopes']
+        if excluded_actions is None and 'excludedActions' in kwargs:
+            excluded_actions = kwargs['excludedActions']
+        if excluded_principals is None and 'excludedPrincipals' in kwargs:
+            excluded_principals = kwargs['excludedPrincipals']
+
+        _setter("mode", mode)
         if apply_to_child_scopes is not None:
-            pulumi.set(__self__, "apply_to_child_scopes", apply_to_child_scopes)
+            _setter("apply_to_child_scopes", apply_to_child_scopes)
         if excluded_actions is not None:
-            pulumi.set(__self__, "excluded_actions", excluded_actions)
+            _setter("excluded_actions", excluded_actions)
         if excluded_principals is not None:
-            pulumi.set(__self__, "excluded_principals", excluded_principals)
+            _setter("excluded_principals", excluded_principals)
 
     @property
     @pulumi.getter
@@ -138,11 +163,32 @@ class DeploymentStackPropertiesResponseActionOnUnmanage(dict):
         :param str management_groups: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         :param str resource_groups: Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
         """
-        pulumi.set(__self__, "resources", resources)
+        DeploymentStackPropertiesResponseActionOnUnmanage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resources=resources,
+            management_groups=management_groups,
+            resource_groups=resource_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resources: Optional[str] = None,
+             management_groups: Optional[str] = None,
+             resource_groups: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resources is None:
+            raise TypeError("Missing 'resources' argument")
+        if management_groups is None and 'managementGroups' in kwargs:
+            management_groups = kwargs['managementGroups']
+        if resource_groups is None and 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+
+        _setter("resources", resources)
         if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
+            _setter("management_groups", management_groups)
         if resource_groups is not None:
-            pulumi.set(__self__, "resource_groups", resource_groups)
+            _setter("resource_groups", resource_groups)
 
     @property
     @pulumi.getter
@@ -197,8 +243,21 @@ class DeploymentStacksDebugSettingResponse(dict):
         The debug setting.
         :param str detail_level: Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information that is being passed in during deployment. By logging information about the request or response, sensitive data that is retrieved through the deployment operations could potentially be exposed.
         """
+        DeploymentStacksDebugSettingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            detail_level=detail_level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             detail_level: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detail_level is None and 'detailLevel' in kwargs:
+            detail_level = kwargs['detailLevel']
+
         if detail_level is not None:
-            pulumi.set(__self__, "detail_level", detail_level)
+            _setter("detail_level", detail_level)
 
     @property
     @pulumi.getter(name="detailLevel")
@@ -239,9 +298,26 @@ class DeploymentStacksParametersLinkResponse(dict):
         :param str uri: The URI of the parameters file.
         :param str content_version: If included, must match the ContentVersion in the template.
         """
-        pulumi.set(__self__, "uri", uri)
+        DeploymentStacksParametersLinkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+            content_version=content_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[str] = None,
+             content_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if content_version is None and 'contentVersion' in kwargs:
+            content_version = kwargs['contentVersion']
+
+        _setter("uri", uri)
         if content_version is not None:
-            pulumi.set(__self__, "content_version", content_version)
+            _setter("content_version", content_version)
 
     @property
     @pulumi.getter
@@ -273,8 +349,25 @@ class ErrorAdditionalInfoResponse(dict):
         :param Any info: The additional info.
         :param str type: The additional info type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        ErrorAdditionalInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Optional[Any] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if info is None:
+            raise TypeError("Missing 'info' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -329,11 +422,42 @@ class ErrorDetailResponse(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Optional[Sequence['outputs.ErrorAdditionalInfoResponse']] = None,
+             code: Optional[str] = None,
+             details: Optional[Sequence['outputs.ErrorDetailResponse']] = None,
+             message: Optional[str] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_info is None and 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+        if additional_info is None:
+            raise TypeError("Missing 'additional_info' argument")
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if details is None:
+            raise TypeError("Missing 'details' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -387,8 +511,19 @@ class ErrorResponseResponse(dict):
         Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
         :param 'ErrorDetailResponse' error: The error object.
         """
+        ErrorResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ErrorDetailResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
 
     @property
     @pulumi.getter
@@ -431,15 +566,34 @@ class ManagedResourceReferenceResponse(dict):
         :param str deny_status: denyAssignment settings applied to the resource.
         :param str status: Current management state of the resource in the deployment stack.
         """
-        pulumi.set(__self__, "id", id)
+        ManagedResourceReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            deny_status=deny_status,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             deny_status: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if deny_status is None and 'denyStatus' in kwargs:
+            deny_status = kwargs['denyStatus']
+
+        _setter("id", id)
         if deny_status is None:
             deny_status = 'None'
         if deny_status is not None:
-            pulumi.set(__self__, "deny_status", deny_status)
+            _setter("deny_status", deny_status)
         if status is None:
             status = 'None'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -479,9 +633,24 @@ class ResourceReferenceExtendedResponse(dict):
         :param str id: The resourceId of a resource managed by the deployment stack.
         :param 'ErrorResponseResponse' error: Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
         """
-        pulumi.set(__self__, "id", id)
+        ResourceReferenceExtendedResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            error=error,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             error: Optional['outputs.ErrorResponseResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
 
     @property
     @pulumi.getter
@@ -511,7 +680,20 @@ class ResourceReferenceResponse(dict):
         The resource Id model.
         :param str id: The resourceId of a resource managed by the deployment stack.
         """
-        pulumi.set(__self__, "id", id)
+        ResourceReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -570,18 +752,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

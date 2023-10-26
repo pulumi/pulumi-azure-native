@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,27 +41,76 @@ class VpnSiteArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_wan: The VirtualWAN to which the vpnSite belongs
         :param pulumi.Input[str] vpn_site_name: The name of the VpnSite being created or updated.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VpnSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            address_space=address_space,
+            bgp_properties=bgp_properties,
+            device_properties=device_properties,
+            id=id,
+            ip_address=ip_address,
+            location=location,
+            site_key=site_key,
+            tags=tags,
+            virtual_wan=virtual_wan,
+            vpn_site_name=vpn_site_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             address_space: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             bgp_properties: Optional[pulumi.Input['BgpSettingsArgs']] = None,
+             device_properties: Optional[pulumi.Input['DevicePropertiesArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             site_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_wan: Optional[pulumi.Input['SubResourceArgs']] = None,
+             vpn_site_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if address_space is None and 'addressSpace' in kwargs:
+            address_space = kwargs['addressSpace']
+        if bgp_properties is None and 'bgpProperties' in kwargs:
+            bgp_properties = kwargs['bgpProperties']
+        if device_properties is None and 'deviceProperties' in kwargs:
+            device_properties = kwargs['deviceProperties']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if site_key is None and 'siteKey' in kwargs:
+            site_key = kwargs['siteKey']
+        if virtual_wan is None and 'virtualWAN' in kwargs:
+            virtual_wan = kwargs['virtualWAN']
+        if vpn_site_name is None and 'vpnSiteName' in kwargs:
+            vpn_site_name = kwargs['vpnSiteName']
+
+        _setter("resource_group_name", resource_group_name)
         if address_space is not None:
-            pulumi.set(__self__, "address_space", address_space)
+            _setter("address_space", address_space)
         if bgp_properties is not None:
-            pulumi.set(__self__, "bgp_properties", bgp_properties)
+            _setter("bgp_properties", bgp_properties)
         if device_properties is not None:
-            pulumi.set(__self__, "device_properties", device_properties)
+            _setter("device_properties", device_properties)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if site_key is not None:
-            pulumi.set(__self__, "site_key", site_key)
+            _setter("site_key", site_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_wan is not None:
-            pulumi.set(__self__, "virtual_wan", virtual_wan)
+            _setter("virtual_wan", virtual_wan)
         if vpn_site_name is not None:
-            pulumi.set(__self__, "vpn_site_name", vpn_site_name)
+            _setter("vpn_site_name", vpn_site_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -249,6 +298,10 @@ class VpnSite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnSiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -274,8 +327,11 @@ class VpnSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpnSiteArgs.__new__(VpnSiteArgs)
 
+            address_space = _utilities.configure(address_space, AddressSpaceArgs, True)
             __props__.__dict__["address_space"] = address_space
+            bgp_properties = _utilities.configure(bgp_properties, BgpSettingsArgs, True)
             __props__.__dict__["bgp_properties"] = bgp_properties
+            device_properties = _utilities.configure(device_properties, DevicePropertiesArgs, True)
             __props__.__dict__["device_properties"] = device_properties
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_address"] = ip_address
@@ -285,6 +341,7 @@ class VpnSite(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["site_key"] = site_key
             __props__.__dict__["tags"] = tags
+            virtual_wan = _utilities.configure(virtual_wan, SubResourceArgs, True)
             __props__.__dict__["virtual_wan"] = virtual_wan
             __props__.__dict__["vpn_site_name"] = vpn_site_name
             __props__.__dict__["etag"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,17 +33,52 @@ class IpExtendedCommunityArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "route_targets", route_targets)
+        IpExtendedCommunityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            resource_group_name=resource_group_name,
+            route_targets=route_targets,
+            annotation=annotation,
+            ip_extended_community_name=ip_extended_community_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'CommunityActionTypes']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             route_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             ip_extended_community_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if route_targets is None and 'routeTargets' in kwargs:
+            route_targets = kwargs['routeTargets']
+        if route_targets is None:
+            raise TypeError("Missing 'route_targets' argument")
+        if ip_extended_community_name is None and 'ipExtendedCommunityName' in kwargs:
+            ip_extended_community_name = kwargs['ipExtendedCommunityName']
+
+        _setter("action", action)
+        _setter("resource_group_name", resource_group_name)
+        _setter("route_targets", route_targets)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if ip_extended_community_name is not None:
-            pulumi.set(__self__, "ip_extended_community_name", ip_extended_community_name)
+            _setter("ip_extended_community_name", ip_extended_community_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -181,6 +216,10 @@ class IpExtendedCommunity(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpExtendedCommunityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

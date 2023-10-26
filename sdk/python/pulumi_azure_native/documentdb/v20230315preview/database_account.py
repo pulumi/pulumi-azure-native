@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -96,83 +96,234 @@ class DatabaseAccountArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: List of Virtual Network ACL rules configured for the Cosmos DB account.
         """
-        pulumi.set(__self__, "database_account_offer_type", database_account_offer_type)
-        pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DatabaseAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_account_offer_type=database_account_offer_type,
+            locations=locations,
+            resource_group_name=resource_group_name,
+            account_name=account_name,
+            analytical_storage_configuration=analytical_storage_configuration,
+            api_properties=api_properties,
+            backup_policy=backup_policy,
+            capabilities=capabilities,
+            capacity=capacity,
+            connector_offer=connector_offer,
+            consistency_policy=consistency_policy,
+            cors=cors,
+            create_mode=create_mode,
+            default_identity=default_identity,
+            diagnostic_log_settings=diagnostic_log_settings,
+            disable_key_based_metadata_write_access=disable_key_based_metadata_write_access,
+            disable_local_auth=disable_local_auth,
+            enable_analytical_storage=enable_analytical_storage,
+            enable_automatic_failover=enable_automatic_failover,
+            enable_burst_capacity=enable_burst_capacity,
+            enable_cassandra_connector=enable_cassandra_connector,
+            enable_free_tier=enable_free_tier,
+            enable_materialized_views=enable_materialized_views,
+            enable_multiple_write_locations=enable_multiple_write_locations,
+            enable_partition_merge=enable_partition_merge,
+            identity=identity,
+            ip_rules=ip_rules,
+            is_virtual_network_filter_enabled=is_virtual_network_filter_enabled,
+            key_vault_key_uri=key_vault_key_uri,
+            kind=kind,
+            location=location,
+            minimal_tls_version=minimal_tls_version,
+            network_acl_bypass=network_acl_bypass,
+            network_acl_bypass_resource_ids=network_acl_bypass_resource_ids,
+            public_network_access=public_network_access,
+            restore_parameters=restore_parameters,
+            tags=tags,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input['LocationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             analytical_storage_configuration: Optional[pulumi.Input['AnalyticalStorageConfigurationArgs']] = None,
+             api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
+             backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+             capacity: Optional[pulumi.Input['CapacityArgs']] = None,
+             connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
+             consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
+             cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
+             create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+             default_identity: Optional[pulumi.Input[str]] = None,
+             diagnostic_log_settings: Optional[pulumi.Input['DiagnosticLogSettingsArgs']] = None,
+             disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             enable_analytical_storage: Optional[pulumi.Input[bool]] = None,
+             enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
+             enable_burst_capacity: Optional[pulumi.Input[bool]] = None,
+             enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
+             enable_free_tier: Optional[pulumi.Input[bool]] = None,
+             enable_materialized_views: Optional[pulumi.Input[bool]] = None,
+             enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
+             enable_partition_merge: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
+             is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
+             key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimal_tls_version: Optional[pulumi.Input[Union[str, 'MinimalTlsVersion']]] = None,
+             network_acl_bypass: Optional[pulumi.Input['NetworkAclBypass']] = None,
+             network_acl_bypass_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             restore_parameters: Optional[pulumi.Input['RestoreParametersArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_account_offer_type is None and 'databaseAccountOfferType' in kwargs:
+            database_account_offer_type = kwargs['databaseAccountOfferType']
+        if database_account_offer_type is None:
+            raise TypeError("Missing 'database_account_offer_type' argument")
+        if locations is None:
+            raise TypeError("Missing 'locations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if analytical_storage_configuration is None and 'analyticalStorageConfiguration' in kwargs:
+            analytical_storage_configuration = kwargs['analyticalStorageConfiguration']
+        if api_properties is None and 'apiProperties' in kwargs:
+            api_properties = kwargs['apiProperties']
+        if backup_policy is None and 'backupPolicy' in kwargs:
+            backup_policy = kwargs['backupPolicy']
+        if connector_offer is None and 'connectorOffer' in kwargs:
+            connector_offer = kwargs['connectorOffer']
+        if consistency_policy is None and 'consistencyPolicy' in kwargs:
+            consistency_policy = kwargs['consistencyPolicy']
+        if create_mode is None and 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if default_identity is None and 'defaultIdentity' in kwargs:
+            default_identity = kwargs['defaultIdentity']
+        if diagnostic_log_settings is None and 'diagnosticLogSettings' in kwargs:
+            diagnostic_log_settings = kwargs['diagnosticLogSettings']
+        if disable_key_based_metadata_write_access is None and 'disableKeyBasedMetadataWriteAccess' in kwargs:
+            disable_key_based_metadata_write_access = kwargs['disableKeyBasedMetadataWriteAccess']
+        if disable_local_auth is None and 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if enable_analytical_storage is None and 'enableAnalyticalStorage' in kwargs:
+            enable_analytical_storage = kwargs['enableAnalyticalStorage']
+        if enable_automatic_failover is None and 'enableAutomaticFailover' in kwargs:
+            enable_automatic_failover = kwargs['enableAutomaticFailover']
+        if enable_burst_capacity is None and 'enableBurstCapacity' in kwargs:
+            enable_burst_capacity = kwargs['enableBurstCapacity']
+        if enable_cassandra_connector is None and 'enableCassandraConnector' in kwargs:
+            enable_cassandra_connector = kwargs['enableCassandraConnector']
+        if enable_free_tier is None and 'enableFreeTier' in kwargs:
+            enable_free_tier = kwargs['enableFreeTier']
+        if enable_materialized_views is None and 'enableMaterializedViews' in kwargs:
+            enable_materialized_views = kwargs['enableMaterializedViews']
+        if enable_multiple_write_locations is None and 'enableMultipleWriteLocations' in kwargs:
+            enable_multiple_write_locations = kwargs['enableMultipleWriteLocations']
+        if enable_partition_merge is None and 'enablePartitionMerge' in kwargs:
+            enable_partition_merge = kwargs['enablePartitionMerge']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if is_virtual_network_filter_enabled is None and 'isVirtualNetworkFilterEnabled' in kwargs:
+            is_virtual_network_filter_enabled = kwargs['isVirtualNetworkFilterEnabled']
+        if key_vault_key_uri is None and 'keyVaultKeyUri' in kwargs:
+            key_vault_key_uri = kwargs['keyVaultKeyUri']
+        if minimal_tls_version is None and 'minimalTlsVersion' in kwargs:
+            minimal_tls_version = kwargs['minimalTlsVersion']
+        if network_acl_bypass is None and 'networkAclBypass' in kwargs:
+            network_acl_bypass = kwargs['networkAclBypass']
+        if network_acl_bypass_resource_ids is None and 'networkAclBypassResourceIds' in kwargs:
+            network_acl_bypass_resource_ids = kwargs['networkAclBypassResourceIds']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if restore_parameters is None and 'restoreParameters' in kwargs:
+            restore_parameters = kwargs['restoreParameters']
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
+        _setter("database_account_offer_type", database_account_offer_type)
+        _setter("locations", locations)
+        _setter("resource_group_name", resource_group_name)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if analytical_storage_configuration is not None:
-            pulumi.set(__self__, "analytical_storage_configuration", analytical_storage_configuration)
+            _setter("analytical_storage_configuration", analytical_storage_configuration)
         if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
+            _setter("api_properties", api_properties)
         if backup_policy is not None:
-            pulumi.set(__self__, "backup_policy", backup_policy)
+            _setter("backup_policy", backup_policy)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if connector_offer is not None:
-            pulumi.set(__self__, "connector_offer", connector_offer)
+            _setter("connector_offer", connector_offer)
         if consistency_policy is not None:
-            pulumi.set(__self__, "consistency_policy", consistency_policy)
+            _setter("consistency_policy", consistency_policy)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if create_mode is None:
             create_mode = 'Default'
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if default_identity is not None:
-            pulumi.set(__self__, "default_identity", default_identity)
+            _setter("default_identity", default_identity)
         if diagnostic_log_settings is not None:
-            pulumi.set(__self__, "diagnostic_log_settings", diagnostic_log_settings)
+            _setter("diagnostic_log_settings", diagnostic_log_settings)
         if disable_key_based_metadata_write_access is not None:
-            pulumi.set(__self__, "disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
+            _setter("disable_key_based_metadata_write_access", disable_key_based_metadata_write_access)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if enable_analytical_storage is not None:
-            pulumi.set(__self__, "enable_analytical_storage", enable_analytical_storage)
+            _setter("enable_analytical_storage", enable_analytical_storage)
         if enable_automatic_failover is not None:
-            pulumi.set(__self__, "enable_automatic_failover", enable_automatic_failover)
+            _setter("enable_automatic_failover", enable_automatic_failover)
         if enable_burst_capacity is not None:
-            pulumi.set(__self__, "enable_burst_capacity", enable_burst_capacity)
+            _setter("enable_burst_capacity", enable_burst_capacity)
         if enable_cassandra_connector is not None:
-            pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
+            _setter("enable_cassandra_connector", enable_cassandra_connector)
         if enable_free_tier is not None:
-            pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+            _setter("enable_free_tier", enable_free_tier)
         if enable_materialized_views is not None:
-            pulumi.set(__self__, "enable_materialized_views", enable_materialized_views)
+            _setter("enable_materialized_views", enable_materialized_views)
         if enable_multiple_write_locations is not None:
-            pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
+            _setter("enable_multiple_write_locations", enable_multiple_write_locations)
         if enable_partition_merge is not None:
-            pulumi.set(__self__, "enable_partition_merge", enable_partition_merge)
+            _setter("enable_partition_merge", enable_partition_merge)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if is_virtual_network_filter_enabled is not None:
-            pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
+            _setter("is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
         if key_vault_key_uri is not None:
-            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+            _setter("key_vault_key_uri", key_vault_key_uri)
         if kind is None:
             kind = 'GlobalDocumentDB'
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimal_tls_version is not None:
-            pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
+            _setter("minimal_tls_version", minimal_tls_version)
         if network_acl_bypass is not None:
-            pulumi.set(__self__, "network_acl_bypass", network_acl_bypass)
+            _setter("network_acl_bypass", network_acl_bypass)
         if network_acl_bypass_resource_ids is not None:
-            pulumi.set(__self__, "network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
+            _setter("network_acl_bypass_resource_ids", network_acl_bypass_resource_ids)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if restore_parameters is not None:
-            pulumi.set(__self__, "restore_parameters", restore_parameters)
+            _setter("restore_parameters", restore_parameters)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="databaseAccountOfferType")
@@ -738,6 +889,10 @@ class DatabaseAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -791,12 +946,16 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__ = DatabaseAccountArgs.__new__(DatabaseAccountArgs)
 
             __props__.__dict__["account_name"] = account_name
+            analytical_storage_configuration = _utilities.configure(analytical_storage_configuration, AnalyticalStorageConfigurationArgs, True)
             __props__.__dict__["analytical_storage_configuration"] = analytical_storage_configuration
+            api_properties = _utilities.configure(api_properties, ApiPropertiesArgs, True)
             __props__.__dict__["api_properties"] = api_properties
             __props__.__dict__["backup_policy"] = backup_policy
             __props__.__dict__["capabilities"] = capabilities
+            capacity = _utilities.configure(capacity, CapacityArgs, True)
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["connector_offer"] = connector_offer
+            consistency_policy = _utilities.configure(consistency_policy, ConsistencyPolicyArgs, True)
             __props__.__dict__["consistency_policy"] = consistency_policy
             __props__.__dict__["cors"] = cors
             if create_mode is None:
@@ -806,6 +965,7 @@ class DatabaseAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_account_offer_type'")
             __props__.__dict__["database_account_offer_type"] = database_account_offer_type
             __props__.__dict__["default_identity"] = default_identity
+            diagnostic_log_settings = _utilities.configure(diagnostic_log_settings, DiagnosticLogSettingsArgs, True)
             __props__.__dict__["diagnostic_log_settings"] = diagnostic_log_settings
             __props__.__dict__["disable_key_based_metadata_write_access"] = disable_key_based_metadata_write_access
             __props__.__dict__["disable_local_auth"] = disable_local_auth
@@ -817,6 +977,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__.__dict__["enable_materialized_views"] = enable_materialized_views
             __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
             __props__.__dict__["enable_partition_merge"] = enable_partition_merge
+            identity = _utilities.configure(identity, ManagedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_rules"] = ip_rules
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
@@ -835,6 +996,7 @@ class DatabaseAccount(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            restore_parameters = _utilities.configure(restore_parameters, RestoreParametersArgs, True)
             __props__.__dict__["restore_parameters"] = restore_parameters
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network_rules"] = virtual_network_rules

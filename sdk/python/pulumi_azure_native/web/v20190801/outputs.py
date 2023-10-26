@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -39,13 +39,38 @@ class IdentifierResponse(dict):
         :param str kind: Kind of resource.
         :param str value: String representation of the identity.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        IdentifierResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            type=type,
+            kind=kind,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             kind: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("type", type)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -101,10 +126,23 @@ class NameValuePairResponse(dict):
         :param str name: Pair name.
         :param str value: Pair value.
         """
+        NameValuePairResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -157,14 +195,33 @@ class NetworkAccessControlEntryResponse(dict):
         :param int order: Order of precedence.
         :param str remote_subnet: Remote subnet.
         """
+        NetworkAccessControlEntryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            description=description,
+            order=order,
+            remote_subnet=remote_subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             description: Optional[str] = None,
+             order: Optional[int] = None,
+             remote_subnet: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if remote_subnet is None and 'remoteSubnet' in kwargs:
+            remote_subnet = kwargs['remoteSubnet']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if remote_subnet is not None:
-            pulumi.set(__self__, "remote_subnet", remote_subnet)
+            _setter("remote_subnet", remote_subnet)
 
     @property
     @pulumi.getter
@@ -267,28 +324,77 @@ class StampCapacityResponse(dict):
                1 - Medium
                2 - Large
         """
+        StampCapacityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_capacity=available_capacity,
+            compute_mode=compute_mode,
+            exclude_from_capacity_allocation=exclude_from_capacity_allocation,
+            is_applicable_for_all_compute_modes=is_applicable_for_all_compute_modes,
+            is_linux=is_linux,
+            name=name,
+            site_mode=site_mode,
+            total_capacity=total_capacity,
+            unit=unit,
+            worker_size=worker_size,
+            worker_size_id=worker_size_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_capacity: Optional[float] = None,
+             compute_mode: Optional[str] = None,
+             exclude_from_capacity_allocation: Optional[bool] = None,
+             is_applicable_for_all_compute_modes: Optional[bool] = None,
+             is_linux: Optional[bool] = None,
+             name: Optional[str] = None,
+             site_mode: Optional[str] = None,
+             total_capacity: Optional[float] = None,
+             unit: Optional[str] = None,
+             worker_size: Optional[str] = None,
+             worker_size_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if available_capacity is None and 'availableCapacity' in kwargs:
+            available_capacity = kwargs['availableCapacity']
+        if compute_mode is None and 'computeMode' in kwargs:
+            compute_mode = kwargs['computeMode']
+        if exclude_from_capacity_allocation is None and 'excludeFromCapacityAllocation' in kwargs:
+            exclude_from_capacity_allocation = kwargs['excludeFromCapacityAllocation']
+        if is_applicable_for_all_compute_modes is None and 'isApplicableForAllComputeModes' in kwargs:
+            is_applicable_for_all_compute_modes = kwargs['isApplicableForAllComputeModes']
+        if is_linux is None and 'isLinux' in kwargs:
+            is_linux = kwargs['isLinux']
+        if site_mode is None and 'siteMode' in kwargs:
+            site_mode = kwargs['siteMode']
+        if total_capacity is None and 'totalCapacity' in kwargs:
+            total_capacity = kwargs['totalCapacity']
+        if worker_size is None and 'workerSize' in kwargs:
+            worker_size = kwargs['workerSize']
+        if worker_size_id is None and 'workerSizeId' in kwargs:
+            worker_size_id = kwargs['workerSizeId']
+
         if available_capacity is not None:
-            pulumi.set(__self__, "available_capacity", available_capacity)
+            _setter("available_capacity", available_capacity)
         if compute_mode is not None:
-            pulumi.set(__self__, "compute_mode", compute_mode)
+            _setter("compute_mode", compute_mode)
         if exclude_from_capacity_allocation is not None:
-            pulumi.set(__self__, "exclude_from_capacity_allocation", exclude_from_capacity_allocation)
+            _setter("exclude_from_capacity_allocation", exclude_from_capacity_allocation)
         if is_applicable_for_all_compute_modes is not None:
-            pulumi.set(__self__, "is_applicable_for_all_compute_modes", is_applicable_for_all_compute_modes)
+            _setter("is_applicable_for_all_compute_modes", is_applicable_for_all_compute_modes)
         if is_linux is not None:
-            pulumi.set(__self__, "is_linux", is_linux)
+            _setter("is_linux", is_linux)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if site_mode is not None:
-            pulumi.set(__self__, "site_mode", site_mode)
+            _setter("site_mode", site_mode)
         if total_capacity is not None:
-            pulumi.set(__self__, "total_capacity", total_capacity)
+            _setter("total_capacity", total_capacity)
         if unit is not None:
-            pulumi.set(__self__, "unit", unit)
+            _setter("unit", unit)
         if worker_size is not None:
-            pulumi.set(__self__, "worker_size", worker_size)
+            _setter("worker_size", worker_size)
         if worker_size_id is not None:
-            pulumi.set(__self__, "worker_size_id", worker_size_id)
+            _setter("worker_size_id", worker_size_id)
 
     @property
     @pulumi.getter(name="availableCapacity")
@@ -427,16 +533,45 @@ class VirtualIPMappingResponse(dict):
         :param str service_name: name of the service that virtual IP is assigned to
         :param str virtual_ip: Virtual IP address.
         """
+        VirtualIPMappingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            in_use=in_use,
+            internal_http_port=internal_http_port,
+            internal_https_port=internal_https_port,
+            service_name=service_name,
+            virtual_ip=virtual_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             in_use: Optional[bool] = None,
+             internal_http_port: Optional[int] = None,
+             internal_https_port: Optional[int] = None,
+             service_name: Optional[str] = None,
+             virtual_ip: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if in_use is None and 'inUse' in kwargs:
+            in_use = kwargs['inUse']
+        if internal_http_port is None and 'internalHttpPort' in kwargs:
+            internal_http_port = kwargs['internalHttpPort']
+        if internal_https_port is None and 'internalHttpsPort' in kwargs:
+            internal_https_port = kwargs['internalHttpsPort']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if virtual_ip is None and 'virtualIP' in kwargs:
+            virtual_ip = kwargs['virtualIP']
+
         if in_use is not None:
-            pulumi.set(__self__, "in_use", in_use)
+            _setter("in_use", in_use)
         if internal_http_port is not None:
-            pulumi.set(__self__, "internal_http_port", internal_http_port)
+            _setter("internal_http_port", internal_http_port)
         if internal_https_port is not None:
-            pulumi.set(__self__, "internal_https_port", internal_https_port)
+            _setter("internal_https_port", internal_https_port)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if virtual_ip is not None:
-            pulumi.set(__self__, "virtual_ip", virtual_ip)
+            _setter("virtual_ip", virtual_ip)
 
     @property
     @pulumi.getter(name="inUse")
@@ -496,12 +631,33 @@ class VirtualNetworkProfileResponse(dict):
         :param str id: Resource id of the Virtual Network.
         :param str subnet: Subnet within the Virtual Network.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        VirtualNetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            id=id,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             id: Optional[str] = None,
+             subnet: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter
@@ -580,15 +736,46 @@ class WorkerPoolResponse(dict):
         :param str worker_size: VM size of the worker pool instances.
         :param int worker_size_id: Worker size ID for referencing this worker pool.
         """
-        pulumi.set(__self__, "instance_names", instance_names)
+        WorkerPoolResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_names=instance_names,
+            compute_mode=compute_mode,
+            worker_count=worker_count,
+            worker_size=worker_size,
+            worker_size_id=worker_size_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_names: Optional[Sequence[str]] = None,
+             compute_mode: Optional[str] = None,
+             worker_count: Optional[int] = None,
+             worker_size: Optional[str] = None,
+             worker_size_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_names is None and 'instanceNames' in kwargs:
+            instance_names = kwargs['instanceNames']
+        if instance_names is None:
+            raise TypeError("Missing 'instance_names' argument")
+        if compute_mode is None and 'computeMode' in kwargs:
+            compute_mode = kwargs['computeMode']
+        if worker_count is None and 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+        if worker_size is None and 'workerSize' in kwargs:
+            worker_size = kwargs['workerSize']
+        if worker_size_id is None and 'workerSizeId' in kwargs:
+            worker_size_id = kwargs['workerSizeId']
+
+        _setter("instance_names", instance_names)
         if compute_mode is not None:
-            pulumi.set(__self__, "compute_mode", compute_mode)
+            _setter("compute_mode", compute_mode)
         if worker_count is not None:
-            pulumi.set(__self__, "worker_count", worker_count)
+            _setter("worker_count", worker_count)
         if worker_size is not None:
-            pulumi.set(__self__, "worker_size", worker_size)
+            _setter("worker_size", worker_size)
         if worker_size_id is not None:
-            pulumi.set(__self__, "worker_size_id", worker_size_id)
+            _setter("worker_size_id", worker_size_id)
 
     @property
     @pulumi.getter(name="instanceNames")

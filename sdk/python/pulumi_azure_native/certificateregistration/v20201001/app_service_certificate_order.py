@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,34 +44,85 @@ class AppServiceCertificateOrderArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between 1 and 3).
         """
-        pulumi.set(__self__, "product_type", product_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AppServiceCertificateOrderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            product_type=product_type,
+            resource_group_name=resource_group_name,
+            auto_renew=auto_renew,
+            certificate_order_name=certificate_order_name,
+            certificates=certificates,
+            csr=csr,
+            distinguished_name=distinguished_name,
+            key_size=key_size,
+            kind=kind,
+            location=location,
+            tags=tags,
+            validity_in_years=validity_in_years,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             product_type: Optional[pulumi.Input['CertificateProductType']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auto_renew: Optional[pulumi.Input[bool]] = None,
+             certificate_order_name: Optional[pulumi.Input[str]] = None,
+             certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]]] = None,
+             csr: Optional[pulumi.Input[str]] = None,
+             distinguished_name: Optional[pulumi.Input[str]] = None,
+             key_size: Optional[pulumi.Input[int]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validity_in_years: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if product_type is None and 'productType' in kwargs:
+            product_type = kwargs['productType']
+        if product_type is None:
+            raise TypeError("Missing 'product_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_renew is None and 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if certificate_order_name is None and 'certificateOrderName' in kwargs:
+            certificate_order_name = kwargs['certificateOrderName']
+        if distinguished_name is None and 'distinguishedName' in kwargs:
+            distinguished_name = kwargs['distinguishedName']
+        if key_size is None and 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if validity_in_years is None and 'validityInYears' in kwargs:
+            validity_in_years = kwargs['validityInYears']
+
+        _setter("product_type", product_type)
+        _setter("resource_group_name", resource_group_name)
         if auto_renew is None:
             auto_renew = True
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if certificate_order_name is not None:
-            pulumi.set(__self__, "certificate_order_name", certificate_order_name)
+            _setter("certificate_order_name", certificate_order_name)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if csr is not None:
-            pulumi.set(__self__, "csr", csr)
+            _setter("csr", csr)
         if distinguished_name is not None:
-            pulumi.set(__self__, "distinguished_name", distinguished_name)
+            _setter("distinguished_name", distinguished_name)
         if key_size is None:
             key_size = 2048
         if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
+            _setter("key_size", key_size)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validity_in_years is None:
             validity_in_years = 1
         if validity_in_years is not None:
-            pulumi.set(__self__, "validity_in_years", validity_in_years)
+            _setter("validity_in_years", validity_in_years)
 
     @property
     @pulumi.getter(name="productType")
@@ -273,6 +324,10 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppServiceCertificateOrderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

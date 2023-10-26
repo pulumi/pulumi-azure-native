@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -30,12 +30,33 @@ class ChannelTypeDescriptionResponse(dict):
         :param Sequence[str] channel_functions: All the available functions for the channel
         :param str channel_type: Channel type
         """
+        ChannelTypeDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            channel_description=channel_description,
+            channel_functions=channel_functions,
+            channel_type=channel_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             channel_description: Optional[str] = None,
+             channel_functions: Optional[Sequence[str]] = None,
+             channel_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_description is None and 'channelDescription' in kwargs:
+            channel_description = kwargs['channelDescription']
+        if channel_functions is None and 'channelFunctions' in kwargs:
+            channel_functions = kwargs['channelFunctions']
+        if channel_type is None and 'channelType' in kwargs:
+            channel_type = kwargs['channelType']
+
         if channel_description is not None:
-            pulumi.set(__self__, "channel_description", channel_description)
+            _setter("channel_description", channel_description)
         if channel_functions is not None:
-            pulumi.set(__self__, "channel_functions", channel_functions)
+            _setter("channel_functions", channel_functions)
         if channel_type is not None:
-            pulumi.set(__self__, "channel_type", channel_type)
+            _setter("channel_type", channel_type)
 
     @property
     @pulumi.getter(name="channelDescription")
@@ -77,9 +98,30 @@ class KeyDescriptionResponse(dict):
         :param str rank: The rank of the key
         :param str value: The value of the key
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rank", rank)
-        pulumi.set(__self__, "value", value)
+        KeyDescriptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            rank=rank,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             rank: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if rank is None:
+            raise TypeError("Missing 'rank' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("rank", rank)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -119,9 +161,24 @@ class SKUResponse(dict):
         :param str name: The name of the SKU
         :param str tier: The price tier of the SKU
         """
-        pulumi.set(__self__, "name", name)
+        SKUResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

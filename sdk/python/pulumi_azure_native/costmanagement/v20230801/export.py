@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,23 +40,66 @@ class ExportArgs:
         :param pulumi.Input[bool] partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
         :param pulumi.Input['ExportScheduleArgs'] schedule: Has schedule information for the export.
         """
-        pulumi.set(__self__, "definition", definition)
-        pulumi.set(__self__, "delivery_info", delivery_info)
-        pulumi.set(__self__, "scope", scope)
+        ExportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            definition=definition,
+            delivery_info=delivery_info,
+            scope=scope,
+            e_tag=e_tag,
+            export_name=export_name,
+            format=format,
+            identity=identity,
+            location=location,
+            partition_data=partition_data,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             definition: Optional[pulumi.Input['ExportDefinitionArgs']] = None,
+             delivery_info: Optional[pulumi.Input['ExportDeliveryInfoArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             export_name: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+             identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             partition_data: Optional[pulumi.Input[bool]] = None,
+             schedule: Optional[pulumi.Input['ExportScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition is None:
+            raise TypeError("Missing 'definition' argument")
+        if delivery_info is None and 'deliveryInfo' in kwargs:
+            delivery_info = kwargs['deliveryInfo']
+        if delivery_info is None:
+            raise TypeError("Missing 'delivery_info' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if export_name is None and 'exportName' in kwargs:
+            export_name = kwargs['exportName']
+        if partition_data is None and 'partitionData' in kwargs:
+            partition_data = kwargs['partitionData']
+
+        _setter("definition", definition)
+        _setter("delivery_info", delivery_info)
+        _setter("scope", scope)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if export_name is not None:
-            pulumi.set(__self__, "export_name", export_name)
+            _setter("export_name", export_name)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if partition_data is not None:
-            pulumi.set(__self__, "partition_data", partition_data)
+            _setter("partition_data", partition_data)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -230,6 +273,10 @@ class Export(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExportArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -254,18 +301,22 @@ class Export(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExportArgs.__new__(ExportArgs)
 
+            definition = _utilities.configure(definition, ExportDefinitionArgs, True)
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
+            delivery_info = _utilities.configure(delivery_info, ExportDeliveryInfoArgs, True)
             if delivery_info is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_info'")
             __props__.__dict__["delivery_info"] = delivery_info
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["export_name"] = export_name
             __props__.__dict__["format"] = format
+            identity = _utilities.configure(identity, SystemAssignedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["partition_data"] = partition_data
+            schedule = _utilities.configure(schedule, ExportScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

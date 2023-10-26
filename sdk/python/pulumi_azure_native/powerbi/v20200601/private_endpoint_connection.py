@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,53 @@ class PrivateEndpointConnectionInitArgs:
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Specifies the connection state.
         :param pulumi.Input[Union[str, 'ResourceProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
         """
-        pulumi.set(__self__, "azure_resource_name", azure_resource_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateEndpointConnectionInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_resource_name=azure_resource_name,
+            resource_group_name=resource_group_name,
+            private_endpoint=private_endpoint,
+            private_endpoint_name=private_endpoint_name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_resource_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+             private_endpoint_name: Optional[pulumi.Input[str]] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_resource_name is None and 'azureResourceName' in kwargs:
+            azure_resource_name = kwargs['azureResourceName']
+        if azure_resource_name is None:
+            raise TypeError("Missing 'azure_resource_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_endpoint_name is None and 'privateEndpointName' in kwargs:
+            private_endpoint_name = kwargs['privateEndpointName']
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("azure_resource_name", azure_resource_name)
+        _setter("resource_group_name", resource_group_name)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_endpoint_name is not None:
-            pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
+            _setter("private_endpoint_name", private_endpoint_name)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="azureResourceName")
@@ -157,6 +194,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateEndpointConnectionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,8 +221,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if azure_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_resource_name'")
             __props__.__dict__["azure_resource_name"] = azure_resource_name
+            private_endpoint = _utilities.configure(private_endpoint, PrivateEndpointArgs, True)
             __props__.__dict__["private_endpoint"] = private_endpoint
             __props__.__dict__["private_endpoint_name"] = private_endpoint_name
+            private_link_service_connection_state = _utilities.configure(private_link_service_connection_state, ConnectionStateArgs, True)
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -60,43 +60,130 @@ class VirtualNetworkGatewayConnectionArgs:
         :param pulumi.Input['VirtualNetworkGatewayArgs'] virtual_network_gateway2: The reference to virtual network gateway resource.
         :param pulumi.Input[str] virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
         """
-        pulumi.set(__self__, "connection_type", connection_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_gateway1", virtual_network_gateway1)
+        VirtualNetworkGatewayConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_type=connection_type,
+            resource_group_name=resource_group_name,
+            virtual_network_gateway1=virtual_network_gateway1,
+            authorization_key=authorization_key,
+            connection_protocol=connection_protocol,
+            enable_bgp=enable_bgp,
+            express_route_gateway_bypass=express_route_gateway_bypass,
+            id=id,
+            ipsec_policies=ipsec_policies,
+            local_network_gateway2=local_network_gateway2,
+            location=location,
+            peer=peer,
+            resource_guid=resource_guid,
+            routing_weight=routing_weight,
+            shared_key=shared_key,
+            tags=tags,
+            traffic_selector_policies=traffic_selector_policies,
+            use_policy_based_traffic_selectors=use_policy_based_traffic_selectors,
+            virtual_network_gateway2=virtual_network_gateway2,
+            virtual_network_gateway_connection_name=virtual_network_gateway_connection_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_gateway1: Optional[pulumi.Input['VirtualNetworkGatewayArgs']] = None,
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             connection_protocol: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
+             enable_bgp: Optional[pulumi.Input[bool]] = None,
+             express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input['IpsecPolicyArgs']]]] = None,
+             local_network_gateway2: Optional[pulumi.Input['LocalNetworkGatewayArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             peer: Optional[pulumi.Input['SubResourceArgs']] = None,
+             resource_guid: Optional[pulumi.Input[str]] = None,
+             routing_weight: Optional[pulumi.Input[int]] = None,
+             shared_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficSelectorPolicyArgs']]]] = None,
+             use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
+             virtual_network_gateway2: Optional[pulumi.Input['VirtualNetworkGatewayArgs']] = None,
+             virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if connection_type is None:
+            raise TypeError("Missing 'connection_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network_gateway1 is None and 'virtualNetworkGateway1' in kwargs:
+            virtual_network_gateway1 = kwargs['virtualNetworkGateway1']
+        if virtual_network_gateway1 is None:
+            raise TypeError("Missing 'virtual_network_gateway1' argument")
+        if authorization_key is None and 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if connection_protocol is None and 'connectionProtocol' in kwargs:
+            connection_protocol = kwargs['connectionProtocol']
+        if enable_bgp is None and 'enableBgp' in kwargs:
+            enable_bgp = kwargs['enableBgp']
+        if express_route_gateway_bypass is None and 'expressRouteGatewayBypass' in kwargs:
+            express_route_gateway_bypass = kwargs['expressRouteGatewayBypass']
+        if ipsec_policies is None and 'ipsecPolicies' in kwargs:
+            ipsec_policies = kwargs['ipsecPolicies']
+        if local_network_gateway2 is None and 'localNetworkGateway2' in kwargs:
+            local_network_gateway2 = kwargs['localNetworkGateway2']
+        if resource_guid is None and 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if routing_weight is None and 'routingWeight' in kwargs:
+            routing_weight = kwargs['routingWeight']
+        if shared_key is None and 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+        if traffic_selector_policies is None and 'trafficSelectorPolicies' in kwargs:
+            traffic_selector_policies = kwargs['trafficSelectorPolicies']
+        if use_policy_based_traffic_selectors is None and 'usePolicyBasedTrafficSelectors' in kwargs:
+            use_policy_based_traffic_selectors = kwargs['usePolicyBasedTrafficSelectors']
+        if virtual_network_gateway2 is None and 'virtualNetworkGateway2' in kwargs:
+            virtual_network_gateway2 = kwargs['virtualNetworkGateway2']
+        if virtual_network_gateway_connection_name is None and 'virtualNetworkGatewayConnectionName' in kwargs:
+            virtual_network_gateway_connection_name = kwargs['virtualNetworkGatewayConnectionName']
+
+        _setter("connection_type", connection_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_network_gateway1", virtual_network_gateway1)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if connection_protocol is not None:
-            pulumi.set(__self__, "connection_protocol", connection_protocol)
+            _setter("connection_protocol", connection_protocol)
         if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
+            _setter("enable_bgp", enable_bgp)
         if express_route_gateway_bypass is not None:
-            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+            _setter("express_route_gateway_bypass", express_route_gateway_bypass)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ipsec_policies is not None:
-            pulumi.set(__self__, "ipsec_policies", ipsec_policies)
+            _setter("ipsec_policies", ipsec_policies)
         if local_network_gateway2 is not None:
-            pulumi.set(__self__, "local_network_gateway2", local_network_gateway2)
+            _setter("local_network_gateway2", local_network_gateway2)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if peer is not None:
-            pulumi.set(__self__, "peer", peer)
+            _setter("peer", peer)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if routing_weight is not None:
-            pulumi.set(__self__, "routing_weight", routing_weight)
+            _setter("routing_weight", routing_weight)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_selector_policies is not None:
-            pulumi.set(__self__, "traffic_selector_policies", traffic_selector_policies)
+            _setter("traffic_selector_policies", traffic_selector_policies)
         if use_policy_based_traffic_selectors is not None:
-            pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
+            _setter("use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
         if virtual_network_gateway2 is not None:
-            pulumi.set(__self__, "virtual_network_gateway2", virtual_network_gateway2)
+            _setter("virtual_network_gateway2", virtual_network_gateway2)
         if virtual_network_gateway_connection_name is not None:
-            pulumi.set(__self__, "virtual_network_gateway_connection_name", virtual_network_gateway_connection_name)
+            _setter("virtual_network_gateway_connection_name", virtual_network_gateway_connection_name)
 
     @property
     @pulumi.getter(name="connectionType")
@@ -410,6 +497,10 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkGatewayConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -453,8 +544,10 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
             __props__.__dict__["id"] = id
             __props__.__dict__["ipsec_policies"] = ipsec_policies
+            local_network_gateway2 = _utilities.configure(local_network_gateway2, LocalNetworkGatewayArgs, True)
             __props__.__dict__["local_network_gateway2"] = local_network_gateway2
             __props__.__dict__["location"] = location
+            peer = _utilities.configure(peer, SubResourceArgs, True)
             __props__.__dict__["peer"] = peer
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -465,9 +558,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_selector_policies"] = traffic_selector_policies
             __props__.__dict__["use_policy_based_traffic_selectors"] = use_policy_based_traffic_selectors
+            virtual_network_gateway1 = _utilities.configure(virtual_network_gateway1, VirtualNetworkGatewayArgs, True)
             if virtual_network_gateway1 is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway1'")
             __props__.__dict__["virtual_network_gateway1"] = virtual_network_gateway1
+            virtual_network_gateway2 = _utilities.configure(virtual_network_gateway2, VirtualNetworkGatewayArgs, True)
             __props__.__dict__["virtual_network_gateway2"] = virtual_network_gateway2
             __props__.__dict__["virtual_network_gateway_connection_name"] = virtual_network_gateway_connection_name
             __props__.__dict__["connection_status"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,71 @@ class SAPVirtualInstanceArgs:
         :param pulumi.Input[str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "environment", environment)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sap_product", sap_product)
+        SAPVirtualInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration=configuration,
+            environment=environment,
+            resource_group_name=resource_group_name,
+            sap_product=sap_product,
+            identity=identity,
+            location=location,
+            managed_resource_group_configuration=managed_resource_group_configuration,
+            managed_resources_network_access_type=managed_resources_network_access_type,
+            sap_virtual_instance_name=sap_virtual_instance_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentWithOSConfigurationArgs', 'DiscoveryConfigurationArgs']]] = None,
+             environment: Optional[pulumi.Input[Union[str, 'SAPEnvironmentType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
+             identity: Optional[pulumi.Input['UserAssignedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_configuration: Optional[pulumi.Input['ManagedRGConfigurationArgs']] = None,
+             managed_resources_network_access_type: Optional[pulumi.Input[Union[str, 'ManagedResourcesNetworkAccessType']]] = None,
+             sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sap_product is None and 'sapProduct' in kwargs:
+            sap_product = kwargs['sapProduct']
+        if sap_product is None:
+            raise TypeError("Missing 'sap_product' argument")
+        if managed_resource_group_configuration is None and 'managedResourceGroupConfiguration' in kwargs:
+            managed_resource_group_configuration = kwargs['managedResourceGroupConfiguration']
+        if managed_resources_network_access_type is None and 'managedResourcesNetworkAccessType' in kwargs:
+            managed_resources_network_access_type = kwargs['managedResourcesNetworkAccessType']
+        if sap_virtual_instance_name is None and 'sapVirtualInstanceName' in kwargs:
+            sap_virtual_instance_name = kwargs['sapVirtualInstanceName']
+
+        _setter("configuration", configuration)
+        _setter("environment", environment)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sap_product", sap_product)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+            _setter("managed_resource_group_configuration", managed_resource_group_configuration)
         if managed_resources_network_access_type is None:
             managed_resources_network_access_type = 'Public'
         if managed_resources_network_access_type is not None:
-            pulumi.set(__self__, "managed_resources_network_access_type", managed_resources_network_access_type)
+            _setter("managed_resources_network_access_type", managed_resources_network_access_type)
         if sap_virtual_instance_name is not None:
-            pulumi.set(__self__, "sap_virtual_instance_name", sap_virtual_instance_name)
+            _setter("sap_virtual_instance_name", sap_virtual_instance_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -231,6 +278,10 @@ class SAPVirtualInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SAPVirtualInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -261,8 +312,10 @@ class SAPVirtualInstance(pulumi.CustomResource):
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
+            identity = _utilities.configure(identity, UserAssignedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            managed_resource_group_configuration = _utilities.configure(managed_resource_group_configuration, ManagedRGConfigurationArgs, True)
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
             if managed_resources_network_access_type is None:
                 managed_resources_network_access_type = 'Public'

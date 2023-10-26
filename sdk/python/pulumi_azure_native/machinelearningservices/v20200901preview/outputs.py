@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -69,10 +69,27 @@ class ComputeBindingResponse(dict):
         :param str compute_id: ID of the compute resource.
         :param int node_count: Number of nodes.
         """
+        ComputeBindingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_id=compute_id,
+            node_count=node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_id: Optional[str] = None,
+             node_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_id is None and 'computeId' in kwargs:
+            compute_id = kwargs['computeId']
+        if node_count is None and 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+
         if compute_id is not None:
-            pulumi.set(__self__, "compute_id", compute_id)
+            _setter("compute_id", compute_id)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
 
     @property
     @pulumi.getter(name="computeId")
@@ -117,8 +134,27 @@ class EncryptionPropertyResponse(dict):
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Customer Key vault properties.
         :param str status: Indicates whether or not the encryption is enabled for the workspace.
         """
-        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-        pulumi.set(__self__, "status", status)
+        EncryptionPropertyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_properties=key_vault_properties,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_vault_properties is None and 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+        if key_vault_properties is None:
+            raise TypeError("Missing 'key_vault_properties' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("key_vault_properties", key_vault_properties)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="keyVaultProperties")
@@ -175,12 +211,39 @@ class IdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The user assigned identities associated with the resource.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -247,10 +310,35 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_vault_arm_id: The ArmId of the keyVault where the customer owned encryption key is present.
         :param str identity_client_id: For future use - The client id of the identity which will be used to access key vault.
         """
-        pulumi.set(__self__, "key_identifier", key_identifier)
-        pulumi.set(__self__, "key_vault_arm_id", key_vault_arm_id)
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_identifier=key_identifier,
+            key_vault_arm_id=key_vault_arm_id,
+            identity_client_id=identity_client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_identifier: Optional[str] = None,
+             key_vault_arm_id: Optional[str] = None,
+             identity_client_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_identifier is None and 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+        if key_identifier is None:
+            raise TypeError("Missing 'key_identifier' argument")
+        if key_vault_arm_id is None and 'keyVaultArmId' in kwargs:
+            key_vault_arm_id = kwargs['keyVaultArmId']
+        if key_vault_arm_id is None:
+            raise TypeError("Missing 'key_vault_arm_id' argument")
+        if identity_client_id is None and 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+
+        _setter("key_identifier", key_identifier)
+        _setter("key_vault_arm_id", key_vault_arm_id)
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="keyIdentifier")
@@ -311,11 +399,32 @@ class LabelCategoryResponse(dict):
         :param bool allow_multi_select: Indicates whether it is allowed to select multiple classes in this category.
         :param str display_name: Display name of the label category.
         """
-        pulumi.set(__self__, "classes", classes)
+        LabelCategoryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classes=classes,
+            allow_multi_select=allow_multi_select,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classes: Optional[Mapping[str, 'outputs.LabelClassResponse']] = None,
+             allow_multi_select: Optional[bool] = None,
+             display_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if classes is None:
+            raise TypeError("Missing 'classes' argument")
+        if allow_multi_select is None and 'allowMultiSelect' in kwargs:
+            allow_multi_select = kwargs['allowMultiSelect']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("classes", classes)
         if allow_multi_select is not None:
-            pulumi.set(__self__, "allow_multi_select", allow_multi_select)
+            _setter("allow_multi_select", allow_multi_select)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -372,10 +481,25 @@ class LabelClassResponse(dict):
         :param str display_name: Display name of the label class.
         :param Mapping[str, 'LabelClassResponse'] subclasses: Dictionary of subclasses of the label class.
         """
+        LabelClassResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            subclasses=subclasses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             subclasses: Optional[Mapping[str, 'outputs.LabelClassResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if subclasses is not None:
-            pulumi.set(__self__, "subclasses", subclasses)
+            _setter("subclasses", subclasses)
 
     @property
     @pulumi.getter(name="displayName")
@@ -430,10 +554,35 @@ class LabelingDatasetConfigurationResponse(dict):
         :param str dataset_version: AML dataset version.
         :param bool enable_incremental_dataset_refresh: Indicates whether to enable incremental dataset refresh.
         """
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "dataset_version", dataset_version)
+        LabelingDatasetConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_name=asset_name,
+            dataset_version=dataset_version,
+            enable_incremental_dataset_refresh=enable_incremental_dataset_refresh,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_name: Optional[str] = None,
+             dataset_version: Optional[str] = None,
+             enable_incremental_dataset_refresh: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if dataset_version is None and 'datasetVersion' in kwargs:
+            dataset_version = kwargs['datasetVersion']
+        if dataset_version is None:
+            raise TypeError("Missing 'dataset_version' argument")
+        if enable_incremental_dataset_refresh is None and 'enableIncrementalDatasetRefresh' in kwargs:
+            enable_incremental_dataset_refresh = kwargs['enableIncrementalDatasetRefresh']
+
+        _setter("asset_name", asset_name)
+        _setter("dataset_version", dataset_version)
         if enable_incremental_dataset_refresh is not None:
-            pulumi.set(__self__, "enable_incremental_dataset_refresh", enable_incremental_dataset_refresh)
+            _setter("enable_incremental_dataset_refresh", enable_incremental_dataset_refresh)
 
     @property
     @pulumi.getter(name="assetName")
@@ -488,9 +637,28 @@ class LabelingJobImagePropertiesResponse(dict):
         :param str media_type: Media type of data asset.
         :param str annotation_type: Annotation type of image labeling tasks.
         """
-        pulumi.set(__self__, "media_type", media_type)
+        LabelingJobImagePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            media_type=media_type,
+            annotation_type=annotation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             media_type: Optional[str] = None,
+             annotation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if media_type is None and 'mediaType' in kwargs:
+            media_type = kwargs['mediaType']
+        if media_type is None:
+            raise TypeError("Missing 'media_type' argument")
+        if annotation_type is None and 'annotationType' in kwargs:
+            annotation_type = kwargs['annotationType']
+
+        _setter("media_type", media_type)
         if annotation_type is not None:
-            pulumi.set(__self__, "annotation_type", annotation_type)
+            _setter("annotation_type", annotation_type)
 
     @property
     @pulumi.getter(name="mediaType")
@@ -520,8 +688,19 @@ class LabelingJobInstructionsResponse(dict):
         Instructions for a labeling job.
         :param str uri: The link to a page with detailed labeling instructions for labelers.
         """
+        LabelingJobInstructionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -598,21 +777,90 @@ class LabelingJobPropertiesResponse(dict):
         :param Mapping[str, str] properties: The job property dictionary. Properties can be added, but not removed or altered.
         :param Mapping[str, str] tags: The job tag dictionary. Tags can be added, removed, and updated.
         """
-        pulumi.set(__self__, "created_time_utc", created_time_utc)
-        pulumi.set(__self__, "dataset_configuration", dataset_configuration)
-        pulumi.set(__self__, "job_instructions", job_instructions)
-        pulumi.set(__self__, "label_categories", label_categories)
-        pulumi.set(__self__, "labeling_job_media_properties", labeling_job_media_properties)
-        pulumi.set(__self__, "progress_metrics", progress_metrics)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_messages", status_messages)
+        LabelingJobPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_time_utc=created_time_utc,
+            dataset_configuration=dataset_configuration,
+            job_instructions=job_instructions,
+            label_categories=label_categories,
+            labeling_job_media_properties=labeling_job_media_properties,
+            progress_metrics=progress_metrics,
+            project_id=project_id,
+            status=status,
+            status_messages=status_messages,
+            ml_assist_configuration=ml_assist_configuration,
+            properties=properties,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_time_utc: Optional[str] = None,
+             dataset_configuration: Optional['outputs.LabelingDatasetConfigurationResponse'] = None,
+             job_instructions: Optional['outputs.LabelingJobInstructionsResponse'] = None,
+             label_categories: Optional[Mapping[str, 'outputs.LabelCategoryResponse']] = None,
+             labeling_job_media_properties: Optional['outputs.LabelingJobImagePropertiesResponse'] = None,
+             progress_metrics: Optional['outputs.ProgressMetricsResponse'] = None,
+             project_id: Optional[str] = None,
+             status: Optional[str] = None,
+             status_messages: Optional[Sequence['outputs.StatusMessageResponse']] = None,
+             ml_assist_configuration: Optional['outputs.MLAssistConfigurationResponse'] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time_utc is None and 'createdTimeUtc' in kwargs:
+            created_time_utc = kwargs['createdTimeUtc']
+        if created_time_utc is None:
+            raise TypeError("Missing 'created_time_utc' argument")
+        if dataset_configuration is None and 'datasetConfiguration' in kwargs:
+            dataset_configuration = kwargs['datasetConfiguration']
+        if dataset_configuration is None:
+            raise TypeError("Missing 'dataset_configuration' argument")
+        if job_instructions is None and 'jobInstructions' in kwargs:
+            job_instructions = kwargs['jobInstructions']
+        if job_instructions is None:
+            raise TypeError("Missing 'job_instructions' argument")
+        if label_categories is None and 'labelCategories' in kwargs:
+            label_categories = kwargs['labelCategories']
+        if label_categories is None:
+            raise TypeError("Missing 'label_categories' argument")
+        if labeling_job_media_properties is None and 'labelingJobMediaProperties' in kwargs:
+            labeling_job_media_properties = kwargs['labelingJobMediaProperties']
+        if labeling_job_media_properties is None:
+            raise TypeError("Missing 'labeling_job_media_properties' argument")
+        if progress_metrics is None and 'progressMetrics' in kwargs:
+            progress_metrics = kwargs['progressMetrics']
+        if progress_metrics is None:
+            raise TypeError("Missing 'progress_metrics' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if status_messages is None and 'statusMessages' in kwargs:
+            status_messages = kwargs['statusMessages']
+        if status_messages is None:
+            raise TypeError("Missing 'status_messages' argument")
+        if ml_assist_configuration is None and 'mlAssistConfiguration' in kwargs:
+            ml_assist_configuration = kwargs['mlAssistConfiguration']
+
+        _setter("created_time_utc", created_time_utc)
+        _setter("dataset_configuration", dataset_configuration)
+        _setter("job_instructions", job_instructions)
+        _setter("label_categories", label_categories)
+        _setter("labeling_job_media_properties", labeling_job_media_properties)
+        _setter("progress_metrics", progress_metrics)
+        _setter("project_id", project_id)
+        _setter("status", status)
+        _setter("status_messages", status_messages)
         if ml_assist_configuration is not None:
-            pulumi.set(__self__, "ml_assist_configuration", ml_assist_configuration)
+            _setter("ml_assist_configuration", ml_assist_configuration)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="createdTimeUtc")
@@ -751,13 +999,40 @@ class LinkedServicePropsResponse(dict):
         :param str link_type: Type of the link target.
         :param str modified_time: The last modified time of the linked service.
         """
-        pulumi.set(__self__, "linked_service_resource_id", linked_service_resource_id)
+        LinkedServicePropsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_resource_id=linked_service_resource_id,
+            created_time=created_time,
+            link_type=link_type,
+            modified_time=modified_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_resource_id: Optional[str] = None,
+             created_time: Optional[str] = None,
+             link_type: Optional[str] = None,
+             modified_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linked_service_resource_id is None and 'linkedServiceResourceId' in kwargs:
+            linked_service_resource_id = kwargs['linkedServiceResourceId']
+        if linked_service_resource_id is None:
+            raise TypeError("Missing 'linked_service_resource_id' argument")
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if link_type is None and 'linkType' in kwargs:
+            link_type = kwargs['linkType']
+        if modified_time is None and 'modifiedTime' in kwargs:
+            modified_time = kwargs['modifiedTime']
+
+        _setter("linked_service_resource_id", linked_service_resource_id)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if link_type is not None:
-            pulumi.set(__self__, "link_type", link_type)
+            _setter("link_type", link_type)
         if modified_time is not None:
-            pulumi.set(__self__, "modified_time", modified_time)
+            _setter("modified_time", modified_time)
 
     @property
     @pulumi.getter(name="linkedServiceResourceId")
@@ -836,13 +1111,48 @@ class MLAssistConfigurationResponse(dict):
         :param bool ml_assist_enabled: Indicates whether MLAssist feature is enabled.
         :param float prelabel_accuracy_threshold: Prelabel accuracy threshold used in MLAssist feature.
         """
-        pulumi.set(__self__, "inferencing_compute_binding", inferencing_compute_binding)
-        pulumi.set(__self__, "model_name_prefix", model_name_prefix)
-        pulumi.set(__self__, "training_compute_binding", training_compute_binding)
+        MLAssistConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inferencing_compute_binding=inferencing_compute_binding,
+            model_name_prefix=model_name_prefix,
+            training_compute_binding=training_compute_binding,
+            ml_assist_enabled=ml_assist_enabled,
+            prelabel_accuracy_threshold=prelabel_accuracy_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inferencing_compute_binding: Optional['outputs.ComputeBindingResponse'] = None,
+             model_name_prefix: Optional[str] = None,
+             training_compute_binding: Optional['outputs.ComputeBindingResponse'] = None,
+             ml_assist_enabled: Optional[bool] = None,
+             prelabel_accuracy_threshold: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inferencing_compute_binding is None and 'inferencingComputeBinding' in kwargs:
+            inferencing_compute_binding = kwargs['inferencingComputeBinding']
+        if inferencing_compute_binding is None:
+            raise TypeError("Missing 'inferencing_compute_binding' argument")
+        if model_name_prefix is None and 'modelNamePrefix' in kwargs:
+            model_name_prefix = kwargs['modelNamePrefix']
+        if model_name_prefix is None:
+            raise TypeError("Missing 'model_name_prefix' argument")
+        if training_compute_binding is None and 'trainingComputeBinding' in kwargs:
+            training_compute_binding = kwargs['trainingComputeBinding']
+        if training_compute_binding is None:
+            raise TypeError("Missing 'training_compute_binding' argument")
+        if ml_assist_enabled is None and 'mlAssistEnabled' in kwargs:
+            ml_assist_enabled = kwargs['mlAssistEnabled']
+        if prelabel_accuracy_threshold is None and 'prelabelAccuracyThreshold' in kwargs:
+            prelabel_accuracy_threshold = kwargs['prelabelAccuracyThreshold']
+
+        _setter("inferencing_compute_binding", inferencing_compute_binding)
+        _setter("model_name_prefix", model_name_prefix)
+        _setter("training_compute_binding", training_compute_binding)
         if ml_assist_enabled is not None:
-            pulumi.set(__self__, "ml_assist_enabled", ml_assist_enabled)
+            _setter("ml_assist_enabled", ml_assist_enabled)
         if prelabel_accuracy_threshold is not None:
-            pulumi.set(__self__, "prelabel_accuracy_threshold", prelabel_accuracy_threshold)
+            _setter("prelabel_accuracy_threshold", prelabel_accuracy_threshold)
 
     @property
     @pulumi.getter(name="inferencingComputeBinding")
@@ -890,8 +1200,25 @@ class PasswordResponse(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        PasswordResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -954,21 +1281,66 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'SkuResponse' sku: The sku of the workspace.
         :param Mapping[str, str] tags: Contains resource tags defined as key/value pairs.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            type=type,
+            identity=identity,
+            location=location,
+            private_endpoint=private_endpoint,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             type: Optional[str] = None,
+             identity: Optional['outputs.IdentityResponse'] = None,
+             location: Optional[str] = None,
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             sku: Optional['outputs.SkuResponse'] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
+        _setter("type", type)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -1062,7 +1434,20 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint resource.
         :param str id: The ARM identifier for Private Endpoint
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1105,12 +1490,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1177,10 +1579,43 @@ class ProgressMetricsResponse(dict):
         :param float skipped_datapoint_count: The skipped datapoint count.
         :param float total_datapoint_count: The total datapoint count.
         """
-        pulumi.set(__self__, "completed_datapoint_count", completed_datapoint_count)
-        pulumi.set(__self__, "incremental_dataset_last_refresh_time", incremental_dataset_last_refresh_time)
-        pulumi.set(__self__, "skipped_datapoint_count", skipped_datapoint_count)
-        pulumi.set(__self__, "total_datapoint_count", total_datapoint_count)
+        ProgressMetricsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completed_datapoint_count=completed_datapoint_count,
+            incremental_dataset_last_refresh_time=incremental_dataset_last_refresh_time,
+            skipped_datapoint_count=skipped_datapoint_count,
+            total_datapoint_count=total_datapoint_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completed_datapoint_count: Optional[float] = None,
+             incremental_dataset_last_refresh_time: Optional[str] = None,
+             skipped_datapoint_count: Optional[float] = None,
+             total_datapoint_count: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if completed_datapoint_count is None and 'completedDatapointCount' in kwargs:
+            completed_datapoint_count = kwargs['completedDatapointCount']
+        if completed_datapoint_count is None:
+            raise TypeError("Missing 'completed_datapoint_count' argument")
+        if incremental_dataset_last_refresh_time is None and 'incrementalDatasetLastRefreshTime' in kwargs:
+            incremental_dataset_last_refresh_time = kwargs['incrementalDatasetLastRefreshTime']
+        if incremental_dataset_last_refresh_time is None:
+            raise TypeError("Missing 'incremental_dataset_last_refresh_time' argument")
+        if skipped_datapoint_count is None and 'skippedDatapointCount' in kwargs:
+            skipped_datapoint_count = kwargs['skippedDatapointCount']
+        if skipped_datapoint_count is None:
+            raise TypeError("Missing 'skipped_datapoint_count' argument")
+        if total_datapoint_count is None and 'totalDatapointCount' in kwargs:
+            total_datapoint_count = kwargs['totalDatapointCount']
+        if total_datapoint_count is None:
+            raise TypeError("Missing 'total_datapoint_count' argument")
+
+        _setter("completed_datapoint_count", completed_datapoint_count)
+        _setter("incremental_dataset_last_refresh_time", incremental_dataset_last_refresh_time)
+        _setter("skipped_datapoint_count", skipped_datapoint_count)
+        _setter("total_datapoint_count", total_datapoint_count)
 
     @property
     @pulumi.getter(name="completedDatapointCount")
@@ -1221,10 +1656,29 @@ class RegistryListCredentialsResultResponse(dict):
                  location: str,
                  username: str,
                  passwords: Optional[Sequence['outputs.PasswordResponse']] = None):
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "username", username)
+        RegistryListCredentialsResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            username=username,
+            passwords=passwords,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             username: Optional[str] = None,
+             passwords: Optional[Sequence['outputs.PasswordResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("location", location)
+        _setter("username", username)
         if passwords is not None:
-            pulumi.set(__self__, "passwords", passwords)
+            _setter("passwords", passwords)
 
     @property
     @pulumi.getter
@@ -1278,16 +1732,41 @@ class SharedPrivateLinkResourceResponse(dict):
         :param str request_message: Request message.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        SharedPrivateLinkResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            name=name,
+            private_link_resource_id=private_link_resource_id,
+            request_message=request_message,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_link_resource_id: Optional[str] = None,
+             request_message: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if private_link_resource_id is None and 'privateLinkResourceId' in kwargs:
+            private_link_resource_id = kwargs['privateLinkResourceId']
+        if request_message is None and 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_link_resource_id is not None:
-            pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+            _setter("private_link_resource_id", private_link_resource_id)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="groupId")
@@ -1343,10 +1822,23 @@ class SkuResponse(dict):
         :param str name: Name of the sku
         :param str tier: Tier of the sku like Basic or Enterprise
         """
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1399,10 +1891,37 @@ class StatusMessageResponse(dict):
         :param str level: Severity level of the status message.
         :param str message: A human-readable representation of the message code.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "created_time_utc", created_time_utc)
-        pulumi.set(__self__, "level", level)
-        pulumi.set(__self__, "message", message)
+        StatusMessageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            created_time_utc=created_time_utc,
+            level=level,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             created_time_utc: Optional[str] = None,
+             level: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if created_time_utc is None and 'createdTimeUtc' in kwargs:
+            created_time_utc = kwargs['createdTimeUtc']
+        if created_time_utc is None:
+            raise TypeError("Missing 'created_time_utc' argument")
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+
+        _setter("code", code)
+        _setter("created_time_utc", created_time_utc)
+        _setter("level", level)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -1485,18 +2004,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1583,9 +2135,36 @@ class UserAssignedIdentityResponse(dict):
         :param str principal_id: The principal ID of the user assigned identity.
         :param str tenant_id: The tenant ID of the user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")

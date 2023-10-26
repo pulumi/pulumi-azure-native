@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -36,19 +36,68 @@ class StaticSiteBuildDatabaseConnectionArgs:
         :param pulumi.Input[str] database_connection_name: Name of the database connection.
         :param pulumi.Input[str] kind: Kind of resource.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_id", resource_id)
+        StaticSiteBuildDatabaseConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            name=name,
+            region=region,
+            resource_group_name=resource_group_name,
+            resource_id=resource_id,
+            connection_identity=connection_identity,
+            connection_string=connection_string,
+            database_connection_name=database_connection_name,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             connection_identity: Optional[pulumi.Input[str]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             database_connection_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if environment_name is None:
+            raise TypeError("Missing 'environment_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if connection_identity is None and 'connectionIdentity' in kwargs:
+            connection_identity = kwargs['connectionIdentity']
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if database_connection_name is None and 'databaseConnectionName' in kwargs:
+            database_connection_name = kwargs['databaseConnectionName']
+
+        _setter("environment_name", environment_name)
+        _setter("name", name)
+        _setter("region", region)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_id", resource_id)
         if connection_identity is not None:
-            pulumi.set(__self__, "connection_identity", connection_identity)
+            _setter("connection_identity", connection_identity)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if database_connection_name is not None:
-            pulumi.set(__self__, "database_connection_name", database_connection_name)
+            _setter("database_connection_name", database_connection_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -208,6 +257,10 @@ class StaticSiteBuildDatabaseConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticSiteBuildDatabaseConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

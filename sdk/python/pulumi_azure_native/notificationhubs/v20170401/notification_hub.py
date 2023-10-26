@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,99 @@ class NotificationHubArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input['WnsCredentialArgs'] wns_credential: The WnsCredential of the created NotificationHub
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NotificationHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            adm_credential=adm_credential,
+            apns_credential=apns_credential,
+            authorization_rules=authorization_rules,
+            baidu_credential=baidu_credential,
+            gcm_credential=gcm_credential,
+            location=location,
+            mpns_credential=mpns_credential,
+            name=name,
+            notification_hub_name=notification_hub_name,
+            registration_ttl=registration_ttl,
+            sku=sku,
+            tags=tags,
+            wns_credential=wns_credential,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             adm_credential: Optional[pulumi.Input['AdmCredentialArgs']] = None,
+             apns_credential: Optional[pulumi.Input['ApnsCredentialArgs']] = None,
+             authorization_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessAuthorizationRulePropertiesArgs']]]] = None,
+             baidu_credential: Optional[pulumi.Input['BaiduCredentialArgs']] = None,
+             gcm_credential: Optional[pulumi.Input['GcmCredentialArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mpns_credential: Optional[pulumi.Input['MpnsCredentialArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_hub_name: Optional[pulumi.Input[str]] = None,
+             registration_ttl: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wns_credential: Optional[pulumi.Input['WnsCredentialArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if adm_credential is None and 'admCredential' in kwargs:
+            adm_credential = kwargs['admCredential']
+        if apns_credential is None and 'apnsCredential' in kwargs:
+            apns_credential = kwargs['apnsCredential']
+        if authorization_rules is None and 'authorizationRules' in kwargs:
+            authorization_rules = kwargs['authorizationRules']
+        if baidu_credential is None and 'baiduCredential' in kwargs:
+            baidu_credential = kwargs['baiduCredential']
+        if gcm_credential is None and 'gcmCredential' in kwargs:
+            gcm_credential = kwargs['gcmCredential']
+        if mpns_credential is None and 'mpnsCredential' in kwargs:
+            mpns_credential = kwargs['mpnsCredential']
+        if notification_hub_name is None and 'notificationHubName' in kwargs:
+            notification_hub_name = kwargs['notificationHubName']
+        if registration_ttl is None and 'registrationTtl' in kwargs:
+            registration_ttl = kwargs['registrationTtl']
+        if wns_credential is None and 'wnsCredential' in kwargs:
+            wns_credential = kwargs['wnsCredential']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if adm_credential is not None:
-            pulumi.set(__self__, "adm_credential", adm_credential)
+            _setter("adm_credential", adm_credential)
         if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
+            _setter("apns_credential", apns_credential)
         if authorization_rules is not None:
-            pulumi.set(__self__, "authorization_rules", authorization_rules)
+            _setter("authorization_rules", authorization_rules)
         if baidu_credential is not None:
-            pulumi.set(__self__, "baidu_credential", baidu_credential)
+            _setter("baidu_credential", baidu_credential)
         if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
+            _setter("gcm_credential", gcm_credential)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mpns_credential is not None:
-            pulumi.set(__self__, "mpns_credential", mpns_credential)
+            _setter("mpns_credential", mpns_credential)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_hub_name is not None:
-            pulumi.set(__self__, "notification_hub_name", notification_hub_name)
+            _setter("notification_hub_name", notification_hub_name)
         if registration_ttl is not None:
-            pulumi.set(__self__, "registration_ttl", registration_ttl)
+            _setter("registration_ttl", registration_ttl)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if wns_credential is not None:
-            pulumi.set(__self__, "wns_credential", wns_credential)
+            _setter("wns_credential", wns_credential)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -321,6 +386,10 @@ class NotificationHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,12 +419,17 @@ class NotificationHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotificationHubArgs.__new__(NotificationHubArgs)
 
+            adm_credential = _utilities.configure(adm_credential, AdmCredentialArgs, True)
             __props__.__dict__["adm_credential"] = adm_credential
+            apns_credential = _utilities.configure(apns_credential, ApnsCredentialArgs, True)
             __props__.__dict__["apns_credential"] = apns_credential
             __props__.__dict__["authorization_rules"] = authorization_rules
+            baidu_credential = _utilities.configure(baidu_credential, BaiduCredentialArgs, True)
             __props__.__dict__["baidu_credential"] = baidu_credential
+            gcm_credential = _utilities.configure(gcm_credential, GcmCredentialArgs, True)
             __props__.__dict__["gcm_credential"] = gcm_credential
             __props__.__dict__["location"] = location
+            mpns_credential = _utilities.configure(mpns_credential, MpnsCredentialArgs, True)
             __props__.__dict__["mpns_credential"] = mpns_credential
             __props__.__dict__["name"] = name
             if namespace_name is None and not opts.urn:
@@ -366,8 +440,10 @@ class NotificationHub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            wns_credential = _utilities.configure(wns_credential, WnsCredentialArgs, True)
             __props__.__dict__["wns_credential"] = wns_credential
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20140901:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20230901:NotificationHub")])

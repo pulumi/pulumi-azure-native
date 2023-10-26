@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ScopeAssignmentArgs', 'ScopeAssignment']
@@ -25,13 +25,36 @@ class ScopeAssignmentArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] scope_assignment_name: The name of the scope assignment to create.
         """
-        pulumi.set(__self__, "scope", scope)
+        ScopeAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            assigned_managed_network=assigned_managed_network,
+            location=location,
+            scope_assignment_name=scope_assignment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: Optional[pulumi.Input[str]] = None,
+             assigned_managed_network: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             scope_assignment_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if assigned_managed_network is None and 'assignedManagedNetwork' in kwargs:
+            assigned_managed_network = kwargs['assignedManagedNetwork']
+        if scope_assignment_name is None and 'scopeAssignmentName' in kwargs:
+            scope_assignment_name = kwargs['scopeAssignmentName']
+
+        _setter("scope", scope)
         if assigned_managed_network is not None:
-            pulumi.set(__self__, "assigned_managed_network", assigned_managed_network)
+            _setter("assigned_managed_network", assigned_managed_network)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if scope_assignment_name is not None:
-            pulumi.set(__self__, "scope_assignment_name", scope_assignment_name)
+            _setter("scope_assignment_name", scope_assignment_name)
 
     @property
     @pulumi.getter
@@ -121,6 +144,10 @@ class ScopeAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScopeAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

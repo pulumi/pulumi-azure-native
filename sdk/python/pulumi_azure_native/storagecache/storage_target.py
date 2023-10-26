@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,23 +40,68 @@ class StorageTargetArgs:
         :param pulumi.Input[str] storage_target_name: Name of Storage Target.
         :param pulumi.Input['UnknownTargetArgs'] unknown: Properties when targetType is unknown.
         """
-        pulumi.set(__self__, "cache_name", cache_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_type", target_type)
+        StorageTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_name=cache_name,
+            resource_group_name=resource_group_name,
+            target_type=target_type,
+            blob_nfs=blob_nfs,
+            clfs=clfs,
+            junctions=junctions,
+            nfs3=nfs3,
+            state=state,
+            storage_target_name=storage_target_name,
+            unknown=unknown,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
+             blob_nfs: Optional[pulumi.Input['BlobNfsTargetArgs']] = None,
+             clfs: Optional[pulumi.Input['ClfsTargetArgs']] = None,
+             junctions: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceJunctionArgs']]]] = None,
+             nfs3: Optional[pulumi.Input['Nfs3TargetArgs']] = None,
+             state: Optional[pulumi.Input[Union[str, 'OperationalStateType']]] = None,
+             storage_target_name: Optional[pulumi.Input[str]] = None,
+             unknown: Optional[pulumi.Input['UnknownTargetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_name is None and 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if cache_name is None:
+            raise TypeError("Missing 'cache_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if target_type is None:
+            raise TypeError("Missing 'target_type' argument")
+        if blob_nfs is None and 'blobNfs' in kwargs:
+            blob_nfs = kwargs['blobNfs']
+        if storage_target_name is None and 'storageTargetName' in kwargs:
+            storage_target_name = kwargs['storageTargetName']
+
+        _setter("cache_name", cache_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_type", target_type)
         if blob_nfs is not None:
-            pulumi.set(__self__, "blob_nfs", blob_nfs)
+            _setter("blob_nfs", blob_nfs)
         if clfs is not None:
-            pulumi.set(__self__, "clfs", clfs)
+            _setter("clfs", clfs)
         if junctions is not None:
-            pulumi.set(__self__, "junctions", junctions)
+            _setter("junctions", junctions)
         if nfs3 is not None:
-            pulumi.set(__self__, "nfs3", nfs3)
+            _setter("nfs3", nfs3)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_target_name is not None:
-            pulumi.set(__self__, "storage_target_name", storage_target_name)
+            _setter("storage_target_name", storage_target_name)
         if unknown is not None:
-            pulumi.set(__self__, "unknown", unknown)
+            _setter("unknown", unknown)
 
     @property
     @pulumi.getter(name="cacheName")
@@ -236,6 +281,10 @@ class StorageTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -260,12 +309,15 @@ class StorageTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageTargetArgs.__new__(StorageTargetArgs)
 
+            blob_nfs = _utilities.configure(blob_nfs, BlobNfsTargetArgs, True)
             __props__.__dict__["blob_nfs"] = blob_nfs
             if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__.__dict__["cache_name"] = cache_name
+            clfs = _utilities.configure(clfs, ClfsTargetArgs, True)
             __props__.__dict__["clfs"] = clfs
             __props__.__dict__["junctions"] = junctions
+            nfs3 = _utilities.configure(nfs3, Nfs3TargetArgs, True)
             __props__.__dict__["nfs3"] = nfs3
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -275,6 +327,7 @@ class StorageTarget(pulumi.CustomResource):
             if target_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
+            unknown = _utilities.configure(unknown, UnknownTargetArgs, True)
             __props__.__dict__["unknown"] = unknown
             __props__.__dict__["allocation_percentage"] = None
             __props__.__dict__["location"] = None

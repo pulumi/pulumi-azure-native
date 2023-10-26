@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -42,24 +42,79 @@ class RelationshipArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RelationshipTypeMappingArgs']]] lookup_mappings: Optional property to be used to map fields in profile to their strong ids in related profile.
         :param pulumi.Input[str] relationship_name: The name of the Relationship.
         """
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "profile_type", profile_type)
-        pulumi.set(__self__, "related_profile_type", related_profile_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RelationshipArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hub_name=hub_name,
+            profile_type=profile_type,
+            related_profile_type=related_profile_type,
+            resource_group_name=resource_group_name,
+            cardinality=cardinality,
+            description=description,
+            display_name=display_name,
+            expiry_date_time_utc=expiry_date_time_utc,
+            fields=fields,
+            lookup_mappings=lookup_mappings,
+            relationship_name=relationship_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hub_name: Optional[pulumi.Input[str]] = None,
+             profile_type: Optional[pulumi.Input[str]] = None,
+             related_profile_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             cardinality: Optional[pulumi.Input['CardinalityTypes']] = None,
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             expiry_date_time_utc: Optional[pulumi.Input[str]] = None,
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input['PropertyDefinitionArgs']]]] = None,
+             lookup_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['RelationshipTypeMappingArgs']]]] = None,
+             relationship_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hub_name is None and 'hubName' in kwargs:
+            hub_name = kwargs['hubName']
+        if hub_name is None:
+            raise TypeError("Missing 'hub_name' argument")
+        if profile_type is None and 'profileType' in kwargs:
+            profile_type = kwargs['profileType']
+        if profile_type is None:
+            raise TypeError("Missing 'profile_type' argument")
+        if related_profile_type is None and 'relatedProfileType' in kwargs:
+            related_profile_type = kwargs['relatedProfileType']
+        if related_profile_type is None:
+            raise TypeError("Missing 'related_profile_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if expiry_date_time_utc is None and 'expiryDateTimeUtc' in kwargs:
+            expiry_date_time_utc = kwargs['expiryDateTimeUtc']
+        if lookup_mappings is None and 'lookupMappings' in kwargs:
+            lookup_mappings = kwargs['lookupMappings']
+        if relationship_name is None and 'relationshipName' in kwargs:
+            relationship_name = kwargs['relationshipName']
+
+        _setter("hub_name", hub_name)
+        _setter("profile_type", profile_type)
+        _setter("related_profile_type", related_profile_type)
+        _setter("resource_group_name", resource_group_name)
         if cardinality is not None:
-            pulumi.set(__self__, "cardinality", cardinality)
+            _setter("cardinality", cardinality)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if expiry_date_time_utc is not None:
-            pulumi.set(__self__, "expiry_date_time_utc", expiry_date_time_utc)
+            _setter("expiry_date_time_utc", expiry_date_time_utc)
         if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+            _setter("fields", fields)
         if lookup_mappings is not None:
-            pulumi.set(__self__, "lookup_mappings", lookup_mappings)
+            _setter("lookup_mappings", lookup_mappings)
         if relationship_name is not None:
-            pulumi.set(__self__, "relationship_name", relationship_name)
+            _setter("relationship_name", relationship_name)
 
     @property
     @pulumi.getter(name="hubName")
@@ -247,6 +302,10 @@ class Relationship(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RelationshipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

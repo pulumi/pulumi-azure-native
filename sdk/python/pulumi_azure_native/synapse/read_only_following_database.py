@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -33,16 +33,57 @@ class ReadOnlyFollowingDatabaseArgs:
         :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
         :param pulumi.Input[str] location: Resource location.
         """
-        pulumi.set(__self__, "kind", 'ReadOnlyFollowing')
-        pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ReadOnlyFollowingDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            kusto_pool_name=kusto_pool_name,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            database_name=database_name,
+            hot_cache_period=hot_cache_period,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[str]] = None,
+             kusto_pool_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             hot_cache_period: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if kusto_pool_name is None and 'kustoPoolName' in kwargs:
+            kusto_pool_name = kwargs['kustoPoolName']
+        if kusto_pool_name is None:
+            raise TypeError("Missing 'kusto_pool_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if hot_cache_period is None and 'hotCachePeriod' in kwargs:
+            hot_cache_period = kwargs['hotCachePeriod']
+
+        _setter("kind", 'ReadOnlyFollowing')
+        _setter("kusto_pool_name", kusto_pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if hot_cache_period is not None:
-            pulumi.set(__self__, "hot_cache_period", hot_cache_period)
+            _setter("hot_cache_period", hot_cache_period)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter
@@ -178,6 +219,10 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReadOnlyFollowingDatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

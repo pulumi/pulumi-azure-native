@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,53 @@ class PrivateDnsZoneGroupArgs:
         :param pulumi.Input[str] private_dns_zone_group_name: The name of the private dns zone group.
         :param pulumi.Input[str] type: Type of resource. Will be specified as private dns zone groups.
         """
-        pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrivateDnsZoneGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint_name=private_endpoint_name,
+            resource_group_name=resource_group_name,
+            id=id,
+            name=name,
+            private_dns_zone_configs=private_dns_zone_configs,
+            private_dns_zone_group_name=private_dns_zone_group_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsZoneConfigArgs']]]] = None,
+             private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_endpoint_name is None and 'privateEndpointName' in kwargs:
+            private_endpoint_name = kwargs['privateEndpointName']
+        if private_endpoint_name is None:
+            raise TypeError("Missing 'private_endpoint_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if private_dns_zone_configs is None and 'privateDnsZoneConfigs' in kwargs:
+            private_dns_zone_configs = kwargs['privateDnsZoneConfigs']
+        if private_dns_zone_group_name is None and 'privateDnsZoneGroupName' in kwargs:
+            private_dns_zone_group_name = kwargs['privateDnsZoneGroupName']
+
+        _setter("private_endpoint_name", private_endpoint_name)
+        _setter("resource_group_name", resource_group_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_dns_zone_configs is not None:
-            pulumi.set(__self__, "private_dns_zone_configs", private_dns_zone_configs)
+            _setter("private_dns_zone_configs", private_dns_zone_configs)
         if private_dns_zone_group_name is not None:
-            pulumi.set(__self__, "private_dns_zone_group_name", private_dns_zone_group_name)
+            _setter("private_dns_zone_group_name", private_dns_zone_group_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="privateEndpointName")
@@ -176,6 +211,10 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateDnsZoneGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

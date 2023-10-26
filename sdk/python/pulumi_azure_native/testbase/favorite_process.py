@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,12 +28,49 @@ class FavoriteProcessArgs:
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[str] favorite_process_resource_name: The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
         """
-        pulumi.set(__self__, "actual_process_name", actual_process_name)
-        pulumi.set(__self__, "package_name", package_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "test_base_account_name", test_base_account_name)
+        FavoriteProcessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actual_process_name=actual_process_name,
+            package_name=package_name,
+            resource_group_name=resource_group_name,
+            test_base_account_name=test_base_account_name,
+            favorite_process_resource_name=favorite_process_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actual_process_name: Optional[pulumi.Input[str]] = None,
+             package_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             test_base_account_name: Optional[pulumi.Input[str]] = None,
+             favorite_process_resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actual_process_name is None and 'actualProcessName' in kwargs:
+            actual_process_name = kwargs['actualProcessName']
+        if actual_process_name is None:
+            raise TypeError("Missing 'actual_process_name' argument")
+        if package_name is None and 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+        if package_name is None:
+            raise TypeError("Missing 'package_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if test_base_account_name is None and 'testBaseAccountName' in kwargs:
+            test_base_account_name = kwargs['testBaseAccountName']
+        if test_base_account_name is None:
+            raise TypeError("Missing 'test_base_account_name' argument")
+        if favorite_process_resource_name is None and 'favoriteProcessResourceName' in kwargs:
+            favorite_process_resource_name = kwargs['favoriteProcessResourceName']
+
+        _setter("actual_process_name", actual_process_name)
+        _setter("package_name", package_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("test_base_account_name", test_base_account_name)
         if favorite_process_resource_name is not None:
-            pulumi.set(__self__, "favorite_process_resource_name", favorite_process_resource_name)
+            _setter("favorite_process_resource_name", favorite_process_resource_name)
 
     @property
     @pulumi.getter(name="actualProcessName")
@@ -139,6 +176,10 @@ class FavoriteProcess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FavoriteProcessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -71,12 +71,57 @@ class ConsumptionEndpointsPropertiesResponse(dict):
         :param str query_resource_id: Resource Id of query endpoint.
         :param str query_url: Url to consume the processed data.
         """
-        pulumi.set(__self__, "file_access_resource_id", file_access_resource_id)
-        pulumi.set(__self__, "file_access_url", file_access_url)
-        pulumi.set(__self__, "ingestion_resource_id", ingestion_resource_id)
-        pulumi.set(__self__, "ingestion_url", ingestion_url)
-        pulumi.set(__self__, "query_resource_id", query_resource_id)
-        pulumi.set(__self__, "query_url", query_url)
+        ConsumptionEndpointsPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_access_resource_id=file_access_resource_id,
+            file_access_url=file_access_url,
+            ingestion_resource_id=ingestion_resource_id,
+            ingestion_url=ingestion_url,
+            query_resource_id=query_resource_id,
+            query_url=query_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_access_resource_id: Optional[str] = None,
+             file_access_url: Optional[str] = None,
+             ingestion_resource_id: Optional[str] = None,
+             ingestion_url: Optional[str] = None,
+             query_resource_id: Optional[str] = None,
+             query_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_access_resource_id is None and 'fileAccessResourceId' in kwargs:
+            file_access_resource_id = kwargs['fileAccessResourceId']
+        if file_access_resource_id is None:
+            raise TypeError("Missing 'file_access_resource_id' argument")
+        if file_access_url is None and 'fileAccessUrl' in kwargs:
+            file_access_url = kwargs['fileAccessUrl']
+        if file_access_url is None:
+            raise TypeError("Missing 'file_access_url' argument")
+        if ingestion_resource_id is None and 'ingestionResourceId' in kwargs:
+            ingestion_resource_id = kwargs['ingestionResourceId']
+        if ingestion_resource_id is None:
+            raise TypeError("Missing 'ingestion_resource_id' argument")
+        if ingestion_url is None and 'ingestionUrl' in kwargs:
+            ingestion_url = kwargs['ingestionUrl']
+        if ingestion_url is None:
+            raise TypeError("Missing 'ingestion_url' argument")
+        if query_resource_id is None and 'queryResourceId' in kwargs:
+            query_resource_id = kwargs['queryResourceId']
+        if query_resource_id is None:
+            raise TypeError("Missing 'query_resource_id' argument")
+        if query_url is None and 'queryUrl' in kwargs:
+            query_url = kwargs['queryUrl']
+        if query_url is None:
+            raise TypeError("Missing 'query_url' argument")
+
+        _setter("file_access_resource_id", file_access_resource_id)
+        _setter("file_access_url", file_access_url)
+        _setter("ingestion_resource_id", ingestion_resource_id)
+        _setter("ingestion_url", ingestion_url)
+        _setter("query_resource_id", query_resource_id)
+        _setter("query_url", query_url)
 
     @property
     @pulumi.getter(name="fileAccessResourceId")
@@ -167,10 +212,43 @@ class DataProductNetworkAclsResponse(dict):
         :param Sequence['IPRulesResponse'] ip_rules: IP rule with specific IP or IP range in CIDR format.
         :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rule: Virtual Network Rule
         """
-        pulumi.set(__self__, "allowed_query_ip_range_list", allowed_query_ip_range_list)
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "ip_rules", ip_rules)
-        pulumi.set(__self__, "virtual_network_rule", virtual_network_rule)
+        DataProductNetworkAclsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_query_ip_range_list=allowed_query_ip_range_list,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_rule=virtual_network_rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_query_ip_range_list: Optional[Sequence[str]] = None,
+             default_action: Optional[str] = None,
+             ip_rules: Optional[Sequence['outputs.IPRulesResponse']] = None,
+             virtual_network_rule: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_query_ip_range_list is None and 'allowedQueryIpRangeList' in kwargs:
+            allowed_query_ip_range_list = kwargs['allowedQueryIpRangeList']
+        if allowed_query_ip_range_list is None:
+            raise TypeError("Missing 'allowed_query_ip_range_list' argument")
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if ip_rules is None:
+            raise TypeError("Missing 'ip_rules' argument")
+        if virtual_network_rule is None and 'virtualNetworkRule' in kwargs:
+            virtual_network_rule = kwargs['virtualNetworkRule']
+        if virtual_network_rule is None:
+            raise TypeError("Missing 'virtual_network_rule' argument")
+
+        _setter("allowed_query_ip_range_list", allowed_query_ip_range_list)
+        _setter("default_action", default_action)
+        _setter("ip_rules", ip_rules)
+        _setter("virtual_network_rule", virtual_network_rule)
 
     @property
     @pulumi.getter(name="allowedQueryIpRangeList")
@@ -241,9 +319,36 @@ class EncryptionKeyDetailsResponse(dict):
         :param str key_vault_uri: The Uri of the key vault.
         :param str key_version: The version of the key vault key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "key_version", key_version)
+        EncryptionKeyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             key_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_vault_uri is None:
+            raise TypeError("Missing 'key_vault_uri' argument")
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if key_version is None:
+            raise TypeError("Missing 'key_version' argument")
+
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -283,9 +388,24 @@ class IPRulesResponse(dict):
         :param str action: The action of virtual network rule.
         :param str value: IP Rules Value
         """
-        pulumi.set(__self__, "action", action)
+        IPRulesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+
+        _setter("action", action)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -342,11 +462,40 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -404,13 +553,62 @@ class RoleAssignmentDetailResponse(dict):
         :param str role_id: Role Id of the Built-In Role
         :param str user_name: User name.
         """
-        pulumi.set(__self__, "data_type_scope", data_type_scope)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "role_assignment_id", role_assignment_id)
-        pulumi.set(__self__, "role_id", role_id)
-        pulumi.set(__self__, "user_name", user_name)
+        RoleAssignmentDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type_scope=data_type_scope,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            role=role,
+            role_assignment_id=role_assignment_id,
+            role_id=role_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type_scope: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             principal_type: Optional[str] = None,
+             role: Optional[str] = None,
+             role_assignment_id: Optional[str] = None,
+             role_id: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type_scope is None and 'dataTypeScope' in kwargs:
+            data_type_scope = kwargs['dataTypeScope']
+        if data_type_scope is None:
+            raise TypeError("Missing 'data_type_scope' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if principal_type is None:
+            raise TypeError("Missing 'principal_type' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if role_assignment_id is None and 'roleAssignmentId' in kwargs:
+            role_assignment_id = kwargs['roleAssignmentId']
+        if role_assignment_id is None:
+            raise TypeError("Missing 'role_assignment_id' argument")
+        if role_id is None and 'roleId' in kwargs:
+            role_id = kwargs['roleId']
+        if role_id is None:
+            raise TypeError("Missing 'role_id' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+
+        _setter("data_type_scope", data_type_scope)
+        _setter("principal_id", principal_id)
+        _setter("principal_type", principal_type)
+        _setter("role", role)
+        _setter("role_assignment_id", role_assignment_id)
+        _setter("role_id", role_id)
+        _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataTypeScope")
@@ -517,18 +715,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -611,8 +842,29 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -646,11 +898,28 @@ class VirtualNetworkRuleResponse(dict):
         :param str action: The action of virtual network rule.
         :param str state: Gets the state of virtual network rule.
         """
-        pulumi.set(__self__, "id", id)
+        VirtualNetworkRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            action=action,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             action: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter

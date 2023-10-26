@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -45,16 +45,63 @@ class DeploymentResponse(dict):
         :param Sequence['ImageResponse'] deployed_images: Images deployed
         :param str deployment_id: Deployment ID
         """
-        pulumi.set(__self__, "deployment_date_utc", deployment_date_utc)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        DeploymentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_date_utc=deployment_date_utc,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            deployed_images=deployed_images,
+            deployment_id=deployment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_date_utc: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             deployed_images: Optional[Sequence['outputs.ImageResponse']] = None,
+             deployment_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_date_utc is None and 'deploymentDateUtc' in kwargs:
+            deployment_date_utc = kwargs['deploymentDateUtc']
+        if deployment_date_utc is None:
+            raise TypeError("Missing 'deployment_date_utc' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if deployed_images is None and 'deployedImages' in kwargs:
+            deployed_images = kwargs['deployedImages']
+        if deployment_id is None and 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+
+        _setter("deployment_date_utc", deployment_date_utc)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if deployed_images is not None:
-            pulumi.set(__self__, "deployed_images", deployed_images)
+            _setter("deployed_images", deployed_images)
         if deployment_id is not None:
-            pulumi.set(__self__, "deployment_id", deployment_id)
+            _setter("deployment_id", deployment_id)
 
     @property
     @pulumi.getter(name="deploymentDateUtc")
@@ -152,22 +199,79 @@ class DeviceGroupResponse(dict):
         :param str regional_data_boundary: Regional data boundary for the device group.
         :param str update_policy: Update policy of the device group.
         """
-        pulumi.set(__self__, "has_deployment", has_deployment)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        DeviceGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            has_deployment=has_deployment,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            allow_crash_dumps_collection=allow_crash_dumps_collection,
+            description=description,
+            os_feed_type=os_feed_type,
+            regional_data_boundary=regional_data_boundary,
+            update_policy=update_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             has_deployment: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             allow_crash_dumps_collection: Optional[str] = None,
+             description: Optional[str] = None,
+             os_feed_type: Optional[str] = None,
+             regional_data_boundary: Optional[str] = None,
+             update_policy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if has_deployment is None and 'hasDeployment' in kwargs:
+            has_deployment = kwargs['hasDeployment']
+        if has_deployment is None:
+            raise TypeError("Missing 'has_deployment' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if allow_crash_dumps_collection is None and 'allowCrashDumpsCollection' in kwargs:
+            allow_crash_dumps_collection = kwargs['allowCrashDumpsCollection']
+        if os_feed_type is None and 'osFeedType' in kwargs:
+            os_feed_type = kwargs['osFeedType']
+        if regional_data_boundary is None and 'regionalDataBoundary' in kwargs:
+            regional_data_boundary = kwargs['regionalDataBoundary']
+        if update_policy is None and 'updatePolicy' in kwargs:
+            update_policy = kwargs['updatePolicy']
+
+        _setter("has_deployment", has_deployment)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if allow_crash_dumps_collection is not None:
-            pulumi.set(__self__, "allow_crash_dumps_collection", allow_crash_dumps_collection)
+            _setter("allow_crash_dumps_collection", allow_crash_dumps_collection)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if os_feed_type is not None:
-            pulumi.set(__self__, "os_feed_type", os_feed_type)
+            _setter("os_feed_type", os_feed_type)
         if regional_data_boundary is not None:
-            pulumi.set(__self__, "regional_data_boundary", regional_data_boundary)
+            _setter("regional_data_boundary", regional_data_boundary)
         if update_policy is not None:
-            pulumi.set(__self__, "update_policy", update_policy)
+            _setter("update_policy", update_policy)
 
     @property
     @pulumi.getter(name="hasDeployment")
@@ -283,14 +387,69 @@ class DeviceInsightResponse(dict):
         :param str event_type: Event type
         :param str start_timestamp_utc: Event start timestamp
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "end_timestamp_utc", end_timestamp_utc)
-        pulumi.set(__self__, "event_category", event_category)
-        pulumi.set(__self__, "event_class", event_class)
-        pulumi.set(__self__, "event_count", event_count)
-        pulumi.set(__self__, "event_type", event_type)
-        pulumi.set(__self__, "start_timestamp_utc", start_timestamp_utc)
+        DeviceInsightResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            device_id=device_id,
+            end_timestamp_utc=end_timestamp_utc,
+            event_category=event_category,
+            event_class=event_class,
+            event_count=event_count,
+            event_type=event_type,
+            start_timestamp_utc=start_timestamp_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             device_id: Optional[str] = None,
+             end_timestamp_utc: Optional[str] = None,
+             event_category: Optional[str] = None,
+             event_class: Optional[str] = None,
+             event_count: Optional[int] = None,
+             event_type: Optional[str] = None,
+             start_timestamp_utc: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if device_id is None:
+            raise TypeError("Missing 'device_id' argument")
+        if end_timestamp_utc is None and 'endTimestampUtc' in kwargs:
+            end_timestamp_utc = kwargs['endTimestampUtc']
+        if end_timestamp_utc is None:
+            raise TypeError("Missing 'end_timestamp_utc' argument")
+        if event_category is None and 'eventCategory' in kwargs:
+            event_category = kwargs['eventCategory']
+        if event_category is None:
+            raise TypeError("Missing 'event_category' argument")
+        if event_class is None and 'eventClass' in kwargs:
+            event_class = kwargs['eventClass']
+        if event_class is None:
+            raise TypeError("Missing 'event_class' argument")
+        if event_count is None and 'eventCount' in kwargs:
+            event_count = kwargs['eventCount']
+        if event_count is None:
+            raise TypeError("Missing 'event_count' argument")
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if event_type is None:
+            raise TypeError("Missing 'event_type' argument")
+        if start_timestamp_utc is None and 'startTimestampUtc' in kwargs:
+            start_timestamp_utc = kwargs['startTimestampUtc']
+        if start_timestamp_utc is None:
+            raise TypeError("Missing 'start_timestamp_utc' argument")
+
+        _setter("description", description)
+        _setter("device_id", device_id)
+        _setter("end_timestamp_utc", end_timestamp_utc)
+        _setter("event_category", event_category)
+        _setter("event_class", event_class)
+        _setter("event_count", event_count)
+        _setter("event_type", event_type)
+        _setter("start_timestamp_utc", start_timestamp_utc)
 
     @property
     @pulumi.getter
@@ -388,18 +547,85 @@ class DeviceResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param str device_id: Device ID
         """
-        pulumi.set(__self__, "chip_sku", chip_sku)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_available_os_version", last_available_os_version)
-        pulumi.set(__self__, "last_installed_os_version", last_installed_os_version)
-        pulumi.set(__self__, "last_os_update_utc", last_os_update_utc)
-        pulumi.set(__self__, "last_update_request_utc", last_update_request_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        DeviceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            chip_sku=chip_sku,
+            id=id,
+            last_available_os_version=last_available_os_version,
+            last_installed_os_version=last_installed_os_version,
+            last_os_update_utc=last_os_update_utc,
+            last_update_request_utc=last_update_request_utc,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            device_id=device_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             chip_sku: Optional[str] = None,
+             id: Optional[str] = None,
+             last_available_os_version: Optional[str] = None,
+             last_installed_os_version: Optional[str] = None,
+             last_os_update_utc: Optional[str] = None,
+             last_update_request_utc: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             device_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if chip_sku is None and 'chipSku' in kwargs:
+            chip_sku = kwargs['chipSku']
+        if chip_sku is None:
+            raise TypeError("Missing 'chip_sku' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_available_os_version is None and 'lastAvailableOsVersion' in kwargs:
+            last_available_os_version = kwargs['lastAvailableOsVersion']
+        if last_available_os_version is None:
+            raise TypeError("Missing 'last_available_os_version' argument")
+        if last_installed_os_version is None and 'lastInstalledOsVersion' in kwargs:
+            last_installed_os_version = kwargs['lastInstalledOsVersion']
+        if last_installed_os_version is None:
+            raise TypeError("Missing 'last_installed_os_version' argument")
+        if last_os_update_utc is None and 'lastOsUpdateUtc' in kwargs:
+            last_os_update_utc = kwargs['lastOsUpdateUtc']
+        if last_os_update_utc is None:
+            raise TypeError("Missing 'last_os_update_utc' argument")
+        if last_update_request_utc is None and 'lastUpdateRequestUtc' in kwargs:
+            last_update_request_utc = kwargs['lastUpdateRequestUtc']
+        if last_update_request_utc is None:
+            raise TypeError("Missing 'last_update_request_utc' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+
+        _setter("chip_sku", chip_sku)
+        _setter("id", id)
+        _setter("last_available_os_version", last_available_os_version)
+        _setter("last_installed_os_version", last_installed_os_version)
+        _setter("last_os_update_utc", last_os_update_utc)
+        _setter("last_update_request_utc", last_update_request_utc)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if device_id is not None:
-            pulumi.set(__self__, "device_id", device_id)
+            _setter("device_id", device_id)
 
     @property
     @pulumi.getter(name="chipSku")
@@ -554,22 +780,91 @@ class ImageResponse(dict):
         :param str image_id: Image ID
         :param str regional_data_boundary: Regional data boundary for an image
         """
-        pulumi.set(__self__, "component_id", component_id)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "image_name", image_name)
-        pulumi.set(__self__, "image_type", image_type)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uri", uri)
+        ImageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_id=component_id,
+            description=description,
+            id=id,
+            image_name=image_name,
+            image_type=image_type,
+            name=name,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            uri=uri,
+            image=image,
+            image_id=image_id,
+            regional_data_boundary=regional_data_boundary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_id: Optional[str] = None,
+             description: Optional[str] = None,
+             id: Optional[str] = None,
+             image_name: Optional[str] = None,
+             image_type: Optional[str] = None,
+             name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             uri: Optional[str] = None,
+             image: Optional[str] = None,
+             image_id: Optional[str] = None,
+             regional_data_boundary: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_id is None and 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if component_id is None:
+            raise TypeError("Missing 'component_id' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+        if image_type is None and 'imageType' in kwargs:
+            image_type = kwargs['imageType']
+        if image_type is None:
+            raise TypeError("Missing 'image_type' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if regional_data_boundary is None and 'regionalDataBoundary' in kwargs:
+            regional_data_boundary = kwargs['regionalDataBoundary']
+
+        _setter("component_id", component_id)
+        _setter("description", description)
+        _setter("id", id)
+        _setter("image_name", image_name)
+        _setter("image_type", image_type)
+        _setter("name", name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
+        _setter("uri", uri)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
+            _setter("image_id", image_id)
         if regional_data_boundary is not None:
-            pulumi.set(__self__, "regional_data_boundary", regional_data_boundary)
+            _setter("regional_data_boundary", regional_data_boundary)
 
     @property
     @pulumi.getter(name="componentId")
@@ -724,18 +1019,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

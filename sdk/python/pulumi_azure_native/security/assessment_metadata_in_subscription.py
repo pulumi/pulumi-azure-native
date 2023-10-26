@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,35 +46,100 @@ class AssessmentMetadataInSubscriptionArgs:
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
         :param pulumi.Input[Union[str, 'UserImpact']] user_impact: The user impact of the assessment
         """
-        pulumi.set(__self__, "assessment_type", assessment_type)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "severity", severity)
+        AssessmentMetadataInSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_type=assessment_type,
+            display_name=display_name,
+            severity=severity,
+            assessment_metadata_name=assessment_metadata_name,
+            categories=categories,
+            description=description,
+            implementation_effort=implementation_effort,
+            partner_data=partner_data,
+            planned_deprecation_date=planned_deprecation_date,
+            preview=preview,
+            publish_dates=publish_dates,
+            remediation_description=remediation_description,
+            tactics=tactics,
+            techniques=techniques,
+            threats=threats,
+            user_impact=user_impact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_type: Optional[pulumi.Input[Union[str, 'AssessmentType']]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
+             assessment_metadata_name: Optional[pulumi.Input[str]] = None,
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Categories']]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
+             partner_data: Optional[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs']] = None,
+             planned_deprecation_date: Optional[pulumi.Input[str]] = None,
+             preview: Optional[pulumi.Input[bool]] = None,
+             publish_dates: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs']] = None,
+             remediation_description: Optional[pulumi.Input[str]] = None,
+             tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Tactics']]]]] = None,
+             techniques: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Techniques']]]]] = None,
+             threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
+             user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_type is None and 'assessmentType' in kwargs:
+            assessment_type = kwargs['assessmentType']
+        if assessment_type is None:
+            raise TypeError("Missing 'assessment_type' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if assessment_metadata_name is None and 'assessmentMetadataName' in kwargs:
+            assessment_metadata_name = kwargs['assessmentMetadataName']
+        if implementation_effort is None and 'implementationEffort' in kwargs:
+            implementation_effort = kwargs['implementationEffort']
+        if partner_data is None and 'partnerData' in kwargs:
+            partner_data = kwargs['partnerData']
+        if planned_deprecation_date is None and 'plannedDeprecationDate' in kwargs:
+            planned_deprecation_date = kwargs['plannedDeprecationDate']
+        if publish_dates is None and 'publishDates' in kwargs:
+            publish_dates = kwargs['publishDates']
+        if remediation_description is None and 'remediationDescription' in kwargs:
+            remediation_description = kwargs['remediationDescription']
+        if user_impact is None and 'userImpact' in kwargs:
+            user_impact = kwargs['userImpact']
+
+        _setter("assessment_type", assessment_type)
+        _setter("display_name", display_name)
+        _setter("severity", severity)
         if assessment_metadata_name is not None:
-            pulumi.set(__self__, "assessment_metadata_name", assessment_metadata_name)
+            _setter("assessment_metadata_name", assessment_metadata_name)
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if implementation_effort is not None:
-            pulumi.set(__self__, "implementation_effort", implementation_effort)
+            _setter("implementation_effort", implementation_effort)
         if partner_data is not None:
-            pulumi.set(__self__, "partner_data", partner_data)
+            _setter("partner_data", partner_data)
         if planned_deprecation_date is not None:
-            pulumi.set(__self__, "planned_deprecation_date", planned_deprecation_date)
+            _setter("planned_deprecation_date", planned_deprecation_date)
         if preview is not None:
-            pulumi.set(__self__, "preview", preview)
+            _setter("preview", preview)
         if publish_dates is not None:
-            pulumi.set(__self__, "publish_dates", publish_dates)
+            _setter("publish_dates", publish_dates)
         if remediation_description is not None:
-            pulumi.set(__self__, "remediation_description", remediation_description)
+            _setter("remediation_description", remediation_description)
         if tactics is not None:
-            pulumi.set(__self__, "tactics", tactics)
+            _setter("tactics", tactics)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
         if threats is not None:
-            pulumi.set(__self__, "threats", threats)
+            _setter("threats", threats)
         if user_impact is not None:
-            pulumi.set(__self__, "user_impact", user_impact)
+            _setter("user_impact", user_impact)
 
     @property
     @pulumi.getter(name="assessmentType")
@@ -310,6 +375,10 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentMetadataInSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,9 +419,11 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["implementation_effort"] = implementation_effort
+            partner_data = _utilities.configure(partner_data, SecurityAssessmentMetadataPartnerDataArgs, True)
             __props__.__dict__["partner_data"] = partner_data
             __props__.__dict__["planned_deprecation_date"] = planned_deprecation_date
             __props__.__dict__["preview"] = preview
+            publish_dates = _utilities.configure(publish_dates, SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs, True)
             __props__.__dict__["publish_dates"] = publish_dates
             __props__.__dict__["remediation_description"] = remediation_description
             if severity is None and not opts.urn:

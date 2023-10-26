@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,34 +44,89 @@ class ServerDetailsArgs:
         :param pulumi.Input[str] server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of additional resource provisioning properties.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ServerDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            as_administrators=as_administrators,
+            backup_blob_container_uri=backup_blob_container_uri,
+            gateway_details=gateway_details,
+            ip_v4_firewall_settings=ip_v4_firewall_settings,
+            location=location,
+            managed_mode=managed_mode,
+            querypool_connection_mode=querypool_connection_mode,
+            server_monitor_mode=server_monitor_mode,
+            server_name=server_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+             as_administrators: Optional[pulumi.Input['ServerAdministratorsArgs']] = None,
+             backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
+             gateway_details: Optional[pulumi.Input['GatewayDetailsArgs']] = None,
+             ip_v4_firewall_settings: Optional[pulumi.Input['IPv4FirewallSettingsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_mode: Optional[pulumi.Input[int]] = None,
+             querypool_connection_mode: Optional[pulumi.Input['ConnectionMode']] = None,
+             server_monitor_mode: Optional[pulumi.Input[int]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if as_administrators is None and 'asAdministrators' in kwargs:
+            as_administrators = kwargs['asAdministrators']
+        if backup_blob_container_uri is None and 'backupBlobContainerUri' in kwargs:
+            backup_blob_container_uri = kwargs['backupBlobContainerUri']
+        if gateway_details is None and 'gatewayDetails' in kwargs:
+            gateway_details = kwargs['gatewayDetails']
+        if ip_v4_firewall_settings is None and 'ipV4FirewallSettings' in kwargs:
+            ip_v4_firewall_settings = kwargs['ipV4FirewallSettings']
+        if managed_mode is None and 'managedMode' in kwargs:
+            managed_mode = kwargs['managedMode']
+        if querypool_connection_mode is None and 'querypoolConnectionMode' in kwargs:
+            querypool_connection_mode = kwargs['querypoolConnectionMode']
+        if server_monitor_mode is None and 'serverMonitorMode' in kwargs:
+            server_monitor_mode = kwargs['serverMonitorMode']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if as_administrators is not None:
-            pulumi.set(__self__, "as_administrators", as_administrators)
+            _setter("as_administrators", as_administrators)
         if backup_blob_container_uri is not None:
-            pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
+            _setter("backup_blob_container_uri", backup_blob_container_uri)
         if gateway_details is not None:
-            pulumi.set(__self__, "gateway_details", gateway_details)
+            _setter("gateway_details", gateway_details)
         if ip_v4_firewall_settings is not None:
-            pulumi.set(__self__, "ip_v4_firewall_settings", ip_v4_firewall_settings)
+            _setter("ip_v4_firewall_settings", ip_v4_firewall_settings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_mode is None:
             managed_mode = 1
         if managed_mode is not None:
-            pulumi.set(__self__, "managed_mode", managed_mode)
+            _setter("managed_mode", managed_mode)
         if querypool_connection_mode is None:
             querypool_connection_mode = 'All'
         if querypool_connection_mode is not None:
-            pulumi.set(__self__, "querypool_connection_mode", querypool_connection_mode)
+            _setter("querypool_connection_mode", querypool_connection_mode)
         if server_monitor_mode is None:
             server_monitor_mode = 1
         if server_monitor_mode is not None:
-            pulumi.set(__self__, "server_monitor_mode", server_monitor_mode)
+            _setter("server_monitor_mode", server_monitor_mode)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -279,6 +334,10 @@ class ServerDetails(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerDetailsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -305,9 +364,12 @@ class ServerDetails(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerDetailsArgs.__new__(ServerDetailsArgs)
 
+            as_administrators = _utilities.configure(as_administrators, ServerAdministratorsArgs, True)
             __props__.__dict__["as_administrators"] = as_administrators
             __props__.__dict__["backup_blob_container_uri"] = backup_blob_container_uri
+            gateway_details = _utilities.configure(gateway_details, GatewayDetailsArgs, True)
             __props__.__dict__["gateway_details"] = gateway_details
+            ip_v4_firewall_settings = _utilities.configure(ip_v4_firewall_settings, IPv4FirewallSettingsArgs, True)
             __props__.__dict__["ip_v4_firewall_settings"] = ip_v4_firewall_settings
             __props__.__dict__["location"] = location
             if managed_mode is None:
@@ -323,6 +385,7 @@ class ServerDetails(pulumi.CustomResource):
                 server_monitor_mode = 1
             __props__.__dict__["server_monitor_mode"] = server_monitor_mode
             __props__.__dict__["server_name"] = server_name
+            sku = _utilities.configure(sku, ResourceSkuArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

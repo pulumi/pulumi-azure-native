@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -27,12 +27,39 @@ class RegistrationArgs:
         :param pulumi.Input[Union[str, 'Location']] location: Location of the resource.
         :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
         """
-        pulumi.set(__self__, "registration_token", registration_token)
-        pulumi.set(__self__, "resource_group", resource_group)
+        RegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registration_token=registration_token,
+            resource_group=resource_group,
+            location=location,
+            registration_name=registration_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registration_token: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
+             registration_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registration_token is None and 'registrationToken' in kwargs:
+            registration_token = kwargs['registrationToken']
+        if registration_token is None:
+            raise TypeError("Missing 'registration_token' argument")
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if registration_name is None and 'registrationName' in kwargs:
+            registration_name = kwargs['registrationName']
+
+        _setter("registration_token", registration_token)
+        _setter("resource_group", resource_group)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if registration_name is not None:
-            pulumi.set(__self__, "registration_name", registration_name)
+            _setter("registration_name", registration_name)
 
     @property
     @pulumi.getter(name="registrationToken")
@@ -122,6 +149,10 @@ class Registration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

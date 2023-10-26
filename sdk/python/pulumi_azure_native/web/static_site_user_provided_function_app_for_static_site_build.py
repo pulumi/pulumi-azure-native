@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs', 'StaticSiteUserProvidedFunctionAppForStaticSiteBuild']
@@ -33,19 +33,62 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs:
         :param pulumi.Input[bool] is_forced: Specify <code>true</code> to force the update of the auth configuration on the function app even if an AzureStaticWebApps provider is already configured on the function app. The default is <code>false</code>.
         :param pulumi.Input[str] kind: Kind of resource.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_name=environment_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            function_app_name=function_app_name,
+            function_app_region=function_app_region,
+            function_app_resource_id=function_app_resource_id,
+            is_forced=is_forced,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             function_app_name: Optional[pulumi.Input[str]] = None,
+             function_app_region: Optional[pulumi.Input[str]] = None,
+             function_app_resource_id: Optional[pulumi.Input[str]] = None,
+             is_forced: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if environment_name is None:
+            raise TypeError("Missing 'environment_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if function_app_name is None and 'functionAppName' in kwargs:
+            function_app_name = kwargs['functionAppName']
+        if function_app_region is None and 'functionAppRegion' in kwargs:
+            function_app_region = kwargs['functionAppRegion']
+        if function_app_resource_id is None and 'functionAppResourceId' in kwargs:
+            function_app_resource_id = kwargs['functionAppResourceId']
+        if is_forced is None and 'isForced' in kwargs:
+            is_forced = kwargs['isForced']
+
+        _setter("environment_name", environment_name)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if function_app_name is not None:
-            pulumi.set(__self__, "function_app_name", function_app_name)
+            _setter("function_app_name", function_app_name)
         if function_app_region is not None:
-            pulumi.set(__self__, "function_app_region", function_app_region)
+            _setter("function_app_region", function_app_region)
         if function_app_resource_id is not None:
-            pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
+            _setter("function_app_resource_id", function_app_resource_id)
         if is_forced is not None:
-            pulumi.set(__self__, "is_forced", is_forced)
+            _setter("is_forced", is_forced)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="environmentName")
@@ -193,6 +236,10 @@ class StaticSiteUserProvidedFunctionAppForStaticSiteBuild(pulumi.CustomResource)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

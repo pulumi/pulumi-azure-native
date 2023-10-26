@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,60 @@ class HanaInstanceArgs:
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the HANA instance disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HanaInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            hana_instance_name=hana_instance_name,
+            location=location,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            partner_node_id=partner_node_id,
+            storage_profile=storage_profile,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             hana_instance_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+             os_profile: Optional[pulumi.Input['OSProfileArgs']] = None,
+             partner_node_id: Optional[pulumi.Input[str]] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if hana_instance_name is None and 'hanaInstanceName' in kwargs:
+            hana_instance_name = kwargs['hanaInstanceName']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if partner_node_id is None and 'partnerNodeId' in kwargs:
+            partner_node_id = kwargs['partnerNodeId']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+
+        _setter("resource_group_name", resource_group_name)
         if hana_instance_name is not None:
-            pulumi.set(__self__, "hana_instance_name", hana_instance_name)
+            _setter("hana_instance_name", hana_instance_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if partner_node_id is not None:
-            pulumi.set(__self__, "partner_node_id", partner_node_id)
+            _setter("partner_node_id", partner_node_id)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -195,6 +234,10 @@ class HanaInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HanaInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -219,12 +262,15 @@ class HanaInstance(pulumi.CustomResource):
 
             __props__.__dict__["hana_instance_name"] = hana_instance_name
             __props__.__dict__["location"] = location
+            network_profile = _utilities.configure(network_profile, NetworkProfileArgs, True)
             __props__.__dict__["network_profile"] = network_profile
+            os_profile = _utilities.configure(os_profile, OSProfileArgs, True)
             __props__.__dict__["os_profile"] = os_profile
             __props__.__dict__["partner_node_id"] = partner_node_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            storage_profile = _utilities.configure(storage_profile, StorageProfileArgs, True)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["hana_instance_id"] = None

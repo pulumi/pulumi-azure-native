@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,49 @@ class VolumeGroupArgs:
         :param pulumi.Input[str] volume_group_name: The name of the volumeGroup
         :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]] volumes: List of volumes from group
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VolumeGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            group_meta_data=group_meta_data,
+            location=location,
+            volume_group_name=volume_group_name,
+            volumes=volumes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             group_meta_data: Optional[pulumi.Input['VolumeGroupMetaDataArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             volume_group_name: Optional[pulumi.Input[str]] = None,
+             volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if group_meta_data is None and 'groupMetaData' in kwargs:
+            group_meta_data = kwargs['groupMetaData']
+        if volume_group_name is None and 'volumeGroupName' in kwargs:
+            volume_group_name = kwargs['volumeGroupName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if group_meta_data is not None:
-            pulumi.set(__self__, "group_meta_data", group_meta_data)
+            _setter("group_meta_data", group_meta_data)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if volume_group_name is not None:
-            pulumi.set(__self__, "volume_group_name", volume_group_name)
+            _setter("volume_group_name", volume_group_name)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
 
     @property
     @pulumi.getter(name="accountName")
@@ -165,6 +198,10 @@ class VolumeGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -188,6 +225,7 @@ class VolumeGroup(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            group_meta_data = _utilities.configure(group_meta_data, VolumeGroupMetaDataArgs, True)
             __props__.__dict__["group_meta_data"] = group_meta_data
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

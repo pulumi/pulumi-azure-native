@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -40,19 +40,88 @@ class VolumeArgs:
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] volume_name: The volume name.
         """
-        pulumi.set(__self__, "access_control_record_ids", access_control_record_ids)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "monitoring_status", monitoring_status)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "size_in_bytes", size_in_bytes)
-        pulumi.set(__self__, "volume_container_name", volume_container_name)
-        pulumi.set(__self__, "volume_status", volume_status)
-        pulumi.set(__self__, "volume_type", volume_type)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control_record_ids=access_control_record_ids,
+            device_name=device_name,
+            manager_name=manager_name,
+            monitoring_status=monitoring_status,
+            resource_group_name=resource_group_name,
+            size_in_bytes=size_in_bytes,
+            volume_container_name=volume_container_name,
+            volume_status=volume_status,
+            volume_type=volume_type,
+            kind=kind,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control_record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             manager_name: Optional[pulumi.Input[str]] = None,
+             monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             size_in_bytes: Optional[pulumi.Input[float]] = None,
+             volume_container_name: Optional[pulumi.Input[str]] = None,
+             volume_status: Optional[pulumi.Input['VolumeStatus']] = None,
+             volume_type: Optional[pulumi.Input['VolumeType']] = None,
+             kind: Optional[pulumi.Input['Kind']] = None,
+             volume_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control_record_ids is None and 'accessControlRecordIds' in kwargs:
+            access_control_record_ids = kwargs['accessControlRecordIds']
+        if access_control_record_ids is None:
+            raise TypeError("Missing 'access_control_record_ids' argument")
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if manager_name is None and 'managerName' in kwargs:
+            manager_name = kwargs['managerName']
+        if manager_name is None:
+            raise TypeError("Missing 'manager_name' argument")
+        if monitoring_status is None and 'monitoringStatus' in kwargs:
+            monitoring_status = kwargs['monitoringStatus']
+        if monitoring_status is None:
+            raise TypeError("Missing 'monitoring_status' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if size_in_bytes is None and 'sizeInBytes' in kwargs:
+            size_in_bytes = kwargs['sizeInBytes']
+        if size_in_bytes is None:
+            raise TypeError("Missing 'size_in_bytes' argument")
+        if volume_container_name is None and 'volumeContainerName' in kwargs:
+            volume_container_name = kwargs['volumeContainerName']
+        if volume_container_name is None:
+            raise TypeError("Missing 'volume_container_name' argument")
+        if volume_status is None and 'volumeStatus' in kwargs:
+            volume_status = kwargs['volumeStatus']
+        if volume_status is None:
+            raise TypeError("Missing 'volume_status' argument")
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+        if volume_type is None:
+            raise TypeError("Missing 'volume_type' argument")
+        if volume_name is None and 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+
+        _setter("access_control_record_ids", access_control_record_ids)
+        _setter("device_name", device_name)
+        _setter("manager_name", manager_name)
+        _setter("monitoring_status", monitoring_status)
+        _setter("resource_group_name", resource_group_name)
+        _setter("size_in_bytes", size_in_bytes)
+        _setter("volume_container_name", volume_container_name)
+        _setter("volume_status", volume_status)
+        _setter("volume_type", volume_type)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="accessControlRecordIds")
@@ -242,6 +311,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

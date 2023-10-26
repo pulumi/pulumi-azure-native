@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -71,49 +71,152 @@ class AssessmentsOperationArgs:
         :param pulumi.Input['VmUptimeArgs'] vm_uptime: Gets or sets the duration for which the VMs are up in the on-premises
                environment.
         """
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AssessmentsOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            assessment_name=assessment_name,
+            azure_disk_types=azure_disk_types,
+            azure_hybrid_use_benefit=azure_hybrid_use_benefit,
+            azure_location=azure_location,
+            azure_offer_code=azure_offer_code,
+            azure_pricing_tier=azure_pricing_tier,
+            azure_storage_redundancy=azure_storage_redundancy,
+            azure_vm_families=azure_vm_families,
+            currency=currency,
+            discount_percentage=discount_percentage,
+            ea_subscription_id=ea_subscription_id,
+            percentile=percentile,
+            perf_data_end_time=perf_data_end_time,
+            perf_data_start_time=perf_data_start_time,
+            provisioning_state=provisioning_state,
+            reserved_instance=reserved_instance,
+            scaling_factor=scaling_factor,
+            sizing_criterion=sizing_criterion,
+            time_range=time_range,
+            vm_uptime=vm_uptime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             assessment_name: Optional[pulumi.Input[str]] = None,
+             azure_disk_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureDiskType']]]]] = None,
+             azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
+             azure_location: Optional[pulumi.Input[str]] = None,
+             azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+             azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
+             azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
+             azure_vm_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]] = None,
+             currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
+             discount_percentage: Optional[pulumi.Input[float]] = None,
+             ea_subscription_id: Optional[pulumi.Input[str]] = None,
+             percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
+             perf_data_end_time: Optional[pulumi.Input[str]] = None,
+             perf_data_start_time: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             reserved_instance: Optional[pulumi.Input[Union[str, 'AzureReservedInstance']]] = None,
+             scaling_factor: Optional[pulumi.Input[float]] = None,
+             sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
+             time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
+             vm_uptime: Optional[pulumi.Input['VmUptimeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if assessment_name is None and 'assessmentName' in kwargs:
+            assessment_name = kwargs['assessmentName']
+        if azure_disk_types is None and 'azureDiskTypes' in kwargs:
+            azure_disk_types = kwargs['azureDiskTypes']
+        if azure_hybrid_use_benefit is None and 'azureHybridUseBenefit' in kwargs:
+            azure_hybrid_use_benefit = kwargs['azureHybridUseBenefit']
+        if azure_location is None and 'azureLocation' in kwargs:
+            azure_location = kwargs['azureLocation']
+        if azure_offer_code is None and 'azureOfferCode' in kwargs:
+            azure_offer_code = kwargs['azureOfferCode']
+        if azure_pricing_tier is None and 'azurePricingTier' in kwargs:
+            azure_pricing_tier = kwargs['azurePricingTier']
+        if azure_storage_redundancy is None and 'azureStorageRedundancy' in kwargs:
+            azure_storage_redundancy = kwargs['azureStorageRedundancy']
+        if azure_vm_families is None and 'azureVmFamilies' in kwargs:
+            azure_vm_families = kwargs['azureVmFamilies']
+        if discount_percentage is None and 'discountPercentage' in kwargs:
+            discount_percentage = kwargs['discountPercentage']
+        if ea_subscription_id is None and 'eaSubscriptionId' in kwargs:
+            ea_subscription_id = kwargs['eaSubscriptionId']
+        if perf_data_end_time is None and 'perfDataEndTime' in kwargs:
+            perf_data_end_time = kwargs['perfDataEndTime']
+        if perf_data_start_time is None and 'perfDataStartTime' in kwargs:
+            perf_data_start_time = kwargs['perfDataStartTime']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if reserved_instance is None and 'reservedInstance' in kwargs:
+            reserved_instance = kwargs['reservedInstance']
+        if scaling_factor is None and 'scalingFactor' in kwargs:
+            scaling_factor = kwargs['scalingFactor']
+        if sizing_criterion is None and 'sizingCriterion' in kwargs:
+            sizing_criterion = kwargs['sizingCriterion']
+        if time_range is None and 'timeRange' in kwargs:
+            time_range = kwargs['timeRange']
+        if vm_uptime is None and 'vmUptime' in kwargs:
+            vm_uptime = kwargs['vmUptime']
+
+        _setter("group_name", group_name)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
+            _setter("assessment_name", assessment_name)
         if azure_disk_types is not None:
-            pulumi.set(__self__, "azure_disk_types", azure_disk_types)
+            _setter("azure_disk_types", azure_disk_types)
         if azure_hybrid_use_benefit is not None:
-            pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
+            _setter("azure_hybrid_use_benefit", azure_hybrid_use_benefit)
         if azure_location is not None:
-            pulumi.set(__self__, "azure_location", azure_location)
+            _setter("azure_location", azure_location)
         if azure_offer_code is not None:
-            pulumi.set(__self__, "azure_offer_code", azure_offer_code)
+            _setter("azure_offer_code", azure_offer_code)
         if azure_pricing_tier is not None:
-            pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
+            _setter("azure_pricing_tier", azure_pricing_tier)
         if azure_storage_redundancy is not None:
-            pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
+            _setter("azure_storage_redundancy", azure_storage_redundancy)
         if azure_vm_families is not None:
-            pulumi.set(__self__, "azure_vm_families", azure_vm_families)
+            _setter("azure_vm_families", azure_vm_families)
         if currency is not None:
-            pulumi.set(__self__, "currency", currency)
+            _setter("currency", currency)
         if discount_percentage is not None:
-            pulumi.set(__self__, "discount_percentage", discount_percentage)
+            _setter("discount_percentage", discount_percentage)
         if ea_subscription_id is not None:
-            pulumi.set(__self__, "ea_subscription_id", ea_subscription_id)
+            _setter("ea_subscription_id", ea_subscription_id)
         if percentile is not None:
-            pulumi.set(__self__, "percentile", percentile)
+            _setter("percentile", percentile)
         if perf_data_end_time is not None:
-            pulumi.set(__self__, "perf_data_end_time", perf_data_end_time)
+            _setter("perf_data_end_time", perf_data_end_time)
         if perf_data_start_time is not None:
-            pulumi.set(__self__, "perf_data_start_time", perf_data_start_time)
+            _setter("perf_data_start_time", perf_data_start_time)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if reserved_instance is not None:
-            pulumi.set(__self__, "reserved_instance", reserved_instance)
+            _setter("reserved_instance", reserved_instance)
         if scaling_factor is not None:
-            pulumi.set(__self__, "scaling_factor", scaling_factor)
+            _setter("scaling_factor", scaling_factor)
         if sizing_criterion is not None:
-            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+            _setter("sizing_criterion", sizing_criterion)
         if time_range is not None:
-            pulumi.set(__self__, "time_range", time_range)
+            _setter("time_range", time_range)
         if vm_uptime is not None:
-            pulumi.set(__self__, "vm_uptime", vm_uptime)
+            _setter("vm_uptime", vm_uptime)
 
     @property
     @pulumi.getter(name="groupName")
@@ -479,6 +582,10 @@ class AssessmentsOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentsOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -544,6 +651,7 @@ class AssessmentsOperation(pulumi.CustomResource):
             __props__.__dict__["scaling_factor"] = scaling_factor
             __props__.__dict__["sizing_criterion"] = sizing_criterion
             __props__.__dict__["time_range"] = time_range
+            vm_uptime = _utilities.configure(vm_uptime, VmUptimeArgs, True)
             __props__.__dict__["vm_uptime"] = vm_uptime
             __props__.__dict__["assessment_error_summary"] = None
             __props__.__dict__["assessment_type"] = None

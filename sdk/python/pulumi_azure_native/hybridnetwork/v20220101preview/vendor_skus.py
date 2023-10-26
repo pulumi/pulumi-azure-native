@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,68 @@ class VendorSkusArgs:
         :param pulumi.Input[str] sku_name: The name of the sku.
         :param pulumi.Input[Union[str, 'SkuType']] sku_type: The sku type.
         """
-        pulumi.set(__self__, "vendor_name", vendor_name)
+        VendorSkusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vendor_name=vendor_name,
+            deployment_mode=deployment_mode,
+            managed_application_parameters=managed_application_parameters,
+            managed_application_template=managed_application_template,
+            network_function_template=network_function_template,
+            network_function_type=network_function_type,
+            preview=preview,
+            sku_name=sku_name,
+            sku_type=sku_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vendor_name: Optional[pulumi.Input[str]] = None,
+             deployment_mode: Optional[pulumi.Input[Union[str, 'SkuDeploymentMode']]] = None,
+             managed_application_parameters: Optional[Any] = None,
+             managed_application_template: Optional[Any] = None,
+             network_function_template: Optional[pulumi.Input['NetworkFunctionTemplateArgs']] = None,
+             network_function_type: Optional[pulumi.Input[Union[str, 'NetworkFunctionType']]] = None,
+             preview: Optional[pulumi.Input[bool]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vendor_name is None and 'vendorName' in kwargs:
+            vendor_name = kwargs['vendorName']
+        if vendor_name is None:
+            raise TypeError("Missing 'vendor_name' argument")
+        if deployment_mode is None and 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if managed_application_parameters is None and 'managedApplicationParameters' in kwargs:
+            managed_application_parameters = kwargs['managedApplicationParameters']
+        if managed_application_template is None and 'managedApplicationTemplate' in kwargs:
+            managed_application_template = kwargs['managedApplicationTemplate']
+        if network_function_template is None and 'networkFunctionTemplate' in kwargs:
+            network_function_template = kwargs['networkFunctionTemplate']
+        if network_function_type is None and 'networkFunctionType' in kwargs:
+            network_function_type = kwargs['networkFunctionType']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_type is None and 'skuType' in kwargs:
+            sku_type = kwargs['skuType']
+
+        _setter("vendor_name", vendor_name)
         if deployment_mode is not None:
-            pulumi.set(__self__, "deployment_mode", deployment_mode)
+            _setter("deployment_mode", deployment_mode)
         if managed_application_parameters is not None:
-            pulumi.set(__self__, "managed_application_parameters", managed_application_parameters)
+            _setter("managed_application_parameters", managed_application_parameters)
         if managed_application_template is not None:
-            pulumi.set(__self__, "managed_application_template", managed_application_template)
+            _setter("managed_application_template", managed_application_template)
         if network_function_template is not None:
-            pulumi.set(__self__, "network_function_template", network_function_template)
+            _setter("network_function_template", network_function_template)
         if network_function_type is not None:
-            pulumi.set(__self__, "network_function_type", network_function_type)
+            _setter("network_function_type", network_function_type)
         if preview is not None:
-            pulumi.set(__self__, "preview", preview)
+            _setter("preview", preview)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if sku_type is not None:
-            pulumi.set(__self__, "sku_type", sku_type)
+            _setter("sku_type", sku_type)
 
     @property
     @pulumi.getter(name="vendorName")
@@ -214,6 +259,10 @@ class VendorSkus(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VendorSkusArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -240,6 +289,7 @@ class VendorSkus(pulumi.CustomResource):
             __props__.__dict__["deployment_mode"] = deployment_mode
             __props__.__dict__["managed_application_parameters"] = managed_application_parameters
             __props__.__dict__["managed_application_template"] = managed_application_template
+            network_function_template = _utilities.configure(network_function_template, NetworkFunctionTemplateArgs, True)
             __props__.__dict__["network_function_template"] = network_function_template
             __props__.__dict__["network_function_type"] = network_function_type
             __props__.__dict__["preview"] = preview

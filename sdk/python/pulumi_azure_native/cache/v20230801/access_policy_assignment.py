@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['AccessPolicyAssignmentArgs', 'AccessPolicyAssignment']
@@ -29,13 +29,56 @@ class AccessPolicyAssignmentArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] access_policy_assignment_name: The name of the access policy assignment.
         """
-        pulumi.set(__self__, "access_policy_name", access_policy_name)
-        pulumi.set(__self__, "cache_name", cache_name)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "object_id_alias", object_id_alias)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccessPolicyAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy_name=access_policy_name,
+            cache_name=cache_name,
+            object_id=object_id,
+            object_id_alias=object_id_alias,
+            resource_group_name=resource_group_name,
+            access_policy_assignment_name=access_policy_assignment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy_name: Optional[pulumi.Input[str]] = None,
+             cache_name: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             object_id_alias: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             access_policy_assignment_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_policy_name is None and 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+        if access_policy_name is None:
+            raise TypeError("Missing 'access_policy_name' argument")
+        if cache_name is None and 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if cache_name is None:
+            raise TypeError("Missing 'cache_name' argument")
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if object_id_alias is None and 'objectIdAlias' in kwargs:
+            object_id_alias = kwargs['objectIdAlias']
+        if object_id_alias is None:
+            raise TypeError("Missing 'object_id_alias' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_policy_assignment_name is None and 'accessPolicyAssignmentName' in kwargs:
+            access_policy_assignment_name = kwargs['accessPolicyAssignmentName']
+
+        _setter("access_policy_name", access_policy_name)
+        _setter("cache_name", cache_name)
+        _setter("object_id", object_id)
+        _setter("object_id_alias", object_id_alias)
+        _setter("resource_group_name", resource_group_name)
         if access_policy_assignment_name is not None:
-            pulumi.set(__self__, "access_policy_assignment_name", access_policy_assignment_name)
+            _setter("access_policy_assignment_name", access_policy_assignment_name)
 
     @property
     @pulumi.getter(name="accessPolicyName")
@@ -153,6 +196,10 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPolicyAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

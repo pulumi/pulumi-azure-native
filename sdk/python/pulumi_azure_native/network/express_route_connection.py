@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,26 +44,87 @@ class ExpressRouteConnectionInitArgs:
         :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the connection.
         """
-        pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
-        pulumi.set(__self__, "express_route_gateway_name", express_route_gateway_name)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRouteConnectionInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            express_route_circuit_peering=express_route_circuit_peering,
+            express_route_gateway_name=express_route_gateway_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            authorization_key=authorization_key,
+            connection_name=connection_name,
+            enable_internet_security=enable_internet_security,
+            enable_private_link_fast_path=enable_private_link_fast_path,
+            express_route_gateway_bypass=express_route_gateway_bypass,
+            id=id,
+            routing_configuration=routing_configuration,
+            routing_weight=routing_weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             express_route_circuit_peering: Optional[pulumi.Input['ExpressRouteCircuitPeeringIdArgs']] = None,
+             express_route_gateway_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             connection_name: Optional[pulumi.Input[str]] = None,
+             enable_internet_security: Optional[pulumi.Input[bool]] = None,
+             enable_private_link_fast_path: Optional[pulumi.Input[bool]] = None,
+             express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
+             routing_weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if express_route_circuit_peering is None and 'expressRouteCircuitPeering' in kwargs:
+            express_route_circuit_peering = kwargs['expressRouteCircuitPeering']
+        if express_route_circuit_peering is None:
+            raise TypeError("Missing 'express_route_circuit_peering' argument")
+        if express_route_gateway_name is None and 'expressRouteGatewayName' in kwargs:
+            express_route_gateway_name = kwargs['expressRouteGatewayName']
+        if express_route_gateway_name is None:
+            raise TypeError("Missing 'express_route_gateway_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authorization_key is None and 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if enable_internet_security is None and 'enableInternetSecurity' in kwargs:
+            enable_internet_security = kwargs['enableInternetSecurity']
+        if enable_private_link_fast_path is None and 'enablePrivateLinkFastPath' in kwargs:
+            enable_private_link_fast_path = kwargs['enablePrivateLinkFastPath']
+        if express_route_gateway_bypass is None and 'expressRouteGatewayBypass' in kwargs:
+            express_route_gateway_bypass = kwargs['expressRouteGatewayBypass']
+        if routing_configuration is None and 'routingConfiguration' in kwargs:
+            routing_configuration = kwargs['routingConfiguration']
+        if routing_weight is None and 'routingWeight' in kwargs:
+            routing_weight = kwargs['routingWeight']
+
+        _setter("express_route_circuit_peering", express_route_circuit_peering)
+        _setter("express_route_gateway_name", express_route_gateway_name)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if connection_name is not None:
-            pulumi.set(__self__, "connection_name", connection_name)
+            _setter("connection_name", connection_name)
         if enable_internet_security is not None:
-            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+            _setter("enable_internet_security", enable_internet_security)
         if enable_private_link_fast_path is not None:
-            pulumi.set(__self__, "enable_private_link_fast_path", enable_private_link_fast_path)
+            _setter("enable_private_link_fast_path", enable_private_link_fast_path)
         if express_route_gateway_bypass is not None:
-            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+            _setter("express_route_gateway_bypass", express_route_gateway_bypass)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if routing_configuration is not None:
-            pulumi.set(__self__, "routing_configuration", routing_configuration)
+            _setter("routing_configuration", routing_configuration)
         if routing_weight is not None:
-            pulumi.set(__self__, "routing_weight", routing_weight)
+            _setter("routing_weight", routing_weight)
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")
@@ -271,6 +332,10 @@ class ExpressRouteConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteConnectionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -301,6 +366,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["enable_internet_security"] = enable_internet_security
             __props__.__dict__["enable_private_link_fast_path"] = enable_private_link_fast_path
+            express_route_circuit_peering = _utilities.configure(express_route_circuit_peering, ExpressRouteCircuitPeeringIdArgs, True)
             if express_route_circuit_peering is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_circuit_peering'")
             __props__.__dict__["express_route_circuit_peering"] = express_route_circuit_peering
@@ -315,6 +381,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            routing_configuration = _utilities.configure(routing_configuration, RoutingConfigurationArgs, True)
             __props__.__dict__["routing_configuration"] = routing_configuration
             __props__.__dict__["routing_weight"] = routing_weight
             __props__.__dict__["provisioning_state"] = None

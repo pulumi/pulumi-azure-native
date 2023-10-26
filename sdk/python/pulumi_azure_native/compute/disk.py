@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -80,64 +80,185 @@ class DiskArgs:
         :param pulumi.Input[str] tier: Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Logical zone list for Disk.
         """
-        pulumi.set(__self__, "creation_data", creation_data)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_data=creation_data,
+            resource_group_name=resource_group_name,
+            bursting_enabled=bursting_enabled,
+            completion_percent=completion_percent,
+            data_access_auth_mode=data_access_auth_mode,
+            disk_access_id=disk_access_id,
+            disk_iops_read_only=disk_iops_read_only,
+            disk_iops_read_write=disk_iops_read_write,
+            disk_m_bps_read_only=disk_m_bps_read_only,
+            disk_m_bps_read_write=disk_m_bps_read_write,
+            disk_name=disk_name,
+            disk_size_gb=disk_size_gb,
+            encryption=encryption,
+            encryption_settings_collection=encryption_settings_collection,
+            extended_location=extended_location,
+            hyper_v_generation=hyper_v_generation,
+            location=location,
+            max_shares=max_shares,
+            network_access_policy=network_access_policy,
+            optimized_for_frequent_attach=optimized_for_frequent_attach,
+            os_type=os_type,
+            public_network_access=public_network_access,
+            purchase_plan=purchase_plan,
+            security_profile=security_profile,
+            sku=sku,
+            supported_capabilities=supported_capabilities,
+            supports_hibernation=supports_hibernation,
+            tags=tags,
+            tier=tier,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_data: Optional[pulumi.Input['CreationDataArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             bursting_enabled: Optional[pulumi.Input[bool]] = None,
+             completion_percent: Optional[pulumi.Input[float]] = None,
+             data_access_auth_mode: Optional[pulumi.Input[Union[str, 'DataAccessAuthMode']]] = None,
+             disk_access_id: Optional[pulumi.Input[str]] = None,
+             disk_iops_read_only: Optional[pulumi.Input[float]] = None,
+             disk_iops_read_write: Optional[pulumi.Input[float]] = None,
+             disk_m_bps_read_only: Optional[pulumi.Input[float]] = None,
+             disk_m_bps_read_write: Optional[pulumi.Input[float]] = None,
+             disk_name: Optional[pulumi.Input[str]] = None,
+             disk_size_gb: Optional[pulumi.Input[int]] = None,
+             encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+             encryption_settings_collection: Optional[pulumi.Input['EncryptionSettingsCollectionArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_shares: Optional[pulumi.Input[int]] = None,
+             network_access_policy: Optional[pulumi.Input[Union[str, 'NetworkAccessPolicy']]] = None,
+             optimized_for_frequent_attach: Optional[pulumi.Input[bool]] = None,
+             os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             purchase_plan: Optional[pulumi.Input['PurchasePlanArgs']] = None,
+             security_profile: Optional[pulumi.Input['DiskSecurityProfileArgs']] = None,
+             sku: Optional[pulumi.Input['DiskSkuArgs']] = None,
+             supported_capabilities: Optional[pulumi.Input['SupportedCapabilitiesArgs']] = None,
+             supports_hibernation: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_data is None and 'creationData' in kwargs:
+            creation_data = kwargs['creationData']
+        if creation_data is None:
+            raise TypeError("Missing 'creation_data' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if bursting_enabled is None and 'burstingEnabled' in kwargs:
+            bursting_enabled = kwargs['burstingEnabled']
+        if completion_percent is None and 'completionPercent' in kwargs:
+            completion_percent = kwargs['completionPercent']
+        if data_access_auth_mode is None and 'dataAccessAuthMode' in kwargs:
+            data_access_auth_mode = kwargs['dataAccessAuthMode']
+        if disk_access_id is None and 'diskAccessId' in kwargs:
+            disk_access_id = kwargs['diskAccessId']
+        if disk_iops_read_only is None and 'diskIOPSReadOnly' in kwargs:
+            disk_iops_read_only = kwargs['diskIOPSReadOnly']
+        if disk_iops_read_write is None and 'diskIOPSReadWrite' in kwargs:
+            disk_iops_read_write = kwargs['diskIOPSReadWrite']
+        if disk_m_bps_read_only is None and 'diskMBpsReadOnly' in kwargs:
+            disk_m_bps_read_only = kwargs['diskMBpsReadOnly']
+        if disk_m_bps_read_write is None and 'diskMBpsReadWrite' in kwargs:
+            disk_m_bps_read_write = kwargs['diskMBpsReadWrite']
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if encryption_settings_collection is None and 'encryptionSettingsCollection' in kwargs:
+            encryption_settings_collection = kwargs['encryptionSettingsCollection']
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if max_shares is None and 'maxShares' in kwargs:
+            max_shares = kwargs['maxShares']
+        if network_access_policy is None and 'networkAccessPolicy' in kwargs:
+            network_access_policy = kwargs['networkAccessPolicy']
+        if optimized_for_frequent_attach is None and 'optimizedForFrequentAttach' in kwargs:
+            optimized_for_frequent_attach = kwargs['optimizedForFrequentAttach']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if purchase_plan is None and 'purchasePlan' in kwargs:
+            purchase_plan = kwargs['purchasePlan']
+        if security_profile is None and 'securityProfile' in kwargs:
+            security_profile = kwargs['securityProfile']
+        if supported_capabilities is None and 'supportedCapabilities' in kwargs:
+            supported_capabilities = kwargs['supportedCapabilities']
+        if supports_hibernation is None and 'supportsHibernation' in kwargs:
+            supports_hibernation = kwargs['supportsHibernation']
+
+        _setter("creation_data", creation_data)
+        _setter("resource_group_name", resource_group_name)
         if bursting_enabled is not None:
-            pulumi.set(__self__, "bursting_enabled", bursting_enabled)
+            _setter("bursting_enabled", bursting_enabled)
         if completion_percent is not None:
-            pulumi.set(__self__, "completion_percent", completion_percent)
+            _setter("completion_percent", completion_percent)
         if data_access_auth_mode is not None:
-            pulumi.set(__self__, "data_access_auth_mode", data_access_auth_mode)
+            _setter("data_access_auth_mode", data_access_auth_mode)
         if disk_access_id is not None:
-            pulumi.set(__self__, "disk_access_id", disk_access_id)
+            _setter("disk_access_id", disk_access_id)
         if disk_iops_read_only is not None:
-            pulumi.set(__self__, "disk_iops_read_only", disk_iops_read_only)
+            _setter("disk_iops_read_only", disk_iops_read_only)
         if disk_iops_read_write is not None:
-            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+            _setter("disk_iops_read_write", disk_iops_read_write)
         if disk_m_bps_read_only is not None:
-            pulumi.set(__self__, "disk_m_bps_read_only", disk_m_bps_read_only)
+            _setter("disk_m_bps_read_only", disk_m_bps_read_only)
         if disk_m_bps_read_write is not None:
-            pulumi.set(__self__, "disk_m_bps_read_write", disk_m_bps_read_write)
+            _setter("disk_m_bps_read_write", disk_m_bps_read_write)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if encryption_settings_collection is not None:
-            pulumi.set(__self__, "encryption_settings_collection", encryption_settings_collection)
+            _setter("encryption_settings_collection", encryption_settings_collection)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hyper_v_generation is not None:
-            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+            _setter("hyper_v_generation", hyper_v_generation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_shares is not None:
-            pulumi.set(__self__, "max_shares", max_shares)
+            _setter("max_shares", max_shares)
         if network_access_policy is not None:
-            pulumi.set(__self__, "network_access_policy", network_access_policy)
+            _setter("network_access_policy", network_access_policy)
         if optimized_for_frequent_attach is not None:
-            pulumi.set(__self__, "optimized_for_frequent_attach", optimized_for_frequent_attach)
+            _setter("optimized_for_frequent_attach", optimized_for_frequent_attach)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if purchase_plan is not None:
-            pulumi.set(__self__, "purchase_plan", purchase_plan)
+            _setter("purchase_plan", purchase_plan)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if supported_capabilities is not None:
-            pulumi.set(__self__, "supported_capabilities", supported_capabilities)
+            _setter("supported_capabilities", supported_capabilities)
         if supports_hibernation is not None:
-            pulumi.set(__self__, "supports_hibernation", supports_hibernation)
+            _setter("supports_hibernation", supports_hibernation)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="creationData")
@@ -597,6 +718,10 @@ class Disk(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -643,6 +768,7 @@ class Disk(pulumi.CustomResource):
 
             __props__.__dict__["bursting_enabled"] = bursting_enabled
             __props__.__dict__["completion_percent"] = completion_percent
+            creation_data = _utilities.configure(creation_data, CreationDataArgs, True)
             if creation_data is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_data'")
             __props__.__dict__["creation_data"] = creation_data
@@ -654,8 +780,11 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["disk_m_bps_read_write"] = disk_m_bps_read_write
             __props__.__dict__["disk_name"] = disk_name
             __props__.__dict__["disk_size_gb"] = disk_size_gb
+            encryption = _utilities.configure(encryption, EncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
+            encryption_settings_collection = _utilities.configure(encryption_settings_collection, EncryptionSettingsCollectionArgs, True)
             __props__.__dict__["encryption_settings_collection"] = encryption_settings_collection
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["location"] = location
@@ -664,12 +793,16 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["optimized_for_frequent_attach"] = optimized_for_frequent_attach
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["public_network_access"] = public_network_access
+            purchase_plan = _utilities.configure(purchase_plan, PurchasePlanArgs, True)
             __props__.__dict__["purchase_plan"] = purchase_plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            security_profile = _utilities.configure(security_profile, DiskSecurityProfileArgs, True)
             __props__.__dict__["security_profile"] = security_profile
+            sku = _utilities.configure(sku, DiskSkuArgs, True)
             __props__.__dict__["sku"] = sku
+            supported_capabilities = _utilities.configure(supported_capabilities, SupportedCapabilitiesArgs, True)
             __props__.__dict__["supported_capabilities"] = supported_capabilities
             __props__.__dict__["supports_hibernation"] = supports_hibernation
             __props__.__dict__["tags"] = tags

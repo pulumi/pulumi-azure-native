@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,26 +40,73 @@ class NetworkTapRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] tap_rules_url: Network Tap Rules file URL.
         """
-        pulumi.set(__self__, "configuration_type", configuration_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkTapRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_type=configuration_type,
+            resource_group_name=resource_group_name,
+            annotation=annotation,
+            dynamic_match_configurations=dynamic_match_configurations,
+            location=location,
+            match_configurations=match_configurations,
+            network_tap_rule_name=network_tap_rule_name,
+            polling_interval_in_seconds=polling_interval_in_seconds,
+            tags=tags,
+            tap_rules_url=tap_rules_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             dynamic_match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['CommonDynamicMatchConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             match_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConfigurationArgs']]]] = None,
+             network_tap_rule_name: Optional[pulumi.Input[str]] = None,
+             polling_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tap_rules_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_type is None and 'configurationType' in kwargs:
+            configuration_type = kwargs['configurationType']
+        if configuration_type is None:
+            raise TypeError("Missing 'configuration_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dynamic_match_configurations is None and 'dynamicMatchConfigurations' in kwargs:
+            dynamic_match_configurations = kwargs['dynamicMatchConfigurations']
+        if match_configurations is None and 'matchConfigurations' in kwargs:
+            match_configurations = kwargs['matchConfigurations']
+        if network_tap_rule_name is None and 'networkTapRuleName' in kwargs:
+            network_tap_rule_name = kwargs['networkTapRuleName']
+        if polling_interval_in_seconds is None and 'pollingIntervalInSeconds' in kwargs:
+            polling_interval_in_seconds = kwargs['pollingIntervalInSeconds']
+        if tap_rules_url is None and 'tapRulesUrl' in kwargs:
+            tap_rules_url = kwargs['tapRulesUrl']
+
+        _setter("configuration_type", configuration_type)
+        _setter("resource_group_name", resource_group_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if dynamic_match_configurations is not None:
-            pulumi.set(__self__, "dynamic_match_configurations", dynamic_match_configurations)
+            _setter("dynamic_match_configurations", dynamic_match_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if match_configurations is not None:
-            pulumi.set(__self__, "match_configurations", match_configurations)
+            _setter("match_configurations", match_configurations)
         if network_tap_rule_name is not None:
-            pulumi.set(__self__, "network_tap_rule_name", network_tap_rule_name)
+            _setter("network_tap_rule_name", network_tap_rule_name)
         if polling_interval_in_seconds is None:
             polling_interval_in_seconds = 30
         if polling_interval_in_seconds is not None:
-            pulumi.set(__self__, "polling_interval_in_seconds", polling_interval_in_seconds)
+            _setter("polling_interval_in_seconds", polling_interval_in_seconds)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tap_rules_url is not None:
-            pulumi.set(__self__, "tap_rules_url", tap_rules_url)
+            _setter("tap_rules_url", tap_rules_url)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -235,6 +282,10 @@ class NetworkTapRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkTapRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

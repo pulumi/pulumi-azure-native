@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -27,10 +27,27 @@ class MigrateProjectPropertiesArgs:
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the migrate project.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_tools: Gets or sets the list of tools registered with the migrate project.
         """
+        MigrateProjectPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            registered_tools=registered_tools,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             registered_tools: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if registered_tools is None and 'registeredTools' in kwargs:
+            registered_tools = kwargs['registeredTools']
+
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if registered_tools is not None:
-            pulumi.set(__self__, "registered_tools", registered_tools)
+            _setter("registered_tools", registered_tools)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -64,8 +81,21 @@ class MigrateProjectTagsArgs:
         """
         Gets or sets the tags.
         """
+        MigrateProjectTagsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -89,12 +119,33 @@ class SolutionDetailsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_details: Gets or sets the extended details reported by the solution.
         :param pulumi.Input[int] group_count: Gets or sets the count of groups reported by the solution.
         """
+        SolutionDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_count=assessment_count,
+            extended_details=extended_details,
+            group_count=group_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_count: Optional[pulumi.Input[int]] = None,
+             extended_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             group_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_count is None and 'assessmentCount' in kwargs:
+            assessment_count = kwargs['assessmentCount']
+        if extended_details is None and 'extendedDetails' in kwargs:
+            extended_details = kwargs['extendedDetails']
+        if group_count is None and 'groupCount' in kwargs:
+            group_count = kwargs['groupCount']
+
         if assessment_count is not None:
-            pulumi.set(__self__, "assessment_count", assessment_count)
+            _setter("assessment_count", assessment_count)
         if extended_details is not None:
-            pulumi.set(__self__, "extended_details", extended_details)
+            _setter("extended_details", extended_details)
         if group_count is not None:
-            pulumi.set(__self__, "group_count", group_count)
+            _setter("group_count", group_count)
 
     @property
     @pulumi.getter(name="assessmentCount")
@@ -151,18 +202,41 @@ class SolutionPropertiesArgs:
         :param pulumi.Input[str] status: Gets or sets the current status of the solution.
         :param pulumi.Input[str] tool: Gets or sets the tool being used in the solution.
         """
+        SolutionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cleanup_state=cleanup_state,
+            details=details,
+            goal=goal,
+            purpose=purpose,
+            status=status,
+            tool=tool,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cleanup_state: Optional[pulumi.Input[str]] = None,
+             details: Optional[pulumi.Input['SolutionDetailsArgs']] = None,
+             goal: Optional[pulumi.Input[str]] = None,
+             purpose: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tool: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cleanup_state is None and 'cleanupState' in kwargs:
+            cleanup_state = kwargs['cleanupState']
+
         if cleanup_state is not None:
-            pulumi.set(__self__, "cleanup_state", cleanup_state)
+            _setter("cleanup_state", cleanup_state)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if goal is not None:
-            pulumi.set(__self__, "goal", goal)
+            _setter("goal", goal)
         if purpose is not None:
-            pulumi.set(__self__, "purpose", purpose)
+            _setter("purpose", purpose)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tool is not None:
-            pulumi.set(__self__, "tool", tool)
+            _setter("tool", tool)
 
     @property
     @pulumi.getter(name="cleanupState")

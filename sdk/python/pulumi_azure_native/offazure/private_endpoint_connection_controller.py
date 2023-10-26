@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,41 @@ class PrivateEndpointConnectionControllerArgs:
         :param pulumi.Input[str] pe_connection_name:  Private link resource name.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: private endpoints connection state
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "site_name", site_name)
+        PrivateEndpointConnectionControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            site_name=site_name,
+            pe_connection_name=pe_connection_name,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             site_name: Optional[pulumi.Input[str]] = None,
+             pe_connection_name: Optional[pulumi.Input[str]] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if site_name is None and 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+        if site_name is None:
+            raise TypeError("Missing 'site_name' argument")
+        if pe_connection_name is None and 'peConnectionName' in kwargs:
+            pe_connection_name = kwargs['peConnectionName']
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("site_name", site_name)
         if pe_connection_name is not None:
-            pulumi.set(__self__, "pe_connection_name", pe_connection_name)
+            _setter("pe_connection_name", pe_connection_name)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -125,6 +154,10 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateEndpointConnectionControllerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +177,7 @@ class PrivateEndpointConnectionController(pulumi.CustomResource):
             __props__ = PrivateEndpointConnectionControllerArgs.__new__(PrivateEndpointConnectionControllerArgs)
 
             __props__.__dict__["pe_connection_name"] = pe_connection_name
+            private_link_service_connection_state = _utilities.configure(private_link_service_connection_state, PrivateLinkServiceConnectionStateArgs, True)
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

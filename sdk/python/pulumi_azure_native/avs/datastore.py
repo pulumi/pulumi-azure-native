@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,15 +32,54 @@ class DatastoreArgs:
         :param pulumi.Input['DiskPoolVolumeArgs'] disk_pool_volume: An iSCSI volume
         :param pulumi.Input['NetAppVolumeArgs'] net_app_volume: An Azure NetApp Files volume
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DatastoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            datastore_name=datastore_name,
+            disk_pool_volume=disk_pool_volume,
+            net_app_volume=net_app_volume,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             private_cloud_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             disk_pool_volume: Optional[pulumi.Input['DiskPoolVolumeArgs']] = None,
+             net_app_volume: Optional[pulumi.Input['NetAppVolumeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if private_cloud_name is None and 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if private_cloud_name is None:
+            raise TypeError("Missing 'private_cloud_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if datastore_name is None and 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if disk_pool_volume is None and 'diskPoolVolume' in kwargs:
+            disk_pool_volume = kwargs['diskPoolVolume']
+        if net_app_volume is None and 'netAppVolume' in kwargs:
+            net_app_volume = kwargs['netAppVolume']
+
+        _setter("cluster_name", cluster_name)
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if disk_pool_volume is not None:
-            pulumi.set(__self__, "disk_pool_volume", disk_pool_volume)
+            _setter("disk_pool_volume", disk_pool_volume)
         if net_app_volume is not None:
-            pulumi.set(__self__, "net_app_volume", net_app_volume)
+            _setter("net_app_volume", net_app_volume)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -164,6 +203,10 @@ class Datastore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatastoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -188,7 +231,9 @@ class Datastore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["datastore_name"] = datastore_name
+            disk_pool_volume = _utilities.configure(disk_pool_volume, DiskPoolVolumeArgs, True)
             __props__.__dict__["disk_pool_volume"] = disk_pool_volume
+            net_app_volume = _utilities.configure(net_app_volume, NetAppVolumeArgs, True)
             __props__.__dict__["net_app_volume"] = net_app_volume
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

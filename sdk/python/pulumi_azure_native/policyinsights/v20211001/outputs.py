@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,11 +40,42 @@ class ErrorDefinitionResponse(dict):
         :param str message: Description of the error.
         :param str target: The target of the error.
         """
-        pulumi.set(__self__, "additional_info", additional_info)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "details", details)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        ErrorDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_info=additional_info,
+            code=code,
+            details=details,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_info: Optional[Sequence['outputs.TypedErrorInfoResponse']] = None,
+             code: Optional[str] = None,
+             details: Optional[Sequence['outputs.ErrorDefinitionResponse']] = None,
+             message: Optional[str] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_info is None and 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+        if additional_info is None:
+            raise TypeError("Missing 'additional_info' argument")
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if details is None:
+            raise TypeError("Missing 'details' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+
+        _setter("additional_info", additional_info)
+        _setter("code", code)
+        _setter("details", details)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -110,13 +141,60 @@ class RemediationDeploymentResponse(dict):
         :param str resource_location: Location of the resource that is being remediated.
         :param str status: Status of the remediation deployment.
         """
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "deployment_id", deployment_id)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "last_updated_on", last_updated_on)
-        pulumi.set(__self__, "remediated_resource_id", remediated_resource_id)
-        pulumi.set(__self__, "resource_location", resource_location)
-        pulumi.set(__self__, "status", status)
+        RemediationDeploymentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_on=created_on,
+            deployment_id=deployment_id,
+            error=error,
+            last_updated_on=last_updated_on,
+            remediated_resource_id=remediated_resource_id,
+            resource_location=resource_location,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_on: Optional[str] = None,
+             deployment_id: Optional[str] = None,
+             error: Optional['outputs.ErrorDefinitionResponse'] = None,
+             last_updated_on: Optional[str] = None,
+             remediated_resource_id: Optional[str] = None,
+             resource_location: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_on is None and 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if created_on is None:
+            raise TypeError("Missing 'created_on' argument")
+        if deployment_id is None and 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if deployment_id is None:
+            raise TypeError("Missing 'deployment_id' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if last_updated_on is None and 'lastUpdatedOn' in kwargs:
+            last_updated_on = kwargs['lastUpdatedOn']
+        if last_updated_on is None:
+            raise TypeError("Missing 'last_updated_on' argument")
+        if remediated_resource_id is None and 'remediatedResourceId' in kwargs:
+            remediated_resource_id = kwargs['remediatedResourceId']
+        if remediated_resource_id is None:
+            raise TypeError("Missing 'remediated_resource_id' argument")
+        if resource_location is None and 'resourceLocation' in kwargs:
+            resource_location = kwargs['resourceLocation']
+        if resource_location is None:
+            raise TypeError("Missing 'resource_location' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("created_on", created_on)
+        _setter("deployment_id", deployment_id)
+        _setter("error", error)
+        _setter("last_updated_on", last_updated_on)
+        _setter("remediated_resource_id", remediated_resource_id)
+        _setter("resource_location", resource_location)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="createdOn")
@@ -211,9 +289,36 @@ class RemediationDeploymentSummaryResponse(dict):
         :param int successful_deployments: The number of deployments required by the remediation that have succeeded.
         :param int total_deployments: The number of deployments required by the remediation.
         """
-        pulumi.set(__self__, "failed_deployments", failed_deployments)
-        pulumi.set(__self__, "successful_deployments", successful_deployments)
-        pulumi.set(__self__, "total_deployments", total_deployments)
+        RemediationDeploymentSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failed_deployments=failed_deployments,
+            successful_deployments=successful_deployments,
+            total_deployments=total_deployments,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failed_deployments: Optional[int] = None,
+             successful_deployments: Optional[int] = None,
+             total_deployments: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failed_deployments is None and 'failedDeployments' in kwargs:
+            failed_deployments = kwargs['failedDeployments']
+        if failed_deployments is None:
+            raise TypeError("Missing 'failed_deployments' argument")
+        if successful_deployments is None and 'successfulDeployments' in kwargs:
+            successful_deployments = kwargs['successfulDeployments']
+        if successful_deployments is None:
+            raise TypeError("Missing 'successful_deployments' argument")
+        if total_deployments is None and 'totalDeployments' in kwargs:
+            total_deployments = kwargs['totalDeployments']
+        if total_deployments is None:
+            raise TypeError("Missing 'total_deployments' argument")
+
+        _setter("failed_deployments", failed_deployments)
+        _setter("successful_deployments", successful_deployments)
+        _setter("total_deployments", total_deployments)
 
     @property
     @pulumi.getter(name="failedDeployments")
@@ -251,8 +356,19 @@ class RemediationFiltersResponse(dict):
         The filters that will be applied to determine which resources to remediate.
         :param Sequence[str] locations: The resource locations that will be remediated.
         """
+        RemediationFiltersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
 
     @property
     @pulumi.getter
@@ -274,8 +390,19 @@ class RemediationPropertiesResponseFailureThreshold(dict):
         The remediation failure threshold settings
         :param float percentage: A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         """
+        RemediationPropertiesResponseFailureThreshold._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            percentage=percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             percentage: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if percentage is not None:
-            pulumi.set(__self__, "percentage", percentage)
+            _setter("percentage", percentage)
 
     @property
     @pulumi.getter
@@ -334,18 +461,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -409,8 +569,25 @@ class TypedErrorInfoResponse(dict):
         :param Any info: The scenario specific error details.
         :param str type: The type of included error details.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        TypedErrorInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: Optional[Any] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if info is None:
+            raise TypeError("Missing 'info' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter

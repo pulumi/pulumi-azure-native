@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -89,14 +89,37 @@ class AdditionalUnattendContentResponse(dict):
         :param str pass_name: The pass name. Currently, the only allowable value is OobeSystem.
         :param str setting_name: Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
         """
+        AdditionalUnattendContentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_name=component_name,
+            content=content,
+            pass_name=pass_name,
+            setting_name=setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_name: Optional[str] = None,
+             content: Optional[str] = None,
+             pass_name: Optional[str] = None,
+             setting_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_name is None and 'componentName' in kwargs:
+            component_name = kwargs['componentName']
+        if pass_name is None and 'passName' in kwargs:
+            pass_name = kwargs['passName']
+        if setting_name is None and 'settingName' in kwargs:
+            setting_name = kwargs['settingName']
+
         if component_name is not None:
-            pulumi.set(__self__, "component_name", component_name)
+            _setter("component_name", component_name)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if pass_name is not None:
-            pulumi.set(__self__, "pass_name", pass_name)
+            _setter("pass_name", pass_name)
         if setting_name is not None:
-            pulumi.set(__self__, "setting_name", setting_name)
+            _setter("setting_name", setting_name)
 
     @property
     @pulumi.getter(name="componentName")
@@ -142,8 +165,19 @@ class ApiEntityReferenceResponse(dict):
         The API entity reference.
         :param str id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
+        ApiEntityReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -184,10 +218,25 @@ class BootDiagnosticsResponse(dict):
         :param bool enabled: Whether boot diagnostics should be enabled on the Virtual Machine.
         :param str storage_uri: Uri of the storage account to use for placing the console output and screenshot. <br><br>If storageUri is not specified while enabling boot diagnostics, managed storage will be used.
         """
+        BootDiagnosticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            storage_uri=storage_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             storage_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_uri is None and 'storageUri' in kwargs:
+            storage_uri = kwargs['storageUri']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if storage_uri is not None:
-            pulumi.set(__self__, "storage_uri", storage_uri)
+            _setter("storage_uri", storage_uri)
 
     @property
     @pulumi.getter
@@ -234,8 +283,21 @@ class DiagnosticsProfileResponse(dict):
         Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param 'BootDiagnosticsResponse' boot_diagnostics: Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br>**NOTE**: If storageUri is being specified then ensure that the storage account is in the same region and subscription as the VM. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
         """
+        DiagnosticsProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            boot_diagnostics=boot_diagnostics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             boot_diagnostics: Optional['outputs.BootDiagnosticsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+
         if boot_diagnostics is not None:
-            pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+            _setter("boot_diagnostics", boot_diagnostics)
 
     @property
     @pulumi.getter(name="bootDiagnostics")
@@ -257,8 +319,19 @@ class DiskEncryptionSetParametersResponse(dict):
         Describes the parameter of customer managed disk encryption set resource id that can be specified for disk. <br><br> NOTE: The disk encryption set resource id can only be specified for managed disk. Please refer https://aka.ms/mdssewithcmkoverview for more details.
         :param str id: Resource Id
         """
+        DiskEncryptionSetParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -303,12 +376,31 @@ class DiskEncryptionSettingsResponse(dict):
         :param bool enabled: Specifies whether disk encryption should be enabled on the virtual machine.
         :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
         """
+        DiskEncryptionSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_key=disk_encryption_key,
+            enabled=enabled,
+            key_encryption_key=key_encryption_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_key: Optional['outputs.KeyVaultSecretReferenceResponse'] = None,
+             enabled: Optional[bool] = None,
+             key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_encryption_key is None and 'diskEncryptionKey' in kwargs:
+            disk_encryption_key = kwargs['diskEncryptionKey']
+        if key_encryption_key is None and 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+
         if disk_encryption_key is not None:
-            pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+            _setter("disk_encryption_key", disk_encryption_key)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
@@ -365,10 +457,25 @@ class DiskRestorePointInstanceViewResponse(dict):
         :param str id: Disk restore point Id.
         :param 'DiskRestorePointReplicationStatusResponse' replication_status: The disk restore point replication status information.
         """
+        DiskRestorePointInstanceViewResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            replication_status=replication_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             replication_status: Optional['outputs.DiskRestorePointReplicationStatusResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replication_status is None and 'replicationStatus' in kwargs:
+            replication_status = kwargs['replicationStatus']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if replication_status is not None:
-            pulumi.set(__self__, "replication_status", replication_status)
+            _setter("replication_status", replication_status)
 
     @property
     @pulumi.getter
@@ -417,10 +524,25 @@ class DiskRestorePointReplicationStatusResponse(dict):
         :param int completion_percent: Replication completion percentage.
         :param 'InstanceViewStatusResponse' status: The resource status information.
         """
+        DiskRestorePointReplicationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completion_percent=completion_percent,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completion_percent: Optional[int] = None,
+             status: Optional['outputs.InstanceViewStatusResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if completion_percent is None and 'completionPercent' in kwargs:
+            completion_percent = kwargs['completionPercent']
+
         if completion_percent is not None:
-            pulumi.set(__self__, "completion_percent", completion_percent)
+            _setter("completion_percent", completion_percent)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="completionPercent")
@@ -471,10 +593,27 @@ class HardwareProfileResponse(dict):
         :param str vm_size: Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
         :param 'VMSizePropertiesResponse' vm_size_properties: Specifies the properties for customizing the size of the virtual machine. Minimum api-version: 2021-07-01. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. <br><br> Please follow the instructions in [VM Customization](https://aka.ms/vmcustomization) for more details.
         """
+        HardwareProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vm_size=vm_size,
+            vm_size_properties=vm_size_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vm_size: Optional[str] = None,
+             vm_size_properties: Optional['outputs.VMSizePropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if vm_size_properties is None and 'vmSizeProperties' in kwargs:
+            vm_size_properties = kwargs['vmSizeProperties']
+
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
         if vm_size_properties is not None:
-            pulumi.set(__self__, "vm_size_properties", vm_size_properties)
+            _setter("vm_size_properties", vm_size_properties)
 
     @property
     @pulumi.getter(name="vmSize")
@@ -529,16 +668,37 @@ class InstanceViewStatusResponse(dict):
         :param str message: The detailed status message, including for alerts and error messages.
         :param str time: The time of the status.
         """
+        InstanceViewStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            display_status=display_status,
+            level=level,
+            message=message,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             display_status: Optional[str] = None,
+             level: Optional[str] = None,
+             message: Optional[str] = None,
+             time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_status is None and 'displayStatus' in kwargs:
+            display_status = kwargs['displayStatus']
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
+            _setter("display_status", display_status)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if time is not None:
-            pulumi.set(__self__, "time", time)
+            _setter("time", time)
 
     @property
     @pulumi.getter
@@ -613,8 +773,29 @@ class KeyVaultKeyReferenceResponse(dict):
         :param str key_url: The URL referencing a key encryption key in Key Vault.
         :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing the key.
         """
-        pulumi.set(__self__, "key_url", key_url)
-        pulumi.set(__self__, "source_vault", source_vault)
+        KeyVaultKeyReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_url=key_url,
+            source_vault=source_vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_url: Optional[str] = None,
+             source_vault: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_url is None and 'keyUrl' in kwargs:
+            key_url = kwargs['keyUrl']
+        if key_url is None:
+            raise TypeError("Missing 'key_url' argument")
+        if source_vault is None and 'sourceVault' in kwargs:
+            source_vault = kwargs['sourceVault']
+        if source_vault is None:
+            raise TypeError("Missing 'source_vault' argument")
+
+        _setter("key_url", key_url)
+        _setter("source_vault", source_vault)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -665,8 +846,29 @@ class KeyVaultSecretReferenceResponse(dict):
         :param str secret_url: The URL referencing a secret in a Key Vault.
         :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing the secret.
         """
-        pulumi.set(__self__, "secret_url", secret_url)
-        pulumi.set(__self__, "source_vault", source_vault)
+        KeyVaultSecretReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_url=secret_url,
+            source_vault=source_vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_url: Optional[str] = None,
+             source_vault: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_url is None and 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if secret_url is None:
+            raise TypeError("Missing 'secret_url' argument")
+        if source_vault is None and 'sourceVault' in kwargs:
+            source_vault = kwargs['sourceVault']
+        if source_vault is None:
+            raise TypeError("Missing 'source_vault' argument")
+
+        _setter("secret_url", secret_url)
+        _setter("source_vault", source_vault)
 
     @property
     @pulumi.getter(name="secretUrl")
@@ -727,16 +929,43 @@ class LinuxConfigurationResponse(dict):
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         :param 'SshConfigurationResponse' ssh: Specifies the ssh key configuration for a Linux OS.
         """
+        LinuxConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_password_authentication=disable_password_authentication,
+            enable_vm_agent_platform_updates=enable_vm_agent_platform_updates,
+            patch_settings=patch_settings,
+            provision_vm_agent=provision_vm_agent,
+            ssh=ssh,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_password_authentication: Optional[bool] = None,
+             enable_vm_agent_platform_updates: Optional[bool] = None,
+             patch_settings: Optional['outputs.LinuxPatchSettingsResponse'] = None,
+             provision_vm_agent: Optional[bool] = None,
+             ssh: Optional['outputs.SshConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
+            disable_password_authentication = kwargs['disablePasswordAuthentication']
+        if enable_vm_agent_platform_updates is None and 'enableVMAgentPlatformUpdates' in kwargs:
+            enable_vm_agent_platform_updates = kwargs['enableVMAgentPlatformUpdates']
+        if patch_settings is None and 'patchSettings' in kwargs:
+            patch_settings = kwargs['patchSettings']
+        if provision_vm_agent is None and 'provisionVMAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVMAgent']
+
         if disable_password_authentication is not None:
-            pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+            _setter("disable_password_authentication", disable_password_authentication)
         if enable_vm_agent_platform_updates is not None:
-            pulumi.set(__self__, "enable_vm_agent_platform_updates", enable_vm_agent_platform_updates)
+            _setter("enable_vm_agent_platform_updates", enable_vm_agent_platform_updates)
         if patch_settings is not None:
-            pulumi.set(__self__, "patch_settings", patch_settings)
+            _setter("patch_settings", patch_settings)
         if provision_vm_agent is not None:
-            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+            _setter("provision_vm_agent", provision_vm_agent)
         if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
+            _setter("ssh", ssh)
 
     @property
     @pulumi.getter(name="disablePasswordAuthentication")
@@ -815,12 +1044,33 @@ class LinuxPatchSettingsResponse(dict):
         :param 'LinuxVMGuestPatchAutomaticByPlatformSettingsResponse' automatic_by_platform_settings: Specifies additional settings for patch mode AutomaticByPlatform in VM Guest Patching on Linux.
         :param str patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
         """
+        LinuxPatchSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_mode=assessment_mode,
+            automatic_by_platform_settings=automatic_by_platform_settings,
+            patch_mode=patch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_mode: Optional[str] = None,
+             automatic_by_platform_settings: Optional['outputs.LinuxVMGuestPatchAutomaticByPlatformSettingsResponse'] = None,
+             patch_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_mode is None and 'assessmentMode' in kwargs:
+            assessment_mode = kwargs['assessmentMode']
+        if automatic_by_platform_settings is None and 'automaticByPlatformSettings' in kwargs:
+            automatic_by_platform_settings = kwargs['automaticByPlatformSettings']
+        if patch_mode is None and 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+
         if assessment_mode is not None:
-            pulumi.set(__self__, "assessment_mode", assessment_mode)
+            _setter("assessment_mode", assessment_mode)
         if automatic_by_platform_settings is not None:
-            pulumi.set(__self__, "automatic_by_platform_settings", automatic_by_platform_settings)
+            _setter("automatic_by_platform_settings", automatic_by_platform_settings)
         if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
+            _setter("patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -875,8 +1125,21 @@ class LinuxVMGuestPatchAutomaticByPlatformSettingsResponse(dict):
         Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Linux patch settings.
         :param str reboot_setting: Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
         """
+        LinuxVMGuestPatchAutomaticByPlatformSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reboot_setting=reboot_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reboot_setting: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reboot_setting is None and 'rebootSetting' in kwargs:
+            reboot_setting = kwargs['rebootSetting']
+
         if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
+            _setter("reboot_setting", reboot_setting)
 
     @property
     @pulumi.getter(name="rebootSetting")
@@ -898,7 +1161,20 @@ class LogAnalyticsOutputResponse(dict):
         LogAnalytics output properties
         :param str output: Output file Uri path to blob container.
         """
-        pulumi.set(__self__, "output", output)
+        LogAnalyticsOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            output=output,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             output: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+
+        _setter("output", output)
 
     @property
     @pulumi.getter
@@ -947,14 +1223,37 @@ class ManagedDiskParametersResponse(dict):
         :param 'VMDiskSecurityProfileResponse' security_profile: Specifies the security profile for the managed disk.
         :param str storage_account_type: Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         """
+        ManagedDiskParametersResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set=disk_encryption_set,
+            id=id,
+            security_profile=security_profile,
+            storage_account_type=storage_account_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set: Optional['outputs.DiskEncryptionSetParametersResponse'] = None,
+             id: Optional[str] = None,
+             security_profile: Optional['outputs.VMDiskSecurityProfileResponse'] = None,
+             storage_account_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_encryption_set is None and 'diskEncryptionSet' in kwargs:
+            disk_encryption_set = kwargs['diskEncryptionSet']
+        if security_profile is None and 'securityProfile' in kwargs:
+            security_profile = kwargs['securityProfile']
+        if storage_account_type is None and 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+
         if disk_encryption_set is not None:
-            pulumi.set(__self__, "disk_encryption_set", disk_encryption_set)
+            _setter("disk_encryption_set", disk_encryption_set)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
 
     @property
     @pulumi.getter(name="diskEncryptionSet")
@@ -1047,24 +1346,67 @@ class OSProfileResponse(dict):
         :param Sequence['VaultSecretGroupResponse'] secrets: Specifies set of certificates that should be installed onto the virtual machine. To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         :param 'WindowsConfigurationResponse' windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
+        OSProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_password=admin_password,
+            admin_username=admin_username,
+            allow_extension_operations=allow_extension_operations,
+            computer_name=computer_name,
+            custom_data=custom_data,
+            linux_configuration=linux_configuration,
+            require_guest_provision_signal=require_guest_provision_signal,
+            secrets=secrets,
+            windows_configuration=windows_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_password: Optional[str] = None,
+             admin_username: Optional[str] = None,
+             allow_extension_operations: Optional[bool] = None,
+             computer_name: Optional[str] = None,
+             custom_data: Optional[str] = None,
+             linux_configuration: Optional['outputs.LinuxConfigurationResponse'] = None,
+             require_guest_provision_signal: Optional[bool] = None,
+             secrets: Optional[Sequence['outputs.VaultSecretGroupResponse']] = None,
+             windows_configuration: Optional['outputs.WindowsConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_password is None and 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if allow_extension_operations is None and 'allowExtensionOperations' in kwargs:
+            allow_extension_operations = kwargs['allowExtensionOperations']
+        if computer_name is None and 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if custom_data is None and 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if linux_configuration is None and 'linuxConfiguration' in kwargs:
+            linux_configuration = kwargs['linuxConfiguration']
+        if require_guest_provision_signal is None and 'requireGuestProvisionSignal' in kwargs:
+            require_guest_provision_signal = kwargs['requireGuestProvisionSignal']
+        if windows_configuration is None and 'windowsConfiguration' in kwargs:
+            windows_configuration = kwargs['windowsConfiguration']
+
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if allow_extension_operations is not None:
-            pulumi.set(__self__, "allow_extension_operations", allow_extension_operations)
+            _setter("allow_extension_operations", allow_extension_operations)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+            _setter("custom_data", custom_data)
         if linux_configuration is not None:
-            pulumi.set(__self__, "linux_configuration", linux_configuration)
+            _setter("linux_configuration", linux_configuration)
         if require_guest_provision_signal is not None:
-            pulumi.set(__self__, "require_guest_provision_signal", require_guest_provision_signal)
+            _setter("require_guest_provision_signal", require_guest_provision_signal)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
         if windows_configuration is not None:
-            pulumi.set(__self__, "windows_configuration", windows_configuration)
+            _setter("windows_configuration", windows_configuration)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -1179,14 +1521,39 @@ class PatchSettingsResponse(dict):
         :param bool enable_hotpatching: Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.
         :param str patch_mode: Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
         """
+        PatchSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_mode=assessment_mode,
+            automatic_by_platform_settings=automatic_by_platform_settings,
+            enable_hotpatching=enable_hotpatching,
+            patch_mode=patch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_mode: Optional[str] = None,
+             automatic_by_platform_settings: Optional['outputs.WindowsVMGuestPatchAutomaticByPlatformSettingsResponse'] = None,
+             enable_hotpatching: Optional[bool] = None,
+             patch_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_mode is None and 'assessmentMode' in kwargs:
+            assessment_mode = kwargs['assessmentMode']
+        if automatic_by_platform_settings is None and 'automaticByPlatformSettings' in kwargs:
+            automatic_by_platform_settings = kwargs['automaticByPlatformSettings']
+        if enable_hotpatching is None and 'enableHotpatching' in kwargs:
+            enable_hotpatching = kwargs['enableHotpatching']
+        if patch_mode is None and 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+
         if assessment_mode is not None:
-            pulumi.set(__self__, "assessment_mode", assessment_mode)
+            _setter("assessment_mode", assessment_mode)
         if automatic_by_platform_settings is not None:
-            pulumi.set(__self__, "automatic_by_platform_settings", automatic_by_platform_settings)
+            _setter("automatic_by_platform_settings", automatic_by_platform_settings)
         if enable_hotpatching is not None:
-            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
+            _setter("enable_hotpatching", enable_hotpatching)
         if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
+            _setter("patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -1251,10 +1618,25 @@ class RestorePointInstanceViewResponse(dict):
         :param Sequence['DiskRestorePointInstanceViewResponse'] disk_restore_points: The disk restore points information.
         :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
         """
+        RestorePointInstanceViewResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_restore_points=disk_restore_points,
+            statuses=statuses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_restore_points: Optional[Sequence['outputs.DiskRestorePointInstanceViewResponse']] = None,
+             statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_restore_points is None and 'diskRestorePoints' in kwargs:
+            disk_restore_points = kwargs['diskRestorePoints']
+
         if disk_restore_points is not None:
-            pulumi.set(__self__, "disk_restore_points", disk_restore_points)
+            _setter("disk_restore_points", disk_restore_points)
         if statuses is not None:
-            pulumi.set(__self__, "statuses", statuses)
+            _setter("statuses", statuses)
 
     @property
     @pulumi.getter(name="diskRestorePoints")
@@ -1331,24 +1713,67 @@ class RestorePointSourceMetadataResponse(dict):
         :param str user_data: UserData associated with the source VM for which restore point is captured, which is a base-64 encoded value.
         :param str vm_id: Gets the virtual machine unique id.
         """
+        RestorePointSourceMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostics_profile=diagnostics_profile,
+            hardware_profile=hardware_profile,
+            license_type=license_type,
+            location=location,
+            os_profile=os_profile,
+            security_profile=security_profile,
+            storage_profile=storage_profile,
+            user_data=user_data,
+            vm_id=vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostics_profile: Optional['outputs.DiagnosticsProfileResponse'] = None,
+             hardware_profile: Optional['outputs.HardwareProfileResponse'] = None,
+             license_type: Optional[str] = None,
+             location: Optional[str] = None,
+             os_profile: Optional['outputs.OSProfileResponse'] = None,
+             security_profile: Optional['outputs.SecurityProfileResponse'] = None,
+             storage_profile: Optional['outputs.RestorePointSourceVMStorageProfileResponse'] = None,
+             user_data: Optional[str] = None,
+             vm_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if diagnostics_profile is None and 'diagnosticsProfile' in kwargs:
+            diagnostics_profile = kwargs['diagnosticsProfile']
+        if hardware_profile is None and 'hardwareProfile' in kwargs:
+            hardware_profile = kwargs['hardwareProfile']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if security_profile is None and 'securityProfile' in kwargs:
+            security_profile = kwargs['securityProfile']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+
         if diagnostics_profile is not None:
-            pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
+            _setter("diagnostics_profile", diagnostics_profile)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
 
     @property
     @pulumi.getter(name="diagnosticsProfile")
@@ -1465,18 +1890,45 @@ class RestorePointSourceVMDataDiskResponse(dict):
         :param 'ManagedDiskParametersResponse' managed_disk: Gets the managed disk details
         :param str name: Gets the disk name.
         """
+        RestorePointSourceVMDataDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caching=caching,
+            disk_restore_point=disk_restore_point,
+            disk_size_gb=disk_size_gb,
+            lun=lun,
+            managed_disk=managed_disk,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caching: Optional[str] = None,
+             disk_restore_point: Optional['outputs.ApiEntityReferenceResponse'] = None,
+             disk_size_gb: Optional[int] = None,
+             lun: Optional[int] = None,
+             managed_disk: Optional['outputs.ManagedDiskParametersResponse'] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_restore_point is None and 'diskRestorePoint' in kwargs:
+            disk_restore_point = kwargs['diskRestorePoint']
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if managed_disk is None and 'managedDisk' in kwargs:
+            managed_disk = kwargs['managedDisk']
+
         if caching is not None:
-            pulumi.set(__self__, "caching", caching)
+            _setter("caching", caching)
         if disk_restore_point is not None:
-            pulumi.set(__self__, "disk_restore_point", disk_restore_point)
+            _setter("disk_restore_point", disk_restore_point)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if lun is not None:
-            pulumi.set(__self__, "lun", lun)
+            _setter("lun", lun)
         if managed_disk is not None:
-            pulumi.set(__self__, "managed_disk", managed_disk)
+            _setter("managed_disk", managed_disk)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1575,20 +2027,53 @@ class RestorePointSourceVMOSDiskResponse(dict):
         :param str name: Gets the disk name.
         :param str os_type: Gets the Operating System type.
         """
+        RestorePointSourceVMOSDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caching=caching,
+            disk_restore_point=disk_restore_point,
+            disk_size_gb=disk_size_gb,
+            encryption_settings=encryption_settings,
+            managed_disk=managed_disk,
+            name=name,
+            os_type=os_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caching: Optional[str] = None,
+             disk_restore_point: Optional['outputs.ApiEntityReferenceResponse'] = None,
+             disk_size_gb: Optional[int] = None,
+             encryption_settings: Optional['outputs.DiskEncryptionSettingsResponse'] = None,
+             managed_disk: Optional['outputs.ManagedDiskParametersResponse'] = None,
+             name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_restore_point is None and 'diskRestorePoint' in kwargs:
+            disk_restore_point = kwargs['diskRestorePoint']
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if encryption_settings is None and 'encryptionSettings' in kwargs:
+            encryption_settings = kwargs['encryptionSettings']
+        if managed_disk is None and 'managedDisk' in kwargs:
+            managed_disk = kwargs['managedDisk']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+
         if caching is not None:
-            pulumi.set(__self__, "caching", caching)
+            _setter("caching", caching)
         if disk_restore_point is not None:
-            pulumi.set(__self__, "disk_restore_point", disk_restore_point)
+            _setter("disk_restore_point", disk_restore_point)
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if encryption_settings is not None:
-            pulumi.set(__self__, "encryption_settings", encryption_settings)
+            _setter("encryption_settings", encryption_settings)
         if managed_disk is not None:
-            pulumi.set(__self__, "managed_disk", managed_disk)
+            _setter("managed_disk", managed_disk)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
 
     @property
     @pulumi.getter
@@ -1679,10 +2164,27 @@ class RestorePointSourceVMStorageProfileResponse(dict):
         :param Sequence['RestorePointSourceVMDataDiskResponse'] data_disks: Gets the data disks of the VM captured at the time of the restore point creation.
         :param 'RestorePointSourceVMOSDiskResponse' os_disk: Gets the OS disk of the VM captured at the time of the restore point creation.
         """
+        RestorePointSourceVMStorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_disks=data_disks,
+            os_disk=os_disk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_disks: Optional[Sequence['outputs.RestorePointSourceVMDataDiskResponse']] = None,
+             os_disk: Optional['outputs.RestorePointSourceVMOSDiskResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_disks is None and 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+        if os_disk is None and 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+
         if data_disks is not None:
-            pulumi.set(__self__, "data_disks", data_disks)
+            _setter("data_disks", data_disks)
         if os_disk is not None:
-            pulumi.set(__self__, "os_disk", os_disk)
+            _setter("os_disk", os_disk)
 
     @property
     @pulumi.getter(name="dataDisks")
@@ -1737,12 +2239,33 @@ class SecurityProfileResponse(dict):
         :param str security_type: Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set.
         :param 'UefiSettingsResponse' uefi_settings: Specifies the security settings like secure boot and vTPM used while creating the virtual machine. <br><br>Minimum api-version: 2020-12-01
         """
+        SecurityProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_at_host=encryption_at_host,
+            security_type=security_type,
+            uefi_settings=uefi_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_at_host: Optional[bool] = None,
+             security_type: Optional[str] = None,
+             uefi_settings: Optional['outputs.UefiSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_at_host is None and 'encryptionAtHost' in kwargs:
+            encryption_at_host = kwargs['encryptionAtHost']
+        if security_type is None and 'securityType' in kwargs:
+            security_type = kwargs['securityType']
+        if uefi_settings is None and 'uefiSettings' in kwargs:
+            uefi_settings = kwargs['uefiSettings']
+
         if encryption_at_host is not None:
-            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
+            _setter("encryption_at_host", encryption_at_host)
         if security_type is not None:
-            pulumi.set(__self__, "security_type", security_type)
+            _setter("security_type", security_type)
         if uefi_settings is not None:
-            pulumi.set(__self__, "uefi_settings", uefi_settings)
+            _setter("uefi_settings", uefi_settings)
 
     @property
     @pulumi.getter(name="encryptionAtHost")
@@ -1797,8 +2320,21 @@ class SshConfigurationResponse(dict):
         SSH configuration for Linux based VMs running on Azure
         :param Sequence['SshPublicKeyResponse'] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
         """
+        SshConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_keys=public_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_keys is None and 'publicKeys' in kwargs:
+            public_keys = kwargs['publicKeys']
+
         if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
+            _setter("public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
@@ -1839,10 +2375,25 @@ class SshPublicKeyResponse(dict):
         :param str key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         :param str path: Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
         """
+        SshPublicKeyResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_data=key_data,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_data: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_data is None and 'keyData' in kwargs:
+            key_data = kwargs['keyData']
+
         if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
+            _setter("key_data", key_data)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="keyData")
@@ -1868,8 +2419,19 @@ class SubResourceResponse(dict):
         """
         :param str id: Resource Id
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1912,10 +2474,27 @@ class UefiSettingsResponse(dict):
         :param bool secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
         :param bool v_tpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. <br><br>Minimum api-version: 2020-12-01
         """
+        UefiSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secure_boot_enabled=secure_boot_enabled,
+            v_tpm_enabled=v_tpm_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secure_boot_enabled: Optional[bool] = None,
+             v_tpm_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+        if v_tpm_enabled is None and 'vTpmEnabled' in kwargs:
+            v_tpm_enabled = kwargs['vTpmEnabled']
+
         if secure_boot_enabled is not None:
-            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+            _setter("secure_boot_enabled", secure_boot_enabled)
         if v_tpm_enabled is not None:
-            pulumi.set(__self__, "v_tpm_enabled", v_tpm_enabled)
+            _setter("v_tpm_enabled", v_tpm_enabled)
 
     @property
     @pulumi.getter(name="secureBootEnabled")
@@ -1966,10 +2545,27 @@ class VMDiskSecurityProfileResponse(dict):
         :param 'DiskEncryptionSetParametersResponse' disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed disk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and VMGuest blob.
         :param str security_encryption_type: Specifies the EncryptionType of the managed disk. <br> It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. <br><br> NOTE: It can be set for only Confidential VMs.
         """
+        VMDiskSecurityProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set=disk_encryption_set,
+            security_encryption_type=security_encryption_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set: Optional['outputs.DiskEncryptionSetParametersResponse'] = None,
+             security_encryption_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_encryption_set is None and 'diskEncryptionSet' in kwargs:
+            disk_encryption_set = kwargs['diskEncryptionSet']
+        if security_encryption_type is None and 'securityEncryptionType' in kwargs:
+            security_encryption_type = kwargs['securityEncryptionType']
+
         if disk_encryption_set is not None:
-            pulumi.set(__self__, "disk_encryption_set", disk_encryption_set)
+            _setter("disk_encryption_set", disk_encryption_set)
         if security_encryption_type is not None:
-            pulumi.set(__self__, "security_encryption_type", security_encryption_type)
+            _setter("security_encryption_type", security_encryption_type)
 
     @property
     @pulumi.getter(name="diskEncryptionSet")
@@ -2020,10 +2616,27 @@ class VMSizePropertiesResponse(dict):
         :param int v_cpus_available: Specifies the number of vCPUs available for the VM. <br><br> When this property is not specified in the request body the default behavior is to set it to the value of vCPUs available for that VM size exposed in api response of [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list) .
         :param int v_cpus_per_core: Specifies the vCPU to physical core ratio. <br><br> When this property is not specified in the request body the default behavior is set to the value of vCPUsPerCore for the VM Size exposed in api response of [List all available virtual machine sizes in a region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list) <br><br> Setting this property to 1 also means that hyper-threading is disabled.
         """
+        VMSizePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            v_cpus_available=v_cpus_available,
+            v_cpus_per_core=v_cpus_per_core,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             v_cpus_available: Optional[int] = None,
+             v_cpus_per_core: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if v_cpus_available is None and 'vCPUsAvailable' in kwargs:
+            v_cpus_available = kwargs['vCPUsAvailable']
+        if v_cpus_per_core is None and 'vCPUsPerCore' in kwargs:
+            v_cpus_per_core = kwargs['vCPUsPerCore']
+
         if v_cpus_available is not None:
-            pulumi.set(__self__, "v_cpus_available", v_cpus_available)
+            _setter("v_cpus_available", v_cpus_available)
         if v_cpus_per_core is not None:
-            pulumi.set(__self__, "v_cpus_per_core", v_cpus_per_core)
+            _setter("v_cpus_per_core", v_cpus_per_core)
 
     @property
     @pulumi.getter(name="vCPUsAvailable")
@@ -2074,10 +2687,27 @@ class VaultCertificateResponse(dict):
         :param str certificate_store: For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
         :param str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         """
+        VaultCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_store=certificate_store,
+            certificate_url=certificate_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_store: Optional[str] = None,
+             certificate_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_store is None and 'certificateStore' in kwargs:
+            certificate_store = kwargs['certificateStore']
+        if certificate_url is None and 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
         if certificate_store is not None:
-            pulumi.set(__self__, "certificate_store", certificate_store)
+            _setter("certificate_store", certificate_store)
         if certificate_url is not None:
-            pulumi.set(__self__, "certificate_url", certificate_url)
+            _setter("certificate_url", certificate_url)
 
     @property
     @pulumi.getter(name="certificateStore")
@@ -2128,10 +2758,27 @@ class VaultSecretGroupResponse(dict):
         :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
         :param Sequence['VaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
+        VaultSecretGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_vault=source_vault,
+            vault_certificates=vault_certificates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_vault: Optional['outputs.SubResourceResponse'] = None,
+             vault_certificates: Optional[Sequence['outputs.VaultCertificateResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_vault is None and 'sourceVault' in kwargs:
+            source_vault = kwargs['sourceVault']
+        if vault_certificates is None and 'vaultCertificates' in kwargs:
+            vault_certificates = kwargs['vaultCertificates']
+
         if source_vault is not None:
-            pulumi.set(__self__, "source_vault", source_vault)
+            _setter("source_vault", source_vault)
         if vault_certificates is not None:
-            pulumi.set(__self__, "vault_certificates", vault_certificates)
+            _setter("vault_certificates", vault_certificates)
 
     @property
     @pulumi.getter(name="sourceVault")
@@ -2161,8 +2808,19 @@ class WinRMConfigurationResponse(dict):
         Describes Windows Remote Management configuration of the VM
         :param Sequence['WinRMListenerResponse'] listeners: The list of Windows Remote Management listeners
         """
+        WinRMConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listeners=listeners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listeners: Optional[Sequence['outputs.WinRMListenerResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if listeners is not None:
-            pulumi.set(__self__, "listeners", listeners)
+            _setter("listeners", listeners)
 
     @property
     @pulumi.getter
@@ -2203,10 +2861,25 @@ class WinRMListenerResponse(dict):
         :param str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         :param str protocol: Specifies the protocol of WinRM listener. <br><br> Possible values are: <br>**http** <br><br> **https**
         """
+        WinRMListenerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_url=certificate_url,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_url: Optional[str] = None,
+             protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_url is None and 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
         if certificate_url is not None:
-            pulumi.set(__self__, "certificate_url", certificate_url)
+            _setter("certificate_url", certificate_url)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter(name="certificateUrl")
@@ -2277,20 +2950,57 @@ class WindowsConfigurationResponse(dict):
         :param str time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". <br><br> Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         :param 'WinRMConfigurationResponse' win_rm: Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
         """
+        WindowsConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_unattend_content=additional_unattend_content,
+            enable_automatic_updates=enable_automatic_updates,
+            enable_vm_agent_platform_updates=enable_vm_agent_platform_updates,
+            patch_settings=patch_settings,
+            provision_vm_agent=provision_vm_agent,
+            time_zone=time_zone,
+            win_rm=win_rm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_unattend_content: Optional[Sequence['outputs.AdditionalUnattendContentResponse']] = None,
+             enable_automatic_updates: Optional[bool] = None,
+             enable_vm_agent_platform_updates: Optional[bool] = None,
+             patch_settings: Optional['outputs.PatchSettingsResponse'] = None,
+             provision_vm_agent: Optional[bool] = None,
+             time_zone: Optional[str] = None,
+             win_rm: Optional['outputs.WinRMConfigurationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_unattend_content is None and 'additionalUnattendContent' in kwargs:
+            additional_unattend_content = kwargs['additionalUnattendContent']
+        if enable_automatic_updates is None and 'enableAutomaticUpdates' in kwargs:
+            enable_automatic_updates = kwargs['enableAutomaticUpdates']
+        if enable_vm_agent_platform_updates is None and 'enableVMAgentPlatformUpdates' in kwargs:
+            enable_vm_agent_platform_updates = kwargs['enableVMAgentPlatformUpdates']
+        if patch_settings is None and 'patchSettings' in kwargs:
+            patch_settings = kwargs['patchSettings']
+        if provision_vm_agent is None and 'provisionVMAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVMAgent']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if win_rm is None and 'winRM' in kwargs:
+            win_rm = kwargs['winRM']
+
         if additional_unattend_content is not None:
-            pulumi.set(__self__, "additional_unattend_content", additional_unattend_content)
+            _setter("additional_unattend_content", additional_unattend_content)
         if enable_automatic_updates is not None:
-            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
+            _setter("enable_automatic_updates", enable_automatic_updates)
         if enable_vm_agent_platform_updates is not None:
-            pulumi.set(__self__, "enable_vm_agent_platform_updates", enable_vm_agent_platform_updates)
+            _setter("enable_vm_agent_platform_updates", enable_vm_agent_platform_updates)
         if patch_settings is not None:
-            pulumi.set(__self__, "patch_settings", patch_settings)
+            _setter("patch_settings", patch_settings)
         if provision_vm_agent is not None:
-            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+            _setter("provision_vm_agent", provision_vm_agent)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
         if win_rm is not None:
-            pulumi.set(__self__, "win_rm", win_rm)
+            _setter("win_rm", win_rm)
 
     @property
     @pulumi.getter(name="additionalUnattendContent")
@@ -2377,8 +3087,21 @@ class WindowsVMGuestPatchAutomaticByPlatformSettingsResponse(dict):
         Specifies additional settings to be applied when patch mode AutomaticByPlatform is selected in Windows patch settings.
         :param str reboot_setting: Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
         """
+        WindowsVMGuestPatchAutomaticByPlatformSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            reboot_setting=reboot_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             reboot_setting: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reboot_setting is None and 'rebootSetting' in kwargs:
+            reboot_setting = kwargs['rebootSetting']
+
         if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
+            _setter("reboot_setting", reboot_setting)
 
     @property
     @pulumi.getter(name="rebootSetting")

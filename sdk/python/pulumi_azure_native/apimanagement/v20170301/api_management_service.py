@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,101 @@ class ApiManagementServiceArgs:
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network configuration of the API Management service.
         :param pulumi.Input[Union[str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         """
-        pulumi.set(__self__, "publisher_email", publisher_email)
-        pulumi.set(__self__, "publisher_name", publisher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ApiManagementServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher_email=publisher_email,
+            publisher_name=publisher_name,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            additional_locations=additional_locations,
+            certificates=certificates,
+            custom_properties=custom_properties,
+            hostname_configurations=hostname_configurations,
+            identity=identity,
+            location=location,
+            notification_sender_email=notification_sender_email,
+            service_name=service_name,
+            tags=tags,
+            virtual_network_configuration=virtual_network_configuration,
+            virtual_network_type=virtual_network_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher_email: Optional[pulumi.Input[str]] = None,
+             publisher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ApiManagementServiceSkuPropertiesArgs']] = None,
+             additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalLocationArgs']]]] = None,
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateConfigurationArgs']]]] = None,
+             custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             hostname_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['HostnameConfigurationArgs']]]] = None,
+             identity: Optional[pulumi.Input['ApiManagementServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             notification_sender_email: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_configuration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None,
+             virtual_network_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if publisher_email is None and 'publisherEmail' in kwargs:
+            publisher_email = kwargs['publisherEmail']
+        if publisher_email is None:
+            raise TypeError("Missing 'publisher_email' argument")
+        if publisher_name is None and 'publisherName' in kwargs:
+            publisher_name = kwargs['publisherName']
+        if publisher_name is None:
+            raise TypeError("Missing 'publisher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if additional_locations is None and 'additionalLocations' in kwargs:
+            additional_locations = kwargs['additionalLocations']
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if hostname_configurations is None and 'hostnameConfigurations' in kwargs:
+            hostname_configurations = kwargs['hostnameConfigurations']
+        if notification_sender_email is None and 'notificationSenderEmail' in kwargs:
+            notification_sender_email = kwargs['notificationSenderEmail']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+        if virtual_network_type is None and 'virtualNetworkType' in kwargs:
+            virtual_network_type = kwargs['virtualNetworkType']
+
+        _setter("publisher_email", publisher_email)
+        _setter("publisher_name", publisher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if additional_locations is not None:
-            pulumi.set(__self__, "additional_locations", additional_locations)
+            _setter("additional_locations", additional_locations)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if hostname_configurations is not None:
-            pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+            _setter("hostname_configurations", hostname_configurations)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if notification_sender_email is not None:
-            pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+            _setter("notification_sender_email", notification_sender_email)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
         if virtual_network_type is None:
             virtual_network_type = 'None'
         if virtual_network_type is not None:
-            pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+            _setter("virtual_network_type", virtual_network_type)
 
     @property
     @pulumi.getter(name="publisherEmail")
@@ -321,6 +388,10 @@ class ApiManagementService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiManagementServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -354,6 +425,7 @@ class ApiManagementService(pulumi.CustomResource):
             __props__.__dict__["certificates"] = certificates
             __props__.__dict__["custom_properties"] = custom_properties
             __props__.__dict__["hostname_configurations"] = hostname_configurations
+            identity = _utilities.configure(identity, ApiManagementServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["notification_sender_email"] = notification_sender_email
@@ -367,10 +439,12 @@ class ApiManagementService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_name"] = service_name
+            sku = _utilities.configure(sku, ApiManagementServiceSkuPropertiesArgs, True)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            virtual_network_configuration = _utilities.configure(virtual_network_configuration, VirtualNetworkConfigurationArgs, True)
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             if virtual_network_type is None:
                 virtual_network_type = 'None'

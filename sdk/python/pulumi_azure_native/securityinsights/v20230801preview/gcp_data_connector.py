@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -36,16 +36,63 @@ class GCPDataConnectorArgs:
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input['DCRConfigurationArgs'] dcr_config: The configuration of the destination of the data.
         """
-        pulumi.set(__self__, "auth", auth)
-        pulumi.set(__self__, "connector_definition_name", connector_definition_name)
-        pulumi.set(__self__, "kind", 'GCP')
-        pulumi.set(__self__, "request", request)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        GCPDataConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth=auth,
+            connector_definition_name=connector_definition_name,
+            kind=kind,
+            request=request,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            data_connector_id=data_connector_id,
+            dcr_config=dcr_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth: Optional[pulumi.Input['GCPAuthPropertiesArgs']] = None,
+             connector_definition_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             request: Optional[pulumi.Input['GCPRequestPropertiesArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             data_connector_id: Optional[pulumi.Input[str]] = None,
+             dcr_config: Optional[pulumi.Input['DCRConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth is None:
+            raise TypeError("Missing 'auth' argument")
+        if connector_definition_name is None and 'connectorDefinitionName' in kwargs:
+            connector_definition_name = kwargs['connectorDefinitionName']
+        if connector_definition_name is None:
+            raise TypeError("Missing 'connector_definition_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if request is None:
+            raise TypeError("Missing 'request' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if data_connector_id is None and 'dataConnectorId' in kwargs:
+            data_connector_id = kwargs['dataConnectorId']
+        if dcr_config is None and 'dcrConfig' in kwargs:
+            dcr_config = kwargs['dcrConfig']
+
+        _setter("auth", auth)
+        _setter("connector_definition_name", connector_definition_name)
+        _setter("kind", 'GCP')
+        _setter("request", request)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if data_connector_id is not None:
-            pulumi.set(__self__, "data_connector_id", data_connector_id)
+            _setter("data_connector_id", data_connector_id)
         if dcr_config is not None:
-            pulumi.set(__self__, "dcr_config", dcr_config)
+            _setter("dcr_config", dcr_config)
 
     @property
     @pulumi.getter
@@ -193,6 +240,10 @@ class GCPDataConnector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GCPDataConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -215,6 +266,7 @@ class GCPDataConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GCPDataConnectorArgs.__new__(GCPDataConnectorArgs)
 
+            auth = _utilities.configure(auth, GCPAuthPropertiesArgs, True)
             if auth is None and not opts.urn:
                 raise TypeError("Missing required property 'auth'")
             __props__.__dict__["auth"] = auth
@@ -222,10 +274,12 @@ class GCPDataConnector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connector_definition_name'")
             __props__.__dict__["connector_definition_name"] = connector_definition_name
             __props__.__dict__["data_connector_id"] = data_connector_id
+            dcr_config = _utilities.configure(dcr_config, DCRConfigurationArgs, True)
             __props__.__dict__["dcr_config"] = dcr_config
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'GCP'
+            request = _utilities.configure(request, GCPRequestPropertiesArgs, True)
             if request is None and not opts.urn:
                 raise TypeError("Missing required property 'request'")
             __props__.__dict__["request"] = request

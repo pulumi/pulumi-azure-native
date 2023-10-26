@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,39 @@ class DppResourceGuardProxyArgs:
         :param pulumi.Input['ResourceGuardProxyBaseArgs'] properties: ResourceGuardProxyBaseResource properties
         :param pulumi.Input[str] resource_guard_proxy_name: name of the resource guard proxy
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vault_name", vault_name)
+        DppResourceGuardProxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            vault_name=vault_name,
+            properties=properties,
+            resource_guard_proxy_name=resource_guard_proxy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ResourceGuardProxyBaseArgs']] = None,
+             resource_guard_proxy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vault_name is None and 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+        if vault_name is None:
+            raise TypeError("Missing 'vault_name' argument")
+        if resource_guard_proxy_name is None and 'resourceGuardProxyName' in kwargs:
+            resource_guard_proxy_name = kwargs['resourceGuardProxyName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("vault_name", vault_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if resource_guard_proxy_name is not None:
-            pulumi.set(__self__, "resource_guard_proxy_name", resource_guard_proxy_name)
+            _setter("resource_guard_proxy_name", resource_guard_proxy_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -122,6 +149,10 @@ class DppResourceGuardProxy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DppResourceGuardProxyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -140,6 +171,7 @@ class DppResourceGuardProxy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DppResourceGuardProxyArgs.__new__(DppResourceGuardProxyArgs)
 
+            properties = _utilities.configure(properties, ResourceGuardProxyBaseArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,8 +25,21 @@ class DependsOnDefinitionArgs:
         Specify which kustomizations must succeed reconciliation on the cluster prior to reconciling this kustomization
         :param pulumi.Input[str] kustomization_name: Name of the kustomization to claim dependency on
         """
+        DependsOnDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kustomization_name=kustomization_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kustomization_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kustomization_name is None and 'kustomizationName' in kwargs:
+            kustomization_name = kwargs['kustomizationName']
+
         if kustomization_name is not None:
-            pulumi.set(__self__, "kustomization_name", kustomization_name)
+            _setter("kustomization_name", kustomization_name)
 
     @property
     @pulumi.getter(name="kustomizationName")
@@ -63,26 +76,65 @@ class GitRepositoryDefinitionArgs:
         :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the cluster git repository source with the remote.
         :param pulumi.Input[str] url: The URL to sync for the flux configuration git repository.
         """
+        GitRepositoryDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            https_ca_file=https_ca_file,
+            https_user=https_user,
+            local_auth_ref=local_auth_ref,
+            repository_ref=repository_ref,
+            ssh_known_hosts=ssh_known_hosts,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             https_ca_file: Optional[pulumi.Input[str]] = None,
+             https_user: Optional[pulumi.Input[str]] = None,
+             local_auth_ref: Optional[pulumi.Input[str]] = None,
+             repository_ref: Optional[pulumi.Input['RepositoryRefDefinitionArgs']] = None,
+             ssh_known_hosts: Optional[pulumi.Input[str]] = None,
+             sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if https_ca_file is None and 'httpsCAFile' in kwargs:
+            https_ca_file = kwargs['httpsCAFile']
+        if https_user is None and 'httpsUser' in kwargs:
+            https_user = kwargs['httpsUser']
+        if local_auth_ref is None and 'localAuthRef' in kwargs:
+            local_auth_ref = kwargs['localAuthRef']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+        if ssh_known_hosts is None and 'sshKnownHosts' in kwargs:
+            ssh_known_hosts = kwargs['sshKnownHosts']
+        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if https_ca_file is not None:
-            pulumi.set(__self__, "https_ca_file", https_ca_file)
+            _setter("https_ca_file", https_ca_file)
         if https_user is not None:
-            pulumi.set(__self__, "https_user", https_user)
+            _setter("https_user", https_user)
         if local_auth_ref is not None:
-            pulumi.set(__self__, "local_auth_ref", local_auth_ref)
+            _setter("local_auth_ref", local_auth_ref)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
         if ssh_known_hosts is not None:
-            pulumi.set(__self__, "ssh_known_hosts", ssh_known_hosts)
+            _setter("ssh_known_hosts", ssh_known_hosts)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="httpsCAFile")
@@ -203,32 +255,65 @@ class KustomizationDefinitionArgs:
         :param pulumi.Input[float] timeout_in_seconds: The maximum time to attempt to reconcile the Kustomization on the cluster.
         :param pulumi.Input[Union[str, 'KustomizationValidationType']] validation: Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
         """
+        KustomizationDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            depends_on=depends_on,
+            force=force,
+            path=path,
+            prune=prune,
+            retry_interval_in_seconds=retry_interval_in_seconds,
+            sync_interval_in_seconds=sync_interval_in_seconds,
+            timeout_in_seconds=timeout_in_seconds,
+            validation=validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['DependsOnDefinitionArgs']]]] = None,
+             force: Optional[pulumi.Input[bool]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             prune: Optional[pulumi.Input[bool]] = None,
+             retry_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             sync_interval_in_seconds: Optional[pulumi.Input[float]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[float]] = None,
+             validation: Optional[pulumi.Input[Union[str, 'KustomizationValidationType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if depends_on is None and 'dependsOn' in kwargs:
+            depends_on = kwargs['dependsOn']
+        if retry_interval_in_seconds is None and 'retryIntervalInSeconds' in kwargs:
+            retry_interval_in_seconds = kwargs['retryIntervalInSeconds']
+        if sync_interval_in_seconds is None and 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if depends_on is not None:
-            pulumi.set(__self__, "depends_on", depends_on)
+            _setter("depends_on", depends_on)
         if force is None:
             force = False
         if force is not None:
-            pulumi.set(__self__, "force", force)
+            _setter("force", force)
         if path is None:
             path = ''
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if prune is None:
             prune = False
         if prune is not None:
-            pulumi.set(__self__, "prune", prune)
+            _setter("prune", prune)
         if retry_interval_in_seconds is not None:
-            pulumi.set(__self__, "retry_interval_in_seconds", retry_interval_in_seconds)
+            _setter("retry_interval_in_seconds", retry_interval_in_seconds)
         if sync_interval_in_seconds is None:
             sync_interval_in_seconds = 600
         if sync_interval_in_seconds is not None:
-            pulumi.set(__self__, "sync_interval_in_seconds", sync_interval_in_seconds)
+            _setter("sync_interval_in_seconds", sync_interval_in_seconds)
         if timeout_in_seconds is None:
             timeout_in_seconds = 600
         if timeout_in_seconds is not None:
-            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+            _setter("timeout_in_seconds", timeout_in_seconds)
         if validation is not None:
-            pulumi.set(__self__, "validation", validation)
+            _setter("validation", validation)
 
     @property
     @pulumi.getter(name="dependsOn")
@@ -341,14 +426,31 @@ class RepositoryRefDefinitionArgs:
         :param pulumi.Input[str] semver: The semver range used to match against git repository tags. This takes precedence over tag.
         :param pulumi.Input[str] tag: The git repository tag name to checkout. This takes precedence over branch.
         """
+        RepositoryRefDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            commit=commit,
+            semver=semver,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             commit: Optional[pulumi.Input[str]] = None,
+             semver: Optional[pulumi.Input[str]] = None,
+             tag: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if commit is not None:
-            pulumi.set(__self__, "commit", commit)
+            _setter("commit", commit)
         if semver is not None:
-            pulumi.set(__self__, "semver", semver)
+            _setter("semver", semver)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
 
     @property
     @pulumi.getter

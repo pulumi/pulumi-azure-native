@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,14 +30,53 @@ class SenderUsernameArgs:
         :param pulumi.Input[str] display_name: The display name for the senderUsername.
         :param pulumi.Input[str] sender_username: The valid sender Username.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "email_service_name", email_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "username", username)
+        SenderUsernameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            email_service_name=email_service_name,
+            resource_group_name=resource_group_name,
+            username=username,
+            display_name=display_name,
+            sender_username=sender_username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             email_service_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             sender_username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if email_service_name is None and 'emailServiceName' in kwargs:
+            email_service_name = kwargs['emailServiceName']
+        if email_service_name is None:
+            raise TypeError("Missing 'email_service_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if sender_username is None and 'senderUsername' in kwargs:
+            sender_username = kwargs['senderUsername']
+
+        _setter("domain_name", domain_name)
+        _setter("email_service_name", email_service_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("username", username)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if sender_username is not None:
-            pulumi.set(__self__, "sender_username", sender_username)
+            _setter("sender_username", sender_username)
 
     @property
     @pulumi.getter(name="domainName")
@@ -161,6 +200,10 @@ class SenderUsername(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SenderUsernameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

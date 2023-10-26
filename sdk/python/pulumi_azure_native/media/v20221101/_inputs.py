@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -39,8 +39,21 @@ class AkamaiAccessControlArgs:
         Akamai access control
         :param pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]] akamai_signature_header_authentication_key_list: authentication key list
         """
+        AkamaiAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            akamai_signature_header_authentication_key_list=akamai_signature_header_authentication_key_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             akamai_signature_header_authentication_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['AkamaiSignatureHeaderAuthenticationKeyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if akamai_signature_header_authentication_key_list is None and 'akamaiSignatureHeaderAuthenticationKeyList' in kwargs:
+            akamai_signature_header_authentication_key_list = kwargs['akamaiSignatureHeaderAuthenticationKeyList']
+
         if akamai_signature_header_authentication_key_list is not None:
-            pulumi.set(__self__, "akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
+            _setter("akamai_signature_header_authentication_key_list", akamai_signature_header_authentication_key_list)
 
     @property
     @pulumi.getter(name="akamaiSignatureHeaderAuthenticationKeyList")
@@ -67,12 +80,29 @@ class AkamaiSignatureHeaderAuthenticationKeyArgs:
         :param pulumi.Input[str] expiration: The expiration time of the authentication key.
         :param pulumi.Input[str] identifier: identifier of the key
         """
+        AkamaiSignatureHeaderAuthenticationKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base64_key=base64_key,
+            expiration=expiration,
+            identifier=identifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base64_key: Optional[pulumi.Input[str]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base64_key is None and 'base64Key' in kwargs:
+            base64_key = kwargs['base64Key']
+
         if base64_key is not None:
-            pulumi.set(__self__, "base64_key", base64_key)
+            _setter("base64_key", base64_key)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
 
     @property
     @pulumi.getter(name="base64Key")
@@ -119,8 +149,19 @@ class ArmStreamingEndpointCurrentSkuArgs:
         The streaming endpoint current sku.
         :param pulumi.Input[int] capacity: The streaming endpoint sku capacity.
         """
+        ArmStreamingEndpointCurrentSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -145,10 +186,27 @@ class CrossSiteAccessPoliciesArgs:
         :param pulumi.Input[str] client_access_policy: The content of clientaccesspolicy.xml used by Silverlight.
         :param pulumi.Input[str] cross_domain_policy: The content of crossdomain.xml used by Silverlight.
         """
+        CrossSiteAccessPoliciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_access_policy=client_access_policy,
+            cross_domain_policy=cross_domain_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_access_policy: Optional[pulumi.Input[str]] = None,
+             cross_domain_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_access_policy is None and 'clientAccessPolicy' in kwargs:
+            client_access_policy = kwargs['clientAccessPolicy']
+        if cross_domain_policy is None and 'crossDomainPolicy' in kwargs:
+            cross_domain_policy = kwargs['crossDomainPolicy']
+
         if client_access_policy is not None:
-            pulumi.set(__self__, "client_access_policy", client_access_policy)
+            _setter("client_access_policy", client_access_policy)
         if cross_domain_policy is not None:
-            pulumi.set(__self__, "cross_domain_policy", cross_domain_policy)
+            _setter("cross_domain_policy", cross_domain_policy)
 
     @property
     @pulumi.getter(name="clientAccessPolicy")
@@ -183,8 +241,21 @@ class HlsArgs:
         HTTP Live Streaming (HLS) packing setting for the live output.
         :param pulumi.Input[int] fragments_per_ts_segment: The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output.
         """
+        HlsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fragments_per_ts_segment=fragments_per_ts_segment,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fragments_per_ts_segment: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fragments_per_ts_segment is None and 'fragmentsPerTsSegment' in kwargs:
+            fragments_per_ts_segment = kwargs['fragmentsPerTsSegment']
+
         if fragments_per_ts_segment is not None:
-            pulumi.set(__self__, "fragments_per_ts_segment", fragments_per_ts_segment)
+            _setter("fragments_per_ts_segment", fragments_per_ts_segment)
 
     @property
     @pulumi.getter(name="fragmentsPerTsSegment")
@@ -207,8 +278,19 @@ class IPAccessControlArgs:
         The IP access control.
         :param pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]] allow: The IP allow list.
         """
+        IPAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: Optional[pulumi.Input[Sequence[pulumi.Input['IPRangeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if allow is not None:
-            pulumi.set(__self__, "allow", allow)
+            _setter("allow", allow)
 
     @property
     @pulumi.getter
@@ -235,12 +317,29 @@ class IPRangeArgs:
         :param pulumi.Input[str] name: The friendly name for the IP address range.
         :param pulumi.Input[int] subnet_prefix_length: The subnet mask prefix length (see CIDR notation).
         """
+        IPRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            name=name,
+            subnet_prefix_length=subnet_prefix_length,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             subnet_prefix_length: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_prefix_length is None and 'subnetPrefixLength' in kwargs:
+            subnet_prefix_length = kwargs['subnetPrefixLength']
+
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subnet_prefix_length is not None:
-            pulumi.set(__self__, "subnet_prefix_length", subnet_prefix_length)
+            _setter("subnet_prefix_length", subnet_prefix_length)
 
     @property
     @pulumi.getter
@@ -293,14 +392,39 @@ class LiveEventEncodingArgs:
         :param pulumi.Input[str] preset_name: The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
         :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
         """
+        LiveEventEncodingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoding_type=encoding_type,
+            key_frame_interval=key_frame_interval,
+            preset_name=preset_name,
+            stretch_mode=stretch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoding_type: Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]] = None,
+             key_frame_interval: Optional[pulumi.Input[str]] = None,
+             preset_name: Optional[pulumi.Input[str]] = None,
+             stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encoding_type is None and 'encodingType' in kwargs:
+            encoding_type = kwargs['encodingType']
+        if key_frame_interval is None and 'keyFrameInterval' in kwargs:
+            key_frame_interval = kwargs['keyFrameInterval']
+        if preset_name is None and 'presetName' in kwargs:
+            preset_name = kwargs['presetName']
+        if stretch_mode is None and 'stretchMode' in kwargs:
+            stretch_mode = kwargs['stretchMode']
+
         if encoding_type is not None:
-            pulumi.set(__self__, "encoding_type", encoding_type)
+            _setter("encoding_type", encoding_type)
         if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+            _setter("key_frame_interval", key_frame_interval)
         if preset_name is not None:
-            pulumi.set(__self__, "preset_name", preset_name)
+            _setter("preset_name", preset_name)
         if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
+            _setter("stretch_mode", stretch_mode)
 
     @property
     @pulumi.getter(name="encodingType")
@@ -361,10 +485,23 @@ class LiveEventEndpointArgs:
         :param pulumi.Input[str] protocol: The endpoint protocol.
         :param pulumi.Input[str] url: The endpoint URL.
         """
+        LiveEventEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -399,8 +536,19 @@ class LiveEventInputAccessControlArgs:
         The IP access control for live event input.
         :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
         """
+        LiveEventInputAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input['IPAccessControlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -427,12 +575,27 @@ class LiveEventInputTrackSelectionArgs:
         :param pulumi.Input[str] property: Property name to select. This property is reserved for future use, any value set on this property will be ignored.
         :param pulumi.Input[str] value: Property value to select. This property is reserved for future use, any value set on this property will be ignored.
         """
+        LiveEventInputTrackSelectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            operation=operation,
+            property=property,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             operation: Optional[pulumi.Input[str]] = None,
+             property: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if operation is not None:
-            pulumi.set(__self__, "operation", operation)
+            _setter("operation", operation)
         if property is not None:
-            pulumi.set(__self__, "property", property)
+            _setter("property", property)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -489,17 +652,50 @@ class LiveEventInputArgs:
         :param pulumi.Input[str] key_frame_interval_duration: ISO 8601 time duration of the key frame interval duration of the input. This value sets the EXT-X-TARGETDURATION property in the HLS output. For example, use PT2S to indicate 2 seconds. Leave the value empty for encoding live events.
         :param pulumi.Input[Sequence[pulumi.Input['LiveEventTimedMetadataEndpointArgs']]] timed_metadata_endpoints: The metadata endpoints for the live event.
         """
-        pulumi.set(__self__, "streaming_protocol", streaming_protocol)
+        LiveEventInputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            streaming_protocol=streaming_protocol,
+            access_control=access_control,
+            access_token=access_token,
+            endpoints=endpoints,
+            key_frame_interval_duration=key_frame_interval_duration,
+            timed_metadata_endpoints=timed_metadata_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             streaming_protocol: Optional[pulumi.Input[Union[str, 'LiveEventInputProtocol']]] = None,
+             access_control: Optional[pulumi.Input['LiveEventInputAccessControlArgs']] = None,
+             access_token: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
+             key_frame_interval_duration: Optional[pulumi.Input[str]] = None,
+             timed_metadata_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventTimedMetadataEndpointArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if streaming_protocol is None and 'streamingProtocol' in kwargs:
+            streaming_protocol = kwargs['streamingProtocol']
+        if streaming_protocol is None:
+            raise TypeError("Missing 'streaming_protocol' argument")
+        if access_control is None and 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if key_frame_interval_duration is None and 'keyFrameIntervalDuration' in kwargs:
+            key_frame_interval_duration = kwargs['keyFrameIntervalDuration']
+        if timed_metadata_endpoints is None and 'timedMetadataEndpoints' in kwargs:
+            timed_metadata_endpoints = kwargs['timedMetadataEndpoints']
+
+        _setter("streaming_protocol", streaming_protocol)
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if key_frame_interval_duration is not None:
-            pulumi.set(__self__, "key_frame_interval_duration", key_frame_interval_duration)
+            _setter("key_frame_interval_duration", key_frame_interval_duration)
         if timed_metadata_endpoints is not None:
-            pulumi.set(__self__, "timed_metadata_endpoints", timed_metadata_endpoints)
+            _setter("timed_metadata_endpoints", timed_metadata_endpoints)
 
     @property
     @pulumi.getter(name="streamingProtocol")
@@ -582,7 +778,22 @@ class LiveEventOutputTranscriptionTrackArgs:
         Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
         :param pulumi.Input[str] track_name: The output track name. This property is reserved for future use, any value set on this property will be ignored.
         """
-        pulumi.set(__self__, "track_name", track_name)
+        LiveEventOutputTranscriptionTrackArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            track_name=track_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             track_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if track_name is None and 'trackName' in kwargs:
+            track_name = kwargs['trackName']
+        if track_name is None:
+            raise TypeError("Missing 'track_name' argument")
+
+        _setter("track_name", track_name)
 
     @property
     @pulumi.getter(name="trackName")
@@ -605,8 +816,19 @@ class LiveEventPreviewAccessControlArgs:
         The IP access control for the live event preview endpoint.
         :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
         """
+        LiveEventPreviewAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input['IPAccessControlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -637,16 +859,43 @@ class LiveEventPreviewArgs:
         :param pulumi.Input[str] preview_locator: The identifier of the preview locator in Guid format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. This value cannot be updated once the live event is created.
         :param pulumi.Input[str] streaming_policy_name: The name of streaming policy used for the live event preview. This value is specified at creation time and cannot be updated.
         """
+        LiveEventPreviewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control=access_control,
+            alternative_media_id=alternative_media_id,
+            endpoints=endpoints,
+            preview_locator=preview_locator,
+            streaming_policy_name=streaming_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control: Optional[pulumi.Input['LiveEventPreviewAccessControlArgs']] = None,
+             alternative_media_id: Optional[pulumi.Input[str]] = None,
+             endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
+             preview_locator: Optional[pulumi.Input[str]] = None,
+             streaming_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control is None and 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if alternative_media_id is None and 'alternativeMediaId' in kwargs:
+            alternative_media_id = kwargs['alternativeMediaId']
+        if preview_locator is None and 'previewLocator' in kwargs:
+            preview_locator = kwargs['previewLocator']
+        if streaming_policy_name is None and 'streamingPolicyName' in kwargs:
+            streaming_policy_name = kwargs['streamingPolicyName']
+
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if alternative_media_id is not None:
-            pulumi.set(__self__, "alternative_media_id", alternative_media_id)
+            _setter("alternative_media_id", alternative_media_id)
         if endpoints is not None:
-            pulumi.set(__self__, "endpoints", endpoints)
+            _setter("endpoints", endpoints)
         if preview_locator is not None:
-            pulumi.set(__self__, "preview_locator", preview_locator)
+            _setter("preview_locator", preview_locator)
         if streaming_policy_name is not None:
-            pulumi.set(__self__, "streaming_policy_name", streaming_policy_name)
+            _setter("streaming_policy_name", streaming_policy_name)
 
     @property
     @pulumi.getter(name="accessControl")
@@ -717,8 +966,19 @@ class LiveEventTimedMetadataEndpointArgs:
         The live event metadata insertion endpoint.
         :param pulumi.Input[str] url: The metadata endpoint URL.
         """
+        LiveEventTimedMetadataEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -745,12 +1005,31 @@ class LiveEventTranscriptionArgs:
         :param pulumi.Input[str] language: Specifies the language (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in BCP-47 format (e.g: 'en-US'). See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature and the list of supported languages.
         :param pulumi.Input['LiveEventOutputTranscriptionTrackArgs'] output_transcription_track: Describes a transcription track in the output of a live event, generated using speech-to-text transcription. This property is reserved for future use, any value set on this property will be ignored.
         """
+        LiveEventTranscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_track_selection=input_track_selection,
+            language=language,
+            output_transcription_track=output_transcription_track,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_track_selection: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventInputTrackSelectionArgs']]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             output_transcription_track: Optional[pulumi.Input['LiveEventOutputTranscriptionTrackArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_track_selection is None and 'inputTrackSelection' in kwargs:
+            input_track_selection = kwargs['inputTrackSelection']
+        if output_transcription_track is None and 'outputTranscriptionTrack' in kwargs:
+            output_transcription_track = kwargs['outputTranscriptionTrack']
+
         if input_track_selection is not None:
-            pulumi.set(__self__, "input_track_selection", input_track_selection)
+            _setter("input_track_selection", input_track_selection)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if output_transcription_track is not None:
-            pulumi.set(__self__, "output_transcription_track", output_transcription_track)
+            _setter("output_transcription_track", output_transcription_track)
 
     @property
     @pulumi.getter(name="inputTrackSelection")
@@ -799,10 +1078,23 @@ class StreamingEndpointAccessControlArgs:
         :param pulumi.Input['AkamaiAccessControlArgs'] akamai: The access control of Akamai
         :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control of the streaming endpoint.
         """
+        StreamingEndpointAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            akamai=akamai,
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             akamai: Optional[pulumi.Input['AkamaiAccessControlArgs']] = None,
+             ip: Optional[pulumi.Input['IPAccessControlArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if akamai is not None:
-            pulumi.set(__self__, "akamai", akamai)
+            _setter("akamai", akamai)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -40,22 +40,59 @@ class DatadogOrganizationPropertiesArgs:
         :param pulumi.Input[str] name: Name of the Datadog organization.
         :param pulumi.Input[str] redirect_uri: The redirect uri for linking.
         """
+        DatadogOrganizationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            application_key=application_key,
+            enterprise_app_id=enterprise_app_id,
+            id=id,
+            linking_auth_code=linking_auth_code,
+            linking_client_id=linking_client_id,
+            name=name,
+            redirect_uri=redirect_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             application_key: Optional[pulumi.Input[str]] = None,
+             enterprise_app_id: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             linking_auth_code: Optional[pulumi.Input[str]] = None,
+             linking_client_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redirect_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if application_key is None and 'applicationKey' in kwargs:
+            application_key = kwargs['applicationKey']
+        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
+            enterprise_app_id = kwargs['enterpriseAppId']
+        if linking_auth_code is None and 'linkingAuthCode' in kwargs:
+            linking_auth_code = kwargs['linkingAuthCode']
+        if linking_client_id is None and 'linkingClientId' in kwargs:
+            linking_client_id = kwargs['linkingClientId']
+        if redirect_uri is None and 'redirectUri' in kwargs:
+            redirect_uri = kwargs['redirectUri']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if application_key is not None:
-            pulumi.set(__self__, "application_key", application_key)
+            _setter("application_key", application_key)
         if enterprise_app_id is not None:
-            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
+            _setter("enterprise_app_id", enterprise_app_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if linking_auth_code is not None:
-            pulumi.set(__self__, "linking_auth_code", linking_auth_code)
+            _setter("linking_auth_code", linking_auth_code)
         if linking_client_id is not None:
-            pulumi.set(__self__, "linking_client_id", linking_client_id)
+            _setter("linking_client_id", linking_client_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redirect_uri is not None:
-            pulumi.set(__self__, "redirect_uri", redirect_uri)
+            _setter("redirect_uri", redirect_uri)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -161,8 +198,19 @@ class IdentityPropertiesArgs:
         """
         :param pulumi.Input[Union[str, 'ManagedIdentityTypes']] type: Identity type
         """
+        IdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -189,12 +237,33 @@ class MonitorPropertiesArgs:
         :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param pulumi.Input['UserInfoArgs'] user_info: User info
         """
+        MonitorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datadog_organization_properties=datadog_organization_properties,
+            monitoring_status=monitoring_status,
+            user_info=user_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datadog_organization_properties: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']] = None,
+             monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
+             user_info: Optional[pulumi.Input['UserInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datadog_organization_properties is None and 'datadogOrganizationProperties' in kwargs:
+            datadog_organization_properties = kwargs['datadogOrganizationProperties']
+        if monitoring_status is None and 'monitoringStatus' in kwargs:
+            monitoring_status = kwargs['monitoringStatus']
+        if user_info is None and 'userInfo' in kwargs:
+            user_info = kwargs['userInfo']
+
         if datadog_organization_properties is not None:
-            pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
+            _setter("datadog_organization_properties", datadog_organization_properties)
         if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
+            _setter("monitoring_status", monitoring_status)
         if user_info is not None:
-            pulumi.set(__self__, "user_info", user_info)
+            _setter("user_info", user_info)
 
     @property
     @pulumi.getter(name="datadogOrganizationProperties")
@@ -240,7 +309,20 @@ class ResourceSkuArgs:
         """
         :param pulumi.Input[str] name: Name of the SKU.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -267,12 +349,31 @@ class UserInfoArgs:
         :param pulumi.Input[str] name: Name of the user
         :param pulumi.Input[str] phone_number: Phone number of the user used by Datadog for contacting them if needed
         """
+        UserInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            name=name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="emailAddress")

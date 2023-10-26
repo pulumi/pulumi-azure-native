@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -21,16 +21,41 @@ class AADProperties:
                  service_principal_client_id: Optional[str] = None,
                  service_principal_object_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
+        AADProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audience=audience,
+            authority=authority,
+            service_principal_client_id=service_principal_client_id,
+            service_principal_object_id=service_principal_object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audience: Optional[str] = None,
+             authority: Optional[str] = None,
+             service_principal_client_id: Optional[str] = None,
+             service_principal_object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_principal_client_id is None and 'servicePrincipalClientId' in kwargs:
+            service_principal_client_id = kwargs['servicePrincipalClientId']
+        if service_principal_object_id is None and 'servicePrincipalObjectId' in kwargs:
+            service_principal_object_id = kwargs['servicePrincipalObjectId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if authority is not None:
-            pulumi.set(__self__, "authority", authority)
+            _setter("authority", authority)
         if service_principal_client_id is not None:
-            pulumi.set(__self__, "service_principal_client_id", service_principal_client_id)
+            _setter("service_principal_client_id", service_principal_client_id)
         if service_principal_object_id is not None:
-            pulumi.set(__self__, "service_principal_object_id", service_principal_object_id)
+            _setter("service_principal_object_id", service_principal_object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter

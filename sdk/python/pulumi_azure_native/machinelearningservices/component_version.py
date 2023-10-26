@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,45 @@ class ComponentVersionInitArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] version: Version identifier.
         """
-        pulumi.set(__self__, "component_version_properties", component_version_properties)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ComponentVersionInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_version_properties=component_version_properties,
+            name=name,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_version_properties: Optional[pulumi.Input['ComponentVersionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_version_properties is None and 'componentVersionProperties' in kwargs:
+            component_version_properties = kwargs['componentVersionProperties']
+        if component_version_properties is None:
+            raise TypeError("Missing 'component_version_properties' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+
+        _setter("component_version_properties", component_version_properties)
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="componentVersionProperties")
@@ -144,6 +177,10 @@ class ComponentVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ComponentVersionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -163,6 +200,7 @@ class ComponentVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComponentVersionInitArgs.__new__(ComponentVersionInitArgs)
 
+            component_version_properties = _utilities.configure(component_version_properties, ComponentVersionArgs, True)
             if component_version_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version_properties'")
             __props__.__dict__["component_version_properties"] = component_version_properties

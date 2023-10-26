@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,39 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
         :param pulumi.Input[str] shared_private_link_resource_name: The name of the shared private link resource managed by the Azure Cognitive Search service within the specified resource group.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "search_service_name", search_service_name)
+        SharedPrivateLinkResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            search_service_name=search_service_name,
+            properties=properties,
+            shared_private_link_resource_name=shared_private_link_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             search_service_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']] = None,
+             shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if search_service_name is None and 'searchServiceName' in kwargs:
+            search_service_name = kwargs['searchServiceName']
+        if search_service_name is None:
+            raise TypeError("Missing 'search_service_name' argument")
+        if shared_private_link_resource_name is None and 'sharedPrivateLinkResourceName' in kwargs:
+            shared_private_link_resource_name = kwargs['sharedPrivateLinkResourceName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("search_service_name", search_service_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if shared_private_link_resource_name is not None:
-            pulumi.set(__self__, "shared_private_link_resource_name", shared_private_link_resource_name)
+            _setter("shared_private_link_resource_name", shared_private_link_resource_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -123,6 +150,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedPrivateLinkResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,6 +172,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SharedPrivateLinkResourceArgs.__new__(SharedPrivateLinkResourceArgs)
 
+            properties = _utilities.configure(properties, SharedPrivateLinkResourcePropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

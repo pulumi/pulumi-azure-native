@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -60,14 +60,39 @@ class MaintenanceWindowResponse(dict):
         :param int start_hour: start hour for maintenance window
         :param int start_minute: start minute for maintenance window
         """
+        MaintenanceWindowResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_window=custom_window,
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_window: Optional[str] = None,
+             day_of_week: Optional[int] = None,
+             start_hour: Optional[int] = None,
+             start_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_window is None and 'customWindow' in kwargs:
+            custom_window = kwargs['customWindow']
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if start_hour is None and 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if start_minute is None and 'startMinute' in kwargs:
+            start_minute = kwargs['startMinute']
+
         if custom_window is not None:
-            pulumi.set(__self__, "custom_window", custom_window)
+            _setter("custom_window", custom_window)
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if start_hour is not None:
-            pulumi.set(__self__, "start_hour", start_hour)
+            _setter("start_hour", start_hour)
         if start_minute is not None:
-            pulumi.set(__self__, "start_minute", start_minute)
+            _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="customWindow")
@@ -130,8 +155,21 @@ class ServerGroupPropertiesResponseDelegatedSubnetArguments(dict):
         The delegated subnet arguments for a server group.
         :param str subnet_arm_resource_id: delegated subnet arm resource id.
         """
+        ServerGroupPropertiesResponseDelegatedSubnetArguments._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_arm_resource_id=subnet_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_arm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_arm_resource_id is None and 'subnetArmResourceId' in kwargs:
+            subnet_arm_resource_id = kwargs['subnetArmResourceId']
+
         if subnet_arm_resource_id is not None:
-            pulumi.set(__self__, "subnet_arm_resource_id", subnet_arm_resource_id)
+            _setter("subnet_arm_resource_id", subnet_arm_resource_id)
 
     @property
     @pulumi.getter(name="subnetArmResourceId")
@@ -170,8 +208,21 @@ class ServerGroupPropertiesResponsePrivateDnsZoneArguments(dict):
         The private dns zone arguments for a server group.
         :param str private_dns_zone_arm_resource_id: private dns zone arm resource id.
         """
+        ServerGroupPropertiesResponsePrivateDnsZoneArguments._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_dns_zone_arm_resource_id=private_dns_zone_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_dns_zone_arm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_dns_zone_arm_resource_id is None and 'privateDnsZoneArmResourceId' in kwargs:
+            private_dns_zone_arm_resource_id = kwargs['privateDnsZoneArmResourceId']
+
         if private_dns_zone_arm_resource_id is not None:
-            pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
+            _setter("private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
 
     @property
     @pulumi.getter(name="privateDnsZoneArmResourceId")
@@ -212,9 +263,26 @@ class ServerNameItemResponse(dict):
         :param str fully_qualified_domain_name: The fully qualified domain name of a server.
         :param str name: The name of a server.
         """
-        pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        ServerNameItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fully_qualified_domain_name=fully_qualified_domain_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fully_qualified_domain_name: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
+            fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
+        if fully_qualified_domain_name is None:
+            raise TypeError("Missing 'fully_qualified_domain_name' argument")
+
+        _setter("fully_qualified_domain_name", fully_qualified_domain_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
@@ -289,22 +357,67 @@ class ServerRoleGroupResponse(dict):
         :param float storage_quota_in_mb: The storage of a server in MB (max: 2097152 = 2TiB).
         :param float v_cores: The vCores count of a server (max: 64).
         """
-        pulumi.set(__self__, "enable_public_ip", enable_public_ip)
-        pulumi.set(__self__, "server_names", server_names)
+        ServerRoleGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_public_ip=enable_public_ip,
+            server_names=server_names,
+            enable_ha=enable_ha,
+            name=name,
+            role=role,
+            server_count=server_count,
+            server_edition=server_edition,
+            storage_quota_in_mb=storage_quota_in_mb,
+            v_cores=v_cores,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_public_ip: Optional[bool] = None,
+             server_names: Optional[Sequence['outputs.ServerNameItemResponse']] = None,
+             enable_ha: Optional[bool] = None,
+             name: Optional[str] = None,
+             role: Optional[str] = None,
+             server_count: Optional[int] = None,
+             server_edition: Optional[str] = None,
+             storage_quota_in_mb: Optional[float] = None,
+             v_cores: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_public_ip is None and 'enablePublicIp' in kwargs:
+            enable_public_ip = kwargs['enablePublicIp']
+        if enable_public_ip is None:
+            raise TypeError("Missing 'enable_public_ip' argument")
+        if server_names is None and 'serverNames' in kwargs:
+            server_names = kwargs['serverNames']
+        if server_names is None:
+            raise TypeError("Missing 'server_names' argument")
+        if enable_ha is None and 'enableHa' in kwargs:
+            enable_ha = kwargs['enableHa']
+        if server_count is None and 'serverCount' in kwargs:
+            server_count = kwargs['serverCount']
+        if server_edition is None and 'serverEdition' in kwargs:
+            server_edition = kwargs['serverEdition']
+        if storage_quota_in_mb is None and 'storageQuotaInMb' in kwargs:
+            storage_quota_in_mb = kwargs['storageQuotaInMb']
+        if v_cores is None and 'vCores' in kwargs:
+            v_cores = kwargs['vCores']
+
+        _setter("enable_public_ip", enable_public_ip)
+        _setter("server_names", server_names)
         if enable_ha is not None:
-            pulumi.set(__self__, "enable_ha", enable_ha)
+            _setter("enable_ha", enable_ha)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if server_count is not None:
-            pulumi.set(__self__, "server_count", server_count)
+            _setter("server_count", server_count)
         if server_edition is not None:
-            pulumi.set(__self__, "server_edition", server_edition)
+            _setter("server_edition", server_edition)
         if storage_quota_in_mb is not None:
-            pulumi.set(__self__, "storage_quota_in_mb", storage_quota_in_mb)
+            _setter("storage_quota_in_mb", storage_quota_in_mb)
         if v_cores is not None:
-            pulumi.set(__self__, "v_cores", v_cores)
+            _setter("v_cores", v_cores)
 
     @property
     @pulumi.getter(name="enablePublicIp")
@@ -427,18 +540,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

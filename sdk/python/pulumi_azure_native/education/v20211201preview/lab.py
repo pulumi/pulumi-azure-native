@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,17 +37,70 @@ class LabArgs:
         :param pulumi.Input[str] currency: The type of currency being used for the value.
         :param pulumi.Input[float] value: Amount value.
         """
-        pulumi.set(__self__, "billing_account_name", billing_account_name)
-        pulumi.set(__self__, "billing_profile_name", billing_profile_name)
-        pulumi.set(__self__, "budget_per_student", budget_per_student)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "expiration_date", expiration_date)
-        pulumi.set(__self__, "invoice_section_name", invoice_section_name)
+        LabArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_account_name=billing_account_name,
+            billing_profile_name=billing_profile_name,
+            budget_per_student=budget_per_student,
+            description=description,
+            display_name=display_name,
+            expiration_date=expiration_date,
+            invoice_section_name=invoice_section_name,
+            currency=currency,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_account_name: Optional[pulumi.Input[str]] = None,
+             billing_profile_name: Optional[pulumi.Input[str]] = None,
+             budget_per_student: Optional[pulumi.Input['AmountArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             invoice_section_name: Optional[pulumi.Input[str]] = None,
+             currency: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_account_name is None and 'billingAccountName' in kwargs:
+            billing_account_name = kwargs['billingAccountName']
+        if billing_account_name is None:
+            raise TypeError("Missing 'billing_account_name' argument")
+        if billing_profile_name is None and 'billingProfileName' in kwargs:
+            billing_profile_name = kwargs['billingProfileName']
+        if billing_profile_name is None:
+            raise TypeError("Missing 'billing_profile_name' argument")
+        if budget_per_student is None and 'budgetPerStudent' in kwargs:
+            budget_per_student = kwargs['budgetPerStudent']
+        if budget_per_student is None:
+            raise TypeError("Missing 'budget_per_student' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if expiration_date is None:
+            raise TypeError("Missing 'expiration_date' argument")
+        if invoice_section_name is None and 'invoiceSectionName' in kwargs:
+            invoice_section_name = kwargs['invoiceSectionName']
+        if invoice_section_name is None:
+            raise TypeError("Missing 'invoice_section_name' argument")
+
+        _setter("billing_account_name", billing_account_name)
+        _setter("billing_profile_name", billing_profile_name)
+        _setter("budget_per_student", budget_per_student)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("expiration_date", expiration_date)
+        _setter("invoice_section_name", invoice_section_name)
         if currency is not None:
-            pulumi.set(__self__, "currency", currency)
+            _setter("currency", currency)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="billingAccountName")
@@ -207,6 +260,10 @@ class Lab(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LabArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -236,6 +293,7 @@ class Lab(pulumi.CustomResource):
             if billing_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_profile_name'")
             __props__.__dict__["billing_profile_name"] = billing_profile_name
+            budget_per_student = _utilities.configure(budget_per_student, AmountArgs, True)
             if budget_per_student is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_per_student'")
             __props__.__dict__["budget_per_student"] = budget_per_student

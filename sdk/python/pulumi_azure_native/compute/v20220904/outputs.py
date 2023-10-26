@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,8 +43,19 @@ class CloudServiceExtensionProfileResponse(dict):
         Describes a cloud service extension profile.
         :param Sequence['ExtensionResponse'] extensions: List of extensions for the cloud service.
         """
+        CloudServiceExtensionProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extensions=extensions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extensions: Optional[Sequence['outputs.ExtensionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
 
     @property
     @pulumi.getter
@@ -117,25 +128,70 @@ class CloudServiceExtensionPropertiesResponse(dict):
         :param str type: Specifies the type of the extension.
         :param str type_handler_version: Specifies the version of the extension. Specifies the version of the extension. If this element is not specified or an asterisk (*) is used as the value, the latest version of the extension is used. If the value is specified with a major version number and an asterisk as the minor version number (X.), the latest minor version of the specified major version is selected. If a major version number and a minor version number are specified (X.Y), the specific extension version is selected. If a version is specified, an auto-upgrade is performed on the role instance.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        CloudServiceExtensionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            auto_upgrade_minor_version=auto_upgrade_minor_version,
+            force_update_tag=force_update_tag,
+            protected_settings=protected_settings,
+            protected_settings_from_key_vault=protected_settings_from_key_vault,
+            publisher=publisher,
+            roles_applied_to=roles_applied_to,
+            settings=settings,
+            type=type,
+            type_handler_version=type_handler_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             auto_upgrade_minor_version: Optional[bool] = None,
+             force_update_tag: Optional[str] = None,
+             protected_settings: Optional[Any] = None,
+             protected_settings_from_key_vault: Optional['outputs.CloudServiceVaultAndSecretReferenceResponse'] = None,
+             publisher: Optional[str] = None,
+             roles_applied_to: Optional[Sequence[str]] = None,
+             settings: Optional[Any] = None,
+             type: Optional[str] = None,
+             type_handler_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if protected_settings is None and 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
+            protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
+        if roles_applied_to is None and 'rolesAppliedTo' in kwargs:
+            roles_applied_to = kwargs['rolesAppliedTo']
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+
+        _setter("provisioning_state", provisioning_state)
         if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+            _setter("auto_upgrade_minor_version", auto_upgrade_minor_version)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
+            _setter("protected_settings", protected_settings)
         if protected_settings_from_key_vault is not None:
-            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
+            _setter("protected_settings_from_key_vault", protected_settings_from_key_vault)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if roles_applied_to is not None:
-            pulumi.set(__self__, "roles_applied_to", roles_applied_to)
+            _setter("roles_applied_to", roles_applied_to)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+            _setter("type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -260,12 +316,33 @@ class CloudServiceNetworkProfileResponse(dict):
                If not specified, the default value is Production.
         :param 'SubResourceResponse' swappable_cloud_service: The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
         """
+        CloudServiceNetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_configurations=load_balancer_configurations,
+            slot_type=slot_type,
+            swappable_cloud_service=swappable_cloud_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_configurations: Optional[Sequence['outputs.LoadBalancerConfigurationResponse']] = None,
+             slot_type: Optional[str] = None,
+             swappable_cloud_service: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_configurations is None and 'loadBalancerConfigurations' in kwargs:
+            load_balancer_configurations = kwargs['loadBalancerConfigurations']
+        if slot_type is None and 'slotType' in kwargs:
+            slot_type = kwargs['slotType']
+        if swappable_cloud_service is None and 'swappableCloudService' in kwargs:
+            swappable_cloud_service = kwargs['swappableCloudService']
+
         if load_balancer_configurations is not None:
-            pulumi.set(__self__, "load_balancer_configurations", load_balancer_configurations)
+            _setter("load_balancer_configurations", load_balancer_configurations)
         if slot_type is not None:
-            pulumi.set(__self__, "slot_type", slot_type)
+            _setter("slot_type", slot_type)
         if swappable_cloud_service is not None:
-            pulumi.set(__self__, "swappable_cloud_service", swappable_cloud_service)
+            _setter("swappable_cloud_service", swappable_cloud_service)
 
     @property
     @pulumi.getter(name="loadBalancerConfigurations")
@@ -305,8 +382,19 @@ class CloudServiceOsProfileResponse(dict):
         Describes the OS profile for the cloud service.
         :param Sequence['CloudServiceVaultSecretGroupResponse'] secrets: Specifies set of certificates that should be installed onto the role instances.
         """
+        CloudServiceOsProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secrets=secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secrets: Optional[Sequence['outputs.CloudServiceVaultSecretGroupResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
 
     @property
     @pulumi.getter
@@ -393,28 +481,87 @@ class CloudServicePropertiesResponse(dict):
                Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
                If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "unique_id", unique_id)
+        CloudServicePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            unique_id=unique_id,
+            allow_model_override=allow_model_override,
+            configuration=configuration,
+            configuration_url=configuration_url,
+            extension_profile=extension_profile,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            package_url=package_url,
+            role_profile=role_profile,
+            start_cloud_service=start_cloud_service,
+            upgrade_mode=upgrade_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             unique_id: Optional[str] = None,
+             allow_model_override: Optional[bool] = None,
+             configuration: Optional[str] = None,
+             configuration_url: Optional[str] = None,
+             extension_profile: Optional['outputs.CloudServiceExtensionProfileResponse'] = None,
+             network_profile: Optional['outputs.CloudServiceNetworkProfileResponse'] = None,
+             os_profile: Optional['outputs.CloudServiceOsProfileResponse'] = None,
+             package_url: Optional[str] = None,
+             role_profile: Optional['outputs.CloudServiceRoleProfileResponse'] = None,
+             start_cloud_service: Optional[bool] = None,
+             upgrade_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if unique_id is None and 'uniqueId' in kwargs:
+            unique_id = kwargs['uniqueId']
+        if unique_id is None:
+            raise TypeError("Missing 'unique_id' argument")
+        if allow_model_override is None and 'allowModelOverride' in kwargs:
+            allow_model_override = kwargs['allowModelOverride']
+        if configuration_url is None and 'configurationUrl' in kwargs:
+            configuration_url = kwargs['configurationUrl']
+        if extension_profile is None and 'extensionProfile' in kwargs:
+            extension_profile = kwargs['extensionProfile']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if package_url is None and 'packageUrl' in kwargs:
+            package_url = kwargs['packageUrl']
+        if role_profile is None and 'roleProfile' in kwargs:
+            role_profile = kwargs['roleProfile']
+        if start_cloud_service is None and 'startCloudService' in kwargs:
+            start_cloud_service = kwargs['startCloudService']
+        if upgrade_mode is None and 'upgradeMode' in kwargs:
+            upgrade_mode = kwargs['upgradeMode']
+
+        _setter("provisioning_state", provisioning_state)
+        _setter("unique_id", unique_id)
         if allow_model_override is not None:
-            pulumi.set(__self__, "allow_model_override", allow_model_override)
+            _setter("allow_model_override", allow_model_override)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if configuration_url is not None:
-            pulumi.set(__self__, "configuration_url", configuration_url)
+            _setter("configuration_url", configuration_url)
         if extension_profile is not None:
-            pulumi.set(__self__, "extension_profile", extension_profile)
+            _setter("extension_profile", extension_profile)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if package_url is not None:
-            pulumi.set(__self__, "package_url", package_url)
+            _setter("package_url", package_url)
         if role_profile is not None:
-            pulumi.set(__self__, "role_profile", role_profile)
+            _setter("role_profile", role_profile)
         if start_cloud_service is not None:
-            pulumi.set(__self__, "start_cloud_service", start_cloud_service)
+            _setter("start_cloud_service", start_cloud_service)
         if upgrade_mode is not None:
-            pulumi.set(__self__, "upgrade_mode", upgrade_mode)
+            _setter("upgrade_mode", upgrade_mode)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -532,10 +679,23 @@ class CloudServiceRoleProfilePropertiesResponse(dict):
         :param str name: Resource name.
         :param 'CloudServiceRoleSkuResponse' sku: Describes the cloud service role sku.
         """
+        CloudServiceRoleProfilePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             sku: Optional['outputs.CloudServiceRoleSkuResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
 
     @property
     @pulumi.getter
@@ -565,8 +725,19 @@ class CloudServiceRoleProfileResponse(dict):
         Describes the role profile for the cloud service.
         :param Sequence['CloudServiceRoleProfilePropertiesResponse'] roles: List of roles for the cloud service.
         """
+        CloudServiceRoleProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            roles=roles,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             roles: Optional[Sequence['outputs.CloudServiceRoleProfilePropertiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
 
     @property
     @pulumi.getter
@@ -592,12 +763,27 @@ class CloudServiceRoleSkuResponse(dict):
         :param str name: The sku name. NOTE: If the new SKU is not supported on the hardware the cloud service is currently on, you need to delete and recreate the cloud service or move back to the old sku.
         :param str tier: Specifies the tier of the cloud service. Possible Values are <br /><br /> **Standard** <br /><br /> **Basic**
         """
+        CloudServiceRoleSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[float] = None,
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -656,10 +842,27 @@ class CloudServiceVaultAndSecretReferenceResponse(dict):
         :param str secret_url: Secret URL which contains the protected settings of the extension
         :param 'SubResourceResponse' source_vault: The ARM Resource ID of the Key Vault
         """
+        CloudServiceVaultAndSecretReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_url=secret_url,
+            source_vault=source_vault,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_url: Optional[str] = None,
+             source_vault: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_url is None and 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if source_vault is None and 'sourceVault' in kwargs:
+            source_vault = kwargs['sourceVault']
+
         if secret_url is not None:
-            pulumi.set(__self__, "secret_url", secret_url)
+            _setter("secret_url", secret_url)
         if source_vault is not None:
-            pulumi.set(__self__, "source_vault", source_vault)
+            _setter("source_vault", source_vault)
 
     @property
     @pulumi.getter(name="secretUrl")
@@ -706,8 +909,21 @@ class CloudServiceVaultCertificateResponse(dict):
         Describes a single certificate reference in a Key Vault, and where the certificate should reside on the role instance.
         :param str certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret.
         """
+        CloudServiceVaultCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_url=certificate_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_url is None and 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
         if certificate_url is not None:
-            pulumi.set(__self__, "certificate_url", certificate_url)
+            _setter("certificate_url", certificate_url)
 
     @property
     @pulumi.getter(name="certificateUrl")
@@ -750,10 +966,27 @@ class CloudServiceVaultSecretGroupResponse(dict):
         :param 'SubResourceResponse' source_vault: The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
         :param Sequence['CloudServiceVaultCertificateResponse'] vault_certificates: The list of key vault references in SourceVault which contain certificates.
         """
+        CloudServiceVaultSecretGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_vault=source_vault,
+            vault_certificates=vault_certificates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_vault: Optional['outputs.SubResourceResponse'] = None,
+             vault_certificates: Optional[Sequence['outputs.CloudServiceVaultCertificateResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_vault is None and 'sourceVault' in kwargs:
+            source_vault = kwargs['sourceVault']
+        if vault_certificates is None and 'vaultCertificates' in kwargs:
+            vault_certificates = kwargs['vaultCertificates']
+
         if source_vault is not None:
-            pulumi.set(__self__, "source_vault", source_vault)
+            _setter("source_vault", source_vault)
         if vault_certificates is not None:
-            pulumi.set(__self__, "vault_certificates", vault_certificates)
+            _setter("vault_certificates", vault_certificates)
 
     @property
     @pulumi.getter(name="sourceVault")
@@ -785,10 +1018,23 @@ class ExtensionResponse(dict):
         :param str name: The name of the extension.
         :param 'CloudServiceExtensionPropertiesResponse' properties: Extension Properties.
         """
+        ExtensionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             properties: Optional['outputs.CloudServiceExtensionPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -835,7 +1081,22 @@ class LoadBalancerConfigurationPropertiesResponse(dict):
         Describes the properties of the load balancer configuration.
         :param Sequence['LoadBalancerFrontendIpConfigurationResponse'] frontend_ip_configurations: Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
         """
-        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        LoadBalancerConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frontend_ip_configurations=frontend_ip_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frontend_ip_configurations: Optional[Sequence['outputs.LoadBalancerFrontendIpConfigurationResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frontend_ip_configurations is None and 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if frontend_ip_configurations is None:
+            raise TypeError("Missing 'frontend_ip_configurations' argument")
+
+        _setter("frontend_ip_configurations", frontend_ip_configurations)
 
     @property
     @pulumi.getter(name="frontendIpConfigurations")
@@ -861,10 +1122,29 @@ class LoadBalancerConfigurationResponse(dict):
         :param 'LoadBalancerConfigurationPropertiesResponse' properties: Properties of the load balancer configuration.
         :param str id: Resource Id
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
+        LoadBalancerConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            properties=properties,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             properties: Optional['outputs.LoadBalancerConfigurationPropertiesResponse'] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("name", name)
+        _setter("properties", properties)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -925,12 +1205,31 @@ class LoadBalancerFrontendIpConfigurationPropertiesResponse(dict):
         :param 'SubResourceResponse' public_ip_address: The reference to the public ip address resource.
         :param 'SubResourceResponse' subnet: The reference to the virtual network subnet resource.
         """
+        LoadBalancerFrontendIpConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_ip_address=private_ip_address,
+            public_ip_address=public_ip_address,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_ip_address: Optional[str] = None,
+             public_ip_address: Optional['outputs.SubResourceResponse'] = None,
+             subnet: Optional['outputs.SubResourceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_ip_address is None and 'privateIPAddress' in kwargs:
+            private_ip_address = kwargs['privateIPAddress']
+        if public_ip_address is None and 'publicIPAddress' in kwargs:
+            public_ip_address = kwargs['publicIPAddress']
+
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="privateIPAddress")
@@ -970,8 +1269,25 @@ class LoadBalancerFrontendIpConfigurationResponse(dict):
         :param str name: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
         :param 'LoadBalancerFrontendIpConfigurationPropertiesResponse' properties: Properties of load balancer frontend ip configuration.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
+        LoadBalancerFrontendIpConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             properties: Optional['outputs.LoadBalancerFrontendIpConfigurationPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("name", name)
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -997,8 +1313,19 @@ class SubResourceResponse(dict):
         """
         :param str id: Resource Id
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1041,8 +1368,29 @@ class SystemDataResponse(dict):
         :param str created_at: Specifies the time in UTC at which the Cloud Service (extended support) resource was created. <br />Minimum api-version: 2022-04-04.
         :param str last_modified_at: Specifies the time in UTC at which the Cloud Service (extended support) resource was last modified. <br />Minimum api-version: 2022-04-04.
         """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            last_modified_at=last_modified_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_at is None:
+            raise TypeError("Missing 'last_modified_at' argument")
+
+        _setter("created_at", created_at)
+        _setter("last_modified_at", last_modified_at)
 
     @property
     @pulumi.getter(name="createdAt")

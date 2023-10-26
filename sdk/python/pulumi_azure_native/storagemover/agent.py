@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -30,14 +30,53 @@ class AgentArgs:
         :param pulumi.Input[str] agent_name: The name of the Agent resource.
         :param pulumi.Input[str] description: A description for the Agent.
         """
-        pulumi.set(__self__, "arc_resource_id", arc_resource_id)
-        pulumi.set(__self__, "arc_vm_uuid", arc_vm_uuid)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_mover_name", storage_mover_name)
+        AgentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arc_resource_id=arc_resource_id,
+            arc_vm_uuid=arc_vm_uuid,
+            resource_group_name=resource_group_name,
+            storage_mover_name=storage_mover_name,
+            agent_name=agent_name,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arc_resource_id: Optional[pulumi.Input[str]] = None,
+             arc_vm_uuid: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_mover_name: Optional[pulumi.Input[str]] = None,
+             agent_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arc_resource_id is None and 'arcResourceId' in kwargs:
+            arc_resource_id = kwargs['arcResourceId']
+        if arc_resource_id is None:
+            raise TypeError("Missing 'arc_resource_id' argument")
+        if arc_vm_uuid is None and 'arcVmUuid' in kwargs:
+            arc_vm_uuid = kwargs['arcVmUuid']
+        if arc_vm_uuid is None:
+            raise TypeError("Missing 'arc_vm_uuid' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_mover_name is None and 'storageMoverName' in kwargs:
+            storage_mover_name = kwargs['storageMoverName']
+        if storage_mover_name is None:
+            raise TypeError("Missing 'storage_mover_name' argument")
+        if agent_name is None and 'agentName' in kwargs:
+            agent_name = kwargs['agentName']
+
+        _setter("arc_resource_id", arc_resource_id)
+        _setter("arc_vm_uuid", arc_vm_uuid)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_mover_name", storage_mover_name)
         if agent_name is not None:
-            pulumi.set(__self__, "agent_name", agent_name)
+            _setter("agent_name", agent_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="arcResourceId")
@@ -161,6 +200,10 @@ class Agent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

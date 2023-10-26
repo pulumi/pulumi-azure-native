@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -55,12 +55,33 @@ class AadProfileResponse(dict):
         :param bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
         :param str tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
         """
+        AadProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_group_object_ids=admin_group_object_ids,
+            enable_azure_rbac=enable_azure_rbac,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_group_object_ids: Optional[Sequence[str]] = None,
+             enable_azure_rbac: Optional[bool] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_group_object_ids is None and 'adminGroupObjectIDs' in kwargs:
+            admin_group_object_ids = kwargs['adminGroupObjectIDs']
+        if enable_azure_rbac is None and 'enableAzureRBAC' in kwargs:
+            enable_azure_rbac = kwargs['enableAzureRBAC']
+        if tenant_id is None and 'tenantID' in kwargs:
+            tenant_id = kwargs['tenantID']
+
         if admin_group_object_ids is not None:
-            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+            _setter("admin_group_object_ids", admin_group_object_ids)
         if enable_azure_rbac is not None:
-            pulumi.set(__self__, "enable_azure_rbac", enable_azure_rbac)
+            _setter("enable_azure_rbac", enable_azure_rbac)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="adminGroupObjectIDs")
@@ -119,12 +140,29 @@ class ArcAgentProfileResponse(dict):
         :param str agent_auto_upgrade: Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
         :param str desired_agent_version: Version of the Arc agents to be installed on the cluster resource
         """
+        ArcAgentProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_auto_upgrade=agent_auto_upgrade,
+            desired_agent_version=desired_agent_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_auto_upgrade: Optional[str] = None,
+             desired_agent_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_auto_upgrade is None and 'agentAutoUpgrade' in kwargs:
+            agent_auto_upgrade = kwargs['agentAutoUpgrade']
+        if desired_agent_version is None and 'desiredAgentVersion' in kwargs:
+            desired_agent_version = kwargs['desiredAgentVersion']
+
         if agent_auto_upgrade is None:
             agent_auto_upgrade = 'Enabled'
         if agent_auto_upgrade is not None:
-            pulumi.set(__self__, "agent_auto_upgrade", agent_auto_upgrade)
+            _setter("agent_auto_upgrade", agent_auto_upgrade)
         if desired_agent_version is not None:
-            pulumi.set(__self__, "desired_agent_version", desired_agent_version)
+            _setter("desired_agent_version", desired_agent_version)
 
     @property
     @pulumi.getter(name="agentAutoUpgrade")
@@ -177,11 +215,34 @@ class ConnectedClusterIdentityResponse(dict):
         :param str tenant_id: The tenant id associated with the connected cluster. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ConnectedClusterIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is None:
             type = 'SystemAssigned'
-        pulumi.set(__self__, "type", type)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -221,8 +282,25 @@ class CredentialResultResponse(dict):
         :param str name: The name of the credential.
         :param str value: Base64-encoded Kubernetes configuration file.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        CredentialResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -258,10 +336,39 @@ class HybridConnectionConfigResponse(dict):
         :param str relay: Name of the relay.
         :param str token: Sender access token
         """
-        pulumi.set(__self__, "expiration_time", expiration_time)
-        pulumi.set(__self__, "hybrid_connection_name", hybrid_connection_name)
-        pulumi.set(__self__, "relay", relay)
-        pulumi.set(__self__, "token", token)
+        HybridConnectionConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiration_time=expiration_time,
+            hybrid_connection_name=hybrid_connection_name,
+            relay=relay,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiration_time: Optional[float] = None,
+             hybrid_connection_name: Optional[str] = None,
+             relay: Optional[str] = None,
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expiration_time is None and 'expirationTime' in kwargs:
+            expiration_time = kwargs['expirationTime']
+        if expiration_time is None:
+            raise TypeError("Missing 'expiration_time' argument")
+        if hybrid_connection_name is None and 'hybridConnectionName' in kwargs:
+            hybrid_connection_name = kwargs['hybridConnectionName']
+        if hybrid_connection_name is None:
+            raise TypeError("Missing 'hybrid_connection_name' argument")
+        if relay is None:
+            raise TypeError("Missing 'relay' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("expiration_time", expiration_time)
+        _setter("hybrid_connection_name", hybrid_connection_name)
+        _setter("relay", relay)
+        _setter("token", token)
 
     @property
     @pulumi.getter(name="expirationTime")
@@ -344,18 +451,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

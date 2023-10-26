@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -24,10 +24,35 @@ class OperationsDefinitionDisplayArgs:
         """
         Display information of the operation.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "provider", provider)
-        pulumi.set(__self__, "resource", resource)
+        OperationsDefinitionDisplayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            operation=operation,
+            provider=provider,
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             operation: Optional[pulumi.Input[str]] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             resource: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if operation is None:
+            raise TypeError("Missing 'operation' argument")
+        if provider is None:
+            raise TypeError("Missing 'provider' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+
+        _setter("description", description)
+        _setter("operation", operation)
+        _setter("provider", provider)
+        _setter("resource", resource)
 
     @property
     @pulumi.getter
@@ -81,16 +106,45 @@ class OperationsDefinitionArgs:
         :param pulumi.Input[str] name: Name of the operation.
         :param pulumi.Input[bool] is_data_action: Indicates whether the operation applies to data-plane.
         """
-        pulumi.set(__self__, "display", display)
-        pulumi.set(__self__, "name", name)
+        OperationsDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display=display,
+            name=name,
+            action_type=action_type,
+            is_data_action=is_data_action,
+            origin=origin,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display: Optional[pulumi.Input['OperationsDefinitionDisplayArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             action_type: Optional[pulumi.Input[str]] = None,
+             is_data_action: Optional[pulumi.Input[bool]] = None,
+             origin: Optional[pulumi.Input[str]] = None,
+             properties: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display is None:
+            raise TypeError("Missing 'display' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if is_data_action is None and 'isDataAction' in kwargs:
+            is_data_action = kwargs['isDataAction']
+
+        _setter("display", display)
+        _setter("name", name)
         if action_type is not None:
-            pulumi.set(__self__, "action_type", action_type)
+            _setter("action_type", action_type)
         if is_data_action is not None:
-            pulumi.set(__self__, "is_data_action", is_data_action)
+            _setter("is_data_action", is_data_action)
         if origin is not None:
-            pulumi.set(__self__, "origin", origin)
+            _setter("origin", origin)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter

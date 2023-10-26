@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,10 +26,27 @@ class BusinessProcessIdentifierArgs:
         :param pulumi.Input[str] property_name: The property name of the business process identifier.
         :param pulumi.Input[str] property_type: The property type of the business process identifier.
         """
+        BusinessProcessIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            property_name=property_name,
+            property_type=property_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             property_name: Optional[pulumi.Input[str]] = None,
+             property_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property_name is None and 'propertyName' in kwargs:
+            property_name = kwargs['propertyName']
+        if property_type is None and 'propertyType' in kwargs:
+            property_type = kwargs['propertyType']
+
         if property_name is not None:
-            pulumi.set(__self__, "property_name", property_name)
+            _setter("property_name", property_name)
         if property_type is not None:
-            pulumi.set(__self__, "property_type", property_type)
+            _setter("property_type", property_type)
 
     @property
     @pulumi.getter(name="propertyName")
@@ -70,14 +87,39 @@ class BusinessProcessMappingItemArgs:
         :param pulumi.Input[str] operation_type: The mapping item operation type of the business process.
         :param pulumi.Input[str] workflow_name: The workflow name within the logic app.
         """
+        BusinessProcessMappingItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logic_app_resource_id=logic_app_resource_id,
+            operation_name=operation_name,
+            operation_type=operation_type,
+            workflow_name=workflow_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logic_app_resource_id: Optional[pulumi.Input[str]] = None,
+             operation_name: Optional[pulumi.Input[str]] = None,
+             operation_type: Optional[pulumi.Input[str]] = None,
+             workflow_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logic_app_resource_id is None and 'logicAppResourceId' in kwargs:
+            logic_app_resource_id = kwargs['logicAppResourceId']
+        if operation_name is None and 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if operation_type is None and 'operationType' in kwargs:
+            operation_type = kwargs['operationType']
+        if workflow_name is None and 'workflowName' in kwargs:
+            workflow_name = kwargs['workflowName']
+
         if logic_app_resource_id is not None:
-            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+            _setter("logic_app_resource_id", logic_app_resource_id)
         if operation_name is not None:
-            pulumi.set(__self__, "operation_name", operation_name)
+            _setter("operation_name", operation_name)
         if operation_type is not None:
-            pulumi.set(__self__, "operation_type", operation_type)
+            _setter("operation_type", operation_type)
         if workflow_name is not None:
-            pulumi.set(__self__, "workflow_name", workflow_name)
+            _setter("workflow_name", workflow_name)
 
     @property
     @pulumi.getter(name="logicAppResourceId")
@@ -140,12 +182,29 @@ class BusinessProcessStageArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The properties within the properties of the business process stage.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stages_before: The property to keep track of stages before current in the business process stage.
         """
+        BusinessProcessStageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            properties=properties,
+            stages_before=stages_before,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             stages_before: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stages_before is None and 'stagesBefore' in kwargs:
+            stages_before = kwargs['stagesBefore']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if stages_before is not None:
-            pulumi.set(__self__, "stages_before", stages_before)
+            _setter("stages_before", stages_before)
 
     @property
     @pulumi.getter
@@ -198,10 +257,43 @@ class TrackingDataStoreArgs:
         :param pulumi.Input[str] data_store_uri: The data store URI.
         :param pulumi.Input[str] database_name: The database name.
         """
-        pulumi.set(__self__, "data_store_ingestion_uri", data_store_ingestion_uri)
-        pulumi.set(__self__, "data_store_resource_id", data_store_resource_id)
-        pulumi.set(__self__, "data_store_uri", data_store_uri)
-        pulumi.set(__self__, "database_name", database_name)
+        TrackingDataStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_store_ingestion_uri=data_store_ingestion_uri,
+            data_store_resource_id=data_store_resource_id,
+            data_store_uri=data_store_uri,
+            database_name=database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_store_ingestion_uri: Optional[pulumi.Input[str]] = None,
+             data_store_resource_id: Optional[pulumi.Input[str]] = None,
+             data_store_uri: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_store_ingestion_uri is None and 'dataStoreIngestionUri' in kwargs:
+            data_store_ingestion_uri = kwargs['dataStoreIngestionUri']
+        if data_store_ingestion_uri is None:
+            raise TypeError("Missing 'data_store_ingestion_uri' argument")
+        if data_store_resource_id is None and 'dataStoreResourceId' in kwargs:
+            data_store_resource_id = kwargs['dataStoreResourceId']
+        if data_store_resource_id is None:
+            raise TypeError("Missing 'data_store_resource_id' argument")
+        if data_store_uri is None and 'dataStoreUri' in kwargs:
+            data_store_uri = kwargs['dataStoreUri']
+        if data_store_uri is None:
+            raise TypeError("Missing 'data_store_uri' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+
+        _setter("data_store_ingestion_uri", data_store_ingestion_uri)
+        _setter("data_store_resource_id", data_store_resource_id)
+        _setter("data_store_uri", data_store_uri)
+        _setter("database_name", database_name)
 
     @property
     @pulumi.getter(name="dataStoreIngestionUri")

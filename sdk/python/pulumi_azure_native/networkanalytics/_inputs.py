@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -33,10 +33,43 @@ class DataProductNetworkAclsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IPRulesArgs']]] ip_rules: IP rule with specific IP or IP range in CIDR format.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rule: Virtual Network Rule
         """
-        pulumi.set(__self__, "allowed_query_ip_range_list", allowed_query_ip_range_list)
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "ip_rules", ip_rules)
-        pulumi.set(__self__, "virtual_network_rule", virtual_network_rule)
+        DataProductNetworkAclsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_query_ip_range_list=allowed_query_ip_range_list,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_rule=virtual_network_rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_query_ip_range_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRulesArgs']]]] = None,
+             virtual_network_rule: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_query_ip_range_list is None and 'allowedQueryIpRangeList' in kwargs:
+            allowed_query_ip_range_list = kwargs['allowedQueryIpRangeList']
+        if allowed_query_ip_range_list is None:
+            raise TypeError("Missing 'allowed_query_ip_range_list' argument")
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if ip_rules is None:
+            raise TypeError("Missing 'ip_rules' argument")
+        if virtual_network_rule is None and 'virtualNetworkRule' in kwargs:
+            virtual_network_rule = kwargs['virtualNetworkRule']
+        if virtual_network_rule is None:
+            raise TypeError("Missing 'virtual_network_rule' argument")
+
+        _setter("allowed_query_ip_range_list", allowed_query_ip_range_list)
+        _setter("default_action", default_action)
+        _setter("ip_rules", ip_rules)
+        _setter("virtual_network_rule", virtual_network_rule)
 
     @property
     @pulumi.getter(name="allowedQueryIpRangeList")
@@ -99,9 +132,36 @@ class EncryptionKeyDetailsArgs:
         :param pulumi.Input[str] key_vault_uri: The Uri of the key vault.
         :param pulumi.Input[str] key_version: The version of the key vault key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "key_version", key_version)
+        EncryptionKeyDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_vault_uri is None:
+            raise TypeError("Missing 'key_vault_uri' argument")
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if key_version is None:
+            raise TypeError("Missing 'key_version' argument")
+
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -150,9 +210,24 @@ class IPRulesArgs:
         :param pulumi.Input[str] action: The action of virtual network rule.
         :param pulumi.Input[str] value: IP Rules Value
         """
-        pulumi.set(__self__, "action", action)
+        IPRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+
+        _setter("action", action)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -189,8 +264,25 @@ class ManagedResourceGroupConfigurationArgs:
         :param pulumi.Input[str] location: Managed Resource Group location
         :param pulumi.Input[str] name: Name of managed resource group
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
+        ManagedResourceGroupConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("location", location)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -227,9 +319,26 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -268,11 +377,28 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] action: The action of virtual network rule.
         :param pulumi.Input[str] state: Gets the state of virtual network rule.
         """
-        pulumi.set(__self__, "id", id)
+        VirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            action=action,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             action: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter

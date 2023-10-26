@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,41 +48,100 @@ class ServiceArgs:
         :param pulumi.Input['SkuArgs'] sku: The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            auth_options=auth_options,
+            disable_local_auth=disable_local_auth,
+            encryption_with_cmk=encryption_with_cmk,
+            hosting_mode=hosting_mode,
+            identity=identity,
+            location=location,
+            network_rule_set=network_rule_set,
+            partition_count=partition_count,
+            public_network_access=public_network_access,
+            replica_count=replica_count,
+            search_service_name=search_service_name,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auth_options: Optional[pulumi.Input['DataPlaneAuthOptionsArgs']] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             encryption_with_cmk: Optional[pulumi.Input['EncryptionWithCmkArgs']] = None,
+             hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             public_network_access: Optional[pulumi.Input['PublicNetworkAccess']] = None,
+             replica_count: Optional[pulumi.Input[int]] = None,
+             search_service_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auth_options is None and 'authOptions' in kwargs:
+            auth_options = kwargs['authOptions']
+        if disable_local_auth is None and 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if encryption_with_cmk is None and 'encryptionWithCmk' in kwargs:
+            encryption_with_cmk = kwargs['encryptionWithCmk']
+        if hosting_mode is None and 'hostingMode' in kwargs:
+            hosting_mode = kwargs['hostingMode']
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if partition_count is None and 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if replica_count is None and 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+        if search_service_name is None and 'searchServiceName' in kwargs:
+            search_service_name = kwargs['searchServiceName']
+
+        _setter("resource_group_name", resource_group_name)
         if auth_options is not None:
-            pulumi.set(__self__, "auth_options", auth_options)
+            _setter("auth_options", auth_options)
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if encryption_with_cmk is not None:
-            pulumi.set(__self__, "encryption_with_cmk", encryption_with_cmk)
+            _setter("encryption_with_cmk", encryption_with_cmk)
         if hosting_mode is None:
             hosting_mode = 'default'
         if hosting_mode is not None:
-            pulumi.set(__self__, "hosting_mode", hosting_mode)
+            _setter("hosting_mode", hosting_mode)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_rule_set is not None:
-            pulumi.set(__self__, "network_rule_set", network_rule_set)
+            _setter("network_rule_set", network_rule_set)
         if partition_count is None:
             partition_count = 1
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if public_network_access is None:
             public_network_access = 'enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if replica_count is None:
             replica_count = 1
         if replica_count is not None:
-            pulumi.set(__self__, "replica_count", replica_count)
+            _setter("replica_count", replica_count)
         if search_service_name is not None:
-            pulumi.set(__self__, "search_service_name", search_service_name)
+            _setter("search_service_name", search_service_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -318,6 +377,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -346,14 +409,18 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            auth_options = _utilities.configure(auth_options, DataPlaneAuthOptionsArgs, True)
             __props__.__dict__["auth_options"] = auth_options
             __props__.__dict__["disable_local_auth"] = disable_local_auth
+            encryption_with_cmk = _utilities.configure(encryption_with_cmk, EncryptionWithCmkArgs, True)
             __props__.__dict__["encryption_with_cmk"] = encryption_with_cmk
             if hosting_mode is None:
                 hosting_mode = 'default'
             __props__.__dict__["hosting_mode"] = hosting_mode
+            identity = _utilities.configure(identity, IdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            network_rule_set = _utilities.configure(network_rule_set, NetworkRuleSetArgs, True)
             __props__.__dict__["network_rule_set"] = network_rule_set
             if partition_count is None:
                 partition_count = 1
@@ -368,6 +435,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["search_service_name"] = search_service_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

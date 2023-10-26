@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,57 @@ class OrderItemByNameArgs:
         :param pulumi.Input[str] order_item_name: The name of the order item
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "address_details", address_details)
-        pulumi.set(__self__, "order_id", order_id)
-        pulumi.set(__self__, "order_item_details", order_item_details)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OrderItemByNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_details=address_details,
+            order_id=order_id,
+            order_item_details=order_item_details,
+            resource_group_name=resource_group_name,
+            location=location,
+            order_item_name=order_item_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_details: Optional[pulumi.Input['AddressDetailsArgs']] = None,
+             order_id: Optional[pulumi.Input[str]] = None,
+             order_item_details: Optional[pulumi.Input['OrderItemDetailsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             order_item_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address_details is None and 'addressDetails' in kwargs:
+            address_details = kwargs['addressDetails']
+        if address_details is None:
+            raise TypeError("Missing 'address_details' argument")
+        if order_id is None and 'orderId' in kwargs:
+            order_id = kwargs['orderId']
+        if order_id is None:
+            raise TypeError("Missing 'order_id' argument")
+        if order_item_details is None and 'orderItemDetails' in kwargs:
+            order_item_details = kwargs['orderItemDetails']
+        if order_item_details is None:
+            raise TypeError("Missing 'order_item_details' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if order_item_name is None and 'orderItemName' in kwargs:
+            order_item_name = kwargs['orderItemName']
+
+        _setter("address_details", address_details)
+        _setter("order_id", order_id)
+        _setter("order_item_details", order_item_details)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if order_item_name is not None:
-            pulumi.set(__self__, "order_item_name", order_item_name)
+            _setter("order_item_name", order_item_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="addressDetails")
@@ -177,6 +218,10 @@ class OrderItemByName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrderItemByNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -198,6 +243,7 @@ class OrderItemByName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrderItemByNameArgs.__new__(OrderItemByNameArgs)
 
+            address_details = _utilities.configure(address_details, AddressDetailsArgs, True)
             if address_details is None and not opts.urn:
                 raise TypeError("Missing required property 'address_details'")
             __props__.__dict__["address_details"] = address_details
@@ -205,6 +251,7 @@ class OrderItemByName(pulumi.CustomResource):
             if order_id is None and not opts.urn:
                 raise TypeError("Missing required property 'order_id'")
             __props__.__dict__["order_id"] = order_id
+            order_item_details = _utilities.configure(order_item_details, OrderItemDetailsArgs, True)
             if order_item_details is None and not opts.urn:
                 raise TypeError("Missing required property 'order_item_details'")
             __props__.__dict__["order_item_details"] = order_item_details

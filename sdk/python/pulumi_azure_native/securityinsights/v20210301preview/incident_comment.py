@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,13 +30,54 @@ class IncidentCommentArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] incident_comment_id: Incident comment ID
         """
-        pulumi.set(__self__, "incident_id", incident_id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        IncidentCommentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            incident_id=incident_id,
+            message=message,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            incident_comment_id=incident_comment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             incident_id: Optional[pulumi.Input[str]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             incident_comment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if incident_id is None and 'incidentId' in kwargs:
+            incident_id = kwargs['incidentId']
+        if incident_id is None:
+            raise TypeError("Missing 'incident_id' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if operational_insights_resource_provider is None and 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if operational_insights_resource_provider is None:
+            raise TypeError("Missing 'operational_insights_resource_provider' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if incident_comment_id is None and 'incidentCommentId' in kwargs:
+            incident_comment_id = kwargs['incidentCommentId']
+
+        _setter("incident_id", incident_id)
+        _setter("message", message)
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if incident_comment_id is not None:
-            pulumi.set(__self__, "incident_comment_id", incident_comment_id)
+            _setter("incident_comment_id", incident_comment_id)
 
     @property
     @pulumi.getter(name="incidentId")
@@ -154,6 +195,10 @@ class IncidentComment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IncidentCommentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

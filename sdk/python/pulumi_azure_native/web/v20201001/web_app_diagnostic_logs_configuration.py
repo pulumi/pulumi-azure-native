@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,55 @@ class WebAppDiagnosticLogsConfigurationArgs:
         :param pulumi.Input['HttpLogsConfigArgs'] http_logs: HTTP logs configuration.
         :param pulumi.Input[str] kind: Kind of resource.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppDiagnosticLogsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            application_logs=application_logs,
+            detailed_error_messages=detailed_error_messages,
+            failed_requests_tracing=failed_requests_tracing,
+            http_logs=http_logs,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             application_logs: Optional[pulumi.Input['ApplicationLogsConfigArgs']] = None,
+             detailed_error_messages: Optional[pulumi.Input['EnabledConfigArgs']] = None,
+             failed_requests_tracing: Optional[pulumi.Input['EnabledConfigArgs']] = None,
+             http_logs: Optional[pulumi.Input['HttpLogsConfigArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if application_logs is None and 'applicationLogs' in kwargs:
+            application_logs = kwargs['applicationLogs']
+        if detailed_error_messages is None and 'detailedErrorMessages' in kwargs:
+            detailed_error_messages = kwargs['detailedErrorMessages']
+        if failed_requests_tracing is None and 'failedRequestsTracing' in kwargs:
+            failed_requests_tracing = kwargs['failedRequestsTracing']
+        if http_logs is None and 'httpLogs' in kwargs:
+            http_logs = kwargs['httpLogs']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if application_logs is not None:
-            pulumi.set(__self__, "application_logs", application_logs)
+            _setter("application_logs", application_logs)
         if detailed_error_messages is not None:
-            pulumi.set(__self__, "detailed_error_messages", detailed_error_messages)
+            _setter("detailed_error_messages", detailed_error_messages)
         if failed_requests_tracing is not None:
-            pulumi.set(__self__, "failed_requests_tracing", failed_requests_tracing)
+            _setter("failed_requests_tracing", failed_requests_tracing)
         if http_logs is not None:
-            pulumi.set(__self__, "http_logs", http_logs)
+            _setter("http_logs", http_logs)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter
@@ -177,6 +214,10 @@ class WebAppDiagnosticLogsConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppDiagnosticLogsConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -198,9 +239,13 @@ class WebAppDiagnosticLogsConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAppDiagnosticLogsConfigurationArgs.__new__(WebAppDiagnosticLogsConfigurationArgs)
 
+            application_logs = _utilities.configure(application_logs, ApplicationLogsConfigArgs, True)
             __props__.__dict__["application_logs"] = application_logs
+            detailed_error_messages = _utilities.configure(detailed_error_messages, EnabledConfigArgs, True)
             __props__.__dict__["detailed_error_messages"] = detailed_error_messages
+            failed_requests_tracing = _utilities.configure(failed_requests_tracing, EnabledConfigArgs, True)
             __props__.__dict__["failed_requests_tracing"] = failed_requests_tracing
+            http_logs = _utilities.configure(http_logs, HttpLogsConfigArgs, True)
             __props__.__dict__["http_logs"] = http_logs
             __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:

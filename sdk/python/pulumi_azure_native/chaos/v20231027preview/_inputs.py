@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -37,8 +37,25 @@ class BranchArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgs', 'DelayActionArgs', 'DiscreteActionArgs']]]] actions: List of actions.
         :param pulumi.Input[str] name: String of the branch name.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "name", name)
+        BranchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgs', 'DelayActionArgs', 'DiscreteActionArgs']]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("actions", actions)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -82,11 +99,42 @@ class ContinuousActionArgs:
         :param pulumi.Input[str] type: Enum that discriminates between action models.
                Expected value is 'continuous'.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "selector_id", selector_id)
-        pulumi.set(__self__, "type", 'continuous')
+        ContinuousActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            name=name,
+            parameters=parameters,
+            selector_id=selector_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['KeyValuePairArgs']]]] = None,
+             selector_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+        if selector_id is None and 'selectorId' in kwargs:
+            selector_id = kwargs['selectorId']
+        if selector_id is None:
+            raise TypeError("Missing 'selector_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("duration", duration)
+        _setter("name", name)
+        _setter("parameters", parameters)
+        _setter("selector_id", selector_id)
+        _setter("type", 'continuous')
 
     @property
     @pulumi.getter
@@ -160,10 +208,27 @@ class CustomerDataStoragePropertiesArgs:
         :param pulumi.Input[str] blob_container_name: Name of the Azure Blob Storage container to use or create.
         :param pulumi.Input[str] storage_account_resource_id: ARM Resource ID of the Storage account to use for Customer Data storage.
         """
+        CustomerDataStoragePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_container_name=blob_container_name,
+            storage_account_resource_id=storage_account_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_container_name: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blob_container_name is None and 'blobContainerName' in kwargs:
+            blob_container_name = kwargs['blobContainerName']
+        if storage_account_resource_id is None and 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+
         if blob_container_name is not None:
-            pulumi.set(__self__, "blob_container_name", blob_container_name)
+            _setter("blob_container_name", blob_container_name)
         if storage_account_resource_id is not None:
-            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+            _setter("storage_account_resource_id", storage_account_resource_id)
 
     @property
     @pulumi.getter(name="blobContainerName")
@@ -203,9 +268,30 @@ class DelayActionArgs:
         :param pulumi.Input[str] type: Enum that discriminates between action models.
                Expected value is 'delay'.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", 'delay')
+        DelayActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("duration", duration)
+        _setter("name", name)
+        _setter("type", 'delay')
 
     @property
     @pulumi.getter
@@ -260,10 +346,37 @@ class DiscreteActionArgs:
         :param pulumi.Input[str] type: Enum that discriminates between action models.
                Expected value is 'discrete'.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "selector_id", selector_id)
-        pulumi.set(__self__, "type", 'discrete')
+        DiscreteActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            selector_id=selector_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['KeyValuePairArgs']]]] = None,
+             selector_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+        if selector_id is None and 'selectorId' in kwargs:
+            selector_id = kwargs['selectorId']
+        if selector_id is None:
+            raise TypeError("Missing 'selector_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("parameters", parameters)
+        _setter("selector_id", selector_id)
+        _setter("type", 'discrete')
 
     @property
     @pulumi.getter
@@ -327,10 +440,31 @@ class ExperimentPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: List of steps.
         :param pulumi.Input['CustomerDataStoragePropertiesArgs'] customer_data_storage: Optional customer-managed Storage account where Experiment schema will be stored.
         """
-        pulumi.set(__self__, "selectors", selectors)
-        pulumi.set(__self__, "steps", steps)
+        ExperimentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selectors=selectors,
+            steps=steps,
+            customer_data_storage=customer_data_storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]]] = None,
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['StepArgs']]]] = None,
+             customer_data_storage: Optional[pulumi.Input['CustomerDataStoragePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selectors is None:
+            raise TypeError("Missing 'selectors' argument")
+        if steps is None:
+            raise TypeError("Missing 'steps' argument")
+        if customer_data_storage is None and 'customerDataStorage' in kwargs:
+            customer_data_storage = kwargs['customerDataStorage']
+
+        _setter("selectors", selectors)
+        _setter("steps", steps)
         if customer_data_storage is not None:
-            pulumi.set(__self__, "customer_data_storage", customer_data_storage)
+            _setter("customer_data_storage", customer_data_storage)
 
     @property
     @pulumi.getter
@@ -379,8 +513,25 @@ class KeyValuePairArgs:
         :param pulumi.Input[str] key: The name of the setting for the action.
         :param pulumi.Input[str] value: The value of the setting for the action.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "value", value)
+        KeyValuePairArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("key", key)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -422,11 +573,34 @@ class ListSelectorArgs:
                Expected value is 'List'.
         :param pulumi.Input['SimpleFilterArgs'] filter: Model that represents available filter types that can be applied to a targets list.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "targets", targets)
-        pulumi.set(__self__, "type", 'List')
+        ListSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            targets=targets,
+            type=type,
+            filter=filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['SimpleFilterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if targets is None:
+            raise TypeError("Missing 'targets' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("targets", targets)
+        _setter("type", 'List')
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
 
     @property
     @pulumi.getter
@@ -495,12 +669,43 @@ class QuerySelectorArgs:
                Expected value is 'Query'.
         :param pulumi.Input['SimpleFilterArgs'] filter: Model that represents available filter types that can be applied to a targets list.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "query_string", query_string)
-        pulumi.set(__self__, "subscription_ids", subscription_ids)
-        pulumi.set(__self__, "type", 'Query')
+        QuerySelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            query_string=query_string,
+            subscription_ids=subscription_ids,
+            type=type,
+            filter=filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
+             subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['SimpleFilterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if subscription_ids is None and 'subscriptionIds' in kwargs:
+            subscription_ids = kwargs['subscriptionIds']
+        if subscription_ids is None:
+            raise TypeError("Missing 'subscription_ids' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("query_string", query_string)
+        _setter("subscription_ids", subscription_ids)
+        _setter("type", 'Query')
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
 
     @property
     @pulumi.getter
@@ -574,9 +779,26 @@ class ResourceIdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: String of the resource identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "type", type)
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -611,8 +833,19 @@ class SimpleFilterParametersArgs:
         Model that represents the Simple filter parameters.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: List of Azure availability zones to filter targets by.
         """
+        SimpleFilterParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -638,9 +871,24 @@ class SimpleFilterArgs:
                Expected value is 'Simple'.
         :param pulumi.Input['SimpleFilterParametersArgs'] parameters: Model that represents the Simple filter parameters.
         """
-        pulumi.set(__self__, "type", 'Simple')
+        SimpleFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['SimpleFilterParametersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Simple')
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -678,8 +926,25 @@ class StepArgs:
         :param pulumi.Input[Sequence[pulumi.Input['BranchArgs']]] branches: List of branches.
         :param pulumi.Input[str] name: String of the step name.
         """
-        pulumi.set(__self__, "branches", branches)
-        pulumi.set(__self__, "name", name)
+        StepArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branches=branches,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branches: Optional[pulumi.Input[Sequence[pulumi.Input['BranchArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branches is None:
+            raise TypeError("Missing 'branches' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("branches", branches)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -716,8 +981,25 @@ class TargetReferenceArgs:
         :param pulumi.Input[str] id: String of the resource ID of a Target resource.
         :param pulumi.Input[Union[str, 'TargetReferenceType']] type: Enum of the Target reference type.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        TargetReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'TargetReferenceType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("type", type)
 
     @property
     @pulumi.getter

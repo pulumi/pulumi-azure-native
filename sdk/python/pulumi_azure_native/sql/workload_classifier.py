@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkloadClassifierArgs', 'WorkloadClassifier']
@@ -39,23 +39,80 @@ class WorkloadClassifierArgs:
         :param pulumi.Input[str] start_time: The workload classifier start time for classification.
         :param pulumi.Input[str] workload_classifier_name: The name of the workload classifier to create/update.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "member_name", member_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "workload_group_name", workload_group_name)
+        WorkloadClassifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            member_name=member_name,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            workload_group_name=workload_group_name,
+            context=context,
+            end_time=end_time,
+            importance=importance,
+            label=label,
+            start_time=start_time,
+            workload_classifier_name=workload_classifier_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             member_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             workload_group_name: Optional[pulumi.Input[str]] = None,
+             context: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             importance: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             workload_classifier_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if member_name is None and 'memberName' in kwargs:
+            member_name = kwargs['memberName']
+        if member_name is None:
+            raise TypeError("Missing 'member_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if workload_group_name is None and 'workloadGroupName' in kwargs:
+            workload_group_name = kwargs['workloadGroupName']
+        if workload_group_name is None:
+            raise TypeError("Missing 'workload_group_name' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if workload_classifier_name is None and 'workloadClassifierName' in kwargs:
+            workload_classifier_name = kwargs['workloadClassifierName']
+
+        _setter("database_name", database_name)
+        _setter("member_name", member_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("workload_group_name", workload_group_name)
         if context is not None:
-            pulumi.set(__self__, "context", context)
+            _setter("context", context)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if importance is not None:
-            pulumi.set(__self__, "importance", importance)
+            _setter("importance", importance)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if workload_classifier_name is not None:
-            pulumi.set(__self__, "workload_classifier_name", workload_classifier_name)
+            _setter("workload_classifier_name", workload_classifier_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -249,6 +306,10 @@ class WorkloadClassifier(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadClassifierArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

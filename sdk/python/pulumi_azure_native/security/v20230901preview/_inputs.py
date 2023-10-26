@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -25,8 +25,19 @@ class AuthorizationArgs:
                
                Only used during PUT/PATCH operations. The secret is cleared during GET.
         """
+        AuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
 
     @property
     @pulumi.getter
@@ -66,14 +77,37 @@ class DevOpsConfigurationPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] top_level_inventory_list: List of top-level inventory to select when AutoDiscovery is disabled.
                This field is ignored when AutoDiscovery is enabled.
         """
+        DevOpsConfigurationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            auto_discovery=auto_discovery,
+            provisioning_state=provisioning_state,
+            top_level_inventory_list=top_level_inventory_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input['AuthorizationArgs']] = None,
+             auto_discovery: Optional[pulumi.Input[Union[str, 'AutoDiscovery']]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'DevOpsProvisioningState']]] = None,
+             top_level_inventory_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_discovery is None and 'autoDiscovery' in kwargs:
+            auto_discovery = kwargs['autoDiscovery']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if top_level_inventory_list is None and 'topLevelInventoryList' in kwargs:
+            top_level_inventory_list = kwargs['topLevelInventoryList']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if auto_discovery is not None:
-            pulumi.set(__self__, "auto_discovery", auto_discovery)
+            _setter("auto_discovery", auto_discovery)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if top_level_inventory_list is not None:
-            pulumi.set(__self__, "top_level_inventory_list", top_level_inventory_list)
+            _setter("top_level_inventory_list", top_level_inventory_list)
 
     @property
     @pulumi.getter

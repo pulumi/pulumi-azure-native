@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,13 +28,48 @@ class ConsumerGroupArgs:
         :param pulumi.Input[str] consumer_group_name: The consumer group name
         :param pulumi.Input[str] user_metadata: User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
-        pulumi.set(__self__, "event_hub_name", event_hub_name)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConsumerGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_name=event_hub_name,
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            consumer_group_name=consumer_group_name,
+            user_metadata=user_metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             consumer_group_name: Optional[pulumi.Input[str]] = None,
+             user_metadata: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_hub_name is None and 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if event_hub_name is None:
+            raise TypeError("Missing 'event_hub_name' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if consumer_group_name is None and 'consumerGroupName' in kwargs:
+            consumer_group_name = kwargs['consumerGroupName']
+        if user_metadata is None and 'userMetadata' in kwargs:
+            user_metadata = kwargs['userMetadata']
+
+        _setter("event_hub_name", event_hub_name)
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if consumer_group_name is not None:
-            pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+            _setter("consumer_group_name", consumer_group_name)
         if user_metadata is not None:
-            pulumi.set(__self__, "user_metadata", user_metadata)
+            _setter("user_metadata", user_metadata)
 
     @property
     @pulumi.getter(name="eventHubName")
@@ -138,6 +173,10 @@ class ConsumerGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConsumerGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,18 +34,55 @@ class EncryptionScopeArgs:
         :param pulumi.Input[Union[str, 'EncryptionScopeSource']] source: The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
         :param pulumi.Input[Union[str, 'EncryptionScopeState']] state: The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EncryptionScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            encryption_scope_name=encryption_scope_name,
+            key_vault_properties=key_vault_properties,
+            require_infrastructure_encryption=require_infrastructure_encryption,
+            source=source,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             encryption_scope_name: Optional[pulumi.Input[str]] = None,
+             key_vault_properties: Optional[pulumi.Input['EncryptionScopeKeyVaultPropertiesArgs']] = None,
+             require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
+             source: Optional[pulumi.Input[Union[str, 'EncryptionScopeSource']]] = None,
+             state: Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if encryption_scope_name is None and 'encryptionScopeName' in kwargs:
+            encryption_scope_name = kwargs['encryptionScopeName']
+        if key_vault_properties is None and 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+        if require_infrastructure_encryption is None and 'requireInfrastructureEncryption' in kwargs:
+            require_infrastructure_encryption = kwargs['requireInfrastructureEncryption']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if encryption_scope_name is not None:
-            pulumi.set(__self__, "encryption_scope_name", encryption_scope_name)
+            _setter("encryption_scope_name", encryption_scope_name)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
         if require_infrastructure_encryption is not None:
-            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+            _setter("require_infrastructure_encryption", require_infrastructure_encryption)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="accountName")
@@ -177,6 +214,10 @@ class EncryptionScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EncryptionScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -202,6 +243,7 @@ class EncryptionScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["encryption_scope_name"] = encryption_scope_name
+            key_vault_properties = _utilities.configure(key_vault_properties, EncryptionScopeKeyVaultPropertiesArgs, True)
             __props__.__dict__["key_vault_properties"] = key_vault_properties
             __props__.__dict__["require_infrastructure_encryption"] = require_infrastructure_encryption
             if resource_group_name is None and not opts.urn:

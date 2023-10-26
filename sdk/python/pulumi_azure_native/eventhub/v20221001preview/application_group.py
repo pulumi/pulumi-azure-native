@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -32,15 +32,52 @@ class ApplicationGroupArgs:
         :param pulumi.Input[bool] is_enabled: Determines if Application Group is allowed to create connection with namespace or not. Once the isEnabled is set to false, all the existing connections of application group gets dropped and no new connections will be allowed
         :param pulumi.Input[Sequence[pulumi.Input['ThrottlingPolicyArgs']]] policies: List of group policies that define the behavior of application group. The policies can support resource governance scenarios such as limiting ingress or egress traffic.
         """
-        pulumi.set(__self__, "client_app_group_identifier", client_app_group_identifier)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApplicationGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_app_group_identifier=client_app_group_identifier,
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            application_group_name=application_group_name,
+            is_enabled=is_enabled,
+            policies=policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_app_group_identifier: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             application_group_name: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['ThrottlingPolicyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_app_group_identifier is None and 'clientAppGroupIdentifier' in kwargs:
+            client_app_group_identifier = kwargs['clientAppGroupIdentifier']
+        if client_app_group_identifier is None:
+            raise TypeError("Missing 'client_app_group_identifier' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if application_group_name is None and 'applicationGroupName' in kwargs:
+            application_group_name = kwargs['applicationGroupName']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
+        _setter("client_app_group_identifier", client_app_group_identifier)
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if application_group_name is not None:
-            pulumi.set(__self__, "application_group_name", application_group_name)
+            _setter("application_group_name", application_group_name)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
 
     @property
     @pulumi.getter(name="clientAppGroupIdentifier")
@@ -158,6 +195,10 @@ class ApplicationGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

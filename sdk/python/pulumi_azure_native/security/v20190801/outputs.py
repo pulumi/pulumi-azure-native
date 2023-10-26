@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -53,14 +53,31 @@ class AdditionalWorkspacesPropertiesResponse(dict):
         :param str type: Workspace type.
         :param str workspace: Workspace resource id
         """
+        AdditionalWorkspacesPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_types=data_types,
+            type=type,
+            workspace=workspace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_types: Optional[Sequence[str]] = None,
+             type: Optional[str] = None,
+             workspace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_types is None and 'dataTypes' in kwargs:
+            data_types = kwargs['dataTypes']
+
         if data_types is not None:
-            pulumi.set(__self__, "data_types", data_types)
+            _setter("data_types", data_types)
         if type is None:
             type = 'Sentinel'
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if workspace is not None:
-            pulumi.set(__self__, "workspace", workspace)
+            _setter("workspace", workspace)
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -134,12 +151,55 @@ class AllowlistCustomAlertRuleResponse(dict):
                Expected value is 'AllowlistCustomAlertRule'.
         :param str value_type: The value type of the items in the list.
         """
-        pulumi.set(__self__, "allowlist_values", allowlist_values)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", 'AllowlistCustomAlertRule')
-        pulumi.set(__self__, "value_type", value_type)
+        AllowlistCustomAlertRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowlist_values=allowlist_values,
+            description=description,
+            display_name=display_name,
+            is_enabled=is_enabled,
+            rule_type=rule_type,
+            value_type=value_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowlist_values: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             rule_type: Optional[str] = None,
+             value_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowlist_values is None and 'allowlistValues' in kwargs:
+            allowlist_values = kwargs['allowlistValues']
+        if allowlist_values is None:
+            raise TypeError("Missing 'allowlist_values' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if rule_type is None and 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if rule_type is None:
+            raise TypeError("Missing 'rule_type' argument")
+        if value_type is None and 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+        if value_type is None:
+            raise TypeError("Missing 'value_type' argument")
+
+        _setter("allowlist_values", allowlist_values)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("is_enabled", is_enabled)
+        _setter("rule_type", 'AllowlistCustomAlertRule')
+        _setter("value_type", value_type)
 
     @property
     @pulumi.getter(name="allowlistValues")
@@ -238,12 +298,55 @@ class DenylistCustomAlertRuleResponse(dict):
                Expected value is 'DenylistCustomAlertRule'.
         :param str value_type: The value type of the items in the list.
         """
-        pulumi.set(__self__, "denylist_values", denylist_values)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "rule_type", 'DenylistCustomAlertRule')
-        pulumi.set(__self__, "value_type", value_type)
+        DenylistCustomAlertRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            denylist_values=denylist_values,
+            description=description,
+            display_name=display_name,
+            is_enabled=is_enabled,
+            rule_type=rule_type,
+            value_type=value_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             denylist_values: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             rule_type: Optional[str] = None,
+             value_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if denylist_values is None and 'denylistValues' in kwargs:
+            denylist_values = kwargs['denylistValues']
+        if denylist_values is None:
+            raise TypeError("Missing 'denylist_values' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if rule_type is None and 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if rule_type is None:
+            raise TypeError("Missing 'rule_type' argument")
+        if value_type is None and 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+        if value_type is None:
+            raise TypeError("Missing 'value_type' argument")
+
+        _setter("denylist_values", denylist_values)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("is_enabled", is_enabled)
+        _setter("rule_type", 'DenylistCustomAlertRule')
+        _setter("value_type", value_type)
 
     @property
     @pulumi.getter(name="denylistValues")
@@ -326,11 +429,32 @@ class RecommendationConfigurationPropertiesResponse(dict):
         :param str recommendation_type: The type of IoT Security recommendation.
         :param str status: Recommendation status. When the recommendation status is disabled recommendations are not generated.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "recommendation_type", recommendation_type)
+        RecommendationConfigurationPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            recommendation_type=recommendation_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             recommendation_type: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if recommendation_type is None and 'recommendationType' in kwargs:
+            recommendation_type = kwargs['recommendationType']
+        if recommendation_type is None:
+            raise TypeError("Missing 'recommendation_type' argument")
+
+        _setter("name", name)
+        _setter("recommendation_type", recommendation_type)
         if status is None:
             status = 'Enabled'
-        pulumi.set(__self__, "status", status)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -402,18 +526,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -511,12 +668,55 @@ class ThresholdCustomAlertRuleResponse(dict):
         :param str rule_type: The type of the custom alert rule.
                Expected value is 'ThresholdCustomAlertRule'.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "max_threshold", max_threshold)
-        pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", 'ThresholdCustomAlertRule')
+        ThresholdCustomAlertRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            is_enabled=is_enabled,
+            max_threshold=max_threshold,
+            min_threshold=min_threshold,
+            rule_type=rule_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             max_threshold: Optional[int] = None,
+             min_threshold: Optional[int] = None,
+             rule_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if max_threshold is None and 'maxThreshold' in kwargs:
+            max_threshold = kwargs['maxThreshold']
+        if max_threshold is None:
+            raise TypeError("Missing 'max_threshold' argument")
+        if min_threshold is None and 'minThreshold' in kwargs:
+            min_threshold = kwargs['minThreshold']
+        if min_threshold is None:
+            raise TypeError("Missing 'min_threshold' argument")
+        if rule_type is None and 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if rule_type is None:
+            raise TypeError("Missing 'rule_type' argument")
+
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("is_enabled", is_enabled)
+        _setter("max_threshold", max_threshold)
+        _setter("min_threshold", min_threshold)
+        _setter("rule_type", 'ThresholdCustomAlertRule')
 
     @property
     @pulumi.getter
@@ -619,13 +819,62 @@ class TimeWindowCustomAlertRuleResponse(dict):
                Expected value is 'TimeWindowCustomAlertRule'.
         :param str time_window_size: The time window size in iso8601 format.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "max_threshold", max_threshold)
-        pulumi.set(__self__, "min_threshold", min_threshold)
-        pulumi.set(__self__, "rule_type", 'TimeWindowCustomAlertRule')
-        pulumi.set(__self__, "time_window_size", time_window_size)
+        TimeWindowCustomAlertRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            is_enabled=is_enabled,
+            max_threshold=max_threshold,
+            min_threshold=min_threshold,
+            rule_type=rule_type,
+            time_window_size=time_window_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             max_threshold: Optional[int] = None,
+             min_threshold: Optional[int] = None,
+             rule_type: Optional[str] = None,
+             time_window_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if max_threshold is None and 'maxThreshold' in kwargs:
+            max_threshold = kwargs['maxThreshold']
+        if max_threshold is None:
+            raise TypeError("Missing 'max_threshold' argument")
+        if min_threshold is None and 'minThreshold' in kwargs:
+            min_threshold = kwargs['minThreshold']
+        if min_threshold is None:
+            raise TypeError("Missing 'min_threshold' argument")
+        if rule_type is None and 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if rule_type is None:
+            raise TypeError("Missing 'rule_type' argument")
+        if time_window_size is None and 'timeWindowSize' in kwargs:
+            time_window_size = kwargs['timeWindowSize']
+        if time_window_size is None:
+            raise TypeError("Missing 'time_window_size' argument")
+
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("is_enabled", is_enabled)
+        _setter("max_threshold", max_threshold)
+        _setter("min_threshold", min_threshold)
+        _setter("rule_type", 'TimeWindowCustomAlertRule')
+        _setter("time_window_size", time_window_size)
 
     @property
     @pulumi.getter
@@ -715,8 +964,27 @@ class UserDefinedResourcesPropertiesResponse(dict):
         :param str query: Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
         :param Sequence[str] query_subscriptions: List of Azure subscription ids on which the user defined resources query should be executed.
         """
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "query_subscriptions", query_subscriptions)
+        UserDefinedResourcesPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query=query,
+            query_subscriptions=query_subscriptions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query: Optional[str] = None,
+             query_subscriptions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if query_subscriptions is None and 'querySubscriptions' in kwargs:
+            query_subscriptions = kwargs['querySubscriptions']
+        if query_subscriptions is None:
+            raise TypeError("Missing 'query_subscriptions' argument")
+
+        _setter("query", query)
+        _setter("query_subscriptions", query_subscriptions)
 
     @property
     @pulumi.getter

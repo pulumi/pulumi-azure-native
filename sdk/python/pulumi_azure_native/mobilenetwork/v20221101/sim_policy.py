@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,23 +40,78 @@ class SimPolicyArgs:
         :param pulumi.Input[str] sim_policy_name: The name of the SIM policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "default_slice", default_slice)
-        pulumi.set(__self__, "mobile_network_name", mobile_network_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "slice_configurations", slice_configurations)
-        pulumi.set(__self__, "ue_ambr", ue_ambr)
+        SimPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_slice=default_slice,
+            mobile_network_name=mobile_network_name,
+            resource_group_name=resource_group_name,
+            slice_configurations=slice_configurations,
+            ue_ambr=ue_ambr,
+            location=location,
+            registration_timer=registration_timer,
+            rfsp_index=rfsp_index,
+            sim_policy_name=sim_policy_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_slice: Optional[pulumi.Input['SliceResourceIdArgs']] = None,
+             mobile_network_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             slice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['SliceConfigurationArgs']]]] = None,
+             ue_ambr: Optional[pulumi.Input['AmbrArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             registration_timer: Optional[pulumi.Input[int]] = None,
+             rfsp_index: Optional[pulumi.Input[int]] = None,
+             sim_policy_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_slice is None and 'defaultSlice' in kwargs:
+            default_slice = kwargs['defaultSlice']
+        if default_slice is None:
+            raise TypeError("Missing 'default_slice' argument")
+        if mobile_network_name is None and 'mobileNetworkName' in kwargs:
+            mobile_network_name = kwargs['mobileNetworkName']
+        if mobile_network_name is None:
+            raise TypeError("Missing 'mobile_network_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if slice_configurations is None and 'sliceConfigurations' in kwargs:
+            slice_configurations = kwargs['sliceConfigurations']
+        if slice_configurations is None:
+            raise TypeError("Missing 'slice_configurations' argument")
+        if ue_ambr is None and 'ueAmbr' in kwargs:
+            ue_ambr = kwargs['ueAmbr']
+        if ue_ambr is None:
+            raise TypeError("Missing 'ue_ambr' argument")
+        if registration_timer is None and 'registrationTimer' in kwargs:
+            registration_timer = kwargs['registrationTimer']
+        if rfsp_index is None and 'rfspIndex' in kwargs:
+            rfsp_index = kwargs['rfspIndex']
+        if sim_policy_name is None and 'simPolicyName' in kwargs:
+            sim_policy_name = kwargs['simPolicyName']
+
+        _setter("default_slice", default_slice)
+        _setter("mobile_network_name", mobile_network_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("slice_configurations", slice_configurations)
+        _setter("ue_ambr", ue_ambr)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if registration_timer is None:
             registration_timer = 3240
         if registration_timer is not None:
-            pulumi.set(__self__, "registration_timer", registration_timer)
+            _setter("registration_timer", registration_timer)
         if rfsp_index is not None:
-            pulumi.set(__self__, "rfsp_index", rfsp_index)
+            _setter("rfsp_index", rfsp_index)
         if sim_policy_name is not None:
-            pulumi.set(__self__, "sim_policy_name", sim_policy_name)
+            _setter("sim_policy_name", sim_policy_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="defaultSlice")
@@ -230,6 +285,10 @@ class SimPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SimPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -254,6 +313,7 @@ class SimPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SimPolicyArgs.__new__(SimPolicyArgs)
 
+            default_slice = _utilities.configure(default_slice, SliceResourceIdArgs, True)
             if default_slice is None and not opts.urn:
                 raise TypeError("Missing required property 'default_slice'")
             __props__.__dict__["default_slice"] = default_slice
@@ -273,6 +333,7 @@ class SimPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slice_configurations'")
             __props__.__dict__["slice_configurations"] = slice_configurations
             __props__.__dict__["tags"] = tags
+            ue_ambr = _utilities.configure(ue_ambr, AmbrArgs, True)
             if ue_ambr is None and not opts.urn:
                 raise TypeError("Missing required property 'ue_ambr'")
             __props__.__dict__["ue_ambr"] = ue_ambr

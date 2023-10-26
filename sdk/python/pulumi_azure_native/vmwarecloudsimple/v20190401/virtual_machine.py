@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,34 +52,101 @@ class VirtualMachineArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] v_sphere_networks: The list of Virtual VSphere Networks
         :param pulumi.Input[str] virtual_machine_name: virtual machine name
         """
-        pulumi.set(__self__, "amount_of_ram", amount_of_ram)
-        pulumi.set(__self__, "number_of_cores", number_of_cores)
-        pulumi.set(__self__, "private_cloud_id", private_cloud_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            amount_of_ram=amount_of_ram,
+            number_of_cores=number_of_cores,
+            private_cloud_id=private_cloud_id,
+            resource_group_name=resource_group_name,
+            customization=customization,
+            disks=disks,
+            expose_to_guest_vm=expose_to_guest_vm,
+            location=location,
+            nics=nics,
+            password=password,
+            resource_pool=resource_pool,
+            tags=tags,
+            template_id=template_id,
+            username=username,
+            v_sphere_networks=v_sphere_networks,
+            virtual_machine_name=virtual_machine_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             amount_of_ram: Optional[pulumi.Input[int]] = None,
+             number_of_cores: Optional[pulumi.Input[int]] = None,
+             private_cloud_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             customization: Optional[pulumi.Input['GuestOSCustomizationArgs']] = None,
+             disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]]] = None,
+             expose_to_guest_vm: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             nics: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNicArgs']]]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_pool: Optional[pulumi.Input['ResourcePoolArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             v_sphere_networks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_machine_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amount_of_ram is None and 'amountOfRam' in kwargs:
+            amount_of_ram = kwargs['amountOfRam']
+        if amount_of_ram is None:
+            raise TypeError("Missing 'amount_of_ram' argument")
+        if number_of_cores is None and 'numberOfCores' in kwargs:
+            number_of_cores = kwargs['numberOfCores']
+        if number_of_cores is None:
+            raise TypeError("Missing 'number_of_cores' argument")
+        if private_cloud_id is None and 'privateCloudId' in kwargs:
+            private_cloud_id = kwargs['privateCloudId']
+        if private_cloud_id is None:
+            raise TypeError("Missing 'private_cloud_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if expose_to_guest_vm is None and 'exposeToGuestVM' in kwargs:
+            expose_to_guest_vm = kwargs['exposeToGuestVM']
+        if resource_pool is None and 'resourcePool' in kwargs:
+            resource_pool = kwargs['resourcePool']
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if v_sphere_networks is None and 'vSphereNetworks' in kwargs:
+            v_sphere_networks = kwargs['vSphereNetworks']
+        if virtual_machine_name is None and 'virtualMachineName' in kwargs:
+            virtual_machine_name = kwargs['virtualMachineName']
+
+        _setter("amount_of_ram", amount_of_ram)
+        _setter("number_of_cores", number_of_cores)
+        _setter("private_cloud_id", private_cloud_id)
+        _setter("resource_group_name", resource_group_name)
         if customization is not None:
-            pulumi.set(__self__, "customization", customization)
+            _setter("customization", customization)
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
         if expose_to_guest_vm is not None:
-            pulumi.set(__self__, "expose_to_guest_vm", expose_to_guest_vm)
+            _setter("expose_to_guest_vm", expose_to_guest_vm)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if nics is not None:
-            pulumi.set(__self__, "nics", nics)
+            _setter("nics", nics)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if resource_pool is not None:
-            pulumi.set(__self__, "resource_pool", resource_pool)
+            _setter("resource_pool", resource_pool)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_id is not None:
-            pulumi.set(__self__, "template_id", template_id)
+            _setter("template_id", template_id)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
         if v_sphere_networks is not None:
-            pulumi.set(__self__, "v_sphere_networks", v_sphere_networks)
+            _setter("v_sphere_networks", v_sphere_networks)
         if virtual_machine_name is not None:
-            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+            _setter("virtual_machine_name", virtual_machine_name)
 
     @property
     @pulumi.getter(name="amountOfRam")
@@ -337,6 +404,10 @@ class VirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -370,6 +441,7 @@ class VirtualMachine(pulumi.CustomResource):
             if amount_of_ram is None and not opts.urn:
                 raise TypeError("Missing required property 'amount_of_ram'")
             __props__.__dict__["amount_of_ram"] = amount_of_ram
+            customization = _utilities.configure(customization, GuestOSCustomizationArgs, True)
             __props__.__dict__["customization"] = customization
             __props__.__dict__["disks"] = disks
             __props__.__dict__["expose_to_guest_vm"] = expose_to_guest_vm
@@ -385,6 +457,7 @@ class VirtualMachine(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            resource_pool = _utilities.configure(resource_pool, ResourcePoolArgs, True)
             __props__.__dict__["resource_pool"] = resource_pool
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_id"] = template_id

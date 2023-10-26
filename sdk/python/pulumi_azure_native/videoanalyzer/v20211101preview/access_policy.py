@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,43 @@ class AccessPolicyArgs:
         :param pulumi.Input['JwtAuthenticationArgs'] authentication: Authentication method to be used when validating client API access.
         :param pulumi.Input[Union[str, 'AccessPolicyRole']] role: Defines the access level granted by this policy.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            access_policy_name=access_policy_name,
+            authentication=authentication,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             access_policy_name: Optional[pulumi.Input[str]] = None,
+             authentication: Optional[pulumi.Input['JwtAuthenticationArgs']] = None,
+             role: Optional[pulumi.Input[Union[str, 'AccessPolicyRole']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_policy_name is None and 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if access_policy_name is not None:
-            pulumi.set(__self__, "access_policy_name", access_policy_name)
+            _setter("access_policy_name", access_policy_name)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter(name="accountName")
@@ -141,6 +170,10 @@ class AccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,6 +197,7 @@ class AccessPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            authentication = _utilities.configure(authentication, JwtAuthenticationArgs, True)
             __props__.__dict__["authentication"] = authentication
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

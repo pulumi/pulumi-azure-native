@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -60,45 +60,126 @@ class ServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            availability_zone=availability_zone,
+            create_mode=create_mode,
+            delegated_subnet_arguments=delegated_subnet_arguments,
+            ha_enabled=ha_enabled,
+            identity=identity,
+            infrastructure_encryption=infrastructure_encryption,
+            location=location,
+            maintenance_window=maintenance_window,
+            replication_role=replication_role,
+            restore_point_in_time=restore_point_in_time,
+            server_name=server_name,
+            sku=sku,
+            source_server_id=source_server_id,
+            ssl_enforcement=ssl_enforcement,
+            storage_profile=storage_profile,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+             delegated_subnet_arguments: Optional[pulumi.Input['DelegatedSubnetArgumentsArgs']] = None,
+             ha_enabled: Optional[pulumi.Input[Union[str, 'HaEnabledEnum']]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionEnum']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
+             replication_role: Optional[pulumi.Input[str]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             source_server_id: Optional[pulumi.Input[str]] = None,
+             ssl_enforcement: Optional[pulumi.Input[Union[str, 'SslEnforcementEnum']]] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if create_mode is None and 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if delegated_subnet_arguments is None and 'delegatedSubnetArguments' in kwargs:
+            delegated_subnet_arguments = kwargs['delegatedSubnetArguments']
+        if ha_enabled is None and 'haEnabled' in kwargs:
+            ha_enabled = kwargs['haEnabled']
+        if infrastructure_encryption is None and 'infrastructureEncryption' in kwargs:
+            infrastructure_encryption = kwargs['infrastructureEncryption']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if replication_role is None and 'replicationRole' in kwargs:
+            replication_role = kwargs['replicationRole']
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if source_server_id is None and 'sourceServerId' in kwargs:
+            source_server_id = kwargs['sourceServerId']
+        if ssl_enforcement is None and 'sslEnforcement' in kwargs:
+            ssl_enforcement = kwargs['sslEnforcement']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+
+        _setter("resource_group_name", resource_group_name)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if delegated_subnet_arguments is not None:
-            pulumi.set(__self__, "delegated_subnet_arguments", delegated_subnet_arguments)
+            _setter("delegated_subnet_arguments", delegated_subnet_arguments)
         if ha_enabled is not None:
-            pulumi.set(__self__, "ha_enabled", ha_enabled)
+            _setter("ha_enabled", ha_enabled)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if infrastructure_encryption is not None:
-            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
+            _setter("infrastructure_encryption", infrastructure_encryption)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if replication_role is not None:
-            pulumi.set(__self__, "replication_role", replication_role)
+            _setter("replication_role", replication_role)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if source_server_id is not None:
-            pulumi.set(__self__, "source_server_id", source_server_id)
+            _setter("source_server_id", source_server_id)
         if ssl_enforcement is not None:
-            pulumi.set(__self__, "ssl_enforcement", ssl_enforcement)
+            _setter("ssl_enforcement", ssl_enforcement)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -412,6 +493,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -450,11 +535,14 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["administrator_login_password"] = administrator_login_password
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["create_mode"] = create_mode
+            delegated_subnet_arguments = _utilities.configure(delegated_subnet_arguments, DelegatedSubnetArgumentsArgs, True)
             __props__.__dict__["delegated_subnet_arguments"] = delegated_subnet_arguments
             __props__.__dict__["ha_enabled"] = ha_enabled
+            identity = _utilities.configure(identity, IdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["infrastructure_encryption"] = infrastructure_encryption
             __props__.__dict__["location"] = location
+            maintenance_window = _utilities.configure(maintenance_window, MaintenanceWindowArgs, True)
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["replication_role"] = replication_role
             if resource_group_name is None and not opts.urn:
@@ -462,9 +550,11 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
             __props__.__dict__["server_name"] = server_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_server_id"] = source_server_id
             __props__.__dict__["ssl_enforcement"] = ssl_enforcement
+            storage_profile = _utilities.configure(storage_profile, StorageProfileArgs, True)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

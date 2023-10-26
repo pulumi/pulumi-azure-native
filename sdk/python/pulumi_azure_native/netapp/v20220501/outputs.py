@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,14 +56,33 @@ class AccountEncryptionResponse(dict):
         :param str key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
         :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
         """
+        AccountEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional['outputs.EncryptionIdentityResponse'] = None,
+             key_source: Optional[str] = None,
+             key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_source is None and 'keySource' in kwargs:
+            key_source = kwargs['keySource']
+        if key_vault_properties is None and 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_source is None:
             key_source = 'Microsoft.NetApp'
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter
@@ -188,50 +207,137 @@ class ActiveDirectoryResponse(dict):
         :param str smb_server_name: NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
         :param str username: A domain user account with permission to create machine accounts
         """
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_details", status_details)
+        ActiveDirectoryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            status_details=status_details,
+            active_directory_id=active_directory_id,
+            ad_name=ad_name,
+            administrators=administrators,
+            aes_encryption=aes_encryption,
+            allow_local_nfs_users_with_ldap=allow_local_nfs_users_with_ldap,
+            backup_operators=backup_operators,
+            dns=dns,
+            domain=domain,
+            encrypt_dc_connections=encrypt_dc_connections,
+            kdc_ip=kdc_ip,
+            ldap_over_tls=ldap_over_tls,
+            ldap_search_scope=ldap_search_scope,
+            ldap_signing=ldap_signing,
+            organizational_unit=organizational_unit,
+            password=password,
+            security_operators=security_operators,
+            server_root_ca_certificate=server_root_ca_certificate,
+            site=site,
+            smb_server_name=smb_server_name,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             status_details: Optional[str] = None,
+             active_directory_id: Optional[str] = None,
+             ad_name: Optional[str] = None,
+             administrators: Optional[Sequence[str]] = None,
+             aes_encryption: Optional[bool] = None,
+             allow_local_nfs_users_with_ldap: Optional[bool] = None,
+             backup_operators: Optional[Sequence[str]] = None,
+             dns: Optional[str] = None,
+             domain: Optional[str] = None,
+             encrypt_dc_connections: Optional[bool] = None,
+             kdc_ip: Optional[str] = None,
+             ldap_over_tls: Optional[bool] = None,
+             ldap_search_scope: Optional['outputs.LdapSearchScopeOptResponse'] = None,
+             ldap_signing: Optional[bool] = None,
+             organizational_unit: Optional[str] = None,
+             password: Optional[str] = None,
+             security_operators: Optional[Sequence[str]] = None,
+             server_root_ca_certificate: Optional[str] = None,
+             site: Optional[str] = None,
+             smb_server_name: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if status_details is None and 'statusDetails' in kwargs:
+            status_details = kwargs['statusDetails']
+        if status_details is None:
+            raise TypeError("Missing 'status_details' argument")
+        if active_directory_id is None and 'activeDirectoryId' in kwargs:
+            active_directory_id = kwargs['activeDirectoryId']
+        if ad_name is None and 'adName' in kwargs:
+            ad_name = kwargs['adName']
+        if aes_encryption is None and 'aesEncryption' in kwargs:
+            aes_encryption = kwargs['aesEncryption']
+        if allow_local_nfs_users_with_ldap is None and 'allowLocalNfsUsersWithLdap' in kwargs:
+            allow_local_nfs_users_with_ldap = kwargs['allowLocalNfsUsersWithLdap']
+        if backup_operators is None and 'backupOperators' in kwargs:
+            backup_operators = kwargs['backupOperators']
+        if encrypt_dc_connections is None and 'encryptDCConnections' in kwargs:
+            encrypt_dc_connections = kwargs['encryptDCConnections']
+        if kdc_ip is None and 'kdcIP' in kwargs:
+            kdc_ip = kwargs['kdcIP']
+        if ldap_over_tls is None and 'ldapOverTLS' in kwargs:
+            ldap_over_tls = kwargs['ldapOverTLS']
+        if ldap_search_scope is None and 'ldapSearchScope' in kwargs:
+            ldap_search_scope = kwargs['ldapSearchScope']
+        if ldap_signing is None and 'ldapSigning' in kwargs:
+            ldap_signing = kwargs['ldapSigning']
+        if organizational_unit is None and 'organizationalUnit' in kwargs:
+            organizational_unit = kwargs['organizationalUnit']
+        if security_operators is None and 'securityOperators' in kwargs:
+            security_operators = kwargs['securityOperators']
+        if server_root_ca_certificate is None and 'serverRootCACertificate' in kwargs:
+            server_root_ca_certificate = kwargs['serverRootCACertificate']
+        if smb_server_name is None and 'smbServerName' in kwargs:
+            smb_server_name = kwargs['smbServerName']
+
+        _setter("status", status)
+        _setter("status_details", status_details)
         if active_directory_id is not None:
-            pulumi.set(__self__, "active_directory_id", active_directory_id)
+            _setter("active_directory_id", active_directory_id)
         if ad_name is not None:
-            pulumi.set(__self__, "ad_name", ad_name)
+            _setter("ad_name", ad_name)
         if administrators is not None:
-            pulumi.set(__self__, "administrators", administrators)
+            _setter("administrators", administrators)
         if aes_encryption is not None:
-            pulumi.set(__self__, "aes_encryption", aes_encryption)
+            _setter("aes_encryption", aes_encryption)
         if allow_local_nfs_users_with_ldap is not None:
-            pulumi.set(__self__, "allow_local_nfs_users_with_ldap", allow_local_nfs_users_with_ldap)
+            _setter("allow_local_nfs_users_with_ldap", allow_local_nfs_users_with_ldap)
         if backup_operators is not None:
-            pulumi.set(__self__, "backup_operators", backup_operators)
+            _setter("backup_operators", backup_operators)
         if dns is not None:
-            pulumi.set(__self__, "dns", dns)
+            _setter("dns", dns)
         if domain is not None:
-            pulumi.set(__self__, "domain", domain)
+            _setter("domain", domain)
         if encrypt_dc_connections is not None:
-            pulumi.set(__self__, "encrypt_dc_connections", encrypt_dc_connections)
+            _setter("encrypt_dc_connections", encrypt_dc_connections)
         if kdc_ip is not None:
-            pulumi.set(__self__, "kdc_ip", kdc_ip)
+            _setter("kdc_ip", kdc_ip)
         if ldap_over_tls is not None:
-            pulumi.set(__self__, "ldap_over_tls", ldap_over_tls)
+            _setter("ldap_over_tls", ldap_over_tls)
         if ldap_search_scope is not None:
-            pulumi.set(__self__, "ldap_search_scope", ldap_search_scope)
+            _setter("ldap_search_scope", ldap_search_scope)
         if ldap_signing is not None:
-            pulumi.set(__self__, "ldap_signing", ldap_signing)
+            _setter("ldap_signing", ldap_signing)
         if organizational_unit is None:
             organizational_unit = 'CN=Computers'
         if organizational_unit is not None:
-            pulumi.set(__self__, "organizational_unit", organizational_unit)
+            _setter("organizational_unit", organizational_unit)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if security_operators is not None:
-            pulumi.set(__self__, "security_operators", security_operators)
+            _setter("security_operators", security_operators)
         if server_root_ca_certificate is not None:
-            pulumi.set(__self__, "server_root_ca_certificate", server_root_ca_certificate)
+            _setter("server_root_ca_certificate", server_root_ca_certificate)
         if site is not None:
-            pulumi.set(__self__, "site", site)
+            _setter("site", site)
         if smb_server_name is not None:
-            pulumi.set(__self__, "smb_server_name", smb_server_name)
+            _setter("smb_server_name", smb_server_name)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -442,9 +548,28 @@ class EncryptionIdentityResponse(dict):
         :param str principal_id: The principal ID (object ID) of the identity used to authenticate with key vault. Read-only.
         :param str user_assigned_identity: The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
+        EncryptionIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
+        _setter("principal_id", principal_id)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="principalId")
@@ -501,11 +626,40 @@ class IdentityResponse(dict):
         :param str type: The identity type.
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this storage account. The key is the ARM resource identifier of the identity. Only 1 User Assigned identity is permitted here.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -582,11 +736,48 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_vault_uri: The Uri of KeyVault.
         :param str status: Status of the KeyVault connection.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "status", status)
+        KeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_id=key_vault_id,
+            key_vault_resource_id=key_vault_resource_id,
+            key_vault_uri=key_vault_uri,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             key_vault_resource_id: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if key_vault_resource_id is None and 'keyVaultResourceId' in kwargs:
+            key_vault_resource_id = kwargs['keyVaultResourceId']
+        if key_vault_resource_id is None:
+            raise TypeError("Missing 'key_vault_resource_id' argument")
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_vault_uri is None:
+            raise TypeError("Missing 'key_vault_uri' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("key_name", key_name)
+        _setter("key_vault_id", key_vault_id)
+        _setter("key_vault_resource_id", key_vault_resource_id)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="keyName")
@@ -665,12 +856,33 @@ class LdapSearchScopeOptResponse(dict):
         :param str group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
         :param str user_dn: This specifies the user DN, which overrides the base DN for user lookups.
         """
+        LdapSearchScopeOptResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_dn=group_dn,
+            group_membership_filter=group_membership_filter,
+            user_dn=user_dn,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_dn: Optional[str] = None,
+             group_membership_filter: Optional[str] = None,
+             user_dn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_dn is None and 'groupDN' in kwargs:
+            group_dn = kwargs['groupDN']
+        if group_membership_filter is None and 'groupMembershipFilter' in kwargs:
+            group_membership_filter = kwargs['groupMembershipFilter']
+        if user_dn is None and 'userDN' in kwargs:
+            user_dn = kwargs['userDN']
+
         if group_dn is not None:
-            pulumi.set(__self__, "group_dn", group_dn)
+            _setter("group_dn", group_dn)
         if group_membership_filter is not None:
-            pulumi.set(__self__, "group_membership_filter", group_membership_filter)
+            _setter("group_membership_filter", group_membership_filter)
         if user_dn is not None:
-            pulumi.set(__self__, "user_dn", user_dn)
+            _setter("user_dn", user_dn)
 
     @property
     @pulumi.getter(name="groupDN")
@@ -745,18 +957,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -839,8 +1084,29 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the identity.
         :param str principal_id: The principal ID of the identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

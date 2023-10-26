@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,13 +30,32 @@ class ManagedNetworkPeeringPolicyPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] mesh: Gets or sets the mesh group IDs
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] spokes: Gets or sets the spokes group IDs
         """
-        pulumi.set(__self__, "type", type)
+        ManagedNetworkPeeringPolicyPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            hub=hub,
+            mesh=mesh,
+            spokes=spokes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'Type']]] = None,
+             hub: Optional[pulumi.Input['ResourceIdArgs']] = None,
+             mesh: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+             spokes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
         if hub is not None:
-            pulumi.set(__self__, "hub", hub)
+            _setter("hub", hub)
         if mesh is not None:
-            pulumi.set(__self__, "mesh", mesh)
+            _setter("mesh", mesh)
         if spokes is not None:
-            pulumi.set(__self__, "spokes", spokes)
+            _setter("spokes", spokes)
 
     @property
     @pulumi.getter
@@ -95,8 +114,19 @@ class ResourceIdArgs:
         Generic pointer to a resource
         :param pulumi.Input[str] id: Resource Id
         """
+        ResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -125,14 +155,35 @@ class ScopeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] subscriptions: The collection of subscriptions covered by the Managed Network
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] virtual_networks: The collection of virtual nets covered by the Managed Network
         """
+        ScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_groups=management_groups,
+            subnets=subnets,
+            subscriptions=subscriptions,
+            virtual_networks=virtual_networks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+             subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+             virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if management_groups is None and 'managementGroups' in kwargs:
+            management_groups = kwargs['managementGroups']
+        if virtual_networks is None and 'virtualNetworks' in kwargs:
+            virtual_networks = kwargs['virtualNetworks']
+
         if management_groups is not None:
-            pulumi.set(__self__, "management_groups", management_groups)
+            _setter("management_groups", management_groups)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if subscriptions is not None:
-            pulumi.set(__self__, "subscriptions", subscriptions)
+            _setter("subscriptions", subscriptions)
         if virtual_networks is not None:
-            pulumi.set(__self__, "virtual_networks", virtual_networks)
+            _setter("virtual_networks", virtual_networks)
 
     @property
     @pulumi.getter(name="managementGroups")

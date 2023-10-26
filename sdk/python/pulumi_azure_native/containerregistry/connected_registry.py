@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,61 @@ class ConnectedRegistryArgs:
         :param pulumi.Input['LoggingPropertiesArgs'] logging: The logging properties of the connected registry.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications_list: The list of notifications subscription information for the connected registry.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "parent", parent)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectedRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            parent=parent,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            client_token_ids=client_token_ids,
+            connected_registry_name=connected_registry_name,
+            logging=logging,
+            notifications_list=notifications_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
+             parent: Optional[pulumi.Input['ParentPropertiesArgs']] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connected_registry_name: Optional[pulumi.Input[str]] = None,
+             logging: Optional[pulumi.Input['LoggingPropertiesArgs']] = None,
+             notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if parent is None:
+            raise TypeError("Missing 'parent' argument")
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if client_token_ids is None and 'clientTokenIds' in kwargs:
+            client_token_ids = kwargs['clientTokenIds']
+        if connected_registry_name is None and 'connectedRegistryName' in kwargs:
+            connected_registry_name = kwargs['connectedRegistryName']
+        if notifications_list is None and 'notificationsList' in kwargs:
+            notifications_list = kwargs['notificationsList']
+
+        _setter("mode", mode)
+        _setter("parent", parent)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if client_token_ids is not None:
-            pulumi.set(__self__, "client_token_ids", client_token_ids)
+            _setter("client_token_ids", client_token_ids)
         if connected_registry_name is not None:
-            pulumi.set(__self__, "connected_registry_name", connected_registry_name)
+            _setter("connected_registry_name", connected_registry_name)
         if logging is not None:
-            pulumi.set(__self__, "logging", logging)
+            _setter("logging", logging)
         if notifications_list is not None:
-            pulumi.set(__self__, "notifications_list", notifications_list)
+            _setter("notifications_list", notifications_list)
 
     @property
     @pulumi.getter
@@ -199,6 +242,10 @@ class ConnectedRegistry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectedRegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,11 +270,13 @@ class ConnectedRegistry(pulumi.CustomResource):
 
             __props__.__dict__["client_token_ids"] = client_token_ids
             __props__.__dict__["connected_registry_name"] = connected_registry_name
+            logging = _utilities.configure(logging, LoggingPropertiesArgs, True)
             __props__.__dict__["logging"] = logging
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
             __props__.__dict__["mode"] = mode
             __props__.__dict__["notifications_list"] = notifications_list
+            parent = _utilities.configure(parent, ParentPropertiesArgs, True)
             if parent is None and not opts.urn:
                 raise TypeError("Missing required property 'parent'")
             __props__.__dict__["parent"] = parent

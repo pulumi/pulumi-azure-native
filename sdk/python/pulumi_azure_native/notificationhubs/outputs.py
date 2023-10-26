@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -79,9 +79,36 @@ class AdmCredentialPropertiesResponse(dict):
         :param str client_id: Gets or sets the client identifier.
         :param str client_secret: Gets or sets the credential secret access key.
         """
-        pulumi.set(__self__, "auth_token_url", auth_token_url)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
+        AdmCredentialPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_token_url=auth_token_url,
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_token_url: Optional[str] = None,
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_token_url is None and 'authTokenUrl' in kwargs:
+            auth_token_url = kwargs['authTokenUrl']
+        if auth_token_url is None:
+            raise TypeError("Missing 'auth_token_url' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+
+        _setter("auth_token_url", auth_token_url)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
 
     @property
     @pulumi.getter(name="authTokenUrl")
@@ -119,7 +146,20 @@ class AdmCredentialResponse(dict):
         Description of a NotificationHub AdmCredential.
         :param 'AdmCredentialPropertiesResponse' properties: Description of a NotificationHub AdmCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        AdmCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.AdmCredentialPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -183,21 +223,58 @@ class ApnsCredentialPropertiesResponse(dict):
         :param str token: Gets or sets provider Authentication Token, obtained through your
                developer account
         """
-        pulumi.set(__self__, "endpoint", endpoint)
+        ApnsCredentialPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            apns_certificate=apns_certificate,
+            app_id=app_id,
+            app_name=app_name,
+            certificate_key=certificate_key,
+            key_id=key_id,
+            thumbprint=thumbprint,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[str] = None,
+             apns_certificate: Optional[str] = None,
+             app_id: Optional[str] = None,
+             app_name: Optional[str] = None,
+             certificate_key: Optional[str] = None,
+             key_id: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if apns_certificate is None and 'apnsCertificate' in kwargs:
+            apns_certificate = kwargs['apnsCertificate']
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_name is None and 'appName' in kwargs:
+            app_name = kwargs['appName']
+        if certificate_key is None and 'certificateKey' in kwargs:
+            certificate_key = kwargs['certificateKey']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
+        _setter("endpoint", endpoint)
         if apns_certificate is not None:
-            pulumi.set(__self__, "apns_certificate", apns_certificate)
+            _setter("apns_certificate", apns_certificate)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if app_name is not None:
-            pulumi.set(__self__, "app_name", app_name)
+            _setter("app_name", app_name)
         if certificate_key is not None:
-            pulumi.set(__self__, "certificate_key", certificate_key)
+            _setter("certificate_key", certificate_key)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
 
     @property
     @pulumi.getter
@@ -278,7 +355,20 @@ class ApnsCredentialResponse(dict):
         Description of a NotificationHub ApnsCredential.
         :param 'ApnsCredentialPropertiesResponse' properties: Description of a NotificationHub ApnsCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        ApnsCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.ApnsCredentialPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -325,9 +415,36 @@ class BaiduCredentialPropertiesResponse(dict):
         :param str baidu_end_point: Gets or sets baidu Endpoint.
         :param str baidu_secret_key: Gets or sets baidu Secret Key
         """
-        pulumi.set(__self__, "baidu_api_key", baidu_api_key)
-        pulumi.set(__self__, "baidu_end_point", baidu_end_point)
-        pulumi.set(__self__, "baidu_secret_key", baidu_secret_key)
+        BaiduCredentialPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            baidu_api_key=baidu_api_key,
+            baidu_end_point=baidu_end_point,
+            baidu_secret_key=baidu_secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             baidu_api_key: Optional[str] = None,
+             baidu_end_point: Optional[str] = None,
+             baidu_secret_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if baidu_api_key is None and 'baiduApiKey' in kwargs:
+            baidu_api_key = kwargs['baiduApiKey']
+        if baidu_api_key is None:
+            raise TypeError("Missing 'baidu_api_key' argument")
+        if baidu_end_point is None and 'baiduEndPoint' in kwargs:
+            baidu_end_point = kwargs['baiduEndPoint']
+        if baidu_end_point is None:
+            raise TypeError("Missing 'baidu_end_point' argument")
+        if baidu_secret_key is None and 'baiduSecretKey' in kwargs:
+            baidu_secret_key = kwargs['baiduSecretKey']
+        if baidu_secret_key is None:
+            raise TypeError("Missing 'baidu_secret_key' argument")
+
+        _setter("baidu_api_key", baidu_api_key)
+        _setter("baidu_end_point", baidu_end_point)
+        _setter("baidu_secret_key", baidu_secret_key)
 
     @property
     @pulumi.getter(name="baiduApiKey")
@@ -365,7 +482,20 @@ class BaiduCredentialResponse(dict):
         Description of a NotificationHub BaiduCredential.
         :param 'BaiduCredentialPropertiesResponse' properties: Description of a NotificationHub BaiduCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        BaiduCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.BaiduCredentialPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -410,9 +540,34 @@ class BrowserCredentialPropertiesResponse(dict):
         :param str vapid_private_key: Gets or sets VAPID private key.
         :param str vapid_public_key: Gets or sets VAPID public key.
         """
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "vapid_private_key", vapid_private_key)
-        pulumi.set(__self__, "vapid_public_key", vapid_public_key)
+        BrowserCredentialPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subject=subject,
+            vapid_private_key=vapid_private_key,
+            vapid_public_key=vapid_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subject: Optional[str] = None,
+             vapid_private_key: Optional[str] = None,
+             vapid_public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if vapid_private_key is None and 'vapidPrivateKey' in kwargs:
+            vapid_private_key = kwargs['vapidPrivateKey']
+        if vapid_private_key is None:
+            raise TypeError("Missing 'vapid_private_key' argument")
+        if vapid_public_key is None and 'vapidPublicKey' in kwargs:
+            vapid_public_key = kwargs['vapidPublicKey']
+        if vapid_public_key is None:
+            raise TypeError("Missing 'vapid_public_key' argument")
+
+        _setter("subject", subject)
+        _setter("vapid_private_key", vapid_private_key)
+        _setter("vapid_public_key", vapid_public_key)
 
     @property
     @pulumi.getter
@@ -450,7 +605,20 @@ class BrowserCredentialResponse(dict):
         Description of a NotificationHub BrowserCredential.
         :param 'BrowserCredentialPropertiesResponse' properties: Description of a NotificationHub BrowserCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        BrowserCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.BrowserCredentialPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -493,9 +661,28 @@ class GcmCredentialPropertiesResponse(dict):
         :param str google_api_key: Gets or sets the Google API key.
         :param str gcm_endpoint: Gets or sets the GCM endpoint.
         """
-        pulumi.set(__self__, "google_api_key", google_api_key)
+        GcmCredentialPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            google_api_key=google_api_key,
+            gcm_endpoint=gcm_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             google_api_key: Optional[str] = None,
+             gcm_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if google_api_key is None and 'googleApiKey' in kwargs:
+            google_api_key = kwargs['googleApiKey']
+        if google_api_key is None:
+            raise TypeError("Missing 'google_api_key' argument")
+        if gcm_endpoint is None and 'gcmEndpoint' in kwargs:
+            gcm_endpoint = kwargs['gcmEndpoint']
+
+        _setter("google_api_key", google_api_key)
         if gcm_endpoint is not None:
-            pulumi.set(__self__, "gcm_endpoint", gcm_endpoint)
+            _setter("gcm_endpoint", gcm_endpoint)
 
     @property
     @pulumi.getter(name="googleApiKey")
@@ -525,7 +712,20 @@ class GcmCredentialResponse(dict):
         Description of a NotificationHub GcmCredential.
         :param 'GcmCredentialPropertiesResponse' properties: Description of a NotificationHub GcmCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        GcmCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.GcmCredentialPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -566,8 +766,27 @@ class IpRuleResponse(dict):
         :param str ip_mask: IP mask.
         :param Sequence[str] rights: List of access rights.
         """
-        pulumi.set(__self__, "ip_mask", ip_mask)
-        pulumi.set(__self__, "rights", rights)
+        IpRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_mask=ip_mask,
+            rights=rights,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_mask: Optional[str] = None,
+             rights: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_mask is None and 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+        if ip_mask is None:
+            raise TypeError("Missing 'ip_mask' argument")
+        if rights is None:
+            raise TypeError("Missing 'rights' argument")
+
+        _setter("ip_mask", ip_mask)
+        _setter("rights", rights)
 
     @property
     @pulumi.getter(name="ipMask")
@@ -620,9 +839,34 @@ class MpnsCredentialPropertiesResponse(dict):
         :param str mpns_certificate: Gets or sets the MPNS certificate.
         :param str thumbprint: Gets or sets the MPNS certificate Thumbprint
         """
-        pulumi.set(__self__, "certificate_key", certificate_key)
-        pulumi.set(__self__, "mpns_certificate", mpns_certificate)
-        pulumi.set(__self__, "thumbprint", thumbprint)
+        MpnsCredentialPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_key=certificate_key,
+            mpns_certificate=mpns_certificate,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_key: Optional[str] = None,
+             mpns_certificate: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_key is None and 'certificateKey' in kwargs:
+            certificate_key = kwargs['certificateKey']
+        if certificate_key is None:
+            raise TypeError("Missing 'certificate_key' argument")
+        if mpns_certificate is None and 'mpnsCertificate' in kwargs:
+            mpns_certificate = kwargs['mpnsCertificate']
+        if mpns_certificate is None:
+            raise TypeError("Missing 'mpns_certificate' argument")
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+
+        _setter("certificate_key", certificate_key)
+        _setter("mpns_certificate", mpns_certificate)
+        _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="certificateKey")
@@ -660,7 +904,20 @@ class MpnsCredentialResponse(dict):
         Description of a NotificationHub MpnsCredential.
         :param 'MpnsCredentialPropertiesResponse' properties: Description of a NotificationHub MpnsCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        MpnsCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.MpnsCredentialPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -768,36 +1025,135 @@ class NamespacePropertiesResponse(dict):
         :param str status: Namespace status.
         :param str zone_redundancy: Namespace SKU name.
         """
-        pulumi.set(__self__, "created_at", created_at)
-        pulumi.set(__self__, "critical", critical)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "metric_id", metric_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "region", region)
-        pulumi.set(__self__, "service_bus_endpoint", service_bus_endpoint)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "updated_at", updated_at)
+        NamespacePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            critical=critical,
+            enabled=enabled,
+            metric_id=metric_id,
+            name=name,
+            private_endpoint_connections=private_endpoint_connections,
+            region=region,
+            service_bus_endpoint=service_bus_endpoint,
+            subscription_id=subscription_id,
+            updated_at=updated_at,
+            data_center=data_center,
+            namespace_type=namespace_type,
+            network_acls=network_acls,
+            pns_credentials=pns_credentials,
+            provisioning_state=provisioning_state,
+            public_network_access=public_network_access,
+            replication_region=replication_region,
+            scale_unit=scale_unit,
+            status=status,
+            zone_redundancy=zone_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             critical: Optional[bool] = None,
+             enabled: Optional[bool] = None,
+             metric_id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResourceResponse']] = None,
+             region: Optional[str] = None,
+             service_bus_endpoint: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             updated_at: Optional[str] = None,
+             data_center: Optional[str] = None,
+             namespace_type: Optional[str] = None,
+             network_acls: Optional['outputs.NetworkAclsResponse'] = None,
+             pns_credentials: Optional['outputs.PnsCredentialsResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             public_network_access: Optional[str] = None,
+             replication_region: Optional[str] = None,
+             scale_unit: Optional[str] = None,
+             status: Optional[str] = None,
+             zone_redundancy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_at is None:
+            raise TypeError("Missing 'created_at' argument")
+        if critical is None:
+            raise TypeError("Missing 'critical' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if metric_id is None and 'metricId' in kwargs:
+            metric_id = kwargs['metricId']
+        if metric_id is None:
+            raise TypeError("Missing 'metric_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if private_endpoint_connections is None:
+            raise TypeError("Missing 'private_endpoint_connections' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if service_bus_endpoint is None and 'serviceBusEndpoint' in kwargs:
+            service_bus_endpoint = kwargs['serviceBusEndpoint']
+        if service_bus_endpoint is None:
+            raise TypeError("Missing 'service_bus_endpoint' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if updated_at is None:
+            raise TypeError("Missing 'updated_at' argument")
+        if data_center is None and 'dataCenter' in kwargs:
+            data_center = kwargs['dataCenter']
+        if namespace_type is None and 'namespaceType' in kwargs:
+            namespace_type = kwargs['namespaceType']
+        if network_acls is None and 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if pns_credentials is None and 'pnsCredentials' in kwargs:
+            pns_credentials = kwargs['pnsCredentials']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if replication_region is None and 'replicationRegion' in kwargs:
+            replication_region = kwargs['replicationRegion']
+        if scale_unit is None and 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+        if zone_redundancy is None and 'zoneRedundancy' in kwargs:
+            zone_redundancy = kwargs['zoneRedundancy']
+
+        _setter("created_at", created_at)
+        _setter("critical", critical)
+        _setter("enabled", enabled)
+        _setter("metric_id", metric_id)
+        _setter("name", name)
+        _setter("private_endpoint_connections", private_endpoint_connections)
+        _setter("region", region)
+        _setter("service_bus_endpoint", service_bus_endpoint)
+        _setter("subscription_id", subscription_id)
+        _setter("updated_at", updated_at)
         if data_center is not None:
-            pulumi.set(__self__, "data_center", data_center)
+            _setter("data_center", data_center)
         if namespace_type is not None:
-            pulumi.set(__self__, "namespace_type", namespace_type)
+            _setter("namespace_type", namespace_type)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if pns_credentials is not None:
-            pulumi.set(__self__, "pns_credentials", pns_credentials)
+            _setter("pns_credentials", pns_credentials)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if replication_region is not None:
-            pulumi.set(__self__, "replication_region", replication_region)
+            _setter("replication_region", replication_region)
         if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
+            _setter("scale_unit", scale_unit)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if zone_redundancy is not None:
-            pulumi.set(__self__, "zone_redundancy", zone_redundancy)
+            _setter("zone_redundancy", zone_redundancy)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -995,10 +1351,27 @@ class NetworkAclsResponse(dict):
         :param Sequence['IpRuleResponse'] ip_rules: List of IP rules.
         :param 'PublicInternetAuthorizationRuleResponse' public_network_rule: A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
         """
+        NetworkAclsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_rules=ip_rules,
+            public_network_rule=public_network_rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None,
+             public_network_rule: Optional['outputs.PublicInternetAuthorizationRuleResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if public_network_rule is None and 'publicNetworkRule' in kwargs:
+            public_network_rule = kwargs['publicNetworkRule']
+
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if public_network_rule is not None:
-            pulumi.set(__self__, "public_network_rule", public_network_rule)
+            _setter("public_network_rule", public_network_rule)
 
     @property
     @pulumi.getter(name="ipRules")
@@ -1086,28 +1459,87 @@ class NotificationHubPropertiesResponse(dict):
         :param 'WnsCredentialResponse' wns_credential: Description of a NotificationHub WnsCredential.
         :param 'XiaomiCredentialResponse' xiaomi_credential: Description of a NotificationHub XiaomiCredential.
         """
-        pulumi.set(__self__, "authorization_rules", authorization_rules)
-        pulumi.set(__self__, "daily_max_active_devices", daily_max_active_devices)
+        NotificationHubPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_rules=authorization_rules,
+            daily_max_active_devices=daily_max_active_devices,
+            adm_credential=adm_credential,
+            apns_credential=apns_credential,
+            baidu_credential=baidu_credential,
+            browser_credential=browser_credential,
+            gcm_credential=gcm_credential,
+            mpns_credential=mpns_credential,
+            name=name,
+            registration_ttl=registration_ttl,
+            wns_credential=wns_credential,
+            xiaomi_credential=xiaomi_credential,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_rules: Optional[Sequence['outputs.SharedAccessAuthorizationRulePropertiesResponse']] = None,
+             daily_max_active_devices: Optional[float] = None,
+             adm_credential: Optional['outputs.AdmCredentialResponse'] = None,
+             apns_credential: Optional['outputs.ApnsCredentialResponse'] = None,
+             baidu_credential: Optional['outputs.BaiduCredentialResponse'] = None,
+             browser_credential: Optional['outputs.BrowserCredentialResponse'] = None,
+             gcm_credential: Optional['outputs.GcmCredentialResponse'] = None,
+             mpns_credential: Optional['outputs.MpnsCredentialResponse'] = None,
+             name: Optional[str] = None,
+             registration_ttl: Optional[str] = None,
+             wns_credential: Optional['outputs.WnsCredentialResponse'] = None,
+             xiaomi_credential: Optional['outputs.XiaomiCredentialResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_rules is None and 'authorizationRules' in kwargs:
+            authorization_rules = kwargs['authorizationRules']
+        if authorization_rules is None:
+            raise TypeError("Missing 'authorization_rules' argument")
+        if daily_max_active_devices is None and 'dailyMaxActiveDevices' in kwargs:
+            daily_max_active_devices = kwargs['dailyMaxActiveDevices']
+        if daily_max_active_devices is None:
+            raise TypeError("Missing 'daily_max_active_devices' argument")
+        if adm_credential is None and 'admCredential' in kwargs:
+            adm_credential = kwargs['admCredential']
+        if apns_credential is None and 'apnsCredential' in kwargs:
+            apns_credential = kwargs['apnsCredential']
+        if baidu_credential is None and 'baiduCredential' in kwargs:
+            baidu_credential = kwargs['baiduCredential']
+        if browser_credential is None and 'browserCredential' in kwargs:
+            browser_credential = kwargs['browserCredential']
+        if gcm_credential is None and 'gcmCredential' in kwargs:
+            gcm_credential = kwargs['gcmCredential']
+        if mpns_credential is None and 'mpnsCredential' in kwargs:
+            mpns_credential = kwargs['mpnsCredential']
+        if registration_ttl is None and 'registrationTtl' in kwargs:
+            registration_ttl = kwargs['registrationTtl']
+        if wns_credential is None and 'wnsCredential' in kwargs:
+            wns_credential = kwargs['wnsCredential']
+        if xiaomi_credential is None and 'xiaomiCredential' in kwargs:
+            xiaomi_credential = kwargs['xiaomiCredential']
+
+        _setter("authorization_rules", authorization_rules)
+        _setter("daily_max_active_devices", daily_max_active_devices)
         if adm_credential is not None:
-            pulumi.set(__self__, "adm_credential", adm_credential)
+            _setter("adm_credential", adm_credential)
         if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
+            _setter("apns_credential", apns_credential)
         if baidu_credential is not None:
-            pulumi.set(__self__, "baidu_credential", baidu_credential)
+            _setter("baidu_credential", baidu_credential)
         if browser_credential is not None:
-            pulumi.set(__self__, "browser_credential", browser_credential)
+            _setter("browser_credential", browser_credential)
         if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
+            _setter("gcm_credential", gcm_credential)
         if mpns_credential is not None:
-            pulumi.set(__self__, "mpns_credential", mpns_credential)
+            _setter("mpns_credential", mpns_credential)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registration_ttl is not None:
-            pulumi.set(__self__, "registration_ttl", registration_ttl)
+            _setter("registration_ttl", registration_ttl)
         if wns_credential is not None:
-            pulumi.set(__self__, "wns_credential", wns_credential)
+            _setter("wns_credential", wns_credential)
         if xiaomi_credential is not None:
-            pulumi.set(__self__, "xiaomi_credential", xiaomi_credential)
+            _setter("xiaomi_credential", xiaomi_credential)
 
     @property
     @pulumi.getter(name="authorizationRules")
@@ -1259,22 +1691,63 @@ class PnsCredentialsResponse(dict):
         :param 'WnsCredentialResponse' wns_credential: Description of a NotificationHub WnsCredential.
         :param 'XiaomiCredentialResponse' xiaomi_credential: Description of a NotificationHub XiaomiCredential.
         """
+        PnsCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adm_credential=adm_credential,
+            apns_credential=apns_credential,
+            baidu_credential=baidu_credential,
+            browser_credential=browser_credential,
+            gcm_credential=gcm_credential,
+            mpns_credential=mpns_credential,
+            wns_credential=wns_credential,
+            xiaomi_credential=xiaomi_credential,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adm_credential: Optional['outputs.AdmCredentialResponse'] = None,
+             apns_credential: Optional['outputs.ApnsCredentialResponse'] = None,
+             baidu_credential: Optional['outputs.BaiduCredentialResponse'] = None,
+             browser_credential: Optional['outputs.BrowserCredentialResponse'] = None,
+             gcm_credential: Optional['outputs.GcmCredentialResponse'] = None,
+             mpns_credential: Optional['outputs.MpnsCredentialResponse'] = None,
+             wns_credential: Optional['outputs.WnsCredentialResponse'] = None,
+             xiaomi_credential: Optional['outputs.XiaomiCredentialResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if adm_credential is None and 'admCredential' in kwargs:
+            adm_credential = kwargs['admCredential']
+        if apns_credential is None and 'apnsCredential' in kwargs:
+            apns_credential = kwargs['apnsCredential']
+        if baidu_credential is None and 'baiduCredential' in kwargs:
+            baidu_credential = kwargs['baiduCredential']
+        if browser_credential is None and 'browserCredential' in kwargs:
+            browser_credential = kwargs['browserCredential']
+        if gcm_credential is None and 'gcmCredential' in kwargs:
+            gcm_credential = kwargs['gcmCredential']
+        if mpns_credential is None and 'mpnsCredential' in kwargs:
+            mpns_credential = kwargs['mpnsCredential']
+        if wns_credential is None and 'wnsCredential' in kwargs:
+            wns_credential = kwargs['wnsCredential']
+        if xiaomi_credential is None and 'xiaomiCredential' in kwargs:
+            xiaomi_credential = kwargs['xiaomiCredential']
+
         if adm_credential is not None:
-            pulumi.set(__self__, "adm_credential", adm_credential)
+            _setter("adm_credential", adm_credential)
         if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
+            _setter("apns_credential", apns_credential)
         if baidu_credential is not None:
-            pulumi.set(__self__, "baidu_credential", baidu_credential)
+            _setter("baidu_credential", baidu_credential)
         if browser_credential is not None:
-            pulumi.set(__self__, "browser_credential", browser_credential)
+            _setter("browser_credential", browser_credential)
         if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
+            _setter("gcm_credential", gcm_credential)
         if mpns_credential is not None:
-            pulumi.set(__self__, "mpns_credential", mpns_credential)
+            _setter("mpns_credential", mpns_credential)
         if wns_credential is not None:
-            pulumi.set(__self__, "wns_credential", wns_credential)
+            _setter("wns_credential", wns_credential)
         if xiaomi_credential is not None:
-            pulumi.set(__self__, "xiaomi_credential", xiaomi_credential)
+            _setter("xiaomi_credential", xiaomi_credential)
 
     @property
     @pulumi.getter(name="admCredential")
@@ -1381,13 +1854,40 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         :param 'RemotePrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: State of the Private Link Service connection.
         :param str provisioning_state: State of Private Endpoint Connection.
         """
-        pulumi.set(__self__, "group_ids", group_ids)
+        PrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[Sequence[str]] = None,
+             private_endpoint: Optional['outputs.RemotePrivateEndpointConnectionResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.RemotePrivateLinkServiceConnectionStateResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if group_ids is None:
+            raise TypeError("Missing 'group_ids' argument")
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("group_ids", group_ids)
         if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
+            _setter("private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -1458,12 +1958,41 @@ class PrivateEndpointConnectionResourceResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointConnectionPropertiesResponse' properties: Private Endpoint Connection properties.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            system_data=system_data,
+            type=type,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1517,7 +2046,20 @@ class PublicInternetAuthorizationRuleResponse(dict):
         A default (public Internet) network authorization rule, which contains rights if no other network rule matches.
         :param Sequence[str] rights: List of access rights.
         """
-        pulumi.set(__self__, "rights", rights)
+        PublicInternetAuthorizationRuleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rights=rights,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rights: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rights is None:
+            raise TypeError("Missing 'rights' argument")
+
+        _setter("rights", rights)
 
     @property
     @pulumi.getter
@@ -1539,7 +2081,20 @@ class RemotePrivateEndpointConnectionResponse(dict):
         Represents a Private Endpoint that is connected to Notification Hubs namespace using Private Endpoint Connection.
         :param str id: ARM resource ID of the Private Endpoint. This may belong to different subscription and resource group than a Notification Hubs namespace.
         """
-        pulumi.set(__self__, "id", id)
+        RemotePrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1582,10 +2137,31 @@ class RemotePrivateLinkServiceConnectionStateResponse(dict):
         :param str description: Human-friendly description.
         :param str status: State of Private Link Connection.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
+        RemotePrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+        if actions_required is None:
+            raise TypeError("Missing 'actions_required' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+
+        _setter("actions_required", actions_required)
+        _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1670,17 +2246,72 @@ class SharedAccessAuthorizationRulePropertiesResponse(dict):
         :param str secondary_key: Gets a base64-encoded 256-bit primary key for signing and
                validating the SAS token.
         """
-        pulumi.set(__self__, "claim_type", claim_type)
-        pulumi.set(__self__, "claim_value", claim_value)
-        pulumi.set(__self__, "created_time", created_time)
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "modified_time", modified_time)
-        pulumi.set(__self__, "revision", revision)
-        pulumi.set(__self__, "rights", rights)
+        SharedAccessAuthorizationRulePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            claim_type=claim_type,
+            claim_value=claim_value,
+            created_time=created_time,
+            key_name=key_name,
+            modified_time=modified_time,
+            revision=revision,
+            rights=rights,
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             claim_type: Optional[str] = None,
+             claim_value: Optional[str] = None,
+             created_time: Optional[str] = None,
+             key_name: Optional[str] = None,
+             modified_time: Optional[str] = None,
+             revision: Optional[int] = None,
+             rights: Optional[Sequence[str]] = None,
+             primary_key: Optional[str] = None,
+             secondary_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if claim_type is None and 'claimType' in kwargs:
+            claim_type = kwargs['claimType']
+        if claim_type is None:
+            raise TypeError("Missing 'claim_type' argument")
+        if claim_value is None and 'claimValue' in kwargs:
+            claim_value = kwargs['claimValue']
+        if claim_value is None:
+            raise TypeError("Missing 'claim_value' argument")
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if created_time is None:
+            raise TypeError("Missing 'created_time' argument")
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if modified_time is None and 'modifiedTime' in kwargs:
+            modified_time = kwargs['modifiedTime']
+        if modified_time is None:
+            raise TypeError("Missing 'modified_time' argument")
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+        if rights is None:
+            raise TypeError("Missing 'rights' argument")
+        if primary_key is None and 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if secondary_key is None and 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
+        _setter("claim_type", claim_type)
+        _setter("claim_value", claim_value)
+        _setter("created_time", created_time)
+        _setter("key_name", key_name)
+        _setter("modified_time", modified_time)
+        _setter("revision", revision)
+        _setter("rights", rights)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
 
     @property
     @pulumi.getter(name="claimType")
@@ -1776,15 +2407,36 @@ class SkuResponse(dict):
         :param str size: Gets or sets the Sku size
         :param str tier: Gets or sets the tier of particular sku
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -1875,18 +2527,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1981,16 +2666,45 @@ class WnsCredentialPropertiesResponse(dict):
         :param str windows_live_endpoint: Gets or sets the Windows Live endpoint.
         :param str wns_certificate: Gets or sets the WNS Certificate.
         """
+        WnsCredentialPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_key=certificate_key,
+            package_sid=package_sid,
+            secret_key=secret_key,
+            windows_live_endpoint=windows_live_endpoint,
+            wns_certificate=wns_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_key: Optional[str] = None,
+             package_sid: Optional[str] = None,
+             secret_key: Optional[str] = None,
+             windows_live_endpoint: Optional[str] = None,
+             wns_certificate: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_key is None and 'certificateKey' in kwargs:
+            certificate_key = kwargs['certificateKey']
+        if package_sid is None and 'packageSid' in kwargs:
+            package_sid = kwargs['packageSid']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if windows_live_endpoint is None and 'windowsLiveEndpoint' in kwargs:
+            windows_live_endpoint = kwargs['windowsLiveEndpoint']
+        if wns_certificate is None and 'wnsCertificate' in kwargs:
+            wns_certificate = kwargs['wnsCertificate']
+
         if certificate_key is not None:
-            pulumi.set(__self__, "certificate_key", certificate_key)
+            _setter("certificate_key", certificate_key)
         if package_sid is not None:
-            pulumi.set(__self__, "package_sid", package_sid)
+            _setter("package_sid", package_sid)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
         if windows_live_endpoint is not None:
-            pulumi.set(__self__, "windows_live_endpoint", windows_live_endpoint)
+            _setter("windows_live_endpoint", windows_live_endpoint)
         if wns_certificate is not None:
-            pulumi.set(__self__, "wns_certificate", wns_certificate)
+            _setter("wns_certificate", wns_certificate)
 
     @property
     @pulumi.getter(name="certificateKey")
@@ -2044,7 +2758,20 @@ class WnsCredentialResponse(dict):
         Description of a NotificationHub WnsCredential.
         :param 'WnsCredentialPropertiesResponse' properties: Description of a NotificationHub WnsCredential.
         """
-        pulumi.set(__self__, "properties", properties)
+        WnsCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.WnsCredentialPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -2085,10 +2812,25 @@ class XiaomiCredentialPropertiesResponse(dict):
         :param str app_secret: Gets or sets app secret.
         :param str endpoint: Gets or sets xiaomi service endpoint.
         """
+        XiaomiCredentialPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_secret=app_secret,
+            endpoint=endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_secret: Optional[str] = None,
+             endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_secret is None and 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+
         if app_secret is not None:
-            pulumi.set(__self__, "app_secret", app_secret)
+            _setter("app_secret", app_secret)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
 
     @property
     @pulumi.getter(name="appSecret")
@@ -2118,7 +2860,20 @@ class XiaomiCredentialResponse(dict):
         Description of a NotificationHub XiaomiCredential.
         :param 'XiaomiCredentialPropertiesResponse' properties: Description of a NotificationHub XiaomiCredentialProperties.
         """
-        pulumi.set(__self__, "properties", properties)
+        XiaomiCredentialResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional['outputs.XiaomiCredentialPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter

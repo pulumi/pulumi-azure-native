@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['CosmosDbDataConnectionArgs', 'CosmosDbDataConnection']
@@ -44,23 +44,98 @@ class CosmosDbDataConnectionArgs:
         :param pulumi.Input[str] mapping_rule_name: The name of an existing mapping rule to use when ingesting the retrieved data.
         :param pulumi.Input[str] retrieval_start_date: Optional. If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cosmos_db_account_resource_id", cosmos_db_account_resource_id)
-        pulumi.set(__self__, "cosmos_db_container", cosmos_db_container)
-        pulumi.set(__self__, "cosmos_db_database", cosmos_db_database)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "kind", 'CosmosDb')
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "table_name", table_name)
+        CosmosDbDataConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            cosmos_db_account_resource_id=cosmos_db_account_resource_id,
+            cosmos_db_container=cosmos_db_container,
+            cosmos_db_database=cosmos_db_database,
+            database_name=database_name,
+            kind=kind,
+            managed_identity_resource_id=managed_identity_resource_id,
+            resource_group_name=resource_group_name,
+            table_name=table_name,
+            data_connection_name=data_connection_name,
+            location=location,
+            mapping_rule_name=mapping_rule_name,
+            retrieval_start_date=retrieval_start_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cosmos_db_account_resource_id: Optional[pulumi.Input[str]] = None,
+             cosmos_db_container: Optional[pulumi.Input[str]] = None,
+             cosmos_db_database: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             data_connection_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             retrieval_start_date: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if cosmos_db_account_resource_id is None and 'cosmosDbAccountResourceId' in kwargs:
+            cosmos_db_account_resource_id = kwargs['cosmosDbAccountResourceId']
+        if cosmos_db_account_resource_id is None:
+            raise TypeError("Missing 'cosmos_db_account_resource_id' argument")
+        if cosmos_db_container is None and 'cosmosDbContainer' in kwargs:
+            cosmos_db_container = kwargs['cosmosDbContainer']
+        if cosmos_db_container is None:
+            raise TypeError("Missing 'cosmos_db_container' argument")
+        if cosmos_db_database is None and 'cosmosDbDatabase' in kwargs:
+            cosmos_db_database = kwargs['cosmosDbDatabase']
+        if cosmos_db_database is None:
+            raise TypeError("Missing 'cosmos_db_database' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if managed_identity_resource_id is None:
+            raise TypeError("Missing 'managed_identity_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if data_connection_name is None and 'dataConnectionName' in kwargs:
+            data_connection_name = kwargs['dataConnectionName']
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if retrieval_start_date is None and 'retrievalStartDate' in kwargs:
+            retrieval_start_date = kwargs['retrievalStartDate']
+
+        _setter("cluster_name", cluster_name)
+        _setter("cosmos_db_account_resource_id", cosmos_db_account_resource_id)
+        _setter("cosmos_db_container", cosmos_db_container)
+        _setter("cosmos_db_database", cosmos_db_database)
+        _setter("database_name", database_name)
+        _setter("kind", 'CosmosDb')
+        _setter("managed_identity_resource_id", managed_identity_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("table_name", table_name)
         if data_connection_name is not None:
-            pulumi.set(__self__, "data_connection_name", data_connection_name)
+            _setter("data_connection_name", data_connection_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if retrieval_start_date is not None:
-            pulumi.set(__self__, "retrieval_start_date", retrieval_start_date)
+            _setter("retrieval_start_date", retrieval_start_date)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -278,6 +353,10 @@ class CosmosDbDataConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CosmosDbDataConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

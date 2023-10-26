@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,64 @@ class StandardArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]] supported_clouds: List of all standard supported clouds.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StandardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            category=category,
+            components=components,
+            description=description,
+            display_name=display_name,
+            kind=kind,
+            location=location,
+            standard_id=standard_id,
+            supported_clouds=supported_clouds,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             category: Optional[pulumi.Input[str]] = None,
+             components: Optional[pulumi.Input[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             standard_id: Optional[pulumi.Input[str]] = None,
+             supported_clouds: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if standard_id is None and 'standardId' in kwargs:
+            standard_id = kwargs['standardId']
+        if supported_clouds is None and 'supportedClouds' in kwargs:
+            supported_clouds = kwargs['supportedClouds']
+
+        _setter("resource_group_name", resource_group_name)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if components is not None:
-            pulumi.set(__self__, "components", components)
+            _setter("components", components)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if standard_id is not None:
-            pulumi.set(__self__, "standard_id", standard_id)
+            _setter("standard_id", standard_id)
         if supported_clouds is not None:
-            pulumi.set(__self__, "supported_clouds", supported_clouds)
+            _setter("supported_clouds", supported_clouds)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -232,6 +271,10 @@ class Standard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StandardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

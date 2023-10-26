@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerAzureADOnlyAuthenticationArgs', 'ServerAzureADOnlyAuthentication']
@@ -25,11 +25,42 @@ class ServerAzureADOnlyAuthenticationArgs:
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] authentication_name: The name of server azure active directory only authentication.
         """
-        pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        ServerAzureADOnlyAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_ad_only_authentication=azure_ad_only_authentication,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            authentication_name=authentication_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             authentication_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_ad_only_authentication is None and 'azureADOnlyAuthentication' in kwargs:
+            azure_ad_only_authentication = kwargs['azureADOnlyAuthentication']
+        if azure_ad_only_authentication is None:
+            raise TypeError("Missing 'azure_ad_only_authentication' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if authentication_name is None and 'authenticationName' in kwargs:
+            authentication_name = kwargs['authenticationName']
+
+        _setter("azure_ad_only_authentication", azure_ad_only_authentication)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if authentication_name is not None:
-            pulumi.set(__self__, "authentication_name", authentication_name)
+            _setter("authentication_name", authentication_name)
 
     @property
     @pulumi.getter(name="azureADOnlyAuthentication")
@@ -125,6 +156,10 @@ class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerAzureADOnlyAuthenticationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

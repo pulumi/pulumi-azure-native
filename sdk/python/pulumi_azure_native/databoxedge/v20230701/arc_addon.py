@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -35,15 +35,68 @@ class ArcAddonArgs:
         :param pulumi.Input[str] subscription_id: Arc resource subscription Id
         :param pulumi.Input[str] addon_name: The addon name.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "kind", 'ArcForKubernetes')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_location", resource_location)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "role_name", role_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        ArcAddonArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            resource_location=resource_location,
+            resource_name=resource_name,
+            role_name=role_name,
+            subscription_id=subscription_id,
+            addon_name=addon_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_location: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             addon_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_location is None and 'resourceLocation' in kwargs:
+            resource_location = kwargs['resourceLocation']
+        if resource_location is None:
+            raise TypeError("Missing 'resource_location' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if addon_name is None and 'addonName' in kwargs:
+            addon_name = kwargs['addonName']
+
+        _setter("device_name", device_name)
+        _setter("kind", 'ArcForKubernetes')
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_location", resource_location)
+        _setter("resource_name", resource_name)
+        _setter("role_name", role_name)
+        _setter("subscription_id", subscription_id)
         if addon_name is not None:
-            pulumi.set(__self__, "addon_name", addon_name)
+            _setter("addon_name", addon_name)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -191,6 +244,10 @@ class ArcAddon(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ArcAddonArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -53,26 +53,75 @@ class CognitiveServicesAccountApiPropertiesArgs:
         :param pulumi.Input[str] super_user: (Metrics Advisor Only) The super user of Metrics Advisor.
         :param pulumi.Input[str] website_name: (Metrics Advisor Only) The website name of Metrics Advisor.
         """
+        CognitiveServicesAccountApiPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_client_id=aad_client_id,
+            aad_tenant_id=aad_tenant_id,
+            event_hub_connection_string=event_hub_connection_string,
+            qna_azure_search_endpoint_id=qna_azure_search_endpoint_id,
+            qna_azure_search_endpoint_key=qna_azure_search_endpoint_key,
+            qna_runtime_endpoint=qna_runtime_endpoint,
+            statistics_enabled=statistics_enabled,
+            storage_account_connection_string=storage_account_connection_string,
+            super_user=super_user,
+            website_name=website_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_client_id: Optional[pulumi.Input[str]] = None,
+             aad_tenant_id: Optional[pulumi.Input[str]] = None,
+             event_hub_connection_string: Optional[pulumi.Input[str]] = None,
+             qna_azure_search_endpoint_id: Optional[pulumi.Input[str]] = None,
+             qna_azure_search_endpoint_key: Optional[pulumi.Input[str]] = None,
+             qna_runtime_endpoint: Optional[pulumi.Input[str]] = None,
+             statistics_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_account_connection_string: Optional[pulumi.Input[str]] = None,
+             super_user: Optional[pulumi.Input[str]] = None,
+             website_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aad_client_id is None and 'aadClientId' in kwargs:
+            aad_client_id = kwargs['aadClientId']
+        if aad_tenant_id is None and 'aadTenantId' in kwargs:
+            aad_tenant_id = kwargs['aadTenantId']
+        if event_hub_connection_string is None and 'eventHubConnectionString' in kwargs:
+            event_hub_connection_string = kwargs['eventHubConnectionString']
+        if qna_azure_search_endpoint_id is None and 'qnaAzureSearchEndpointId' in kwargs:
+            qna_azure_search_endpoint_id = kwargs['qnaAzureSearchEndpointId']
+        if qna_azure_search_endpoint_key is None and 'qnaAzureSearchEndpointKey' in kwargs:
+            qna_azure_search_endpoint_key = kwargs['qnaAzureSearchEndpointKey']
+        if qna_runtime_endpoint is None and 'qnaRuntimeEndpoint' in kwargs:
+            qna_runtime_endpoint = kwargs['qnaRuntimeEndpoint']
+        if statistics_enabled is None and 'statisticsEnabled' in kwargs:
+            statistics_enabled = kwargs['statisticsEnabled']
+        if storage_account_connection_string is None and 'storageAccountConnectionString' in kwargs:
+            storage_account_connection_string = kwargs['storageAccountConnectionString']
+        if super_user is None and 'superUser' in kwargs:
+            super_user = kwargs['superUser']
+        if website_name is None and 'websiteName' in kwargs:
+            website_name = kwargs['websiteName']
+
         if aad_client_id is not None:
-            pulumi.set(__self__, "aad_client_id", aad_client_id)
+            _setter("aad_client_id", aad_client_id)
         if aad_tenant_id is not None:
-            pulumi.set(__self__, "aad_tenant_id", aad_tenant_id)
+            _setter("aad_tenant_id", aad_tenant_id)
         if event_hub_connection_string is not None:
-            pulumi.set(__self__, "event_hub_connection_string", event_hub_connection_string)
+            _setter("event_hub_connection_string", event_hub_connection_string)
         if qna_azure_search_endpoint_id is not None:
-            pulumi.set(__self__, "qna_azure_search_endpoint_id", qna_azure_search_endpoint_id)
+            _setter("qna_azure_search_endpoint_id", qna_azure_search_endpoint_id)
         if qna_azure_search_endpoint_key is not None:
-            pulumi.set(__self__, "qna_azure_search_endpoint_key", qna_azure_search_endpoint_key)
+            _setter("qna_azure_search_endpoint_key", qna_azure_search_endpoint_key)
         if qna_runtime_endpoint is not None:
-            pulumi.set(__self__, "qna_runtime_endpoint", qna_runtime_endpoint)
+            _setter("qna_runtime_endpoint", qna_runtime_endpoint)
         if statistics_enabled is not None:
-            pulumi.set(__self__, "statistics_enabled", statistics_enabled)
+            _setter("statistics_enabled", statistics_enabled)
         if storage_account_connection_string is not None:
-            pulumi.set(__self__, "storage_account_connection_string", storage_account_connection_string)
+            _setter("storage_account_connection_string", storage_account_connection_string)
         if super_user is not None:
-            pulumi.set(__self__, "super_user", super_user)
+            _setter("super_user", super_user)
         if website_name is not None:
-            pulumi.set(__self__, "website_name", website_name)
+            _setter("website_name", website_name)
 
     @property
     @pulumi.getter(name="aadClientId")
@@ -215,20 +264,55 @@ class CognitiveServicesAccountPropertiesArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]] user_owned_storage: The storage accounts for this resource.
         """
+        CognitiveServicesAccountPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_properties=api_properties,
+            custom_sub_domain_name=custom_sub_domain_name,
+            encryption=encryption,
+            network_acls=network_acls,
+            private_endpoint_connections=private_endpoint_connections,
+            public_network_access=public_network_access,
+            user_owned_storage=user_owned_storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_properties: Optional[pulumi.Input['CognitiveServicesAccountApiPropertiesArgs']] = None,
+             custom_sub_domain_name: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+             network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             user_owned_storage: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_properties is None and 'apiProperties' in kwargs:
+            api_properties = kwargs['apiProperties']
+        if custom_sub_domain_name is None and 'customSubDomainName' in kwargs:
+            custom_sub_domain_name = kwargs['customSubDomainName']
+        if network_acls is None and 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if user_owned_storage is None and 'userOwnedStorage' in kwargs:
+            user_owned_storage = kwargs['userOwnedStorage']
+
         if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
+            _setter("api_properties", api_properties)
         if custom_sub_domain_name is not None:
-            pulumi.set(__self__, "custom_sub_domain_name", custom_sub_domain_name)
+            _setter("custom_sub_domain_name", custom_sub_domain_name)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if user_owned_storage is not None:
-            pulumi.set(__self__, "user_owned_storage", user_owned_storage)
+            _setter("user_owned_storage", user_owned_storage)
 
     @property
     @pulumi.getter(name="apiProperties")
@@ -325,12 +409,29 @@ class EncryptionArgs:
         :param pulumi.Input[Union[str, 'KeySource']] key_source: Enumerates the possible value of keySource for Encryption
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties of KeyVault
         """
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_source=key_source,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
+             key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_source is None and 'keySource' in kwargs:
+            key_source = kwargs['keySource']
+        if key_vault_properties is None and 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
         if key_source is None:
             key_source = 'Microsoft.KeyVault'
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter(name="keySource")
@@ -367,10 +468,25 @@ class IdentityArgs:
         :param pulumi.Input['IdentityType'] type: Type of managed service identity.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['IdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -405,7 +521,20 @@ class IpRuleArgs:
         A rule governing the accessibility from a specific ip address or ip range.
         :param pulumi.Input[str] value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
-        pulumi.set(__self__, "value", value)
+        IpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -432,12 +561,33 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_uri: Uri of KeyVault
         :param pulumi.Input[str] key_version: Version of the Key from KeyVault
         """
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -488,12 +638,33 @@ class NetworkRuleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: The list of IP address rules.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
+        NetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_rules=virtual_network_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None,
+             virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if virtual_network_rules is None and 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+            _setter("virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -542,9 +713,28 @@ class PrivateEndpointConnectionPropertiesArgs:
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The private link resource group ids.
         """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        PrivateEndpointConnectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+            group_ids=group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -581,10 +771,23 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input[str] location: The location of the private endpoint connection
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Resource properties.
         """
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -623,12 +826,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -675,7 +895,20 @@ class SkuArgs:
         The SKU of the cognitive services account.
         :param pulumi.Input[str] name: Gets or sets the sku name. Required for account creation, optional for update.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -700,10 +933,27 @@ class UserAssignedIdentityArgs:
         :param pulumi.Input[str] client_id: Client App Id associated with this identity.
         :param pulumi.Input[str] principal_id: Azure Active Directory principal ID associated with this Identity.
         """
+        UserAssignedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -738,8 +988,21 @@ class UserOwnedStorageArgs:
         The user owned storage for Cognitive Services account.
         :param pulumi.Input[str] resource_id: Full resource id of a Microsoft.Storage resource.
         """
+        UserOwnedStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -766,11 +1029,30 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Ignore missing vnet service endpoint or not.
         :param pulumi.Input[str] state: Gets the state of virtual network rule.
         """
-        pulumi.set(__self__, "id", id)
+        VirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
+        _setter("id", id)
         if ignore_missing_vnet_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -39,22 +39,71 @@ class ChannelArgs:
         :param pulumi.Input[Union[str, 'ChannelProvisioningState']] provisioning_state: Provisioning state of the channel.
         :param pulumi.Input[Union[str, 'ReadinessState']] readiness_state: The readiness state of the corresponding partner topic.
         """
-        pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ChannelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_namespace_name=partner_namespace_name,
+            resource_group_name=resource_group_name,
+            channel_name=channel_name,
+            channel_type=channel_type,
+            expiration_time_if_not_activated_utc=expiration_time_if_not_activated_utc,
+            message_for_activation=message_for_activation,
+            partner_topic_info=partner_topic_info,
+            provisioning_state=provisioning_state,
+            readiness_state=readiness_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             channel_name: Optional[pulumi.Input[str]] = None,
+             channel_type: Optional[pulumi.Input[Union[str, 'ChannelType']]] = None,
+             expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
+             message_for_activation: Optional[pulumi.Input[str]] = None,
+             partner_topic_info: Optional[pulumi.Input['PartnerTopicInfoArgs']] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ChannelProvisioningState']]] = None,
+             readiness_state: Optional[pulumi.Input[Union[str, 'ReadinessState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if partner_namespace_name is None and 'partnerNamespaceName' in kwargs:
+            partner_namespace_name = kwargs['partnerNamespaceName']
+        if partner_namespace_name is None:
+            raise TypeError("Missing 'partner_namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if channel_type is None and 'channelType' in kwargs:
+            channel_type = kwargs['channelType']
+        if expiration_time_if_not_activated_utc is None and 'expirationTimeIfNotActivatedUtc' in kwargs:
+            expiration_time_if_not_activated_utc = kwargs['expirationTimeIfNotActivatedUtc']
+        if message_for_activation is None and 'messageForActivation' in kwargs:
+            message_for_activation = kwargs['messageForActivation']
+        if partner_topic_info is None and 'partnerTopicInfo' in kwargs:
+            partner_topic_info = kwargs['partnerTopicInfo']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if readiness_state is None and 'readinessState' in kwargs:
+            readiness_state = kwargs['readinessState']
+
+        _setter("partner_namespace_name", partner_namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if channel_name is not None:
-            pulumi.set(__self__, "channel_name", channel_name)
+            _setter("channel_name", channel_name)
         if channel_type is not None:
-            pulumi.set(__self__, "channel_type", channel_type)
+            _setter("channel_type", channel_type)
         if expiration_time_if_not_activated_utc is not None:
-            pulumi.set(__self__, "expiration_time_if_not_activated_utc", expiration_time_if_not_activated_utc)
+            _setter("expiration_time_if_not_activated_utc", expiration_time_if_not_activated_utc)
         if message_for_activation is not None:
-            pulumi.set(__self__, "message_for_activation", message_for_activation)
+            _setter("message_for_activation", message_for_activation)
         if partner_topic_info is not None:
-            pulumi.set(__self__, "partner_topic_info", partner_topic_info)
+            _setter("partner_topic_info", partner_topic_info)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if readiness_state is not None:
-            pulumi.set(__self__, "readiness_state", readiness_state)
+            _setter("readiness_state", readiness_state)
 
     @property
     @pulumi.getter(name="partnerNamespaceName")
@@ -222,6 +271,10 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -252,6 +305,7 @@ class Channel(pulumi.CustomResource):
             if partner_namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_namespace_name'")
             __props__.__dict__["partner_namespace_name"] = partner_namespace_name
+            partner_topic_info = _utilities.configure(partner_topic_info, PartnerTopicInfoArgs, True)
             __props__.__dict__["partner_topic_info"] = partner_topic_info
             __props__.__dict__["provisioning_state"] = provisioning_state
             __props__.__dict__["readiness_state"] = readiness_state

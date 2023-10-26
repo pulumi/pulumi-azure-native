@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -162,36 +162,217 @@ class AssessmentPropertiesResponse(dict):
         :param str updated_timestamp: Time when this project was last updated. Date-Time represented in ISO-8601 format.
         :param 'VmUptimeResponse' vm_uptime: Specify the duration for which the VMs are up in the on-premises environment.
         """
-        pulumi.set(__self__, "azure_disk_type", azure_disk_type)
-        pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_offer_code", azure_offer_code)
-        pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
-        pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
-        pulumi.set(__self__, "azure_vm_families", azure_vm_families)
-        pulumi.set(__self__, "confidence_rating_in_percentage", confidence_rating_in_percentage)
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "currency", currency)
-        pulumi.set(__self__, "discount_percentage", discount_percentage)
-        pulumi.set(__self__, "ea_subscription_id", ea_subscription_id)
-        pulumi.set(__self__, "monthly_bandwidth_cost", monthly_bandwidth_cost)
-        pulumi.set(__self__, "monthly_compute_cost", monthly_compute_cost)
-        pulumi.set(__self__, "monthly_premium_storage_cost", monthly_premium_storage_cost)
-        pulumi.set(__self__, "monthly_standard_ssd_storage_cost", monthly_standard_ssd_storage_cost)
-        pulumi.set(__self__, "monthly_storage_cost", monthly_storage_cost)
-        pulumi.set(__self__, "number_of_machines", number_of_machines)
-        pulumi.set(__self__, "percentile", percentile)
-        pulumi.set(__self__, "perf_data_end_time", perf_data_end_time)
-        pulumi.set(__self__, "perf_data_start_time", perf_data_start_time)
-        pulumi.set(__self__, "prices_timestamp", prices_timestamp)
-        pulumi.set(__self__, "reserved_instance", reserved_instance)
-        pulumi.set(__self__, "scaling_factor", scaling_factor)
-        pulumi.set(__self__, "sizing_criterion", sizing_criterion)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "time_range", time_range)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
-        pulumi.set(__self__, "vm_uptime", vm_uptime)
+        AssessmentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_disk_type=azure_disk_type,
+            azure_hybrid_use_benefit=azure_hybrid_use_benefit,
+            azure_location=azure_location,
+            azure_offer_code=azure_offer_code,
+            azure_pricing_tier=azure_pricing_tier,
+            azure_storage_redundancy=azure_storage_redundancy,
+            azure_vm_families=azure_vm_families,
+            confidence_rating_in_percentage=confidence_rating_in_percentage,
+            created_timestamp=created_timestamp,
+            currency=currency,
+            discount_percentage=discount_percentage,
+            ea_subscription_id=ea_subscription_id,
+            monthly_bandwidth_cost=monthly_bandwidth_cost,
+            monthly_compute_cost=monthly_compute_cost,
+            monthly_premium_storage_cost=monthly_premium_storage_cost,
+            monthly_standard_ssd_storage_cost=monthly_standard_ssd_storage_cost,
+            monthly_storage_cost=monthly_storage_cost,
+            number_of_machines=number_of_machines,
+            percentile=percentile,
+            perf_data_end_time=perf_data_end_time,
+            perf_data_start_time=perf_data_start_time,
+            prices_timestamp=prices_timestamp,
+            reserved_instance=reserved_instance,
+            scaling_factor=scaling_factor,
+            sizing_criterion=sizing_criterion,
+            stage=stage,
+            status=status,
+            time_range=time_range,
+            updated_timestamp=updated_timestamp,
+            vm_uptime=vm_uptime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_disk_type: Optional[str] = None,
+             azure_hybrid_use_benefit: Optional[str] = None,
+             azure_location: Optional[str] = None,
+             azure_offer_code: Optional[str] = None,
+             azure_pricing_tier: Optional[str] = None,
+             azure_storage_redundancy: Optional[str] = None,
+             azure_vm_families: Optional[Sequence[str]] = None,
+             confidence_rating_in_percentage: Optional[float] = None,
+             created_timestamp: Optional[str] = None,
+             currency: Optional[str] = None,
+             discount_percentage: Optional[float] = None,
+             ea_subscription_id: Optional[str] = None,
+             monthly_bandwidth_cost: Optional[float] = None,
+             monthly_compute_cost: Optional[float] = None,
+             monthly_premium_storage_cost: Optional[float] = None,
+             monthly_standard_ssd_storage_cost: Optional[float] = None,
+             monthly_storage_cost: Optional[float] = None,
+             number_of_machines: Optional[int] = None,
+             percentile: Optional[str] = None,
+             perf_data_end_time: Optional[str] = None,
+             perf_data_start_time: Optional[str] = None,
+             prices_timestamp: Optional[str] = None,
+             reserved_instance: Optional[str] = None,
+             scaling_factor: Optional[float] = None,
+             sizing_criterion: Optional[str] = None,
+             stage: Optional[str] = None,
+             status: Optional[str] = None,
+             time_range: Optional[str] = None,
+             updated_timestamp: Optional[str] = None,
+             vm_uptime: Optional['outputs.VmUptimeResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_disk_type is None and 'azureDiskType' in kwargs:
+            azure_disk_type = kwargs['azureDiskType']
+        if azure_disk_type is None:
+            raise TypeError("Missing 'azure_disk_type' argument")
+        if azure_hybrid_use_benefit is None and 'azureHybridUseBenefit' in kwargs:
+            azure_hybrid_use_benefit = kwargs['azureHybridUseBenefit']
+        if azure_hybrid_use_benefit is None:
+            raise TypeError("Missing 'azure_hybrid_use_benefit' argument")
+        if azure_location is None and 'azureLocation' in kwargs:
+            azure_location = kwargs['azureLocation']
+        if azure_location is None:
+            raise TypeError("Missing 'azure_location' argument")
+        if azure_offer_code is None and 'azureOfferCode' in kwargs:
+            azure_offer_code = kwargs['azureOfferCode']
+        if azure_offer_code is None:
+            raise TypeError("Missing 'azure_offer_code' argument")
+        if azure_pricing_tier is None and 'azurePricingTier' in kwargs:
+            azure_pricing_tier = kwargs['azurePricingTier']
+        if azure_pricing_tier is None:
+            raise TypeError("Missing 'azure_pricing_tier' argument")
+        if azure_storage_redundancy is None and 'azureStorageRedundancy' in kwargs:
+            azure_storage_redundancy = kwargs['azureStorageRedundancy']
+        if azure_storage_redundancy is None:
+            raise TypeError("Missing 'azure_storage_redundancy' argument")
+        if azure_vm_families is None and 'azureVmFamilies' in kwargs:
+            azure_vm_families = kwargs['azureVmFamilies']
+        if azure_vm_families is None:
+            raise TypeError("Missing 'azure_vm_families' argument")
+        if confidence_rating_in_percentage is None and 'confidenceRatingInPercentage' in kwargs:
+            confidence_rating_in_percentage = kwargs['confidenceRatingInPercentage']
+        if confidence_rating_in_percentage is None:
+            raise TypeError("Missing 'confidence_rating_in_percentage' argument")
+        if created_timestamp is None and 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if created_timestamp is None:
+            raise TypeError("Missing 'created_timestamp' argument")
+        if currency is None:
+            raise TypeError("Missing 'currency' argument")
+        if discount_percentage is None and 'discountPercentage' in kwargs:
+            discount_percentage = kwargs['discountPercentage']
+        if discount_percentage is None:
+            raise TypeError("Missing 'discount_percentage' argument")
+        if ea_subscription_id is None and 'eaSubscriptionId' in kwargs:
+            ea_subscription_id = kwargs['eaSubscriptionId']
+        if ea_subscription_id is None:
+            raise TypeError("Missing 'ea_subscription_id' argument")
+        if monthly_bandwidth_cost is None and 'monthlyBandwidthCost' in kwargs:
+            monthly_bandwidth_cost = kwargs['monthlyBandwidthCost']
+        if monthly_bandwidth_cost is None:
+            raise TypeError("Missing 'monthly_bandwidth_cost' argument")
+        if monthly_compute_cost is None and 'monthlyComputeCost' in kwargs:
+            monthly_compute_cost = kwargs['monthlyComputeCost']
+        if monthly_compute_cost is None:
+            raise TypeError("Missing 'monthly_compute_cost' argument")
+        if monthly_premium_storage_cost is None and 'monthlyPremiumStorageCost' in kwargs:
+            monthly_premium_storage_cost = kwargs['monthlyPremiumStorageCost']
+        if monthly_premium_storage_cost is None:
+            raise TypeError("Missing 'monthly_premium_storage_cost' argument")
+        if monthly_standard_ssd_storage_cost is None and 'monthlyStandardSSDStorageCost' in kwargs:
+            monthly_standard_ssd_storage_cost = kwargs['monthlyStandardSSDStorageCost']
+        if monthly_standard_ssd_storage_cost is None:
+            raise TypeError("Missing 'monthly_standard_ssd_storage_cost' argument")
+        if monthly_storage_cost is None and 'monthlyStorageCost' in kwargs:
+            monthly_storage_cost = kwargs['monthlyStorageCost']
+        if monthly_storage_cost is None:
+            raise TypeError("Missing 'monthly_storage_cost' argument")
+        if number_of_machines is None and 'numberOfMachines' in kwargs:
+            number_of_machines = kwargs['numberOfMachines']
+        if number_of_machines is None:
+            raise TypeError("Missing 'number_of_machines' argument")
+        if percentile is None:
+            raise TypeError("Missing 'percentile' argument")
+        if perf_data_end_time is None and 'perfDataEndTime' in kwargs:
+            perf_data_end_time = kwargs['perfDataEndTime']
+        if perf_data_end_time is None:
+            raise TypeError("Missing 'perf_data_end_time' argument")
+        if perf_data_start_time is None and 'perfDataStartTime' in kwargs:
+            perf_data_start_time = kwargs['perfDataStartTime']
+        if perf_data_start_time is None:
+            raise TypeError("Missing 'perf_data_start_time' argument")
+        if prices_timestamp is None and 'pricesTimestamp' in kwargs:
+            prices_timestamp = kwargs['pricesTimestamp']
+        if prices_timestamp is None:
+            raise TypeError("Missing 'prices_timestamp' argument")
+        if reserved_instance is None and 'reservedInstance' in kwargs:
+            reserved_instance = kwargs['reservedInstance']
+        if reserved_instance is None:
+            raise TypeError("Missing 'reserved_instance' argument")
+        if scaling_factor is None and 'scalingFactor' in kwargs:
+            scaling_factor = kwargs['scalingFactor']
+        if scaling_factor is None:
+            raise TypeError("Missing 'scaling_factor' argument")
+        if sizing_criterion is None and 'sizingCriterion' in kwargs:
+            sizing_criterion = kwargs['sizingCriterion']
+        if sizing_criterion is None:
+            raise TypeError("Missing 'sizing_criterion' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if time_range is None and 'timeRange' in kwargs:
+            time_range = kwargs['timeRange']
+        if time_range is None:
+            raise TypeError("Missing 'time_range' argument")
+        if updated_timestamp is None and 'updatedTimestamp' in kwargs:
+            updated_timestamp = kwargs['updatedTimestamp']
+        if updated_timestamp is None:
+            raise TypeError("Missing 'updated_timestamp' argument")
+        if vm_uptime is None and 'vmUptime' in kwargs:
+            vm_uptime = kwargs['vmUptime']
+        if vm_uptime is None:
+            raise TypeError("Missing 'vm_uptime' argument")
+
+        _setter("azure_disk_type", azure_disk_type)
+        _setter("azure_hybrid_use_benefit", azure_hybrid_use_benefit)
+        _setter("azure_location", azure_location)
+        _setter("azure_offer_code", azure_offer_code)
+        _setter("azure_pricing_tier", azure_pricing_tier)
+        _setter("azure_storage_redundancy", azure_storage_redundancy)
+        _setter("azure_vm_families", azure_vm_families)
+        _setter("confidence_rating_in_percentage", confidence_rating_in_percentage)
+        _setter("created_timestamp", created_timestamp)
+        _setter("currency", currency)
+        _setter("discount_percentage", discount_percentage)
+        _setter("ea_subscription_id", ea_subscription_id)
+        _setter("monthly_bandwidth_cost", monthly_bandwidth_cost)
+        _setter("monthly_compute_cost", monthly_compute_cost)
+        _setter("monthly_premium_storage_cost", monthly_premium_storage_cost)
+        _setter("monthly_standard_ssd_storage_cost", monthly_standard_ssd_storage_cost)
+        _setter("monthly_storage_cost", monthly_storage_cost)
+        _setter("number_of_machines", number_of_machines)
+        _setter("percentile", percentile)
+        _setter("perf_data_end_time", perf_data_end_time)
+        _setter("perf_data_start_time", perf_data_start_time)
+        _setter("prices_timestamp", prices_timestamp)
+        _setter("reserved_instance", reserved_instance)
+        _setter("scaling_factor", scaling_factor)
+        _setter("sizing_criterion", sizing_criterion)
+        _setter("stage", stage)
+        _setter("status", status)
+        _setter("time_range", time_range)
+        _setter("updated_timestamp", updated_timestamp)
+        _setter("vm_uptime", vm_uptime)
 
     @property
     @pulumi.getter(name="azureDiskType")
@@ -460,11 +641,38 @@ class CollectorAgentPropertiesResponse(dict):
                  last_heartbeat_utc: str,
                  version: str,
                  spn_details: Optional['outputs.CollectorBodyAgentSpnPropertiesResponse'] = None):
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "version", version)
+        CollectorAgentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            version=version,
+            spn_details=spn_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             version: Optional[str] = None,
+             spn_details: Optional['outputs.CollectorBodyAgentSpnPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if spn_details is None and 'spnDetails' in kwargs:
+            spn_details = kwargs['spnDetails']
+
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("version", version)
         if spn_details is not None:
-            pulumi.set(__self__, "spn_details", spn_details)
+            _setter("spn_details", spn_details)
 
     @property
     @pulumi.getter
@@ -523,16 +731,41 @@ class CollectorBodyAgentSpnPropertiesResponse(dict):
         :param str object_id: Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         :param str tenant_id: Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         """
+        CollectorBodyAgentSpnPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            audience=audience,
+            authority=authority,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[str] = None,
+             audience: Optional[str] = None,
+             authority: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if authority is not None:
-            pulumi.set(__self__, "authority", authority)
+            _setter("authority", authority)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -610,12 +843,41 @@ class CollectorPropertiesResponse(dict):
         :param str updated_timestamp: Time when this collector was updated. Date-Time represented in ISO-8601 format.
         :param str discovery_site_id: The ARM id of the discovery service site.
         """
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        CollectorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            updated_timestamp=updated_timestamp,
+            agent_properties=agent_properties,
+            discovery_site_id=discovery_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: Optional[str] = None,
+             updated_timestamp: Optional[str] = None,
+             agent_properties: Optional['outputs.CollectorAgentPropertiesResponse'] = None,
+             discovery_site_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_timestamp is None and 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if created_timestamp is None:
+            raise TypeError("Missing 'created_timestamp' argument")
+        if updated_timestamp is None and 'updatedTimestamp' in kwargs:
+            updated_timestamp = kwargs['updatedTimestamp']
+        if updated_timestamp is None:
+            raise TypeError("Missing 'updated_timestamp' argument")
+        if agent_properties is None and 'agentProperties' in kwargs:
+            agent_properties = kwargs['agentProperties']
+        if discovery_site_id is None and 'discoverySiteId' in kwargs:
+            discovery_site_id = kwargs['discoverySiteId']
+
+        _setter("created_timestamp", created_timestamp)
+        _setter("updated_timestamp", updated_timestamp)
         if agent_properties is not None:
-            pulumi.set(__self__, "agent_properties", agent_properties)
+            _setter("agent_properties", agent_properties)
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -697,14 +959,61 @@ class GroupPropertiesResponse(dict):
         :param str updated_timestamp: Time when this group was last updated. Date-Time represented in ISO-8601 format.
         :param str group_type: The type of group.
         """
-        pulumi.set(__self__, "are_assessments_running", are_assessments_running)
-        pulumi.set(__self__, "assessments", assessments)
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "group_status", group_status)
-        pulumi.set(__self__, "machine_count", machine_count)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        GroupPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            are_assessments_running=are_assessments_running,
+            assessments=assessments,
+            created_timestamp=created_timestamp,
+            group_status=group_status,
+            machine_count=machine_count,
+            updated_timestamp=updated_timestamp,
+            group_type=group_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             are_assessments_running: Optional[bool] = None,
+             assessments: Optional[Sequence[str]] = None,
+             created_timestamp: Optional[str] = None,
+             group_status: Optional[str] = None,
+             machine_count: Optional[int] = None,
+             updated_timestamp: Optional[str] = None,
+             group_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if are_assessments_running is None and 'areAssessmentsRunning' in kwargs:
+            are_assessments_running = kwargs['areAssessmentsRunning']
+        if are_assessments_running is None:
+            raise TypeError("Missing 'are_assessments_running' argument")
+        if assessments is None:
+            raise TypeError("Missing 'assessments' argument")
+        if created_timestamp is None and 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if created_timestamp is None:
+            raise TypeError("Missing 'created_timestamp' argument")
+        if group_status is None and 'groupStatus' in kwargs:
+            group_status = kwargs['groupStatus']
+        if group_status is None:
+            raise TypeError("Missing 'group_status' argument")
+        if machine_count is None and 'machineCount' in kwargs:
+            machine_count = kwargs['machineCount']
+        if machine_count is None:
+            raise TypeError("Missing 'machine_count' argument")
+        if updated_timestamp is None and 'updatedTimestamp' in kwargs:
+            updated_timestamp = kwargs['updatedTimestamp']
+        if updated_timestamp is None:
+            raise TypeError("Missing 'updated_timestamp' argument")
+        if group_type is None and 'groupType' in kwargs:
+            group_type = kwargs['groupType']
+
+        _setter("are_assessments_running", are_assessments_running)
+        _setter("assessments", assessments)
+        _setter("created_timestamp", created_timestamp)
+        _setter("group_status", group_status)
+        _setter("machine_count", machine_count)
+        _setter("updated_timestamp", updated_timestamp)
         if group_type is not None:
-            pulumi.set(__self__, "group_type", group_type)
+            _setter("group_type", group_type)
 
     @property
     @pulumi.getter(name="areAssessmentsRunning")
@@ -790,10 +1099,35 @@ class ImportCollectorPropertiesResponse(dict):
                  created_timestamp: str,
                  updated_timestamp: str,
                  discovery_site_id: Optional[str] = None):
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        ImportCollectorPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            updated_timestamp=updated_timestamp,
+            discovery_site_id=discovery_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: Optional[str] = None,
+             updated_timestamp: Optional[str] = None,
+             discovery_site_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_timestamp is None and 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if created_timestamp is None:
+            raise TypeError("Missing 'created_timestamp' argument")
+        if updated_timestamp is None and 'updatedTimestamp' in kwargs:
+            updated_timestamp = kwargs['updatedTimestamp']
+        if updated_timestamp is None:
+            raise TypeError("Missing 'updated_timestamp' argument")
+        if discovery_site_id is None and 'discoverySiteId' in kwargs:
+            discovery_site_id = kwargs['discoverySiteId']
+
+        _setter("created_timestamp", created_timestamp)
+        _setter("updated_timestamp", updated_timestamp)
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -847,10 +1181,35 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         :param str provisioning_state: Indicates whether there is an ongoing operation on the private endpoint.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: State of the private endpoint connection.
         """
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        PrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            provisioning_state=provisioning_state,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: Optional['outputs.ResourceIdResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_endpoint is None:
+            raise TypeError("Missing 'private_endpoint' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("private_endpoint", private_endpoint)
+        _setter("provisioning_state", provisioning_state)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -913,12 +1272,41 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
         :param str e_tag: For optimistic concurrency control.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            properties=properties,
+            type=type,
+            e_tag=e_tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None,
+             type: Optional[str] = None,
+             e_tag: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("properties", properties)
+        _setter("type", type)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
 
     @property
     @pulumi.getter
@@ -993,12 +1381,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: Description of the private endpoint connection.
         :param str status: Connection status of the private endpoint connection.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -1109,27 +1514,114 @@ class ProjectPropertiesResponse(dict):
         :param str project_status: Assessment project status.
         :param str public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "last_assessment_timestamp", last_assessment_timestamp)
-        pulumi.set(__self__, "number_of_assessments", number_of_assessments)
-        pulumi.set(__self__, "number_of_groups", number_of_groups)
-        pulumi.set(__self__, "number_of_machines", number_of_machines)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "service_endpoint", service_endpoint)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        ProjectPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            last_assessment_timestamp=last_assessment_timestamp,
+            number_of_assessments=number_of_assessments,
+            number_of_groups=number_of_groups,
+            number_of_machines=number_of_machines,
+            private_endpoint_connections=private_endpoint_connections,
+            provisioning_state=provisioning_state,
+            service_endpoint=service_endpoint,
+            updated_timestamp=updated_timestamp,
+            assessment_solution_id=assessment_solution_id,
+            customer_storage_account_arm_id=customer_storage_account_arm_id,
+            customer_workspace_id=customer_workspace_id,
+            customer_workspace_location=customer_workspace_location,
+            project_status=project_status,
+            public_network_access=public_network_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: Optional[str] = None,
+             last_assessment_timestamp: Optional[str] = None,
+             number_of_assessments: Optional[int] = None,
+             number_of_groups: Optional[int] = None,
+             number_of_machines: Optional[int] = None,
+             private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
+             provisioning_state: Optional[str] = None,
+             service_endpoint: Optional[str] = None,
+             updated_timestamp: Optional[str] = None,
+             assessment_solution_id: Optional[str] = None,
+             customer_storage_account_arm_id: Optional[str] = None,
+             customer_workspace_id: Optional[str] = None,
+             customer_workspace_location: Optional[str] = None,
+             project_status: Optional[str] = None,
+             public_network_access: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_timestamp is None and 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if created_timestamp is None:
+            raise TypeError("Missing 'created_timestamp' argument")
+        if last_assessment_timestamp is None and 'lastAssessmentTimestamp' in kwargs:
+            last_assessment_timestamp = kwargs['lastAssessmentTimestamp']
+        if last_assessment_timestamp is None:
+            raise TypeError("Missing 'last_assessment_timestamp' argument")
+        if number_of_assessments is None and 'numberOfAssessments' in kwargs:
+            number_of_assessments = kwargs['numberOfAssessments']
+        if number_of_assessments is None:
+            raise TypeError("Missing 'number_of_assessments' argument")
+        if number_of_groups is None and 'numberOfGroups' in kwargs:
+            number_of_groups = kwargs['numberOfGroups']
+        if number_of_groups is None:
+            raise TypeError("Missing 'number_of_groups' argument")
+        if number_of_machines is None and 'numberOfMachines' in kwargs:
+            number_of_machines = kwargs['numberOfMachines']
+        if number_of_machines is None:
+            raise TypeError("Missing 'number_of_machines' argument")
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if private_endpoint_connections is None:
+            raise TypeError("Missing 'private_endpoint_connections' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if service_endpoint is None and 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if service_endpoint is None:
+            raise TypeError("Missing 'service_endpoint' argument")
+        if updated_timestamp is None and 'updatedTimestamp' in kwargs:
+            updated_timestamp = kwargs['updatedTimestamp']
+        if updated_timestamp is None:
+            raise TypeError("Missing 'updated_timestamp' argument")
+        if assessment_solution_id is None and 'assessmentSolutionId' in kwargs:
+            assessment_solution_id = kwargs['assessmentSolutionId']
+        if customer_storage_account_arm_id is None and 'customerStorageAccountArmId' in kwargs:
+            customer_storage_account_arm_id = kwargs['customerStorageAccountArmId']
+        if customer_workspace_id is None and 'customerWorkspaceId' in kwargs:
+            customer_workspace_id = kwargs['customerWorkspaceId']
+        if customer_workspace_location is None and 'customerWorkspaceLocation' in kwargs:
+            customer_workspace_location = kwargs['customerWorkspaceLocation']
+        if project_status is None and 'projectStatus' in kwargs:
+            project_status = kwargs['projectStatus']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+
+        _setter("created_timestamp", created_timestamp)
+        _setter("last_assessment_timestamp", last_assessment_timestamp)
+        _setter("number_of_assessments", number_of_assessments)
+        _setter("number_of_groups", number_of_groups)
+        _setter("number_of_machines", number_of_machines)
+        _setter("private_endpoint_connections", private_endpoint_connections)
+        _setter("provisioning_state", provisioning_state)
+        _setter("service_endpoint", service_endpoint)
+        _setter("updated_timestamp", updated_timestamp)
         if assessment_solution_id is not None:
-            pulumi.set(__self__, "assessment_solution_id", assessment_solution_id)
+            _setter("assessment_solution_id", assessment_solution_id)
         if customer_storage_account_arm_id is not None:
-            pulumi.set(__self__, "customer_storage_account_arm_id", customer_storage_account_arm_id)
+            _setter("customer_storage_account_arm_id", customer_storage_account_arm_id)
         if customer_workspace_id is not None:
-            pulumi.set(__self__, "customer_workspace_id", customer_workspace_id)
+            _setter("customer_workspace_id", customer_workspace_id)
         if customer_workspace_location is not None:
-            pulumi.set(__self__, "customer_workspace_location", customer_workspace_location)
+            _setter("customer_workspace_location", customer_workspace_location)
         if project_status is not None:
-            pulumi.set(__self__, "project_status", project_status)
+            _setter("project_status", project_status)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -1262,7 +1754,20 @@ class ResourceIdResponse(dict):
         """
         ARM id for a resource.
         """
-        pulumi.set(__self__, "id", id)
+        ResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1298,10 +1803,27 @@ class VmUptimeResponse(dict):
         :param float days_per_month: Number of days in a month for VM uptime.
         :param float hours_per_day: Number of hours per day for VM uptime.
         """
+        VmUptimeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_per_month=days_per_month,
+            hours_per_day=hours_per_day,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_per_month: Optional[float] = None,
+             hours_per_day: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_per_month is None and 'daysPerMonth' in kwargs:
+            days_per_month = kwargs['daysPerMonth']
+        if hours_per_day is None and 'hoursPerDay' in kwargs:
+            hours_per_day = kwargs['hoursPerDay']
+
         if days_per_month is not None:
-            pulumi.set(__self__, "days_per_month", days_per_month)
+            _setter("days_per_month", days_per_month)
         if hours_per_day is not None:
-            pulumi.set(__self__, "hours_per_day", hours_per_day)
+            _setter("hours_per_day", hours_per_day)
 
     @property
     @pulumi.getter(name="daysPerMonth")

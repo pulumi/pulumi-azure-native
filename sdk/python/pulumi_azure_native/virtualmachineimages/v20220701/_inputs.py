@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -48,11 +48,26 @@ class DistributeVersionerLatestArgs:
                Expected value is 'Latest'.
         :param pulumi.Input[int] major: Major version for the generated version number. Determine what is "latest" based on versions with this value as the major version. -1 is equivalent to leaving it unset.
         """
-        pulumi.set(__self__, "scheme", 'Latest')
+        DistributeVersionerLatestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scheme=scheme,
+            major=major,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scheme: Optional[pulumi.Input[str]] = None,
+             major: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scheme is None:
+            raise TypeError("Missing 'scheme' argument")
+
+        _setter("scheme", 'Latest')
         if major is None:
             major = -1
         if major is not None:
-            pulumi.set(__self__, "major", major)
+            _setter("major", major)
 
     @property
     @pulumi.getter
@@ -89,7 +104,20 @@ class DistributeVersionerSourceArgs:
         :param pulumi.Input[str] scheme: Version numbering scheme to be used.
                Expected value is 'Source'.
         """
-        pulumi.set(__self__, "scheme", 'Source')
+        DistributeVersionerSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scheme: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scheme is None:
+            raise TypeError("Missing 'scheme' argument")
+
+        _setter("scheme", 'Source')
 
     @property
     @pulumi.getter
@@ -122,17 +150,42 @@ class ImageTemplateFileCustomizerArgs:
         :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the file provided in the sourceUri field above
         :param pulumi.Input[str] source_uri: The URI of the file to be uploaded for customizing the VM. It can be a github link, SAS URI for Azure Storage, etc
         """
-        pulumi.set(__self__, "type", 'File')
+        ImageTemplateFileCustomizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            destination=destination,
+            name=name,
+            sha256_checksum=sha256_checksum,
+            source_uri=source_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sha256_checksum: Optional[pulumi.Input[str]] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if sha256_checksum is None and 'sha256Checksum' in kwargs:
+            sha256_checksum = kwargs['sha256Checksum']
+        if source_uri is None and 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+
+        _setter("type", 'File')
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sha256_checksum is None:
             sha256_checksum = ''
         if sha256_checksum is not None:
-            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+            _setter("sha256_checksum", sha256_checksum)
         if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+            _setter("source_uri", source_uri)
 
     @property
     @pulumi.getter
@@ -213,17 +266,42 @@ class ImageTemplateFileValidatorArgs:
         :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the file provided in the sourceUri field above
         :param pulumi.Input[str] source_uri: The URI of the file to be uploaded to the VM for validation. It can be a github link, Azure Storage URI (authorized or SAS), etc
         """
-        pulumi.set(__self__, "type", 'File')
+        ImageTemplateFileValidatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            destination=destination,
+            name=name,
+            sha256_checksum=sha256_checksum,
+            source_uri=source_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             destination: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sha256_checksum: Optional[pulumi.Input[str]] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if sha256_checksum is None and 'sha256Checksum' in kwargs:
+            sha256_checksum = kwargs['sha256Checksum']
+        if source_uri is None and 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+
+        _setter("type", 'File')
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sha256_checksum is None:
             sha256_checksum = ''
         if sha256_checksum is not None:
-            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+            _setter("sha256_checksum", sha256_checksum)
         if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+            _setter("source_uri", source_uri)
 
     @property
     @pulumi.getter
@@ -297,10 +375,25 @@ class ImageTemplateIdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
+        ImageTemplateIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -344,12 +437,45 @@ class ImageTemplateManagedImageDistributorArgs:
                Expected value is 'ManagedImage'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         """
-        pulumi.set(__self__, "image_id", image_id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "run_output_name", run_output_name)
-        pulumi.set(__self__, "type", 'ManagedImage')
+        ImageTemplateManagedImageDistributorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_id=image_id,
+            location=location,
+            run_output_name=run_output_name,
+            type=type,
+            artifact_tags=artifact_tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             run_output_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             artifact_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if image_id is None:
+            raise TypeError("Missing 'image_id' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if run_output_name is None and 'runOutputName' in kwargs:
+            run_output_name = kwargs['runOutputName']
+        if run_output_name is None:
+            raise TypeError("Missing 'run_output_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if artifact_tags is None and 'artifactTags' in kwargs:
+            artifact_tags = kwargs['artifactTags']
+
+        _setter("image_id", image_id)
+        _setter("location", location)
+        _setter("run_output_name", run_output_name)
+        _setter("type", 'ManagedImage')
         if artifact_tags is not None:
-            pulumi.set(__self__, "artifact_tags", artifact_tags)
+            _setter("artifact_tags", artifact_tags)
 
     @property
     @pulumi.getter(name="imageId")
@@ -424,8 +550,27 @@ class ImageTemplateManagedImageSourceArgs:
         :param pulumi.Input[str] type: Specifies the type of source image you want to start with.
                Expected value is 'ManagedImage'.
         """
-        pulumi.set(__self__, "image_id", image_id)
-        pulumi.set(__self__, "type", 'ManagedImage')
+        ImageTemplateManagedImageSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_id=image_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if image_id is None:
+            raise TypeError("Missing 'image_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("image_id", image_id)
+        _setter("type", 'ManagedImage')
 
     @property
     @pulumi.getter(name="imageId")
@@ -472,17 +617,42 @@ class ImageTemplatePlatformImageSourceArgs:
         :param pulumi.Input[str] sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param pulumi.Input[str] version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
         """
-        pulumi.set(__self__, "type", 'PlatformImage')
+        ImageTemplatePlatformImageSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            offer=offer,
+            plan_info=plan_info,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             offer: Optional[pulumi.Input[str]] = None,
+             plan_info: Optional[pulumi.Input['PlatformImagePurchasePlanArgs']] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if plan_info is None and 'planInfo' in kwargs:
+            plan_info = kwargs['planInfo']
+
+        _setter("type", 'PlatformImage')
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if plan_info is not None:
-            pulumi.set(__self__, "plan_info", plan_info)
+            _setter("plan_info", plan_info)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -581,27 +751,64 @@ class ImageTemplatePowerShellCustomizerArgs:
         :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the power shell script provided in the scriptUri field above
         :param pulumi.Input[Sequence[pulumi.Input[int]]] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
         """
-        pulumi.set(__self__, "type", 'PowerShell')
+        ImageTemplatePowerShellCustomizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            inline=inline,
+            name=name,
+            run_as_system=run_as_system,
+            run_elevated=run_elevated,
+            script_uri=script_uri,
+            sha256_checksum=sha256_checksum,
+            valid_exit_codes=valid_exit_codes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             run_as_system: Optional[pulumi.Input[bool]] = None,
+             run_elevated: Optional[pulumi.Input[bool]] = None,
+             script_uri: Optional[pulumi.Input[str]] = None,
+             sha256_checksum: Optional[pulumi.Input[str]] = None,
+             valid_exit_codes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if run_as_system is None and 'runAsSystem' in kwargs:
+            run_as_system = kwargs['runAsSystem']
+        if run_elevated is None and 'runElevated' in kwargs:
+            run_elevated = kwargs['runElevated']
+        if script_uri is None and 'scriptUri' in kwargs:
+            script_uri = kwargs['scriptUri']
+        if sha256_checksum is None and 'sha256Checksum' in kwargs:
+            sha256_checksum = kwargs['sha256Checksum']
+        if valid_exit_codes is None and 'validExitCodes' in kwargs:
+            valid_exit_codes = kwargs['validExitCodes']
+
+        _setter("type", 'PowerShell')
         if inline is not None:
-            pulumi.set(__self__, "inline", inline)
+            _setter("inline", inline)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if run_as_system is None:
             run_as_system = False
         if run_as_system is not None:
-            pulumi.set(__self__, "run_as_system", run_as_system)
+            _setter("run_as_system", run_as_system)
         if run_elevated is None:
             run_elevated = False
         if run_elevated is not None:
-            pulumi.set(__self__, "run_elevated", run_elevated)
+            _setter("run_elevated", run_elevated)
         if script_uri is not None:
-            pulumi.set(__self__, "script_uri", script_uri)
+            _setter("script_uri", script_uri)
         if sha256_checksum is None:
             sha256_checksum = ''
         if sha256_checksum is not None:
-            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+            _setter("sha256_checksum", sha256_checksum)
         if valid_exit_codes is not None:
-            pulumi.set(__self__, "valid_exit_codes", valid_exit_codes)
+            _setter("valid_exit_codes", valid_exit_codes)
 
     @property
     @pulumi.getter
@@ -724,27 +931,64 @@ class ImageTemplatePowerShellValidatorArgs:
         :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the power shell script provided in the scriptUri field above
         :param pulumi.Input[Sequence[pulumi.Input[int]]] valid_exit_codes: Valid exit codes for the PowerShell script. [Default: 0]
         """
-        pulumi.set(__self__, "type", 'PowerShell')
+        ImageTemplatePowerShellValidatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            inline=inline,
+            name=name,
+            run_as_system=run_as_system,
+            run_elevated=run_elevated,
+            script_uri=script_uri,
+            sha256_checksum=sha256_checksum,
+            valid_exit_codes=valid_exit_codes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             run_as_system: Optional[pulumi.Input[bool]] = None,
+             run_elevated: Optional[pulumi.Input[bool]] = None,
+             script_uri: Optional[pulumi.Input[str]] = None,
+             sha256_checksum: Optional[pulumi.Input[str]] = None,
+             valid_exit_codes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if run_as_system is None and 'runAsSystem' in kwargs:
+            run_as_system = kwargs['runAsSystem']
+        if run_elevated is None and 'runElevated' in kwargs:
+            run_elevated = kwargs['runElevated']
+        if script_uri is None and 'scriptUri' in kwargs:
+            script_uri = kwargs['scriptUri']
+        if sha256_checksum is None and 'sha256Checksum' in kwargs:
+            sha256_checksum = kwargs['sha256Checksum']
+        if valid_exit_codes is None and 'validExitCodes' in kwargs:
+            valid_exit_codes = kwargs['validExitCodes']
+
+        _setter("type", 'PowerShell')
         if inline is not None:
-            pulumi.set(__self__, "inline", inline)
+            _setter("inline", inline)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if run_as_system is None:
             run_as_system = False
         if run_as_system is not None:
-            pulumi.set(__self__, "run_as_system", run_as_system)
+            _setter("run_as_system", run_as_system)
         if run_elevated is None:
             run_elevated = False
         if run_elevated is not None:
-            pulumi.set(__self__, "run_elevated", run_elevated)
+            _setter("run_elevated", run_elevated)
         if script_uri is not None:
-            pulumi.set(__self__, "script_uri", script_uri)
+            _setter("script_uri", script_uri)
         if sha256_checksum is None:
             sha256_checksum = ''
         if sha256_checksum is not None:
-            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+            _setter("sha256_checksum", sha256_checksum)
         if valid_exit_codes is not None:
-            pulumi.set(__self__, "valid_exit_codes", valid_exit_codes)
+            _setter("valid_exit_codes", valid_exit_codes)
 
     @property
     @pulumi.getter
@@ -852,8 +1096,21 @@ class ImageTemplatePropertiesOptimizeArgs:
         Specifies optimization to be performed on image.
         :param pulumi.Input['ImageTemplatePropertiesVmBootArgs'] vm_boot: Optimization is applied on the image for a faster VM boot.
         """
+        ImageTemplatePropertiesOptimizeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vm_boot=vm_boot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vm_boot: Optional[pulumi.Input['ImageTemplatePropertiesVmBootArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vm_boot is None and 'vmBoot' in kwargs:
+            vm_boot = kwargs['vmBoot']
+
         if vm_boot is not None:
-            pulumi.set(__self__, "vm_boot", vm_boot)
+            _setter("vm_boot", vm_boot)
 
     @property
     @pulumi.getter(name="vmBoot")
@@ -880,16 +1137,37 @@ class ImageTemplatePropertiesValidateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileValidatorArgs', 'ImageTemplatePowerShellValidatorArgs', 'ImageTemplateShellValidatorArgs']]]] in_vm_validations: List of validations to be performed.
         :param pulumi.Input[bool] source_validation_only: If this field is set to true, the image specified in the 'source' section will directly be validated. No separate build will be run to generate and then validate a customized image.
         """
+        ImageTemplatePropertiesValidateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            continue_distribute_on_failure=continue_distribute_on_failure,
+            in_vm_validations=in_vm_validations,
+            source_validation_only=source_validation_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             continue_distribute_on_failure: Optional[pulumi.Input[bool]] = None,
+             in_vm_validations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileValidatorArgs', 'ImageTemplatePowerShellValidatorArgs', 'ImageTemplateShellValidatorArgs']]]]] = None,
+             source_validation_only: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if continue_distribute_on_failure is None and 'continueDistributeOnFailure' in kwargs:
+            continue_distribute_on_failure = kwargs['continueDistributeOnFailure']
+        if in_vm_validations is None and 'inVMValidations' in kwargs:
+            in_vm_validations = kwargs['inVMValidations']
+        if source_validation_only is None and 'sourceValidationOnly' in kwargs:
+            source_validation_only = kwargs['sourceValidationOnly']
+
         if continue_distribute_on_failure is None:
             continue_distribute_on_failure = False
         if continue_distribute_on_failure is not None:
-            pulumi.set(__self__, "continue_distribute_on_failure", continue_distribute_on_failure)
+            _setter("continue_distribute_on_failure", continue_distribute_on_failure)
         if in_vm_validations is not None:
-            pulumi.set(__self__, "in_vm_validations", in_vm_validations)
+            _setter("in_vm_validations", in_vm_validations)
         if source_validation_only is None:
             source_validation_only = False
         if source_validation_only is not None:
-            pulumi.set(__self__, "source_validation_only", source_validation_only)
+            _setter("source_validation_only", source_validation_only)
 
     @property
     @pulumi.getter(name="continueDistributeOnFailure")
@@ -936,8 +1214,19 @@ class ImageTemplatePropertiesVmBootArgs:
         Optimization is applied on the image for a faster VM boot.
         :param pulumi.Input['VMBootOptimizationState'] state: Enabling this field will improve VM boot time by optimizing the final customized image output.
         """
+        ImageTemplatePropertiesVmBootArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[pulumi.Input['VMBootOptimizationState']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -969,15 +1258,42 @@ class ImageTemplateRestartCustomizerArgs:
         :param pulumi.Input[str] restart_command: Command to execute the restart [Default: 'shutdown /r /f /t 0 /c "packer restart"']
         :param pulumi.Input[str] restart_timeout: Restart timeout specified as a string of magnitude and unit, e.g. '5m' (5 minutes) or '2h' (2 hours) [Default: '5m']
         """
-        pulumi.set(__self__, "type", 'WindowsRestart')
+        ImageTemplateRestartCustomizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            name=name,
+            restart_check_command=restart_check_command,
+            restart_command=restart_command,
+            restart_timeout=restart_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             restart_check_command: Optional[pulumi.Input[str]] = None,
+             restart_command: Optional[pulumi.Input[str]] = None,
+             restart_timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if restart_check_command is None and 'restartCheckCommand' in kwargs:
+            restart_check_command = kwargs['restartCheckCommand']
+        if restart_command is None and 'restartCommand' in kwargs:
+            restart_command = kwargs['restartCommand']
+        if restart_timeout is None and 'restartTimeout' in kwargs:
+            restart_timeout = kwargs['restartTimeout']
+
+        _setter("type", 'WindowsRestart')
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if restart_check_command is not None:
-            pulumi.set(__self__, "restart_check_command", restart_check_command)
+            _setter("restart_check_command", restart_check_command)
         if restart_command is not None:
-            pulumi.set(__self__, "restart_command", restart_command)
+            _setter("restart_command", restart_command)
         if restart_timeout is not None:
-            pulumi.set(__self__, "restart_timeout", restart_timeout)
+            _setter("restart_timeout", restart_timeout)
 
     @property
     @pulumi.getter
@@ -1066,23 +1382,70 @@ class ImageTemplateSharedImageDistributorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the distributed Image Version is going to be replicated to. This object supersedes replicationRegions and can be specified only if replicationRegions is not specified.
         :param pulumi.Input[Union['DistributeVersionerLatestArgs', 'DistributeVersionerSourceArgs']] versioning: Describes how to generate new x.y.z version number for distribution.
         """
-        pulumi.set(__self__, "gallery_image_id", gallery_image_id)
-        pulumi.set(__self__, "run_output_name", run_output_name)
-        pulumi.set(__self__, "type", 'SharedImage')
+        ImageTemplateSharedImageDistributorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gallery_image_id=gallery_image_id,
+            run_output_name=run_output_name,
+            type=type,
+            artifact_tags=artifact_tags,
+            exclude_from_latest=exclude_from_latest,
+            replication_regions=replication_regions,
+            storage_account_type=storage_account_type,
+            target_regions=target_regions,
+            versioning=versioning,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gallery_image_id: Optional[pulumi.Input[str]] = None,
+             run_output_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             artifact_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
+             replication_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_account_type: Optional[pulumi.Input[Union[str, 'SharedImageStorageAccountType']]] = None,
+             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None,
+             versioning: Optional[pulumi.Input[Union['DistributeVersionerLatestArgs', 'DistributeVersionerSourceArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gallery_image_id is None and 'galleryImageId' in kwargs:
+            gallery_image_id = kwargs['galleryImageId']
+        if gallery_image_id is None:
+            raise TypeError("Missing 'gallery_image_id' argument")
+        if run_output_name is None and 'runOutputName' in kwargs:
+            run_output_name = kwargs['runOutputName']
+        if run_output_name is None:
+            raise TypeError("Missing 'run_output_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if artifact_tags is None and 'artifactTags' in kwargs:
+            artifact_tags = kwargs['artifactTags']
+        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
+            exclude_from_latest = kwargs['excludeFromLatest']
+        if replication_regions is None and 'replicationRegions' in kwargs:
+            replication_regions = kwargs['replicationRegions']
+        if storage_account_type is None and 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if target_regions is None and 'targetRegions' in kwargs:
+            target_regions = kwargs['targetRegions']
+
+        _setter("gallery_image_id", gallery_image_id)
+        _setter("run_output_name", run_output_name)
+        _setter("type", 'SharedImage')
         if artifact_tags is not None:
-            pulumi.set(__self__, "artifact_tags", artifact_tags)
+            _setter("artifact_tags", artifact_tags)
         if exclude_from_latest is None:
             exclude_from_latest = False
         if exclude_from_latest is not None:
-            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+            _setter("exclude_from_latest", exclude_from_latest)
         if replication_regions is not None:
-            pulumi.set(__self__, "replication_regions", replication_regions)
+            _setter("replication_regions", replication_regions)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if target_regions is not None:
-            pulumi.set(__self__, "target_regions", target_regions)
+            _setter("target_regions", target_regions)
         if versioning is not None:
-            pulumi.set(__self__, "versioning", versioning)
+            _setter("versioning", versioning)
 
     @property
     @pulumi.getter(name="galleryImageId")
@@ -1205,8 +1568,27 @@ class ImageTemplateSharedImageVersionSourceArgs:
         :param pulumi.Input[str] type: Specifies the type of source image you want to start with.
                Expected value is 'SharedImageVersion'.
         """
-        pulumi.set(__self__, "image_version_id", image_version_id)
-        pulumi.set(__self__, "type", 'SharedImageVersion')
+        ImageTemplateSharedImageVersionSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_version_id=image_version_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_version_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_version_id is None and 'imageVersionId' in kwargs:
+            image_version_id = kwargs['imageVersionId']
+        if image_version_id is None:
+            raise TypeError("Missing 'image_version_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("image_version_id", image_version_id)
+        _setter("type", 'SharedImageVersion')
 
     @property
     @pulumi.getter(name="imageVersionId")
@@ -1251,17 +1633,42 @@ class ImageTemplateShellCustomizerArgs:
         :param pulumi.Input[str] script_uri: URI of the shell script to be run for customizing. It can be a github link, SAS URI for Azure Storage, etc
         :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the shell script provided in the scriptUri field
         """
-        pulumi.set(__self__, "type", 'Shell')
+        ImageTemplateShellCustomizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            inline=inline,
+            name=name,
+            script_uri=script_uri,
+            sha256_checksum=sha256_checksum,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             script_uri: Optional[pulumi.Input[str]] = None,
+             sha256_checksum: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if script_uri is None and 'scriptUri' in kwargs:
+            script_uri = kwargs['scriptUri']
+        if sha256_checksum is None and 'sha256Checksum' in kwargs:
+            sha256_checksum = kwargs['sha256Checksum']
+
+        _setter("type", 'Shell')
         if inline is not None:
-            pulumi.set(__self__, "inline", inline)
+            _setter("inline", inline)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if script_uri is not None:
-            pulumi.set(__self__, "script_uri", script_uri)
+            _setter("script_uri", script_uri)
         if sha256_checksum is None:
             sha256_checksum = ''
         if sha256_checksum is not None:
-            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+            _setter("sha256_checksum", sha256_checksum)
 
     @property
     @pulumi.getter
@@ -1342,17 +1749,42 @@ class ImageTemplateShellValidatorArgs:
         :param pulumi.Input[str] script_uri: URI of the shell script to be run for validation. It can be a github link, Azure Storage URI, etc
         :param pulumi.Input[str] sha256_checksum: SHA256 checksum of the shell script provided in the scriptUri field
         """
-        pulumi.set(__self__, "type", 'Shell')
+        ImageTemplateShellValidatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            inline=inline,
+            name=name,
+            script_uri=script_uri,
+            sha256_checksum=sha256_checksum,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             inline: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             script_uri: Optional[pulumi.Input[str]] = None,
+             sha256_checksum: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if script_uri is None and 'scriptUri' in kwargs:
+            script_uri = kwargs['scriptUri']
+        if sha256_checksum is None and 'sha256Checksum' in kwargs:
+            sha256_checksum = kwargs['sha256Checksum']
+
+        _setter("type", 'Shell')
         if inline is not None:
-            pulumi.set(__self__, "inline", inline)
+            _setter("inline", inline)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if script_uri is not None:
-            pulumi.set(__self__, "script_uri", script_uri)
+            _setter("script_uri", script_uri)
         if sha256_checksum is None:
             sha256_checksum = ''
         if sha256_checksum is not None:
-            pulumi.set(__self__, "sha256_checksum", sha256_checksum)
+            _setter("sha256_checksum", sha256_checksum)
 
     @property
     @pulumi.getter
@@ -1431,12 +1863,37 @@ class ImageTemplateVhdDistributorArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         :param pulumi.Input[str] uri: Optional Azure Storage URI for the distributed VHD blob. Omit to use the default (empty string) in which case VHD would be published to the storage account in the staging resource group.
         """
-        pulumi.set(__self__, "run_output_name", run_output_name)
-        pulumi.set(__self__, "type", 'VHD')
+        ImageTemplateVhdDistributorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            run_output_name=run_output_name,
+            type=type,
+            artifact_tags=artifact_tags,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             run_output_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             artifact_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if run_output_name is None and 'runOutputName' in kwargs:
+            run_output_name = kwargs['runOutputName']
+        if run_output_name is None:
+            raise TypeError("Missing 'run_output_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if artifact_tags is None and 'artifactTags' in kwargs:
+            artifact_tags = kwargs['artifactTags']
+
+        _setter("run_output_name", run_output_name)
+        _setter("type", 'VHD')
         if artifact_tags is not None:
-            pulumi.set(__self__, "artifact_tags", artifact_tags)
+            _setter("artifact_tags", artifact_tags)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="runOutputName")
@@ -1502,18 +1959,43 @@ class ImageTemplateVmProfileArgs:
         :param pulumi.Input[str] vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         :param pulumi.Input['VirtualNetworkConfigArgs'] vnet_config: Optional configuration of the virtual network to use to deploy the build VM and validation VM in. Omit if no specific virtual network needs to be used.
         """
+        ImageTemplateVmProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_disk_size_gb=os_disk_size_gb,
+            user_assigned_identities=user_assigned_identities,
+            vm_size=vm_size,
+            vnet_config=vnet_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_disk_size_gb: Optional[pulumi.Input[int]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             vnet_config: Optional[pulumi.Input['VirtualNetworkConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if os_disk_size_gb is None and 'osDiskSizeGB' in kwargs:
+            os_disk_size_gb = kwargs['osDiskSizeGB']
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if vnet_config is None and 'vnetConfig' in kwargs:
+            vnet_config = kwargs['vnetConfig']
+
         if os_disk_size_gb is None:
             os_disk_size_gb = 0
         if os_disk_size_gb is not None:
-            pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
+            _setter("os_disk_size_gb", os_disk_size_gb)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
         if vm_size is None:
             vm_size = ''
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
         if vnet_config is not None:
-            pulumi.set(__self__, "vnet_config", vnet_config)
+            _setter("vnet_config", vnet_config)
 
     @property
     @pulumi.getter(name="osDiskSizeGB")
@@ -1581,17 +2063,42 @@ class ImageTemplateWindowsUpdateCustomizerArgs:
         :param pulumi.Input[str] search_criteria: Criteria to search updates. Omit or specify empty string to use the default (search all). Refer to above link for examples and detailed description of this field.
         :param pulumi.Input[int] update_limit: Maximum number of updates to apply at a time. Omit or specify 0 to use the default (1000)
         """
-        pulumi.set(__self__, "type", 'WindowsUpdate')
+        ImageTemplateWindowsUpdateCustomizerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            filters=filters,
+            name=name,
+            search_criteria=search_criteria,
+            update_limit=update_limit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             search_criteria: Optional[pulumi.Input[str]] = None,
+             update_limit: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if search_criteria is None and 'searchCriteria' in kwargs:
+            search_criteria = kwargs['searchCriteria']
+        if update_limit is None and 'updateLimit' in kwargs:
+            update_limit = kwargs['updateLimit']
+
+        _setter("type", 'WindowsUpdate')
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if search_criteria is not None:
-            pulumi.set(__self__, "search_criteria", search_criteria)
+            _setter("search_criteria", search_criteria)
         if update_limit is None:
             update_limit = 0
         if update_limit is not None:
-            pulumi.set(__self__, "update_limit", update_limit)
+            _setter("update_limit", update_limit)
 
     @property
     @pulumi.getter
@@ -1667,9 +2174,36 @@ class PlatformImagePurchasePlanArgs:
         :param pulumi.Input[str] plan_product: Product of the purchase plan.
         :param pulumi.Input[str] plan_publisher: Publisher of the purchase plan.
         """
-        pulumi.set(__self__, "plan_name", plan_name)
-        pulumi.set(__self__, "plan_product", plan_product)
-        pulumi.set(__self__, "plan_publisher", plan_publisher)
+        PlatformImagePurchasePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            plan_name=plan_name,
+            plan_product=plan_product,
+            plan_publisher=plan_publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             plan_name: Optional[pulumi.Input[str]] = None,
+             plan_product: Optional[pulumi.Input[str]] = None,
+             plan_publisher: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if plan_name is None and 'planName' in kwargs:
+            plan_name = kwargs['planName']
+        if plan_name is None:
+            raise TypeError("Missing 'plan_name' argument")
+        if plan_product is None and 'planProduct' in kwargs:
+            plan_product = kwargs['planProduct']
+        if plan_product is None:
+            raise TypeError("Missing 'plan_product' argument")
+        if plan_publisher is None and 'planPublisher' in kwargs:
+            plan_publisher = kwargs['planPublisher']
+        if plan_publisher is None:
+            raise TypeError("Missing 'plan_publisher' argument")
+
+        _setter("plan_name", plan_name)
+        _setter("plan_product", plan_product)
+        _setter("plan_publisher", plan_publisher)
 
     @property
     @pulumi.getter(name="planName")
@@ -1720,13 +2254,34 @@ class TargetRegionArgs:
         :param pulumi.Input[int] replica_count: The number of replicas of the Image Version to be created in this region. Omit to use the default (1).
         :param pulumi.Input[Union[str, 'SharedImageStorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
         """
-        pulumi.set(__self__, "name", name)
+        TargetRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            replica_count=replica_count,
+            storage_account_type=storage_account_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             replica_count: Optional[pulumi.Input[int]] = None,
+             storage_account_type: Optional[pulumi.Input[Union[str, 'SharedImageStorageAccountType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if replica_count is None and 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+        if storage_account_type is None and 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+
+        _setter("name", name)
         if replica_count is None:
             replica_count = 1
         if replica_count is not None:
-            pulumi.set(__self__, "replica_count", replica_count)
+            _setter("replica_count", replica_count)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
 
     @property
     @pulumi.getter
@@ -1775,12 +2330,29 @@ class VirtualNetworkConfigArgs:
         :param pulumi.Input[str] proxy_vm_size: Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
         :param pulumi.Input[str] subnet_id: Resource id of a pre-existing subnet.
         """
+        VirtualNetworkConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            proxy_vm_size=proxy_vm_size,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             proxy_vm_size: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if proxy_vm_size is None and 'proxyVmSize' in kwargs:
+            proxy_vm_size = kwargs['proxyVmSize']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if proxy_vm_size is None:
             proxy_vm_size = ''
         if proxy_vm_size is not None:
-            pulumi.set(__self__, "proxy_vm_size", proxy_vm_size)
+            _setter("proxy_vm_size", proxy_vm_size)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="proxyVmSize")

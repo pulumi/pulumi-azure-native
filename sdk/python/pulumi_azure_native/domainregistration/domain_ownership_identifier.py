@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainOwnershipIdentifierArgs', 'DomainOwnershipIdentifier']
@@ -27,14 +27,43 @@ class DomainOwnershipIdentifierArgs:
         :param pulumi.Input[str] name: Name of identifier.
         :param pulumi.Input[str] ownership_id: Ownership Id.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DomainOwnershipIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            resource_group_name=resource_group_name,
+            kind=kind,
+            name=name,
+            ownership_id=ownership_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ownership_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ownership_id is None and 'ownershipId' in kwargs:
+            ownership_id = kwargs['ownershipId']
+
+        _setter("domain_name", domain_name)
+        _setter("resource_group_name", resource_group_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ownership_id is not None:
-            pulumi.set(__self__, "ownership_id", ownership_id)
+            _setter("ownership_id", ownership_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -144,6 +173,10 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainOwnershipIdentifierArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,67 @@ class NspAssociationArgs:
         :param pulumi.Input['SubResourceArgs'] profile: Profile id to which the PaaS resource is associated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NspAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_security_perimeter_name=network_security_perimeter_name,
+            resource_group_name=resource_group_name,
+            access_mode=access_mode,
+            association_name=association_name,
+            id=id,
+            location=location,
+            name=name,
+            private_link_resource=private_link_resource,
+            profile=profile,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             access_mode: Optional[pulumi.Input[Union[str, 'AssociationAccessMode']]] = None,
+             association_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_link_resource: Optional[pulumi.Input['SubResourceArgs']] = None,
+             profile: Optional[pulumi.Input['SubResourceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_security_perimeter_name is None and 'networkSecurityPerimeterName' in kwargs:
+            network_security_perimeter_name = kwargs['networkSecurityPerimeterName']
+        if network_security_perimeter_name is None:
+            raise TypeError("Missing 'network_security_perimeter_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_mode is None and 'accessMode' in kwargs:
+            access_mode = kwargs['accessMode']
+        if association_name is None and 'associationName' in kwargs:
+            association_name = kwargs['associationName']
+        if private_link_resource is None and 'privateLinkResource' in kwargs:
+            private_link_resource = kwargs['privateLinkResource']
+
+        _setter("network_security_perimeter_name", network_security_perimeter_name)
+        _setter("resource_group_name", resource_group_name)
         if access_mode is not None:
-            pulumi.set(__self__, "access_mode", access_mode)
+            _setter("access_mode", access_mode)
         if association_name is not None:
-            pulumi.set(__self__, "association_name", association_name)
+            _setter("association_name", association_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_link_resource is not None:
-            pulumi.set(__self__, "private_link_resource", private_link_resource)
+            _setter("private_link_resource", private_link_resource)
         if profile is not None:
-            pulumi.set(__self__, "profile", profile)
+            _setter("profile", profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkSecurityPerimeterName")
@@ -231,6 +274,10 @@ class NspAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NspAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,7 +310,9 @@ class NspAssociation(pulumi.CustomResource):
             if network_security_perimeter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_perimeter_name'")
             __props__.__dict__["network_security_perimeter_name"] = network_security_perimeter_name
+            private_link_resource = _utilities.configure(private_link_resource, SubResourceArgs, True)
             __props__.__dict__["private_link_resource"] = private_link_resource
+            profile = _utilities.configure(profile, SubResourceArgs, True)
             __props__.__dict__["profile"] = profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

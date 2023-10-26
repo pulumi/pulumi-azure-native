@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,27 +44,86 @@ class ApiArgs:
         :param pulumi.Input[str] summary: Short description of the API.
         :param pulumi.Input['TermsOfServiceArgs'] terms_of_service: Terms of service for the API.
         """
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        ApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            title=title,
+            workspace_name=workspace_name,
+            api_name=api_name,
+            contacts=contacts,
+            custom_properties=custom_properties,
+            description=description,
+            external_documentation=external_documentation,
+            license=license,
+            summary=summary,
+            terms_of_service=terms_of_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[Union[str, 'ApiKind']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             api_name: Optional[pulumi.Input[str]] = None,
+             contacts: Optional[pulumi.Input[Sequence[pulumi.Input['ContactArgs']]]] = None,
+             custom_properties: Optional[Any] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             external_documentation: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalDocumentationArgs']]]] = None,
+             license: Optional[pulumi.Input['LicenseArgs']] = None,
+             summary: Optional[pulumi.Input[str]] = None,
+             terms_of_service: Optional[pulumi.Input['TermsOfServiceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if api_name is None and 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if external_documentation is None and 'externalDocumentation' in kwargs:
+            external_documentation = kwargs['externalDocumentation']
+        if terms_of_service is None and 'termsOfService' in kwargs:
+            terms_of_service = kwargs['termsOfService']
+
+        _setter("kind", kind)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("title", title)
+        _setter("workspace_name", workspace_name)
         if api_name is not None:
-            pulumi.set(__self__, "api_name", api_name)
+            _setter("api_name", api_name)
         if contacts is not None:
-            pulumi.set(__self__, "contacts", contacts)
+            _setter("contacts", contacts)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_documentation is not None:
-            pulumi.set(__self__, "external_documentation", external_documentation)
+            _setter("external_documentation", external_documentation)
         if license is not None:
-            pulumi.set(__self__, "license", license)
+            _setter("license", license)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if terms_of_service is not None:
-            pulumi.set(__self__, "terms_of_service", terms_of_service)
+            _setter("terms_of_service", terms_of_service)
 
     @property
     @pulumi.getter
@@ -272,6 +331,10 @@ class Api(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -307,6 +370,7 @@ class Api(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
+            license = _utilities.configure(license, LicenseArgs, True)
             __props__.__dict__["license"] = license
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -315,6 +379,7 @@ class Api(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["summary"] = summary
+            terms_of_service = _utilities.configure(terms_of_service, TermsOfServiceArgs, True)
             __props__.__dict__["terms_of_service"] = terms_of_service
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")

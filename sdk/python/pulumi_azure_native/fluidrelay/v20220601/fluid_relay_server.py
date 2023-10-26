@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,54 @@ class FluidRelayServerArgs:
         :param pulumi.Input[Union[str, 'StorageSKU']] storagesku: Sku of the storage associated with the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group", resource_group)
+        FluidRelayServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group=resource_group,
+            encryption=encryption,
+            fluid_relay_server_name=fluid_relay_server_name,
+            identity=identity,
+            location=location,
+            provisioning_state=provisioning_state,
+            storagesku=storagesku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
+             fluid_relay_server_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             storagesku: Optional[pulumi.Input[Union[str, 'StorageSKU']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if fluid_relay_server_name is None and 'fluidRelayServerName' in kwargs:
+            fluid_relay_server_name = kwargs['fluidRelayServerName']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("resource_group", resource_group)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if fluid_relay_server_name is not None:
-            pulumi.set(__self__, "fluid_relay_server_name", fluid_relay_server_name)
+            _setter("fluid_relay_server_name", fluid_relay_server_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if storagesku is not None:
-            pulumi.set(__self__, "storagesku", storagesku)
+            _setter("storagesku", storagesku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -196,6 +229,10 @@ class FluidRelayServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FluidRelayServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,8 +255,10 @@ class FluidRelayServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FluidRelayServerArgs.__new__(FluidRelayServerArgs)
 
+            encryption = _utilities.configure(encryption, EncryptionPropertiesArgs, True)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["fluid_relay_server_name"] = fluid_relay_server_name
+            identity = _utilities.configure(identity, IdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["provisioning_state"] = provisioning_state

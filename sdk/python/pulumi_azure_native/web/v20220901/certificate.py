@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -44,31 +44,84 @@ class CertificateArgs:
         :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            canonical_name=canonical_name,
+            domain_validation_method=domain_validation_method,
+            host_names=host_names,
+            key_vault_id=key_vault_id,
+            key_vault_secret_name=key_vault_secret_name,
+            kind=kind,
+            location=location,
+            name=name,
+            password=password,
+            pfx_blob=pfx_blob,
+            server_farm_id=server_farm_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             canonical_name: Optional[pulumi.Input[str]] = None,
+             domain_validation_method: Optional[pulumi.Input[str]] = None,
+             host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             key_vault_secret_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             pfx_blob: Optional[pulumi.Input[str]] = None,
+             server_farm_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if canonical_name is None and 'canonicalName' in kwargs:
+            canonical_name = kwargs['canonicalName']
+        if domain_validation_method is None and 'domainValidationMethod' in kwargs:
+            domain_validation_method = kwargs['domainValidationMethod']
+        if host_names is None and 'hostNames' in kwargs:
+            host_names = kwargs['hostNames']
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_secret_name is None and 'keyVaultSecretName' in kwargs:
+            key_vault_secret_name = kwargs['keyVaultSecretName']
+        if pfx_blob is None and 'pfxBlob' in kwargs:
+            pfx_blob = kwargs['pfxBlob']
+        if server_farm_id is None and 'serverFarmId' in kwargs:
+            server_farm_id = kwargs['serverFarmId']
+
+        _setter("resource_group_name", resource_group_name)
         if canonical_name is not None:
-            pulumi.set(__self__, "canonical_name", canonical_name)
+            _setter("canonical_name", canonical_name)
         if domain_validation_method is not None:
-            pulumi.set(__self__, "domain_validation_method", domain_validation_method)
+            _setter("domain_validation_method", domain_validation_method)
         if host_names is not None:
-            pulumi.set(__self__, "host_names", host_names)
+            _setter("host_names", host_names)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_secret_name is not None:
-            pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+            _setter("key_vault_secret_name", key_vault_secret_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if pfx_blob is not None:
-            pulumi.set(__self__, "pfx_blob", pfx_blob)
+            _setter("pfx_blob", pfx_blob)
         if server_farm_id is not None:
-            pulumi.set(__self__, "server_farm_id", server_farm_id)
+            _setter("server_farm_id", server_farm_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -284,6 +337,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

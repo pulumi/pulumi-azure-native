@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,20 +40,69 @@ class ScheduledActionByScopeArgs:
         :param pulumi.Input[str] name: Scheduled action name.
         :param pulumi.Input[str] notification_email: Email address of the point of contact that should get the unsubscribe requests and notification emails.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "notification", notification)
-        pulumi.set(__self__, "schedule", schedule)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "view_id", view_id)
+        ScheduledActionByScopeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            notification=notification,
+            schedule=schedule,
+            scope=scope,
+            status=status,
+            view_id=view_id,
+            file_destination=file_destination,
+            kind=kind,
+            name=name,
+            notification_email=notification_email,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             notification: Optional[pulumi.Input['NotificationPropertiesArgs']] = None,
+             schedule: Optional[pulumi.Input['SchedulePropertiesArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'ScheduledActionStatus']]] = None,
+             view_id: Optional[pulumi.Input[str]] = None,
+             file_destination: Optional[pulumi.Input['FileDestinationArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'ScheduledActionKind']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_email: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if notification is None:
+            raise TypeError("Missing 'notification' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if view_id is None and 'viewId' in kwargs:
+            view_id = kwargs['viewId']
+        if view_id is None:
+            raise TypeError("Missing 'view_id' argument")
+        if file_destination is None and 'fileDestination' in kwargs:
+            file_destination = kwargs['fileDestination']
+        if notification_email is None and 'notificationEmail' in kwargs:
+            notification_email = kwargs['notificationEmail']
+
+        _setter("display_name", display_name)
+        _setter("notification", notification)
+        _setter("schedule", schedule)
+        _setter("scope", scope)
+        _setter("status", status)
+        _setter("view_id", view_id)
         if file_destination is not None:
-            pulumi.set(__self__, "file_destination", file_destination)
+            _setter("file_destination", file_destination)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_email is not None:
-            pulumi.set(__self__, "notification_email", notification_email)
+            _setter("notification_email", notification_email)
 
     @property
     @pulumi.getter(name="displayName")
@@ -233,6 +282,10 @@ class ScheduledActionByScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledActionByScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -260,13 +313,16 @@ class ScheduledActionByScope(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            file_destination = _utilities.configure(file_destination, FileDestinationArgs, True)
             __props__.__dict__["file_destination"] = file_destination
             __props__.__dict__["kind"] = kind
             __props__.__dict__["name"] = name
+            notification = _utilities.configure(notification, NotificationPropertiesArgs, True)
             if notification is None and not opts.urn:
                 raise TypeError("Missing required property 'notification'")
             __props__.__dict__["notification"] = notification
             __props__.__dict__["notification_email"] = notification_email
+            schedule = _utilities.configure(schedule, SchedulePropertiesArgs, True)
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule

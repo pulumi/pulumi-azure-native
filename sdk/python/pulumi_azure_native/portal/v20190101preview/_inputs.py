@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -27,10 +27,29 @@ class DashboardLensArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['DashboardPartsArgs']]] parts: The dashboard parts.
         :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard len's metadata.
         """
-        pulumi.set(__self__, "order", order)
-        pulumi.set(__self__, "parts", parts)
+        DashboardLensArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order=order,
+            parts=parts,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order: Optional[pulumi.Input[int]] = None,
+             parts: Optional[pulumi.Input[Mapping[str, pulumi.Input['DashboardPartsArgs']]]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if parts is None:
+            raise TypeError("Missing 'parts' argument")
+
+        _setter("order", order)
+        _setter("parts", parts)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter
@@ -85,12 +104,43 @@ class DashboardPartsPositionArgs:
         :param pulumi.Input[int] y: The dashboard's part y coordinate.
         :param pulumi.Input[Mapping[str, Any]] metadata: The dashboard part's metadata.
         """
-        pulumi.set(__self__, "col_span", col_span)
-        pulumi.set(__self__, "row_span", row_span)
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
+        DashboardPartsPositionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            col_span=col_span,
+            row_span=row_span,
+            x=x,
+            y=y,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             col_span: Optional[pulumi.Input[int]] = None,
+             row_span: Optional[pulumi.Input[int]] = None,
+             x: Optional[pulumi.Input[int]] = None,
+             y: Optional[pulumi.Input[int]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if col_span is None and 'colSpan' in kwargs:
+            col_span = kwargs['colSpan']
+        if col_span is None:
+            raise TypeError("Missing 'col_span' argument")
+        if row_span is None and 'rowSpan' in kwargs:
+            row_span = kwargs['rowSpan']
+        if row_span is None:
+            raise TypeError("Missing 'row_span' argument")
+        if x is None:
+            raise TypeError("Missing 'x' argument")
+        if y is None:
+            raise TypeError("Missing 'y' argument")
+
+        _setter("col_span", col_span)
+        _setter("row_span", row_span)
+        _setter("x", x)
+        _setter("y", y)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter(name="colSpan")
@@ -163,9 +213,24 @@ class DashboardPartsArgs:
         :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
         :param Any metadata: A dashboard part metadata.
         """
-        pulumi.set(__self__, "position", position)
+        DashboardPartsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            position=position,
+            metadata=metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             position: Optional[pulumi.Input['DashboardPartsPositionArgs']] = None,
+             metadata: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if position is None:
+            raise TypeError("Missing 'position' argument")
+
+        _setter("position", position)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
 
     @property
     @pulumi.getter

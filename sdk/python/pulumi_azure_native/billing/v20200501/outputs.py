@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,9 +28,28 @@ class AzurePlanResponse(dict):
         :param str sku_description: The sku description.
         :param str sku_id: The sku id.
         """
-        pulumi.set(__self__, "sku_description", sku_description)
+        AzurePlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sku_description=sku_description,
+            sku_id=sku_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sku_description: Optional[str] = None,
+             sku_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sku_description is None and 'skuDescription' in kwargs:
+            sku_description = kwargs['skuDescription']
+        if sku_description is None:
+            raise TypeError("Missing 'sku_description' argument")
+        if sku_id is None and 'skuId' in kwargs:
+            sku_id = kwargs['skuId']
+
+        _setter("sku_description", sku_description)
         if sku_id is not None:
-            pulumi.set(__self__, "sku_id", sku_id)
+            _setter("sku_id", sku_id)
 
     @property
     @pulumi.getter(name="skuDescription")
@@ -78,17 +97,84 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
         :param str invoice_section_system_id: The system generated unique identifier for an invoice section.
         :param Sequence['AzurePlanResponse'] enabled_azure_plans: Enabled azure plans for the associated billing profile.
         """
-        pulumi.set(__self__, "billing_profile_display_name", billing_profile_display_name)
-        pulumi.set(__self__, "billing_profile_id", billing_profile_id)
-        pulumi.set(__self__, "billing_profile_spending_limit", billing_profile_spending_limit)
-        pulumi.set(__self__, "billing_profile_status", billing_profile_status)
-        pulumi.set(__self__, "billing_profile_status_reason_code", billing_profile_status_reason_code)
-        pulumi.set(__self__, "billing_profile_system_id", billing_profile_system_id)
-        pulumi.set(__self__, "invoice_section_display_name", invoice_section_display_name)
-        pulumi.set(__self__, "invoice_section_id", invoice_section_id)
-        pulumi.set(__self__, "invoice_section_system_id", invoice_section_system_id)
+        InvoiceSectionWithCreateSubPermissionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_profile_display_name=billing_profile_display_name,
+            billing_profile_id=billing_profile_id,
+            billing_profile_spending_limit=billing_profile_spending_limit,
+            billing_profile_status=billing_profile_status,
+            billing_profile_status_reason_code=billing_profile_status_reason_code,
+            billing_profile_system_id=billing_profile_system_id,
+            invoice_section_display_name=invoice_section_display_name,
+            invoice_section_id=invoice_section_id,
+            invoice_section_system_id=invoice_section_system_id,
+            enabled_azure_plans=enabled_azure_plans,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_profile_display_name: Optional[str] = None,
+             billing_profile_id: Optional[str] = None,
+             billing_profile_spending_limit: Optional[str] = None,
+             billing_profile_status: Optional[str] = None,
+             billing_profile_status_reason_code: Optional[str] = None,
+             billing_profile_system_id: Optional[str] = None,
+             invoice_section_display_name: Optional[str] = None,
+             invoice_section_id: Optional[str] = None,
+             invoice_section_system_id: Optional[str] = None,
+             enabled_azure_plans: Optional[Sequence['outputs.AzurePlanResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_profile_display_name is None and 'billingProfileDisplayName' in kwargs:
+            billing_profile_display_name = kwargs['billingProfileDisplayName']
+        if billing_profile_display_name is None:
+            raise TypeError("Missing 'billing_profile_display_name' argument")
+        if billing_profile_id is None and 'billingProfileId' in kwargs:
+            billing_profile_id = kwargs['billingProfileId']
+        if billing_profile_id is None:
+            raise TypeError("Missing 'billing_profile_id' argument")
+        if billing_profile_spending_limit is None and 'billingProfileSpendingLimit' in kwargs:
+            billing_profile_spending_limit = kwargs['billingProfileSpendingLimit']
+        if billing_profile_spending_limit is None:
+            raise TypeError("Missing 'billing_profile_spending_limit' argument")
+        if billing_profile_status is None and 'billingProfileStatus' in kwargs:
+            billing_profile_status = kwargs['billingProfileStatus']
+        if billing_profile_status is None:
+            raise TypeError("Missing 'billing_profile_status' argument")
+        if billing_profile_status_reason_code is None and 'billingProfileStatusReasonCode' in kwargs:
+            billing_profile_status_reason_code = kwargs['billingProfileStatusReasonCode']
+        if billing_profile_status_reason_code is None:
+            raise TypeError("Missing 'billing_profile_status_reason_code' argument")
+        if billing_profile_system_id is None and 'billingProfileSystemId' in kwargs:
+            billing_profile_system_id = kwargs['billingProfileSystemId']
+        if billing_profile_system_id is None:
+            raise TypeError("Missing 'billing_profile_system_id' argument")
+        if invoice_section_display_name is None and 'invoiceSectionDisplayName' in kwargs:
+            invoice_section_display_name = kwargs['invoiceSectionDisplayName']
+        if invoice_section_display_name is None:
+            raise TypeError("Missing 'invoice_section_display_name' argument")
+        if invoice_section_id is None and 'invoiceSectionId' in kwargs:
+            invoice_section_id = kwargs['invoiceSectionId']
+        if invoice_section_id is None:
+            raise TypeError("Missing 'invoice_section_id' argument")
+        if invoice_section_system_id is None and 'invoiceSectionSystemId' in kwargs:
+            invoice_section_system_id = kwargs['invoiceSectionSystemId']
+        if invoice_section_system_id is None:
+            raise TypeError("Missing 'invoice_section_system_id' argument")
+        if enabled_azure_plans is None and 'enabledAzurePlans' in kwargs:
+            enabled_azure_plans = kwargs['enabledAzurePlans']
+
+        _setter("billing_profile_display_name", billing_profile_display_name)
+        _setter("billing_profile_id", billing_profile_id)
+        _setter("billing_profile_spending_limit", billing_profile_spending_limit)
+        _setter("billing_profile_status", billing_profile_status)
+        _setter("billing_profile_status_reason_code", billing_profile_status_reason_code)
+        _setter("billing_profile_system_id", billing_profile_system_id)
+        _setter("invoice_section_display_name", invoice_section_display_name)
+        _setter("invoice_section_id", invoice_section_id)
+        _setter("invoice_section_system_id", invoice_section_system_id)
         if enabled_azure_plans is not None:
-            pulumi.set(__self__, "enabled_azure_plans", enabled_azure_plans)
+            _setter("enabled_azure_plans", enabled_azure_plans)
 
     @property
     @pulumi.getter(name="billingProfileDisplayName")

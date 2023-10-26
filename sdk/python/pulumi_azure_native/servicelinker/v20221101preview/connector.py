@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,28 +44,85 @@ class ConnectorArgs:
         :param pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']] target_service: The target service properties
         :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            resource_group_name=resource_group_name,
+            auth_info=auth_info,
+            client_type=client_type,
+            configuration_info=configuration_info,
+            connector_name=connector_name,
+            public_network_solution=public_network_solution,
+            scope=scope,
+            secret_store=secret_store,
+            subscription_id=subscription_id,
+            target_service=target_service,
+            v_net_solution=v_net_solution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auth_info: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
+             client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
+             configuration_info: Optional[pulumi.Input['ConfigurationInfoArgs']] = None,
+             connector_name: Optional[pulumi.Input[str]] = None,
+             public_network_solution: Optional[pulumi.Input['PublicNetworkSolutionArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             target_service: Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']]] = None,
+             v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auth_info is None and 'authInfo' in kwargs:
+            auth_info = kwargs['authInfo']
+        if client_type is None and 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if configuration_info is None and 'configurationInfo' in kwargs:
+            configuration_info = kwargs['configurationInfo']
+        if connector_name is None and 'connectorName' in kwargs:
+            connector_name = kwargs['connectorName']
+        if public_network_solution is None and 'publicNetworkSolution' in kwargs:
+            public_network_solution = kwargs['publicNetworkSolution']
+        if secret_store is None and 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if target_service is None and 'targetService' in kwargs:
+            target_service = kwargs['targetService']
+        if v_net_solution is None and 'vNetSolution' in kwargs:
+            v_net_solution = kwargs['vNetSolution']
+
+        _setter("location", location)
+        _setter("resource_group_name", resource_group_name)
         if auth_info is not None:
-            pulumi.set(__self__, "auth_info", auth_info)
+            _setter("auth_info", auth_info)
         if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
+            _setter("client_type", client_type)
         if configuration_info is not None:
-            pulumi.set(__self__, "configuration_info", configuration_info)
+            _setter("configuration_info", configuration_info)
         if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
+            _setter("connector_name", connector_name)
         if public_network_solution is not None:
-            pulumi.set(__self__, "public_network_solution", public_network_solution)
+            _setter("public_network_solution", public_network_solution)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if target_service is not None:
-            pulumi.set(__self__, "target_service", target_service)
+            _setter("target_service", target_service)
         if v_net_solution is not None:
-            pulumi.set(__self__, "v_net_solution", v_net_solution)
+            _setter("v_net_solution", v_net_solution)
 
     @property
     @pulumi.getter
@@ -267,6 +324,10 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,19 +356,23 @@ class Connector(pulumi.CustomResource):
 
             __props__.__dict__["auth_info"] = auth_info
             __props__.__dict__["client_type"] = client_type
+            configuration_info = _utilities.configure(configuration_info, ConfigurationInfoArgs, True)
             __props__.__dict__["configuration_info"] = configuration_info
             __props__.__dict__["connector_name"] = connector_name
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
+            public_network_solution = _utilities.configure(public_network_solution, PublicNetworkSolutionArgs, True)
             __props__.__dict__["public_network_solution"] = public_network_solution
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scope"] = scope
+            secret_store = _utilities.configure(secret_store, SecretStoreArgs, True)
             __props__.__dict__["secret_store"] = secret_store
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["target_service"] = target_service
+            v_net_solution = _utilities.configure(v_net_solution, VNetSolutionArgs, True)
             __props__.__dict__["v_net_solution"] = v_net_solution
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

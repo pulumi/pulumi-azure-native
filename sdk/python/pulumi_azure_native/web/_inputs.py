@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -136,8 +136,21 @@ class AllowedAudiencesValidationArgs:
         The configuration settings of the Allowed Audiences validation flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: The configuration settings of the allowed list of audiences from which to validate the JWT token.
         """
+        AllowedAudiencesValidationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_audiences=allowed_audiences,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+
         if allowed_audiences is not None:
-            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+            _setter("allowed_audiences", allowed_audiences)
 
     @property
     @pulumi.getter(name="allowedAudiences")
@@ -162,10 +175,23 @@ class AllowedPrincipalsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The list of the allowed groups.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identities: The list of the allowed identities.
         """
+        AllowedPrincipalsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            groups=groups,
+            identities=identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if identities is not None:
-            pulumi.set(__self__, "identities", identities)
+            _setter("identities", identities)
 
     @property
     @pulumi.getter
@@ -214,24 +240,65 @@ class ApiConnectionDefinitionPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]] statuses: Status of the connection
         :param pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]] test_links: Links to test the API connection
         """
+        ApiConnectionDefinitionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api=api,
+            changed_time=changed_time,
+            created_time=created_time,
+            custom_parameter_values=custom_parameter_values,
+            display_name=display_name,
+            non_secret_parameter_values=non_secret_parameter_values,
+            parameter_values=parameter_values,
+            statuses=statuses,
+            test_links=test_links,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api: Optional[pulumi.Input['ApiReferenceArgs']] = None,
+             changed_time: Optional[pulumi.Input[str]] = None,
+             created_time: Optional[pulumi.Input[str]] = None,
+             custom_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             non_secret_parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionStatusDefinitionArgs']]]] = None,
+             test_links: Optional[pulumi.Input[Sequence[pulumi.Input['ApiConnectionTestLinkArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if changed_time is None and 'changedTime' in kwargs:
+            changed_time = kwargs['changedTime']
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if custom_parameter_values is None and 'customParameterValues' in kwargs:
+            custom_parameter_values = kwargs['customParameterValues']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if non_secret_parameter_values is None and 'nonSecretParameterValues' in kwargs:
+            non_secret_parameter_values = kwargs['nonSecretParameterValues']
+        if parameter_values is None and 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if test_links is None and 'testLinks' in kwargs:
+            test_links = kwargs['testLinks']
+
         if api is not None:
-            pulumi.set(__self__, "api", api)
+            _setter("api", api)
         if changed_time is not None:
-            pulumi.set(__self__, "changed_time", changed_time)
+            _setter("changed_time", changed_time)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if custom_parameter_values is not None:
-            pulumi.set(__self__, "custom_parameter_values", custom_parameter_values)
+            _setter("custom_parameter_values", custom_parameter_values)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if non_secret_parameter_values is not None:
-            pulumi.set(__self__, "non_secret_parameter_values", non_secret_parameter_values)
+            _setter("non_secret_parameter_values", non_secret_parameter_values)
         if parameter_values is not None:
-            pulumi.set(__self__, "parameter_values", parameter_values)
+            _setter("parameter_values", parameter_values)
         if statuses is not None:
-            pulumi.set(__self__, "statuses", statuses)
+            _setter("statuses", statuses)
         if test_links is not None:
-            pulumi.set(__self__, "test_links", test_links)
+            _setter("test_links", test_links)
 
     @property
     @pulumi.getter
@@ -349,10 +416,25 @@ class ApiConnectionTestLinkArgs:
         :param pulumi.Input[str] method: HTTP Method
         :param pulumi.Input[str] request_uri: Test link request URI
         """
+        ApiConnectionTestLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method=method,
+            request_uri=request_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method: Optional[pulumi.Input[str]] = None,
+             request_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if request_uri is None and 'requestUri' in kwargs:
+            request_uri = kwargs['requestUri']
+
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if request_uri is not None:
-            pulumi.set(__self__, "request_uri", request_uri)
+            _setter("request_uri", request_uri)
 
     @property
     @pulumi.getter
@@ -387,8 +469,19 @@ class ApiDefinitionInfoArgs:
         Information about the formal API definition for the app.
         :param pulumi.Input[str] url: The URL of the API definition.
         """
+        ApiDefinitionInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -411,8 +504,19 @@ class ApiManagementConfigArgs:
         Azure API management (APIM) configuration linked to the app.
         :param pulumi.Input[str] id: APIM-Api Identifier.
         """
+        ApiManagementConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -439,12 +543,29 @@ class ApiOAuthSettingsParameterArgs:
         :param Any ui_definition: UI definitions per culture as caller can specify the culture
         :param pulumi.Input[str] value: Value of the setting
         """
+        ApiOAuthSettingsParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            options=options,
+            ui_definition=ui_definition,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             options: Optional[Any] = None,
+             ui_definition: Optional[Any] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ui_definition is None and 'uiDefinition' in kwargs:
+            ui_definition = kwargs['uiDefinition']
+
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if ui_definition is not None:
-            pulumi.set(__self__, "ui_definition", ui_definition)
+            _setter("ui_definition", ui_definition)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -503,20 +624,53 @@ class ApiOAuthSettingsArgs:
         :param pulumi.Input[str] redirect_url: Url
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: OAuth scopes
         """
+        ApiOAuthSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            custom_parameters=custom_parameters,
+            identity_provider=identity_provider,
+            properties=properties,
+            redirect_url=redirect_url,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             custom_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiOAuthSettingsParameterArgs']]]] = None,
+             identity_provider: Optional[pulumi.Input[str]] = None,
+             properties: Optional[Any] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if custom_parameters is None and 'customParameters' in kwargs:
+            custom_parameters = kwargs['customParameters']
+        if identity_provider is None and 'identityProvider' in kwargs:
+            identity_provider = kwargs['identityProvider']
+        if redirect_url is None and 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if custom_parameters is not None:
-            pulumi.set(__self__, "custom_parameters", custom_parameters)
+            _setter("custom_parameters", custom_parameters)
         if identity_provider is not None:
-            pulumi.set(__self__, "identity_provider", identity_provider)
+            _setter("identity_provider", identity_provider)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="clientId")
@@ -624,22 +778,53 @@ class ApiReferenceArgs:
         :param Any swagger: The JSON representation of the swagger
         :param pulumi.Input[str] type: Resource reference type
         """
+        ApiReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            brand_color=brand_color,
+            description=description,
+            display_name=display_name,
+            icon_uri=icon_uri,
+            id=id,
+            name=name,
+            swagger=swagger,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             brand_color: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             icon_uri: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             swagger: Optional[Any] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if brand_color is None and 'brandColor' in kwargs:
+            brand_color = kwargs['brandColor']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if icon_uri is None and 'iconUri' in kwargs:
+            icon_uri = kwargs['iconUri']
+
         if brand_color is not None:
-            pulumi.set(__self__, "brand_color", brand_color)
+            _setter("brand_color", brand_color)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if icon_uri is not None:
-            pulumi.set(__self__, "icon_uri", icon_uri)
+            _setter("icon_uri", icon_uri)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if swagger is not None:
-            pulumi.set(__self__, "swagger", swagger)
+            _setter("swagger", swagger)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="brandColor")
@@ -746,8 +931,21 @@ class ApiResourceBackendServiceArgs:
         The API backend service
         :param pulumi.Input[str] service_url: The service URL
         """
+        ApiResourceBackendServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_url=service_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_url is None and 'serviceUrl' in kwargs:
+            service_url = kwargs['serviceUrl']
+
         if service_url is not None:
-            pulumi.set(__self__, "service_url", service_url)
+            _setter("service_url", service_url)
 
     @property
     @pulumi.getter(name="serviceUrl")
@@ -772,10 +970,27 @@ class ApiResourceDefinitionsArgs:
         :param pulumi.Input[str] modified_swagger_url: The modified swagger URL
         :param pulumi.Input[str] original_swagger_url: The original swagger URL
         """
+        ApiResourceDefinitionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            modified_swagger_url=modified_swagger_url,
+            original_swagger_url=original_swagger_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             modified_swagger_url: Optional[pulumi.Input[str]] = None,
+             original_swagger_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if modified_swagger_url is None and 'modifiedSwaggerUrl' in kwargs:
+            modified_swagger_url = kwargs['modifiedSwaggerUrl']
+        if original_swagger_url is None and 'originalSwaggerUrl' in kwargs:
+            original_swagger_url = kwargs['originalSwaggerUrl']
+
         if modified_swagger_url is not None:
-            pulumi.set(__self__, "modified_swagger_url", modified_swagger_url)
+            _setter("modified_swagger_url", modified_swagger_url)
         if original_swagger_url is not None:
-            pulumi.set(__self__, "original_swagger_url", original_swagger_url)
+            _setter("original_swagger_url", original_swagger_url)
 
     @property
     @pulumi.getter(name="modifiedSwaggerUrl")
@@ -807,10 +1022,25 @@ class AppLogsConfigurationArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None,
                  log_analytics_configuration: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']] = None):
+        AppLogsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination=destination,
+            log_analytics_configuration=log_analytics_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination: Optional[pulumi.Input[str]] = None,
+             log_analytics_configuration: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_analytics_configuration is None and 'logAnalyticsConfiguration' in kwargs:
+            log_analytics_configuration = kwargs['logAnalyticsConfiguration']
+
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if log_analytics_configuration is not None:
-            pulumi.set(__self__, "log_analytics_configuration", log_analytics_configuration)
+            _setter("log_analytics_configuration", log_analytics_configuration)
 
     @property
     @pulumi.getter
@@ -841,10 +1071,27 @@ class AppRegistrationArgs:
         :param pulumi.Input[str] app_id: The App ID of the app used for login.
         :param pulumi.Input[str] app_secret_setting_name: The app setting name that contains the app secret.
         """
+        AppRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            app_secret_setting_name=app_secret_setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_secret_setting_name is None and 'appSecretSettingName' in kwargs:
+            app_secret_setting_name = kwargs['appSecretSettingName']
+
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if app_secret_setting_name is not None:
-            pulumi.set(__self__, "app_secret_setting_name", app_secret_setting_name)
+            _setter("app_secret_setting_name", app_secret_setting_name)
 
     @property
     @pulumi.getter(name="appId")
@@ -881,10 +1128,27 @@ class AppleRegistrationArgs:
         :param pulumi.Input[str] client_id: The Client ID of the app used for login.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the client secret.
         """
+        AppleRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret_setting_name=client_secret_setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret_setting_name is not None:
-            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+            _setter("client_secret_setting_name", client_secret_setting_name)
 
     @property
     @pulumi.getter(name="clientId")
@@ -923,12 +1187,27 @@ class AppleArgs:
         :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
         :param pulumi.Input['AppleRegistrationArgs'] registration: The configuration settings of the Apple registration.
         """
+        AppleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            login=login,
+            registration=registration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+             registration: Optional[pulumi.Input['AppleRegistrationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
 
     @property
     @pulumi.getter
@@ -979,12 +1258,33 @@ class ApplicationLogsConfigArgs:
         :param pulumi.Input['AzureTableStorageApplicationLogsConfigArgs'] azure_table_storage: Application logs to azure table storage configuration.
         :param pulumi.Input['FileSystemApplicationLogsConfigArgs'] file_system: Application logs to file system configuration.
         """
+        ApplicationLogsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_blob_storage=azure_blob_storage,
+            azure_table_storage=azure_table_storage,
+            file_system=file_system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_blob_storage: Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']] = None,
+             azure_table_storage: Optional[pulumi.Input['AzureTableStorageApplicationLogsConfigArgs']] = None,
+             file_system: Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if azure_table_storage is None and 'azureTableStorage' in kwargs:
+            azure_table_storage = kwargs['azureTableStorage']
+        if file_system is None and 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if azure_blob_storage is not None:
-            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+            _setter("azure_blob_storage", azure_blob_storage)
         if azure_table_storage is not None:
-            pulumi.set(__self__, "azure_table_storage", azure_table_storage)
+            _setter("azure_table_storage", azure_table_storage)
         if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
+            _setter("file_system", file_system)
 
     @property
     @pulumi.getter(name="azureBlobStorage")
@@ -1033,20 +1333,57 @@ class ArcConfigurationArgs:
                  artifacts_storage_type: Optional[pulumi.Input['StorageType']] = None,
                  front_end_service_configuration: Optional[pulumi.Input['FrontEndConfigurationArgs']] = None,
                  kube_config: Optional[pulumi.Input[str]] = None):
+        ArcConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifact_storage_access_mode=artifact_storage_access_mode,
+            artifact_storage_class_name=artifact_storage_class_name,
+            artifact_storage_mount_path=artifact_storage_mount_path,
+            artifact_storage_node_name=artifact_storage_node_name,
+            artifacts_storage_type=artifacts_storage_type,
+            front_end_service_configuration=front_end_service_configuration,
+            kube_config=kube_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifact_storage_access_mode: Optional[pulumi.Input[str]] = None,
+             artifact_storage_class_name: Optional[pulumi.Input[str]] = None,
+             artifact_storage_mount_path: Optional[pulumi.Input[str]] = None,
+             artifact_storage_node_name: Optional[pulumi.Input[str]] = None,
+             artifacts_storage_type: Optional[pulumi.Input['StorageType']] = None,
+             front_end_service_configuration: Optional[pulumi.Input['FrontEndConfigurationArgs']] = None,
+             kube_config: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if artifact_storage_access_mode is None and 'artifactStorageAccessMode' in kwargs:
+            artifact_storage_access_mode = kwargs['artifactStorageAccessMode']
+        if artifact_storage_class_name is None and 'artifactStorageClassName' in kwargs:
+            artifact_storage_class_name = kwargs['artifactStorageClassName']
+        if artifact_storage_mount_path is None and 'artifactStorageMountPath' in kwargs:
+            artifact_storage_mount_path = kwargs['artifactStorageMountPath']
+        if artifact_storage_node_name is None and 'artifactStorageNodeName' in kwargs:
+            artifact_storage_node_name = kwargs['artifactStorageNodeName']
+        if artifacts_storage_type is None and 'artifactsStorageType' in kwargs:
+            artifacts_storage_type = kwargs['artifactsStorageType']
+        if front_end_service_configuration is None and 'frontEndServiceConfiguration' in kwargs:
+            front_end_service_configuration = kwargs['frontEndServiceConfiguration']
+        if kube_config is None and 'kubeConfig' in kwargs:
+            kube_config = kwargs['kubeConfig']
+
         if artifact_storage_access_mode is not None:
-            pulumi.set(__self__, "artifact_storage_access_mode", artifact_storage_access_mode)
+            _setter("artifact_storage_access_mode", artifact_storage_access_mode)
         if artifact_storage_class_name is not None:
-            pulumi.set(__self__, "artifact_storage_class_name", artifact_storage_class_name)
+            _setter("artifact_storage_class_name", artifact_storage_class_name)
         if artifact_storage_mount_path is not None:
-            pulumi.set(__self__, "artifact_storage_mount_path", artifact_storage_mount_path)
+            _setter("artifact_storage_mount_path", artifact_storage_mount_path)
         if artifact_storage_node_name is not None:
-            pulumi.set(__self__, "artifact_storage_node_name", artifact_storage_node_name)
+            _setter("artifact_storage_node_name", artifact_storage_node_name)
         if artifacts_storage_type is not None:
-            pulumi.set(__self__, "artifacts_storage_type", artifacts_storage_type)
+            _setter("artifacts_storage_type", artifacts_storage_type)
         if front_end_service_configuration is not None:
-            pulumi.set(__self__, "front_end_service_configuration", front_end_service_configuration)
+            _setter("front_end_service_configuration", front_end_service_configuration)
         if kube_config is not None:
-            pulumi.set(__self__, "kube_config", kube_config)
+            _setter("kube_config", kube_config)
 
     @property
     @pulumi.getter(name="artifactStorageAccessMode")
@@ -1128,16 +1465,43 @@ class AseV3NetworkingConfigurationArgs:
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[bool] remote_debug_enabled: Property to enable and disable Remote Debug on ASEV3
         """
+        AseV3NetworkingConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_new_private_endpoint_connections=allow_new_private_endpoint_connections,
+            ftp_enabled=ftp_enabled,
+            inbound_ip_address_override=inbound_ip_address_override,
+            kind=kind,
+            remote_debug_enabled=remote_debug_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_new_private_endpoint_connections: Optional[pulumi.Input[bool]] = None,
+             ftp_enabled: Optional[pulumi.Input[bool]] = None,
+             inbound_ip_address_override: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             remote_debug_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_new_private_endpoint_connections is None and 'allowNewPrivateEndpointConnections' in kwargs:
+            allow_new_private_endpoint_connections = kwargs['allowNewPrivateEndpointConnections']
+        if ftp_enabled is None and 'ftpEnabled' in kwargs:
+            ftp_enabled = kwargs['ftpEnabled']
+        if inbound_ip_address_override is None and 'inboundIpAddressOverride' in kwargs:
+            inbound_ip_address_override = kwargs['inboundIpAddressOverride']
+        if remote_debug_enabled is None and 'remoteDebugEnabled' in kwargs:
+            remote_debug_enabled = kwargs['remoteDebugEnabled']
+
         if allow_new_private_endpoint_connections is not None:
-            pulumi.set(__self__, "allow_new_private_endpoint_connections", allow_new_private_endpoint_connections)
+            _setter("allow_new_private_endpoint_connections", allow_new_private_endpoint_connections)
         if ftp_enabled is not None:
-            pulumi.set(__self__, "ftp_enabled", ftp_enabled)
+            _setter("ftp_enabled", ftp_enabled)
         if inbound_ip_address_override is not None:
-            pulumi.set(__self__, "inbound_ip_address_override", inbound_ip_address_override)
+            _setter("inbound_ip_address_override", inbound_ip_address_override)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if remote_debug_enabled is not None:
-            pulumi.set(__self__, "remote_debug_enabled", remote_debug_enabled)
+            _setter("remote_debug_enabled", remote_debug_enabled)
 
     @property
     @pulumi.getter(name="allowNewPrivateEndpointConnections")
@@ -1214,12 +1578,31 @@ class AuthPlatformArgs:
         :param pulumi.Input[str] runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
                The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
         """
+        AuthPlatformArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config_file_path=config_file_path,
+            enabled=enabled,
+            runtime_version=runtime_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config_file_path: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config_file_path is None and 'configFilePath' in kwargs:
+            config_file_path = kwargs['configFilePath']
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         if config_file_path is not None:
-            pulumi.set(__self__, "config_file_path", config_file_path)
+            _setter("config_file_path", config_file_path)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
 
     @property
     @pulumi.getter(name="configFilePath")
@@ -1273,12 +1656,33 @@ class AutoHealActionsArgs:
         :param pulumi.Input[str] min_process_execution_time: Minimum time the process must execute
                before taking the action
         """
+        AutoHealActionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            custom_action=custom_action,
+            min_process_execution_time=min_process_execution_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: Optional[pulumi.Input['AutoHealActionType']] = None,
+             custom_action: Optional[pulumi.Input['AutoHealCustomActionArgs']] = None,
+             min_process_execution_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if custom_action is None and 'customAction' in kwargs:
+            custom_action = kwargs['customAction']
+        if min_process_execution_time is None and 'minProcessExecutionTime' in kwargs:
+            min_process_execution_time = kwargs['minProcessExecutionTime']
+
         if action_type is not None:
-            pulumi.set(__self__, "action_type", action_type)
+            _setter("action_type", action_type)
         if custom_action is not None:
-            pulumi.set(__self__, "custom_action", custom_action)
+            _setter("custom_action", custom_action)
         if min_process_execution_time is not None:
-            pulumi.set(__self__, "min_process_execution_time", min_process_execution_time)
+            _setter("min_process_execution_time", min_process_execution_time)
 
     @property
     @pulumi.getter(name="actionType")
@@ -1329,10 +1733,23 @@ class AutoHealCustomActionArgs:
         :param pulumi.Input[str] exe: Executable to be run.
         :param pulumi.Input[str] parameters: Parameters for the executable.
         """
+        AutoHealCustomActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exe=exe,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exe: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if exe is not None:
-            pulumi.set(__self__, "exe", exe)
+            _setter("exe", exe)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1369,10 +1786,23 @@ class AutoHealRulesArgs:
         :param pulumi.Input['AutoHealActionsArgs'] actions: Actions to be executed when a rule is triggered.
         :param pulumi.Input['AutoHealTriggersArgs'] triggers: Conditions that describe when to execute the auto-heal actions.
         """
+        AutoHealRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input['AutoHealActionsArgs']] = None,
+             triggers: Optional[pulumi.Input['AutoHealTriggersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if triggers is not None:
-            pulumi.set(__self__, "triggers", triggers)
+            _setter("triggers", triggers)
 
     @property
     @pulumi.getter
@@ -1417,18 +1847,49 @@ class AutoHealTriggersArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]] status_codes: A rule based on status codes.
         :param pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]] status_codes_range: A rule based on status codes ranges.
         """
+        AutoHealTriggersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_bytes_in_kb=private_bytes_in_kb,
+            requests=requests,
+            slow_requests=slow_requests,
+            slow_requests_with_path=slow_requests_with_path,
+            status_codes=status_codes,
+            status_codes_range=status_codes_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_bytes_in_kb: Optional[pulumi.Input[int]] = None,
+             requests: Optional[pulumi.Input['RequestsBasedTriggerArgs']] = None,
+             slow_requests: Optional[pulumi.Input['SlowRequestsBasedTriggerArgs']] = None,
+             slow_requests_with_path: Optional[pulumi.Input[Sequence[pulumi.Input['SlowRequestsBasedTriggerArgs']]]] = None,
+             status_codes: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesBasedTriggerArgs']]]] = None,
+             status_codes_range: Optional[pulumi.Input[Sequence[pulumi.Input['StatusCodesRangeBasedTriggerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_bytes_in_kb is None and 'privateBytesInKB' in kwargs:
+            private_bytes_in_kb = kwargs['privateBytesInKB']
+        if slow_requests is None and 'slowRequests' in kwargs:
+            slow_requests = kwargs['slowRequests']
+        if slow_requests_with_path is None and 'slowRequestsWithPath' in kwargs:
+            slow_requests_with_path = kwargs['slowRequestsWithPath']
+        if status_codes is None and 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+        if status_codes_range is None and 'statusCodesRange' in kwargs:
+            status_codes_range = kwargs['statusCodesRange']
+
         if private_bytes_in_kb is not None:
-            pulumi.set(__self__, "private_bytes_in_kb", private_bytes_in_kb)
+            _setter("private_bytes_in_kb", private_bytes_in_kb)
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
         if slow_requests is not None:
-            pulumi.set(__self__, "slow_requests", slow_requests)
+            _setter("slow_requests", slow_requests)
         if slow_requests_with_path is not None:
-            pulumi.set(__self__, "slow_requests_with_path", slow_requests_with_path)
+            _setter("slow_requests_with_path", slow_requests_with_path)
         if status_codes is not None:
-            pulumi.set(__self__, "status_codes", status_codes)
+            _setter("status_codes", status_codes)
         if status_codes_range is not None:
-            pulumi.set(__self__, "status_codes_range", status_codes_range)
+            _setter("status_codes_range", status_codes_range)
 
     @property
     @pulumi.getter(name="privateBytesInKB")
@@ -1514,10 +1975,27 @@ class AzureActiveDirectoryLoginArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_parameters: Login parameters to send to the OpenID Connect authorization endpoint when
                a user logs in. Each parameter must be in the form "key=value".
         """
+        AzureActiveDirectoryLoginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_www_authenticate=disable_www_authenticate,
+            login_parameters=login_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_www_authenticate: Optional[pulumi.Input[bool]] = None,
+             login_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disable_www_authenticate is None and 'disableWWWAuthenticate' in kwargs:
+            disable_www_authenticate = kwargs['disableWWWAuthenticate']
+        if login_parameters is None and 'loginParameters' in kwargs:
+            login_parameters = kwargs['loginParameters']
+
         if disable_www_authenticate is not None:
-            pulumi.set(__self__, "disable_www_authenticate", disable_www_authenticate)
+            _setter("disable_www_authenticate", disable_www_authenticate)
         if login_parameters is not None:
-            pulumi.set(__self__, "login_parameters", login_parameters)
+            _setter("login_parameters", login_parameters)
 
     @property
     @pulumi.getter(name="disableWWWAuthenticate")
@@ -1572,18 +2050,51 @@ class AzureActiveDirectoryRegistrationArgs:
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
+        AzureActiveDirectoryRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret_certificate_issuer=client_secret_certificate_issuer,
+            client_secret_certificate_subject_alternative_name=client_secret_certificate_subject_alternative_name,
+            client_secret_certificate_thumbprint=client_secret_certificate_thumbprint,
+            client_secret_setting_name=client_secret_setting_name,
+            open_id_issuer=open_id_issuer,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_certificate_issuer: Optional[pulumi.Input[str]] = None,
+             client_secret_certificate_subject_alternative_name: Optional[pulumi.Input[str]] = None,
+             client_secret_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             open_id_issuer: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret_certificate_issuer is None and 'clientSecretCertificateIssuer' in kwargs:
+            client_secret_certificate_issuer = kwargs['clientSecretCertificateIssuer']
+        if client_secret_certificate_subject_alternative_name is None and 'clientSecretCertificateSubjectAlternativeName' in kwargs:
+            client_secret_certificate_subject_alternative_name = kwargs['clientSecretCertificateSubjectAlternativeName']
+        if client_secret_certificate_thumbprint is None and 'clientSecretCertificateThumbprint' in kwargs:
+            client_secret_certificate_thumbprint = kwargs['clientSecretCertificateThumbprint']
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+        if open_id_issuer is None and 'openIdIssuer' in kwargs:
+            open_id_issuer = kwargs['openIdIssuer']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret_certificate_issuer is not None:
-            pulumi.set(__self__, "client_secret_certificate_issuer", client_secret_certificate_issuer)
+            _setter("client_secret_certificate_issuer", client_secret_certificate_issuer)
         if client_secret_certificate_subject_alternative_name is not None:
-            pulumi.set(__self__, "client_secret_certificate_subject_alternative_name", client_secret_certificate_subject_alternative_name)
+            _setter("client_secret_certificate_subject_alternative_name", client_secret_certificate_subject_alternative_name)
         if client_secret_certificate_thumbprint is not None:
-            pulumi.set(__self__, "client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
+            _setter("client_secret_certificate_thumbprint", client_secret_certificate_thumbprint)
         if client_secret_setting_name is not None:
-            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+            _setter("client_secret_setting_name", client_secret_setting_name)
         if open_id_issuer is not None:
-            pulumi.set(__self__, "open_id_issuer", open_id_issuer)
+            _setter("open_id_issuer", open_id_issuer)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1679,12 +2190,33 @@ class AzureActiveDirectoryValidationArgs:
         :param pulumi.Input['DefaultAuthorizationPolicyArgs'] default_authorization_policy: The configuration settings of the default authorization policy.
         :param pulumi.Input['JwtClaimChecksArgs'] jwt_claim_checks: The configuration settings of the checks that should be made while validating the JWT Claims.
         """
+        AzureActiveDirectoryValidationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_audiences=allowed_audiences,
+            default_authorization_policy=default_authorization_policy,
+            jwt_claim_checks=jwt_claim_checks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_authorization_policy: Optional[pulumi.Input['DefaultAuthorizationPolicyArgs']] = None,
+             jwt_claim_checks: Optional[pulumi.Input['JwtClaimChecksArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_audiences is None and 'allowedAudiences' in kwargs:
+            allowed_audiences = kwargs['allowedAudiences']
+        if default_authorization_policy is None and 'defaultAuthorizationPolicy' in kwargs:
+            default_authorization_policy = kwargs['defaultAuthorizationPolicy']
+        if jwt_claim_checks is None and 'jwtClaimChecks' in kwargs:
+            jwt_claim_checks = kwargs['jwtClaimChecks']
+
         if allowed_audiences is not None:
-            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+            _setter("allowed_audiences", allowed_audiences)
         if default_authorization_policy is not None:
-            pulumi.set(__self__, "default_authorization_policy", default_authorization_policy)
+            _setter("default_authorization_policy", default_authorization_policy)
         if jwt_claim_checks is not None:
-            pulumi.set(__self__, "jwt_claim_checks", jwt_claim_checks)
+            _setter("jwt_claim_checks", jwt_claim_checks)
 
     @property
     @pulumi.getter(name="allowedAudiences")
@@ -1741,16 +2273,37 @@ class AzureActiveDirectoryArgs:
         :param pulumi.Input['AzureActiveDirectoryRegistrationArgs'] registration: The configuration settings of the Azure Active Directory app registration.
         :param pulumi.Input['AzureActiveDirectoryValidationArgs'] validation: The configuration settings of the Azure Active Directory token validation flow.
         """
+        AzureActiveDirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            is_auto_provisioned=is_auto_provisioned,
+            login=login,
+            registration=registration,
+            validation=validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             is_auto_provisioned: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input['AzureActiveDirectoryLoginArgs']] = None,
+             registration: Optional[pulumi.Input['AzureActiveDirectoryRegistrationArgs']] = None,
+             validation: Optional[pulumi.Input['AzureActiveDirectoryValidationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_auto_provisioned is None and 'isAutoProvisioned' in kwargs:
+            is_auto_provisioned = kwargs['isAutoProvisioned']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if is_auto_provisioned is not None:
-            pulumi.set(__self__, "is_auto_provisioned", is_auto_provisioned)
+            _setter("is_auto_provisioned", is_auto_provisioned)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
         if validation is not None:
-            pulumi.set(__self__, "validation", validation)
+            _setter("validation", validation)
 
     @property
     @pulumi.getter
@@ -1829,12 +2382,31 @@ class AzureBlobStorageApplicationLogsConfigArgs:
                0 or lower means no retention.
         :param pulumi.Input[str] sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
         """
+        AzureBlobStorageApplicationLogsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            level=level,
+            retention_in_days=retention_in_days,
+            sas_url=sas_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             level: Optional[pulumi.Input['LogLevel']] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retention_in_days is None and 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if sas_url is None and 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if sas_url is not None:
-            pulumi.set(__self__, "sas_url", sas_url)
+            _setter("sas_url", sas_url)
 
     @property
     @pulumi.getter
@@ -1889,12 +2461,31 @@ class AzureBlobStorageHttpLogsConfigArgs:
                0 or lower means no retention.
         :param pulumi.Input[str] sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
         """
+        AzureBlobStorageHttpLogsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            retention_in_days=retention_in_days,
+            sas_url=sas_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sas_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retention_in_days is None and 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if sas_url is None and 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if sas_url is not None:
-            pulumi.set(__self__, "sas_url", sas_url)
+            _setter("sas_url", sas_url)
 
     @property
     @pulumi.getter
@@ -1943,8 +2534,21 @@ class AzureStaticWebAppsRegistrationArgs:
         The configuration settings of the registration for the Azure Static Web Apps provider
         :param pulumi.Input[str] client_id: The Client ID of the app used for login.
         """
+        AzureStaticWebAppsRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1969,10 +2573,23 @@ class AzureStaticWebAppsArgs:
         :param pulumi.Input[bool] enabled: <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param pulumi.Input['AzureStaticWebAppsRegistrationArgs'] registration: The configuration settings of the Azure Static Web Apps registration.
         """
+        AzureStaticWebAppsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            registration=registration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             registration: Optional[pulumi.Input['AzureStaticWebAppsRegistrationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
 
     @property
     @pulumi.getter
@@ -2015,16 +2632,43 @@ class AzureStorageInfoValueArgs:
         :param pulumi.Input[str] share_name: Name of the file share (container name, for Blob storage).
         :param pulumi.Input['AzureStorageType'] type: Type of storage.
         """
+        AzureStorageInfoValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            account_name=account_name,
+            mount_path=mount_path,
+            share_name=share_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             mount_path: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['AzureStorageType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if mount_path is None and 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if mount_path is not None:
-            pulumi.set(__self__, "mount_path", mount_path)
+            _setter("mount_path", mount_path)
         if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
+            _setter("share_name", share_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -2097,9 +2741,26 @@ class AzureTableStorageApplicationLogsConfigArgs:
         :param pulumi.Input[str] sas_url: SAS URL to an Azure table with add/query/delete permissions.
         :param pulumi.Input['LogLevel'] level: Log level.
         """
-        pulumi.set(__self__, "sas_url", sas_url)
+        AzureTableStorageApplicationLogsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sas_url=sas_url,
+            level=level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sas_url: Optional[pulumi.Input[str]] = None,
+             level: Optional[pulumi.Input['LogLevel']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sas_url is None and 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+        if sas_url is None:
+            raise TypeError("Missing 'sas_url' argument")
+
+        _setter("sas_url", sas_url)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
 
     @property
     @pulumi.getter(name="sasUrl")
@@ -2142,20 +2803,49 @@ class BackupSchedule:
         :param int retention_period_in_days: After how many days backups should be deleted.
         :param str start_time: When the schedule should start working.
         """
+        BackupSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency_interval=frequency_interval,
+            frequency_unit=frequency_unit,
+            keep_at_least_one_backup=keep_at_least_one_backup,
+            retention_period_in_days=retention_period_in_days,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency_interval: Optional[int] = None,
+             frequency_unit: Optional['FrequencyUnit'] = None,
+             keep_at_least_one_backup: Optional[bool] = None,
+             retention_period_in_days: Optional[int] = None,
+             start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if retention_period_in_days is None and 'retentionPeriodInDays' in kwargs:
+            retention_period_in_days = kwargs['retentionPeriodInDays']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if frequency_interval is None:
             frequency_interval = 7
-        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        _setter("frequency_interval", frequency_interval)
         if frequency_unit is None:
             frequency_unit = 'Day'
-        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is None:
             keep_at_least_one_backup = True
-        pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        _setter("keep_at_least_one_backup", keep_at_least_one_backup)
         if retention_period_in_days is None:
             retention_period_in_days = 30
-        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        _setter("retention_period_in_days", retention_period_in_days)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="frequencyInterval")
@@ -2234,20 +2924,49 @@ class BackupScheduleArgs:
         :param pulumi.Input[int] retention_period_in_days: After how many days backups should be deleted.
         :param pulumi.Input[str] start_time: When the schedule should start working.
         """
+        BackupScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency_interval=frequency_interval,
+            frequency_unit=frequency_unit,
+            keep_at_least_one_backup=keep_at_least_one_backup,
+            retention_period_in_days=retention_period_in_days,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency_interval: Optional[pulumi.Input[int]] = None,
+             frequency_unit: Optional[pulumi.Input['FrequencyUnit']] = None,
+             keep_at_least_one_backup: Optional[pulumi.Input[bool]] = None,
+             retention_period_in_days: Optional[pulumi.Input[int]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frequency_interval is None and 'frequencyInterval' in kwargs:
+            frequency_interval = kwargs['frequencyInterval']
+        if frequency_unit is None and 'frequencyUnit' in kwargs:
+            frequency_unit = kwargs['frequencyUnit']
+        if keep_at_least_one_backup is None and 'keepAtLeastOneBackup' in kwargs:
+            keep_at_least_one_backup = kwargs['keepAtLeastOneBackup']
+        if retention_period_in_days is None and 'retentionPeriodInDays' in kwargs:
+            retention_period_in_days = kwargs['retentionPeriodInDays']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if frequency_interval is None:
             frequency_interval = 7
-        pulumi.set(__self__, "frequency_interval", frequency_interval)
+        _setter("frequency_interval", frequency_interval)
         if frequency_unit is None:
             frequency_unit = 'Day'
-        pulumi.set(__self__, "frequency_unit", frequency_unit)
+        _setter("frequency_unit", frequency_unit)
         if keep_at_least_one_backup is None:
             keep_at_least_one_backup = True
-        pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
+        _setter("keep_at_least_one_backup", keep_at_least_one_backup)
         if retention_period_in_days is None:
             retention_period_in_days = 30
-        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        _setter("retention_period_in_days", retention_period_in_days)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="frequencyInterval")
@@ -2318,8 +3037,21 @@ class BlobStorageTokenStoreArgs:
         The configuration settings of the storage of the tokens if blob storage is used.
         :param pulumi.Input[str] sas_url_setting_name: The name of the app setting containing the SAS URL of the blob storage containing the tokens.
         """
+        BlobStorageTokenStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sas_url_setting_name=sas_url_setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sas_url_setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sas_url_setting_name is None and 'sasUrlSettingName' in kwargs:
+            sas_url_setting_name = kwargs['sasUrlSettingName']
+
         if sas_url_setting_name is not None:
-            pulumi.set(__self__, "sas_url_setting_name", sas_url_setting_name)
+            _setter("sas_url_setting_name", sas_url_setting_name)
 
     @property
     @pulumi.getter(name="sasUrlSettingName")
@@ -2346,12 +3078,27 @@ class CapabilityArgs:
         :param pulumi.Input[str] reason: Reason of the SKU capability.
         :param pulumi.Input[str] value: Value of the SKU capability.
         """
+        CapabilityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            reason=reason,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             reason: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reason is not None:
-            pulumi.set(__self__, "reason", reason)
+            _setter("reason", reason)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2400,10 +3147,27 @@ class ClientRegistrationArgs:
         :param pulumi.Input[str] client_id: The Client ID of the app used for login.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the client secret.
         """
+        ClientRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret_setting_name=client_secret_setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret_setting_name is not None:
-            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+            _setter("client_secret_setting_name", client_secret_setting_name)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2463,27 +3227,80 @@ class CloningInfoArgs:
                /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
         :param pulumi.Input[str] traffic_manager_profile_name: Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
         """
-        pulumi.set(__self__, "source_web_app_id", source_web_app_id)
+        CloningInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_web_app_id=source_web_app_id,
+            app_settings_overrides=app_settings_overrides,
+            clone_custom_host_names=clone_custom_host_names,
+            clone_source_control=clone_source_control,
+            configure_load_balancing=configure_load_balancing,
+            correlation_id=correlation_id,
+            hosting_environment=hosting_environment,
+            overwrite=overwrite,
+            source_web_app_location=source_web_app_location,
+            traffic_manager_profile_id=traffic_manager_profile_id,
+            traffic_manager_profile_name=traffic_manager_profile_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_web_app_id: Optional[pulumi.Input[str]] = None,
+             app_settings_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             clone_custom_host_names: Optional[pulumi.Input[bool]] = None,
+             clone_source_control: Optional[pulumi.Input[bool]] = None,
+             configure_load_balancing: Optional[pulumi.Input[bool]] = None,
+             correlation_id: Optional[pulumi.Input[str]] = None,
+             hosting_environment: Optional[pulumi.Input[str]] = None,
+             overwrite: Optional[pulumi.Input[bool]] = None,
+             source_web_app_location: Optional[pulumi.Input[str]] = None,
+             traffic_manager_profile_id: Optional[pulumi.Input[str]] = None,
+             traffic_manager_profile_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_web_app_id is None and 'sourceWebAppId' in kwargs:
+            source_web_app_id = kwargs['sourceWebAppId']
+        if source_web_app_id is None:
+            raise TypeError("Missing 'source_web_app_id' argument")
+        if app_settings_overrides is None and 'appSettingsOverrides' in kwargs:
+            app_settings_overrides = kwargs['appSettingsOverrides']
+        if clone_custom_host_names is None and 'cloneCustomHostNames' in kwargs:
+            clone_custom_host_names = kwargs['cloneCustomHostNames']
+        if clone_source_control is None and 'cloneSourceControl' in kwargs:
+            clone_source_control = kwargs['cloneSourceControl']
+        if configure_load_balancing is None and 'configureLoadBalancing' in kwargs:
+            configure_load_balancing = kwargs['configureLoadBalancing']
+        if correlation_id is None and 'correlationId' in kwargs:
+            correlation_id = kwargs['correlationId']
+        if hosting_environment is None and 'hostingEnvironment' in kwargs:
+            hosting_environment = kwargs['hostingEnvironment']
+        if source_web_app_location is None and 'sourceWebAppLocation' in kwargs:
+            source_web_app_location = kwargs['sourceWebAppLocation']
+        if traffic_manager_profile_id is None and 'trafficManagerProfileId' in kwargs:
+            traffic_manager_profile_id = kwargs['trafficManagerProfileId']
+        if traffic_manager_profile_name is None and 'trafficManagerProfileName' in kwargs:
+            traffic_manager_profile_name = kwargs['trafficManagerProfileName']
+
+        _setter("source_web_app_id", source_web_app_id)
         if app_settings_overrides is not None:
-            pulumi.set(__self__, "app_settings_overrides", app_settings_overrides)
+            _setter("app_settings_overrides", app_settings_overrides)
         if clone_custom_host_names is not None:
-            pulumi.set(__self__, "clone_custom_host_names", clone_custom_host_names)
+            _setter("clone_custom_host_names", clone_custom_host_names)
         if clone_source_control is not None:
-            pulumi.set(__self__, "clone_source_control", clone_source_control)
+            _setter("clone_source_control", clone_source_control)
         if configure_load_balancing is not None:
-            pulumi.set(__self__, "configure_load_balancing", configure_load_balancing)
+            _setter("configure_load_balancing", configure_load_balancing)
         if correlation_id is not None:
-            pulumi.set(__self__, "correlation_id", correlation_id)
+            _setter("correlation_id", correlation_id)
         if hosting_environment is not None:
-            pulumi.set(__self__, "hosting_environment", hosting_environment)
+            _setter("hosting_environment", hosting_environment)
         if overwrite is not None:
-            pulumi.set(__self__, "overwrite", overwrite)
+            _setter("overwrite", overwrite)
         if source_web_app_location is not None:
-            pulumi.set(__self__, "source_web_app_location", source_web_app_location)
+            _setter("source_web_app_location", source_web_app_location)
         if traffic_manager_profile_id is not None:
-            pulumi.set(__self__, "traffic_manager_profile_id", traffic_manager_profile_id)
+            _setter("traffic_manager_profile_id", traffic_manager_profile_id)
         if traffic_manager_profile_name is not None:
-            pulumi.set(__self__, "traffic_manager_profile_name", traffic_manager_profile_name)
+            _setter("traffic_manager_profile_name", traffic_manager_profile_name)
 
     @property
     @pulumi.getter(name="sourceWebAppId")
@@ -2635,12 +3452,29 @@ class ConnStringInfoArgs:
         :param pulumi.Input[str] name: Name of connection string.
         :param pulumi.Input['ConnectionStringType'] type: Type of database.
         """
+        ConnStringInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['ConnectionStringType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -2689,8 +3523,25 @@ class ConnStringValueTypePairArgs:
         :param pulumi.Input['ConnectionStringType'] type: Type of database.
         :param pulumi.Input[str] value: Value of pair.
         """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        ConnStringValueTypePairArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ConnectionStringType']] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2733,16 +3584,35 @@ class ConnectionErrorArgs:
         :param pulumi.Input[str] message: Description of the status
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
+        ConnectionErrorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            etag=etag,
+            location=location,
+            message=message,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -2824,20 +3694,53 @@ class ConnectionGatewayDefinitionPropertiesArgs:
         :param pulumi.Input[str] machine_name: The machine name of the gateway
         :param Any status: The gateway status
         """
+        ConnectionGatewayDefinitionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_uri=backend_uri,
+            connection_gateway_installation=connection_gateway_installation,
+            contact_information=contact_information,
+            description=description,
+            display_name=display_name,
+            machine_name=machine_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_uri: Optional[pulumi.Input[str]] = None,
+             connection_gateway_installation: Optional[pulumi.Input['ConnectionGatewayReferenceArgs']] = None,
+             contact_information: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             machine_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backend_uri is None and 'backendUri' in kwargs:
+            backend_uri = kwargs['backendUri']
+        if connection_gateway_installation is None and 'connectionGatewayInstallation' in kwargs:
+            connection_gateway_installation = kwargs['connectionGatewayInstallation']
+        if contact_information is None and 'contactInformation' in kwargs:
+            contact_information = kwargs['contactInformation']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if machine_name is None and 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+
         if backend_uri is not None:
-            pulumi.set(__self__, "backend_uri", backend_uri)
+            _setter("backend_uri", backend_uri)
         if connection_gateway_installation is not None:
-            pulumi.set(__self__, "connection_gateway_installation", connection_gateway_installation)
+            _setter("connection_gateway_installation", connection_gateway_installation)
         if contact_information is not None:
-            pulumi.set(__self__, "contact_information", contact_information)
+            _setter("contact_information", contact_information)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if machine_name is not None:
-            pulumi.set(__self__, "machine_name", machine_name)
+            _setter("machine_name", machine_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="backendUri")
@@ -2938,14 +3841,31 @@ class ConnectionGatewayReferenceArgs:
         :param pulumi.Input[str] name: Resource reference name
         :param pulumi.Input[str] type: Resource reference type
         """
+        ConnectionGatewayReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -3006,10 +3926,25 @@ class ConnectionParameterArgs:
         :param pulumi.Input['ApiOAuthSettingsArgs'] o_auth_settings: OAuth settings for the connection provider
         :param pulumi.Input['ConnectionParameterType'] type: Type of the parameter
         """
+        ConnectionParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            o_auth_settings=o_auth_settings,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             o_auth_settings: Optional[pulumi.Input['ApiOAuthSettingsArgs']] = None,
+             type: Optional[pulumi.Input['ConnectionParameterType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if o_auth_settings is None and 'oAuthSettings' in kwargs:
+            o_auth_settings = kwargs['oAuthSettings']
+
         if o_auth_settings is not None:
-            pulumi.set(__self__, "o_auth_settings", o_auth_settings)
+            _setter("o_auth_settings", o_auth_settings)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="oAuthSettings")
@@ -3048,12 +3983,27 @@ class ConnectionStatusDefinitionArgs:
         :param pulumi.Input[str] status: The gateway status
         :param pulumi.Input[str] target: Target of the error
         """
+        ConnectionStatusDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            status=status,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional[pulumi.Input['ConnectionErrorArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter
@@ -3106,14 +4056,39 @@ class ConsentLinkParameterDefinition:
         :param str redirect_url: Name of the parameter in the connection provider's OAuth settings
         :param str tenant_id: The tenant id
         """
+        ConsentLinkParameterDefinition._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            parameter_name=parameter_name,
+            redirect_url=redirect_url,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: Optional[str] = None,
+             parameter_name: Optional[str] = None,
+             redirect_url: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if parameter_name is None and 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if redirect_url is None and 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if parameter_name is not None:
-            pulumi.set(__self__, "parameter_name", parameter_name)
+            _setter("parameter_name", parameter_name)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -3181,18 +4156,51 @@ class ContainerAppsConfigurationArgs:
         :param pulumi.Input[str] platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. It must not overlap with any other Subnet IP ranges.
         :param pulumi.Input[str] platform_reserved_dns_ip: An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
         """
+        ContainerAppsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_subnet_resource_id=app_subnet_resource_id,
+            control_plane_subnet_resource_id=control_plane_subnet_resource_id,
+            dapr_ai_instrumentation_key=dapr_ai_instrumentation_key,
+            docker_bridge_cidr=docker_bridge_cidr,
+            platform_reserved_cidr=platform_reserved_cidr,
+            platform_reserved_dns_ip=platform_reserved_dns_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+             control_plane_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+             dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
+             docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+             platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
+             platform_reserved_dns_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_subnet_resource_id is None and 'appSubnetResourceId' in kwargs:
+            app_subnet_resource_id = kwargs['appSubnetResourceId']
+        if control_plane_subnet_resource_id is None and 'controlPlaneSubnetResourceId' in kwargs:
+            control_plane_subnet_resource_id = kwargs['controlPlaneSubnetResourceId']
+        if dapr_ai_instrumentation_key is None and 'daprAIInstrumentationKey' in kwargs:
+            dapr_ai_instrumentation_key = kwargs['daprAIInstrumentationKey']
+        if docker_bridge_cidr is None and 'dockerBridgeCidr' in kwargs:
+            docker_bridge_cidr = kwargs['dockerBridgeCidr']
+        if platform_reserved_cidr is None and 'platformReservedCidr' in kwargs:
+            platform_reserved_cidr = kwargs['platformReservedCidr']
+        if platform_reserved_dns_ip is None and 'platformReservedDnsIP' in kwargs:
+            platform_reserved_dns_ip = kwargs['platformReservedDnsIP']
+
         if app_subnet_resource_id is not None:
-            pulumi.set(__self__, "app_subnet_resource_id", app_subnet_resource_id)
+            _setter("app_subnet_resource_id", app_subnet_resource_id)
         if control_plane_subnet_resource_id is not None:
-            pulumi.set(__self__, "control_plane_subnet_resource_id", control_plane_subnet_resource_id)
+            _setter("control_plane_subnet_resource_id", control_plane_subnet_resource_id)
         if dapr_ai_instrumentation_key is not None:
-            pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
+            _setter("dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
         if docker_bridge_cidr is not None:
-            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+            _setter("docker_bridge_cidr", docker_bridge_cidr)
         if platform_reserved_cidr is not None:
-            pulumi.set(__self__, "platform_reserved_cidr", platform_reserved_cidr)
+            _setter("platform_reserved_cidr", platform_reserved_cidr)
         if platform_reserved_dns_ip is not None:
-            pulumi.set(__self__, "platform_reserved_dns_ip", platform_reserved_dns_ip)
+            _setter("platform_reserved_dns_ip", platform_reserved_dns_ip)
 
     @property
     @pulumi.getter(name="appSubnetResourceId")
@@ -3277,10 +4285,25 @@ class CookieExpirationArgs:
         :param pulumi.Input['CookieExpirationConvention'] convention: The convention used when determining the session cookie's expiration.
         :param pulumi.Input[str] time_to_expiration: The time after the request is made when the session cookie should expire.
         """
+        CookieExpirationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            convention=convention,
+            time_to_expiration=time_to_expiration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             convention: Optional[pulumi.Input['CookieExpirationConvention']] = None,
+             time_to_expiration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_to_expiration is None and 'timeToExpiration' in kwargs:
+            time_to_expiration = kwargs['timeToExpiration']
+
         if convention is not None:
-            pulumi.set(__self__, "convention", convention)
+            _setter("convention", convention)
         if time_to_expiration is not None:
-            pulumi.set(__self__, "time_to_expiration", time_to_expiration)
+            _setter("time_to_expiration", time_to_expiration)
 
     @property
     @pulumi.getter
@@ -3320,10 +4343,27 @@ class CorsSettingsArgs:
                https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
                for more details.
         """
+        CorsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+            support_credentials=support_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             support_credentials: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if support_credentials is None and 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         if allowed_origins is not None:
-            pulumi.set(__self__, "allowed_origins", allowed_origins)
+            _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
-            pulumi.set(__self__, "support_credentials", support_credentials)
+            _setter("support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -3383,30 +4423,81 @@ class CustomApiPropertiesDefinitionArgs:
         :param Any swagger: The JSON representation of the swagger
         :param pulumi.Input['WsdlDefinitionArgs'] wsdl_definition: The WSDL definition
         """
+        CustomApiPropertiesDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_definitions=api_definitions,
+            api_type=api_type,
+            backend_service=backend_service,
+            brand_color=brand_color,
+            capabilities=capabilities,
+            connection_parameters=connection_parameters,
+            description=description,
+            display_name=display_name,
+            icon_uri=icon_uri,
+            runtime_urls=runtime_urls,
+            swagger=swagger,
+            wsdl_definition=wsdl_definition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_definitions: Optional[pulumi.Input['ApiResourceDefinitionsArgs']] = None,
+             api_type: Optional[pulumi.Input[Union[str, 'ApiType']]] = None,
+             backend_service: Optional[pulumi.Input['ApiResourceBackendServiceArgs']] = None,
+             brand_color: Optional[pulumi.Input[str]] = None,
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ConnectionParameterArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             icon_uri: Optional[pulumi.Input[str]] = None,
+             runtime_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             swagger: Optional[Any] = None,
+             wsdl_definition: Optional[pulumi.Input['WsdlDefinitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_definitions is None and 'apiDefinitions' in kwargs:
+            api_definitions = kwargs['apiDefinitions']
+        if api_type is None and 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if backend_service is None and 'backendService' in kwargs:
+            backend_service = kwargs['backendService']
+        if brand_color is None and 'brandColor' in kwargs:
+            brand_color = kwargs['brandColor']
+        if connection_parameters is None and 'connectionParameters' in kwargs:
+            connection_parameters = kwargs['connectionParameters']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if icon_uri is None and 'iconUri' in kwargs:
+            icon_uri = kwargs['iconUri']
+        if runtime_urls is None and 'runtimeUrls' in kwargs:
+            runtime_urls = kwargs['runtimeUrls']
+        if wsdl_definition is None and 'wsdlDefinition' in kwargs:
+            wsdl_definition = kwargs['wsdlDefinition']
+
         if api_definitions is not None:
-            pulumi.set(__self__, "api_definitions", api_definitions)
+            _setter("api_definitions", api_definitions)
         if api_type is not None:
-            pulumi.set(__self__, "api_type", api_type)
+            _setter("api_type", api_type)
         if backend_service is not None:
-            pulumi.set(__self__, "backend_service", backend_service)
+            _setter("backend_service", backend_service)
         if brand_color is not None:
-            pulumi.set(__self__, "brand_color", brand_color)
+            _setter("brand_color", brand_color)
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if connection_parameters is not None:
-            pulumi.set(__self__, "connection_parameters", connection_parameters)
+            _setter("connection_parameters", connection_parameters)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if icon_uri is not None:
-            pulumi.set(__self__, "icon_uri", icon_uri)
+            _setter("icon_uri", icon_uri)
         if runtime_urls is not None:
-            pulumi.set(__self__, "runtime_urls", runtime_urls)
+            _setter("runtime_urls", runtime_urls)
         if swagger is not None:
-            pulumi.set(__self__, "swagger", swagger)
+            _setter("swagger", swagger)
         if wsdl_definition is not None:
-            pulumi.set(__self__, "wsdl_definition", wsdl_definition)
+            _setter("wsdl_definition", wsdl_definition)
 
     @property
     @pulumi.getter(name="apiDefinitions")
@@ -3567,14 +4658,37 @@ class CustomDnsSuffixConfigurationArgs:
         :param pulumi.Input[str] key_vault_reference_identity: The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
         :param pulumi.Input[str] kind: Kind of resource.
         """
+        CustomDnsSuffixConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_url=certificate_url,
+            dns_suffix=dns_suffix,
+            key_vault_reference_identity=key_vault_reference_identity,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_url: Optional[pulumi.Input[str]] = None,
+             dns_suffix: Optional[pulumi.Input[str]] = None,
+             key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_url is None and 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+        if dns_suffix is None and 'dnsSuffix' in kwargs:
+            dns_suffix = kwargs['dnsSuffix']
+        if key_vault_reference_identity is None and 'keyVaultReferenceIdentity' in kwargs:
+            key_vault_reference_identity = kwargs['keyVaultReferenceIdentity']
+
         if certificate_url is not None:
-            pulumi.set(__self__, "certificate_url", certificate_url)
+            _setter("certificate_url", certificate_url)
         if dns_suffix is not None:
-            pulumi.set(__self__, "dns_suffix", dns_suffix)
+            _setter("dns_suffix", dns_suffix)
         if key_vault_reference_identity is not None:
-            pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
+            _setter("key_vault_reference_identity", key_vault_reference_identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="certificateUrl")
@@ -3637,12 +4751,27 @@ class CustomOpenIdConnectProviderArgs:
         :param pulumi.Input['OpenIdConnectLoginArgs'] login: The configuration settings of the login flow of the custom Open ID Connect provider.
         :param pulumi.Input['OpenIdConnectRegistrationArgs'] registration: The configuration settings of the app registration for the custom Open ID Connect provider.
         """
+        CustomOpenIdConnectProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            login=login,
+            registration=registration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input['OpenIdConnectLoginArgs']] = None,
+             registration: Optional[pulumi.Input['OpenIdConnectRegistrationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
 
     @property
     @pulumi.getter
@@ -3695,13 +4824,38 @@ class DatabaseBackupSetting:
         :param str connection_string_name: Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
                This is used during restore with overwrite connection strings options.
         """
-        pulumi.set(__self__, "database_type", database_type)
+        DatabaseBackupSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_type=database_type,
+            connection_string=connection_string,
+            connection_string_name=connection_string_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_type: Optional[Union[str, 'DatabaseType']] = None,
+             connection_string: Optional[str] = None,
+             connection_string_name: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_type is None and 'databaseType' in kwargs:
+            database_type = kwargs['databaseType']
+        if database_type is None:
+            raise TypeError("Missing 'database_type' argument")
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string_name is None and 'connectionStringName' in kwargs:
+            connection_string_name = kwargs['connectionStringName']
+
+        _setter("database_type", database_type)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if connection_string_name is not None:
-            pulumi.set(__self__, "connection_string_name", connection_string_name)
+            _setter("connection_string_name", connection_string_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="databaseType")
@@ -3764,13 +4918,38 @@ class DatabaseBackupSettingArgs:
         :param pulumi.Input[str] connection_string_name: Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
                This is used during restore with overwrite connection strings options.
         """
-        pulumi.set(__self__, "database_type", database_type)
+        DatabaseBackupSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_type=database_type,
+            connection_string=connection_string,
+            connection_string_name=connection_string_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_type: Optional[pulumi.Input[Union[str, 'DatabaseType']]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             connection_string_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_type is None and 'databaseType' in kwargs:
+            database_type = kwargs['databaseType']
+        if database_type is None:
+            raise TypeError("Missing 'database_type' argument")
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string_name is None and 'connectionStringName' in kwargs:
+            connection_string_name = kwargs['connectionStringName']
+
+        _setter("database_type", database_type)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if connection_string_name is not None:
-            pulumi.set(__self__, "connection_string_name", connection_string_name)
+            _setter("connection_string_name", connection_string_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="databaseType")
@@ -3829,10 +5008,27 @@ class DefaultAuthorizationPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_applications: The configuration settings of the Azure Active Directory allowed applications.
         :param pulumi.Input['AllowedPrincipalsArgs'] allowed_principals: The configuration settings of the Azure Active Directory allowed principals.
         """
+        DefaultAuthorizationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_applications=allowed_applications,
+            allowed_principals=allowed_principals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_principals: Optional[pulumi.Input['AllowedPrincipalsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_applications is None and 'allowedApplications' in kwargs:
+            allowed_applications = kwargs['allowedApplications']
+        if allowed_principals is None and 'allowedPrincipals' in kwargs:
+            allowed_principals = kwargs['allowedPrincipals']
+
         if allowed_applications is not None:
-            pulumi.set(__self__, "allowed_applications", allowed_applications)
+            _setter("allowed_applications", allowed_applications)
         if allowed_principals is not None:
-            pulumi.set(__self__, "allowed_principals", allowed_principals)
+            _setter("allowed_principals", allowed_principals)
 
     @property
     @pulumi.getter(name="allowedApplications")
@@ -3867,8 +5063,19 @@ class EnabledConfigArgs:
         Enabled configuration.
         :param pulumi.Input[bool] enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
         """
+        EnabledConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -3891,8 +5098,21 @@ class ExperimentsArgs:
         Routing rules in production experiments.
         :param pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]] ramp_up_rules: List of ramp-up rules.
         """
+        ExperimentsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ramp_up_rules=ramp_up_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ramp_up_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ramp_up_rules is None and 'rampUpRules' in kwargs:
+            ramp_up_rules = kwargs['rampUpRules']
+
         if ramp_up_rules is not None:
-            pulumi.set(__self__, "ramp_up_rules", ramp_up_rules)
+            _setter("ramp_up_rules", ramp_up_rules)
 
     @property
     @pulumi.getter(name="rampUpRules")
@@ -3915,8 +5135,19 @@ class ExtendedLocationArgs:
         Extended Location.
         :param pulumi.Input[str] name: Name of extended location.
         """
+        ExtendedLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3945,14 +5176,33 @@ class FacebookArgs:
         :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
         :param pulumi.Input['AppRegistrationArgs'] registration: The configuration settings of the app registration for the Facebook provider.
         """
+        FacebookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            graph_api_version=graph_api_version,
+            login=login,
+            registration=registration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             graph_api_version: Optional[pulumi.Input[str]] = None,
+             login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+             registration: Optional[pulumi.Input['AppRegistrationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if graph_api_version is None and 'graphApiVersion' in kwargs:
+            graph_api_version = kwargs['graphApiVersion']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if graph_api_version is not None:
-            pulumi.set(__self__, "graph_api_version", graph_api_version)
+            _setter("graph_api_version", graph_api_version)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
 
     @property
     @pulumi.getter
@@ -4011,10 +5261,21 @@ class FileSystemApplicationLogsConfigArgs:
         Application logs to file system configuration.
         :param pulumi.Input['LogLevel'] level: Log level.
         """
+        FileSystemApplicationLogsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            level=level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             level: Optional[pulumi.Input['LogLevel']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if level is None:
             level = 'Off'
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
 
     @property
     @pulumi.getter
@@ -4045,12 +5306,31 @@ class FileSystemHttpLogsConfigArgs:
                When reached old log files will be removed to make space for new ones.
                Value can range between 25 and 100.
         """
+        FileSystemHttpLogsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            retention_in_days=retention_in_days,
+            retention_in_mb=retention_in_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             retention_in_mb: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retention_in_days is None and 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if retention_in_mb is None and 'retentionInMb' in kwargs:
+            retention_in_mb = kwargs['retentionInMb']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if retention_in_mb is not None:
-            pulumi.set(__self__, "retention_in_mb", retention_in_mb)
+            _setter("retention_in_mb", retention_in_mb)
 
     @property
     @pulumi.getter
@@ -4101,8 +5381,19 @@ class FileSystemTokenStoreArgs:
         The configuration settings of the storage of the tokens if a file system is used.
         :param pulumi.Input[str] directory: The directory in which the tokens will be stored.
         """
+        FileSystemTokenStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directory=directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if directory is not None:
-            pulumi.set(__self__, "directory", directory)
+            _setter("directory", directory)
 
     @property
     @pulumi.getter
@@ -4129,12 +5420,31 @@ class ForwardProxyArgs:
         :param pulumi.Input[str] custom_host_header_name: The name of the header containing the host of the request.
         :param pulumi.Input[str] custom_proto_header_name: The name of the header containing the scheme of the request.
         """
+        ForwardProxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            convention=convention,
+            custom_host_header_name=custom_host_header_name,
+            custom_proto_header_name=custom_proto_header_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             convention: Optional[pulumi.Input['ForwardProxyConvention']] = None,
+             custom_host_header_name: Optional[pulumi.Input[str]] = None,
+             custom_proto_header_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_host_header_name is None and 'customHostHeaderName' in kwargs:
+            custom_host_header_name = kwargs['customHostHeaderName']
+        if custom_proto_header_name is None and 'customProtoHeaderName' in kwargs:
+            custom_proto_header_name = kwargs['customProtoHeaderName']
+
         if convention is not None:
-            pulumi.set(__self__, "convention", convention)
+            _setter("convention", convention)
         if custom_host_header_name is not None:
-            pulumi.set(__self__, "custom_host_header_name", custom_host_header_name)
+            _setter("custom_host_header_name", custom_host_header_name)
         if custom_proto_header_name is not None:
-            pulumi.set(__self__, "custom_proto_header_name", custom_proto_header_name)
+            _setter("custom_proto_header_name", custom_proto_header_name)
 
     @property
     @pulumi.getter
@@ -4177,8 +5487,19 @@ class ForwardProxyArgs:
 class FrontEndConfigurationArgs:
     def __init__(__self__, *,
                  kind: Optional[pulumi.Input['FrontEndServiceType']] = None):
+        FrontEndConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input['FrontEndServiceType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter
@@ -4200,10 +5521,27 @@ class GitHubActionCodeConfigurationArgs:
         :param pulumi.Input[str] runtime_stack: Runtime stack is used to determine the workflow file content for code base apps.
         :param pulumi.Input[str] runtime_version: Runtime version is used to determine what build version to set in the workflow file.
         """
+        GitHubActionCodeConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            runtime_stack=runtime_stack,
+            runtime_version=runtime_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             runtime_stack: Optional[pulumi.Input[str]] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if runtime_stack is None and 'runtimeStack' in kwargs:
+            runtime_stack = kwargs['runtimeStack']
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         if runtime_stack is not None:
-            pulumi.set(__self__, "runtime_stack", runtime_stack)
+            _setter("runtime_stack", runtime_stack)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
 
     @property
     @pulumi.getter(name="runtimeStack")
@@ -4244,14 +5582,39 @@ class GitHubActionConfigurationArgs:
         :param pulumi.Input[bool] generate_workflow_file: Workflow option to determine whether the workflow file should be generated and written to the repository.
         :param pulumi.Input[bool] is_linux: This will help determine the workflow configuration to select.
         """
+        GitHubActionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code_configuration=code_configuration,
+            container_configuration=container_configuration,
+            generate_workflow_file=generate_workflow_file,
+            is_linux=is_linux,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code_configuration: Optional[pulumi.Input['GitHubActionCodeConfigurationArgs']] = None,
+             container_configuration: Optional[pulumi.Input['GitHubActionContainerConfigurationArgs']] = None,
+             generate_workflow_file: Optional[pulumi.Input[bool]] = None,
+             is_linux: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code_configuration is None and 'codeConfiguration' in kwargs:
+            code_configuration = kwargs['codeConfiguration']
+        if container_configuration is None and 'containerConfiguration' in kwargs:
+            container_configuration = kwargs['containerConfiguration']
+        if generate_workflow_file is None and 'generateWorkflowFile' in kwargs:
+            generate_workflow_file = kwargs['generateWorkflowFile']
+        if is_linux is None and 'isLinux' in kwargs:
+            is_linux = kwargs['isLinux']
+
         if code_configuration is not None:
-            pulumi.set(__self__, "code_configuration", code_configuration)
+            _setter("code_configuration", code_configuration)
         if container_configuration is not None:
-            pulumi.set(__self__, "container_configuration", container_configuration)
+            _setter("container_configuration", container_configuration)
         if generate_workflow_file is not None:
-            pulumi.set(__self__, "generate_workflow_file", generate_workflow_file)
+            _setter("generate_workflow_file", generate_workflow_file)
         if is_linux is not None:
-            pulumi.set(__self__, "is_linux", is_linux)
+            _setter("is_linux", is_linux)
 
     @property
     @pulumi.getter(name="codeConfiguration")
@@ -4316,14 +5679,35 @@ class GitHubActionContainerConfigurationArgs:
         :param pulumi.Input[str] server_url: The server URL for the container registry where the build will be hosted.
         :param pulumi.Input[str] username: The username used to upload the image to the container registry.
         """
+        GitHubActionContainerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_name=image_name,
+            password=password,
+            server_url=server_url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             server_url: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if server_url is None and 'serverUrl' in kwargs:
+            server_url = kwargs['serverUrl']
+
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if server_url is not None:
-            pulumi.set(__self__, "server_url", server_url)
+            _setter("server_url", server_url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="imageName")
@@ -4386,12 +5770,27 @@ class GitHubArgs:
         :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
         :param pulumi.Input['ClientRegistrationArgs'] registration: The configuration settings of the app registration for the GitHub provider.
         """
+        GitHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            login=login,
+            registration=registration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+             registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
 
     @property
     @pulumi.getter
@@ -4446,14 +5845,39 @@ class GlobalValidationArgs:
         :param pulumi.Input[bool] require_authentication: <code>true</code> if the authentication flow is required any request is made; otherwise, <code>false</code>.
         :param pulumi.Input['UnauthenticatedClientActionV2'] unauthenticated_client_action: The action to take when an unauthenticated client attempts to access the app.
         """
+        GlobalValidationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excluded_paths=excluded_paths,
+            redirect_to_provider=redirect_to_provider,
+            require_authentication=require_authentication,
+            unauthenticated_client_action=unauthenticated_client_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             redirect_to_provider: Optional[pulumi.Input[str]] = None,
+             require_authentication: Optional[pulumi.Input[bool]] = None,
+             unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientActionV2']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_paths is None and 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if redirect_to_provider is None and 'redirectToProvider' in kwargs:
+            redirect_to_provider = kwargs['redirectToProvider']
+        if require_authentication is None and 'requireAuthentication' in kwargs:
+            require_authentication = kwargs['requireAuthentication']
+        if unauthenticated_client_action is None and 'unauthenticatedClientAction' in kwargs:
+            unauthenticated_client_action = kwargs['unauthenticatedClientAction']
+
         if excluded_paths is not None:
-            pulumi.set(__self__, "excluded_paths", excluded_paths)
+            _setter("excluded_paths", excluded_paths)
         if redirect_to_provider is not None:
-            pulumi.set(__self__, "redirect_to_provider", redirect_to_provider)
+            _setter("redirect_to_provider", redirect_to_provider)
         if require_authentication is not None:
-            pulumi.set(__self__, "require_authentication", require_authentication)
+            _setter("require_authentication", require_authentication)
         if unauthenticated_client_action is not None:
-            pulumi.set(__self__, "unauthenticated_client_action", unauthenticated_client_action)
+            _setter("unauthenticated_client_action", unauthenticated_client_action)
 
     @property
     @pulumi.getter(name="excludedPaths")
@@ -4520,14 +5944,31 @@ class GoogleArgs:
         :param pulumi.Input['ClientRegistrationArgs'] registration: The configuration settings of the app registration for the Google provider.
         :param pulumi.Input['AllowedAudiencesValidationArgs'] validation: The configuration settings of the Azure Active Directory token validation flow.
         """
+        GoogleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            login=login,
+            registration=registration,
+            validation=validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+             registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
+             validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
         if validation is not None:
-            pulumi.set(__self__, "validation", validation)
+            _setter("validation", validation)
 
     @property
     @pulumi.getter
@@ -4591,12 +6032,29 @@ class HandlerMappingArgs:
         :param pulumi.Input[str] extension: Requests with this extension will be handled using the specified FastCGI application.
         :param pulumi.Input[str] script_processor: The absolute path to the FastCGI application.
         """
+        HandlerMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arguments=arguments,
+            extension=extension,
+            script_processor=script_processor,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arguments: Optional[pulumi.Input[str]] = None,
+             extension: Optional[pulumi.Input[str]] = None,
+             script_processor: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if script_processor is None and 'scriptProcessor' in kwargs:
+            script_processor = kwargs['scriptProcessor']
+
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if extension is not None:
-            pulumi.set(__self__, "extension", extension)
+            _setter("extension", extension)
         if script_processor is not None:
-            pulumi.set(__self__, "script_processor", script_processor)
+            _setter("script_processor", script_processor)
 
     @property
     @pulumi.getter
@@ -4653,18 +6111,47 @@ class HostNameSslStateArgs:
         :param pulumi.Input[bool] to_update: Set to <code>true</code> to update existing hostname.
         :param pulumi.Input[str] virtual_ip: Virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
+        HostNameSslStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_type=host_type,
+            name=name,
+            ssl_state=ssl_state,
+            thumbprint=thumbprint,
+            to_update=to_update,
+            virtual_ip=virtual_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_type: Optional[pulumi.Input['HostType']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ssl_state: Optional[pulumi.Input['SslState']] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             to_update: Optional[pulumi.Input[bool]] = None,
+             virtual_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host_type is None and 'hostType' in kwargs:
+            host_type = kwargs['hostType']
+        if ssl_state is None and 'sslState' in kwargs:
+            ssl_state = kwargs['sslState']
+        if to_update is None and 'toUpdate' in kwargs:
+            to_update = kwargs['toUpdate']
+        if virtual_ip is None and 'virtualIP' in kwargs:
+            virtual_ip = kwargs['virtualIP']
+
         if host_type is not None:
-            pulumi.set(__self__, "host_type", host_type)
+            _setter("host_type", host_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ssl_state is not None:
-            pulumi.set(__self__, "ssl_state", ssl_state)
+            _setter("ssl_state", ssl_state)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if to_update is not None:
-            pulumi.set(__self__, "to_update", to_update)
+            _setter("to_update", to_update)
         if virtual_ip is not None:
-            pulumi.set(__self__, "virtual_ip", virtual_ip)
+            _setter("virtual_ip", virtual_ip)
 
     @property
     @pulumi.getter(name="hostType")
@@ -4747,8 +6234,19 @@ class HostingEnvironmentProfileArgs:
         Specification for an App Service Environment to use for this resource.
         :param pulumi.Input[str] id: Resource ID of the App Service Environment.
         """
+        HostingEnvironmentProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -4773,10 +6271,27 @@ class HttpLogsConfigArgs:
         :param pulumi.Input['AzureBlobStorageHttpLogsConfigArgs'] azure_blob_storage: Http logs to azure blob storage configuration.
         :param pulumi.Input['FileSystemHttpLogsConfigArgs'] file_system: Http logs to file system configuration.
         """
+        HttpLogsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_blob_storage=azure_blob_storage,
+            file_system=file_system,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_blob_storage: Optional[pulumi.Input['AzureBlobStorageHttpLogsConfigArgs']] = None,
+             file_system: Optional[pulumi.Input['FileSystemHttpLogsConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if file_system is None and 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if azure_blob_storage is not None:
-            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+            _setter("azure_blob_storage", azure_blob_storage)
         if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
+            _setter("file_system", file_system)
 
     @property
     @pulumi.getter(name="azureBlobStorage")
@@ -4811,8 +6326,21 @@ class HttpSettingsRoutesArgs:
         The configuration settings of the paths HTTP requests.
         :param pulumi.Input[str] api_prefix: The prefix that should precede all the authentication/authorization paths.
         """
+        HttpSettingsRoutesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_prefix=api_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_prefix is None and 'apiPrefix' in kwargs:
+            api_prefix = kwargs['apiPrefix']
+
         if api_prefix is not None:
-            pulumi.set(__self__, "api_prefix", api_prefix)
+            _setter("api_prefix", api_prefix)
 
     @property
     @pulumi.getter(name="apiPrefix")
@@ -4839,12 +6367,31 @@ class HttpSettingsArgs:
         :param pulumi.Input[bool] require_https: <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
         :param pulumi.Input['HttpSettingsRoutesArgs'] routes: The configuration settings of the paths HTTP requests.
         """
+        HttpSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forward_proxy=forward_proxy,
+            require_https=require_https,
+            routes=routes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forward_proxy: Optional[pulumi.Input['ForwardProxyArgs']] = None,
+             require_https: Optional[pulumi.Input[bool]] = None,
+             routes: Optional[pulumi.Input['HttpSettingsRoutesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forward_proxy is None and 'forwardProxy' in kwargs:
+            forward_proxy = kwargs['forwardProxy']
+        if require_https is None and 'requireHttps' in kwargs:
+            require_https = kwargs['requireHttps']
+
         if forward_proxy is not None:
-            pulumi.set(__self__, "forward_proxy", forward_proxy)
+            _setter("forward_proxy", forward_proxy)
         if require_https is not None:
-            pulumi.set(__self__, "require_https", require_https)
+            _setter("require_https", require_https)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
 
     @property
     @pulumi.getter(name="forwardProxy")
@@ -4908,24 +6455,61 @@ class IdentityProvidersArgs:
         :param pulumi.Input['LegacyMicrosoftAccountArgs'] legacy_microsoft_account: The configuration settings of the legacy Microsoft Account provider.
         :param pulumi.Input['TwitterArgs'] twitter: The configuration settings of the Twitter provider.
         """
+        IdentityProvidersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apple=apple,
+            azure_active_directory=azure_active_directory,
+            azure_static_web_apps=azure_static_web_apps,
+            custom_open_id_connect_providers=custom_open_id_connect_providers,
+            facebook=facebook,
+            git_hub=git_hub,
+            google=google,
+            legacy_microsoft_account=legacy_microsoft_account,
+            twitter=twitter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apple: Optional[pulumi.Input['AppleArgs']] = None,
+             azure_active_directory: Optional[pulumi.Input['AzureActiveDirectoryArgs']] = None,
+             azure_static_web_apps: Optional[pulumi.Input['AzureStaticWebAppsArgs']] = None,
+             custom_open_id_connect_providers: Optional[pulumi.Input[Mapping[str, pulumi.Input['CustomOpenIdConnectProviderArgs']]]] = None,
+             facebook: Optional[pulumi.Input['FacebookArgs']] = None,
+             git_hub: Optional[pulumi.Input['GitHubArgs']] = None,
+             google: Optional[pulumi.Input['GoogleArgs']] = None,
+             legacy_microsoft_account: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']] = None,
+             twitter: Optional[pulumi.Input['TwitterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_active_directory is None and 'azureActiveDirectory' in kwargs:
+            azure_active_directory = kwargs['azureActiveDirectory']
+        if azure_static_web_apps is None and 'azureStaticWebApps' in kwargs:
+            azure_static_web_apps = kwargs['azureStaticWebApps']
+        if custom_open_id_connect_providers is None and 'customOpenIdConnectProviders' in kwargs:
+            custom_open_id_connect_providers = kwargs['customOpenIdConnectProviders']
+        if git_hub is None and 'gitHub' in kwargs:
+            git_hub = kwargs['gitHub']
+        if legacy_microsoft_account is None and 'legacyMicrosoftAccount' in kwargs:
+            legacy_microsoft_account = kwargs['legacyMicrosoftAccount']
+
         if apple is not None:
-            pulumi.set(__self__, "apple", apple)
+            _setter("apple", apple)
         if azure_active_directory is not None:
-            pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+            _setter("azure_active_directory", azure_active_directory)
         if azure_static_web_apps is not None:
-            pulumi.set(__self__, "azure_static_web_apps", azure_static_web_apps)
+            _setter("azure_static_web_apps", azure_static_web_apps)
         if custom_open_id_connect_providers is not None:
-            pulumi.set(__self__, "custom_open_id_connect_providers", custom_open_id_connect_providers)
+            _setter("custom_open_id_connect_providers", custom_open_id_connect_providers)
         if facebook is not None:
-            pulumi.set(__self__, "facebook", facebook)
+            _setter("facebook", facebook)
         if git_hub is not None:
-            pulumi.set(__self__, "git_hub", git_hub)
+            _setter("git_hub", git_hub)
         if google is not None:
-            pulumi.set(__self__, "google", google)
+            _setter("google", google)
         if legacy_microsoft_account is not None:
-            pulumi.set(__self__, "legacy_microsoft_account", legacy_microsoft_account)
+            _setter("legacy_microsoft_account", legacy_microsoft_account)
         if twitter is not None:
-            pulumi.set(__self__, "twitter", twitter)
+            _setter("twitter", twitter)
 
     @property
     @pulumi.getter
@@ -5083,28 +6667,69 @@ class IpSecurityRestrictionArgs:
         :param pulumi.Input[str] vnet_subnet_resource_id: Virtual network resource id
         :param pulumi.Input[int] vnet_traffic_tag: (internal) Vnet traffic tag
         """
+        IpSecurityRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            description=description,
+            headers=headers,
+            ip_address=ip_address,
+            name=name,
+            priority=priority,
+            subnet_mask=subnet_mask,
+            subnet_traffic_tag=subnet_traffic_tag,
+            tag=tag,
+            vnet_subnet_resource_id=vnet_subnet_resource_id,
+            vnet_traffic_tag=vnet_traffic_tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             subnet_mask: Optional[pulumi.Input[str]] = None,
+             subnet_traffic_tag: Optional[pulumi.Input[int]] = None,
+             tag: Optional[pulumi.Input[Union[str, 'IpFilterTag']]] = None,
+             vnet_subnet_resource_id: Optional[pulumi.Input[str]] = None,
+             vnet_traffic_tag: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if subnet_mask is None and 'subnetMask' in kwargs:
+            subnet_mask = kwargs['subnetMask']
+        if subnet_traffic_tag is None and 'subnetTrafficTag' in kwargs:
+            subnet_traffic_tag = kwargs['subnetTrafficTag']
+        if vnet_subnet_resource_id is None and 'vnetSubnetResourceId' in kwargs:
+            vnet_subnet_resource_id = kwargs['vnetSubnetResourceId']
+        if vnet_traffic_tag is None and 'vnetTrafficTag' in kwargs:
+            vnet_traffic_tag = kwargs['vnetTrafficTag']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if subnet_mask is not None:
-            pulumi.set(__self__, "subnet_mask", subnet_mask)
+            _setter("subnet_mask", subnet_mask)
         if subnet_traffic_tag is not None:
-            pulumi.set(__self__, "subnet_traffic_tag", subnet_traffic_tag)
+            _setter("subnet_traffic_tag", subnet_traffic_tag)
         if tag is not None:
-            pulumi.set(__self__, "tag", tag)
+            _setter("tag", tag)
         if vnet_subnet_resource_id is not None:
-            pulumi.set(__self__, "vnet_subnet_resource_id", vnet_subnet_resource_id)
+            _setter("vnet_subnet_resource_id", vnet_subnet_resource_id)
         if vnet_traffic_tag is not None:
-            pulumi.set(__self__, "vnet_traffic_tag", vnet_traffic_tag)
+            _setter("vnet_traffic_tag", vnet_traffic_tag)
 
     @property
     @pulumi.getter
@@ -5267,10 +6892,27 @@ class JwtClaimChecksArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_client_applications: The list of the allowed client applications.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_groups: The list of the allowed groups.
         """
+        JwtClaimChecksArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_client_applications=allowed_client_applications,
+            allowed_groups=allowed_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_client_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_client_applications is None and 'allowedClientApplications' in kwargs:
+            allowed_client_applications = kwargs['allowedClientApplications']
+        if allowed_groups is None and 'allowedGroups' in kwargs:
+            allowed_groups = kwargs['allowedGroups']
+
         if allowed_client_applications is not None:
-            pulumi.set(__self__, "allowed_client_applications", allowed_client_applications)
+            _setter("allowed_client_applications", allowed_client_applications)
         if allowed_groups is not None:
-            pulumi.set(__self__, "allowed_groups", allowed_groups)
+            _setter("allowed_groups", allowed_groups)
 
     @property
     @pulumi.getter(name="allowedClientApplications")
@@ -5305,8 +6947,19 @@ class KubeEnvironmentProfileArgs:
         Specification for a Kubernetes Environment to use for this resource.
         :param pulumi.Input[str] id: Resource ID of the Kubernetes Environment.
         """
+        KubeEnvironmentProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -5335,14 +6988,31 @@ class LegacyMicrosoftAccountArgs:
         :param pulumi.Input['ClientRegistrationArgs'] registration: The configuration settings of the app registration for the legacy Microsoft Account provider.
         :param pulumi.Input['AllowedAudiencesValidationArgs'] validation: The configuration settings of the legacy Microsoft Account provider token validation flow.
         """
+        LegacyMicrosoftAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            login=login,
+            registration=registration,
+            validation=validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             login: Optional[pulumi.Input['LoginScopesArgs']] = None,
+             registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
+             validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
         if validation is not None:
-            pulumi.set(__self__, "validation", validation)
+            _setter("validation", validation)
 
     @property
     @pulumi.getter
@@ -5398,10 +7068,27 @@ class LogAnalyticsConfigurationArgs:
     def __init__(__self__, *,
                  customer_id: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None):
+        LogAnalyticsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_id=customer_id,
+            shared_key=shared_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_id: Optional[pulumi.Input[str]] = None,
+             shared_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_id is None and 'customerId' in kwargs:
+            customer_id = kwargs['customerId']
+        if shared_key is None and 'sharedKey' in kwargs:
+            shared_key = kwargs['sharedKey']
+
         if customer_id is not None:
-            pulumi.set(__self__, "customer_id", customer_id)
+            _setter("customer_id", customer_id)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
 
     @property
     @pulumi.getter(name="customerId")
@@ -5430,8 +7117,21 @@ class LoginRoutesArgs:
         The routes that specify the endpoints used for login and logout requests.
         :param pulumi.Input[str] logout_endpoint: The endpoint at which a logout request should be made.
         """
+        LoginRoutesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logout_endpoint=logout_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logout_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logout_endpoint is None and 'logoutEndpoint' in kwargs:
+            logout_endpoint = kwargs['logoutEndpoint']
+
         if logout_endpoint is not None:
-            pulumi.set(__self__, "logout_endpoint", logout_endpoint)
+            _setter("logout_endpoint", logout_endpoint)
 
     @property
     @pulumi.getter(name="logoutEndpoint")
@@ -5454,8 +7154,19 @@ class LoginScopesArgs:
         The configuration settings of the login flow, including the scopes that should be requested.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of the scopes that should be requested while authenticating.
         """
+        LoginScopesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter
@@ -5490,18 +7201,47 @@ class LoginArgs:
         :param pulumi.Input['LoginRoutesArgs'] routes: The routes that specify the endpoints used for login and logout requests.
         :param pulumi.Input['TokenStoreArgs'] token_store: The configuration settings of the token store.
         """
+        LoginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_external_redirect_urls=allowed_external_redirect_urls,
+            cookie_expiration=cookie_expiration,
+            nonce=nonce,
+            preserve_url_fragments_for_logins=preserve_url_fragments_for_logins,
+            routes=routes,
+            token_store=token_store,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_external_redirect_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cookie_expiration: Optional[pulumi.Input['CookieExpirationArgs']] = None,
+             nonce: Optional[pulumi.Input['NonceArgs']] = None,
+             preserve_url_fragments_for_logins: Optional[pulumi.Input[bool]] = None,
+             routes: Optional[pulumi.Input['LoginRoutesArgs']] = None,
+             token_store: Optional[pulumi.Input['TokenStoreArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_external_redirect_urls is None and 'allowedExternalRedirectUrls' in kwargs:
+            allowed_external_redirect_urls = kwargs['allowedExternalRedirectUrls']
+        if cookie_expiration is None and 'cookieExpiration' in kwargs:
+            cookie_expiration = kwargs['cookieExpiration']
+        if preserve_url_fragments_for_logins is None and 'preserveUrlFragmentsForLogins' in kwargs:
+            preserve_url_fragments_for_logins = kwargs['preserveUrlFragmentsForLogins']
+        if token_store is None and 'tokenStore' in kwargs:
+            token_store = kwargs['tokenStore']
+
         if allowed_external_redirect_urls is not None:
-            pulumi.set(__self__, "allowed_external_redirect_urls", allowed_external_redirect_urls)
+            _setter("allowed_external_redirect_urls", allowed_external_redirect_urls)
         if cookie_expiration is not None:
-            pulumi.set(__self__, "cookie_expiration", cookie_expiration)
+            _setter("cookie_expiration", cookie_expiration)
         if nonce is not None:
-            pulumi.set(__self__, "nonce", nonce)
+            _setter("nonce", nonce)
         if preserve_url_fragments_for_logins is not None:
-            pulumi.set(__self__, "preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
+            _setter("preserve_url_fragments_for_logins", preserve_url_fragments_for_logins)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if token_store is not None:
-            pulumi.set(__self__, "token_store", token_store)
+            _setter("token_store", token_store)
 
     @property
     @pulumi.getter(name="allowedExternalRedirectUrls")
@@ -5588,10 +7328,25 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input['ManagedServiceIdentityType'] type: Type of managed service identity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -5628,10 +7383,23 @@ class NameValuePairArgs:
         :param pulumi.Input[str] name: Pair name.
         :param pulumi.Input[str] value: Pair value.
         """
+        NameValuePairArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -5668,10 +7436,27 @@ class NonceArgs:
         :param pulumi.Input[str] nonce_expiration_interval: The time after the request is made when the nonce should expire.
         :param pulumi.Input[bool] validate_nonce: <code>false</code> if the nonce should not be validated while completing the login flow; otherwise, <code>true</code>.
         """
+        NonceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nonce_expiration_interval=nonce_expiration_interval,
+            validate_nonce=validate_nonce,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nonce_expiration_interval: Optional[pulumi.Input[str]] = None,
+             validate_nonce: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nonce_expiration_interval is None and 'nonceExpirationInterval' in kwargs:
+            nonce_expiration_interval = kwargs['nonceExpirationInterval']
+        if validate_nonce is None and 'validateNonce' in kwargs:
+            validate_nonce = kwargs['validateNonce']
+
         if nonce_expiration_interval is not None:
-            pulumi.set(__self__, "nonce_expiration_interval", nonce_expiration_interval)
+            _setter("nonce_expiration_interval", nonce_expiration_interval)
         if validate_nonce is not None:
-            pulumi.set(__self__, "validate_nonce", validate_nonce)
+            _setter("validate_nonce", validate_nonce)
 
     @property
     @pulumi.getter(name="nonceExpirationInterval")
@@ -5708,10 +7493,25 @@ class OpenIdConnectClientCredentialArgs:
         :param pulumi.Input[str] client_secret_setting_name: The app setting that contains the client secret for the custom Open ID Connect provider.
         :param pulumi.Input['ClientCredentialMethod'] method: The method that should be used to authenticate the user.
         """
+        OpenIdConnectClientCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_secret_setting_name=client_secret_setting_name,
+            method=method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input['ClientCredentialMethod']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_secret_setting_name is None and 'clientSecretSettingName' in kwargs:
+            client_secret_setting_name = kwargs['clientSecretSettingName']
+
         if client_secret_setting_name is not None:
-            pulumi.set(__self__, "client_secret_setting_name", client_secret_setting_name)
+            _setter("client_secret_setting_name", client_secret_setting_name)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
 
     @property
     @pulumi.getter(name="clientSecretSettingName")
@@ -5754,16 +7554,43 @@ class OpenIdConnectConfigArgs:
         :param pulumi.Input[str] token_endpoint: The endpoint to be used to request a token.
         :param pulumi.Input[str] well_known_open_id_configuration: The endpoint that contains all the configuration endpoints for the provider.
         """
+        OpenIdConnectConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_endpoint=authorization_endpoint,
+            certification_uri=certification_uri,
+            issuer=issuer,
+            token_endpoint=token_endpoint,
+            well_known_open_id_configuration=well_known_open_id_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_endpoint: Optional[pulumi.Input[str]] = None,
+             certification_uri: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             token_endpoint: Optional[pulumi.Input[str]] = None,
+             well_known_open_id_configuration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_endpoint is None and 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if certification_uri is None and 'certificationUri' in kwargs:
+            certification_uri = kwargs['certificationUri']
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if well_known_open_id_configuration is None and 'wellKnownOpenIdConfiguration' in kwargs:
+            well_known_open_id_configuration = kwargs['wellKnownOpenIdConfiguration']
+
         if authorization_endpoint is not None:
-            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+            _setter("authorization_endpoint", authorization_endpoint)
         if certification_uri is not None:
-            pulumi.set(__self__, "certification_uri", certification_uri)
+            _setter("certification_uri", certification_uri)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if token_endpoint is not None:
-            pulumi.set(__self__, "token_endpoint", token_endpoint)
+            _setter("token_endpoint", token_endpoint)
         if well_known_open_id_configuration is not None:
-            pulumi.set(__self__, "well_known_open_id_configuration", well_known_open_id_configuration)
+            _setter("well_known_open_id_configuration", well_known_open_id_configuration)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -5836,10 +7663,25 @@ class OpenIdConnectLoginArgs:
         :param pulumi.Input[str] name_claim_type: The name of the claim that contains the users name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of the scopes that should be requested while authenticating.
         """
+        OpenIdConnectLoginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name_claim_type=name_claim_type,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name_claim_type: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_claim_type is None and 'nameClaimType' in kwargs:
+            name_claim_type = kwargs['nameClaimType']
+
         if name_claim_type is not None:
-            pulumi.set(__self__, "name_claim_type", name_claim_type)
+            _setter("name_claim_type", name_claim_type)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="nameClaimType")
@@ -5878,12 +7720,33 @@ class OpenIdConnectRegistrationArgs:
         :param pulumi.Input[str] client_id: The client id of the custom Open ID Connect provider.
         :param pulumi.Input['OpenIdConnectConfigArgs'] open_id_connect_configuration: The configuration settings of the endpoints used for the custom Open ID Connect provider.
         """
+        OpenIdConnectRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_credential=client_credential,
+            client_id=client_id,
+            open_id_connect_configuration=open_id_connect_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_credential: Optional[pulumi.Input['OpenIdConnectClientCredentialArgs']] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             open_id_connect_configuration: Optional[pulumi.Input['OpenIdConnectConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_credential is None and 'clientCredential' in kwargs:
+            client_credential = kwargs['clientCredential']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if open_id_connect_configuration is None and 'openIdConnectConfiguration' in kwargs:
+            open_id_connect_configuration = kwargs['openIdConnectConfiguration']
+
         if client_credential is not None:
-            pulumi.set(__self__, "client_credential", client_credential)
+            _setter("client_credential", client_credential)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if open_id_connect_configuration is not None:
-            pulumi.set(__self__, "open_id_connect_configuration", open_id_connect_configuration)
+            _setter("open_id_connect_configuration", open_id_connect_configuration)
 
     @property
     @pulumi.getter(name="clientCredential")
@@ -5934,12 +7797,29 @@ class PrivateLinkConnectionStateArgs:
         :param pulumi.Input[str] description: Description of a private link connection
         :param pulumi.Input[str] status: Status of a private link connection
         """
+        PrivateLinkConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -5997,15 +7877,44 @@ class PushSettingsArgs:
                '_', '@', '#', '.', ':', '-'. 
                Validation should be performed at the PushRequestHandler.
         """
-        pulumi.set(__self__, "is_push_enabled", is_push_enabled)
+        PushSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_push_enabled=is_push_enabled,
+            dynamic_tags_json=dynamic_tags_json,
+            kind=kind,
+            tag_whitelist_json=tag_whitelist_json,
+            tags_requiring_auth=tags_requiring_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_push_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_tags_json: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             tag_whitelist_json: Optional[pulumi.Input[str]] = None,
+             tags_requiring_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_push_enabled is None and 'isPushEnabled' in kwargs:
+            is_push_enabled = kwargs['isPushEnabled']
+        if is_push_enabled is None:
+            raise TypeError("Missing 'is_push_enabled' argument")
+        if dynamic_tags_json is None and 'dynamicTagsJson' in kwargs:
+            dynamic_tags_json = kwargs['dynamicTagsJson']
+        if tag_whitelist_json is None and 'tagWhitelistJson' in kwargs:
+            tag_whitelist_json = kwargs['tagWhitelistJson']
+        if tags_requiring_auth is None and 'tagsRequiringAuth' in kwargs:
+            tags_requiring_auth = kwargs['tagsRequiringAuth']
+
+        _setter("is_push_enabled", is_push_enabled)
         if dynamic_tags_json is not None:
-            pulumi.set(__self__, "dynamic_tags_json", dynamic_tags_json)
+            _setter("dynamic_tags_json", dynamic_tags_json)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if tag_whitelist_json is not None:
-            pulumi.set(__self__, "tag_whitelist_json", tag_whitelist_json)
+            _setter("tag_whitelist_json", tag_whitelist_json)
         if tags_requiring_auth is not None:
-            pulumi.set(__self__, "tags_requiring_auth", tags_requiring_auth)
+            _setter("tags_requiring_auth", tags_requiring_auth)
 
     @property
     @pulumi.getter(name="isPushEnabled")
@@ -6096,22 +8005,61 @@ class RampUpRuleArgs:
         :param pulumi.Input[str] name: Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
         :param pulumi.Input[float] reroute_percentage: Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
         """
+        RampUpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_host_name=action_host_name,
+            change_decision_callback_url=change_decision_callback_url,
+            change_interval_in_minutes=change_interval_in_minutes,
+            change_step=change_step,
+            max_reroute_percentage=max_reroute_percentage,
+            min_reroute_percentage=min_reroute_percentage,
+            name=name,
+            reroute_percentage=reroute_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_host_name: Optional[pulumi.Input[str]] = None,
+             change_decision_callback_url: Optional[pulumi.Input[str]] = None,
+             change_interval_in_minutes: Optional[pulumi.Input[int]] = None,
+             change_step: Optional[pulumi.Input[float]] = None,
+             max_reroute_percentage: Optional[pulumi.Input[float]] = None,
+             min_reroute_percentage: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             reroute_percentage: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_host_name is None and 'actionHostName' in kwargs:
+            action_host_name = kwargs['actionHostName']
+        if change_decision_callback_url is None and 'changeDecisionCallbackUrl' in kwargs:
+            change_decision_callback_url = kwargs['changeDecisionCallbackUrl']
+        if change_interval_in_minutes is None and 'changeIntervalInMinutes' in kwargs:
+            change_interval_in_minutes = kwargs['changeIntervalInMinutes']
+        if change_step is None and 'changeStep' in kwargs:
+            change_step = kwargs['changeStep']
+        if max_reroute_percentage is None and 'maxReroutePercentage' in kwargs:
+            max_reroute_percentage = kwargs['maxReroutePercentage']
+        if min_reroute_percentage is None and 'minReroutePercentage' in kwargs:
+            min_reroute_percentage = kwargs['minReroutePercentage']
+        if reroute_percentage is None and 'reroutePercentage' in kwargs:
+            reroute_percentage = kwargs['reroutePercentage']
+
         if action_host_name is not None:
-            pulumi.set(__self__, "action_host_name", action_host_name)
+            _setter("action_host_name", action_host_name)
         if change_decision_callback_url is not None:
-            pulumi.set(__self__, "change_decision_callback_url", change_decision_callback_url)
+            _setter("change_decision_callback_url", change_decision_callback_url)
         if change_interval_in_minutes is not None:
-            pulumi.set(__self__, "change_interval_in_minutes", change_interval_in_minutes)
+            _setter("change_interval_in_minutes", change_interval_in_minutes)
         if change_step is not None:
-            pulumi.set(__self__, "change_step", change_step)
+            _setter("change_step", change_step)
         if max_reroute_percentage is not None:
-            pulumi.set(__self__, "max_reroute_percentage", max_reroute_percentage)
+            _setter("max_reroute_percentage", max_reroute_percentage)
         if min_reroute_percentage is not None:
-            pulumi.set(__self__, "min_reroute_percentage", min_reroute_percentage)
+            _setter("min_reroute_percentage", min_reroute_percentage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reroute_percentage is not None:
-            pulumi.set(__self__, "reroute_percentage", reroute_percentage)
+            _setter("reroute_percentage", reroute_percentage)
 
     @property
     @pulumi.getter(name="actionHostName")
@@ -6223,10 +8171,25 @@ class RequestsBasedTriggerArgs:
         :param pulumi.Input[int] count: Request Count.
         :param pulumi.Input[str] time_interval: Time interval.
         """
+        RequestsBasedTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            time_interval=time_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             time_interval: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_interval is None and 'timeInterval' in kwargs:
+            time_interval = kwargs['timeInterval']
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if time_interval is not None:
-            pulumi.set(__self__, "time_interval", time_interval)
+            _setter("time_interval", time_interval)
 
     @property
     @pulumi.getter
@@ -6405,152 +8368,431 @@ class SiteConfigArgs:
         :param pulumi.Input[str] windows_fx_version: Xenon App Framework and version
         :param pulumi.Input[int] x_managed_service_identity_id: Explicit Managed Service Identity Id
         """
+        SiteConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acr_use_managed_identity_creds=acr_use_managed_identity_creds,
+            acr_user_managed_identity_id=acr_user_managed_identity_id,
+            always_on=always_on,
+            api_definition=api_definition,
+            api_management_config=api_management_config,
+            app_command_line=app_command_line,
+            app_settings=app_settings,
+            auto_heal_enabled=auto_heal_enabled,
+            auto_heal_rules=auto_heal_rules,
+            auto_swap_slot_name=auto_swap_slot_name,
+            azure_storage_accounts=azure_storage_accounts,
+            connection_strings=connection_strings,
+            cors=cors,
+            default_documents=default_documents,
+            detailed_error_logging_enabled=detailed_error_logging_enabled,
+            document_root=document_root,
+            elastic_web_app_scale_limit=elastic_web_app_scale_limit,
+            experiments=experiments,
+            ftps_state=ftps_state,
+            function_app_scale_limit=function_app_scale_limit,
+            functions_runtime_scale_monitoring_enabled=functions_runtime_scale_monitoring_enabled,
+            handler_mappings=handler_mappings,
+            health_check_path=health_check_path,
+            http20_enabled=http20_enabled,
+            http_logging_enabled=http_logging_enabled,
+            ip_security_restrictions=ip_security_restrictions,
+            ip_security_restrictions_default_action=ip_security_restrictions_default_action,
+            java_container=java_container,
+            java_container_version=java_container_version,
+            java_version=java_version,
+            key_vault_reference_identity=key_vault_reference_identity,
+            limits=limits,
+            linux_fx_version=linux_fx_version,
+            load_balancing=load_balancing,
+            local_my_sql_enabled=local_my_sql_enabled,
+            logs_directory_size_limit=logs_directory_size_limit,
+            managed_pipeline_mode=managed_pipeline_mode,
+            managed_service_identity_id=managed_service_identity_id,
+            metadata=metadata,
+            min_tls_version=min_tls_version,
+            minimum_elastic_instance_count=minimum_elastic_instance_count,
+            net_framework_version=net_framework_version,
+            node_version=node_version,
+            number_of_workers=number_of_workers,
+            php_version=php_version,
+            power_shell_version=power_shell_version,
+            pre_warmed_instance_count=pre_warmed_instance_count,
+            public_network_access=public_network_access,
+            publishing_username=publishing_username,
+            push=push,
+            python_version=python_version,
+            remote_debugging_enabled=remote_debugging_enabled,
+            remote_debugging_version=remote_debugging_version,
+            request_tracing_enabled=request_tracing_enabled,
+            request_tracing_expiration_time=request_tracing_expiration_time,
+            scm_ip_security_restrictions=scm_ip_security_restrictions,
+            scm_ip_security_restrictions_default_action=scm_ip_security_restrictions_default_action,
+            scm_ip_security_restrictions_use_main=scm_ip_security_restrictions_use_main,
+            scm_min_tls_version=scm_min_tls_version,
+            scm_type=scm_type,
+            tracing_options=tracing_options,
+            use32_bit_worker_process=use32_bit_worker_process,
+            virtual_applications=virtual_applications,
+            vnet_name=vnet_name,
+            vnet_private_ports_count=vnet_private_ports_count,
+            vnet_route_all_enabled=vnet_route_all_enabled,
+            web_sockets_enabled=web_sockets_enabled,
+            website_time_zone=website_time_zone,
+            windows_fx_version=windows_fx_version,
+            x_managed_service_identity_id=x_managed_service_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acr_use_managed_identity_creds: Optional[pulumi.Input[bool]] = None,
+             acr_user_managed_identity_id: Optional[pulumi.Input[str]] = None,
+             always_on: Optional[pulumi.Input[bool]] = None,
+             api_definition: Optional[pulumi.Input['ApiDefinitionInfoArgs']] = None,
+             api_management_config: Optional[pulumi.Input['ApiManagementConfigArgs']] = None,
+             app_command_line: Optional[pulumi.Input[str]] = None,
+             app_settings: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+             auto_heal_enabled: Optional[pulumi.Input[bool]] = None,
+             auto_heal_rules: Optional[pulumi.Input['AutoHealRulesArgs']] = None,
+             auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
+             azure_storage_accounts: Optional[pulumi.Input[Mapping[str, pulumi.Input['AzureStorageInfoValueArgs']]]] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ConnStringInfoArgs']]]] = None,
+             cors: Optional[pulumi.Input['CorsSettingsArgs']] = None,
+             default_documents: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             detailed_error_logging_enabled: Optional[pulumi.Input[bool]] = None,
+             document_root: Optional[pulumi.Input[str]] = None,
+             elastic_web_app_scale_limit: Optional[pulumi.Input[int]] = None,
+             experiments: Optional[pulumi.Input['ExperimentsArgs']] = None,
+             ftps_state: Optional[pulumi.Input[Union[str, 'FtpsState']]] = None,
+             function_app_scale_limit: Optional[pulumi.Input[int]] = None,
+             functions_runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             handler_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['HandlerMappingArgs']]]] = None,
+             health_check_path: Optional[pulumi.Input[str]] = None,
+             http20_enabled: Optional[pulumi.Input[bool]] = None,
+             http_logging_enabled: Optional[pulumi.Input[bool]] = None,
+             ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
+             ip_security_restrictions_default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
+             java_container: Optional[pulumi.Input[str]] = None,
+             java_container_version: Optional[pulumi.Input[str]] = None,
+             java_version: Optional[pulumi.Input[str]] = None,
+             key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
+             limits: Optional[pulumi.Input['SiteLimitsArgs']] = None,
+             linux_fx_version: Optional[pulumi.Input[str]] = None,
+             load_balancing: Optional[pulumi.Input['SiteLoadBalancing']] = None,
+             local_my_sql_enabled: Optional[pulumi.Input[bool]] = None,
+             logs_directory_size_limit: Optional[pulumi.Input[int]] = None,
+             managed_pipeline_mode: Optional[pulumi.Input['ManagedPipelineMode']] = None,
+             managed_service_identity_id: Optional[pulumi.Input[int]] = None,
+             metadata: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+             min_tls_version: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]] = None,
+             minimum_elastic_instance_count: Optional[pulumi.Input[int]] = None,
+             net_framework_version: Optional[pulumi.Input[str]] = None,
+             node_version: Optional[pulumi.Input[str]] = None,
+             number_of_workers: Optional[pulumi.Input[int]] = None,
+             php_version: Optional[pulumi.Input[str]] = None,
+             power_shell_version: Optional[pulumi.Input[str]] = None,
+             pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             publishing_username: Optional[pulumi.Input[str]] = None,
+             push: Optional[pulumi.Input['PushSettingsArgs']] = None,
+             python_version: Optional[pulumi.Input[str]] = None,
+             remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
+             remote_debugging_version: Optional[pulumi.Input[str]] = None,
+             request_tracing_enabled: Optional[pulumi.Input[bool]] = None,
+             request_tracing_expiration_time: Optional[pulumi.Input[str]] = None,
+             scm_ip_security_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['IpSecurityRestrictionArgs']]]] = None,
+             scm_ip_security_restrictions_default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
+             scm_ip_security_restrictions_use_main: Optional[pulumi.Input[bool]] = None,
+             scm_min_tls_version: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]] = None,
+             scm_type: Optional[pulumi.Input[Union[str, 'ScmType']]] = None,
+             tracing_options: Optional[pulumi.Input[str]] = None,
+             use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
+             virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]] = None,
+             vnet_name: Optional[pulumi.Input[str]] = None,
+             vnet_private_ports_count: Optional[pulumi.Input[int]] = None,
+             vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+             web_sockets_enabled: Optional[pulumi.Input[bool]] = None,
+             website_time_zone: Optional[pulumi.Input[str]] = None,
+             windows_fx_version: Optional[pulumi.Input[str]] = None,
+             x_managed_service_identity_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acr_use_managed_identity_creds is None and 'acrUseManagedIdentityCreds' in kwargs:
+            acr_use_managed_identity_creds = kwargs['acrUseManagedIdentityCreds']
+        if acr_user_managed_identity_id is None and 'acrUserManagedIdentityID' in kwargs:
+            acr_user_managed_identity_id = kwargs['acrUserManagedIdentityID']
+        if always_on is None and 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if api_definition is None and 'apiDefinition' in kwargs:
+            api_definition = kwargs['apiDefinition']
+        if api_management_config is None and 'apiManagementConfig' in kwargs:
+            api_management_config = kwargs['apiManagementConfig']
+        if app_command_line is None and 'appCommandLine' in kwargs:
+            app_command_line = kwargs['appCommandLine']
+        if app_settings is None and 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if auto_heal_enabled is None and 'autoHealEnabled' in kwargs:
+            auto_heal_enabled = kwargs['autoHealEnabled']
+        if auto_heal_rules is None and 'autoHealRules' in kwargs:
+            auto_heal_rules = kwargs['autoHealRules']
+        if auto_swap_slot_name is None and 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if azure_storage_accounts is None and 'azureStorageAccounts' in kwargs:
+            azure_storage_accounts = kwargs['azureStorageAccounts']
+        if connection_strings is None and 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if default_documents is None and 'defaultDocuments' in kwargs:
+            default_documents = kwargs['defaultDocuments']
+        if detailed_error_logging_enabled is None and 'detailedErrorLoggingEnabled' in kwargs:
+            detailed_error_logging_enabled = kwargs['detailedErrorLoggingEnabled']
+        if document_root is None and 'documentRoot' in kwargs:
+            document_root = kwargs['documentRoot']
+        if elastic_web_app_scale_limit is None and 'elasticWebAppScaleLimit' in kwargs:
+            elastic_web_app_scale_limit = kwargs['elasticWebAppScaleLimit']
+        if ftps_state is None and 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if function_app_scale_limit is None and 'functionAppScaleLimit' in kwargs:
+            function_app_scale_limit = kwargs['functionAppScaleLimit']
+        if functions_runtime_scale_monitoring_enabled is None and 'functionsRuntimeScaleMonitoringEnabled' in kwargs:
+            functions_runtime_scale_monitoring_enabled = kwargs['functionsRuntimeScaleMonitoringEnabled']
+        if handler_mappings is None and 'handlerMappings' in kwargs:
+            handler_mappings = kwargs['handlerMappings']
+        if health_check_path is None and 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if http20_enabled is None and 'http20Enabled' in kwargs:
+            http20_enabled = kwargs['http20Enabled']
+        if http_logging_enabled is None and 'httpLoggingEnabled' in kwargs:
+            http_logging_enabled = kwargs['httpLoggingEnabled']
+        if ip_security_restrictions is None and 'ipSecurityRestrictions' in kwargs:
+            ip_security_restrictions = kwargs['ipSecurityRestrictions']
+        if ip_security_restrictions_default_action is None and 'ipSecurityRestrictionsDefaultAction' in kwargs:
+            ip_security_restrictions_default_action = kwargs['ipSecurityRestrictionsDefaultAction']
+        if java_container is None and 'javaContainer' in kwargs:
+            java_container = kwargs['javaContainer']
+        if java_container_version is None and 'javaContainerVersion' in kwargs:
+            java_container_version = kwargs['javaContainerVersion']
+        if java_version is None and 'javaVersion' in kwargs:
+            java_version = kwargs['javaVersion']
+        if key_vault_reference_identity is None and 'keyVaultReferenceIdentity' in kwargs:
+            key_vault_reference_identity = kwargs['keyVaultReferenceIdentity']
+        if linux_fx_version is None and 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if load_balancing is None and 'loadBalancing' in kwargs:
+            load_balancing = kwargs['loadBalancing']
+        if local_my_sql_enabled is None and 'localMySqlEnabled' in kwargs:
+            local_my_sql_enabled = kwargs['localMySqlEnabled']
+        if logs_directory_size_limit is None and 'logsDirectorySizeLimit' in kwargs:
+            logs_directory_size_limit = kwargs['logsDirectorySizeLimit']
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if managed_service_identity_id is None and 'managedServiceIdentityId' in kwargs:
+            managed_service_identity_id = kwargs['managedServiceIdentityId']
+        if min_tls_version is None and 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if minimum_elastic_instance_count is None and 'minimumElasticInstanceCount' in kwargs:
+            minimum_elastic_instance_count = kwargs['minimumElasticInstanceCount']
+        if net_framework_version is None and 'netFrameworkVersion' in kwargs:
+            net_framework_version = kwargs['netFrameworkVersion']
+        if node_version is None and 'nodeVersion' in kwargs:
+            node_version = kwargs['nodeVersion']
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if php_version is None and 'phpVersion' in kwargs:
+            php_version = kwargs['phpVersion']
+        if power_shell_version is None and 'powerShellVersion' in kwargs:
+            power_shell_version = kwargs['powerShellVersion']
+        if pre_warmed_instance_count is None and 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if publishing_username is None and 'publishingUsername' in kwargs:
+            publishing_username = kwargs['publishingUsername']
+        if python_version is None and 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if remote_debugging_enabled is None and 'remoteDebuggingEnabled' in kwargs:
+            remote_debugging_enabled = kwargs['remoteDebuggingEnabled']
+        if remote_debugging_version is None and 'remoteDebuggingVersion' in kwargs:
+            remote_debugging_version = kwargs['remoteDebuggingVersion']
+        if request_tracing_enabled is None and 'requestTracingEnabled' in kwargs:
+            request_tracing_enabled = kwargs['requestTracingEnabled']
+        if request_tracing_expiration_time is None and 'requestTracingExpirationTime' in kwargs:
+            request_tracing_expiration_time = kwargs['requestTracingExpirationTime']
+        if scm_ip_security_restrictions is None and 'scmIpSecurityRestrictions' in kwargs:
+            scm_ip_security_restrictions = kwargs['scmIpSecurityRestrictions']
+        if scm_ip_security_restrictions_default_action is None and 'scmIpSecurityRestrictionsDefaultAction' in kwargs:
+            scm_ip_security_restrictions_default_action = kwargs['scmIpSecurityRestrictionsDefaultAction']
+        if scm_ip_security_restrictions_use_main is None and 'scmIpSecurityRestrictionsUseMain' in kwargs:
+            scm_ip_security_restrictions_use_main = kwargs['scmIpSecurityRestrictionsUseMain']
+        if scm_min_tls_version is None and 'scmMinTlsVersion' in kwargs:
+            scm_min_tls_version = kwargs['scmMinTlsVersion']
+        if scm_type is None and 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if tracing_options is None and 'tracingOptions' in kwargs:
+            tracing_options = kwargs['tracingOptions']
+        if use32_bit_worker_process is None and 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if virtual_applications is None and 'virtualApplications' in kwargs:
+            virtual_applications = kwargs['virtualApplications']
+        if vnet_name is None and 'vnetName' in kwargs:
+            vnet_name = kwargs['vnetName']
+        if vnet_private_ports_count is None and 'vnetPrivatePortsCount' in kwargs:
+            vnet_private_ports_count = kwargs['vnetPrivatePortsCount']
+        if vnet_route_all_enabled is None and 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if web_sockets_enabled is None and 'webSocketsEnabled' in kwargs:
+            web_sockets_enabled = kwargs['webSocketsEnabled']
+        if website_time_zone is None and 'websiteTimeZone' in kwargs:
+            website_time_zone = kwargs['websiteTimeZone']
+        if windows_fx_version is None and 'windowsFxVersion' in kwargs:
+            windows_fx_version = kwargs['windowsFxVersion']
+        if x_managed_service_identity_id is None and 'xManagedServiceIdentityId' in kwargs:
+            x_managed_service_identity_id = kwargs['xManagedServiceIdentityId']
+
         if acr_use_managed_identity_creds is not None:
-            pulumi.set(__self__, "acr_use_managed_identity_creds", acr_use_managed_identity_creds)
+            _setter("acr_use_managed_identity_creds", acr_use_managed_identity_creds)
         if acr_user_managed_identity_id is not None:
-            pulumi.set(__self__, "acr_user_managed_identity_id", acr_user_managed_identity_id)
+            _setter("acr_user_managed_identity_id", acr_user_managed_identity_id)
         if always_on is not None:
-            pulumi.set(__self__, "always_on", always_on)
+            _setter("always_on", always_on)
         if api_definition is not None:
-            pulumi.set(__self__, "api_definition", api_definition)
+            _setter("api_definition", api_definition)
         if api_management_config is not None:
-            pulumi.set(__self__, "api_management_config", api_management_config)
+            _setter("api_management_config", api_management_config)
         if app_command_line is not None:
-            pulumi.set(__self__, "app_command_line", app_command_line)
+            _setter("app_command_line", app_command_line)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if auto_heal_enabled is not None:
-            pulumi.set(__self__, "auto_heal_enabled", auto_heal_enabled)
+            _setter("auto_heal_enabled", auto_heal_enabled)
         if auto_heal_rules is not None:
-            pulumi.set(__self__, "auto_heal_rules", auto_heal_rules)
+            _setter("auto_heal_rules", auto_heal_rules)
         if auto_swap_slot_name is not None:
-            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+            _setter("auto_swap_slot_name", auto_swap_slot_name)
         if azure_storage_accounts is not None:
-            pulumi.set(__self__, "azure_storage_accounts", azure_storage_accounts)
+            _setter("azure_storage_accounts", azure_storage_accounts)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if default_documents is not None:
-            pulumi.set(__self__, "default_documents", default_documents)
+            _setter("default_documents", default_documents)
         if detailed_error_logging_enabled is not None:
-            pulumi.set(__self__, "detailed_error_logging_enabled", detailed_error_logging_enabled)
+            _setter("detailed_error_logging_enabled", detailed_error_logging_enabled)
         if document_root is not None:
-            pulumi.set(__self__, "document_root", document_root)
+            _setter("document_root", document_root)
         if elastic_web_app_scale_limit is not None:
-            pulumi.set(__self__, "elastic_web_app_scale_limit", elastic_web_app_scale_limit)
+            _setter("elastic_web_app_scale_limit", elastic_web_app_scale_limit)
         if experiments is not None:
-            pulumi.set(__self__, "experiments", experiments)
+            _setter("experiments", experiments)
         if ftps_state is not None:
-            pulumi.set(__self__, "ftps_state", ftps_state)
+            _setter("ftps_state", ftps_state)
         if function_app_scale_limit is not None:
-            pulumi.set(__self__, "function_app_scale_limit", function_app_scale_limit)
+            _setter("function_app_scale_limit", function_app_scale_limit)
         if functions_runtime_scale_monitoring_enabled is not None:
-            pulumi.set(__self__, "functions_runtime_scale_monitoring_enabled", functions_runtime_scale_monitoring_enabled)
+            _setter("functions_runtime_scale_monitoring_enabled", functions_runtime_scale_monitoring_enabled)
         if handler_mappings is not None:
-            pulumi.set(__self__, "handler_mappings", handler_mappings)
+            _setter("handler_mappings", handler_mappings)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if http20_enabled is None:
             http20_enabled = True
         if http20_enabled is not None:
-            pulumi.set(__self__, "http20_enabled", http20_enabled)
+            _setter("http20_enabled", http20_enabled)
         if http_logging_enabled is not None:
-            pulumi.set(__self__, "http_logging_enabled", http_logging_enabled)
+            _setter("http_logging_enabled", http_logging_enabled)
         if ip_security_restrictions is not None:
-            pulumi.set(__self__, "ip_security_restrictions", ip_security_restrictions)
+            _setter("ip_security_restrictions", ip_security_restrictions)
         if ip_security_restrictions_default_action is not None:
-            pulumi.set(__self__, "ip_security_restrictions_default_action", ip_security_restrictions_default_action)
+            _setter("ip_security_restrictions_default_action", ip_security_restrictions_default_action)
         if java_container is not None:
-            pulumi.set(__self__, "java_container", java_container)
+            _setter("java_container", java_container)
         if java_container_version is not None:
-            pulumi.set(__self__, "java_container_version", java_container_version)
+            _setter("java_container_version", java_container_version)
         if java_version is not None:
-            pulumi.set(__self__, "java_version", java_version)
+            _setter("java_version", java_version)
         if key_vault_reference_identity is not None:
-            pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
+            _setter("key_vault_reference_identity", key_vault_reference_identity)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if linux_fx_version is not None:
-            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+            _setter("linux_fx_version", linux_fx_version)
         if load_balancing is not None:
-            pulumi.set(__self__, "load_balancing", load_balancing)
+            _setter("load_balancing", load_balancing)
         if local_my_sql_enabled is None:
             local_my_sql_enabled = False
         if local_my_sql_enabled is not None:
-            pulumi.set(__self__, "local_my_sql_enabled", local_my_sql_enabled)
+            _setter("local_my_sql_enabled", local_my_sql_enabled)
         if logs_directory_size_limit is not None:
-            pulumi.set(__self__, "logs_directory_size_limit", logs_directory_size_limit)
+            _setter("logs_directory_size_limit", logs_directory_size_limit)
         if managed_pipeline_mode is not None:
-            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+            _setter("managed_pipeline_mode", managed_pipeline_mode)
         if managed_service_identity_id is not None:
-            pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
+            _setter("managed_service_identity_id", managed_service_identity_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if min_tls_version is not None:
-            pulumi.set(__self__, "min_tls_version", min_tls_version)
+            _setter("min_tls_version", min_tls_version)
         if minimum_elastic_instance_count is not None:
-            pulumi.set(__self__, "minimum_elastic_instance_count", minimum_elastic_instance_count)
+            _setter("minimum_elastic_instance_count", minimum_elastic_instance_count)
         if net_framework_version is None:
             net_framework_version = 'v4.6'
         if net_framework_version is not None:
-            pulumi.set(__self__, "net_framework_version", net_framework_version)
+            _setter("net_framework_version", net_framework_version)
         if node_version is not None:
-            pulumi.set(__self__, "node_version", node_version)
+            _setter("node_version", node_version)
         if number_of_workers is not None:
-            pulumi.set(__self__, "number_of_workers", number_of_workers)
+            _setter("number_of_workers", number_of_workers)
         if php_version is not None:
-            pulumi.set(__self__, "php_version", php_version)
+            _setter("php_version", php_version)
         if power_shell_version is not None:
-            pulumi.set(__self__, "power_shell_version", power_shell_version)
+            _setter("power_shell_version", power_shell_version)
         if pre_warmed_instance_count is not None:
-            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+            _setter("pre_warmed_instance_count", pre_warmed_instance_count)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if publishing_username is not None:
-            pulumi.set(__self__, "publishing_username", publishing_username)
+            _setter("publishing_username", publishing_username)
         if push is not None:
-            pulumi.set(__self__, "push", push)
+            _setter("push", push)
         if python_version is not None:
-            pulumi.set(__self__, "python_version", python_version)
+            _setter("python_version", python_version)
         if remote_debugging_enabled is not None:
-            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
+            _setter("remote_debugging_enabled", remote_debugging_enabled)
         if remote_debugging_version is not None:
-            pulumi.set(__self__, "remote_debugging_version", remote_debugging_version)
+            _setter("remote_debugging_version", remote_debugging_version)
         if request_tracing_enabled is not None:
-            pulumi.set(__self__, "request_tracing_enabled", request_tracing_enabled)
+            _setter("request_tracing_enabled", request_tracing_enabled)
         if request_tracing_expiration_time is not None:
-            pulumi.set(__self__, "request_tracing_expiration_time", request_tracing_expiration_time)
+            _setter("request_tracing_expiration_time", request_tracing_expiration_time)
         if scm_ip_security_restrictions is not None:
-            pulumi.set(__self__, "scm_ip_security_restrictions", scm_ip_security_restrictions)
+            _setter("scm_ip_security_restrictions", scm_ip_security_restrictions)
         if scm_ip_security_restrictions_default_action is not None:
-            pulumi.set(__self__, "scm_ip_security_restrictions_default_action", scm_ip_security_restrictions_default_action)
+            _setter("scm_ip_security_restrictions_default_action", scm_ip_security_restrictions_default_action)
         if scm_ip_security_restrictions_use_main is not None:
-            pulumi.set(__self__, "scm_ip_security_restrictions_use_main", scm_ip_security_restrictions_use_main)
+            _setter("scm_ip_security_restrictions_use_main", scm_ip_security_restrictions_use_main)
         if scm_min_tls_version is not None:
-            pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
+            _setter("scm_min_tls_version", scm_min_tls_version)
         if scm_type is not None:
-            pulumi.set(__self__, "scm_type", scm_type)
+            _setter("scm_type", scm_type)
         if tracing_options is not None:
-            pulumi.set(__self__, "tracing_options", tracing_options)
+            _setter("tracing_options", tracing_options)
         if use32_bit_worker_process is not None:
-            pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+            _setter("use32_bit_worker_process", use32_bit_worker_process)
         if virtual_applications is not None:
-            pulumi.set(__self__, "virtual_applications", virtual_applications)
+            _setter("virtual_applications", virtual_applications)
         if vnet_name is not None:
-            pulumi.set(__self__, "vnet_name", vnet_name)
+            _setter("vnet_name", vnet_name)
         if vnet_private_ports_count is not None:
-            pulumi.set(__self__, "vnet_private_ports_count", vnet_private_ports_count)
+            _setter("vnet_private_ports_count", vnet_private_ports_count)
         if vnet_route_all_enabled is not None:
-            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+            _setter("vnet_route_all_enabled", vnet_route_all_enabled)
         if web_sockets_enabled is not None:
-            pulumi.set(__self__, "web_sockets_enabled", web_sockets_enabled)
+            _setter("web_sockets_enabled", web_sockets_enabled)
         if website_time_zone is not None:
-            pulumi.set(__self__, "website_time_zone", website_time_zone)
+            _setter("website_time_zone", website_time_zone)
         if windows_fx_version is not None:
-            pulumi.set(__self__, "windows_fx_version", windows_fx_version)
+            _setter("windows_fx_version", windows_fx_version)
         if x_managed_service_identity_id is not None:
-            pulumi.set(__self__, "x_managed_service_identity_id", x_managed_service_identity_id)
+            _setter("x_managed_service_identity_id", x_managed_service_identity_id)
 
     @property
     @pulumi.getter(name="acrUseManagedIdentityCreds")
@@ -7411,12 +9653,33 @@ class SiteLimitsArgs:
         :param pulumi.Input[float] max_memory_in_mb: Maximum allowed memory usage in MB.
         :param pulumi.Input[float] max_percentage_cpu: Maximum allowed CPU usage percentage.
         """
+        SiteLimitsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_disk_size_in_mb=max_disk_size_in_mb,
+            max_memory_in_mb=max_memory_in_mb,
+            max_percentage_cpu=max_percentage_cpu,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_disk_size_in_mb: Optional[pulumi.Input[float]] = None,
+             max_memory_in_mb: Optional[pulumi.Input[float]] = None,
+             max_percentage_cpu: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_disk_size_in_mb is None and 'maxDiskSizeInMb' in kwargs:
+            max_disk_size_in_mb = kwargs['maxDiskSizeInMb']
+        if max_memory_in_mb is None and 'maxMemoryInMb' in kwargs:
+            max_memory_in_mb = kwargs['maxMemoryInMb']
+        if max_percentage_cpu is None and 'maxPercentageCpu' in kwargs:
+            max_percentage_cpu = kwargs['maxPercentageCpu']
+
         if max_disk_size_in_mb is not None:
-            pulumi.set(__self__, "max_disk_size_in_mb", max_disk_size_in_mb)
+            _setter("max_disk_size_in_mb", max_disk_size_in_mb)
         if max_memory_in_mb is not None:
-            pulumi.set(__self__, "max_memory_in_mb", max_memory_in_mb)
+            _setter("max_memory_in_mb", max_memory_in_mb)
         if max_percentage_cpu is not None:
-            pulumi.set(__self__, "max_percentage_cpu", max_percentage_cpu)
+            _setter("max_percentage_cpu", max_percentage_cpu)
 
     @property
     @pulumi.getter(name="maxDiskSizeInMb")
@@ -7471,16 +9734,39 @@ class SkuCapacityArgs:
         :param pulumi.Input[int] minimum: Minimum number of workers for this App Service plan SKU.
         :param pulumi.Input[str] scale_type: Available scale configurations for an App Service plan.
         """
+        SkuCapacityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default=default,
+            elastic_maximum=elastic_maximum,
+            maximum=maximum,
+            minimum=minimum,
+            scale_type=scale_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default: Optional[pulumi.Input[int]] = None,
+             elastic_maximum: Optional[pulumi.Input[int]] = None,
+             maximum: Optional[pulumi.Input[int]] = None,
+             minimum: Optional[pulumi.Input[int]] = None,
+             scale_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if elastic_maximum is None and 'elasticMaximum' in kwargs:
+            elastic_maximum = kwargs['elasticMaximum']
+        if scale_type is None and 'scaleType' in kwargs:
+            scale_type = kwargs['scaleType']
+
         if default is not None:
-            pulumi.set(__self__, "default", default)
+            _setter("default", default)
         if elastic_maximum is not None:
-            pulumi.set(__self__, "elastic_maximum", elastic_maximum)
+            _setter("elastic_maximum", elastic_maximum)
         if maximum is not None:
-            pulumi.set(__self__, "maximum", maximum)
+            _setter("maximum", maximum)
         if minimum is not None:
-            pulumi.set(__self__, "minimum", minimum)
+            _setter("minimum", minimum)
         if scale_type is not None:
-            pulumi.set(__self__, "scale_type", scale_type)
+            _setter("scale_type", scale_type)
 
     @property
     @pulumi.getter
@@ -7565,22 +9851,49 @@ class SkuDescriptionArgs:
         :param pulumi.Input['SkuCapacityArgs'] sku_capacity: Min, max, and default scale values of the SKU.
         :param pulumi.Input[str] tier: Service tier of the resource SKU.
         """
+        SkuDescriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capabilities=capabilities,
+            capacity=capacity,
+            family=family,
+            locations=locations,
+            name=name,
+            size=size,
+            sku_capacity=sku_capacity,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             sku_capacity: Optional[pulumi.Input['SkuCapacityArgs']] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sku_capacity is None and 'skuCapacity' in kwargs:
+            sku_capacity = kwargs['skuCapacity']
+
         if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
+            _setter("capabilities", capabilities)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if sku_capacity is not None:
-            pulumi.set(__self__, "sku_capacity", sku_capacity)
+            _setter("sku_capacity", sku_capacity)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -7693,14 +10006,35 @@ class SlowRequestsBasedTriggerArgs:
         :param pulumi.Input[str] time_interval: Time interval.
         :param pulumi.Input[str] time_taken: Time taken.
         """
+        SlowRequestsBasedTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            path=path,
+            time_interval=time_interval,
+            time_taken=time_taken,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             time_interval: Optional[pulumi.Input[str]] = None,
+             time_taken: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_interval is None and 'timeInterval' in kwargs:
+            time_interval = kwargs['timeInterval']
+        if time_taken is None and 'timeTaken' in kwargs:
+            time_taken = kwargs['timeTaken']
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if time_interval is not None:
-            pulumi.set(__self__, "time_interval", time_interval)
+            _setter("time_interval", time_interval)
         if time_taken is not None:
-            pulumi.set(__self__, "time_taken", time_taken)
+            _setter("time_taken", time_taken)
 
     @property
     @pulumi.getter
@@ -7773,22 +10107,63 @@ class StaticSiteBuildPropertiesArgs:
         :param pulumi.Input[str] output_location: The output path of the app after building.
         :param pulumi.Input[bool] skip_github_action_workflow_generation: Skip Github Action workflow generation.
         """
+        StaticSiteBuildPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_build_command=api_build_command,
+            api_location=api_location,
+            app_artifact_location=app_artifact_location,
+            app_build_command=app_build_command,
+            app_location=app_location,
+            github_action_secret_name_override=github_action_secret_name_override,
+            output_location=output_location,
+            skip_github_action_workflow_generation=skip_github_action_workflow_generation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_build_command: Optional[pulumi.Input[str]] = None,
+             api_location: Optional[pulumi.Input[str]] = None,
+             app_artifact_location: Optional[pulumi.Input[str]] = None,
+             app_build_command: Optional[pulumi.Input[str]] = None,
+             app_location: Optional[pulumi.Input[str]] = None,
+             github_action_secret_name_override: Optional[pulumi.Input[str]] = None,
+             output_location: Optional[pulumi.Input[str]] = None,
+             skip_github_action_workflow_generation: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_build_command is None and 'apiBuildCommand' in kwargs:
+            api_build_command = kwargs['apiBuildCommand']
+        if api_location is None and 'apiLocation' in kwargs:
+            api_location = kwargs['apiLocation']
+        if app_artifact_location is None and 'appArtifactLocation' in kwargs:
+            app_artifact_location = kwargs['appArtifactLocation']
+        if app_build_command is None and 'appBuildCommand' in kwargs:
+            app_build_command = kwargs['appBuildCommand']
+        if app_location is None and 'appLocation' in kwargs:
+            app_location = kwargs['appLocation']
+        if github_action_secret_name_override is None and 'githubActionSecretNameOverride' in kwargs:
+            github_action_secret_name_override = kwargs['githubActionSecretNameOverride']
+        if output_location is None and 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+        if skip_github_action_workflow_generation is None and 'skipGithubActionWorkflowGeneration' in kwargs:
+            skip_github_action_workflow_generation = kwargs['skipGithubActionWorkflowGeneration']
+
         if api_build_command is not None:
-            pulumi.set(__self__, "api_build_command", api_build_command)
+            _setter("api_build_command", api_build_command)
         if api_location is not None:
-            pulumi.set(__self__, "api_location", api_location)
+            _setter("api_location", api_location)
         if app_artifact_location is not None:
-            pulumi.set(__self__, "app_artifact_location", app_artifact_location)
+            _setter("app_artifact_location", app_artifact_location)
         if app_build_command is not None:
-            pulumi.set(__self__, "app_build_command", app_build_command)
+            _setter("app_build_command", app_build_command)
         if app_location is not None:
-            pulumi.set(__self__, "app_location", app_location)
+            _setter("app_location", app_location)
         if github_action_secret_name_override is not None:
-            pulumi.set(__self__, "github_action_secret_name_override", github_action_secret_name_override)
+            _setter("github_action_secret_name_override", github_action_secret_name_override)
         if output_location is not None:
-            pulumi.set(__self__, "output_location", output_location)
+            _setter("output_location", output_location)
         if skip_github_action_workflow_generation is not None:
-            pulumi.set(__self__, "skip_github_action_workflow_generation", skip_github_action_workflow_generation)
+            _setter("skip_github_action_workflow_generation", skip_github_action_workflow_generation)
 
     @property
     @pulumi.getter(name="apiBuildCommand")
@@ -7903,16 +10278,41 @@ class StaticSiteTemplateOptionsArgs:
         :param pulumi.Input[str] repository_name: Name of the newly generated repository.
         :param pulumi.Input[str] template_repository_url: URL of the template repository. The newly generated repository will be based on this one.
         """
+        StaticSiteTemplateOptionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            is_private=is_private,
+            owner=owner,
+            repository_name=repository_name,
+            template_repository_url=template_repository_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             is_private: Optional[pulumi.Input[bool]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             repository_name: Optional[pulumi.Input[str]] = None,
+             template_repository_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_private is None and 'isPrivate' in kwargs:
+            is_private = kwargs['isPrivate']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if template_repository_url is None and 'templateRepositoryUrl' in kwargs:
+            template_repository_url = kwargs['templateRepositoryUrl']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_private is not None:
-            pulumi.set(__self__, "is_private", is_private)
+            _setter("is_private", is_private)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if repository_name is not None:
-            pulumi.set(__self__, "repository_name", repository_name)
+            _setter("repository_name", repository_name)
         if template_repository_url is not None:
-            pulumi.set(__self__, "template_repository_url", template_repository_url)
+            _setter("template_repository_url", template_repository_url)
 
     @property
     @pulumi.getter
@@ -7993,18 +10393,45 @@ class StatusCodesBasedTriggerArgs:
         :param pulumi.Input[str] time_interval: Time interval.
         :param pulumi.Input[int] win32_status: Win32 error code.
         """
+        StatusCodesBasedTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            path=path,
+            status=status,
+            sub_status=sub_status,
+            time_interval=time_interval,
+            win32_status=win32_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[int]] = None,
+             sub_status: Optional[pulumi.Input[int]] = None,
+             time_interval: Optional[pulumi.Input[str]] = None,
+             win32_status: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sub_status is None and 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+        if time_interval is None and 'timeInterval' in kwargs:
+            time_interval = kwargs['timeInterval']
+        if win32_status is None and 'win32Status' in kwargs:
+            win32_status = kwargs['win32Status']
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if sub_status is not None:
-            pulumi.set(__self__, "sub_status", sub_status)
+            _setter("sub_status", sub_status)
         if time_interval is not None:
-            pulumi.set(__self__, "time_interval", time_interval)
+            _setter("time_interval", time_interval)
         if win32_status is not None:
-            pulumi.set(__self__, "win32_status", win32_status)
+            _setter("win32_status", win32_status)
 
     @property
     @pulumi.getter
@@ -8092,14 +10519,35 @@ class StatusCodesRangeBasedTriggerArgs:
         :param pulumi.Input[str] status_codes: HTTP status code.
         :param pulumi.Input[str] time_interval: Time interval.
         """
+        StatusCodesRangeBasedTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            path=path,
+            status_codes=status_codes,
+            time_interval=time_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             status_codes: Optional[pulumi.Input[str]] = None,
+             time_interval: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status_codes is None and 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+        if time_interval is None and 'timeInterval' in kwargs:
+            time_interval = kwargs['timeInterval']
+
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if status_codes is not None:
-            pulumi.set(__self__, "status_codes", status_codes)
+            _setter("status_codes", status_codes)
         if time_interval is not None:
-            pulumi.set(__self__, "time_interval", time_interval)
+            _setter("time_interval", time_interval)
 
     @property
     @pulumi.getter
@@ -8163,14 +10611,37 @@ class TokenStoreArgs:
         :param pulumi.Input[float] token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to
                call the token refresh API. The default is 72 hours.
         """
+        TokenStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_blob_storage=azure_blob_storage,
+            enabled=enabled,
+            file_system=file_system,
+            token_refresh_extension_hours=token_refresh_extension_hours,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_blob_storage: Optional[pulumi.Input['BlobStorageTokenStoreArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             file_system: Optional[pulumi.Input['FileSystemTokenStoreArgs']] = None,
+             token_refresh_extension_hours: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_blob_storage is None and 'azureBlobStorage' in kwargs:
+            azure_blob_storage = kwargs['azureBlobStorage']
+        if file_system is None and 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+        if token_refresh_extension_hours is None and 'tokenRefreshExtensionHours' in kwargs:
+            token_refresh_extension_hours = kwargs['tokenRefreshExtensionHours']
+
         if azure_blob_storage is not None:
-            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+            _setter("azure_blob_storage", azure_blob_storage)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
+            _setter("file_system", file_system)
         if token_refresh_extension_hours is not None:
-            pulumi.set(__self__, "token_refresh_extension_hours", token_refresh_extension_hours)
+            _setter("token_refresh_extension_hours", token_refresh_extension_hours)
 
     @property
     @pulumi.getter(name="azureBlobStorage")
@@ -8236,10 +10707,27 @@ class TwitterRegistrationArgs:
         :param pulumi.Input[str] consumer_secret_setting_name: The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
                application used for sign-in.
         """
+        TwitterRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_key=consumer_key,
+            consumer_secret_setting_name=consumer_secret_setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_key: Optional[pulumi.Input[str]] = None,
+             consumer_secret_setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_key is None and 'consumerKey' in kwargs:
+            consumer_key = kwargs['consumerKey']
+        if consumer_secret_setting_name is None and 'consumerSecretSettingName' in kwargs:
+            consumer_secret_setting_name = kwargs['consumerSecretSettingName']
+
         if consumer_key is not None:
-            pulumi.set(__self__, "consumer_key", consumer_key)
+            _setter("consumer_key", consumer_key)
         if consumer_secret_setting_name is not None:
-            pulumi.set(__self__, "consumer_secret_setting_name", consumer_secret_setting_name)
+            _setter("consumer_secret_setting_name", consumer_secret_setting_name)
 
     @property
     @pulumi.getter(name="consumerKey")
@@ -8279,10 +10767,23 @@ class TwitterArgs:
         :param pulumi.Input[bool] enabled: <code>false</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>true</code>.
         :param pulumi.Input['TwitterRegistrationArgs'] registration: The configuration settings of the app registration for the Twitter provider.
         """
+        TwitterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            registration=registration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             registration: Optional[pulumi.Input['TwitterRegistrationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if registration is not None:
-            pulumi.set(__self__, "registration", registration)
+            _setter("registration", registration)
 
     @property
     @pulumi.getter
@@ -8323,14 +10824,39 @@ class VirtualApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgs']]] virtual_directories: Virtual directories for virtual application.
         :param pulumi.Input[str] virtual_path: Virtual path.
         """
+        VirtualApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            physical_path=physical_path,
+            preload_enabled=preload_enabled,
+            virtual_directories=virtual_directories,
+            virtual_path=virtual_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             physical_path: Optional[pulumi.Input[str]] = None,
+             preload_enabled: Optional[pulumi.Input[bool]] = None,
+             virtual_directories: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualDirectoryArgs']]]] = None,
+             virtual_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if physical_path is None and 'physicalPath' in kwargs:
+            physical_path = kwargs['physicalPath']
+        if preload_enabled is None and 'preloadEnabled' in kwargs:
+            preload_enabled = kwargs['preloadEnabled']
+        if virtual_directories is None and 'virtualDirectories' in kwargs:
+            virtual_directories = kwargs['virtualDirectories']
+        if virtual_path is None and 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+
         if physical_path is not None:
-            pulumi.set(__self__, "physical_path", physical_path)
+            _setter("physical_path", physical_path)
         if preload_enabled is not None:
-            pulumi.set(__self__, "preload_enabled", preload_enabled)
+            _setter("preload_enabled", preload_enabled)
         if virtual_directories is not None:
-            pulumi.set(__self__, "virtual_directories", virtual_directories)
+            _setter("virtual_directories", virtual_directories)
         if virtual_path is not None:
-            pulumi.set(__self__, "virtual_path", virtual_path)
+            _setter("virtual_path", virtual_path)
 
     @property
     @pulumi.getter(name="physicalPath")
@@ -8391,10 +10917,27 @@ class VirtualDirectoryArgs:
         :param pulumi.Input[str] physical_path: Physical path.
         :param pulumi.Input[str] virtual_path: Path to virtual application.
         """
+        VirtualDirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            physical_path=physical_path,
+            virtual_path=virtual_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             physical_path: Optional[pulumi.Input[str]] = None,
+             virtual_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if physical_path is None and 'physicalPath' in kwargs:
+            physical_path = kwargs['physicalPath']
+        if virtual_path is None and 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+
         if physical_path is not None:
-            pulumi.set(__self__, "physical_path", physical_path)
+            _setter("physical_path", physical_path)
         if virtual_path is not None:
-            pulumi.set(__self__, "virtual_path", virtual_path)
+            _setter("virtual_path", virtual_path)
 
     @property
     @pulumi.getter(name="physicalPath")
@@ -8431,9 +10974,24 @@ class VirtualNetworkProfileArgs:
         :param pulumi.Input[str] id: Resource id of the Virtual Network.
         :param pulumi.Input[str] subnet: Subnet within the Virtual Network.
         """
-        pulumi.set(__self__, "id", id)
+        VirtualNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter
@@ -8474,14 +11032,33 @@ class WsdlDefinitionArgs:
         :param pulumi.Input['WsdlServiceArgs'] service: The service with name and endpoint names
         :param pulumi.Input[str] url: The WSDL URL
         """
+        WsdlDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            import_method=import_method,
+            service=service,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             import_method: Optional[pulumi.Input[Union[str, 'WsdlImportMethod']]] = None,
+             service: Optional[pulumi.Input['WsdlServiceArgs']] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if import_method is None and 'importMethod' in kwargs:
+            import_method = kwargs['importMethod']
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if import_method is not None:
-            pulumi.set(__self__, "import_method", import_method)
+            _setter("import_method", import_method)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -8542,9 +11119,28 @@ class WsdlService:
         :param str qualified_name: The service's qualified name
         :param Sequence[str] endpoint_qualified_names: List of the endpoints' qualified names
         """
-        pulumi.set(__self__, "qualified_name", qualified_name)
+        WsdlService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualified_name=qualified_name,
+            endpoint_qualified_names=endpoint_qualified_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualified_name: Optional[str] = None,
+             endpoint_qualified_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if qualified_name is None and 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+        if qualified_name is None:
+            raise TypeError("Missing 'qualified_name' argument")
+        if endpoint_qualified_names is None and 'endpointQualifiedNames' in kwargs:
+            endpoint_qualified_names = kwargs['endpointQualifiedNames']
+
+        _setter("qualified_name", qualified_name)
         if endpoint_qualified_names is not None:
-            pulumi.set(__self__, "endpoint_qualified_names", endpoint_qualified_names)
+            _setter("endpoint_qualified_names", endpoint_qualified_names)
 
     @property
     @pulumi.getter(name="qualifiedName")
@@ -8581,9 +11177,28 @@ class WsdlServiceArgs:
         :param pulumi.Input[str] qualified_name: The service's qualified name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_qualified_names: List of the endpoints' qualified names
         """
-        pulumi.set(__self__, "qualified_name", qualified_name)
+        WsdlServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualified_name=qualified_name,
+            endpoint_qualified_names=endpoint_qualified_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualified_name: Optional[pulumi.Input[str]] = None,
+             endpoint_qualified_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if qualified_name is None and 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+        if qualified_name is None:
+            raise TypeError("Missing 'qualified_name' argument")
+        if endpoint_qualified_names is None and 'endpointQualifiedNames' in kwargs:
+            endpoint_qualified_names = kwargs['endpointQualifiedNames']
+
+        _setter("qualified_name", qualified_name)
         if endpoint_qualified_names is not None:
-            pulumi.set(__self__, "endpoint_qualified_names", endpoint_qualified_names)
+            _setter("endpoint_qualified_names", endpoint_qualified_names)
 
     @property
     @pulumi.getter(name="qualifiedName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -39,17 +39,82 @@ class ADLSGen2FileSystemDataSetMappingArgs:
         :param pulumi.Input[str] subscription_id: Subscription id of storage account.
         :param pulumi.Input[str] data_set_mapping_name: The name of the data set mapping to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data_set_id", data_set_id)
-        pulumi.set(__self__, "file_system", file_system)
-        pulumi.set(__self__, "kind", 'AdlsGen2FileSystem')
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_subscription_name", share_subscription_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        ADLSGen2FileSystemDataSetMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            data_set_id=data_set_id,
+            file_system=file_system,
+            kind=kind,
+            resource_group=resource_group,
+            resource_group_name=resource_group_name,
+            share_subscription_name=share_subscription_name,
+            storage_account_name=storage_account_name,
+            subscription_id=subscription_id,
+            data_set_mapping_name=data_set_mapping_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             data_set_id: Optional[pulumi.Input[str]] = None,
+             file_system: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             share_subscription_name: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if data_set_id is None:
+            raise TypeError("Missing 'data_set_id' argument")
+        if file_system is None and 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+        if file_system is None:
+            raise TypeError("Missing 'file_system' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if share_subscription_name is None and 'shareSubscriptionName' in kwargs:
+            share_subscription_name = kwargs['shareSubscriptionName']
+        if share_subscription_name is None:
+            raise TypeError("Missing 'share_subscription_name' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if data_set_mapping_name is None and 'dataSetMappingName' in kwargs:
+            data_set_mapping_name = kwargs['dataSetMappingName']
+
+        _setter("account_name", account_name)
+        _setter("data_set_id", data_set_id)
+        _setter("file_system", file_system)
+        _setter("kind", 'AdlsGen2FileSystem')
+        _setter("resource_group", resource_group)
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_subscription_name", share_subscription_name)
+        _setter("storage_account_name", storage_account_name)
+        _setter("subscription_id", subscription_id)
         if data_set_mapping_name is not None:
-            pulumi.set(__self__, "data_set_mapping_name", data_set_mapping_name)
+            _setter("data_set_mapping_name", data_set_mapping_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -227,6 +292,10 @@ class ADLSGen2FileSystemDataSetMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ADLSGen2FileSystemDataSetMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

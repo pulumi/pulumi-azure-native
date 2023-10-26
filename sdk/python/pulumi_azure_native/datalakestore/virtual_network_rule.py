@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualNetworkRuleArgs', 'VirtualNetworkRule']
@@ -25,11 +25,42 @@ class VirtualNetworkRuleArgs:
         :param pulumi.Input[str] subnet_id: The resource identifier for the subnet.
         :param pulumi.Input[str] virtual_network_rule_name: The name of the virtual network rule to create or update.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VirtualNetworkRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            virtual_network_rule_name=virtual_network_rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if virtual_network_rule_name is None and 'virtualNetworkRuleName' in kwargs:
+            virtual_network_rule_name = kwargs['virtualNetworkRuleName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subnet_id", subnet_id)
         if virtual_network_rule_name is not None:
-            pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
+            _setter("virtual_network_rule_name", virtual_network_rule_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -121,6 +152,10 @@ class VirtualNetworkRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

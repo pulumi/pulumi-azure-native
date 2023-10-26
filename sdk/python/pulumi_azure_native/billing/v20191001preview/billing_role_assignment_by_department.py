@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['BillingRoleAssignmentByDepartmentArgs', 'BillingRoleAssignmentByDepartment']
@@ -33,20 +33,65 @@ class BillingRoleAssignmentByDepartmentArgs:
         :param pulumi.Input[str] user_authentication_type: The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
         :param pulumi.Input[str] user_email_address: The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
         """
-        pulumi.set(__self__, "billing_account_name", billing_account_name)
-        pulumi.set(__self__, "department_name", department_name)
+        BillingRoleAssignmentByDepartmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_account_name=billing_account_name,
+            department_name=department_name,
+            billing_role_assignment_name=billing_role_assignment_name,
+            principal_id=principal_id,
+            principal_tenant_id=principal_tenant_id,
+            role_definition_id=role_definition_id,
+            user_authentication_type=user_authentication_type,
+            user_email_address=user_email_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_account_name: Optional[pulumi.Input[str]] = None,
+             department_name: Optional[pulumi.Input[str]] = None,
+             billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_tenant_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             user_authentication_type: Optional[pulumi.Input[str]] = None,
+             user_email_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_account_name is None and 'billingAccountName' in kwargs:
+            billing_account_name = kwargs['billingAccountName']
+        if billing_account_name is None:
+            raise TypeError("Missing 'billing_account_name' argument")
+        if department_name is None and 'departmentName' in kwargs:
+            department_name = kwargs['departmentName']
+        if department_name is None:
+            raise TypeError("Missing 'department_name' argument")
+        if billing_role_assignment_name is None and 'billingRoleAssignmentName' in kwargs:
+            billing_role_assignment_name = kwargs['billingRoleAssignmentName']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_tenant_id is None and 'principalTenantId' in kwargs:
+            principal_tenant_id = kwargs['principalTenantId']
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if user_authentication_type is None and 'userAuthenticationType' in kwargs:
+            user_authentication_type = kwargs['userAuthenticationType']
+        if user_email_address is None and 'userEmailAddress' in kwargs:
+            user_email_address = kwargs['userEmailAddress']
+
+        _setter("billing_account_name", billing_account_name)
+        _setter("department_name", department_name)
         if billing_role_assignment_name is not None:
-            pulumi.set(__self__, "billing_role_assignment_name", billing_role_assignment_name)
+            _setter("billing_role_assignment_name", billing_role_assignment_name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if principal_tenant_id is not None:
-            pulumi.set(__self__, "principal_tenant_id", principal_tenant_id)
+            _setter("principal_tenant_id", principal_tenant_id)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
         if user_authentication_type is not None:
-            pulumi.set(__self__, "user_authentication_type", user_authentication_type)
+            _setter("user_authentication_type", user_authentication_type)
         if user_email_address is not None:
-            pulumi.set(__self__, "user_email_address", user_email_address)
+            _setter("user_email_address", user_email_address)
 
     @property
     @pulumi.getter(name="billingAccountName")
@@ -192,6 +237,10 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BillingRoleAssignmentByDepartmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

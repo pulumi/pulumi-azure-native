@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -87,75 +87,214 @@ class MachineLearningDatastoreArgs:
         :param pulumi.Input[str] user_name: The username of the database user.
         :param pulumi.Input[bool] workspace_system_assigned_identity: If set to true, datastore support data access authenticated with Workspace MSI.
         """
-        pulumi.set(__self__, "data_store_type", data_store_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        MachineLearningDatastoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_store_type=data_store_type,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            account_key=account_key,
+            account_name=account_name,
+            adls_resource_group=adls_resource_group,
+            adls_subscription_id=adls_subscription_id,
+            authority_url=authority_url,
+            client_id=client_id,
+            client_secret=client_secret,
+            container_name=container_name,
+            database_name=database_name,
+            datastore_name=datastore_name,
+            description=description,
+            endpoint=endpoint,
+            enforce_ssl=enforce_ssl,
+            file_system=file_system,
+            include_secret=include_secret,
+            name=name,
+            password=password,
+            port=port,
+            protocol=protocol,
+            resource_url=resource_url,
+            sas_token=sas_token,
+            server_name=server_name,
+            share_name=share_name,
+            skip_validation=skip_validation,
+            storage_account_resource_group=storage_account_resource_group,
+            storage_account_subscription_id=storage_account_subscription_id,
+            store_name=store_name,
+            tenant_id=tenant_id,
+            user_id=user_id,
+            user_name=user_name,
+            workspace_system_assigned_identity=workspace_system_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_store_type: Optional[pulumi.Input[Union[str, 'DatastoreTypeArm']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             account_key: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             adls_resource_group: Optional[pulumi.Input[str]] = None,
+             adls_subscription_id: Optional[pulumi.Input[str]] = None,
+             authority_url: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             enforce_ssl: Optional[pulumi.Input[bool]] = None,
+             file_system: Optional[pulumi.Input[str]] = None,
+             include_secret: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_url: Optional[pulumi.Input[str]] = None,
+             sas_token: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             skip_validation: Optional[pulumi.Input[bool]] = None,
+             storage_account_resource_group: Optional[pulumi.Input[str]] = None,
+             storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
+             store_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             workspace_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_store_type is None and 'dataStoreType' in kwargs:
+            data_store_type = kwargs['dataStoreType']
+        if data_store_type is None:
+            raise TypeError("Missing 'data_store_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if account_key is None and 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if adls_resource_group is None and 'adlsResourceGroup' in kwargs:
+            adls_resource_group = kwargs['adlsResourceGroup']
+        if adls_subscription_id is None and 'adlsSubscriptionId' in kwargs:
+            adls_subscription_id = kwargs['adlsSubscriptionId']
+        if authority_url is None and 'authorityUrl' in kwargs:
+            authority_url = kwargs['authorityUrl']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if datastore_name is None and 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if enforce_ssl is None and 'enforceSSL' in kwargs:
+            enforce_ssl = kwargs['enforceSSL']
+        if file_system is None and 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+        if include_secret is None and 'includeSecret' in kwargs:
+            include_secret = kwargs['includeSecret']
+        if resource_url is None and 'resourceUrl' in kwargs:
+            resource_url = kwargs['resourceUrl']
+        if sas_token is None and 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if skip_validation is None and 'skipValidation' in kwargs:
+            skip_validation = kwargs['skipValidation']
+        if storage_account_resource_group is None and 'storageAccountResourceGroup' in kwargs:
+            storage_account_resource_group = kwargs['storageAccountResourceGroup']
+        if storage_account_subscription_id is None and 'storageAccountSubscriptionId' in kwargs:
+            storage_account_subscription_id = kwargs['storageAccountSubscriptionId']
+        if store_name is None and 'storeName' in kwargs:
+            store_name = kwargs['storeName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if workspace_system_assigned_identity is None and 'workspaceSystemAssignedIdentity' in kwargs:
+            workspace_system_assigned_identity = kwargs['workspaceSystemAssignedIdentity']
+
+        _setter("data_store_type", data_store_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if adls_resource_group is not None:
-            pulumi.set(__self__, "adls_resource_group", adls_resource_group)
+            _setter("adls_resource_group", adls_resource_group)
         if adls_subscription_id is not None:
-            pulumi.set(__self__, "adls_subscription_id", adls_subscription_id)
+            _setter("adls_subscription_id", adls_subscription_id)
         if authority_url is not None:
-            pulumi.set(__self__, "authority_url", authority_url)
+            _setter("authority_url", authority_url)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if enforce_ssl is None:
             enforce_ssl = True
         if enforce_ssl is not None:
-            pulumi.set(__self__, "enforce_ssl", enforce_ssl)
+            _setter("enforce_ssl", enforce_ssl)
         if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
+            _setter("file_system", file_system)
         if include_secret is None:
             include_secret = True
         if include_secret is not None:
-            pulumi.set(__self__, "include_secret", include_secret)
+            _setter("include_secret", include_secret)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if resource_url is not None:
-            pulumi.set(__self__, "resource_url", resource_url)
+            _setter("resource_url", resource_url)
         if sas_token is not None:
-            pulumi.set(__self__, "sas_token", sas_token)
+            _setter("sas_token", sas_token)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
+            _setter("share_name", share_name)
         if skip_validation is not None:
-            pulumi.set(__self__, "skip_validation", skip_validation)
+            _setter("skip_validation", skip_validation)
         if storage_account_resource_group is not None:
-            pulumi.set(__self__, "storage_account_resource_group", storage_account_resource_group)
+            _setter("storage_account_resource_group", storage_account_resource_group)
         if storage_account_subscription_id is not None:
-            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
+            _setter("storage_account_subscription_id", storage_account_subscription_id)
         if store_name is not None:
-            pulumi.set(__self__, "store_name", store_name)
+            _setter("store_name", store_name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
         if workspace_system_assigned_identity is not None:
-            pulumi.set(__self__, "workspace_system_assigned_identity", workspace_system_assigned_identity)
+            _setter("workspace_system_assigned_identity", workspace_system_assigned_identity)
 
     @property
     @pulumi.getter(name="dataStoreType")
@@ -665,6 +804,10 @@ class MachineLearningDatastore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MachineLearningDatastoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

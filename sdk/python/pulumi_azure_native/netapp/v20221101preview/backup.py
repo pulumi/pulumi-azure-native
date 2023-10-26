@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,20 +34,67 @@ class BackupArgs:
         :param pulumi.Input[str] snapshot_name: The name of the snapshot
         :param pulumi.Input[bool] use_existing_snapshot: Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_resource_id", volume_resource_id)
+        BackupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            backup_vault_name=backup_vault_name,
+            resource_group_name=resource_group_name,
+            volume_resource_id=volume_resource_id,
+            backup_name=backup_name,
+            label=label,
+            snapshot_name=snapshot_name,
+            use_existing_snapshot=use_existing_snapshot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             backup_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             volume_resource_id: Optional[pulumi.Input[str]] = None,
+             backup_name: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             snapshot_name: Optional[pulumi.Input[str]] = None,
+             use_existing_snapshot: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if backup_vault_name is None and 'backupVaultName' in kwargs:
+            backup_vault_name = kwargs['backupVaultName']
+        if backup_vault_name is None:
+            raise TypeError("Missing 'backup_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if volume_resource_id is None and 'volumeResourceId' in kwargs:
+            volume_resource_id = kwargs['volumeResourceId']
+        if volume_resource_id is None:
+            raise TypeError("Missing 'volume_resource_id' argument")
+        if backup_name is None and 'backupName' in kwargs:
+            backup_name = kwargs['backupName']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if use_existing_snapshot is None and 'useExistingSnapshot' in kwargs:
+            use_existing_snapshot = kwargs['useExistingSnapshot']
+
+        _setter("account_name", account_name)
+        _setter("backup_vault_name", backup_vault_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("volume_resource_id", volume_resource_id)
         if backup_name is not None:
-            pulumi.set(__self__, "backup_name", backup_name)
+            _setter("backup_name", backup_name)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if snapshot_name is not None:
-            pulumi.set(__self__, "snapshot_name", snapshot_name)
+            _setter("snapshot_name", snapshot_name)
         if use_existing_snapshot is None:
             use_existing_snapshot = False
         if use_existing_snapshot is not None:
-            pulumi.set(__self__, "use_existing_snapshot", use_existing_snapshot)
+            _setter("use_existing_snapshot", use_existing_snapshot)
 
     @property
     @pulumi.getter(name="accountName")
@@ -193,6 +240,10 @@ class Backup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

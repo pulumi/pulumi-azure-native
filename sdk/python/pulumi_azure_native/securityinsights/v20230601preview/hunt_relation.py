@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,14 +30,53 @@ class HuntRelationArgs:
         :param pulumi.Input[str] hunt_relation_id: The hunt relation id (GUID)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this hunt
         """
-        pulumi.set(__self__, "hunt_id", hunt_id)
-        pulumi.set(__self__, "related_resource_id", related_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        HuntRelationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hunt_id=hunt_id,
+            related_resource_id=related_resource_id,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            hunt_relation_id=hunt_relation_id,
+            labels=labels,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hunt_id: Optional[pulumi.Input[str]] = None,
+             related_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             hunt_relation_id: Optional[pulumi.Input[str]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hunt_id is None and 'huntId' in kwargs:
+            hunt_id = kwargs['huntId']
+        if hunt_id is None:
+            raise TypeError("Missing 'hunt_id' argument")
+        if related_resource_id is None and 'relatedResourceId' in kwargs:
+            related_resource_id = kwargs['relatedResourceId']
+        if related_resource_id is None:
+            raise TypeError("Missing 'related_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if hunt_relation_id is None and 'huntRelationId' in kwargs:
+            hunt_relation_id = kwargs['huntRelationId']
+
+        _setter("hunt_id", hunt_id)
+        _setter("related_resource_id", related_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if hunt_relation_id is not None:
-            pulumi.set(__self__, "hunt_relation_id", hunt_relation_id)
+            _setter("hunt_relation_id", hunt_relation_id)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
 
     @property
     @pulumi.getter(name="huntId")
@@ -155,6 +194,10 @@ class HuntRelation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HuntRelationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -38,8 +38,29 @@ class ApplicationAuthorizationArgs:
         :param pulumi.Input[str] principal_id: The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the managed application resources.
         :param pulumi.Input[str] role_definition_id: The provider's role definition identifier. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        ApplicationAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -78,9 +99,30 @@ class ApplicationDefinitionArtifactArgs:
         :param pulumi.Input['ApplicationArtifactType'] type: The managed application definition artifact type.
         :param pulumi.Input[str] uri: The managed application definition artifact blob uri.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "uri", uri)
+        ApplicationDefinitionArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']]] = None,
+             type: Optional[pulumi.Input['ApplicationArtifactType']] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+
+        _setter("name", name)
+        _setter("type", type)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -127,7 +169,22 @@ class ApplicationDeploymentPolicyArgs:
         Managed application deployment policy.
         :param pulumi.Input[Union[str, 'DeploymentMode']] deployment_mode: The managed application deployment mode.
         """
-        pulumi.set(__self__, "deployment_mode", deployment_mode)
+        ApplicationDeploymentPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            deployment_mode=deployment_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             deployment_mode: Optional[pulumi.Input[Union[str, 'DeploymentMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_mode is None and 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if deployment_mode is None:
+            raise TypeError("Missing 'deployment_mode' argument")
+
+        _setter("deployment_mode", deployment_mode)
 
     @property
     @pulumi.getter(name="deploymentMode")
@@ -156,13 +213,40 @@ class ApplicationJitAccessPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]] jit_approvers: The JIT approvers
         :param pulumi.Input[str] maximum_jit_access_duration: The maximum duration JIT access is granted. This is an ISO8601 time period value.
         """
-        pulumi.set(__self__, "jit_access_enabled", jit_access_enabled)
+        ApplicationJitAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jit_access_enabled=jit_access_enabled,
+            jit_approval_mode=jit_approval_mode,
+            jit_approvers=jit_approvers,
+            maximum_jit_access_duration=maximum_jit_access_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jit_access_enabled: Optional[pulumi.Input[bool]] = None,
+             jit_approval_mode: Optional[pulumi.Input[Union[str, 'JitApprovalMode']]] = None,
+             jit_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]] = None,
+             maximum_jit_access_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if jit_access_enabled is None and 'jitAccessEnabled' in kwargs:
+            jit_access_enabled = kwargs['jitAccessEnabled']
+        if jit_access_enabled is None:
+            raise TypeError("Missing 'jit_access_enabled' argument")
+        if jit_approval_mode is None and 'jitApprovalMode' in kwargs:
+            jit_approval_mode = kwargs['jitApprovalMode']
+        if jit_approvers is None and 'jitApprovers' in kwargs:
+            jit_approvers = kwargs['jitApprovers']
+        if maximum_jit_access_duration is None and 'maximumJitAccessDuration' in kwargs:
+            maximum_jit_access_duration = kwargs['maximumJitAccessDuration']
+
+        _setter("jit_access_enabled", jit_access_enabled)
         if jit_approval_mode is not None:
-            pulumi.set(__self__, "jit_approval_mode", jit_approval_mode)
+            _setter("jit_approval_mode", jit_approval_mode)
         if jit_approvers is not None:
-            pulumi.set(__self__, "jit_approvers", jit_approvers)
+            _setter("jit_approvers", jit_approvers)
         if maximum_jit_access_duration is not None:
-            pulumi.set(__self__, "maximum_jit_access_duration", maximum_jit_access_duration)
+            _setter("maximum_jit_access_duration", maximum_jit_access_duration)
 
     @property
     @pulumi.getter(name="jitAccessEnabled")
@@ -221,8 +305,19 @@ class ApplicationManagementPolicyArgs:
         Managed application management policy.
         :param pulumi.Input[Union[str, 'ApplicationManagementMode']] mode: The managed application management mode.
         """
+        ApplicationManagementPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[Union[str, 'ApplicationManagementMode']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -245,7 +340,20 @@ class ApplicationNotificationEndpointArgs:
         Managed application notification endpoint.
         :param pulumi.Input[str] uri: The managed application notification endpoint uri.
         """
-        pulumi.set(__self__, "uri", uri)
+        ApplicationNotificationEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+
+        _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -268,7 +376,22 @@ class ApplicationNotificationPolicyArgs:
         Managed application notification policy.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationNotificationEndpointArgs']]] notification_endpoints: The managed application notification endpoint.
         """
-        pulumi.set(__self__, "notification_endpoints", notification_endpoints)
+        ApplicationNotificationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            notification_endpoints=notification_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             notification_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNotificationEndpointArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if notification_endpoints is None and 'notificationEndpoints' in kwargs:
+            notification_endpoints = kwargs['notificationEndpoints']
+        if notification_endpoints is None:
+            raise TypeError("Missing 'notification_endpoints' argument")
+
+        _setter("notification_endpoints", notification_endpoints)
 
     @property
     @pulumi.getter(name="notificationEndpoints")
@@ -293,10 +416,27 @@ class ApplicationPackageLockingPolicyDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_actions: The deny assignment excluded actions.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_data_actions: The deny assignment excluded data actions.
         """
+        ApplicationPackageLockingPolicyDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_actions=allowed_actions,
+            allowed_data_actions=allowed_data_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_actions is None and 'allowedActions' in kwargs:
+            allowed_actions = kwargs['allowedActions']
+        if allowed_data_actions is None and 'allowedDataActions' in kwargs:
+            allowed_data_actions = kwargs['allowedDataActions']
+
         if allowed_actions is not None:
-            pulumi.set(__self__, "allowed_actions", allowed_actions)
+            _setter("allowed_actions", allowed_actions)
         if allowed_data_actions is not None:
-            pulumi.set(__self__, "allowed_data_actions", allowed_data_actions)
+            _setter("allowed_data_actions", allowed_data_actions)
 
     @property
     @pulumi.getter(name="allowedActions")
@@ -335,12 +475,29 @@ class ApplicationPolicyArgs:
         :param pulumi.Input[str] parameters: The policy parameters.
         :param pulumi.Input[str] policy_definition_id: The policy definition Id.
         """
+        ApplicationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+            policy_definition_id=policy_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[str]] = None,
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+            _setter("policy_definition_id", policy_definition_id)
 
     @property
     @pulumi.getter
@@ -389,10 +546,25 @@ class IdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -431,11 +603,30 @@ class JitApproverDefinitionArgs:
         :param pulumi.Input[str] display_name: The approver display name.
         :param pulumi.Input[Union[str, 'JitApproverType']] type: The approver type.
         """
-        pulumi.set(__self__, "id", id)
+        JitApproverDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            display_name=display_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'JitApproverType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("id", id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -484,8 +675,29 @@ class JitAuthorizationPoliciesArgs:
         :param pulumi.Input[str] principal_id: The the principal id that will be granted JIT access.
         :param pulumi.Input[str] role_definition_id: The role definition id that will be granted to the Principal.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        JitAuthorizationPoliciesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if role_definition_id is None:
+            raise TypeError("Missing 'role_definition_id' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
 
     @property
     @pulumi.getter(name="principalId")
@@ -523,9 +735,32 @@ class JitSchedulingPolicyArgs:
         :param pulumi.Input[str] start_time: The start time of the request.
         :param pulumi.Input[Union[str, 'JitSchedulingType']] type: The type of JIT schedule.
         """
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "type", type)
+        JitSchedulingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            duration=duration,
+            start_time=start_time,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             duration: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'JitSchedulingType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("duration", duration)
+        _setter("start_time", start_time)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -577,12 +812,41 @@ class PlanArgs:
         :param pulumi.Input[str] version: The plan's version.
         :param pulumi.Input[str] promotion_code: The promotion code.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "version", version)
+        PlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            version=version,
+            promotion_code=promotion_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             product: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             promotion_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if promotion_code is None and 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
+        _setter("version", version)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
 
     @property
     @pulumi.getter
@@ -663,17 +927,40 @@ class SkuArgs:
         :param pulumi.Input[str] size: The SKU size.
         :param pulumi.Input[str] tier: The SKU tier.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            model=model,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             model: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if model is not None:
-            pulumi.set(__self__, "model", model)
+            _setter("model", model)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter

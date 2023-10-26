@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -94,10 +94,43 @@ class AzStackHCIClusterPropertiesResponse(dict):
         :param str storage_account_name: Gets or sets the Storage account name.
         :param Sequence['StorageContainerPropertiesResponse'] storage_containers: Gets or sets the list of AzStackHCICluster Storage Container.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "storage_containers", storage_containers)
+        AzStackHCIClusterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_name=resource_name,
+            storage_account_name=storage_account_name,
+            storage_containers=storage_containers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[str] = None,
+             resource_name: Optional[str] = None,
+             storage_account_name: Optional[str] = None,
+             storage_containers: Optional[Sequence['outputs.StorageContainerPropertiesResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if storage_containers is None and 'storageContainers' in kwargs:
+            storage_containers = kwargs['storageContainers']
+        if storage_containers is None:
+            raise TypeError("Missing 'storage_containers' argument")
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_name", resource_name)
+        _setter("storage_account_name", storage_account_name)
+        _setter("storage_containers", storage_containers)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -187,14 +220,69 @@ class AzStackHCIFabricModelCustomPropertiesResponse(dict):
         :param str migration_hub_uri: Gets or sets the migration hub Uri.
         :param str migration_solution_id: Gets or sets the Migration solution ARM Id.
         """
-        pulumi.set(__self__, "appliance_name", appliance_name)
-        pulumi.set(__self__, "az_stack_hci_site_id", az_stack_hci_site_id)
-        pulumi.set(__self__, "cluster", cluster)
-        pulumi.set(__self__, "fabric_container_id", fabric_container_id)
-        pulumi.set(__self__, "fabric_resource_id", fabric_resource_id)
-        pulumi.set(__self__, "instance_type", 'AzStackHCI')
-        pulumi.set(__self__, "migration_hub_uri", migration_hub_uri)
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
+        AzStackHCIFabricModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appliance_name=appliance_name,
+            az_stack_hci_site_id=az_stack_hci_site_id,
+            cluster=cluster,
+            fabric_container_id=fabric_container_id,
+            fabric_resource_id=fabric_resource_id,
+            instance_type=instance_type,
+            migration_hub_uri=migration_hub_uri,
+            migration_solution_id=migration_solution_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appliance_name: Optional[Sequence[str]] = None,
+             az_stack_hci_site_id: Optional[str] = None,
+             cluster: Optional['outputs.AzStackHCIClusterPropertiesResponse'] = None,
+             fabric_container_id: Optional[str] = None,
+             fabric_resource_id: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             migration_hub_uri: Optional[str] = None,
+             migration_solution_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if appliance_name is None and 'applianceName' in kwargs:
+            appliance_name = kwargs['applianceName']
+        if appliance_name is None:
+            raise TypeError("Missing 'appliance_name' argument")
+        if az_stack_hci_site_id is None and 'azStackHciSiteId' in kwargs:
+            az_stack_hci_site_id = kwargs['azStackHciSiteId']
+        if az_stack_hci_site_id is None:
+            raise TypeError("Missing 'az_stack_hci_site_id' argument")
+        if cluster is None:
+            raise TypeError("Missing 'cluster' argument")
+        if fabric_container_id is None and 'fabricContainerId' in kwargs:
+            fabric_container_id = kwargs['fabricContainerId']
+        if fabric_container_id is None:
+            raise TypeError("Missing 'fabric_container_id' argument")
+        if fabric_resource_id is None and 'fabricResourceId' in kwargs:
+            fabric_resource_id = kwargs['fabricResourceId']
+        if fabric_resource_id is None:
+            raise TypeError("Missing 'fabric_resource_id' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if migration_hub_uri is None and 'migrationHubUri' in kwargs:
+            migration_hub_uri = kwargs['migrationHubUri']
+        if migration_hub_uri is None:
+            raise TypeError("Missing 'migration_hub_uri' argument")
+        if migration_solution_id is None and 'migrationSolutionId' in kwargs:
+            migration_solution_id = kwargs['migrationSolutionId']
+        if migration_solution_id is None:
+            raise TypeError("Missing 'migration_solution_id' argument")
+
+        _setter("appliance_name", appliance_name)
+        _setter("az_stack_hci_site_id", az_stack_hci_site_id)
+        _setter("cluster", cluster)
+        _setter("fabric_container_id", fabric_container_id)
+        _setter("fabric_resource_id", fabric_resource_id)
+        _setter("instance_type", 'AzStackHCI')
+        _setter("migration_hub_uri", migration_hub_uri)
+        _setter("migration_solution_id", migration_solution_id)
 
     @property
     @pulumi.getter(name="applianceName")
@@ -330,17 +418,92 @@ class DraModelPropertiesResponse(dict):
         :param 'IdentityModelResponse' resource_access_identity: Identity model.
         :param str version_number: Gets or sets the Dra version.
         """
-        pulumi.set(__self__, "authentication_identity", authentication_identity)
-        pulumi.set(__self__, "correlation_id", correlation_id)
-        pulumi.set(__self__, "custom_properties", custom_properties)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "is_responsive", is_responsive)
-        pulumi.set(__self__, "last_heartbeat", last_heartbeat)
-        pulumi.set(__self__, "machine_id", machine_id)
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "resource_access_identity", resource_access_identity)
-        pulumi.set(__self__, "version_number", version_number)
+        DraModelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_identity=authentication_identity,
+            correlation_id=correlation_id,
+            custom_properties=custom_properties,
+            health_errors=health_errors,
+            is_responsive=is_responsive,
+            last_heartbeat=last_heartbeat,
+            machine_id=machine_id,
+            machine_name=machine_name,
+            provisioning_state=provisioning_state,
+            resource_access_identity=resource_access_identity,
+            version_number=version_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_identity: Optional['outputs.IdentityModelResponse'] = None,
+             correlation_id: Optional[str] = None,
+             custom_properties: Optional['outputs.VMwareDraModelCustomPropertiesResponse'] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorModelResponse']] = None,
+             is_responsive: Optional[bool] = None,
+             last_heartbeat: Optional[str] = None,
+             machine_id: Optional[str] = None,
+             machine_name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             resource_access_identity: Optional['outputs.IdentityModelResponse'] = None,
+             version_number: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_identity is None and 'authenticationIdentity' in kwargs:
+            authentication_identity = kwargs['authenticationIdentity']
+        if authentication_identity is None:
+            raise TypeError("Missing 'authentication_identity' argument")
+        if correlation_id is None and 'correlationId' in kwargs:
+            correlation_id = kwargs['correlationId']
+        if correlation_id is None:
+            raise TypeError("Missing 'correlation_id' argument")
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if custom_properties is None:
+            raise TypeError("Missing 'custom_properties' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if is_responsive is None and 'isResponsive' in kwargs:
+            is_responsive = kwargs['isResponsive']
+        if is_responsive is None:
+            raise TypeError("Missing 'is_responsive' argument")
+        if last_heartbeat is None and 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if last_heartbeat is None:
+            raise TypeError("Missing 'last_heartbeat' argument")
+        if machine_id is None and 'machineId' in kwargs:
+            machine_id = kwargs['machineId']
+        if machine_id is None:
+            raise TypeError("Missing 'machine_id' argument")
+        if machine_name is None and 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if machine_name is None:
+            raise TypeError("Missing 'machine_name' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if resource_access_identity is None and 'resourceAccessIdentity' in kwargs:
+            resource_access_identity = kwargs['resourceAccessIdentity']
+        if resource_access_identity is None:
+            raise TypeError("Missing 'resource_access_identity' argument")
+        if version_number is None and 'versionNumber' in kwargs:
+            version_number = kwargs['versionNumber']
+        if version_number is None:
+            raise TypeError("Missing 'version_number' argument")
+
+        _setter("authentication_identity", authentication_identity)
+        _setter("correlation_id", correlation_id)
+        _setter("custom_properties", custom_properties)
+        _setter("health_errors", health_errors)
+        _setter("is_responsive", is_responsive)
+        _setter("last_heartbeat", last_heartbeat)
+        _setter("machine_id", machine_id)
+        _setter("machine_name", machine_name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("resource_access_identity", resource_access_identity)
+        _setter("version_number", version_number)
 
     @property
     @pulumi.getter(name="authenticationIdentity")
@@ -477,18 +640,51 @@ class DraModelResponseSystemData(dict):
         :param str last_modified_by_type: Gets or sets the type of identity that last modified the resource: user, application,
                managedIdentity.
         """
+        DraModelResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -587,12 +783,55 @@ class FabricModelPropertiesResponse(dict):
         :param str service_endpoint: Gets or sets the service endpoint.
         :param str service_resource_id: Gets or sets the service resource Id.
         """
-        pulumi.set(__self__, "custom_properties", custom_properties)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "service_endpoint", service_endpoint)
-        pulumi.set(__self__, "service_resource_id", service_resource_id)
+        FabricModelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+            health=health,
+            health_errors=health_errors,
+            provisioning_state=provisioning_state,
+            service_endpoint=service_endpoint,
+            service_resource_id=service_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: Optional[Any] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorModelResponse']] = None,
+             provisioning_state: Optional[str] = None,
+             service_endpoint: Optional[str] = None,
+             service_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if custom_properties is None:
+            raise TypeError("Missing 'custom_properties' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if service_endpoint is None and 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if service_endpoint is None:
+            raise TypeError("Missing 'service_endpoint' argument")
+        if service_resource_id is None and 'serviceResourceId' in kwargs:
+            service_resource_id = kwargs['serviceResourceId']
+        if service_resource_id is None:
+            raise TypeError("Missing 'service_resource_id' argument")
+
+        _setter("custom_properties", custom_properties)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("provisioning_state", provisioning_state)
+        _setter("service_endpoint", service_endpoint)
+        _setter("service_resource_id", service_resource_id)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -689,18 +928,51 @@ class FabricModelResponseSystemData(dict):
         :param str last_modified_by_type: Gets or sets the type of identity that last modified the resource: user, application,
                managedIdentity.
         """
+        FabricModelResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -819,23 +1091,94 @@ class HealthErrorModelResponse(dict):
         :param str affected_resource_type: Gets or sets the type of affected resource type.
         :param Sequence['InnerHealthErrorModelResponse'] child_errors: Gets or sets a list of child health errors associated with this error.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "causes", causes)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "health_category", health_category)
-        pulumi.set(__self__, "is_customer_resolvable", is_customer_resolvable)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "recommendation", recommendation)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "summary", summary)
+        HealthErrorModelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            causes=causes,
+            code=code,
+            creation_time=creation_time,
+            health_category=health_category,
+            is_customer_resolvable=is_customer_resolvable,
+            message=message,
+            recommendation=recommendation,
+            severity=severity,
+            source=source,
+            summary=summary,
+            affected_resource_correlation_ids=affected_resource_correlation_ids,
+            affected_resource_type=affected_resource_type,
+            child_errors=child_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[str] = None,
+             causes: Optional[str] = None,
+             code: Optional[str] = None,
+             creation_time: Optional[str] = None,
+             health_category: Optional[str] = None,
+             is_customer_resolvable: Optional[bool] = None,
+             message: Optional[str] = None,
+             recommendation: Optional[str] = None,
+             severity: Optional[str] = None,
+             source: Optional[str] = None,
+             summary: Optional[str] = None,
+             affected_resource_correlation_ids: Optional[Sequence[str]] = None,
+             affected_resource_type: Optional[str] = None,
+             child_errors: Optional[Sequence['outputs.InnerHealthErrorModelResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if causes is None:
+            raise TypeError("Missing 'causes' argument")
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if creation_time is None:
+            raise TypeError("Missing 'creation_time' argument")
+        if health_category is None and 'healthCategory' in kwargs:
+            health_category = kwargs['healthCategory']
+        if health_category is None:
+            raise TypeError("Missing 'health_category' argument")
+        if is_customer_resolvable is None and 'isCustomerResolvable' in kwargs:
+            is_customer_resolvable = kwargs['isCustomerResolvable']
+        if is_customer_resolvable is None:
+            raise TypeError("Missing 'is_customer_resolvable' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if recommendation is None:
+            raise TypeError("Missing 'recommendation' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if summary is None:
+            raise TypeError("Missing 'summary' argument")
+        if affected_resource_correlation_ids is None and 'affectedResourceCorrelationIds' in kwargs:
+            affected_resource_correlation_ids = kwargs['affectedResourceCorrelationIds']
+        if affected_resource_type is None and 'affectedResourceType' in kwargs:
+            affected_resource_type = kwargs['affectedResourceType']
+        if child_errors is None and 'childErrors' in kwargs:
+            child_errors = kwargs['childErrors']
+
+        _setter("category", category)
+        _setter("causes", causes)
+        _setter("code", code)
+        _setter("creation_time", creation_time)
+        _setter("health_category", health_category)
+        _setter("is_customer_resolvable", is_customer_resolvable)
+        _setter("message", message)
+        _setter("recommendation", recommendation)
+        _setter("severity", severity)
+        _setter("source", source)
+        _setter("summary", summary)
         if affected_resource_correlation_ids is not None:
-            pulumi.set(__self__, "affected_resource_correlation_ids", affected_resource_correlation_ids)
+            _setter("affected_resource_correlation_ids", affected_resource_correlation_ids)
         if affected_resource_type is not None:
-            pulumi.set(__self__, "affected_resource_type", affected_resource_type)
+            _setter("affected_resource_type", affected_resource_type)
         if child_errors is not None:
-            pulumi.set(__self__, "child_errors", child_errors)
+            _setter("child_errors", child_errors)
 
     @property
     @pulumi.getter
@@ -1001,12 +1344,57 @@ class HyperVMigrateFabricModelCustomPropertiesResponse(dict):
         :param str migration_hub_uri: Gets or sets the migration hub Uri.
         :param str migration_solution_id: Gets or sets the migration solution ARM Id.
         """
-        pulumi.set(__self__, "fabric_container_id", fabric_container_id)
-        pulumi.set(__self__, "fabric_resource_id", fabric_resource_id)
-        pulumi.set(__self__, "hyper_v_site_id", hyper_v_site_id)
-        pulumi.set(__self__, "instance_type", 'HyperVMigrate')
-        pulumi.set(__self__, "migration_hub_uri", migration_hub_uri)
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
+        HyperVMigrateFabricModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_container_id=fabric_container_id,
+            fabric_resource_id=fabric_resource_id,
+            hyper_v_site_id=hyper_v_site_id,
+            instance_type=instance_type,
+            migration_hub_uri=migration_hub_uri,
+            migration_solution_id=migration_solution_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_container_id: Optional[str] = None,
+             fabric_resource_id: Optional[str] = None,
+             hyper_v_site_id: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             migration_hub_uri: Optional[str] = None,
+             migration_solution_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fabric_container_id is None and 'fabricContainerId' in kwargs:
+            fabric_container_id = kwargs['fabricContainerId']
+        if fabric_container_id is None:
+            raise TypeError("Missing 'fabric_container_id' argument")
+        if fabric_resource_id is None and 'fabricResourceId' in kwargs:
+            fabric_resource_id = kwargs['fabricResourceId']
+        if fabric_resource_id is None:
+            raise TypeError("Missing 'fabric_resource_id' argument")
+        if hyper_v_site_id is None and 'hyperVSiteId' in kwargs:
+            hyper_v_site_id = kwargs['hyperVSiteId']
+        if hyper_v_site_id is None:
+            raise TypeError("Missing 'hyper_v_site_id' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if migration_hub_uri is None and 'migrationHubUri' in kwargs:
+            migration_hub_uri = kwargs['migrationHubUri']
+        if migration_hub_uri is None:
+            raise TypeError("Missing 'migration_hub_uri' argument")
+        if migration_solution_id is None and 'migrationSolutionId' in kwargs:
+            migration_solution_id = kwargs['migrationSolutionId']
+        if migration_solution_id is None:
+            raise TypeError("Missing 'migration_solution_id' argument")
+
+        _setter("fabric_container_id", fabric_container_id)
+        _setter("fabric_resource_id", fabric_resource_id)
+        _setter("hyper_v_site_id", hyper_v_site_id)
+        _setter("instance_type", 'HyperVMigrate')
+        _setter("migration_hub_uri", migration_hub_uri)
+        _setter("migration_solution_id", migration_solution_id)
 
     @property
     @pulumi.getter(name="fabricContainerId")
@@ -1107,14 +1495,55 @@ class HyperVToAzStackHCIDiskInputResponse(dict):
                disk.
         :param str storage_container_id: Gets or sets the target storage account ARM Id.
         """
-        pulumi.set(__self__, "disk_file_format", disk_file_format)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
+        HyperVToAzStackHCIDiskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_file_format=disk_file_format,
+            disk_id=disk_id,
+            disk_size_gb=disk_size_gb,
+            is_os_disk=is_os_disk,
+            is_dynamic=is_dynamic,
+            storage_container_id=storage_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_file_format: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             disk_size_gb: Optional[float] = None,
+             is_os_disk: Optional[bool] = None,
+             is_dynamic: Optional[bool] = None,
+             storage_container_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_file_format is None and 'diskFileFormat' in kwargs:
+            disk_file_format = kwargs['diskFileFormat']
+        if disk_file_format is None:
+            raise TypeError("Missing 'disk_file_format' argument")
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if disk_size_gb is None:
+            raise TypeError("Missing 'disk_size_gb' argument")
+        if is_os_disk is None and 'isOsDisk' in kwargs:
+            is_os_disk = kwargs['isOsDisk']
+        if is_os_disk is None:
+            raise TypeError("Missing 'is_os_disk' argument")
+        if is_dynamic is None and 'isDynamic' in kwargs:
+            is_dynamic = kwargs['isDynamic']
+        if storage_container_id is None and 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+
+        _setter("disk_file_format", disk_file_format)
+        _setter("disk_id", disk_id)
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("is_os_disk", is_os_disk)
         if is_dynamic is not None:
-            pulumi.set(__self__, "is_dynamic", is_dynamic)
+            _setter("is_dynamic", is_dynamic)
         if storage_container_id is not None:
-            pulumi.set(__self__, "storage_container_id", storage_container_id)
+            _setter("storage_container_id", storage_container_id)
 
     @property
     @pulumi.getter(name="diskFileFormat")
@@ -1210,11 +1639,50 @@ class HyperVToAzStackHCINicInputResponse(dict):
         :param str target_network_id: Gets or sets the target network Id within AzStackHCI Cluster.
         :param str test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "network_name", network_name)
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "selection_type_for_failover", selection_type_for_failover)
-        pulumi.set(__self__, "target_network_id", target_network_id)
-        pulumi.set(__self__, "test_network_id", test_network_id)
+        HyperVToAzStackHCINicInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_name=network_name,
+            nic_id=nic_id,
+            selection_type_for_failover=selection_type_for_failover,
+            target_network_id=target_network_id,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_name: Optional[str] = None,
+             nic_id: Optional[str] = None,
+             selection_type_for_failover: Optional[str] = None,
+             target_network_id: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if nic_id is None and 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if nic_id is None:
+            raise TypeError("Missing 'nic_id' argument")
+        if selection_type_for_failover is None and 'selectionTypeForFailover' in kwargs:
+            selection_type_for_failover = kwargs['selectionTypeForFailover']
+        if selection_type_for_failover is None:
+            raise TypeError("Missing 'selection_type_for_failover' argument")
+        if target_network_id is None and 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if target_network_id is None:
+            raise TypeError("Missing 'target_network_id' argument")
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if test_network_id is None:
+            raise TypeError("Missing 'test_network_id' argument")
+
+        _setter("network_name", network_name)
+        _setter("nic_id", nic_id)
+        _setter("selection_type_for_failover", selection_type_for_failover)
+        _setter("target_network_id", target_network_id)
+        _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter(name="networkName")
@@ -1299,10 +1767,43 @@ class HyperVToAzStackHCIPolicyModelCustomPropertiesResponse(dict):
         :param int recovery_point_history_in_minutes: Gets or sets the duration in minutes until which the recovery points need to be
                stored.
         """
-        pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "instance_type", 'HyperVToAzStackHCI')
-        pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+        HyperVToAzStackHCIPolicyModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            instance_type=instance_type,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             instance_type: Optional[str] = None,
+             recovery_point_history_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if app_consistent_frequency_in_minutes is None:
+            raise TypeError("Missing 'app_consistent_frequency_in_minutes' argument")
+        if crash_consistent_frequency_in_minutes is None and 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+        if crash_consistent_frequency_in_minutes is None:
+            raise TypeError("Missing 'crash_consistent_frequency_in_minutes' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if recovery_point_history_in_minutes is None and 'recoveryPointHistoryInMinutes' in kwargs:
+            recovery_point_history_in_minutes = kwargs['recoveryPointHistoryInMinutes']
+        if recovery_point_history_in_minutes is None:
+            raise TypeError("Missing 'recovery_point_history_in_minutes' argument")
+
+        _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+        _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+        _setter("instance_type", 'HyperVToAzStackHCI')
+        _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
@@ -1408,17 +1909,92 @@ class HyperVToAzStackHCIProtectedDiskPropertiesResponse(dict):
         :param str storage_container_local_path: Gets or sets the local path of the storage container.
         :param str test_migrate_disk_name: Gets or sets the test failover clone disk.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "disk_type", disk_type)
-        pulumi.set(__self__, "is_dynamic", is_dynamic)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "migrate_disk_name", migrate_disk_name)
-        pulumi.set(__self__, "seed_disk_name", seed_disk_name)
-        pulumi.set(__self__, "source_disk_id", source_disk_id)
-        pulumi.set(__self__, "source_disk_name", source_disk_name)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        pulumi.set(__self__, "storage_container_local_path", storage_container_local_path)
-        pulumi.set(__self__, "test_migrate_disk_name", test_migrate_disk_name)
+        HyperVToAzStackHCIProtectedDiskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            disk_type=disk_type,
+            is_dynamic=is_dynamic,
+            is_os_disk=is_os_disk,
+            migrate_disk_name=migrate_disk_name,
+            seed_disk_name=seed_disk_name,
+            source_disk_id=source_disk_id,
+            source_disk_name=source_disk_name,
+            storage_container_id=storage_container_id,
+            storage_container_local_path=storage_container_local_path,
+            test_migrate_disk_name=test_migrate_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: Optional[float] = None,
+             disk_type: Optional[str] = None,
+             is_dynamic: Optional[bool] = None,
+             is_os_disk: Optional[bool] = None,
+             migrate_disk_name: Optional[str] = None,
+             seed_disk_name: Optional[str] = None,
+             source_disk_id: Optional[str] = None,
+             source_disk_name: Optional[str] = None,
+             storage_container_id: Optional[str] = None,
+             storage_container_local_path: Optional[str] = None,
+             test_migrate_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_in_bytes is None and 'capacityInBytes' in kwargs:
+            capacity_in_bytes = kwargs['capacityInBytes']
+        if capacity_in_bytes is None:
+            raise TypeError("Missing 'capacity_in_bytes' argument")
+        if disk_type is None and 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if disk_type is None:
+            raise TypeError("Missing 'disk_type' argument")
+        if is_dynamic is None and 'isDynamic' in kwargs:
+            is_dynamic = kwargs['isDynamic']
+        if is_dynamic is None:
+            raise TypeError("Missing 'is_dynamic' argument")
+        if is_os_disk is None and 'isOsDisk' in kwargs:
+            is_os_disk = kwargs['isOsDisk']
+        if is_os_disk is None:
+            raise TypeError("Missing 'is_os_disk' argument")
+        if migrate_disk_name is None and 'migrateDiskName' in kwargs:
+            migrate_disk_name = kwargs['migrateDiskName']
+        if migrate_disk_name is None:
+            raise TypeError("Missing 'migrate_disk_name' argument")
+        if seed_disk_name is None and 'seedDiskName' in kwargs:
+            seed_disk_name = kwargs['seedDiskName']
+        if seed_disk_name is None:
+            raise TypeError("Missing 'seed_disk_name' argument")
+        if source_disk_id is None and 'sourceDiskId' in kwargs:
+            source_disk_id = kwargs['sourceDiskId']
+        if source_disk_id is None:
+            raise TypeError("Missing 'source_disk_id' argument")
+        if source_disk_name is None and 'sourceDiskName' in kwargs:
+            source_disk_name = kwargs['sourceDiskName']
+        if source_disk_name is None:
+            raise TypeError("Missing 'source_disk_name' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if storage_container_local_path is None and 'storageContainerLocalPath' in kwargs:
+            storage_container_local_path = kwargs['storageContainerLocalPath']
+        if storage_container_local_path is None:
+            raise TypeError("Missing 'storage_container_local_path' argument")
+        if test_migrate_disk_name is None and 'testMigrateDiskName' in kwargs:
+            test_migrate_disk_name = kwargs['testMigrateDiskName']
+        if test_migrate_disk_name is None:
+            raise TypeError("Missing 'test_migrate_disk_name' argument")
+
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("disk_type", disk_type)
+        _setter("is_dynamic", is_dynamic)
+        _setter("is_os_disk", is_os_disk)
+        _setter("migrate_disk_name", migrate_disk_name)
+        _setter("seed_disk_name", seed_disk_name)
+        _setter("source_disk_id", source_disk_id)
+        _setter("source_disk_name", source_disk_name)
+        _setter("storage_container_id", storage_container_id)
+        _setter("storage_container_local_path", storage_container_local_path)
+        _setter("test_migrate_disk_name", test_migrate_disk_name)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -1697,53 +2273,288 @@ class HyperVToAzStackHCIProtectedItemModelCustomPropertiesResponse(dict):
         :param str target_vm_name: Gets or sets the target VM display name.
         :param str test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "active_location", active_location)
-        pulumi.set(__self__, "custom_location_region", custom_location_region)
-        pulumi.set(__self__, "disks_to_include", disks_to_include)
-        pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
-        pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
-        pulumi.set(__self__, "firmware_type", firmware_type)
-        pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
-        pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
-        pulumi.set(__self__, "instance_type", 'HyperVToAzStackHCI')
-        pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
-        pulumi.set(__self__, "last_replication_update_time", last_replication_update_time)
-        pulumi.set(__self__, "nics_to_include", nics_to_include)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "protected_disks", protected_disks)
-        pulumi.set(__self__, "protected_nics", protected_nics)
-        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
-        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "source_appliance_name", source_appliance_name)
-        pulumi.set(__self__, "source_cpu_cores", source_cpu_cores)
-        pulumi.set(__self__, "source_dra_name", source_dra_name)
-        pulumi.set(__self__, "source_memory_in_mega_bytes", source_memory_in_mega_bytes)
-        pulumi.set(__self__, "source_vm_name", source_vm_name)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        pulumi.set(__self__, "target_appliance_name", target_appliance_name)
-        pulumi.set(__self__, "target_arc_cluster_custom_location_id", target_arc_cluster_custom_location_id)
-        pulumi.set(__self__, "target_az_stack_hci_cluster_name", target_az_stack_hci_cluster_name)
-        pulumi.set(__self__, "target_dra_name", target_dra_name)
-        pulumi.set(__self__, "target_hci_cluster_id", target_hci_cluster_id)
-        pulumi.set(__self__, "target_location", target_location)
-        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
-        pulumi.set(__self__, "target_vm_bios_id", target_vm_bios_id)
+        HyperVToAzStackHCIProtectedItemModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_location=active_location,
+            custom_location_region=custom_location_region,
+            disks_to_include=disks_to_include,
+            fabric_discovery_machine_id=fabric_discovery_machine_id,
+            failover_recovery_point_id=failover_recovery_point_id,
+            firmware_type=firmware_type,
+            hyper_v_generation=hyper_v_generation,
+            initial_replication_progress_percentage=initial_replication_progress_percentage,
+            instance_type=instance_type,
+            last_recovery_point_id=last_recovery_point_id,
+            last_recovery_point_received=last_recovery_point_received,
+            last_replication_update_time=last_replication_update_time,
+            nics_to_include=nics_to_include,
+            os_name=os_name,
+            os_type=os_type,
+            protected_disks=protected_disks,
+            protected_nics=protected_nics,
+            resync_progress_percentage=resync_progress_percentage,
+            run_as_account_id=run_as_account_id,
+            source_appliance_name=source_appliance_name,
+            source_cpu_cores=source_cpu_cores,
+            source_dra_name=source_dra_name,
+            source_memory_in_mega_bytes=source_memory_in_mega_bytes,
+            source_vm_name=source_vm_name,
+            storage_container_id=storage_container_id,
+            target_appliance_name=target_appliance_name,
+            target_arc_cluster_custom_location_id=target_arc_cluster_custom_location_id,
+            target_az_stack_hci_cluster_name=target_az_stack_hci_cluster_name,
+            target_dra_name=target_dra_name,
+            target_hci_cluster_id=target_hci_cluster_id,
+            target_location=target_location,
+            target_resource_group_id=target_resource_group_id,
+            target_vm_bios_id=target_vm_bios_id,
+            dynamic_memory_config=dynamic_memory_config,
+            is_dynamic_ram=is_dynamic_ram,
+            target_cpu_cores=target_cpu_cores,
+            target_memory_in_mega_bytes=target_memory_in_mega_bytes,
+            target_network_id=target_network_id,
+            target_vm_name=target_vm_name,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_location: Optional[str] = None,
+             custom_location_region: Optional[str] = None,
+             disks_to_include: Optional[Sequence['outputs.HyperVToAzStackHCIDiskInputResponse']] = None,
+             fabric_discovery_machine_id: Optional[str] = None,
+             failover_recovery_point_id: Optional[str] = None,
+             firmware_type: Optional[str] = None,
+             hyper_v_generation: Optional[str] = None,
+             initial_replication_progress_percentage: Optional[int] = None,
+             instance_type: Optional[str] = None,
+             last_recovery_point_id: Optional[str] = None,
+             last_recovery_point_received: Optional[str] = None,
+             last_replication_update_time: Optional[str] = None,
+             nics_to_include: Optional[Sequence['outputs.HyperVToAzStackHCINicInputResponse']] = None,
+             os_name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.HyperVToAzStackHCIProtectedDiskPropertiesResponse']] = None,
+             protected_nics: Optional[Sequence['outputs.HyperVToAzStackHCIProtectedNicPropertiesResponse']] = None,
+             resync_progress_percentage: Optional[int] = None,
+             run_as_account_id: Optional[str] = None,
+             source_appliance_name: Optional[str] = None,
+             source_cpu_cores: Optional[int] = None,
+             source_dra_name: Optional[str] = None,
+             source_memory_in_mega_bytes: Optional[float] = None,
+             source_vm_name: Optional[str] = None,
+             storage_container_id: Optional[str] = None,
+             target_appliance_name: Optional[str] = None,
+             target_arc_cluster_custom_location_id: Optional[str] = None,
+             target_az_stack_hci_cluster_name: Optional[str] = None,
+             target_dra_name: Optional[str] = None,
+             target_hci_cluster_id: Optional[str] = None,
+             target_location: Optional[str] = None,
+             target_resource_group_id: Optional[str] = None,
+             target_vm_bios_id: Optional[str] = None,
+             dynamic_memory_config: Optional['outputs.ProtectedItemDynamicMemoryConfigResponse'] = None,
+             is_dynamic_ram: Optional[bool] = None,
+             target_cpu_cores: Optional[int] = None,
+             target_memory_in_mega_bytes: Optional[int] = None,
+             target_network_id: Optional[str] = None,
+             target_vm_name: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_location is None and 'activeLocation' in kwargs:
+            active_location = kwargs['activeLocation']
+        if active_location is None:
+            raise TypeError("Missing 'active_location' argument")
+        if custom_location_region is None and 'customLocationRegion' in kwargs:
+            custom_location_region = kwargs['customLocationRegion']
+        if custom_location_region is None:
+            raise TypeError("Missing 'custom_location_region' argument")
+        if disks_to_include is None and 'disksToInclude' in kwargs:
+            disks_to_include = kwargs['disksToInclude']
+        if disks_to_include is None:
+            raise TypeError("Missing 'disks_to_include' argument")
+        if fabric_discovery_machine_id is None and 'fabricDiscoveryMachineId' in kwargs:
+            fabric_discovery_machine_id = kwargs['fabricDiscoveryMachineId']
+        if fabric_discovery_machine_id is None:
+            raise TypeError("Missing 'fabric_discovery_machine_id' argument")
+        if failover_recovery_point_id is None and 'failoverRecoveryPointId' in kwargs:
+            failover_recovery_point_id = kwargs['failoverRecoveryPointId']
+        if failover_recovery_point_id is None:
+            raise TypeError("Missing 'failover_recovery_point_id' argument")
+        if firmware_type is None and 'firmwareType' in kwargs:
+            firmware_type = kwargs['firmwareType']
+        if firmware_type is None:
+            raise TypeError("Missing 'firmware_type' argument")
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if hyper_v_generation is None:
+            raise TypeError("Missing 'hyper_v_generation' argument")
+        if initial_replication_progress_percentage is None and 'initialReplicationProgressPercentage' in kwargs:
+            initial_replication_progress_percentage = kwargs['initialReplicationProgressPercentage']
+        if initial_replication_progress_percentage is None:
+            raise TypeError("Missing 'initial_replication_progress_percentage' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if last_recovery_point_id is None and 'lastRecoveryPointId' in kwargs:
+            last_recovery_point_id = kwargs['lastRecoveryPointId']
+        if last_recovery_point_id is None:
+            raise TypeError("Missing 'last_recovery_point_id' argument")
+        if last_recovery_point_received is None and 'lastRecoveryPointReceived' in kwargs:
+            last_recovery_point_received = kwargs['lastRecoveryPointReceived']
+        if last_recovery_point_received is None:
+            raise TypeError("Missing 'last_recovery_point_received' argument")
+        if last_replication_update_time is None and 'lastReplicationUpdateTime' in kwargs:
+            last_replication_update_time = kwargs['lastReplicationUpdateTime']
+        if last_replication_update_time is None:
+            raise TypeError("Missing 'last_replication_update_time' argument")
+        if nics_to_include is None and 'nicsToInclude' in kwargs:
+            nics_to_include = kwargs['nicsToInclude']
+        if nics_to_include is None:
+            raise TypeError("Missing 'nics_to_include' argument")
+        if os_name is None and 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if os_name is None:
+            raise TypeError("Missing 'os_name' argument")
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if protected_disks is None and 'protectedDisks' in kwargs:
+            protected_disks = kwargs['protectedDisks']
+        if protected_disks is None:
+            raise TypeError("Missing 'protected_disks' argument")
+        if protected_nics is None and 'protectedNics' in kwargs:
+            protected_nics = kwargs['protectedNics']
+        if protected_nics is None:
+            raise TypeError("Missing 'protected_nics' argument")
+        if resync_progress_percentage is None and 'resyncProgressPercentage' in kwargs:
+            resync_progress_percentage = kwargs['resyncProgressPercentage']
+        if resync_progress_percentage is None:
+            raise TypeError("Missing 'resync_progress_percentage' argument")
+        if run_as_account_id is None and 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+        if run_as_account_id is None:
+            raise TypeError("Missing 'run_as_account_id' argument")
+        if source_appliance_name is None and 'sourceApplianceName' in kwargs:
+            source_appliance_name = kwargs['sourceApplianceName']
+        if source_appliance_name is None:
+            raise TypeError("Missing 'source_appliance_name' argument")
+        if source_cpu_cores is None and 'sourceCpuCores' in kwargs:
+            source_cpu_cores = kwargs['sourceCpuCores']
+        if source_cpu_cores is None:
+            raise TypeError("Missing 'source_cpu_cores' argument")
+        if source_dra_name is None and 'sourceDraName' in kwargs:
+            source_dra_name = kwargs['sourceDraName']
+        if source_dra_name is None:
+            raise TypeError("Missing 'source_dra_name' argument")
+        if source_memory_in_mega_bytes is None and 'sourceMemoryInMegaBytes' in kwargs:
+            source_memory_in_mega_bytes = kwargs['sourceMemoryInMegaBytes']
+        if source_memory_in_mega_bytes is None:
+            raise TypeError("Missing 'source_memory_in_mega_bytes' argument")
+        if source_vm_name is None and 'sourceVmName' in kwargs:
+            source_vm_name = kwargs['sourceVmName']
+        if source_vm_name is None:
+            raise TypeError("Missing 'source_vm_name' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if target_appliance_name is None and 'targetApplianceName' in kwargs:
+            target_appliance_name = kwargs['targetApplianceName']
+        if target_appliance_name is None:
+            raise TypeError("Missing 'target_appliance_name' argument")
+        if target_arc_cluster_custom_location_id is None and 'targetArcClusterCustomLocationId' in kwargs:
+            target_arc_cluster_custom_location_id = kwargs['targetArcClusterCustomLocationId']
+        if target_arc_cluster_custom_location_id is None:
+            raise TypeError("Missing 'target_arc_cluster_custom_location_id' argument")
+        if target_az_stack_hci_cluster_name is None and 'targetAzStackHciClusterName' in kwargs:
+            target_az_stack_hci_cluster_name = kwargs['targetAzStackHciClusterName']
+        if target_az_stack_hci_cluster_name is None:
+            raise TypeError("Missing 'target_az_stack_hci_cluster_name' argument")
+        if target_dra_name is None and 'targetDraName' in kwargs:
+            target_dra_name = kwargs['targetDraName']
+        if target_dra_name is None:
+            raise TypeError("Missing 'target_dra_name' argument")
+        if target_hci_cluster_id is None and 'targetHciClusterId' in kwargs:
+            target_hci_cluster_id = kwargs['targetHciClusterId']
+        if target_hci_cluster_id is None:
+            raise TypeError("Missing 'target_hci_cluster_id' argument")
+        if target_location is None and 'targetLocation' in kwargs:
+            target_location = kwargs['targetLocation']
+        if target_location is None:
+            raise TypeError("Missing 'target_location' argument")
+        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if target_resource_group_id is None:
+            raise TypeError("Missing 'target_resource_group_id' argument")
+        if target_vm_bios_id is None and 'targetVmBiosId' in kwargs:
+            target_vm_bios_id = kwargs['targetVmBiosId']
+        if target_vm_bios_id is None:
+            raise TypeError("Missing 'target_vm_bios_id' argument")
+        if dynamic_memory_config is None and 'dynamicMemoryConfig' in kwargs:
+            dynamic_memory_config = kwargs['dynamicMemoryConfig']
+        if is_dynamic_ram is None and 'isDynamicRam' in kwargs:
+            is_dynamic_ram = kwargs['isDynamicRam']
+        if target_cpu_cores is None and 'targetCpuCores' in kwargs:
+            target_cpu_cores = kwargs['targetCpuCores']
+        if target_memory_in_mega_bytes is None and 'targetMemoryInMegaBytes' in kwargs:
+            target_memory_in_mega_bytes = kwargs['targetMemoryInMegaBytes']
+        if target_network_id is None and 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if target_vm_name is None and 'targetVmName' in kwargs:
+            target_vm_name = kwargs['targetVmName']
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+
+        _setter("active_location", active_location)
+        _setter("custom_location_region", custom_location_region)
+        _setter("disks_to_include", disks_to_include)
+        _setter("fabric_discovery_machine_id", fabric_discovery_machine_id)
+        _setter("failover_recovery_point_id", failover_recovery_point_id)
+        _setter("firmware_type", firmware_type)
+        _setter("hyper_v_generation", hyper_v_generation)
+        _setter("initial_replication_progress_percentage", initial_replication_progress_percentage)
+        _setter("instance_type", 'HyperVToAzStackHCI')
+        _setter("last_recovery_point_id", last_recovery_point_id)
+        _setter("last_recovery_point_received", last_recovery_point_received)
+        _setter("last_replication_update_time", last_replication_update_time)
+        _setter("nics_to_include", nics_to_include)
+        _setter("os_name", os_name)
+        _setter("os_type", os_type)
+        _setter("protected_disks", protected_disks)
+        _setter("protected_nics", protected_nics)
+        _setter("resync_progress_percentage", resync_progress_percentage)
+        _setter("run_as_account_id", run_as_account_id)
+        _setter("source_appliance_name", source_appliance_name)
+        _setter("source_cpu_cores", source_cpu_cores)
+        _setter("source_dra_name", source_dra_name)
+        _setter("source_memory_in_mega_bytes", source_memory_in_mega_bytes)
+        _setter("source_vm_name", source_vm_name)
+        _setter("storage_container_id", storage_container_id)
+        _setter("target_appliance_name", target_appliance_name)
+        _setter("target_arc_cluster_custom_location_id", target_arc_cluster_custom_location_id)
+        _setter("target_az_stack_hci_cluster_name", target_az_stack_hci_cluster_name)
+        _setter("target_dra_name", target_dra_name)
+        _setter("target_hci_cluster_id", target_hci_cluster_id)
+        _setter("target_location", target_location)
+        _setter("target_resource_group_id", target_resource_group_id)
+        _setter("target_vm_bios_id", target_vm_bios_id)
         if dynamic_memory_config is not None:
-            pulumi.set(__self__, "dynamic_memory_config", dynamic_memory_config)
+            _setter("dynamic_memory_config", dynamic_memory_config)
         if is_dynamic_ram is not None:
-            pulumi.set(__self__, "is_dynamic_ram", is_dynamic_ram)
+            _setter("is_dynamic_ram", is_dynamic_ram)
         if target_cpu_cores is not None:
-            pulumi.set(__self__, "target_cpu_cores", target_cpu_cores)
+            _setter("target_cpu_cores", target_cpu_cores)
         if target_memory_in_mega_bytes is not None:
-            pulumi.set(__self__, "target_memory_in_mega_bytes", target_memory_in_mega_bytes)
+            _setter("target_memory_in_mega_bytes", target_memory_in_mega_bytes)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter(name="activeLocation")
@@ -2117,12 +2928,57 @@ class HyperVToAzStackHCIProtectedNicPropertiesResponse(dict):
         :param str target_network_id: Gets or sets the target network Id within AzStackHCI Cluster.
         :param str test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "network_name", network_name)
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "selection_type_for_failover", selection_type_for_failover)
-        pulumi.set(__self__, "target_network_id", target_network_id)
-        pulumi.set(__self__, "test_network_id", test_network_id)
+        HyperVToAzStackHCIProtectedNicPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mac_address=mac_address,
+            network_name=network_name,
+            nic_id=nic_id,
+            selection_type_for_failover=selection_type_for_failover,
+            target_network_id=target_network_id,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mac_address: Optional[str] = None,
+             network_name: Optional[str] = None,
+             nic_id: Optional[str] = None,
+             selection_type_for_failover: Optional[str] = None,
+             target_network_id: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if mac_address is None:
+            raise TypeError("Missing 'mac_address' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if nic_id is None and 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if nic_id is None:
+            raise TypeError("Missing 'nic_id' argument")
+        if selection_type_for_failover is None and 'selectionTypeForFailover' in kwargs:
+            selection_type_for_failover = kwargs['selectionTypeForFailover']
+        if selection_type_for_failover is None:
+            raise TypeError("Missing 'selection_type_for_failover' argument")
+        if target_network_id is None and 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if target_network_id is None:
+            raise TypeError("Missing 'target_network_id' argument")
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if test_network_id is None:
+            raise TypeError("Missing 'test_network_id' argument")
+
+        _setter("mac_address", mac_address)
+        _setter("network_name", network_name)
+        _setter("nic_id", nic_id)
+        _setter("selection_type_for_failover", selection_type_for_failover)
+        _setter("target_network_id", target_network_id)
+        _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter(name="macAddress")
@@ -2266,25 +3122,132 @@ class HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesResponse(dict):
         :param str storage_account_id: Gets or sets the storage account Id.
         :param str storage_account_sas_secret_name: Gets or sets the Sas Secret of storage account.
         """
-        pulumi.set(__self__, "asr_service_uri", asr_service_uri)
-        pulumi.set(__self__, "az_stack_hci_fabric_arm_id", az_stack_hci_fabric_arm_id)
-        pulumi.set(__self__, "az_stack_hci_site_id", az_stack_hci_site_id)
-        pulumi.set(__self__, "gateway_service_uri", gateway_service_uri)
-        pulumi.set(__self__, "hyper_v_fabric_arm_id", hyper_v_fabric_arm_id)
-        pulumi.set(__self__, "hyper_v_site_id", hyper_v_site_id)
-        pulumi.set(__self__, "instance_type", 'HyperVToAzStackHCI')
-        pulumi.set(__self__, "rcm_service_uri", rcm_service_uri)
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "resource_location", resource_location)
-        pulumi.set(__self__, "source_gateway_service_id", source_gateway_service_id)
-        pulumi.set(__self__, "source_storage_container_name", source_storage_container_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "target_gateway_service_id", target_gateway_service_id)
-        pulumi.set(__self__, "target_storage_container_name", target_storage_container_name)
+        HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asr_service_uri=asr_service_uri,
+            az_stack_hci_fabric_arm_id=az_stack_hci_fabric_arm_id,
+            az_stack_hci_site_id=az_stack_hci_site_id,
+            gateway_service_uri=gateway_service_uri,
+            hyper_v_fabric_arm_id=hyper_v_fabric_arm_id,
+            hyper_v_site_id=hyper_v_site_id,
+            instance_type=instance_type,
+            rcm_service_uri=rcm_service_uri,
+            resource_group=resource_group,
+            resource_location=resource_location,
+            source_gateway_service_id=source_gateway_service_id,
+            source_storage_container_name=source_storage_container_name,
+            subscription_id=subscription_id,
+            target_gateway_service_id=target_gateway_service_id,
+            target_storage_container_name=target_storage_container_name,
+            storage_account_id=storage_account_id,
+            storage_account_sas_secret_name=storage_account_sas_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asr_service_uri: Optional[str] = None,
+             az_stack_hci_fabric_arm_id: Optional[str] = None,
+             az_stack_hci_site_id: Optional[str] = None,
+             gateway_service_uri: Optional[str] = None,
+             hyper_v_fabric_arm_id: Optional[str] = None,
+             hyper_v_site_id: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             rcm_service_uri: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             resource_location: Optional[str] = None,
+             source_gateway_service_id: Optional[str] = None,
+             source_storage_container_name: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             target_gateway_service_id: Optional[str] = None,
+             target_storage_container_name: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             storage_account_sas_secret_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asr_service_uri is None and 'asrServiceUri' in kwargs:
+            asr_service_uri = kwargs['asrServiceUri']
+        if asr_service_uri is None:
+            raise TypeError("Missing 'asr_service_uri' argument")
+        if az_stack_hci_fabric_arm_id is None and 'azStackHciFabricArmId' in kwargs:
+            az_stack_hci_fabric_arm_id = kwargs['azStackHciFabricArmId']
+        if az_stack_hci_fabric_arm_id is None:
+            raise TypeError("Missing 'az_stack_hci_fabric_arm_id' argument")
+        if az_stack_hci_site_id is None and 'azStackHciSiteId' in kwargs:
+            az_stack_hci_site_id = kwargs['azStackHciSiteId']
+        if az_stack_hci_site_id is None:
+            raise TypeError("Missing 'az_stack_hci_site_id' argument")
+        if gateway_service_uri is None and 'gatewayServiceUri' in kwargs:
+            gateway_service_uri = kwargs['gatewayServiceUri']
+        if gateway_service_uri is None:
+            raise TypeError("Missing 'gateway_service_uri' argument")
+        if hyper_v_fabric_arm_id is None and 'hyperVFabricArmId' in kwargs:
+            hyper_v_fabric_arm_id = kwargs['hyperVFabricArmId']
+        if hyper_v_fabric_arm_id is None:
+            raise TypeError("Missing 'hyper_v_fabric_arm_id' argument")
+        if hyper_v_site_id is None and 'hyperVSiteId' in kwargs:
+            hyper_v_site_id = kwargs['hyperVSiteId']
+        if hyper_v_site_id is None:
+            raise TypeError("Missing 'hyper_v_site_id' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if rcm_service_uri is None and 'rcmServiceUri' in kwargs:
+            rcm_service_uri = kwargs['rcmServiceUri']
+        if rcm_service_uri is None:
+            raise TypeError("Missing 'rcm_service_uri' argument")
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if resource_location is None and 'resourceLocation' in kwargs:
+            resource_location = kwargs['resourceLocation']
+        if resource_location is None:
+            raise TypeError("Missing 'resource_location' argument")
+        if source_gateway_service_id is None and 'sourceGatewayServiceId' in kwargs:
+            source_gateway_service_id = kwargs['sourceGatewayServiceId']
+        if source_gateway_service_id is None:
+            raise TypeError("Missing 'source_gateway_service_id' argument")
+        if source_storage_container_name is None and 'sourceStorageContainerName' in kwargs:
+            source_storage_container_name = kwargs['sourceStorageContainerName']
+        if source_storage_container_name is None:
+            raise TypeError("Missing 'source_storage_container_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if target_gateway_service_id is None and 'targetGatewayServiceId' in kwargs:
+            target_gateway_service_id = kwargs['targetGatewayServiceId']
+        if target_gateway_service_id is None:
+            raise TypeError("Missing 'target_gateway_service_id' argument")
+        if target_storage_container_name is None and 'targetStorageContainerName' in kwargs:
+            target_storage_container_name = kwargs['targetStorageContainerName']
+        if target_storage_container_name is None:
+            raise TypeError("Missing 'target_storage_container_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_sas_secret_name is None and 'storageAccountSasSecretName' in kwargs:
+            storage_account_sas_secret_name = kwargs['storageAccountSasSecretName']
+
+        _setter("asr_service_uri", asr_service_uri)
+        _setter("az_stack_hci_fabric_arm_id", az_stack_hci_fabric_arm_id)
+        _setter("az_stack_hci_site_id", az_stack_hci_site_id)
+        _setter("gateway_service_uri", gateway_service_uri)
+        _setter("hyper_v_fabric_arm_id", hyper_v_fabric_arm_id)
+        _setter("hyper_v_site_id", hyper_v_site_id)
+        _setter("instance_type", 'HyperVToAzStackHCI')
+        _setter("rcm_service_uri", rcm_service_uri)
+        _setter("resource_group", resource_group)
+        _setter("resource_location", resource_location)
+        _setter("source_gateway_service_id", source_gateway_service_id)
+        _setter("source_storage_container_name", source_storage_container_name)
+        _setter("subscription_id", subscription_id)
+        _setter("target_gateway_service_id", target_gateway_service_id)
+        _setter("target_storage_container_name", target_storage_container_name)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if storage_account_sas_secret_name is not None:
-            pulumi.set(__self__, "storage_account_sas_secret_name", storage_account_sas_secret_name)
+            _setter("storage_account_sas_secret_name", storage_account_sas_secret_name)
 
     @property
     @pulumi.getter(name="asrServiceUri")
@@ -2467,11 +3430,48 @@ class IdentityModelResponse(dict):
         :param str object_id: Gets or sets the object Id of the SPN with which Dra communicates to service.
         :param str tenant_id: Gets or sets the tenant Id of the SPN with which Dra communicates to service.
         """
-        pulumi.set(__self__, "aad_authority", aad_authority)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "audience", audience)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityModelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: Optional[str] = None,
+             application_id: Optional[str] = None,
+             audience: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aad_authority is None and 'aadAuthority' in kwargs:
+            aad_authority = kwargs['aadAuthority']
+        if aad_authority is None:
+            raise TypeError("Missing 'aad_authority' argument")
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if audience is None:
+            raise TypeError("Missing 'audience' argument")
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("aad_authority", aad_authority)
+        _setter("application_id", application_id)
+        _setter("audience", audience)
+        _setter("object_id", object_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")
@@ -2567,17 +3567,76 @@ class InnerHealthErrorModelResponse(dict):
         :param str source: Gets or sets the error source.
         :param str summary: Gets or sets the error summary.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "causes", causes)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "creation_time", creation_time)
-        pulumi.set(__self__, "health_category", health_category)
-        pulumi.set(__self__, "is_customer_resolvable", is_customer_resolvable)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "recommendation", recommendation)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "summary", summary)
+        InnerHealthErrorModelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            causes=causes,
+            code=code,
+            creation_time=creation_time,
+            health_category=health_category,
+            is_customer_resolvable=is_customer_resolvable,
+            message=message,
+            recommendation=recommendation,
+            severity=severity,
+            source=source,
+            summary=summary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[str] = None,
+             causes: Optional[str] = None,
+             code: Optional[str] = None,
+             creation_time: Optional[str] = None,
+             health_category: Optional[str] = None,
+             is_customer_resolvable: Optional[bool] = None,
+             message: Optional[str] = None,
+             recommendation: Optional[str] = None,
+             severity: Optional[str] = None,
+             source: Optional[str] = None,
+             summary: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if causes is None:
+            raise TypeError("Missing 'causes' argument")
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if creation_time is None:
+            raise TypeError("Missing 'creation_time' argument")
+        if health_category is None and 'healthCategory' in kwargs:
+            health_category = kwargs['healthCategory']
+        if health_category is None:
+            raise TypeError("Missing 'health_category' argument")
+        if is_customer_resolvable is None and 'isCustomerResolvable' in kwargs:
+            is_customer_resolvable = kwargs['isCustomerResolvable']
+        if is_customer_resolvable is None:
+            raise TypeError("Missing 'is_customer_resolvable' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if recommendation is None:
+            raise TypeError("Missing 'recommendation' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if summary is None:
+            raise TypeError("Missing 'summary' argument")
+
+        _setter("category", category)
+        _setter("causes", causes)
+        _setter("code", code)
+        _setter("creation_time", creation_time)
+        _setter("health_category", health_category)
+        _setter("is_customer_resolvable", is_customer_resolvable)
+        _setter("message", message)
+        _setter("recommendation", recommendation)
+        _setter("severity", severity)
+        _setter("source", source)
+        _setter("summary", summary)
 
     @property
     @pulumi.getter
@@ -2700,8 +3759,29 @@ class PolicyModelPropertiesResponse(dict):
         :param Union['HyperVToAzStackHCIPolicyModelCustomPropertiesResponse', 'VMwareToAzStackHCIPolicyModelCustomPropertiesResponse'] custom_properties: Policy model custom properties.
         :param str provisioning_state: Gets or sets the provisioning state of the policy.
         """
-        pulumi.set(__self__, "custom_properties", custom_properties)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        PolicyModelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: Optional[Any] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if custom_properties is None:
+            raise TypeError("Missing 'custom_properties' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+
+        _setter("custom_properties", custom_properties)
+        _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -2766,18 +3846,51 @@ class PolicyModelResponseSystemData(dict):
         :param str last_modified_by_type: Gets or sets the type of identity that last modified the resource: user, application,
                managedIdentity.
         """
+        PolicyModelResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -2866,9 +3979,36 @@ class ProtectedItemDynamicMemoryConfigResponse(dict):
         :param float minimum_memory_in_mega_bytes: Gets or sets minimum memory in MB.
         :param int target_memory_buffer_percentage: Gets or sets target memory buffer in %.
         """
-        pulumi.set(__self__, "maximum_memory_in_mega_bytes", maximum_memory_in_mega_bytes)
-        pulumi.set(__self__, "minimum_memory_in_mega_bytes", minimum_memory_in_mega_bytes)
-        pulumi.set(__self__, "target_memory_buffer_percentage", target_memory_buffer_percentage)
+        ProtectedItemDynamicMemoryConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_memory_in_mega_bytes=maximum_memory_in_mega_bytes,
+            minimum_memory_in_mega_bytes=minimum_memory_in_mega_bytes,
+            target_memory_buffer_percentage=target_memory_buffer_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_memory_in_mega_bytes: Optional[float] = None,
+             minimum_memory_in_mega_bytes: Optional[float] = None,
+             target_memory_buffer_percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_memory_in_mega_bytes is None and 'maximumMemoryInMegaBytes' in kwargs:
+            maximum_memory_in_mega_bytes = kwargs['maximumMemoryInMegaBytes']
+        if maximum_memory_in_mega_bytes is None:
+            raise TypeError("Missing 'maximum_memory_in_mega_bytes' argument")
+        if minimum_memory_in_mega_bytes is None and 'minimumMemoryInMegaBytes' in kwargs:
+            minimum_memory_in_mega_bytes = kwargs['minimumMemoryInMegaBytes']
+        if minimum_memory_in_mega_bytes is None:
+            raise TypeError("Missing 'minimum_memory_in_mega_bytes' argument")
+        if target_memory_buffer_percentage is None and 'targetMemoryBufferPercentage' in kwargs:
+            target_memory_buffer_percentage = kwargs['targetMemoryBufferPercentage']
+        if target_memory_buffer_percentage is None:
+            raise TypeError("Missing 'target_memory_buffer_percentage' argument")
+
+        _setter("maximum_memory_in_mega_bytes", maximum_memory_in_mega_bytes)
+        _setter("minimum_memory_in_mega_bytes", minimum_memory_in_mega_bytes)
+        _setter("target_memory_buffer_percentage", target_memory_buffer_percentage)
 
     @property
     @pulumi.getter(name="maximumMemoryInMegaBytes")
@@ -3031,35 +4171,218 @@ class ProtectedItemModelPropertiesResponse(dict):
         :param str test_failover_state: Gets or sets the test failover state.
         :param str test_failover_state_description: Gets or sets the Test failover state description.
         """
-        pulumi.set(__self__, "allowed_jobs", allowed_jobs)
-        pulumi.set(__self__, "correlation_id", correlation_id)
-        pulumi.set(__self__, "current_job", current_job)
-        pulumi.set(__self__, "custom_properties", custom_properties)
-        pulumi.set(__self__, "dra_id", dra_id)
-        pulumi.set(__self__, "fabric_id", fabric_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fabric_object_name", fabric_object_name)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "last_failed_enable_protection_job", last_failed_enable_protection_job)
-        pulumi.set(__self__, "last_failed_planned_failover_job", last_failed_planned_failover_job)
-        pulumi.set(__self__, "last_successful_planned_failover_time", last_successful_planned_failover_time)
-        pulumi.set(__self__, "last_successful_test_failover_time", last_successful_test_failover_time)
-        pulumi.set(__self__, "last_successful_unplanned_failover_time", last_successful_unplanned_failover_time)
-        pulumi.set(__self__, "last_test_failover_job", last_test_failover_job)
-        pulumi.set(__self__, "policy_name", policy_name)
-        pulumi.set(__self__, "protection_state", protection_state)
-        pulumi.set(__self__, "protection_state_description", protection_state_description)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "replication_extension_name", replication_extension_name)
-        pulumi.set(__self__, "replication_health", replication_health)
-        pulumi.set(__self__, "resync_required", resync_required)
-        pulumi.set(__self__, "resynchronization_state", resynchronization_state)
-        pulumi.set(__self__, "source_fabric_provider_id", source_fabric_provider_id)
-        pulumi.set(__self__, "target_dra_id", target_dra_id)
-        pulumi.set(__self__, "target_fabric_id", target_fabric_id)
-        pulumi.set(__self__, "target_fabric_provider_id", target_fabric_provider_id)
-        pulumi.set(__self__, "test_failover_state", test_failover_state)
-        pulumi.set(__self__, "test_failover_state_description", test_failover_state_description)
+        ProtectedItemModelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_jobs=allowed_jobs,
+            correlation_id=correlation_id,
+            current_job=current_job,
+            custom_properties=custom_properties,
+            dra_id=dra_id,
+            fabric_id=fabric_id,
+            fabric_object_id=fabric_object_id,
+            fabric_object_name=fabric_object_name,
+            health_errors=health_errors,
+            last_failed_enable_protection_job=last_failed_enable_protection_job,
+            last_failed_planned_failover_job=last_failed_planned_failover_job,
+            last_successful_planned_failover_time=last_successful_planned_failover_time,
+            last_successful_test_failover_time=last_successful_test_failover_time,
+            last_successful_unplanned_failover_time=last_successful_unplanned_failover_time,
+            last_test_failover_job=last_test_failover_job,
+            policy_name=policy_name,
+            protection_state=protection_state,
+            protection_state_description=protection_state_description,
+            provisioning_state=provisioning_state,
+            replication_extension_name=replication_extension_name,
+            replication_health=replication_health,
+            resync_required=resync_required,
+            resynchronization_state=resynchronization_state,
+            source_fabric_provider_id=source_fabric_provider_id,
+            target_dra_id=target_dra_id,
+            target_fabric_id=target_fabric_id,
+            target_fabric_provider_id=target_fabric_provider_id,
+            test_failover_state=test_failover_state,
+            test_failover_state_description=test_failover_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_jobs: Optional[Sequence[str]] = None,
+             correlation_id: Optional[str] = None,
+             current_job: Optional['outputs.ProtectedItemModelPropertiesResponseCurrentJob'] = None,
+             custom_properties: Optional[Any] = None,
+             dra_id: Optional[str] = None,
+             fabric_id: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             fabric_object_name: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorModelResponse']] = None,
+             last_failed_enable_protection_job: Optional['outputs.ProtectedItemModelPropertiesResponseLastFailedEnableProtectionJob'] = None,
+             last_failed_planned_failover_job: Optional['outputs.ProtectedItemModelPropertiesResponseLastFailedPlannedFailoverJob'] = None,
+             last_successful_planned_failover_time: Optional[str] = None,
+             last_successful_test_failover_time: Optional[str] = None,
+             last_successful_unplanned_failover_time: Optional[str] = None,
+             last_test_failover_job: Optional['outputs.ProtectedItemModelPropertiesResponseLastTestFailoverJob'] = None,
+             policy_name: Optional[str] = None,
+             protection_state: Optional[str] = None,
+             protection_state_description: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             replication_extension_name: Optional[str] = None,
+             replication_health: Optional[str] = None,
+             resync_required: Optional[bool] = None,
+             resynchronization_state: Optional[str] = None,
+             source_fabric_provider_id: Optional[str] = None,
+             target_dra_id: Optional[str] = None,
+             target_fabric_id: Optional[str] = None,
+             target_fabric_provider_id: Optional[str] = None,
+             test_failover_state: Optional[str] = None,
+             test_failover_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_jobs is None and 'allowedJobs' in kwargs:
+            allowed_jobs = kwargs['allowedJobs']
+        if allowed_jobs is None:
+            raise TypeError("Missing 'allowed_jobs' argument")
+        if correlation_id is None and 'correlationId' in kwargs:
+            correlation_id = kwargs['correlationId']
+        if correlation_id is None:
+            raise TypeError("Missing 'correlation_id' argument")
+        if current_job is None and 'currentJob' in kwargs:
+            current_job = kwargs['currentJob']
+        if current_job is None:
+            raise TypeError("Missing 'current_job' argument")
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if custom_properties is None:
+            raise TypeError("Missing 'custom_properties' argument")
+        if dra_id is None and 'draId' in kwargs:
+            dra_id = kwargs['draId']
+        if dra_id is None:
+            raise TypeError("Missing 'dra_id' argument")
+        if fabric_id is None and 'fabricId' in kwargs:
+            fabric_id = kwargs['fabricId']
+        if fabric_id is None:
+            raise TypeError("Missing 'fabric_id' argument")
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if fabric_object_id is None:
+            raise TypeError("Missing 'fabric_object_id' argument")
+        if fabric_object_name is None and 'fabricObjectName' in kwargs:
+            fabric_object_name = kwargs['fabricObjectName']
+        if fabric_object_name is None:
+            raise TypeError("Missing 'fabric_object_name' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if last_failed_enable_protection_job is None and 'lastFailedEnableProtectionJob' in kwargs:
+            last_failed_enable_protection_job = kwargs['lastFailedEnableProtectionJob']
+        if last_failed_enable_protection_job is None:
+            raise TypeError("Missing 'last_failed_enable_protection_job' argument")
+        if last_failed_planned_failover_job is None and 'lastFailedPlannedFailoverJob' in kwargs:
+            last_failed_planned_failover_job = kwargs['lastFailedPlannedFailoverJob']
+        if last_failed_planned_failover_job is None:
+            raise TypeError("Missing 'last_failed_planned_failover_job' argument")
+        if last_successful_planned_failover_time is None and 'lastSuccessfulPlannedFailoverTime' in kwargs:
+            last_successful_planned_failover_time = kwargs['lastSuccessfulPlannedFailoverTime']
+        if last_successful_planned_failover_time is None:
+            raise TypeError("Missing 'last_successful_planned_failover_time' argument")
+        if last_successful_test_failover_time is None and 'lastSuccessfulTestFailoverTime' in kwargs:
+            last_successful_test_failover_time = kwargs['lastSuccessfulTestFailoverTime']
+        if last_successful_test_failover_time is None:
+            raise TypeError("Missing 'last_successful_test_failover_time' argument")
+        if last_successful_unplanned_failover_time is None and 'lastSuccessfulUnplannedFailoverTime' in kwargs:
+            last_successful_unplanned_failover_time = kwargs['lastSuccessfulUnplannedFailoverTime']
+        if last_successful_unplanned_failover_time is None:
+            raise TypeError("Missing 'last_successful_unplanned_failover_time' argument")
+        if last_test_failover_job is None and 'lastTestFailoverJob' in kwargs:
+            last_test_failover_job = kwargs['lastTestFailoverJob']
+        if last_test_failover_job is None:
+            raise TypeError("Missing 'last_test_failover_job' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+        if protection_state is None and 'protectionState' in kwargs:
+            protection_state = kwargs['protectionState']
+        if protection_state is None:
+            raise TypeError("Missing 'protection_state' argument")
+        if protection_state_description is None and 'protectionStateDescription' in kwargs:
+            protection_state_description = kwargs['protectionStateDescription']
+        if protection_state_description is None:
+            raise TypeError("Missing 'protection_state_description' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if replication_extension_name is None and 'replicationExtensionName' in kwargs:
+            replication_extension_name = kwargs['replicationExtensionName']
+        if replication_extension_name is None:
+            raise TypeError("Missing 'replication_extension_name' argument")
+        if replication_health is None and 'replicationHealth' in kwargs:
+            replication_health = kwargs['replicationHealth']
+        if replication_health is None:
+            raise TypeError("Missing 'replication_health' argument")
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if resync_required is None:
+            raise TypeError("Missing 'resync_required' argument")
+        if resynchronization_state is None and 'resynchronizationState' in kwargs:
+            resynchronization_state = kwargs['resynchronizationState']
+        if resynchronization_state is None:
+            raise TypeError("Missing 'resynchronization_state' argument")
+        if source_fabric_provider_id is None and 'sourceFabricProviderId' in kwargs:
+            source_fabric_provider_id = kwargs['sourceFabricProviderId']
+        if source_fabric_provider_id is None:
+            raise TypeError("Missing 'source_fabric_provider_id' argument")
+        if target_dra_id is None and 'targetDraId' in kwargs:
+            target_dra_id = kwargs['targetDraId']
+        if target_dra_id is None:
+            raise TypeError("Missing 'target_dra_id' argument")
+        if target_fabric_id is None and 'targetFabricId' in kwargs:
+            target_fabric_id = kwargs['targetFabricId']
+        if target_fabric_id is None:
+            raise TypeError("Missing 'target_fabric_id' argument")
+        if target_fabric_provider_id is None and 'targetFabricProviderId' in kwargs:
+            target_fabric_provider_id = kwargs['targetFabricProviderId']
+        if target_fabric_provider_id is None:
+            raise TypeError("Missing 'target_fabric_provider_id' argument")
+        if test_failover_state is None and 'testFailoverState' in kwargs:
+            test_failover_state = kwargs['testFailoverState']
+        if test_failover_state is None:
+            raise TypeError("Missing 'test_failover_state' argument")
+        if test_failover_state_description is None and 'testFailoverStateDescription' in kwargs:
+            test_failover_state_description = kwargs['testFailoverStateDescription']
+        if test_failover_state_description is None:
+            raise TypeError("Missing 'test_failover_state_description' argument")
+
+        _setter("allowed_jobs", allowed_jobs)
+        _setter("correlation_id", correlation_id)
+        _setter("current_job", current_job)
+        _setter("custom_properties", custom_properties)
+        _setter("dra_id", dra_id)
+        _setter("fabric_id", fabric_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fabric_object_name", fabric_object_name)
+        _setter("health_errors", health_errors)
+        _setter("last_failed_enable_protection_job", last_failed_enable_protection_job)
+        _setter("last_failed_planned_failover_job", last_failed_planned_failover_job)
+        _setter("last_successful_planned_failover_time", last_successful_planned_failover_time)
+        _setter("last_successful_test_failover_time", last_successful_test_failover_time)
+        _setter("last_successful_unplanned_failover_time", last_successful_unplanned_failover_time)
+        _setter("last_test_failover_job", last_test_failover_job)
+        _setter("policy_name", policy_name)
+        _setter("protection_state", protection_state)
+        _setter("protection_state_description", protection_state_description)
+        _setter("provisioning_state", provisioning_state)
+        _setter("replication_extension_name", replication_extension_name)
+        _setter("replication_health", replication_health)
+        _setter("resync_required", resync_required)
+        _setter("resynchronization_state", resynchronization_state)
+        _setter("source_fabric_provider_id", source_fabric_provider_id)
+        _setter("target_dra_id", target_dra_id)
+        _setter("target_fabric_id", target_fabric_id)
+        _setter("target_fabric_provider_id", target_fabric_provider_id)
+        _setter("test_failover_state", test_failover_state)
+        _setter("test_failover_state_description", test_failover_state_description)
 
     @property
     @pulumi.getter(name="allowedJobs")
@@ -3324,13 +4647,58 @@ class ProtectedItemModelPropertiesResponseCurrentJob(dict):
         :param str start_time: Gets or sets start time of the workflow.
         :param str state: Gets or sets workflow state.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "scenario_name", scenario_name)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "state", state)
+        ProtectedItemModelPropertiesResponseCurrentJob._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            end_time=end_time,
+            id=id,
+            name=name,
+            scenario_name=scenario_name,
+            start_time=start_time,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             end_time: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             scenario_name: Optional[str] = None,
+             start_time: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if scenario_name is None and 'scenarioName' in kwargs:
+            scenario_name = kwargs['scenarioName']
+        if scenario_name is None:
+            raise TypeError("Missing 'scenario_name' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("display_name", display_name)
+        _setter("end_time", end_time)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("scenario_name", scenario_name)
+        _setter("start_time", start_time)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="displayName")
@@ -3431,13 +4799,58 @@ class ProtectedItemModelPropertiesResponseLastFailedEnableProtectionJob(dict):
         :param str start_time: Gets or sets start time of the workflow.
         :param str state: Gets or sets workflow state.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "scenario_name", scenario_name)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "state", state)
+        ProtectedItemModelPropertiesResponseLastFailedEnableProtectionJob._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            end_time=end_time,
+            id=id,
+            name=name,
+            scenario_name=scenario_name,
+            start_time=start_time,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             end_time: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             scenario_name: Optional[str] = None,
+             start_time: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if scenario_name is None and 'scenarioName' in kwargs:
+            scenario_name = kwargs['scenarioName']
+        if scenario_name is None:
+            raise TypeError("Missing 'scenario_name' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("display_name", display_name)
+        _setter("end_time", end_time)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("scenario_name", scenario_name)
+        _setter("start_time", start_time)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="displayName")
@@ -3538,13 +4951,58 @@ class ProtectedItemModelPropertiesResponseLastFailedPlannedFailoverJob(dict):
         :param str start_time: Gets or sets start time of the workflow.
         :param str state: Gets or sets workflow state.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "scenario_name", scenario_name)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "state", state)
+        ProtectedItemModelPropertiesResponseLastFailedPlannedFailoverJob._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            end_time=end_time,
+            id=id,
+            name=name,
+            scenario_name=scenario_name,
+            start_time=start_time,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             end_time: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             scenario_name: Optional[str] = None,
+             start_time: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if scenario_name is None and 'scenarioName' in kwargs:
+            scenario_name = kwargs['scenarioName']
+        if scenario_name is None:
+            raise TypeError("Missing 'scenario_name' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("display_name", display_name)
+        _setter("end_time", end_time)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("scenario_name", scenario_name)
+        _setter("start_time", start_time)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="displayName")
@@ -3645,13 +5103,58 @@ class ProtectedItemModelPropertiesResponseLastTestFailoverJob(dict):
         :param str start_time: Gets or sets start time of the workflow.
         :param str state: Gets or sets workflow state.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "scenario_name", scenario_name)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "state", state)
+        ProtectedItemModelPropertiesResponseLastTestFailoverJob._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            end_time=end_time,
+            id=id,
+            name=name,
+            scenario_name=scenario_name,
+            start_time=start_time,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[str] = None,
+             end_time: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             scenario_name: Optional[str] = None,
+             start_time: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if scenario_name is None and 'scenarioName' in kwargs:
+            scenario_name = kwargs['scenarioName']
+        if scenario_name is None:
+            raise TypeError("Missing 'scenario_name' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("display_name", display_name)
+        _setter("end_time", end_time)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("scenario_name", scenario_name)
+        _setter("start_time", start_time)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="displayName")
@@ -3756,18 +5259,51 @@ class ProtectedItemModelResponseSystemData(dict):
         :param str last_modified_by_type: Gets or sets the type of identity that last modified the resource: user, application,
                managedIdentity.
         """
+        ProtectedItemModelResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -3852,8 +5388,29 @@ class ReplicationExtensionModelPropertiesResponse(dict):
         :param Union['HyperVToAzStackHCIReplicationExtensionModelCustomPropertiesResponse', 'VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesResponse'] custom_properties: Replication extension model custom properties.
         :param str provisioning_state: Gets or sets the provisioning state of the replication extension.
         """
-        pulumi.set(__self__, "custom_properties", custom_properties)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        ReplicationExtensionModelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: Optional[Any] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if custom_properties is None:
+            raise TypeError("Missing 'custom_properties' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+
+        _setter("custom_properties", custom_properties)
+        _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -3918,18 +5475,51 @@ class ReplicationExtensionModelResponseSystemData(dict):
         :param str last_modified_by_type: Gets or sets the type of identity that last modified the resource: user, application,
                managedIdentity.
         """
+        ReplicationExtensionModelResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -4012,8 +5602,27 @@ class StorageContainerPropertiesResponse(dict):
         :param str cluster_shared_volume_path: Gets or sets the ClusterSharedVolumePath.
         :param str name: Gets or sets the Name.
         """
-        pulumi.set(__self__, "cluster_shared_volume_path", cluster_shared_volume_path)
-        pulumi.set(__self__, "name", name)
+        StorageContainerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_shared_volume_path=cluster_shared_volume_path,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_shared_volume_path: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_shared_volume_path is None and 'clusterSharedVolumePath' in kwargs:
+            cluster_shared_volume_path = kwargs['clusterSharedVolumePath']
+        if cluster_shared_volume_path is None:
+            raise TypeError("Missing 'cluster_shared_volume_path' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("cluster_shared_volume_path", cluster_shared_volume_path)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="clusterSharedVolumePath")
@@ -4069,9 +5678,36 @@ class VMwareDraModelCustomPropertiesResponse(dict):
                Expected value is 'VMware'.
         :param 'IdentityModelResponse' mars_authentication_identity: Identity model.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "instance_type", 'VMware')
-        pulumi.set(__self__, "mars_authentication_identity", mars_authentication_identity)
+        VMwareDraModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            instance_type=instance_type,
+            mars_authentication_identity=mars_authentication_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             mars_authentication_identity: Optional['outputs.IdentityModelResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if mars_authentication_identity is None and 'marsAuthenticationIdentity' in kwargs:
+            mars_authentication_identity = kwargs['marsAuthenticationIdentity']
+        if mars_authentication_identity is None:
+            raise TypeError("Missing 'mars_authentication_identity' argument")
+
+        _setter("bios_id", bios_id)
+        _setter("instance_type", 'VMware')
+        _setter("mars_authentication_identity", mars_authentication_identity)
 
     @property
     @pulumi.getter(name="biosId")
@@ -4136,9 +5772,36 @@ class VMwareMigrateFabricModelCustomPropertiesResponse(dict):
         :param str migration_solution_id: Gets or sets the ARM Id of the migration solution.
         :param str vmware_site_id: Gets or sets the ARM Id of the VMware site.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareMigrate')
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
-        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        VMwareMigrateFabricModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            migration_solution_id=migration_solution_id,
+            vmware_site_id=vmware_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             migration_solution_id: Optional[str] = None,
+             vmware_site_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if migration_solution_id is None and 'migrationSolutionId' in kwargs:
+            migration_solution_id = kwargs['migrationSolutionId']
+        if migration_solution_id is None:
+            raise TypeError("Missing 'migration_solution_id' argument")
+        if vmware_site_id is None and 'vmwareSiteId' in kwargs:
+            vmware_site_id = kwargs['vmwareSiteId']
+        if vmware_site_id is None:
+            raise TypeError("Missing 'vmware_site_id' argument")
+
+        _setter("instance_type", 'VMwareMigrate')
+        _setter("migration_solution_id", migration_solution_id)
+        _setter("vmware_site_id", vmware_site_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4215,14 +5878,55 @@ class VMwareToAzStackHCIDiskInputResponse(dict):
                disk.
         :param str storage_container_id: Gets or sets the target storage account ARM Id.
         """
-        pulumi.set(__self__, "disk_file_format", disk_file_format)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
+        VMwareToAzStackHCIDiskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_file_format=disk_file_format,
+            disk_id=disk_id,
+            disk_size_gb=disk_size_gb,
+            is_os_disk=is_os_disk,
+            is_dynamic=is_dynamic,
+            storage_container_id=storage_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_file_format: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             disk_size_gb: Optional[float] = None,
+             is_os_disk: Optional[bool] = None,
+             is_dynamic: Optional[bool] = None,
+             storage_container_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_file_format is None and 'diskFileFormat' in kwargs:
+            disk_file_format = kwargs['diskFileFormat']
+        if disk_file_format is None:
+            raise TypeError("Missing 'disk_file_format' argument")
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if disk_size_gb is None:
+            raise TypeError("Missing 'disk_size_gb' argument")
+        if is_os_disk is None and 'isOsDisk' in kwargs:
+            is_os_disk = kwargs['isOsDisk']
+        if is_os_disk is None:
+            raise TypeError("Missing 'is_os_disk' argument")
+        if is_dynamic is None and 'isDynamic' in kwargs:
+            is_dynamic = kwargs['isDynamic']
+        if storage_container_id is None and 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+
+        _setter("disk_file_format", disk_file_format)
+        _setter("disk_id", disk_id)
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("is_os_disk", is_os_disk)
         if is_dynamic is not None:
-            pulumi.set(__self__, "is_dynamic", is_dynamic)
+            _setter("is_dynamic", is_dynamic)
         if storage_container_id is not None:
-            pulumi.set(__self__, "storage_container_id", storage_container_id)
+            _setter("storage_container_id", storage_container_id)
 
     @property
     @pulumi.getter(name="diskFileFormat")
@@ -4320,12 +6024,55 @@ class VMwareToAzStackHCINicInputResponse(dict):
         :param str target_network_id: Gets or sets the target network Id within AzStackHCI Cluster.
         :param str test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "network_name", network_name)
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "selection_type_for_failover", selection_type_for_failover)
-        pulumi.set(__self__, "target_network_id", target_network_id)
-        pulumi.set(__self__, "test_network_id", test_network_id)
+        VMwareToAzStackHCINicInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            network_name=network_name,
+            nic_id=nic_id,
+            selection_type_for_failover=selection_type_for_failover,
+            target_network_id=target_network_id,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[str] = None,
+             network_name: Optional[str] = None,
+             nic_id: Optional[str] = None,
+             selection_type_for_failover: Optional[str] = None,
+             target_network_id: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if nic_id is None and 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if nic_id is None:
+            raise TypeError("Missing 'nic_id' argument")
+        if selection_type_for_failover is None and 'selectionTypeForFailover' in kwargs:
+            selection_type_for_failover = kwargs['selectionTypeForFailover']
+        if selection_type_for_failover is None:
+            raise TypeError("Missing 'selection_type_for_failover' argument")
+        if target_network_id is None and 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if target_network_id is None:
+            raise TypeError("Missing 'target_network_id' argument")
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if test_network_id is None:
+            raise TypeError("Missing 'test_network_id' argument")
+
+        _setter("label", label)
+        _setter("network_name", network_name)
+        _setter("nic_id", nic_id)
+        _setter("selection_type_for_failover", selection_type_for_failover)
+        _setter("target_network_id", target_network_id)
+        _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter
@@ -4418,10 +6165,43 @@ class VMwareToAzStackHCIPolicyModelCustomPropertiesResponse(dict):
         :param int recovery_point_history_in_minutes: Gets or sets the duration in minutes until which the recovery points need to be
                stored.
         """
-        pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "instance_type", 'VMwareToAzStackHCI')
-        pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+        VMwareToAzStackHCIPolicyModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            instance_type=instance_type,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             instance_type: Optional[str] = None,
+             recovery_point_history_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if app_consistent_frequency_in_minutes is None:
+            raise TypeError("Missing 'app_consistent_frequency_in_minutes' argument")
+        if crash_consistent_frequency_in_minutes is None and 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+        if crash_consistent_frequency_in_minutes is None:
+            raise TypeError("Missing 'crash_consistent_frequency_in_minutes' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if recovery_point_history_in_minutes is None and 'recoveryPointHistoryInMinutes' in kwargs:
+            recovery_point_history_in_minutes = kwargs['recoveryPointHistoryInMinutes']
+        if recovery_point_history_in_minutes is None:
+            raise TypeError("Missing 'recovery_point_history_in_minutes' argument")
+
+        _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+        _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+        _setter("instance_type", 'VMwareToAzStackHCI')
+        _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="appConsistentFrequencyInMinutes")
@@ -4527,17 +6307,92 @@ class VMwareToAzStackHCIProtectedDiskPropertiesResponse(dict):
         :param str storage_container_local_path: Gets or sets the local path of the storage container.
         :param str test_migrate_disk_name: Gets or sets the test failover clone disk.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "disk_type", disk_type)
-        pulumi.set(__self__, "is_dynamic", is_dynamic)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "migrate_disk_name", migrate_disk_name)
-        pulumi.set(__self__, "seed_disk_name", seed_disk_name)
-        pulumi.set(__self__, "source_disk_id", source_disk_id)
-        pulumi.set(__self__, "source_disk_name", source_disk_name)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        pulumi.set(__self__, "storage_container_local_path", storage_container_local_path)
-        pulumi.set(__self__, "test_migrate_disk_name", test_migrate_disk_name)
+        VMwareToAzStackHCIProtectedDiskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            disk_type=disk_type,
+            is_dynamic=is_dynamic,
+            is_os_disk=is_os_disk,
+            migrate_disk_name=migrate_disk_name,
+            seed_disk_name=seed_disk_name,
+            source_disk_id=source_disk_id,
+            source_disk_name=source_disk_name,
+            storage_container_id=storage_container_id,
+            storage_container_local_path=storage_container_local_path,
+            test_migrate_disk_name=test_migrate_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: Optional[float] = None,
+             disk_type: Optional[str] = None,
+             is_dynamic: Optional[bool] = None,
+             is_os_disk: Optional[bool] = None,
+             migrate_disk_name: Optional[str] = None,
+             seed_disk_name: Optional[str] = None,
+             source_disk_id: Optional[str] = None,
+             source_disk_name: Optional[str] = None,
+             storage_container_id: Optional[str] = None,
+             storage_container_local_path: Optional[str] = None,
+             test_migrate_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_in_bytes is None and 'capacityInBytes' in kwargs:
+            capacity_in_bytes = kwargs['capacityInBytes']
+        if capacity_in_bytes is None:
+            raise TypeError("Missing 'capacity_in_bytes' argument")
+        if disk_type is None and 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if disk_type is None:
+            raise TypeError("Missing 'disk_type' argument")
+        if is_dynamic is None and 'isDynamic' in kwargs:
+            is_dynamic = kwargs['isDynamic']
+        if is_dynamic is None:
+            raise TypeError("Missing 'is_dynamic' argument")
+        if is_os_disk is None and 'isOsDisk' in kwargs:
+            is_os_disk = kwargs['isOsDisk']
+        if is_os_disk is None:
+            raise TypeError("Missing 'is_os_disk' argument")
+        if migrate_disk_name is None and 'migrateDiskName' in kwargs:
+            migrate_disk_name = kwargs['migrateDiskName']
+        if migrate_disk_name is None:
+            raise TypeError("Missing 'migrate_disk_name' argument")
+        if seed_disk_name is None and 'seedDiskName' in kwargs:
+            seed_disk_name = kwargs['seedDiskName']
+        if seed_disk_name is None:
+            raise TypeError("Missing 'seed_disk_name' argument")
+        if source_disk_id is None and 'sourceDiskId' in kwargs:
+            source_disk_id = kwargs['sourceDiskId']
+        if source_disk_id is None:
+            raise TypeError("Missing 'source_disk_id' argument")
+        if source_disk_name is None and 'sourceDiskName' in kwargs:
+            source_disk_name = kwargs['sourceDiskName']
+        if source_disk_name is None:
+            raise TypeError("Missing 'source_disk_name' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if storage_container_local_path is None and 'storageContainerLocalPath' in kwargs:
+            storage_container_local_path = kwargs['storageContainerLocalPath']
+        if storage_container_local_path is None:
+            raise TypeError("Missing 'storage_container_local_path' argument")
+        if test_migrate_disk_name is None and 'testMigrateDiskName' in kwargs:
+            test_migrate_disk_name = kwargs['testMigrateDiskName']
+        if test_migrate_disk_name is None:
+            raise TypeError("Missing 'test_migrate_disk_name' argument")
+
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("disk_type", disk_type)
+        _setter("is_dynamic", is_dynamic)
+        _setter("is_os_disk", is_os_disk)
+        _setter("migrate_disk_name", migrate_disk_name)
+        _setter("seed_disk_name", seed_disk_name)
+        _setter("source_disk_id", source_disk_id)
+        _setter("source_disk_name", source_disk_name)
+        _setter("storage_container_id", storage_container_id)
+        _setter("storage_container_local_path", storage_container_local_path)
+        _setter("test_migrate_disk_name", test_migrate_disk_name)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -4844,61 +6699,336 @@ class VMwareToAzStackHCIProtectedItemModelCustomPropertiesResponse(dict):
         :param str target_vm_name: Gets or sets the target VM display name.
         :param str test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         """
-        pulumi.set(__self__, "active_location", active_location)
-        pulumi.set(__self__, "custom_location_region", custom_location_region)
-        pulumi.set(__self__, "disks_to_include", disks_to_include)
-        pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
-        pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
-        pulumi.set(__self__, "firmware_type", firmware_type)
-        pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
-        pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
-        pulumi.set(__self__, "instance_type", 'VMwareToAzStackHCI')
-        pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
-        pulumi.set(__self__, "last_replication_update_time", last_replication_update_time)
-        pulumi.set(__self__, "migration_progress_percentage", migration_progress_percentage)
-        pulumi.set(__self__, "nics_to_include", nics_to_include)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "protected_disks", protected_disks)
-        pulumi.set(__self__, "protected_nics", protected_nics)
-        pulumi.set(__self__, "resume_progress_percentage", resume_progress_percentage)
-        pulumi.set(__self__, "resume_retry_count", resume_retry_count)
-        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
-        pulumi.set(__self__, "resync_required", resync_required)
-        pulumi.set(__self__, "resync_retry_count", resync_retry_count)
-        pulumi.set(__self__, "resync_state", resync_state)
-        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "source_appliance_name", source_appliance_name)
-        pulumi.set(__self__, "source_cpu_cores", source_cpu_cores)
-        pulumi.set(__self__, "source_dra_name", source_dra_name)
-        pulumi.set(__self__, "source_memory_in_mega_bytes", source_memory_in_mega_bytes)
-        pulumi.set(__self__, "source_vm_name", source_vm_name)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        pulumi.set(__self__, "target_appliance_name", target_appliance_name)
-        pulumi.set(__self__, "target_arc_cluster_custom_location_id", target_arc_cluster_custom_location_id)
-        pulumi.set(__self__, "target_az_stack_hci_cluster_name", target_az_stack_hci_cluster_name)
-        pulumi.set(__self__, "target_dra_name", target_dra_name)
-        pulumi.set(__self__, "target_hci_cluster_id", target_hci_cluster_id)
-        pulumi.set(__self__, "target_location", target_location)
-        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
-        pulumi.set(__self__, "target_vm_bios_id", target_vm_bios_id)
+        VMwareToAzStackHCIProtectedItemModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_location=active_location,
+            custom_location_region=custom_location_region,
+            disks_to_include=disks_to_include,
+            fabric_discovery_machine_id=fabric_discovery_machine_id,
+            failover_recovery_point_id=failover_recovery_point_id,
+            firmware_type=firmware_type,
+            hyper_v_generation=hyper_v_generation,
+            initial_replication_progress_percentage=initial_replication_progress_percentage,
+            instance_type=instance_type,
+            last_recovery_point_id=last_recovery_point_id,
+            last_recovery_point_received=last_recovery_point_received,
+            last_replication_update_time=last_replication_update_time,
+            migration_progress_percentage=migration_progress_percentage,
+            nics_to_include=nics_to_include,
+            os_name=os_name,
+            os_type=os_type,
+            protected_disks=protected_disks,
+            protected_nics=protected_nics,
+            resume_progress_percentage=resume_progress_percentage,
+            resume_retry_count=resume_retry_count,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_retry_count=resync_retry_count,
+            resync_state=resync_state,
+            run_as_account_id=run_as_account_id,
+            source_appliance_name=source_appliance_name,
+            source_cpu_cores=source_cpu_cores,
+            source_dra_name=source_dra_name,
+            source_memory_in_mega_bytes=source_memory_in_mega_bytes,
+            source_vm_name=source_vm_name,
+            storage_container_id=storage_container_id,
+            target_appliance_name=target_appliance_name,
+            target_arc_cluster_custom_location_id=target_arc_cluster_custom_location_id,
+            target_az_stack_hci_cluster_name=target_az_stack_hci_cluster_name,
+            target_dra_name=target_dra_name,
+            target_hci_cluster_id=target_hci_cluster_id,
+            target_location=target_location,
+            target_resource_group_id=target_resource_group_id,
+            target_vm_bios_id=target_vm_bios_id,
+            dynamic_memory_config=dynamic_memory_config,
+            is_dynamic_ram=is_dynamic_ram,
+            perform_auto_resync=perform_auto_resync,
+            target_cpu_cores=target_cpu_cores,
+            target_memory_in_mega_bytes=target_memory_in_mega_bytes,
+            target_network_id=target_network_id,
+            target_vm_name=target_vm_name,
+            test_network_id=test_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_location: Optional[str] = None,
+             custom_location_region: Optional[str] = None,
+             disks_to_include: Optional[Sequence['outputs.VMwareToAzStackHCIDiskInputResponse']] = None,
+             fabric_discovery_machine_id: Optional[str] = None,
+             failover_recovery_point_id: Optional[str] = None,
+             firmware_type: Optional[str] = None,
+             hyper_v_generation: Optional[str] = None,
+             initial_replication_progress_percentage: Optional[int] = None,
+             instance_type: Optional[str] = None,
+             last_recovery_point_id: Optional[str] = None,
+             last_recovery_point_received: Optional[str] = None,
+             last_replication_update_time: Optional[str] = None,
+             migration_progress_percentage: Optional[int] = None,
+             nics_to_include: Optional[Sequence['outputs.VMwareToAzStackHCINicInputResponse']] = None,
+             os_name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.VMwareToAzStackHCIProtectedDiskPropertiesResponse']] = None,
+             protected_nics: Optional[Sequence['outputs.VMwareToAzStackHCIProtectedNicPropertiesResponse']] = None,
+             resume_progress_percentage: Optional[int] = None,
+             resume_retry_count: Optional[float] = None,
+             resync_progress_percentage: Optional[int] = None,
+             resync_required: Optional[bool] = None,
+             resync_retry_count: Optional[float] = None,
+             resync_state: Optional[str] = None,
+             run_as_account_id: Optional[str] = None,
+             source_appliance_name: Optional[str] = None,
+             source_cpu_cores: Optional[int] = None,
+             source_dra_name: Optional[str] = None,
+             source_memory_in_mega_bytes: Optional[float] = None,
+             source_vm_name: Optional[str] = None,
+             storage_container_id: Optional[str] = None,
+             target_appliance_name: Optional[str] = None,
+             target_arc_cluster_custom_location_id: Optional[str] = None,
+             target_az_stack_hci_cluster_name: Optional[str] = None,
+             target_dra_name: Optional[str] = None,
+             target_hci_cluster_id: Optional[str] = None,
+             target_location: Optional[str] = None,
+             target_resource_group_id: Optional[str] = None,
+             target_vm_bios_id: Optional[str] = None,
+             dynamic_memory_config: Optional['outputs.ProtectedItemDynamicMemoryConfigResponse'] = None,
+             is_dynamic_ram: Optional[bool] = None,
+             perform_auto_resync: Optional[bool] = None,
+             target_cpu_cores: Optional[int] = None,
+             target_memory_in_mega_bytes: Optional[int] = None,
+             target_network_id: Optional[str] = None,
+             target_vm_name: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_location is None and 'activeLocation' in kwargs:
+            active_location = kwargs['activeLocation']
+        if active_location is None:
+            raise TypeError("Missing 'active_location' argument")
+        if custom_location_region is None and 'customLocationRegion' in kwargs:
+            custom_location_region = kwargs['customLocationRegion']
+        if custom_location_region is None:
+            raise TypeError("Missing 'custom_location_region' argument")
+        if disks_to_include is None and 'disksToInclude' in kwargs:
+            disks_to_include = kwargs['disksToInclude']
+        if disks_to_include is None:
+            raise TypeError("Missing 'disks_to_include' argument")
+        if fabric_discovery_machine_id is None and 'fabricDiscoveryMachineId' in kwargs:
+            fabric_discovery_machine_id = kwargs['fabricDiscoveryMachineId']
+        if fabric_discovery_machine_id is None:
+            raise TypeError("Missing 'fabric_discovery_machine_id' argument")
+        if failover_recovery_point_id is None and 'failoverRecoveryPointId' in kwargs:
+            failover_recovery_point_id = kwargs['failoverRecoveryPointId']
+        if failover_recovery_point_id is None:
+            raise TypeError("Missing 'failover_recovery_point_id' argument")
+        if firmware_type is None and 'firmwareType' in kwargs:
+            firmware_type = kwargs['firmwareType']
+        if firmware_type is None:
+            raise TypeError("Missing 'firmware_type' argument")
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if hyper_v_generation is None:
+            raise TypeError("Missing 'hyper_v_generation' argument")
+        if initial_replication_progress_percentage is None and 'initialReplicationProgressPercentage' in kwargs:
+            initial_replication_progress_percentage = kwargs['initialReplicationProgressPercentage']
+        if initial_replication_progress_percentage is None:
+            raise TypeError("Missing 'initial_replication_progress_percentage' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if last_recovery_point_id is None and 'lastRecoveryPointId' in kwargs:
+            last_recovery_point_id = kwargs['lastRecoveryPointId']
+        if last_recovery_point_id is None:
+            raise TypeError("Missing 'last_recovery_point_id' argument")
+        if last_recovery_point_received is None and 'lastRecoveryPointReceived' in kwargs:
+            last_recovery_point_received = kwargs['lastRecoveryPointReceived']
+        if last_recovery_point_received is None:
+            raise TypeError("Missing 'last_recovery_point_received' argument")
+        if last_replication_update_time is None and 'lastReplicationUpdateTime' in kwargs:
+            last_replication_update_time = kwargs['lastReplicationUpdateTime']
+        if last_replication_update_time is None:
+            raise TypeError("Missing 'last_replication_update_time' argument")
+        if migration_progress_percentage is None and 'migrationProgressPercentage' in kwargs:
+            migration_progress_percentage = kwargs['migrationProgressPercentage']
+        if migration_progress_percentage is None:
+            raise TypeError("Missing 'migration_progress_percentage' argument")
+        if nics_to_include is None and 'nicsToInclude' in kwargs:
+            nics_to_include = kwargs['nicsToInclude']
+        if nics_to_include is None:
+            raise TypeError("Missing 'nics_to_include' argument")
+        if os_name is None and 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if os_name is None:
+            raise TypeError("Missing 'os_name' argument")
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if protected_disks is None and 'protectedDisks' in kwargs:
+            protected_disks = kwargs['protectedDisks']
+        if protected_disks is None:
+            raise TypeError("Missing 'protected_disks' argument")
+        if protected_nics is None and 'protectedNics' in kwargs:
+            protected_nics = kwargs['protectedNics']
+        if protected_nics is None:
+            raise TypeError("Missing 'protected_nics' argument")
+        if resume_progress_percentage is None and 'resumeProgressPercentage' in kwargs:
+            resume_progress_percentage = kwargs['resumeProgressPercentage']
+        if resume_progress_percentage is None:
+            raise TypeError("Missing 'resume_progress_percentage' argument")
+        if resume_retry_count is None and 'resumeRetryCount' in kwargs:
+            resume_retry_count = kwargs['resumeRetryCount']
+        if resume_retry_count is None:
+            raise TypeError("Missing 'resume_retry_count' argument")
+        if resync_progress_percentage is None and 'resyncProgressPercentage' in kwargs:
+            resync_progress_percentage = kwargs['resyncProgressPercentage']
+        if resync_progress_percentage is None:
+            raise TypeError("Missing 'resync_progress_percentage' argument")
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if resync_required is None:
+            raise TypeError("Missing 'resync_required' argument")
+        if resync_retry_count is None and 'resyncRetryCount' in kwargs:
+            resync_retry_count = kwargs['resyncRetryCount']
+        if resync_retry_count is None:
+            raise TypeError("Missing 'resync_retry_count' argument")
+        if resync_state is None and 'resyncState' in kwargs:
+            resync_state = kwargs['resyncState']
+        if resync_state is None:
+            raise TypeError("Missing 'resync_state' argument")
+        if run_as_account_id is None and 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+        if run_as_account_id is None:
+            raise TypeError("Missing 'run_as_account_id' argument")
+        if source_appliance_name is None and 'sourceApplianceName' in kwargs:
+            source_appliance_name = kwargs['sourceApplianceName']
+        if source_appliance_name is None:
+            raise TypeError("Missing 'source_appliance_name' argument")
+        if source_cpu_cores is None and 'sourceCpuCores' in kwargs:
+            source_cpu_cores = kwargs['sourceCpuCores']
+        if source_cpu_cores is None:
+            raise TypeError("Missing 'source_cpu_cores' argument")
+        if source_dra_name is None and 'sourceDraName' in kwargs:
+            source_dra_name = kwargs['sourceDraName']
+        if source_dra_name is None:
+            raise TypeError("Missing 'source_dra_name' argument")
+        if source_memory_in_mega_bytes is None and 'sourceMemoryInMegaBytes' in kwargs:
+            source_memory_in_mega_bytes = kwargs['sourceMemoryInMegaBytes']
+        if source_memory_in_mega_bytes is None:
+            raise TypeError("Missing 'source_memory_in_mega_bytes' argument")
+        if source_vm_name is None and 'sourceVmName' in kwargs:
+            source_vm_name = kwargs['sourceVmName']
+        if source_vm_name is None:
+            raise TypeError("Missing 'source_vm_name' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if target_appliance_name is None and 'targetApplianceName' in kwargs:
+            target_appliance_name = kwargs['targetApplianceName']
+        if target_appliance_name is None:
+            raise TypeError("Missing 'target_appliance_name' argument")
+        if target_arc_cluster_custom_location_id is None and 'targetArcClusterCustomLocationId' in kwargs:
+            target_arc_cluster_custom_location_id = kwargs['targetArcClusterCustomLocationId']
+        if target_arc_cluster_custom_location_id is None:
+            raise TypeError("Missing 'target_arc_cluster_custom_location_id' argument")
+        if target_az_stack_hci_cluster_name is None and 'targetAzStackHciClusterName' in kwargs:
+            target_az_stack_hci_cluster_name = kwargs['targetAzStackHciClusterName']
+        if target_az_stack_hci_cluster_name is None:
+            raise TypeError("Missing 'target_az_stack_hci_cluster_name' argument")
+        if target_dra_name is None and 'targetDraName' in kwargs:
+            target_dra_name = kwargs['targetDraName']
+        if target_dra_name is None:
+            raise TypeError("Missing 'target_dra_name' argument")
+        if target_hci_cluster_id is None and 'targetHciClusterId' in kwargs:
+            target_hci_cluster_id = kwargs['targetHciClusterId']
+        if target_hci_cluster_id is None:
+            raise TypeError("Missing 'target_hci_cluster_id' argument")
+        if target_location is None and 'targetLocation' in kwargs:
+            target_location = kwargs['targetLocation']
+        if target_location is None:
+            raise TypeError("Missing 'target_location' argument")
+        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if target_resource_group_id is None:
+            raise TypeError("Missing 'target_resource_group_id' argument")
+        if target_vm_bios_id is None and 'targetVmBiosId' in kwargs:
+            target_vm_bios_id = kwargs['targetVmBiosId']
+        if target_vm_bios_id is None:
+            raise TypeError("Missing 'target_vm_bios_id' argument")
+        if dynamic_memory_config is None and 'dynamicMemoryConfig' in kwargs:
+            dynamic_memory_config = kwargs['dynamicMemoryConfig']
+        if is_dynamic_ram is None and 'isDynamicRam' in kwargs:
+            is_dynamic_ram = kwargs['isDynamicRam']
+        if perform_auto_resync is None and 'performAutoResync' in kwargs:
+            perform_auto_resync = kwargs['performAutoResync']
+        if target_cpu_cores is None and 'targetCpuCores' in kwargs:
+            target_cpu_cores = kwargs['targetCpuCores']
+        if target_memory_in_mega_bytes is None and 'targetMemoryInMegaBytes' in kwargs:
+            target_memory_in_mega_bytes = kwargs['targetMemoryInMegaBytes']
+        if target_network_id is None and 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if target_vm_name is None and 'targetVmName' in kwargs:
+            target_vm_name = kwargs['targetVmName']
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+
+        _setter("active_location", active_location)
+        _setter("custom_location_region", custom_location_region)
+        _setter("disks_to_include", disks_to_include)
+        _setter("fabric_discovery_machine_id", fabric_discovery_machine_id)
+        _setter("failover_recovery_point_id", failover_recovery_point_id)
+        _setter("firmware_type", firmware_type)
+        _setter("hyper_v_generation", hyper_v_generation)
+        _setter("initial_replication_progress_percentage", initial_replication_progress_percentage)
+        _setter("instance_type", 'VMwareToAzStackHCI')
+        _setter("last_recovery_point_id", last_recovery_point_id)
+        _setter("last_recovery_point_received", last_recovery_point_received)
+        _setter("last_replication_update_time", last_replication_update_time)
+        _setter("migration_progress_percentage", migration_progress_percentage)
+        _setter("nics_to_include", nics_to_include)
+        _setter("os_name", os_name)
+        _setter("os_type", os_type)
+        _setter("protected_disks", protected_disks)
+        _setter("protected_nics", protected_nics)
+        _setter("resume_progress_percentage", resume_progress_percentage)
+        _setter("resume_retry_count", resume_retry_count)
+        _setter("resync_progress_percentage", resync_progress_percentage)
+        _setter("resync_required", resync_required)
+        _setter("resync_retry_count", resync_retry_count)
+        _setter("resync_state", resync_state)
+        _setter("run_as_account_id", run_as_account_id)
+        _setter("source_appliance_name", source_appliance_name)
+        _setter("source_cpu_cores", source_cpu_cores)
+        _setter("source_dra_name", source_dra_name)
+        _setter("source_memory_in_mega_bytes", source_memory_in_mega_bytes)
+        _setter("source_vm_name", source_vm_name)
+        _setter("storage_container_id", storage_container_id)
+        _setter("target_appliance_name", target_appliance_name)
+        _setter("target_arc_cluster_custom_location_id", target_arc_cluster_custom_location_id)
+        _setter("target_az_stack_hci_cluster_name", target_az_stack_hci_cluster_name)
+        _setter("target_dra_name", target_dra_name)
+        _setter("target_hci_cluster_id", target_hci_cluster_id)
+        _setter("target_location", target_location)
+        _setter("target_resource_group_id", target_resource_group_id)
+        _setter("target_vm_bios_id", target_vm_bios_id)
         if dynamic_memory_config is not None:
-            pulumi.set(__self__, "dynamic_memory_config", dynamic_memory_config)
+            _setter("dynamic_memory_config", dynamic_memory_config)
         if is_dynamic_ram is not None:
-            pulumi.set(__self__, "is_dynamic_ram", is_dynamic_ram)
+            _setter("is_dynamic_ram", is_dynamic_ram)
         if perform_auto_resync is not None:
-            pulumi.set(__self__, "perform_auto_resync", perform_auto_resync)
+            _setter("perform_auto_resync", perform_auto_resync)
         if target_cpu_cores is not None:
-            pulumi.set(__self__, "target_cpu_cores", target_cpu_cores)
+            _setter("target_cpu_cores", target_cpu_cores)
         if target_memory_in_mega_bytes is not None:
-            pulumi.set(__self__, "target_memory_in_mega_bytes", target_memory_in_mega_bytes)
+            _setter("target_memory_in_mega_bytes", target_memory_in_mega_bytes)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
 
     @property
     @pulumi.getter(name="activeLocation")
@@ -5334,15 +7464,68 @@ class VMwareToAzStackHCIProtectedNicPropertiesResponse(dict):
         :param str test_network_id: Gets or sets the target test network Id within AzStackHCI Cluster.
         :param bool is_primary_nic: Gets or sets a value indicating whether this is the primary NIC.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "network_name", network_name)
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "selection_type_for_failover", selection_type_for_failover)
-        pulumi.set(__self__, "target_network_id", target_network_id)
-        pulumi.set(__self__, "test_network_id", test_network_id)
+        VMwareToAzStackHCIProtectedNicPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            mac_address=mac_address,
+            network_name=network_name,
+            nic_id=nic_id,
+            selection_type_for_failover=selection_type_for_failover,
+            target_network_id=target_network_id,
+            test_network_id=test_network_id,
+            is_primary_nic=is_primary_nic,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[str] = None,
+             mac_address: Optional[str] = None,
+             network_name: Optional[str] = None,
+             nic_id: Optional[str] = None,
+             selection_type_for_failover: Optional[str] = None,
+             target_network_id: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             is_primary_nic: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if mac_address is None:
+            raise TypeError("Missing 'mac_address' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if nic_id is None and 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if nic_id is None:
+            raise TypeError("Missing 'nic_id' argument")
+        if selection_type_for_failover is None and 'selectionTypeForFailover' in kwargs:
+            selection_type_for_failover = kwargs['selectionTypeForFailover']
+        if selection_type_for_failover is None:
+            raise TypeError("Missing 'selection_type_for_failover' argument")
+        if target_network_id is None and 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if target_network_id is None:
+            raise TypeError("Missing 'target_network_id' argument")
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if test_network_id is None:
+            raise TypeError("Missing 'test_network_id' argument")
+        if is_primary_nic is None and 'isPrimaryNic' in kwargs:
+            is_primary_nic = kwargs['isPrimaryNic']
+
+        _setter("label", label)
+        _setter("mac_address", mac_address)
+        _setter("network_name", network_name)
+        _setter("nic_id", nic_id)
+        _setter("selection_type_for_failover", selection_type_for_failover)
+        _setter("target_network_id", target_network_id)
+        _setter("test_network_id", test_network_id)
         if is_primary_nic is not None:
-            pulumi.set(__self__, "is_primary_nic", is_primary_nic)
+            _setter("is_primary_nic", is_primary_nic)
 
     @property
     @pulumi.getter
@@ -5502,25 +7685,132 @@ class VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesResponse(dict):
         :param str storage_account_id: Gets or sets the storage account Id.
         :param str storage_account_sas_secret_name: Gets or sets the Sas Secret of storage account.
         """
-        pulumi.set(__self__, "asr_service_uri", asr_service_uri)
-        pulumi.set(__self__, "az_stack_hci_fabric_arm_id", az_stack_hci_fabric_arm_id)
-        pulumi.set(__self__, "az_stack_hci_site_id", az_stack_hci_site_id)
-        pulumi.set(__self__, "gateway_service_uri", gateway_service_uri)
-        pulumi.set(__self__, "instance_type", 'VMwareToAzStackHCI')
-        pulumi.set(__self__, "rcm_service_uri", rcm_service_uri)
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "resource_location", resource_location)
-        pulumi.set(__self__, "source_gateway_service_id", source_gateway_service_id)
-        pulumi.set(__self__, "source_storage_container_name", source_storage_container_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "target_gateway_service_id", target_gateway_service_id)
-        pulumi.set(__self__, "target_storage_container_name", target_storage_container_name)
-        pulumi.set(__self__, "vmware_fabric_arm_id", vmware_fabric_arm_id)
-        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        VMwareToAzStackHCIReplicationExtensionModelCustomPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asr_service_uri=asr_service_uri,
+            az_stack_hci_fabric_arm_id=az_stack_hci_fabric_arm_id,
+            az_stack_hci_site_id=az_stack_hci_site_id,
+            gateway_service_uri=gateway_service_uri,
+            instance_type=instance_type,
+            rcm_service_uri=rcm_service_uri,
+            resource_group=resource_group,
+            resource_location=resource_location,
+            source_gateway_service_id=source_gateway_service_id,
+            source_storage_container_name=source_storage_container_name,
+            subscription_id=subscription_id,
+            target_gateway_service_id=target_gateway_service_id,
+            target_storage_container_name=target_storage_container_name,
+            vmware_fabric_arm_id=vmware_fabric_arm_id,
+            vmware_site_id=vmware_site_id,
+            storage_account_id=storage_account_id,
+            storage_account_sas_secret_name=storage_account_sas_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asr_service_uri: Optional[str] = None,
+             az_stack_hci_fabric_arm_id: Optional[str] = None,
+             az_stack_hci_site_id: Optional[str] = None,
+             gateway_service_uri: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             rcm_service_uri: Optional[str] = None,
+             resource_group: Optional[str] = None,
+             resource_location: Optional[str] = None,
+             source_gateway_service_id: Optional[str] = None,
+             source_storage_container_name: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             target_gateway_service_id: Optional[str] = None,
+             target_storage_container_name: Optional[str] = None,
+             vmware_fabric_arm_id: Optional[str] = None,
+             vmware_site_id: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             storage_account_sas_secret_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asr_service_uri is None and 'asrServiceUri' in kwargs:
+            asr_service_uri = kwargs['asrServiceUri']
+        if asr_service_uri is None:
+            raise TypeError("Missing 'asr_service_uri' argument")
+        if az_stack_hci_fabric_arm_id is None and 'azStackHciFabricArmId' in kwargs:
+            az_stack_hci_fabric_arm_id = kwargs['azStackHciFabricArmId']
+        if az_stack_hci_fabric_arm_id is None:
+            raise TypeError("Missing 'az_stack_hci_fabric_arm_id' argument")
+        if az_stack_hci_site_id is None and 'azStackHciSiteId' in kwargs:
+            az_stack_hci_site_id = kwargs['azStackHciSiteId']
+        if az_stack_hci_site_id is None:
+            raise TypeError("Missing 'az_stack_hci_site_id' argument")
+        if gateway_service_uri is None and 'gatewayServiceUri' in kwargs:
+            gateway_service_uri = kwargs['gatewayServiceUri']
+        if gateway_service_uri is None:
+            raise TypeError("Missing 'gateway_service_uri' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if rcm_service_uri is None and 'rcmServiceUri' in kwargs:
+            rcm_service_uri = kwargs['rcmServiceUri']
+        if rcm_service_uri is None:
+            raise TypeError("Missing 'rcm_service_uri' argument")
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if resource_location is None and 'resourceLocation' in kwargs:
+            resource_location = kwargs['resourceLocation']
+        if resource_location is None:
+            raise TypeError("Missing 'resource_location' argument")
+        if source_gateway_service_id is None and 'sourceGatewayServiceId' in kwargs:
+            source_gateway_service_id = kwargs['sourceGatewayServiceId']
+        if source_gateway_service_id is None:
+            raise TypeError("Missing 'source_gateway_service_id' argument")
+        if source_storage_container_name is None and 'sourceStorageContainerName' in kwargs:
+            source_storage_container_name = kwargs['sourceStorageContainerName']
+        if source_storage_container_name is None:
+            raise TypeError("Missing 'source_storage_container_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if target_gateway_service_id is None and 'targetGatewayServiceId' in kwargs:
+            target_gateway_service_id = kwargs['targetGatewayServiceId']
+        if target_gateway_service_id is None:
+            raise TypeError("Missing 'target_gateway_service_id' argument")
+        if target_storage_container_name is None and 'targetStorageContainerName' in kwargs:
+            target_storage_container_name = kwargs['targetStorageContainerName']
+        if target_storage_container_name is None:
+            raise TypeError("Missing 'target_storage_container_name' argument")
+        if vmware_fabric_arm_id is None and 'vmwareFabricArmId' in kwargs:
+            vmware_fabric_arm_id = kwargs['vmwareFabricArmId']
+        if vmware_fabric_arm_id is None:
+            raise TypeError("Missing 'vmware_fabric_arm_id' argument")
+        if vmware_site_id is None and 'vmwareSiteId' in kwargs:
+            vmware_site_id = kwargs['vmwareSiteId']
+        if vmware_site_id is None:
+            raise TypeError("Missing 'vmware_site_id' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_sas_secret_name is None and 'storageAccountSasSecretName' in kwargs:
+            storage_account_sas_secret_name = kwargs['storageAccountSasSecretName']
+
+        _setter("asr_service_uri", asr_service_uri)
+        _setter("az_stack_hci_fabric_arm_id", az_stack_hci_fabric_arm_id)
+        _setter("az_stack_hci_site_id", az_stack_hci_site_id)
+        _setter("gateway_service_uri", gateway_service_uri)
+        _setter("instance_type", 'VMwareToAzStackHCI')
+        _setter("rcm_service_uri", rcm_service_uri)
+        _setter("resource_group", resource_group)
+        _setter("resource_location", resource_location)
+        _setter("source_gateway_service_id", source_gateway_service_id)
+        _setter("source_storage_container_name", source_storage_container_name)
+        _setter("subscription_id", subscription_id)
+        _setter("target_gateway_service_id", target_gateway_service_id)
+        _setter("target_storage_container_name", target_storage_container_name)
+        _setter("vmware_fabric_arm_id", vmware_fabric_arm_id)
+        _setter("vmware_site_id", vmware_site_id)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if storage_account_sas_secret_name is not None:
-            pulumi.set(__self__, "storage_account_sas_secret_name", storage_account_sas_secret_name)
+            _setter("storage_account_sas_secret_name", storage_account_sas_secret_name)
 
     @property
     @pulumi.getter(name="asrServiceUri")
@@ -5696,10 +7986,35 @@ class VaultModelPropertiesResponse(dict):
         :param str service_resource_id: Gets or sets the service resource Id.
         :param str vault_type: Gets or sets the type of vault.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "service_resource_id", service_resource_id)
+        VaultModelPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            service_resource_id=service_resource_id,
+            vault_type=vault_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             service_resource_id: Optional[str] = None,
+             vault_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if service_resource_id is None and 'serviceResourceId' in kwargs:
+            service_resource_id = kwargs['serviceResourceId']
+        if service_resource_id is None:
+            raise TypeError("Missing 'service_resource_id' argument")
+        if vault_type is None and 'vaultType' in kwargs:
+            vault_type = kwargs['vaultType']
+
+        _setter("provisioning_state", provisioning_state)
+        _setter("service_resource_id", service_resource_id)
         if vault_type is not None:
-            pulumi.set(__self__, "vault_type", vault_type)
+            _setter("vault_type", vault_type)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -5772,18 +8087,51 @@ class VaultModelResponseSystemData(dict):
         :param str last_modified_by_type: Gets or sets the type of identity that last modified the resource: user, application,
                managedIdentity.
         """
+        VaultModelResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

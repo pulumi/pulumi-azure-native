@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -46,8 +46,21 @@ class DelegatedSubnetArgumentsResponse(dict):
         Delegated subnet arguments of a server
         :param str subnet_arm_resource_id: delegated subnet arm resource id.
         """
+        DelegatedSubnetArgumentsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_arm_resource_id=subnet_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_arm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_arm_resource_id is None and 'subnetArmResourceId' in kwargs:
+            subnet_arm_resource_id = kwargs['subnetArmResourceId']
+
         if subnet_arm_resource_id is not None:
-            pulumi.set(__self__, "subnet_arm_resource_id", subnet_arm_resource_id)
+            _setter("subnet_arm_resource_id", subnet_arm_resource_id)
 
     @property
     @pulumi.getter(name="subnetArmResourceId")
@@ -92,10 +105,33 @@ class IdentityResponse(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -162,14 +198,39 @@ class MaintenanceWindowResponse(dict):
         :param int start_hour: start hour for maintenance window
         :param int start_minute: start minute for maintenance window
         """
+        MaintenanceWindowResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_window=custom_window,
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_window: Optional[str] = None,
+             day_of_week: Optional[int] = None,
+             start_hour: Optional[int] = None,
+             start_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_window is None and 'customWindow' in kwargs:
+            custom_window = kwargs['customWindow']
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if start_hour is None and 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if start_minute is None and 'startMinute' in kwargs:
+            start_minute = kwargs['startMinute']
+
         if custom_window is not None:
-            pulumi.set(__self__, "custom_window", custom_window)
+            _setter("custom_window", custom_window)
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if start_hour is not None:
-            pulumi.set(__self__, "start_hour", start_hour)
+            _setter("start_hour", start_hour)
         if start_minute is not None:
-            pulumi.set(__self__, "start_minute", start_minute)
+            _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="customWindow")
@@ -217,8 +278,25 @@ class SkuResponse(dict):
         :param str name: The name of the sku, e.g. Standard_D32s_v3.
         :param str tier: The tier of the particular SKU, e.g. GeneralPurpose.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -281,15 +359,46 @@ class StorageProfileResponse(dict):
         :param int storage_iops: Storage IOPS for a server.
         :param int storage_mb: Max storage allowed for a server.
         """
-        pulumi.set(__self__, "file_storage_sku_name", file_storage_sku_name)
+        StorageProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_storage_sku_name=file_storage_sku_name,
+            backup_retention_days=backup_retention_days,
+            storage_autogrow=storage_autogrow,
+            storage_iops=storage_iops,
+            storage_mb=storage_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_storage_sku_name: Optional[str] = None,
+             backup_retention_days: Optional[int] = None,
+             storage_autogrow: Optional[str] = None,
+             storage_iops: Optional[int] = None,
+             storage_mb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_storage_sku_name is None and 'fileStorageSkuName' in kwargs:
+            file_storage_sku_name = kwargs['fileStorageSkuName']
+        if file_storage_sku_name is None:
+            raise TypeError("Missing 'file_storage_sku_name' argument")
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if storage_autogrow is None and 'storageAutogrow' in kwargs:
+            storage_autogrow = kwargs['storageAutogrow']
+        if storage_iops is None and 'storageIops' in kwargs:
+            storage_iops = kwargs['storageIops']
+        if storage_mb is None and 'storageMB' in kwargs:
+            storage_mb = kwargs['storageMB']
+
+        _setter("file_storage_sku_name", file_storage_sku_name)
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if storage_autogrow is not None:
-            pulumi.set(__self__, "storage_autogrow", storage_autogrow)
+            _setter("storage_autogrow", storage_autogrow)
         if storage_iops is not None:
-            pulumi.set(__self__, "storage_iops", storage_iops)
+            _setter("storage_iops", storage_iops)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
 
     @property
     @pulumi.getter(name="fileStorageSkuName")

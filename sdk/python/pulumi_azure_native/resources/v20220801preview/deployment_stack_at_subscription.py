@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,28 +44,79 @@ class DeploymentStackAtSubscriptionArgs:
         :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         :param pulumi.Input['DeploymentStacksTemplateLinkArgs'] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
         """
-        pulumi.set(__self__, "action_on_unmanage", action_on_unmanage)
-        pulumi.set(__self__, "deny_settings", deny_settings)
+        DeploymentStackAtSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_on_unmanage=action_on_unmanage,
+            deny_settings=deny_settings,
+            debug_setting=debug_setting,
+            deployment_scope=deployment_scope,
+            deployment_stack_name=deployment_stack_name,
+            description=description,
+            location=location,
+            parameters=parameters,
+            parameters_link=parameters_link,
+            tags=tags,
+            template=template,
+            template_link=template_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_on_unmanage: Optional[pulumi.Input['DeploymentStackPropertiesActionOnUnmanageArgs']] = None,
+             deny_settings: Optional[pulumi.Input['DenySettingsArgs']] = None,
+             debug_setting: Optional[pulumi.Input['DeploymentStacksDebugSettingArgs']] = None,
+             deployment_scope: Optional[pulumi.Input[str]] = None,
+             deployment_stack_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[Any] = None,
+             parameters_link: Optional[pulumi.Input['DeploymentStacksParametersLinkArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template: Optional[Any] = None,
+             template_link: Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_on_unmanage is None and 'actionOnUnmanage' in kwargs:
+            action_on_unmanage = kwargs['actionOnUnmanage']
+        if action_on_unmanage is None:
+            raise TypeError("Missing 'action_on_unmanage' argument")
+        if deny_settings is None and 'denySettings' in kwargs:
+            deny_settings = kwargs['denySettings']
+        if deny_settings is None:
+            raise TypeError("Missing 'deny_settings' argument")
+        if debug_setting is None and 'debugSetting' in kwargs:
+            debug_setting = kwargs['debugSetting']
+        if deployment_scope is None and 'deploymentScope' in kwargs:
+            deployment_scope = kwargs['deploymentScope']
+        if deployment_stack_name is None and 'deploymentStackName' in kwargs:
+            deployment_stack_name = kwargs['deploymentStackName']
+        if parameters_link is None and 'parametersLink' in kwargs:
+            parameters_link = kwargs['parametersLink']
+        if template_link is None and 'templateLink' in kwargs:
+            template_link = kwargs['templateLink']
+
+        _setter("action_on_unmanage", action_on_unmanage)
+        _setter("deny_settings", deny_settings)
         if debug_setting is not None:
-            pulumi.set(__self__, "debug_setting", debug_setting)
+            _setter("debug_setting", debug_setting)
         if deployment_scope is not None:
-            pulumi.set(__self__, "deployment_scope", deployment_scope)
+            _setter("deployment_scope", deployment_scope)
         if deployment_stack_name is not None:
-            pulumi.set(__self__, "deployment_stack_name", deployment_stack_name)
+            _setter("deployment_stack_name", deployment_stack_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if parameters_link is not None:
-            pulumi.set(__self__, "parameters_link", parameters_link)
+            _setter("parameters_link", parameters_link)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if template_link is not None:
-            pulumi.set(__self__, "template_link", template_link)
+            _setter("template_link", template_link)
 
     @property
     @pulumi.getter(name="actionOnUnmanage")
@@ -267,6 +318,10 @@ class DeploymentStackAtSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentStackAtSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -293,10 +348,13 @@ class DeploymentStackAtSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentStackAtSubscriptionArgs.__new__(DeploymentStackAtSubscriptionArgs)
 
+            action_on_unmanage = _utilities.configure(action_on_unmanage, DeploymentStackPropertiesActionOnUnmanageArgs, True)
             if action_on_unmanage is None and not opts.urn:
                 raise TypeError("Missing required property 'action_on_unmanage'")
             __props__.__dict__["action_on_unmanage"] = action_on_unmanage
+            debug_setting = _utilities.configure(debug_setting, DeploymentStacksDebugSettingArgs, True)
             __props__.__dict__["debug_setting"] = debug_setting
+            deny_settings = _utilities.configure(deny_settings, DenySettingsArgs, True)
             if deny_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'deny_settings'")
             __props__.__dict__["deny_settings"] = deny_settings
@@ -305,9 +363,11 @@ class DeploymentStackAtSubscription(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location
             __props__.__dict__["parameters"] = parameters
+            parameters_link = _utilities.configure(parameters_link, DeploymentStacksParametersLinkArgs, True)
             __props__.__dict__["parameters_link"] = parameters_link
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template"] = template
+            template_link = _utilities.configure(template_link, DeploymentStacksTemplateLinkArgs, True)
             __props__.__dict__["template_link"] = template_link
             __props__.__dict__["deleted_resources"] = None
             __props__.__dict__["deployment_id"] = None

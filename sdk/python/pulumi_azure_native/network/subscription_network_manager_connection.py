@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -24,12 +24,31 @@ class SubscriptionNetworkManagerConnectionArgs:
         :param pulumi.Input[str] network_manager_connection_name: Name for the network manager connection.
         :param pulumi.Input[str] network_manager_id: Network Manager Id.
         """
+        SubscriptionNetworkManagerConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            network_manager_connection_name=network_manager_connection_name,
+            network_manager_id=network_manager_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             network_manager_connection_name: Optional[pulumi.Input[str]] = None,
+             network_manager_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_manager_connection_name is None and 'networkManagerConnectionName' in kwargs:
+            network_manager_connection_name = kwargs['networkManagerConnectionName']
+        if network_manager_id is None and 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if network_manager_connection_name is not None:
-            pulumi.set(__self__, "network_manager_connection_name", network_manager_connection_name)
+            _setter("network_manager_connection_name", network_manager_connection_name)
         if network_manager_id is not None:
-            pulumi.set(__self__, "network_manager_id", network_manager_id)
+            _setter("network_manager_id", network_manager_id)
 
     @property
     @pulumi.getter
@@ -111,6 +130,10 @@ class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubscriptionNetworkManagerConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

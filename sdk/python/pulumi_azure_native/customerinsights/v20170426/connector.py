@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,18 +34,65 @@ class ConnectorArgs:
         :param pulumi.Input[str] display_name: Display name of the connector.
         :param pulumi.Input[bool] is_internal: If this is an internal connector.
         """
-        pulumi.set(__self__, "connector_properties", connector_properties)
-        pulumi.set(__self__, "connector_type", connector_type)
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connector_properties=connector_properties,
+            connector_type=connector_type,
+            hub_name=hub_name,
+            resource_group_name=resource_group_name,
+            connector_name=connector_name,
+            description=description,
+            display_name=display_name,
+            is_internal=is_internal,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connector_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             connector_type: Optional[pulumi.Input[Union[str, 'ConnectorTypes']]] = None,
+             hub_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             connector_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             is_internal: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connector_properties is None and 'connectorProperties' in kwargs:
+            connector_properties = kwargs['connectorProperties']
+        if connector_properties is None:
+            raise TypeError("Missing 'connector_properties' argument")
+        if connector_type is None and 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if connector_type is None:
+            raise TypeError("Missing 'connector_type' argument")
+        if hub_name is None and 'hubName' in kwargs:
+            hub_name = kwargs['hubName']
+        if hub_name is None:
+            raise TypeError("Missing 'hub_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if connector_name is None and 'connectorName' in kwargs:
+            connector_name = kwargs['connectorName']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if is_internal is None and 'isInternal' in kwargs:
+            is_internal = kwargs['isInternal']
+
+        _setter("connector_properties", connector_properties)
+        _setter("connector_type", connector_type)
+        _setter("hub_name", hub_name)
+        _setter("resource_group_name", resource_group_name)
         if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
+            _setter("connector_name", connector_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if is_internal is not None:
-            pulumi.set(__self__, "is_internal", is_internal)
+            _setter("is_internal", is_internal)
 
     @property
     @pulumi.getter(name="connectorProperties")
@@ -191,6 +238,10 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

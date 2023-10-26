@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,11 +30,38 @@ class EnterpriseChannelNodeArgs:
         :param pulumi.Input[str] name: The name of the Enterprise Channel Node.
         :param pulumi.Input[Union[str, 'EnterpriseChannelNodeState']] state: The current state of the Enterprise Channel Node.
         """
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_sku", azure_sku)
-        pulumi.set(__self__, "name", name)
+        EnterpriseChannelNodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_location=azure_location,
+            azure_sku=azure_sku,
+            name=name,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_location: Optional[pulumi.Input[str]] = None,
+             azure_sku: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_location is None and 'azureLocation' in kwargs:
+            azure_location = kwargs['azureLocation']
+        if azure_location is None:
+            raise TypeError("Missing 'azure_location' argument")
+        if azure_sku is None and 'azureSku' in kwargs:
+            azure_sku = kwargs['azureSku']
+        if azure_sku is None:
+            raise TypeError("Missing 'azure_sku' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("azure_location", azure_location)
+        _setter("azure_sku", azure_sku)
+        _setter("name", name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="azureLocation")
@@ -95,9 +122,24 @@ class EnterpriseChannelPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]] nodes: The nodes associated with the Enterprise Channel.
         :param pulumi.Input[Union[str, 'EnterpriseChannelState']] state: The current state of the Enterprise Channel.
         """
-        pulumi.set(__self__, "nodes", nodes)
+        EnterpriseChannelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nodes=nodes,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]]] = None,
+             state: Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nodes is None:
+            raise TypeError("Missing 'nodes' argument")
+
+        _setter("nodes", nodes)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -132,7 +174,20 @@ class SkuArgs:
         The SKU of the cognitive services account.
         :param pulumi.Input[Union[str, 'SkuName']] name: The sku name
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter

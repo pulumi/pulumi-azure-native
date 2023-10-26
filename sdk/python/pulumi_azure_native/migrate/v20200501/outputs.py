@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -75,17 +75,66 @@ class MigrateProjectPropertiesResponse(dict):
         :param str service_endpoint: Service endpoint.
         :param str utility_storage_account_id: Utility storage account id.
         """
-        pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
-        pulumi.set(__self__, "registered_tools", registered_tools)
-        pulumi.set(__self__, "summary", summary)
+        MigrateProjectPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_summary_refreshed_time=last_summary_refreshed_time,
+            private_endpoint_connections=private_endpoint_connections,
+            refresh_summary_state=refresh_summary_state,
+            registered_tools=registered_tools,
+            summary=summary,
+            public_network_access=public_network_access,
+            service_endpoint=service_endpoint,
+            utility_storage_account_id=utility_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_summary_refreshed_time: Optional[str] = None,
+             private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
+             refresh_summary_state: Optional[str] = None,
+             registered_tools: Optional[Sequence[str]] = None,
+             summary: Optional[Mapping[str, 'outputs.ProjectSummaryResponse']] = None,
+             public_network_access: Optional[str] = None,
+             service_endpoint: Optional[str] = None,
+             utility_storage_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last_summary_refreshed_time is None and 'lastSummaryRefreshedTime' in kwargs:
+            last_summary_refreshed_time = kwargs['lastSummaryRefreshedTime']
+        if last_summary_refreshed_time is None:
+            raise TypeError("Missing 'last_summary_refreshed_time' argument")
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if private_endpoint_connections is None:
+            raise TypeError("Missing 'private_endpoint_connections' argument")
+        if refresh_summary_state is None and 'refreshSummaryState' in kwargs:
+            refresh_summary_state = kwargs['refreshSummaryState']
+        if refresh_summary_state is None:
+            raise TypeError("Missing 'refresh_summary_state' argument")
+        if registered_tools is None and 'registeredTools' in kwargs:
+            registered_tools = kwargs['registeredTools']
+        if registered_tools is None:
+            raise TypeError("Missing 'registered_tools' argument")
+        if summary is None:
+            raise TypeError("Missing 'summary' argument")
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if service_endpoint is None and 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if utility_storage_account_id is None and 'utilityStorageAccountId' in kwargs:
+            utility_storage_account_id = kwargs['utilityStorageAccountId']
+
+        _setter("last_summary_refreshed_time", last_summary_refreshed_time)
+        _setter("private_endpoint_connections", private_endpoint_connections)
+        _setter("refresh_summary_state", refresh_summary_state)
+        _setter("registered_tools", registered_tools)
+        _setter("summary", summary)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if service_endpoint is not None:
-            pulumi.set(__self__, "service_endpoint", service_endpoint)
+            _setter("service_endpoint", service_endpoint)
         if utility_storage_account_id is not None:
-            pulumi.set(__self__, "utility_storage_account_id", utility_storage_account_id)
+            _setter("utility_storage_account_id", utility_storage_account_id)
 
     @property
     @pulumi.getter(name="lastSummaryRefreshedTime")
@@ -187,10 +236,35 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets the properties of the object.
         """
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        PrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            provisioning_state=provisioning_state,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: Optional['outputs.ResourceIdResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_endpoint is None:
+            raise TypeError("Missing 'private_endpoint' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("private_endpoint", private_endpoint)
+        _setter("provisioning_state", provisioning_state)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -254,12 +328,49 @@ class PrivateEndpointConnectionResponse(dict):
         :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: Gets the resource type.
         """
-        pulumi.set(__self__, "e_tag", e_tag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            e_tag=e_tag,
+            id=id,
+            name=name,
+            properties=properties,
+            system_data=system_data,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             e_tag: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if e_tag is None:
+            raise TypeError("Missing 'e_tag' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("e_tag", e_tag)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("properties", properties)
+        _setter("system_data", system_data)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="eTag")
@@ -342,12 +453,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: Description of the object.
         :param str status: Private link connection state.
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -414,13 +542,40 @@ class ProjectSummaryResponse(dict):
         :param str last_summary_refreshed_time: Last summary refresh time.
         :param str refresh_summary_state: Refresh summary state.
         """
-        pulumi.set(__self__, "instance_type", instance_type)
+        ProjectSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            extended_summary=extended_summary,
+            last_summary_refreshed_time=last_summary_refreshed_time,
+            refresh_summary_state=refresh_summary_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             extended_summary: Optional[Mapping[str, str]] = None,
+             last_summary_refreshed_time: Optional[str] = None,
+             refresh_summary_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if extended_summary is None and 'extendedSummary' in kwargs:
+            extended_summary = kwargs['extendedSummary']
+        if last_summary_refreshed_time is None and 'lastSummaryRefreshedTime' in kwargs:
+            last_summary_refreshed_time = kwargs['lastSummaryRefreshedTime']
+        if refresh_summary_state is None and 'refreshSummaryState' in kwargs:
+            refresh_summary_state = kwargs['refreshSummaryState']
+
+        _setter("instance_type", instance_type)
         if extended_summary is not None:
-            pulumi.set(__self__, "extended_summary", extended_summary)
+            _setter("extended_summary", extended_summary)
         if last_summary_refreshed_time is not None:
-            pulumi.set(__self__, "last_summary_refreshed_time", last_summary_refreshed_time)
+            _setter("last_summary_refreshed_time", last_summary_refreshed_time)
         if refresh_summary_state is not None:
-            pulumi.set(__self__, "refresh_summary_state", refresh_summary_state)
+            _setter("refresh_summary_state", refresh_summary_state)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -459,7 +614,20 @@ class ProjectSummaryResponse(dict):
 class ResourceIdResponse(dict):
     def __init__(__self__, *,
                  id: str):
-        pulumi.set(__self__, "id", id)
+        ResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -515,18 +683,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

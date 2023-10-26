@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,17 +33,60 @@ class ArchifeArgs:
         :param pulumi.Input['ArchivePackageSourcePropertiesArgs'] package_source: The package source of the archive.
         :param pulumi.Input[str] published_version: The published version of the archive.
         """
-        pulumi.set(__self__, "package_type", package_type)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ArchifeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_type=package_type,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            archive_name=archive_name,
+            package_source=package_source,
+            published_version=published_version,
+            repository_endpoint_prefix=repository_endpoint_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_type: Optional[pulumi.Input[str]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             archive_name: Optional[pulumi.Input[str]] = None,
+             package_source: Optional[pulumi.Input['ArchivePackageSourcePropertiesArgs']] = None,
+             published_version: Optional[pulumi.Input[str]] = None,
+             repository_endpoint_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if package_type is None and 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if package_type is None:
+            raise TypeError("Missing 'package_type' argument")
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if archive_name is None and 'archiveName' in kwargs:
+            archive_name = kwargs['archiveName']
+        if package_source is None and 'packageSource' in kwargs:
+            package_source = kwargs['packageSource']
+        if published_version is None and 'publishedVersion' in kwargs:
+            published_version = kwargs['publishedVersion']
+        if repository_endpoint_prefix is None and 'repositoryEndpointPrefix' in kwargs:
+            repository_endpoint_prefix = kwargs['repositoryEndpointPrefix']
+
+        _setter("package_type", package_type)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if archive_name is not None:
-            pulumi.set(__self__, "archive_name", archive_name)
+            _setter("archive_name", archive_name)
         if package_source is not None:
-            pulumi.set(__self__, "package_source", package_source)
+            _setter("package_source", package_source)
         if published_version is not None:
-            pulumi.set(__self__, "published_version", published_version)
+            _setter("published_version", published_version)
         if repository_endpoint_prefix is not None:
-            pulumi.set(__self__, "repository_endpoint_prefix", repository_endpoint_prefix)
+            _setter("repository_endpoint_prefix", repository_endpoint_prefix)
 
     @property
     @pulumi.getter(name="packageType")
@@ -177,6 +220,10 @@ class Archife(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ArchifeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,6 +246,7 @@ class Archife(pulumi.CustomResource):
             __props__ = ArchifeArgs.__new__(ArchifeArgs)
 
             __props__.__dict__["archive_name"] = archive_name
+            package_source = _utilities.configure(package_source, ArchivePackageSourcePropertiesArgs, True)
             __props__.__dict__["package_source"] = package_source
             if package_type is None and not opts.urn:
                 raise TypeError("Missing required property 'package_type'")

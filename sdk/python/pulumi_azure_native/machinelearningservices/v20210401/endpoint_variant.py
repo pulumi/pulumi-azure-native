@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -47,29 +47,86 @@ class EndpointVariantArgs:
         :param pulumi.Input[float] traffic_percentile: The amount of traffic variant receives.
         :param pulumi.Input[Union[str, 'VariantType']] type: The type of the variant.
         """
-        pulumi.set(__self__, "compute_type", 'Custom')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        EndpointVariantArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            description=description,
+            environment_image_request=environment_image_request,
+            is_default=is_default,
+            keys=keys,
+            kv_tags=kv_tags,
+            location=location,
+            properties=properties,
+            service_name=service_name,
+            traffic_percentile=traffic_percentile,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_image_request: Optional[pulumi.Input['CreateServiceRequestEnvironmentImageRequestArgs']] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             keys: Optional[pulumi.Input['CreateServiceRequestKeysArgs']] = None,
+             kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             traffic_percentile: Optional[pulumi.Input[float]] = None,
+             type: Optional[pulumi.Input[Union[str, 'VariantType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_type is None and 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if compute_type is None:
+            raise TypeError("Missing 'compute_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if environment_image_request is None and 'environmentImageRequest' in kwargs:
+            environment_image_request = kwargs['environmentImageRequest']
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if kv_tags is None and 'kvTags' in kwargs:
+            kv_tags = kwargs['kvTags']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if traffic_percentile is None and 'trafficPercentile' in kwargs:
+            traffic_percentile = kwargs['trafficPercentile']
+
+        _setter("compute_type", 'Custom')
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_image_request is not None:
-            pulumi.set(__self__, "environment_image_request", environment_image_request)
+            _setter("environment_image_request", environment_image_request)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if kv_tags is not None:
-            pulumi.set(__self__, "kv_tags", kv_tags)
+            _setter("kv_tags", kv_tags)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if traffic_percentile is not None:
-            pulumi.set(__self__, "traffic_percentile", traffic_percentile)
+            _setter("traffic_percentile", traffic_percentile)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="computeType")
@@ -287,6 +344,10 @@ class EndpointVariant(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointVariantArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -318,8 +379,10 @@ class EndpointVariant(pulumi.CustomResource):
                 raise TypeError("Missing required property 'compute_type'")
             __props__.__dict__["compute_type"] = 'Custom'
             __props__.__dict__["description"] = description
+            environment_image_request = _utilities.configure(environment_image_request, CreateServiceRequestEnvironmentImageRequestArgs, True)
             __props__.__dict__["environment_image_request"] = environment_image_request
             __props__.__dict__["is_default"] = is_default
+            keys = _utilities.configure(keys, CreateServiceRequestKeysArgs, True)
             __props__.__dict__["keys"] = keys
             __props__.__dict__["kv_tags"] = kv_tags
             __props__.__dict__["location"] = location

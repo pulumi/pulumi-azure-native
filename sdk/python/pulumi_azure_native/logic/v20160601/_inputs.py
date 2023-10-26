@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -80,10 +80,43 @@ class AS2AcknowledgementConnectionSettingsArgs:
         :param pulumi.Input[bool] support_http_status_code_continue: The value indicating whether to support HTTP status code 'CONTINUE'.
         :param pulumi.Input[bool] unfold_http_headers: The value indicating whether to unfold the HTTP headers.
         """
-        pulumi.set(__self__, "ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
-        pulumi.set(__self__, "keep_http_connection_alive", keep_http_connection_alive)
-        pulumi.set(__self__, "support_http_status_code_continue", support_http_status_code_continue)
-        pulumi.set(__self__, "unfold_http_headers", unfold_http_headers)
+        AS2AcknowledgementConnectionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_certificate_name_mismatch=ignore_certificate_name_mismatch,
+            keep_http_connection_alive=keep_http_connection_alive,
+            support_http_status_code_continue=support_http_status_code_continue,
+            unfold_http_headers=unfold_http_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_certificate_name_mismatch: Optional[pulumi.Input[bool]] = None,
+             keep_http_connection_alive: Optional[pulumi.Input[bool]] = None,
+             support_http_status_code_continue: Optional[pulumi.Input[bool]] = None,
+             unfold_http_headers: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ignore_certificate_name_mismatch is None and 'ignoreCertificateNameMismatch' in kwargs:
+            ignore_certificate_name_mismatch = kwargs['ignoreCertificateNameMismatch']
+        if ignore_certificate_name_mismatch is None:
+            raise TypeError("Missing 'ignore_certificate_name_mismatch' argument")
+        if keep_http_connection_alive is None and 'keepHttpConnectionAlive' in kwargs:
+            keep_http_connection_alive = kwargs['keepHttpConnectionAlive']
+        if keep_http_connection_alive is None:
+            raise TypeError("Missing 'keep_http_connection_alive' argument")
+        if support_http_status_code_continue is None and 'supportHttpStatusCodeContinue' in kwargs:
+            support_http_status_code_continue = kwargs['supportHttpStatusCodeContinue']
+        if support_http_status_code_continue is None:
+            raise TypeError("Missing 'support_http_status_code_continue' argument")
+        if unfold_http_headers is None and 'unfoldHttpHeaders' in kwargs:
+            unfold_http_headers = kwargs['unfoldHttpHeaders']
+        if unfold_http_headers is None:
+            raise TypeError("Missing 'unfold_http_headers' argument")
+
+        _setter("ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
+        _setter("keep_http_connection_alive", keep_http_connection_alive)
+        _setter("support_http_status_code_continue", support_http_status_code_continue)
+        _setter("unfold_http_headers", unfold_http_headers)
 
     @property
     @pulumi.getter(name="ignoreCertificateNameMismatch")
@@ -144,8 +177,29 @@ class AS2AgreementContentArgs:
         :param pulumi.Input['AS2OneWayAgreementArgs'] receive_agreement: The AS2 one-way receive agreement.
         :param pulumi.Input['AS2OneWayAgreementArgs'] send_agreement: The AS2 one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        AS2AgreementContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: Optional[pulumi.Input['AS2OneWayAgreementArgs']] = None,
+             send_agreement: Optional[pulumi.Input['AS2OneWayAgreementArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if receive_agreement is None and 'receiveAgreement' in kwargs:
+            receive_agreement = kwargs['receiveAgreement']
+        if receive_agreement is None:
+            raise TypeError("Missing 'receive_agreement' argument")
+        if send_agreement is None and 'sendAgreement' in kwargs:
+            send_agreement = kwargs['sendAgreement']
+        if send_agreement is None:
+            raise TypeError("Missing 'send_agreement' argument")
+
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -188,11 +242,50 @@ class AS2EnvelopeSettingsArgs:
         :param pulumi.Input[bool] suspend_message_on_file_name_generation_error: The value indicating whether to suspend message on file name generation error.
         :param pulumi.Input[bool] transmit_file_name_in_mime_header: The value indicating whether to transmit file name in mime header.
         """
-        pulumi.set(__self__, "autogenerate_file_name", autogenerate_file_name)
-        pulumi.set(__self__, "file_name_template", file_name_template)
-        pulumi.set(__self__, "message_content_type", message_content_type)
-        pulumi.set(__self__, "suspend_message_on_file_name_generation_error", suspend_message_on_file_name_generation_error)
-        pulumi.set(__self__, "transmit_file_name_in_mime_header", transmit_file_name_in_mime_header)
+        AS2EnvelopeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autogenerate_file_name=autogenerate_file_name,
+            file_name_template=file_name_template,
+            message_content_type=message_content_type,
+            suspend_message_on_file_name_generation_error=suspend_message_on_file_name_generation_error,
+            transmit_file_name_in_mime_header=transmit_file_name_in_mime_header,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autogenerate_file_name: Optional[pulumi.Input[bool]] = None,
+             file_name_template: Optional[pulumi.Input[str]] = None,
+             message_content_type: Optional[pulumi.Input[str]] = None,
+             suspend_message_on_file_name_generation_error: Optional[pulumi.Input[bool]] = None,
+             transmit_file_name_in_mime_header: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autogenerate_file_name is None and 'autogenerateFileName' in kwargs:
+            autogenerate_file_name = kwargs['autogenerateFileName']
+        if autogenerate_file_name is None:
+            raise TypeError("Missing 'autogenerate_file_name' argument")
+        if file_name_template is None and 'fileNameTemplate' in kwargs:
+            file_name_template = kwargs['fileNameTemplate']
+        if file_name_template is None:
+            raise TypeError("Missing 'file_name_template' argument")
+        if message_content_type is None and 'messageContentType' in kwargs:
+            message_content_type = kwargs['messageContentType']
+        if message_content_type is None:
+            raise TypeError("Missing 'message_content_type' argument")
+        if suspend_message_on_file_name_generation_error is None and 'suspendMessageOnFileNameGenerationError' in kwargs:
+            suspend_message_on_file_name_generation_error = kwargs['suspendMessageOnFileNameGenerationError']
+        if suspend_message_on_file_name_generation_error is None:
+            raise TypeError("Missing 'suspend_message_on_file_name_generation_error' argument")
+        if transmit_file_name_in_mime_header is None and 'transmitFileNameInMimeHeader' in kwargs:
+            transmit_file_name_in_mime_header = kwargs['transmitFileNameInMimeHeader']
+        if transmit_file_name_in_mime_header is None:
+            raise TypeError("Missing 'transmit_file_name_in_mime_header' argument")
+
+        _setter("autogenerate_file_name", autogenerate_file_name)
+        _setter("file_name_template", file_name_template)
+        _setter("message_content_type", message_content_type)
+        _setter("suspend_message_on_file_name_generation_error", suspend_message_on_file_name_generation_error)
+        _setter("transmit_file_name_in_mime_header", transmit_file_name_in_mime_header)
 
     @property
     @pulumi.getter(name="autogenerateFileName")
@@ -265,8 +358,29 @@ class AS2ErrorSettingsArgs:
         :param pulumi.Input[bool] resend_if_mdn_not_received: The value indicating whether to resend message If MDN is not received.
         :param pulumi.Input[bool] suspend_duplicate_message: The value indicating whether to suspend duplicate message.
         """
-        pulumi.set(__self__, "resend_if_mdn_not_received", resend_if_mdn_not_received)
-        pulumi.set(__self__, "suspend_duplicate_message", suspend_duplicate_message)
+        AS2ErrorSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resend_if_mdn_not_received=resend_if_mdn_not_received,
+            suspend_duplicate_message=suspend_duplicate_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resend_if_mdn_not_received: Optional[pulumi.Input[bool]] = None,
+             suspend_duplicate_message: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resend_if_mdn_not_received is None and 'resendIfMdnNotReceived' in kwargs:
+            resend_if_mdn_not_received = kwargs['resendIfMdnNotReceived']
+        if resend_if_mdn_not_received is None:
+            raise TypeError("Missing 'resend_if_mdn_not_received' argument")
+        if suspend_duplicate_message is None and 'suspendDuplicateMessage' in kwargs:
+            suspend_duplicate_message = kwargs['suspendDuplicateMessage']
+        if suspend_duplicate_message is None:
+            raise TypeError("Missing 'suspend_duplicate_message' argument")
+
+        _setter("resend_if_mdn_not_received", resend_if_mdn_not_received)
+        _setter("suspend_duplicate_message", suspend_duplicate_message)
 
     @property
     @pulumi.getter(name="resendIfMdnNotReceived")
@@ -317,18 +431,75 @@ class AS2MdnSettingsArgs:
         :param pulumi.Input[str] mdn_text: The MDN text.
         :param pulumi.Input[str] receipt_delivery_url: The receipt delivery URL.
         """
-        pulumi.set(__self__, "mic_hashing_algorithm", mic_hashing_algorithm)
-        pulumi.set(__self__, "need_mdn", need_mdn)
-        pulumi.set(__self__, "send_inbound_mdn_to_message_box", send_inbound_mdn_to_message_box)
-        pulumi.set(__self__, "send_mdn_asynchronously", send_mdn_asynchronously)
-        pulumi.set(__self__, "sign_mdn", sign_mdn)
-        pulumi.set(__self__, "sign_outbound_mdn_if_optional", sign_outbound_mdn_if_optional)
+        AS2MdnSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mic_hashing_algorithm=mic_hashing_algorithm,
+            need_mdn=need_mdn,
+            send_inbound_mdn_to_message_box=send_inbound_mdn_to_message_box,
+            send_mdn_asynchronously=send_mdn_asynchronously,
+            sign_mdn=sign_mdn,
+            sign_outbound_mdn_if_optional=sign_outbound_mdn_if_optional,
+            disposition_notification_to=disposition_notification_to,
+            mdn_text=mdn_text,
+            receipt_delivery_url=receipt_delivery_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mic_hashing_algorithm: Optional[pulumi.Input['HashingAlgorithm']] = None,
+             need_mdn: Optional[pulumi.Input[bool]] = None,
+             send_inbound_mdn_to_message_box: Optional[pulumi.Input[bool]] = None,
+             send_mdn_asynchronously: Optional[pulumi.Input[bool]] = None,
+             sign_mdn: Optional[pulumi.Input[bool]] = None,
+             sign_outbound_mdn_if_optional: Optional[pulumi.Input[bool]] = None,
+             disposition_notification_to: Optional[pulumi.Input[str]] = None,
+             mdn_text: Optional[pulumi.Input[str]] = None,
+             receipt_delivery_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mic_hashing_algorithm is None and 'micHashingAlgorithm' in kwargs:
+            mic_hashing_algorithm = kwargs['micHashingAlgorithm']
+        if mic_hashing_algorithm is None:
+            raise TypeError("Missing 'mic_hashing_algorithm' argument")
+        if need_mdn is None and 'needMdn' in kwargs:
+            need_mdn = kwargs['needMdn']
+        if need_mdn is None:
+            raise TypeError("Missing 'need_mdn' argument")
+        if send_inbound_mdn_to_message_box is None and 'sendInboundMdnToMessageBox' in kwargs:
+            send_inbound_mdn_to_message_box = kwargs['sendInboundMdnToMessageBox']
+        if send_inbound_mdn_to_message_box is None:
+            raise TypeError("Missing 'send_inbound_mdn_to_message_box' argument")
+        if send_mdn_asynchronously is None and 'sendMdnAsynchronously' in kwargs:
+            send_mdn_asynchronously = kwargs['sendMdnAsynchronously']
+        if send_mdn_asynchronously is None:
+            raise TypeError("Missing 'send_mdn_asynchronously' argument")
+        if sign_mdn is None and 'signMdn' in kwargs:
+            sign_mdn = kwargs['signMdn']
+        if sign_mdn is None:
+            raise TypeError("Missing 'sign_mdn' argument")
+        if sign_outbound_mdn_if_optional is None and 'signOutboundMdnIfOptional' in kwargs:
+            sign_outbound_mdn_if_optional = kwargs['signOutboundMdnIfOptional']
+        if sign_outbound_mdn_if_optional is None:
+            raise TypeError("Missing 'sign_outbound_mdn_if_optional' argument")
+        if disposition_notification_to is None and 'dispositionNotificationTo' in kwargs:
+            disposition_notification_to = kwargs['dispositionNotificationTo']
+        if mdn_text is None and 'mdnText' in kwargs:
+            mdn_text = kwargs['mdnText']
+        if receipt_delivery_url is None and 'receiptDeliveryUrl' in kwargs:
+            receipt_delivery_url = kwargs['receiptDeliveryUrl']
+
+        _setter("mic_hashing_algorithm", mic_hashing_algorithm)
+        _setter("need_mdn", need_mdn)
+        _setter("send_inbound_mdn_to_message_box", send_inbound_mdn_to_message_box)
+        _setter("send_mdn_asynchronously", send_mdn_asynchronously)
+        _setter("sign_mdn", sign_mdn)
+        _setter("sign_outbound_mdn_if_optional", sign_outbound_mdn_if_optional)
         if disposition_notification_to is not None:
-            pulumi.set(__self__, "disposition_notification_to", disposition_notification_to)
+            _setter("disposition_notification_to", disposition_notification_to)
         if mdn_text is not None:
-            pulumi.set(__self__, "mdn_text", mdn_text)
+            _setter("mdn_text", mdn_text)
         if receipt_delivery_url is not None:
-            pulumi.set(__self__, "receipt_delivery_url", receipt_delivery_url)
+            _setter("receipt_delivery_url", receipt_delivery_url)
 
     @property
     @pulumi.getter(name="micHashingAlgorithm")
@@ -453,10 +624,43 @@ class AS2MessageConnectionSettingsArgs:
         :param pulumi.Input[bool] support_http_status_code_continue: The value indicating whether to support HTTP status code 'CONTINUE'.
         :param pulumi.Input[bool] unfold_http_headers: The value indicating whether to unfold the HTTP headers.
         """
-        pulumi.set(__self__, "ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
-        pulumi.set(__self__, "keep_http_connection_alive", keep_http_connection_alive)
-        pulumi.set(__self__, "support_http_status_code_continue", support_http_status_code_continue)
-        pulumi.set(__self__, "unfold_http_headers", unfold_http_headers)
+        AS2MessageConnectionSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ignore_certificate_name_mismatch=ignore_certificate_name_mismatch,
+            keep_http_connection_alive=keep_http_connection_alive,
+            support_http_status_code_continue=support_http_status_code_continue,
+            unfold_http_headers=unfold_http_headers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ignore_certificate_name_mismatch: Optional[pulumi.Input[bool]] = None,
+             keep_http_connection_alive: Optional[pulumi.Input[bool]] = None,
+             support_http_status_code_continue: Optional[pulumi.Input[bool]] = None,
+             unfold_http_headers: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ignore_certificate_name_mismatch is None and 'ignoreCertificateNameMismatch' in kwargs:
+            ignore_certificate_name_mismatch = kwargs['ignoreCertificateNameMismatch']
+        if ignore_certificate_name_mismatch is None:
+            raise TypeError("Missing 'ignore_certificate_name_mismatch' argument")
+        if keep_http_connection_alive is None and 'keepHttpConnectionAlive' in kwargs:
+            keep_http_connection_alive = kwargs['keepHttpConnectionAlive']
+        if keep_http_connection_alive is None:
+            raise TypeError("Missing 'keep_http_connection_alive' argument")
+        if support_http_status_code_continue is None and 'supportHttpStatusCodeContinue' in kwargs:
+            support_http_status_code_continue = kwargs['supportHttpStatusCodeContinue']
+        if support_http_status_code_continue is None:
+            raise TypeError("Missing 'support_http_status_code_continue' argument")
+        if unfold_http_headers is None and 'unfoldHttpHeaders' in kwargs:
+            unfold_http_headers = kwargs['unfoldHttpHeaders']
+        if unfold_http_headers is None:
+            raise TypeError("Missing 'unfold_http_headers' argument")
+
+        _setter("ignore_certificate_name_mismatch", ignore_certificate_name_mismatch)
+        _setter("keep_http_connection_alive", keep_http_connection_alive)
+        _setter("support_http_status_code_continue", support_http_status_code_continue)
+        _setter("unfold_http_headers", unfold_http_headers)
 
     @property
     @pulumi.getter(name="ignoreCertificateNameMismatch")
@@ -519,9 +723,36 @@ class AS2OneWayAgreementArgs:
         :param pulumi.Input['BusinessIdentityArgs'] receiver_business_identity: The receiver business identity
         :param pulumi.Input['BusinessIdentityArgs'] sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        AS2OneWayAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: Optional[pulumi.Input['AS2ProtocolSettingsArgs']] = None,
+             receiver_business_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             sender_business_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if protocol_settings is None and 'protocolSettings' in kwargs:
+            protocol_settings = kwargs['protocolSettings']
+        if protocol_settings is None:
+            raise TypeError("Missing 'protocol_settings' argument")
+        if receiver_business_identity is None and 'receiverBusinessIdentity' in kwargs:
+            receiver_business_identity = kwargs['receiverBusinessIdentity']
+        if receiver_business_identity is None:
+            raise TypeError("Missing 'receiver_business_identity' argument")
+        if sender_business_identity is None and 'senderBusinessIdentity' in kwargs:
+            sender_business_identity = kwargs['senderBusinessIdentity']
+        if sender_business_identity is None:
+            raise TypeError("Missing 'sender_business_identity' argument")
+
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -580,13 +811,64 @@ class AS2ProtocolSettingsArgs:
         :param pulumi.Input['AS2SecuritySettingsArgs'] security_settings: The security settings.
         :param pulumi.Input['AS2ValidationSettingsArgs'] validation_settings: The validation settings.
         """
-        pulumi.set(__self__, "acknowledgement_connection_settings", acknowledgement_connection_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "error_settings", error_settings)
-        pulumi.set(__self__, "mdn_settings", mdn_settings)
-        pulumi.set(__self__, "message_connection_settings", message_connection_settings)
-        pulumi.set(__self__, "security_settings", security_settings)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        AS2ProtocolSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_connection_settings=acknowledgement_connection_settings,
+            envelope_settings=envelope_settings,
+            error_settings=error_settings,
+            mdn_settings=mdn_settings,
+            message_connection_settings=message_connection_settings,
+            security_settings=security_settings,
+            validation_settings=validation_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_connection_settings: Optional[pulumi.Input['AS2AcknowledgementConnectionSettingsArgs']] = None,
+             envelope_settings: Optional[pulumi.Input['AS2EnvelopeSettingsArgs']] = None,
+             error_settings: Optional[pulumi.Input['AS2ErrorSettingsArgs']] = None,
+             mdn_settings: Optional[pulumi.Input['AS2MdnSettingsArgs']] = None,
+             message_connection_settings: Optional[pulumi.Input['AS2MessageConnectionSettingsArgs']] = None,
+             security_settings: Optional[pulumi.Input['AS2SecuritySettingsArgs']] = None,
+             validation_settings: Optional[pulumi.Input['AS2ValidationSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acknowledgement_connection_settings is None and 'acknowledgementConnectionSettings' in kwargs:
+            acknowledgement_connection_settings = kwargs['acknowledgementConnectionSettings']
+        if acknowledgement_connection_settings is None:
+            raise TypeError("Missing 'acknowledgement_connection_settings' argument")
+        if envelope_settings is None and 'envelopeSettings' in kwargs:
+            envelope_settings = kwargs['envelopeSettings']
+        if envelope_settings is None:
+            raise TypeError("Missing 'envelope_settings' argument")
+        if error_settings is None and 'errorSettings' in kwargs:
+            error_settings = kwargs['errorSettings']
+        if error_settings is None:
+            raise TypeError("Missing 'error_settings' argument")
+        if mdn_settings is None and 'mdnSettings' in kwargs:
+            mdn_settings = kwargs['mdnSettings']
+        if mdn_settings is None:
+            raise TypeError("Missing 'mdn_settings' argument")
+        if message_connection_settings is None and 'messageConnectionSettings' in kwargs:
+            message_connection_settings = kwargs['messageConnectionSettings']
+        if message_connection_settings is None:
+            raise TypeError("Missing 'message_connection_settings' argument")
+        if security_settings is None and 'securitySettings' in kwargs:
+            security_settings = kwargs['securitySettings']
+        if security_settings is None:
+            raise TypeError("Missing 'security_settings' argument")
+        if validation_settings is None and 'validationSettings' in kwargs:
+            validation_settings = kwargs['validationSettings']
+        if validation_settings is None:
+            raise TypeError("Missing 'validation_settings' argument")
+
+        _setter("acknowledgement_connection_settings", acknowledgement_connection_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("error_settings", error_settings)
+        _setter("mdn_settings", mdn_settings)
+        _setter("message_connection_settings", message_connection_settings)
+        _setter("security_settings", security_settings)
+        _setter("validation_settings", validation_settings)
 
     @property
     @pulumi.getter(name="acknowledgementConnectionSettings")
@@ -699,19 +981,82 @@ class AS2SecuritySettingsArgs:
         :param pulumi.Input[str] sha2_algorithm_format: The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
         :param pulumi.Input[str] signing_certificate_name: The name of the signing certificate.
         """
-        pulumi.set(__self__, "enable_nrr_for_inbound_decoded_messages", enable_nrr_for_inbound_decoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_inbound_encoded_messages", enable_nrr_for_inbound_encoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_inbound_mdn", enable_nrr_for_inbound_mdn)
-        pulumi.set(__self__, "enable_nrr_for_outbound_decoded_messages", enable_nrr_for_outbound_decoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_outbound_encoded_messages", enable_nrr_for_outbound_encoded_messages)
-        pulumi.set(__self__, "enable_nrr_for_outbound_mdn", enable_nrr_for_outbound_mdn)
-        pulumi.set(__self__, "override_group_signing_certificate", override_group_signing_certificate)
+        AS2SecuritySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_nrr_for_inbound_decoded_messages=enable_nrr_for_inbound_decoded_messages,
+            enable_nrr_for_inbound_encoded_messages=enable_nrr_for_inbound_encoded_messages,
+            enable_nrr_for_inbound_mdn=enable_nrr_for_inbound_mdn,
+            enable_nrr_for_outbound_decoded_messages=enable_nrr_for_outbound_decoded_messages,
+            enable_nrr_for_outbound_encoded_messages=enable_nrr_for_outbound_encoded_messages,
+            enable_nrr_for_outbound_mdn=enable_nrr_for_outbound_mdn,
+            override_group_signing_certificate=override_group_signing_certificate,
+            encryption_certificate_name=encryption_certificate_name,
+            sha2_algorithm_format=sha2_algorithm_format,
+            signing_certificate_name=signing_certificate_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_nrr_for_inbound_decoded_messages: Optional[pulumi.Input[bool]] = None,
+             enable_nrr_for_inbound_encoded_messages: Optional[pulumi.Input[bool]] = None,
+             enable_nrr_for_inbound_mdn: Optional[pulumi.Input[bool]] = None,
+             enable_nrr_for_outbound_decoded_messages: Optional[pulumi.Input[bool]] = None,
+             enable_nrr_for_outbound_encoded_messages: Optional[pulumi.Input[bool]] = None,
+             enable_nrr_for_outbound_mdn: Optional[pulumi.Input[bool]] = None,
+             override_group_signing_certificate: Optional[pulumi.Input[bool]] = None,
+             encryption_certificate_name: Optional[pulumi.Input[str]] = None,
+             sha2_algorithm_format: Optional[pulumi.Input[str]] = None,
+             signing_certificate_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_nrr_for_inbound_decoded_messages is None and 'enableNrrForInboundDecodedMessages' in kwargs:
+            enable_nrr_for_inbound_decoded_messages = kwargs['enableNrrForInboundDecodedMessages']
+        if enable_nrr_for_inbound_decoded_messages is None:
+            raise TypeError("Missing 'enable_nrr_for_inbound_decoded_messages' argument")
+        if enable_nrr_for_inbound_encoded_messages is None and 'enableNrrForInboundEncodedMessages' in kwargs:
+            enable_nrr_for_inbound_encoded_messages = kwargs['enableNrrForInboundEncodedMessages']
+        if enable_nrr_for_inbound_encoded_messages is None:
+            raise TypeError("Missing 'enable_nrr_for_inbound_encoded_messages' argument")
+        if enable_nrr_for_inbound_mdn is None and 'enableNrrForInboundMdn' in kwargs:
+            enable_nrr_for_inbound_mdn = kwargs['enableNrrForInboundMdn']
+        if enable_nrr_for_inbound_mdn is None:
+            raise TypeError("Missing 'enable_nrr_for_inbound_mdn' argument")
+        if enable_nrr_for_outbound_decoded_messages is None and 'enableNrrForOutboundDecodedMessages' in kwargs:
+            enable_nrr_for_outbound_decoded_messages = kwargs['enableNrrForOutboundDecodedMessages']
+        if enable_nrr_for_outbound_decoded_messages is None:
+            raise TypeError("Missing 'enable_nrr_for_outbound_decoded_messages' argument")
+        if enable_nrr_for_outbound_encoded_messages is None and 'enableNrrForOutboundEncodedMessages' in kwargs:
+            enable_nrr_for_outbound_encoded_messages = kwargs['enableNrrForOutboundEncodedMessages']
+        if enable_nrr_for_outbound_encoded_messages is None:
+            raise TypeError("Missing 'enable_nrr_for_outbound_encoded_messages' argument")
+        if enable_nrr_for_outbound_mdn is None and 'enableNrrForOutboundMdn' in kwargs:
+            enable_nrr_for_outbound_mdn = kwargs['enableNrrForOutboundMdn']
+        if enable_nrr_for_outbound_mdn is None:
+            raise TypeError("Missing 'enable_nrr_for_outbound_mdn' argument")
+        if override_group_signing_certificate is None and 'overrideGroupSigningCertificate' in kwargs:
+            override_group_signing_certificate = kwargs['overrideGroupSigningCertificate']
+        if override_group_signing_certificate is None:
+            raise TypeError("Missing 'override_group_signing_certificate' argument")
+        if encryption_certificate_name is None and 'encryptionCertificateName' in kwargs:
+            encryption_certificate_name = kwargs['encryptionCertificateName']
+        if sha2_algorithm_format is None and 'sha2AlgorithmFormat' in kwargs:
+            sha2_algorithm_format = kwargs['sha2AlgorithmFormat']
+        if signing_certificate_name is None and 'signingCertificateName' in kwargs:
+            signing_certificate_name = kwargs['signingCertificateName']
+
+        _setter("enable_nrr_for_inbound_decoded_messages", enable_nrr_for_inbound_decoded_messages)
+        _setter("enable_nrr_for_inbound_encoded_messages", enable_nrr_for_inbound_encoded_messages)
+        _setter("enable_nrr_for_inbound_mdn", enable_nrr_for_inbound_mdn)
+        _setter("enable_nrr_for_outbound_decoded_messages", enable_nrr_for_outbound_decoded_messages)
+        _setter("enable_nrr_for_outbound_encoded_messages", enable_nrr_for_outbound_encoded_messages)
+        _setter("enable_nrr_for_outbound_mdn", enable_nrr_for_outbound_mdn)
+        _setter("override_group_signing_certificate", override_group_signing_certificate)
         if encryption_certificate_name is not None:
-            pulumi.set(__self__, "encryption_certificate_name", encryption_certificate_name)
+            _setter("encryption_certificate_name", encryption_certificate_name)
         if sha2_algorithm_format is not None:
-            pulumi.set(__self__, "sha2_algorithm_format", sha2_algorithm_format)
+            _setter("sha2_algorithm_format", sha2_algorithm_format)
         if signing_certificate_name is not None:
-            pulumi.set(__self__, "signing_certificate_name", signing_certificate_name)
+            _setter("signing_certificate_name", signing_certificate_name)
 
     @property
     @pulumi.getter(name="enableNrrForInboundDecodedMessages")
@@ -860,17 +1205,84 @@ class AS2ValidationSettingsArgs:
         :param pulumi.Input[bool] sign_message: The value indicating whether the message has to be signed.
         :param pulumi.Input[Union[str, 'SigningAlgorithm']] signing_algorithm: The signing algorithm.
         """
-        pulumi.set(__self__, "check_certificate_revocation_list_on_receive", check_certificate_revocation_list_on_receive)
-        pulumi.set(__self__, "check_certificate_revocation_list_on_send", check_certificate_revocation_list_on_send)
-        pulumi.set(__self__, "check_duplicate_message", check_duplicate_message)
-        pulumi.set(__self__, "compress_message", compress_message)
-        pulumi.set(__self__, "encrypt_message", encrypt_message)
-        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
-        pulumi.set(__self__, "interchange_duplicates_validity_days", interchange_duplicates_validity_days)
-        pulumi.set(__self__, "override_message_properties", override_message_properties)
-        pulumi.set(__self__, "sign_message", sign_message)
+        AS2ValidationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            check_certificate_revocation_list_on_receive=check_certificate_revocation_list_on_receive,
+            check_certificate_revocation_list_on_send=check_certificate_revocation_list_on_send,
+            check_duplicate_message=check_duplicate_message,
+            compress_message=compress_message,
+            encrypt_message=encrypt_message,
+            encryption_algorithm=encryption_algorithm,
+            interchange_duplicates_validity_days=interchange_duplicates_validity_days,
+            override_message_properties=override_message_properties,
+            sign_message=sign_message,
+            signing_algorithm=signing_algorithm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             check_certificate_revocation_list_on_receive: Optional[pulumi.Input[bool]] = None,
+             check_certificate_revocation_list_on_send: Optional[pulumi.Input[bool]] = None,
+             check_duplicate_message: Optional[pulumi.Input[bool]] = None,
+             compress_message: Optional[pulumi.Input[bool]] = None,
+             encrypt_message: Optional[pulumi.Input[bool]] = None,
+             encryption_algorithm: Optional[pulumi.Input['EncryptionAlgorithm']] = None,
+             interchange_duplicates_validity_days: Optional[pulumi.Input[int]] = None,
+             override_message_properties: Optional[pulumi.Input[bool]] = None,
+             sign_message: Optional[pulumi.Input[bool]] = None,
+             signing_algorithm: Optional[pulumi.Input[Union[str, 'SigningAlgorithm']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if check_certificate_revocation_list_on_receive is None and 'checkCertificateRevocationListOnReceive' in kwargs:
+            check_certificate_revocation_list_on_receive = kwargs['checkCertificateRevocationListOnReceive']
+        if check_certificate_revocation_list_on_receive is None:
+            raise TypeError("Missing 'check_certificate_revocation_list_on_receive' argument")
+        if check_certificate_revocation_list_on_send is None and 'checkCertificateRevocationListOnSend' in kwargs:
+            check_certificate_revocation_list_on_send = kwargs['checkCertificateRevocationListOnSend']
+        if check_certificate_revocation_list_on_send is None:
+            raise TypeError("Missing 'check_certificate_revocation_list_on_send' argument")
+        if check_duplicate_message is None and 'checkDuplicateMessage' in kwargs:
+            check_duplicate_message = kwargs['checkDuplicateMessage']
+        if check_duplicate_message is None:
+            raise TypeError("Missing 'check_duplicate_message' argument")
+        if compress_message is None and 'compressMessage' in kwargs:
+            compress_message = kwargs['compressMessage']
+        if compress_message is None:
+            raise TypeError("Missing 'compress_message' argument")
+        if encrypt_message is None and 'encryptMessage' in kwargs:
+            encrypt_message = kwargs['encryptMessage']
+        if encrypt_message is None:
+            raise TypeError("Missing 'encrypt_message' argument")
+        if encryption_algorithm is None and 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if encryption_algorithm is None:
+            raise TypeError("Missing 'encryption_algorithm' argument")
+        if interchange_duplicates_validity_days is None and 'interchangeDuplicatesValidityDays' in kwargs:
+            interchange_duplicates_validity_days = kwargs['interchangeDuplicatesValidityDays']
+        if interchange_duplicates_validity_days is None:
+            raise TypeError("Missing 'interchange_duplicates_validity_days' argument")
+        if override_message_properties is None and 'overrideMessageProperties' in kwargs:
+            override_message_properties = kwargs['overrideMessageProperties']
+        if override_message_properties is None:
+            raise TypeError("Missing 'override_message_properties' argument")
+        if sign_message is None and 'signMessage' in kwargs:
+            sign_message = kwargs['signMessage']
+        if sign_message is None:
+            raise TypeError("Missing 'sign_message' argument")
+        if signing_algorithm is None and 'signingAlgorithm' in kwargs:
+            signing_algorithm = kwargs['signingAlgorithm']
+
+        _setter("check_certificate_revocation_list_on_receive", check_certificate_revocation_list_on_receive)
+        _setter("check_certificate_revocation_list_on_send", check_certificate_revocation_list_on_send)
+        _setter("check_duplicate_message", check_duplicate_message)
+        _setter("compress_message", compress_message)
+        _setter("encrypt_message", encrypt_message)
+        _setter("encryption_algorithm", encryption_algorithm)
+        _setter("interchange_duplicates_validity_days", interchange_duplicates_validity_days)
+        _setter("override_message_properties", override_message_properties)
+        _setter("sign_message", sign_message)
         if signing_algorithm is not None:
-            pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+            _setter("signing_algorithm", signing_algorithm)
 
     @property
     @pulumi.getter(name="checkCertificateRevocationListOnReceive")
@@ -1005,12 +1417,29 @@ class AgreementContentArgs:
         :param pulumi.Input['EdifactAgreementContentArgs'] edifact: The EDIFACT agreement content.
         :param pulumi.Input['X12AgreementContentArgs'] x12: The X12 agreement content.
         """
+        AgreementContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            a_s2=a_s2,
+            edifact=edifact,
+            x12=x12,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             a_s2: Optional[pulumi.Input['AS2AgreementContentArgs']] = None,
+             edifact: Optional[pulumi.Input['EdifactAgreementContentArgs']] = None,
+             x12: Optional[pulumi.Input['X12AgreementContentArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if a_s2 is None and 'aS2' in kwargs:
+            a_s2 = kwargs['aS2']
+
         if a_s2 is not None:
-            pulumi.set(__self__, "a_s2", a_s2)
+            _setter("a_s2", a_s2)
         if edifact is not None:
-            pulumi.set(__self__, "edifact", edifact)
+            _setter("edifact", edifact)
         if x12 is not None:
-            pulumi.set(__self__, "x12", x12)
+            _setter("x12", x12)
 
     @property
     @pulumi.getter(name="aS2")
@@ -1057,8 +1486,21 @@ class B2BPartnerContentArgs:
         The B2B partner content.
         :param pulumi.Input[Sequence[pulumi.Input['BusinessIdentityArgs']]] business_identities: The list of partner business identities.
         """
+        B2BPartnerContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            business_identities=business_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             business_identities: Optional[pulumi.Input[Sequence[pulumi.Input['BusinessIdentityArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if business_identities is None and 'businessIdentities' in kwargs:
+            business_identities = kwargs['businessIdentities']
+
         if business_identities is not None:
-            pulumi.set(__self__, "business_identities", business_identities)
+            _setter("business_identities", business_identities)
 
     @property
     @pulumi.getter(name="businessIdentities")
@@ -1083,8 +1525,25 @@ class BusinessIdentityArgs:
         :param pulumi.Input[str] qualifier: The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
         :param pulumi.Input[str] value: The user defined business identity value.
         """
-        pulumi.set(__self__, "qualifier", qualifier)
-        pulumi.set(__self__, "value", value)
+        BusinessIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualifier=qualifier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualifier: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if qualifier is None:
+            raise TypeError("Missing 'qualifier' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("qualifier", qualifier)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1139,19 +1598,90 @@ class EdifactAcknowledgementSettingsArgs:
         :param pulumi.Input[str] acknowledgement_control_number_prefix: The acknowledgement control number prefix.
         :param pulumi.Input[str] acknowledgement_control_number_suffix: The acknowledgement control number suffix.
         """
-        pulumi.set(__self__, "acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
-        pulumi.set(__self__, "acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
-        pulumi.set(__self__, "batch_functional_acknowledgements", batch_functional_acknowledgements)
-        pulumi.set(__self__, "batch_technical_acknowledgements", batch_technical_acknowledgements)
-        pulumi.set(__self__, "need_functional_acknowledgement", need_functional_acknowledgement)
-        pulumi.set(__self__, "need_loop_for_valid_messages", need_loop_for_valid_messages)
-        pulumi.set(__self__, "need_technical_acknowledgement", need_technical_acknowledgement)
-        pulumi.set(__self__, "rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
-        pulumi.set(__self__, "send_synchronous_acknowledgement", send_synchronous_acknowledgement)
+        EdifactAcknowledgementSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_control_number_lower_bound=acknowledgement_control_number_lower_bound,
+            acknowledgement_control_number_upper_bound=acknowledgement_control_number_upper_bound,
+            batch_functional_acknowledgements=batch_functional_acknowledgements,
+            batch_technical_acknowledgements=batch_technical_acknowledgements,
+            need_functional_acknowledgement=need_functional_acknowledgement,
+            need_loop_for_valid_messages=need_loop_for_valid_messages,
+            need_technical_acknowledgement=need_technical_acknowledgement,
+            rollover_acknowledgement_control_number=rollover_acknowledgement_control_number,
+            send_synchronous_acknowledgement=send_synchronous_acknowledgement,
+            acknowledgement_control_number_prefix=acknowledgement_control_number_prefix,
+            acknowledgement_control_number_suffix=acknowledgement_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
+             acknowledgement_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
+             batch_functional_acknowledgements: Optional[pulumi.Input[bool]] = None,
+             batch_technical_acknowledgements: Optional[pulumi.Input[bool]] = None,
+             need_functional_acknowledgement: Optional[pulumi.Input[bool]] = None,
+             need_loop_for_valid_messages: Optional[pulumi.Input[bool]] = None,
+             need_technical_acknowledgement: Optional[pulumi.Input[bool]] = None,
+             rollover_acknowledgement_control_number: Optional[pulumi.Input[bool]] = None,
+             send_synchronous_acknowledgement: Optional[pulumi.Input[bool]] = None,
+             acknowledgement_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             acknowledgement_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acknowledgement_control_number_lower_bound is None and 'acknowledgementControlNumberLowerBound' in kwargs:
+            acknowledgement_control_number_lower_bound = kwargs['acknowledgementControlNumberLowerBound']
+        if acknowledgement_control_number_lower_bound is None:
+            raise TypeError("Missing 'acknowledgement_control_number_lower_bound' argument")
+        if acknowledgement_control_number_upper_bound is None and 'acknowledgementControlNumberUpperBound' in kwargs:
+            acknowledgement_control_number_upper_bound = kwargs['acknowledgementControlNumberUpperBound']
+        if acknowledgement_control_number_upper_bound is None:
+            raise TypeError("Missing 'acknowledgement_control_number_upper_bound' argument")
+        if batch_functional_acknowledgements is None and 'batchFunctionalAcknowledgements' in kwargs:
+            batch_functional_acknowledgements = kwargs['batchFunctionalAcknowledgements']
+        if batch_functional_acknowledgements is None:
+            raise TypeError("Missing 'batch_functional_acknowledgements' argument")
+        if batch_technical_acknowledgements is None and 'batchTechnicalAcknowledgements' in kwargs:
+            batch_technical_acknowledgements = kwargs['batchTechnicalAcknowledgements']
+        if batch_technical_acknowledgements is None:
+            raise TypeError("Missing 'batch_technical_acknowledgements' argument")
+        if need_functional_acknowledgement is None and 'needFunctionalAcknowledgement' in kwargs:
+            need_functional_acknowledgement = kwargs['needFunctionalAcknowledgement']
+        if need_functional_acknowledgement is None:
+            raise TypeError("Missing 'need_functional_acknowledgement' argument")
+        if need_loop_for_valid_messages is None and 'needLoopForValidMessages' in kwargs:
+            need_loop_for_valid_messages = kwargs['needLoopForValidMessages']
+        if need_loop_for_valid_messages is None:
+            raise TypeError("Missing 'need_loop_for_valid_messages' argument")
+        if need_technical_acknowledgement is None and 'needTechnicalAcknowledgement' in kwargs:
+            need_technical_acknowledgement = kwargs['needTechnicalAcknowledgement']
+        if need_technical_acknowledgement is None:
+            raise TypeError("Missing 'need_technical_acknowledgement' argument")
+        if rollover_acknowledgement_control_number is None and 'rolloverAcknowledgementControlNumber' in kwargs:
+            rollover_acknowledgement_control_number = kwargs['rolloverAcknowledgementControlNumber']
+        if rollover_acknowledgement_control_number is None:
+            raise TypeError("Missing 'rollover_acknowledgement_control_number' argument")
+        if send_synchronous_acknowledgement is None and 'sendSynchronousAcknowledgement' in kwargs:
+            send_synchronous_acknowledgement = kwargs['sendSynchronousAcknowledgement']
+        if send_synchronous_acknowledgement is None:
+            raise TypeError("Missing 'send_synchronous_acknowledgement' argument")
+        if acknowledgement_control_number_prefix is None and 'acknowledgementControlNumberPrefix' in kwargs:
+            acknowledgement_control_number_prefix = kwargs['acknowledgementControlNumberPrefix']
+        if acknowledgement_control_number_suffix is None and 'acknowledgementControlNumberSuffix' in kwargs:
+            acknowledgement_control_number_suffix = kwargs['acknowledgementControlNumberSuffix']
+
+        _setter("acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
+        _setter("acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
+        _setter("batch_functional_acknowledgements", batch_functional_acknowledgements)
+        _setter("batch_technical_acknowledgements", batch_technical_acknowledgements)
+        _setter("need_functional_acknowledgement", need_functional_acknowledgement)
+        _setter("need_loop_for_valid_messages", need_loop_for_valid_messages)
+        _setter("need_technical_acknowledgement", need_technical_acknowledgement)
+        _setter("rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
+        _setter("send_synchronous_acknowledgement", send_synchronous_acknowledgement)
         if acknowledgement_control_number_prefix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
+            _setter("acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
         if acknowledgement_control_number_suffix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
+            _setter("acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberLowerBound")
@@ -1296,8 +1826,29 @@ class EdifactAgreementContentArgs:
         :param pulumi.Input['EdifactOneWayAgreementArgs'] receive_agreement: The EDIFACT one-way receive agreement.
         :param pulumi.Input['EdifactOneWayAgreementArgs'] send_agreement: The EDIFACT one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        EdifactAgreementContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: Optional[pulumi.Input['EdifactOneWayAgreementArgs']] = None,
+             send_agreement: Optional[pulumi.Input['EdifactOneWayAgreementArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if receive_agreement is None and 'receiveAgreement' in kwargs:
+            receive_agreement = kwargs['receiveAgreement']
+        if receive_agreement is None:
+            raise TypeError("Missing 'receive_agreement' argument")
+        if send_agreement is None and 'sendAgreement' in kwargs:
+            send_agreement = kwargs['sendAgreement']
+        if send_agreement is None:
+            raise TypeError("Missing 'send_agreement' argument")
+
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -1354,23 +1905,94 @@ class EdifactDelimiterOverrideArgs:
         :param pulumi.Input[str] message_version: The message version.
         :param pulumi.Input[str] target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "decimal_point_indicator", decimal_point_indicator)
-        pulumi.set(__self__, "release_indicator", release_indicator)
-        pulumi.set(__self__, "repetition_separator", repetition_separator)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        EdifactDelimiterOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            decimal_point_indicator=decimal_point_indicator,
+            release_indicator=release_indicator,
+            repetition_separator=repetition_separator,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            message_association_assigned_code=message_association_assigned_code,
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_separator: Optional[pulumi.Input[int]] = None,
+             data_element_separator: Optional[pulumi.Input[int]] = None,
+             decimal_point_indicator: Optional[pulumi.Input['EdifactDecimalIndicator']] = None,
+             release_indicator: Optional[pulumi.Input[int]] = None,
+             repetition_separator: Optional[pulumi.Input[int]] = None,
+             segment_terminator: Optional[pulumi.Input[int]] = None,
+             segment_terminator_suffix: Optional[pulumi.Input['SegmentTerminatorSuffix']] = None,
+             message_association_assigned_code: Optional[pulumi.Input[str]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             message_release: Optional[pulumi.Input[str]] = None,
+             message_version: Optional[pulumi.Input[str]] = None,
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_separator is None and 'componentSeparator' in kwargs:
+            component_separator = kwargs['componentSeparator']
+        if component_separator is None:
+            raise TypeError("Missing 'component_separator' argument")
+        if data_element_separator is None and 'dataElementSeparator' in kwargs:
+            data_element_separator = kwargs['dataElementSeparator']
+        if data_element_separator is None:
+            raise TypeError("Missing 'data_element_separator' argument")
+        if decimal_point_indicator is None and 'decimalPointIndicator' in kwargs:
+            decimal_point_indicator = kwargs['decimalPointIndicator']
+        if decimal_point_indicator is None:
+            raise TypeError("Missing 'decimal_point_indicator' argument")
+        if release_indicator is None and 'releaseIndicator' in kwargs:
+            release_indicator = kwargs['releaseIndicator']
+        if release_indicator is None:
+            raise TypeError("Missing 'release_indicator' argument")
+        if repetition_separator is None and 'repetitionSeparator' in kwargs:
+            repetition_separator = kwargs['repetitionSeparator']
+        if repetition_separator is None:
+            raise TypeError("Missing 'repetition_separator' argument")
+        if segment_terminator is None and 'segmentTerminator' in kwargs:
+            segment_terminator = kwargs['segmentTerminator']
+        if segment_terminator is None:
+            raise TypeError("Missing 'segment_terminator' argument")
+        if segment_terminator_suffix is None and 'segmentTerminatorSuffix' in kwargs:
+            segment_terminator_suffix = kwargs['segmentTerminatorSuffix']
+        if segment_terminator_suffix is None:
+            raise TypeError("Missing 'segment_terminator_suffix' argument")
+        if message_association_assigned_code is None and 'messageAssociationAssignedCode' in kwargs:
+            message_association_assigned_code = kwargs['messageAssociationAssignedCode']
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_release is None and 'messageRelease' in kwargs:
+            message_release = kwargs['messageRelease']
+        if message_version is None and 'messageVersion' in kwargs:
+            message_version = kwargs['messageVersion']
+        if target_namespace is None and 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("decimal_point_indicator", decimal_point_indicator)
+        _setter("release_indicator", release_indicator)
+        _setter("repetition_separator", repetition_separator)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if message_association_assigned_code is not None:
-            pulumi.set(__self__, "message_association_assigned_code", message_association_assigned_code)
+            _setter("message_association_assigned_code", message_association_assigned_code)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if message_release is not None:
-            pulumi.set(__self__, "message_release", message_release)
+            _setter("message_release", message_release)
         if message_version is not None:
-            pulumi.set(__self__, "message_version", message_version)
+            _setter("message_version", message_version)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="componentSeparator")
@@ -1553,36 +2175,105 @@ class EdifactEnvelopeOverrideArgs:
         :param pulumi.Input[str] sender_application_qualifier: The sender application qualifier.
         :param pulumi.Input[str] target_namespace: The target namespace on which this envelope settings has to be applied.
         """
+        EdifactEnvelopeOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_password=application_password,
+            association_assigned_code=association_assigned_code,
+            controlling_agency_code=controlling_agency_code,
+            functional_group_id=functional_group_id,
+            group_header_message_release=group_header_message_release,
+            group_header_message_version=group_header_message_version,
+            message_association_assigned_code=message_association_assigned_code,
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            receiver_application_id=receiver_application_id,
+            receiver_application_qualifier=receiver_application_qualifier,
+            sender_application_id=sender_application_id,
+            sender_application_qualifier=sender_application_qualifier,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_password: Optional[pulumi.Input[str]] = None,
+             association_assigned_code: Optional[pulumi.Input[str]] = None,
+             controlling_agency_code: Optional[pulumi.Input[str]] = None,
+             functional_group_id: Optional[pulumi.Input[str]] = None,
+             group_header_message_release: Optional[pulumi.Input[str]] = None,
+             group_header_message_version: Optional[pulumi.Input[str]] = None,
+             message_association_assigned_code: Optional[pulumi.Input[str]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             message_release: Optional[pulumi.Input[str]] = None,
+             message_version: Optional[pulumi.Input[str]] = None,
+             receiver_application_id: Optional[pulumi.Input[str]] = None,
+             receiver_application_qualifier: Optional[pulumi.Input[str]] = None,
+             sender_application_id: Optional[pulumi.Input[str]] = None,
+             sender_application_qualifier: Optional[pulumi.Input[str]] = None,
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_password is None and 'applicationPassword' in kwargs:
+            application_password = kwargs['applicationPassword']
+        if association_assigned_code is None and 'associationAssignedCode' in kwargs:
+            association_assigned_code = kwargs['associationAssignedCode']
+        if controlling_agency_code is None and 'controllingAgencyCode' in kwargs:
+            controlling_agency_code = kwargs['controllingAgencyCode']
+        if functional_group_id is None and 'functionalGroupId' in kwargs:
+            functional_group_id = kwargs['functionalGroupId']
+        if group_header_message_release is None and 'groupHeaderMessageRelease' in kwargs:
+            group_header_message_release = kwargs['groupHeaderMessageRelease']
+        if group_header_message_version is None and 'groupHeaderMessageVersion' in kwargs:
+            group_header_message_version = kwargs['groupHeaderMessageVersion']
+        if message_association_assigned_code is None and 'messageAssociationAssignedCode' in kwargs:
+            message_association_assigned_code = kwargs['messageAssociationAssignedCode']
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_release is None and 'messageRelease' in kwargs:
+            message_release = kwargs['messageRelease']
+        if message_version is None and 'messageVersion' in kwargs:
+            message_version = kwargs['messageVersion']
+        if receiver_application_id is None and 'receiverApplicationId' in kwargs:
+            receiver_application_id = kwargs['receiverApplicationId']
+        if receiver_application_qualifier is None and 'receiverApplicationQualifier' in kwargs:
+            receiver_application_qualifier = kwargs['receiverApplicationQualifier']
+        if sender_application_id is None and 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+        if sender_application_qualifier is None and 'senderApplicationQualifier' in kwargs:
+            sender_application_qualifier = kwargs['senderApplicationQualifier']
+        if target_namespace is None and 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
         if application_password is not None:
-            pulumi.set(__self__, "application_password", application_password)
+            _setter("application_password", application_password)
         if association_assigned_code is not None:
-            pulumi.set(__self__, "association_assigned_code", association_assigned_code)
+            _setter("association_assigned_code", association_assigned_code)
         if controlling_agency_code is not None:
-            pulumi.set(__self__, "controlling_agency_code", controlling_agency_code)
+            _setter("controlling_agency_code", controlling_agency_code)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if group_header_message_release is not None:
-            pulumi.set(__self__, "group_header_message_release", group_header_message_release)
+            _setter("group_header_message_release", group_header_message_release)
         if group_header_message_version is not None:
-            pulumi.set(__self__, "group_header_message_version", group_header_message_version)
+            _setter("group_header_message_version", group_header_message_version)
         if message_association_assigned_code is not None:
-            pulumi.set(__self__, "message_association_assigned_code", message_association_assigned_code)
+            _setter("message_association_assigned_code", message_association_assigned_code)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if message_release is not None:
-            pulumi.set(__self__, "message_release", message_release)
+            _setter("message_release", message_release)
         if message_version is not None:
-            pulumi.set(__self__, "message_version", message_version)
+            _setter("message_version", message_version)
         if receiver_application_id is not None:
-            pulumi.set(__self__, "receiver_application_id", receiver_application_id)
+            _setter("receiver_application_id", receiver_application_id)
         if receiver_application_qualifier is not None:
-            pulumi.set(__self__, "receiver_application_qualifier", receiver_application_qualifier)
+            _setter("receiver_application_qualifier", receiver_application_qualifier)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
         if sender_application_qualifier is not None:
-            pulumi.set(__self__, "sender_application_qualifier", sender_application_qualifier)
+            _setter("sender_application_qualifier", sender_application_qualifier)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="applicationPassword")
@@ -1853,74 +2544,275 @@ class EdifactEnvelopeSettingsArgs:
         :param pulumi.Input[str] transaction_set_control_number_prefix: The transaction set control number prefix.
         :param pulumi.Input[str] transaction_set_control_number_suffix: The transaction set control number suffix.
         """
-        pulumi.set(__self__, "apply_delimiter_string_advice", apply_delimiter_string_advice)
-        pulumi.set(__self__, "create_grouping_segments", create_grouping_segments)
-        pulumi.set(__self__, "enable_default_group_headers", enable_default_group_headers)
-        pulumi.set(__self__, "group_control_number_lower_bound", group_control_number_lower_bound)
-        pulumi.set(__self__, "group_control_number_upper_bound", group_control_number_upper_bound)
-        pulumi.set(__self__, "interchange_control_number_lower_bound", interchange_control_number_lower_bound)
-        pulumi.set(__self__, "interchange_control_number_upper_bound", interchange_control_number_upper_bound)
-        pulumi.set(__self__, "is_test_interchange", is_test_interchange)
-        pulumi.set(__self__, "overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
-        pulumi.set(__self__, "rollover_group_control_number", rollover_group_control_number)
-        pulumi.set(__self__, "rollover_interchange_control_number", rollover_interchange_control_number)
-        pulumi.set(__self__, "rollover_transaction_set_control_number", rollover_transaction_set_control_number)
-        pulumi.set(__self__, "transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
-        pulumi.set(__self__, "transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
+        EdifactEnvelopeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_delimiter_string_advice=apply_delimiter_string_advice,
+            create_grouping_segments=create_grouping_segments,
+            enable_default_group_headers=enable_default_group_headers,
+            group_control_number_lower_bound=group_control_number_lower_bound,
+            group_control_number_upper_bound=group_control_number_upper_bound,
+            interchange_control_number_lower_bound=interchange_control_number_lower_bound,
+            interchange_control_number_upper_bound=interchange_control_number_upper_bound,
+            is_test_interchange=is_test_interchange,
+            overwrite_existing_transaction_set_control_number=overwrite_existing_transaction_set_control_number,
+            rollover_group_control_number=rollover_group_control_number,
+            rollover_interchange_control_number=rollover_interchange_control_number,
+            rollover_transaction_set_control_number=rollover_transaction_set_control_number,
+            transaction_set_control_number_lower_bound=transaction_set_control_number_lower_bound,
+            transaction_set_control_number_upper_bound=transaction_set_control_number_upper_bound,
+            application_reference_id=application_reference_id,
+            communication_agreement_id=communication_agreement_id,
+            functional_group_id=functional_group_id,
+            group_application_password=group_application_password,
+            group_application_receiver_id=group_application_receiver_id,
+            group_application_receiver_qualifier=group_application_receiver_qualifier,
+            group_application_sender_id=group_application_sender_id,
+            group_application_sender_qualifier=group_application_sender_qualifier,
+            group_association_assigned_code=group_association_assigned_code,
+            group_control_number_prefix=group_control_number_prefix,
+            group_control_number_suffix=group_control_number_suffix,
+            group_controlling_agency_code=group_controlling_agency_code,
+            group_message_release=group_message_release,
+            group_message_version=group_message_version,
+            interchange_control_number_prefix=interchange_control_number_prefix,
+            interchange_control_number_suffix=interchange_control_number_suffix,
+            processing_priority_code=processing_priority_code,
+            receiver_internal_identification=receiver_internal_identification,
+            receiver_internal_sub_identification=receiver_internal_sub_identification,
+            receiver_reverse_routing_address=receiver_reverse_routing_address,
+            recipient_reference_password_qualifier=recipient_reference_password_qualifier,
+            recipient_reference_password_value=recipient_reference_password_value,
+            sender_internal_identification=sender_internal_identification,
+            sender_internal_sub_identification=sender_internal_sub_identification,
+            sender_reverse_routing_address=sender_reverse_routing_address,
+            transaction_set_control_number_prefix=transaction_set_control_number_prefix,
+            transaction_set_control_number_suffix=transaction_set_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_delimiter_string_advice: Optional[pulumi.Input[bool]] = None,
+             create_grouping_segments: Optional[pulumi.Input[bool]] = None,
+             enable_default_group_headers: Optional[pulumi.Input[bool]] = None,
+             group_control_number_lower_bound: Optional[pulumi.Input[float]] = None,
+             group_control_number_upper_bound: Optional[pulumi.Input[float]] = None,
+             interchange_control_number_lower_bound: Optional[pulumi.Input[float]] = None,
+             interchange_control_number_upper_bound: Optional[pulumi.Input[float]] = None,
+             is_test_interchange: Optional[pulumi.Input[bool]] = None,
+             overwrite_existing_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
+             rollover_group_control_number: Optional[pulumi.Input[bool]] = None,
+             rollover_interchange_control_number: Optional[pulumi.Input[bool]] = None,
+             rollover_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
+             transaction_set_control_number_lower_bound: Optional[pulumi.Input[float]] = None,
+             transaction_set_control_number_upper_bound: Optional[pulumi.Input[float]] = None,
+             application_reference_id: Optional[pulumi.Input[str]] = None,
+             communication_agreement_id: Optional[pulumi.Input[str]] = None,
+             functional_group_id: Optional[pulumi.Input[str]] = None,
+             group_application_password: Optional[pulumi.Input[str]] = None,
+             group_application_receiver_id: Optional[pulumi.Input[str]] = None,
+             group_application_receiver_qualifier: Optional[pulumi.Input[str]] = None,
+             group_application_sender_id: Optional[pulumi.Input[str]] = None,
+             group_application_sender_qualifier: Optional[pulumi.Input[str]] = None,
+             group_association_assigned_code: Optional[pulumi.Input[str]] = None,
+             group_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             group_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             group_controlling_agency_code: Optional[pulumi.Input[str]] = None,
+             group_message_release: Optional[pulumi.Input[str]] = None,
+             group_message_version: Optional[pulumi.Input[str]] = None,
+             interchange_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             interchange_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             processing_priority_code: Optional[pulumi.Input[str]] = None,
+             receiver_internal_identification: Optional[pulumi.Input[str]] = None,
+             receiver_internal_sub_identification: Optional[pulumi.Input[str]] = None,
+             receiver_reverse_routing_address: Optional[pulumi.Input[str]] = None,
+             recipient_reference_password_qualifier: Optional[pulumi.Input[str]] = None,
+             recipient_reference_password_value: Optional[pulumi.Input[str]] = None,
+             sender_internal_identification: Optional[pulumi.Input[str]] = None,
+             sender_internal_sub_identification: Optional[pulumi.Input[str]] = None,
+             sender_reverse_routing_address: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apply_delimiter_string_advice is None and 'applyDelimiterStringAdvice' in kwargs:
+            apply_delimiter_string_advice = kwargs['applyDelimiterStringAdvice']
+        if apply_delimiter_string_advice is None:
+            raise TypeError("Missing 'apply_delimiter_string_advice' argument")
+        if create_grouping_segments is None and 'createGroupingSegments' in kwargs:
+            create_grouping_segments = kwargs['createGroupingSegments']
+        if create_grouping_segments is None:
+            raise TypeError("Missing 'create_grouping_segments' argument")
+        if enable_default_group_headers is None and 'enableDefaultGroupHeaders' in kwargs:
+            enable_default_group_headers = kwargs['enableDefaultGroupHeaders']
+        if enable_default_group_headers is None:
+            raise TypeError("Missing 'enable_default_group_headers' argument")
+        if group_control_number_lower_bound is None and 'groupControlNumberLowerBound' in kwargs:
+            group_control_number_lower_bound = kwargs['groupControlNumberLowerBound']
+        if group_control_number_lower_bound is None:
+            raise TypeError("Missing 'group_control_number_lower_bound' argument")
+        if group_control_number_upper_bound is None and 'groupControlNumberUpperBound' in kwargs:
+            group_control_number_upper_bound = kwargs['groupControlNumberUpperBound']
+        if group_control_number_upper_bound is None:
+            raise TypeError("Missing 'group_control_number_upper_bound' argument")
+        if interchange_control_number_lower_bound is None and 'interchangeControlNumberLowerBound' in kwargs:
+            interchange_control_number_lower_bound = kwargs['interchangeControlNumberLowerBound']
+        if interchange_control_number_lower_bound is None:
+            raise TypeError("Missing 'interchange_control_number_lower_bound' argument")
+        if interchange_control_number_upper_bound is None and 'interchangeControlNumberUpperBound' in kwargs:
+            interchange_control_number_upper_bound = kwargs['interchangeControlNumberUpperBound']
+        if interchange_control_number_upper_bound is None:
+            raise TypeError("Missing 'interchange_control_number_upper_bound' argument")
+        if is_test_interchange is None and 'isTestInterchange' in kwargs:
+            is_test_interchange = kwargs['isTestInterchange']
+        if is_test_interchange is None:
+            raise TypeError("Missing 'is_test_interchange' argument")
+        if overwrite_existing_transaction_set_control_number is None and 'overwriteExistingTransactionSetControlNumber' in kwargs:
+            overwrite_existing_transaction_set_control_number = kwargs['overwriteExistingTransactionSetControlNumber']
+        if overwrite_existing_transaction_set_control_number is None:
+            raise TypeError("Missing 'overwrite_existing_transaction_set_control_number' argument")
+        if rollover_group_control_number is None and 'rolloverGroupControlNumber' in kwargs:
+            rollover_group_control_number = kwargs['rolloverGroupControlNumber']
+        if rollover_group_control_number is None:
+            raise TypeError("Missing 'rollover_group_control_number' argument")
+        if rollover_interchange_control_number is None and 'rolloverInterchangeControlNumber' in kwargs:
+            rollover_interchange_control_number = kwargs['rolloverInterchangeControlNumber']
+        if rollover_interchange_control_number is None:
+            raise TypeError("Missing 'rollover_interchange_control_number' argument")
+        if rollover_transaction_set_control_number is None and 'rolloverTransactionSetControlNumber' in kwargs:
+            rollover_transaction_set_control_number = kwargs['rolloverTransactionSetControlNumber']
+        if rollover_transaction_set_control_number is None:
+            raise TypeError("Missing 'rollover_transaction_set_control_number' argument")
+        if transaction_set_control_number_lower_bound is None and 'transactionSetControlNumberLowerBound' in kwargs:
+            transaction_set_control_number_lower_bound = kwargs['transactionSetControlNumberLowerBound']
+        if transaction_set_control_number_lower_bound is None:
+            raise TypeError("Missing 'transaction_set_control_number_lower_bound' argument")
+        if transaction_set_control_number_upper_bound is None and 'transactionSetControlNumberUpperBound' in kwargs:
+            transaction_set_control_number_upper_bound = kwargs['transactionSetControlNumberUpperBound']
+        if transaction_set_control_number_upper_bound is None:
+            raise TypeError("Missing 'transaction_set_control_number_upper_bound' argument")
+        if application_reference_id is None and 'applicationReferenceId' in kwargs:
+            application_reference_id = kwargs['applicationReferenceId']
+        if communication_agreement_id is None and 'communicationAgreementId' in kwargs:
+            communication_agreement_id = kwargs['communicationAgreementId']
+        if functional_group_id is None and 'functionalGroupId' in kwargs:
+            functional_group_id = kwargs['functionalGroupId']
+        if group_application_password is None and 'groupApplicationPassword' in kwargs:
+            group_application_password = kwargs['groupApplicationPassword']
+        if group_application_receiver_id is None and 'groupApplicationReceiverId' in kwargs:
+            group_application_receiver_id = kwargs['groupApplicationReceiverId']
+        if group_application_receiver_qualifier is None and 'groupApplicationReceiverQualifier' in kwargs:
+            group_application_receiver_qualifier = kwargs['groupApplicationReceiverQualifier']
+        if group_application_sender_id is None and 'groupApplicationSenderId' in kwargs:
+            group_application_sender_id = kwargs['groupApplicationSenderId']
+        if group_application_sender_qualifier is None and 'groupApplicationSenderQualifier' in kwargs:
+            group_application_sender_qualifier = kwargs['groupApplicationSenderQualifier']
+        if group_association_assigned_code is None and 'groupAssociationAssignedCode' in kwargs:
+            group_association_assigned_code = kwargs['groupAssociationAssignedCode']
+        if group_control_number_prefix is None and 'groupControlNumberPrefix' in kwargs:
+            group_control_number_prefix = kwargs['groupControlNumberPrefix']
+        if group_control_number_suffix is None and 'groupControlNumberSuffix' in kwargs:
+            group_control_number_suffix = kwargs['groupControlNumberSuffix']
+        if group_controlling_agency_code is None and 'groupControllingAgencyCode' in kwargs:
+            group_controlling_agency_code = kwargs['groupControllingAgencyCode']
+        if group_message_release is None and 'groupMessageRelease' in kwargs:
+            group_message_release = kwargs['groupMessageRelease']
+        if group_message_version is None and 'groupMessageVersion' in kwargs:
+            group_message_version = kwargs['groupMessageVersion']
+        if interchange_control_number_prefix is None and 'interchangeControlNumberPrefix' in kwargs:
+            interchange_control_number_prefix = kwargs['interchangeControlNumberPrefix']
+        if interchange_control_number_suffix is None and 'interchangeControlNumberSuffix' in kwargs:
+            interchange_control_number_suffix = kwargs['interchangeControlNumberSuffix']
+        if processing_priority_code is None and 'processingPriorityCode' in kwargs:
+            processing_priority_code = kwargs['processingPriorityCode']
+        if receiver_internal_identification is None and 'receiverInternalIdentification' in kwargs:
+            receiver_internal_identification = kwargs['receiverInternalIdentification']
+        if receiver_internal_sub_identification is None and 'receiverInternalSubIdentification' in kwargs:
+            receiver_internal_sub_identification = kwargs['receiverInternalSubIdentification']
+        if receiver_reverse_routing_address is None and 'receiverReverseRoutingAddress' in kwargs:
+            receiver_reverse_routing_address = kwargs['receiverReverseRoutingAddress']
+        if recipient_reference_password_qualifier is None and 'recipientReferencePasswordQualifier' in kwargs:
+            recipient_reference_password_qualifier = kwargs['recipientReferencePasswordQualifier']
+        if recipient_reference_password_value is None and 'recipientReferencePasswordValue' in kwargs:
+            recipient_reference_password_value = kwargs['recipientReferencePasswordValue']
+        if sender_internal_identification is None and 'senderInternalIdentification' in kwargs:
+            sender_internal_identification = kwargs['senderInternalIdentification']
+        if sender_internal_sub_identification is None and 'senderInternalSubIdentification' in kwargs:
+            sender_internal_sub_identification = kwargs['senderInternalSubIdentification']
+        if sender_reverse_routing_address is None and 'senderReverseRoutingAddress' in kwargs:
+            sender_reverse_routing_address = kwargs['senderReverseRoutingAddress']
+        if transaction_set_control_number_prefix is None and 'transactionSetControlNumberPrefix' in kwargs:
+            transaction_set_control_number_prefix = kwargs['transactionSetControlNumberPrefix']
+        if transaction_set_control_number_suffix is None and 'transactionSetControlNumberSuffix' in kwargs:
+            transaction_set_control_number_suffix = kwargs['transactionSetControlNumberSuffix']
+
+        _setter("apply_delimiter_string_advice", apply_delimiter_string_advice)
+        _setter("create_grouping_segments", create_grouping_segments)
+        _setter("enable_default_group_headers", enable_default_group_headers)
+        _setter("group_control_number_lower_bound", group_control_number_lower_bound)
+        _setter("group_control_number_upper_bound", group_control_number_upper_bound)
+        _setter("interchange_control_number_lower_bound", interchange_control_number_lower_bound)
+        _setter("interchange_control_number_upper_bound", interchange_control_number_upper_bound)
+        _setter("is_test_interchange", is_test_interchange)
+        _setter("overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
+        _setter("rollover_group_control_number", rollover_group_control_number)
+        _setter("rollover_interchange_control_number", rollover_interchange_control_number)
+        _setter("rollover_transaction_set_control_number", rollover_transaction_set_control_number)
+        _setter("transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
+        _setter("transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
         if application_reference_id is not None:
-            pulumi.set(__self__, "application_reference_id", application_reference_id)
+            _setter("application_reference_id", application_reference_id)
         if communication_agreement_id is not None:
-            pulumi.set(__self__, "communication_agreement_id", communication_agreement_id)
+            _setter("communication_agreement_id", communication_agreement_id)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if group_application_password is not None:
-            pulumi.set(__self__, "group_application_password", group_application_password)
+            _setter("group_application_password", group_application_password)
         if group_application_receiver_id is not None:
-            pulumi.set(__self__, "group_application_receiver_id", group_application_receiver_id)
+            _setter("group_application_receiver_id", group_application_receiver_id)
         if group_application_receiver_qualifier is not None:
-            pulumi.set(__self__, "group_application_receiver_qualifier", group_application_receiver_qualifier)
+            _setter("group_application_receiver_qualifier", group_application_receiver_qualifier)
         if group_application_sender_id is not None:
-            pulumi.set(__self__, "group_application_sender_id", group_application_sender_id)
+            _setter("group_application_sender_id", group_application_sender_id)
         if group_application_sender_qualifier is not None:
-            pulumi.set(__self__, "group_application_sender_qualifier", group_application_sender_qualifier)
+            _setter("group_application_sender_qualifier", group_application_sender_qualifier)
         if group_association_assigned_code is not None:
-            pulumi.set(__self__, "group_association_assigned_code", group_association_assigned_code)
+            _setter("group_association_assigned_code", group_association_assigned_code)
         if group_control_number_prefix is not None:
-            pulumi.set(__self__, "group_control_number_prefix", group_control_number_prefix)
+            _setter("group_control_number_prefix", group_control_number_prefix)
         if group_control_number_suffix is not None:
-            pulumi.set(__self__, "group_control_number_suffix", group_control_number_suffix)
+            _setter("group_control_number_suffix", group_control_number_suffix)
         if group_controlling_agency_code is not None:
-            pulumi.set(__self__, "group_controlling_agency_code", group_controlling_agency_code)
+            _setter("group_controlling_agency_code", group_controlling_agency_code)
         if group_message_release is not None:
-            pulumi.set(__self__, "group_message_release", group_message_release)
+            _setter("group_message_release", group_message_release)
         if group_message_version is not None:
-            pulumi.set(__self__, "group_message_version", group_message_version)
+            _setter("group_message_version", group_message_version)
         if interchange_control_number_prefix is not None:
-            pulumi.set(__self__, "interchange_control_number_prefix", interchange_control_number_prefix)
+            _setter("interchange_control_number_prefix", interchange_control_number_prefix)
         if interchange_control_number_suffix is not None:
-            pulumi.set(__self__, "interchange_control_number_suffix", interchange_control_number_suffix)
+            _setter("interchange_control_number_suffix", interchange_control_number_suffix)
         if processing_priority_code is not None:
-            pulumi.set(__self__, "processing_priority_code", processing_priority_code)
+            _setter("processing_priority_code", processing_priority_code)
         if receiver_internal_identification is not None:
-            pulumi.set(__self__, "receiver_internal_identification", receiver_internal_identification)
+            _setter("receiver_internal_identification", receiver_internal_identification)
         if receiver_internal_sub_identification is not None:
-            pulumi.set(__self__, "receiver_internal_sub_identification", receiver_internal_sub_identification)
+            _setter("receiver_internal_sub_identification", receiver_internal_sub_identification)
         if receiver_reverse_routing_address is not None:
-            pulumi.set(__self__, "receiver_reverse_routing_address", receiver_reverse_routing_address)
+            _setter("receiver_reverse_routing_address", receiver_reverse_routing_address)
         if recipient_reference_password_qualifier is not None:
-            pulumi.set(__self__, "recipient_reference_password_qualifier", recipient_reference_password_qualifier)
+            _setter("recipient_reference_password_qualifier", recipient_reference_password_qualifier)
         if recipient_reference_password_value is not None:
-            pulumi.set(__self__, "recipient_reference_password_value", recipient_reference_password_value)
+            _setter("recipient_reference_password_value", recipient_reference_password_value)
         if sender_internal_identification is not None:
-            pulumi.set(__self__, "sender_internal_identification", sender_internal_identification)
+            _setter("sender_internal_identification", sender_internal_identification)
         if sender_internal_sub_identification is not None:
-            pulumi.set(__self__, "sender_internal_sub_identification", sender_internal_sub_identification)
+            _setter("sender_internal_sub_identification", sender_internal_sub_identification)
         if sender_reverse_routing_address is not None:
-            pulumi.set(__self__, "sender_reverse_routing_address", sender_reverse_routing_address)
+            _setter("sender_reverse_routing_address", sender_reverse_routing_address)
         if transaction_set_control_number_prefix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_prefix", transaction_set_control_number_prefix)
+            _setter("transaction_set_control_number_prefix", transaction_set_control_number_prefix)
         if transaction_set_control_number_suffix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_suffix", transaction_set_control_number_suffix)
+            _setter("transaction_set_control_number_suffix", transaction_set_control_number_suffix)
 
     @property
     @pulumi.getter(name="applyDelimiterStringAdvice")
@@ -2443,19 +3335,90 @@ class EdifactFramingSettingsArgs:
         :param pulumi.Input[str] character_encoding: The character encoding.
         :param pulumi.Input[str] service_code_list_directory_version: The service code list directory version.
         """
-        pulumi.set(__self__, "character_set", character_set)
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "decimal_point_indicator", decimal_point_indicator)
-        pulumi.set(__self__, "protocol_version", protocol_version)
-        pulumi.set(__self__, "release_indicator", release_indicator)
-        pulumi.set(__self__, "repetition_separator", repetition_separator)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        EdifactFramingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            character_set=character_set,
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            decimal_point_indicator=decimal_point_indicator,
+            protocol_version=protocol_version,
+            release_indicator=release_indicator,
+            repetition_separator=repetition_separator,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            character_encoding=character_encoding,
+            service_code_list_directory_version=service_code_list_directory_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             character_set: Optional[pulumi.Input['EdifactCharacterSet']] = None,
+             component_separator: Optional[pulumi.Input[int]] = None,
+             data_element_separator: Optional[pulumi.Input[int]] = None,
+             decimal_point_indicator: Optional[pulumi.Input['EdifactDecimalIndicator']] = None,
+             protocol_version: Optional[pulumi.Input[int]] = None,
+             release_indicator: Optional[pulumi.Input[int]] = None,
+             repetition_separator: Optional[pulumi.Input[int]] = None,
+             segment_terminator: Optional[pulumi.Input[int]] = None,
+             segment_terminator_suffix: Optional[pulumi.Input['SegmentTerminatorSuffix']] = None,
+             character_encoding: Optional[pulumi.Input[str]] = None,
+             service_code_list_directory_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if character_set is None and 'characterSet' in kwargs:
+            character_set = kwargs['characterSet']
+        if character_set is None:
+            raise TypeError("Missing 'character_set' argument")
+        if component_separator is None and 'componentSeparator' in kwargs:
+            component_separator = kwargs['componentSeparator']
+        if component_separator is None:
+            raise TypeError("Missing 'component_separator' argument")
+        if data_element_separator is None and 'dataElementSeparator' in kwargs:
+            data_element_separator = kwargs['dataElementSeparator']
+        if data_element_separator is None:
+            raise TypeError("Missing 'data_element_separator' argument")
+        if decimal_point_indicator is None and 'decimalPointIndicator' in kwargs:
+            decimal_point_indicator = kwargs['decimalPointIndicator']
+        if decimal_point_indicator is None:
+            raise TypeError("Missing 'decimal_point_indicator' argument")
+        if protocol_version is None and 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if protocol_version is None:
+            raise TypeError("Missing 'protocol_version' argument")
+        if release_indicator is None and 'releaseIndicator' in kwargs:
+            release_indicator = kwargs['releaseIndicator']
+        if release_indicator is None:
+            raise TypeError("Missing 'release_indicator' argument")
+        if repetition_separator is None and 'repetitionSeparator' in kwargs:
+            repetition_separator = kwargs['repetitionSeparator']
+        if repetition_separator is None:
+            raise TypeError("Missing 'repetition_separator' argument")
+        if segment_terminator is None and 'segmentTerminator' in kwargs:
+            segment_terminator = kwargs['segmentTerminator']
+        if segment_terminator is None:
+            raise TypeError("Missing 'segment_terminator' argument")
+        if segment_terminator_suffix is None and 'segmentTerminatorSuffix' in kwargs:
+            segment_terminator_suffix = kwargs['segmentTerminatorSuffix']
+        if segment_terminator_suffix is None:
+            raise TypeError("Missing 'segment_terminator_suffix' argument")
+        if character_encoding is None and 'characterEncoding' in kwargs:
+            character_encoding = kwargs['characterEncoding']
+        if service_code_list_directory_version is None and 'serviceCodeListDirectoryVersion' in kwargs:
+            service_code_list_directory_version = kwargs['serviceCodeListDirectoryVersion']
+
+        _setter("character_set", character_set)
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("decimal_point_indicator", decimal_point_indicator)
+        _setter("protocol_version", protocol_version)
+        _setter("release_indicator", release_indicator)
+        _setter("repetition_separator", repetition_separator)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if character_encoding is not None:
-            pulumi.set(__self__, "character_encoding", character_encoding)
+            _setter("character_encoding", character_encoding)
         if service_code_list_directory_version is not None:
-            pulumi.set(__self__, "service_code_list_directory_version", service_code_list_directory_version)
+            _setter("service_code_list_directory_version", service_code_list_directory_version)
 
     @property
     @pulumi.getter(name="characterSet")
@@ -2598,7 +3561,22 @@ class EdifactMessageFilterArgs:
         The Edifact message filter for odata query.
         :param pulumi.Input['MessageFilterType'] message_filter_type: The message filter type.
         """
-        pulumi.set(__self__, "message_filter_type", message_filter_type)
+        EdifactMessageFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_filter_type=message_filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_filter_type: Optional[pulumi.Input['MessageFilterType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_filter_type is None and 'messageFilterType' in kwargs:
+            message_filter_type = kwargs['messageFilterType']
+        if message_filter_type is None:
+            raise TypeError("Missing 'message_filter_type' argument")
+
+        _setter("message_filter_type", message_filter_type)
 
     @property
     @pulumi.getter(name="messageFilterType")
@@ -2621,7 +3599,22 @@ class EdifactMessageIdentifierArgs:
         The Edifact message identifier.
         :param pulumi.Input[str] message_id: The message id on which this envelope settings has to be applied.
         """
-        pulumi.set(__self__, "message_id", message_id)
+        EdifactMessageIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_id is None:
+            raise TypeError("Missing 'message_id' argument")
+
+        _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -2648,9 +3641,36 @@ class EdifactOneWayAgreementArgs:
         :param pulumi.Input['BusinessIdentityArgs'] receiver_business_identity: The receiver business identity
         :param pulumi.Input['BusinessIdentityArgs'] sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        EdifactOneWayAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: Optional[pulumi.Input['EdifactProtocolSettingsArgs']] = None,
+             receiver_business_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             sender_business_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if protocol_settings is None and 'protocolSettings' in kwargs:
+            protocol_settings = kwargs['protocolSettings']
+        if protocol_settings is None:
+            raise TypeError("Missing 'protocol_settings' argument")
+        if receiver_business_identity is None and 'receiverBusinessIdentity' in kwargs:
+            receiver_business_identity = kwargs['receiverBusinessIdentity']
+        if receiver_business_identity is None:
+            raise TypeError("Missing 'receiver_business_identity' argument")
+        if sender_business_identity is None and 'senderBusinessIdentity' in kwargs:
+            sender_business_identity = kwargs['senderBusinessIdentity']
+        if sender_business_identity is None:
+            raise TypeError("Missing 'sender_business_identity' argument")
+
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -2705,11 +3725,50 @@ class EdifactProcessingSettingsArgs:
         :param pulumi.Input[bool] suspend_interchange_on_error: The value indicating whether to suspend interchange on error.
         :param pulumi.Input[bool] use_dot_as_decimal_separator: The value indicating whether to use dot as decimal separator.
         """
-        pulumi.set(__self__, "create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
-        pulumi.set(__self__, "mask_security_info", mask_security_info)
-        pulumi.set(__self__, "preserve_interchange", preserve_interchange)
-        pulumi.set(__self__, "suspend_interchange_on_error", suspend_interchange_on_error)
-        pulumi.set(__self__, "use_dot_as_decimal_separator", use_dot_as_decimal_separator)
+        EdifactProcessingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_empty_xml_tags_for_trailing_separators=create_empty_xml_tags_for_trailing_separators,
+            mask_security_info=mask_security_info,
+            preserve_interchange=preserve_interchange,
+            suspend_interchange_on_error=suspend_interchange_on_error,
+            use_dot_as_decimal_separator=use_dot_as_decimal_separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_empty_xml_tags_for_trailing_separators: Optional[pulumi.Input[bool]] = None,
+             mask_security_info: Optional[pulumi.Input[bool]] = None,
+             preserve_interchange: Optional[pulumi.Input[bool]] = None,
+             suspend_interchange_on_error: Optional[pulumi.Input[bool]] = None,
+             use_dot_as_decimal_separator: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_empty_xml_tags_for_trailing_separators is None and 'createEmptyXmlTagsForTrailingSeparators' in kwargs:
+            create_empty_xml_tags_for_trailing_separators = kwargs['createEmptyXmlTagsForTrailingSeparators']
+        if create_empty_xml_tags_for_trailing_separators is None:
+            raise TypeError("Missing 'create_empty_xml_tags_for_trailing_separators' argument")
+        if mask_security_info is None and 'maskSecurityInfo' in kwargs:
+            mask_security_info = kwargs['maskSecurityInfo']
+        if mask_security_info is None:
+            raise TypeError("Missing 'mask_security_info' argument")
+        if preserve_interchange is None and 'preserveInterchange' in kwargs:
+            preserve_interchange = kwargs['preserveInterchange']
+        if preserve_interchange is None:
+            raise TypeError("Missing 'preserve_interchange' argument")
+        if suspend_interchange_on_error is None and 'suspendInterchangeOnError' in kwargs:
+            suspend_interchange_on_error = kwargs['suspendInterchangeOnError']
+        if suspend_interchange_on_error is None:
+            raise TypeError("Missing 'suspend_interchange_on_error' argument")
+        if use_dot_as_decimal_separator is None and 'useDotAsDecimalSeparator' in kwargs:
+            use_dot_as_decimal_separator = kwargs['useDotAsDecimalSeparator']
+        if use_dot_as_decimal_separator is None:
+            raise TypeError("Missing 'use_dot_as_decimal_separator' argument")
+
+        _setter("create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
+        _setter("mask_security_info", mask_security_info)
+        _setter("preserve_interchange", preserve_interchange)
+        _setter("suspend_interchange_on_error", suspend_interchange_on_error)
+        _setter("use_dot_as_decimal_separator", use_dot_as_decimal_separator)
 
     @property
     @pulumi.getter(name="createEmptyXmlTagsForTrailingSeparators")
@@ -2800,21 +3859,88 @@ class EdifactProtocolSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EdifactMessageIdentifierArgs']]] message_filter_list: The EDIFACT message filter list.
         :param pulumi.Input[Sequence[pulumi.Input['EdifactValidationOverrideArgs']]] validation_overrides: The EDIFACT validation override settings.
         """
-        pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "framing_settings", framing_settings)
-        pulumi.set(__self__, "message_filter", message_filter)
-        pulumi.set(__self__, "processing_settings", processing_settings)
-        pulumi.set(__self__, "schema_references", schema_references)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        EdifactProtocolSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_settings=acknowledgement_settings,
+            envelope_settings=envelope_settings,
+            framing_settings=framing_settings,
+            message_filter=message_filter,
+            processing_settings=processing_settings,
+            schema_references=schema_references,
+            validation_settings=validation_settings,
+            edifact_delimiter_overrides=edifact_delimiter_overrides,
+            envelope_overrides=envelope_overrides,
+            message_filter_list=message_filter_list,
+            validation_overrides=validation_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_settings: Optional[pulumi.Input['EdifactAcknowledgementSettingsArgs']] = None,
+             envelope_settings: Optional[pulumi.Input['EdifactEnvelopeSettingsArgs']] = None,
+             framing_settings: Optional[pulumi.Input['EdifactFramingSettingsArgs']] = None,
+             message_filter: Optional[pulumi.Input['EdifactMessageFilterArgs']] = None,
+             processing_settings: Optional[pulumi.Input['EdifactProcessingSettingsArgs']] = None,
+             schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactSchemaReferenceArgs']]]] = None,
+             validation_settings: Optional[pulumi.Input['EdifactValidationSettingsArgs']] = None,
+             edifact_delimiter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactDelimiterOverrideArgs']]]] = None,
+             envelope_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactEnvelopeOverrideArgs']]]] = None,
+             message_filter_list: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactMessageIdentifierArgs']]]] = None,
+             validation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EdifactValidationOverrideArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acknowledgement_settings is None and 'acknowledgementSettings' in kwargs:
+            acknowledgement_settings = kwargs['acknowledgementSettings']
+        if acknowledgement_settings is None:
+            raise TypeError("Missing 'acknowledgement_settings' argument")
+        if envelope_settings is None and 'envelopeSettings' in kwargs:
+            envelope_settings = kwargs['envelopeSettings']
+        if envelope_settings is None:
+            raise TypeError("Missing 'envelope_settings' argument")
+        if framing_settings is None and 'framingSettings' in kwargs:
+            framing_settings = kwargs['framingSettings']
+        if framing_settings is None:
+            raise TypeError("Missing 'framing_settings' argument")
+        if message_filter is None and 'messageFilter' in kwargs:
+            message_filter = kwargs['messageFilter']
+        if message_filter is None:
+            raise TypeError("Missing 'message_filter' argument")
+        if processing_settings is None and 'processingSettings' in kwargs:
+            processing_settings = kwargs['processingSettings']
+        if processing_settings is None:
+            raise TypeError("Missing 'processing_settings' argument")
+        if schema_references is None and 'schemaReferences' in kwargs:
+            schema_references = kwargs['schemaReferences']
+        if schema_references is None:
+            raise TypeError("Missing 'schema_references' argument")
+        if validation_settings is None and 'validationSettings' in kwargs:
+            validation_settings = kwargs['validationSettings']
+        if validation_settings is None:
+            raise TypeError("Missing 'validation_settings' argument")
+        if edifact_delimiter_overrides is None and 'edifactDelimiterOverrides' in kwargs:
+            edifact_delimiter_overrides = kwargs['edifactDelimiterOverrides']
+        if envelope_overrides is None and 'envelopeOverrides' in kwargs:
+            envelope_overrides = kwargs['envelopeOverrides']
+        if message_filter_list is None and 'messageFilterList' in kwargs:
+            message_filter_list = kwargs['messageFilterList']
+        if validation_overrides is None and 'validationOverrides' in kwargs:
+            validation_overrides = kwargs['validationOverrides']
+
+        _setter("acknowledgement_settings", acknowledgement_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("framing_settings", framing_settings)
+        _setter("message_filter", message_filter)
+        _setter("processing_settings", processing_settings)
+        _setter("schema_references", schema_references)
+        _setter("validation_settings", validation_settings)
         if edifact_delimiter_overrides is not None:
-            pulumi.set(__self__, "edifact_delimiter_overrides", edifact_delimiter_overrides)
+            _setter("edifact_delimiter_overrides", edifact_delimiter_overrides)
         if envelope_overrides is not None:
-            pulumi.set(__self__, "envelope_overrides", envelope_overrides)
+            _setter("envelope_overrides", envelope_overrides)
         if message_filter_list is not None:
-            pulumi.set(__self__, "message_filter_list", message_filter_list)
+            _setter("message_filter_list", message_filter_list)
         if validation_overrides is not None:
-            pulumi.set(__self__, "validation_overrides", validation_overrides)
+            _setter("validation_overrides", validation_overrides)
 
     @property
     @pulumi.getter(name="acknowledgementSettings")
@@ -2969,16 +4095,61 @@ class EdifactSchemaReferenceArgs:
         :param pulumi.Input[str] sender_application_id: The sender application id.
         :param pulumi.Input[str] sender_application_qualifier: The sender application qualifier.
         """
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "message_release", message_release)
-        pulumi.set(__self__, "message_version", message_version)
-        pulumi.set(__self__, "schema_name", schema_name)
+        EdifactSchemaReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+            message_release=message_release,
+            message_version=message_version,
+            schema_name=schema_name,
+            association_assigned_code=association_assigned_code,
+            sender_application_id=sender_application_id,
+            sender_application_qualifier=sender_application_qualifier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: Optional[pulumi.Input[str]] = None,
+             message_release: Optional[pulumi.Input[str]] = None,
+             message_version: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             association_assigned_code: Optional[pulumi.Input[str]] = None,
+             sender_application_id: Optional[pulumi.Input[str]] = None,
+             sender_application_qualifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_id is None:
+            raise TypeError("Missing 'message_id' argument")
+        if message_release is None and 'messageRelease' in kwargs:
+            message_release = kwargs['messageRelease']
+        if message_release is None:
+            raise TypeError("Missing 'message_release' argument")
+        if message_version is None and 'messageVersion' in kwargs:
+            message_version = kwargs['messageVersion']
+        if message_version is None:
+            raise TypeError("Missing 'message_version' argument")
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if schema_name is None:
+            raise TypeError("Missing 'schema_name' argument")
+        if association_assigned_code is None and 'associationAssignedCode' in kwargs:
+            association_assigned_code = kwargs['associationAssignedCode']
+        if sender_application_id is None and 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+        if sender_application_qualifier is None and 'senderApplicationQualifier' in kwargs:
+            sender_application_qualifier = kwargs['senderApplicationQualifier']
+
+        _setter("message_id", message_id)
+        _setter("message_release", message_release)
+        _setter("message_version", message_version)
+        _setter("schema_name", schema_name)
         if association_assigned_code is not None:
-            pulumi.set(__self__, "association_assigned_code", association_assigned_code)
+            _setter("association_assigned_code", association_assigned_code)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
         if sender_application_qualifier is not None:
-            pulumi.set(__self__, "sender_application_qualifier", sender_application_qualifier)
+            _setter("sender_application_qualifier", sender_application_qualifier)
 
     @property
     @pulumi.getter(name="messageId")
@@ -3085,13 +4256,64 @@ class EdifactValidationOverrideArgs:
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "enforce_character_set", enforce_character_set)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        EdifactValidationOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            enforce_character_set=enforce_character_set,
+            message_id=message_id,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
+             enforce_character_set: Optional[pulumi.Input[bool]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             trailing_separator_policy: Optional[pulumi.Input['TrailingSeparatorPolicy']] = None,
+             trim_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
+             validate_edi_types: Optional[pulumi.Input[bool]] = None,
+             validate_xsd_types: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_leading_and_trailing_spaces_and_zeroes is None and 'allowLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            allow_leading_and_trailing_spaces_and_zeroes = kwargs['allowLeadingAndTrailingSpacesAndZeroes']
+        if allow_leading_and_trailing_spaces_and_zeroes is None:
+            raise TypeError("Missing 'allow_leading_and_trailing_spaces_and_zeroes' argument")
+        if enforce_character_set is None and 'enforceCharacterSet' in kwargs:
+            enforce_character_set = kwargs['enforceCharacterSet']
+        if enforce_character_set is None:
+            raise TypeError("Missing 'enforce_character_set' argument")
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_id is None:
+            raise TypeError("Missing 'message_id' argument")
+        if trailing_separator_policy is None and 'trailingSeparatorPolicy' in kwargs:
+            trailing_separator_policy = kwargs['trailingSeparatorPolicy']
+        if trailing_separator_policy is None:
+            raise TypeError("Missing 'trailing_separator_policy' argument")
+        if trim_leading_and_trailing_spaces_and_zeroes is None and 'trimLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            trim_leading_and_trailing_spaces_and_zeroes = kwargs['trimLeadingAndTrailingSpacesAndZeroes']
+        if trim_leading_and_trailing_spaces_and_zeroes is None:
+            raise TypeError("Missing 'trim_leading_and_trailing_spaces_and_zeroes' argument")
+        if validate_edi_types is None and 'validateEdiTypes' in kwargs:
+            validate_edi_types = kwargs['validateEdiTypes']
+        if validate_edi_types is None:
+            raise TypeError("Missing 'validate_edi_types' argument")
+        if validate_xsd_types is None and 'validateXsdTypes' in kwargs:
+            validate_xsd_types = kwargs['validateXsdTypes']
+        if validate_xsd_types is None:
+            raise TypeError("Missing 'validate_xsd_types' argument")
+
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("enforce_character_set", enforce_character_set)
+        _setter("message_id", message_id)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -3204,16 +4426,85 @@ class EdifactValidationSettingsArgs:
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to Whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to Whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "check_duplicate_group_control_number", check_duplicate_group_control_number)
-        pulumi.set(__self__, "check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
-        pulumi.set(__self__, "check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
-        pulumi.set(__self__, "interchange_control_number_validity_days", interchange_control_number_validity_days)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        EdifactValidationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            check_duplicate_group_control_number=check_duplicate_group_control_number,
+            check_duplicate_interchange_control_number=check_duplicate_interchange_control_number,
+            check_duplicate_transaction_set_control_number=check_duplicate_transaction_set_control_number,
+            interchange_control_number_validity_days=interchange_control_number_validity_days,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
+             check_duplicate_group_control_number: Optional[pulumi.Input[bool]] = None,
+             check_duplicate_interchange_control_number: Optional[pulumi.Input[bool]] = None,
+             check_duplicate_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
+             interchange_control_number_validity_days: Optional[pulumi.Input[int]] = None,
+             trailing_separator_policy: Optional[pulumi.Input['TrailingSeparatorPolicy']] = None,
+             trim_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
+             validate_character_set: Optional[pulumi.Input[bool]] = None,
+             validate_edi_types: Optional[pulumi.Input[bool]] = None,
+             validate_xsd_types: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_leading_and_trailing_spaces_and_zeroes is None and 'allowLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            allow_leading_and_trailing_spaces_and_zeroes = kwargs['allowLeadingAndTrailingSpacesAndZeroes']
+        if allow_leading_and_trailing_spaces_and_zeroes is None:
+            raise TypeError("Missing 'allow_leading_and_trailing_spaces_and_zeroes' argument")
+        if check_duplicate_group_control_number is None and 'checkDuplicateGroupControlNumber' in kwargs:
+            check_duplicate_group_control_number = kwargs['checkDuplicateGroupControlNumber']
+        if check_duplicate_group_control_number is None:
+            raise TypeError("Missing 'check_duplicate_group_control_number' argument")
+        if check_duplicate_interchange_control_number is None and 'checkDuplicateInterchangeControlNumber' in kwargs:
+            check_duplicate_interchange_control_number = kwargs['checkDuplicateInterchangeControlNumber']
+        if check_duplicate_interchange_control_number is None:
+            raise TypeError("Missing 'check_duplicate_interchange_control_number' argument")
+        if check_duplicate_transaction_set_control_number is None and 'checkDuplicateTransactionSetControlNumber' in kwargs:
+            check_duplicate_transaction_set_control_number = kwargs['checkDuplicateTransactionSetControlNumber']
+        if check_duplicate_transaction_set_control_number is None:
+            raise TypeError("Missing 'check_duplicate_transaction_set_control_number' argument")
+        if interchange_control_number_validity_days is None and 'interchangeControlNumberValidityDays' in kwargs:
+            interchange_control_number_validity_days = kwargs['interchangeControlNumberValidityDays']
+        if interchange_control_number_validity_days is None:
+            raise TypeError("Missing 'interchange_control_number_validity_days' argument")
+        if trailing_separator_policy is None and 'trailingSeparatorPolicy' in kwargs:
+            trailing_separator_policy = kwargs['trailingSeparatorPolicy']
+        if trailing_separator_policy is None:
+            raise TypeError("Missing 'trailing_separator_policy' argument")
+        if trim_leading_and_trailing_spaces_and_zeroes is None and 'trimLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            trim_leading_and_trailing_spaces_and_zeroes = kwargs['trimLeadingAndTrailingSpacesAndZeroes']
+        if trim_leading_and_trailing_spaces_and_zeroes is None:
+            raise TypeError("Missing 'trim_leading_and_trailing_spaces_and_zeroes' argument")
+        if validate_character_set is None and 'validateCharacterSet' in kwargs:
+            validate_character_set = kwargs['validateCharacterSet']
+        if validate_character_set is None:
+            raise TypeError("Missing 'validate_character_set' argument")
+        if validate_edi_types is None and 'validateEdiTypes' in kwargs:
+            validate_edi_types = kwargs['validateEdiTypes']
+        if validate_edi_types is None:
+            raise TypeError("Missing 'validate_edi_types' argument")
+        if validate_xsd_types is None and 'validateXsdTypes' in kwargs:
+            validate_xsd_types = kwargs['validateXsdTypes']
+        if validate_xsd_types is None:
+            raise TypeError("Missing 'validate_xsd_types' argument")
+
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("check_duplicate_group_control_number", check_duplicate_group_control_number)
+        _setter("check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
+        _setter("check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
+        _setter("interchange_control_number_validity_days", interchange_control_number_validity_days)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -3344,8 +4635,19 @@ class IntegrationAccountMapPropertiesParametersSchemaArgs:
         The parameters schema of integration account map.
         :param pulumi.Input[str] ref: The reference name.
         """
+        IntegrationAccountMapPropertiesParametersSchemaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ref=ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ref: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ref is not None:
-            pulumi.set(__self__, "ref", ref)
+            _setter("ref", ref)
 
     @property
     @pulumi.getter
@@ -3368,8 +4670,19 @@ class KeyVaultKeyReferenceKeyVaultArgs:
         The key vault reference.
         :param pulumi.Input[str] id: The resource id.
         """
+        KeyVaultKeyReferenceKeyVaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -3396,10 +4709,35 @@ class KeyVaultKeyReferenceArgs:
         :param pulumi.Input['KeyVaultKeyReferenceKeyVaultArgs'] key_vault: The key vault reference.
         :param pulumi.Input[str] key_version: The private key version in key vault.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault", key_vault)
+        KeyVaultKeyReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault=key_vault,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault: Optional[pulumi.Input['KeyVaultKeyReferenceKeyVaultArgs']] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if key_vault is None:
+            raise TypeError("Missing 'key_vault' argument")
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
+        _setter("key_name", key_name)
+        _setter("key_vault", key_vault)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -3446,8 +4784,19 @@ class PartnerContentArgs:
         The integration account partner content.
         :param pulumi.Input['B2BPartnerContentArgs'] b2b: The B2B partner content.
         """
+        PartnerContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            b2b=b2b,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             b2b: Optional[pulumi.Input['B2BPartnerContentArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if b2b is not None:
-            pulumi.set(__self__, "b2b", b2b)
+            _setter("b2b", b2b)
 
     @property
     @pulumi.getter
@@ -3472,8 +4821,29 @@ class RosettaNetPipAcknowledgmentOfReceiptSettingsArgs:
         :param pulumi.Input[bool] is_non_repudiation_required: The non-repudiation is required or not.
         :param pulumi.Input[int] time_to_acknowledge_in_seconds: The time to acknowledge in seconds.
         """
-        pulumi.set(__self__, "is_non_repudiation_required", is_non_repudiation_required)
-        pulumi.set(__self__, "time_to_acknowledge_in_seconds", time_to_acknowledge_in_seconds)
+        RosettaNetPipAcknowledgmentOfReceiptSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_non_repudiation_required=is_non_repudiation_required,
+            time_to_acknowledge_in_seconds=time_to_acknowledge_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_non_repudiation_required: Optional[pulumi.Input[bool]] = None,
+             time_to_acknowledge_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_non_repudiation_required is None and 'isNonRepudiationRequired' in kwargs:
+            is_non_repudiation_required = kwargs['isNonRepudiationRequired']
+        if is_non_repudiation_required is None:
+            raise TypeError("Missing 'is_non_repudiation_required' argument")
+        if time_to_acknowledge_in_seconds is None and 'timeToAcknowledgeInSeconds' in kwargs:
+            time_to_acknowledge_in_seconds = kwargs['timeToAcknowledgeInSeconds']
+        if time_to_acknowledge_in_seconds is None:
+            raise TypeError("Missing 'time_to_acknowledge_in_seconds' argument")
+
+        _setter("is_non_repudiation_required", is_non_repudiation_required)
+        _setter("time_to_acknowledge_in_seconds", time_to_acknowledge_in_seconds)
 
     @property
     @pulumi.getter(name="isNonRepudiationRequired")
@@ -3522,14 +4892,71 @@ class RosettaNetPipActivityBehaviorArgs:
         :param pulumi.Input[int] retry_count: The value indicating retry count.
         :param pulumi.Input[int] time_to_perform_in_seconds: The time to perform in seconds.
         """
-        pulumi.set(__self__, "action_type", action_type)
-        pulumi.set(__self__, "is_authorization_required", is_authorization_required)
-        pulumi.set(__self__, "is_secured_transport_required", is_secured_transport_required)
-        pulumi.set(__self__, "non_repudiation_of_origin_and_content", non_repudiation_of_origin_and_content)
-        pulumi.set(__self__, "persistent_confidentiality_scope", persistent_confidentiality_scope)
-        pulumi.set(__self__, "response_type", response_type)
-        pulumi.set(__self__, "retry_count", retry_count)
-        pulumi.set(__self__, "time_to_perform_in_seconds", time_to_perform_in_seconds)
+        RosettaNetPipActivityBehaviorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            is_authorization_required=is_authorization_required,
+            is_secured_transport_required=is_secured_transport_required,
+            non_repudiation_of_origin_and_content=non_repudiation_of_origin_and_content,
+            persistent_confidentiality_scope=persistent_confidentiality_scope,
+            response_type=response_type,
+            retry_count=retry_count,
+            time_to_perform_in_seconds=time_to_perform_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: Optional[pulumi.Input['RosettaNetActionType']] = None,
+             is_authorization_required: Optional[pulumi.Input[bool]] = None,
+             is_secured_transport_required: Optional[pulumi.Input[bool]] = None,
+             non_repudiation_of_origin_and_content: Optional[pulumi.Input[bool]] = None,
+             persistent_confidentiality_scope: Optional[pulumi.Input['RosettaNetPipConfidentialityScope']] = None,
+             response_type: Optional[pulumi.Input['RosettaNetResponseType']] = None,
+             retry_count: Optional[pulumi.Input[int]] = None,
+             time_to_perform_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if is_authorization_required is None and 'isAuthorizationRequired' in kwargs:
+            is_authorization_required = kwargs['isAuthorizationRequired']
+        if is_authorization_required is None:
+            raise TypeError("Missing 'is_authorization_required' argument")
+        if is_secured_transport_required is None and 'isSecuredTransportRequired' in kwargs:
+            is_secured_transport_required = kwargs['isSecuredTransportRequired']
+        if is_secured_transport_required is None:
+            raise TypeError("Missing 'is_secured_transport_required' argument")
+        if non_repudiation_of_origin_and_content is None and 'nonRepudiationOfOriginAndContent' in kwargs:
+            non_repudiation_of_origin_and_content = kwargs['nonRepudiationOfOriginAndContent']
+        if non_repudiation_of_origin_and_content is None:
+            raise TypeError("Missing 'non_repudiation_of_origin_and_content' argument")
+        if persistent_confidentiality_scope is None and 'persistentConfidentialityScope' in kwargs:
+            persistent_confidentiality_scope = kwargs['persistentConfidentialityScope']
+        if persistent_confidentiality_scope is None:
+            raise TypeError("Missing 'persistent_confidentiality_scope' argument")
+        if response_type is None and 'responseType' in kwargs:
+            response_type = kwargs['responseType']
+        if response_type is None:
+            raise TypeError("Missing 'response_type' argument")
+        if retry_count is None and 'retryCount' in kwargs:
+            retry_count = kwargs['retryCount']
+        if retry_count is None:
+            raise TypeError("Missing 'retry_count' argument")
+        if time_to_perform_in_seconds is None and 'timeToPerformInSeconds' in kwargs:
+            time_to_perform_in_seconds = kwargs['timeToPerformInSeconds']
+        if time_to_perform_in_seconds is None:
+            raise TypeError("Missing 'time_to_perform_in_seconds' argument")
+
+        _setter("action_type", action_type)
+        _setter("is_authorization_required", is_authorization_required)
+        _setter("is_secured_transport_required", is_secured_transport_required)
+        _setter("non_repudiation_of_origin_and_content", non_repudiation_of_origin_and_content)
+        _setter("persistent_confidentiality_scope", persistent_confidentiality_scope)
+        _setter("response_type", response_type)
+        _setter("retry_count", retry_count)
+        _setter("time_to_perform_in_seconds", time_to_perform_in_seconds)
 
     @property
     @pulumi.getter(name="actionType")
@@ -3640,9 +5067,36 @@ class RosettaNetPipActivitySettingsArgs:
         :param pulumi.Input['RosettaNetPipActivityBehaviorArgs'] activity_behavior: The RosettaNet ProcessConfiguration activity behavior.
         :param pulumi.Input['RosettaNetPipActivityType'] activity_type: The RosettaNet ProcessConfiguration activity type.
         """
-        pulumi.set(__self__, "acknowledgment_of_receipt_settings", acknowledgment_of_receipt_settings)
-        pulumi.set(__self__, "activity_behavior", activity_behavior)
-        pulumi.set(__self__, "activity_type", activity_type)
+        RosettaNetPipActivitySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgment_of_receipt_settings=acknowledgment_of_receipt_settings,
+            activity_behavior=activity_behavior,
+            activity_type=activity_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgment_of_receipt_settings: Optional[pulumi.Input['RosettaNetPipAcknowledgmentOfReceiptSettingsArgs']] = None,
+             activity_behavior: Optional[pulumi.Input['RosettaNetPipActivityBehaviorArgs']] = None,
+             activity_type: Optional[pulumi.Input['RosettaNetPipActivityType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acknowledgment_of_receipt_settings is None and 'acknowledgmentOfReceiptSettings' in kwargs:
+            acknowledgment_of_receipt_settings = kwargs['acknowledgmentOfReceiptSettings']
+        if acknowledgment_of_receipt_settings is None:
+            raise TypeError("Missing 'acknowledgment_of_receipt_settings' argument")
+        if activity_behavior is None and 'activityBehavior' in kwargs:
+            activity_behavior = kwargs['activityBehavior']
+        if activity_behavior is None:
+            raise TypeError("Missing 'activity_behavior' argument")
+        if activity_type is None and 'activityType' in kwargs:
+            activity_type = kwargs['activityType']
+        if activity_type is None:
+            raise TypeError("Missing 'activity_type' argument")
+
+        _setter("acknowledgment_of_receipt_settings", acknowledgment_of_receipt_settings)
+        _setter("activity_behavior", activity_behavior)
+        _setter("activity_type", activity_type)
 
     @property
     @pulumi.getter(name="acknowledgmentOfReceiptSettings")
@@ -3693,10 +5147,29 @@ class RosettaNetPipBusinessDocumentArgs:
         :param pulumi.Input[str] version: The business document version.
         :param pulumi.Input[str] description: The business document description.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        RosettaNetPipBusinessDocumentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("name", name)
+        _setter("version", version)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -3755,14 +5228,55 @@ class RosettaNetPipRoleSettingsArgs:
         :param pulumi.Input[str] service_classification: The service classification name.
         :param pulumi.Input[str] description: The description.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "business_document", business_document)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "role_type", role_type)
-        pulumi.set(__self__, "service", service)
-        pulumi.set(__self__, "service_classification", service_classification)
+        RosettaNetPipRoleSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            business_document=business_document,
+            role=role,
+            role_type=role_type,
+            service=service,
+            service_classification=service_classification,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             business_document: Optional[pulumi.Input['RosettaNetPipBusinessDocumentArgs']] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             role_type: Optional[pulumi.Input['RosettaNetPipRoleType']] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             service_classification: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if business_document is None and 'businessDocument' in kwargs:
+            business_document = kwargs['businessDocument']
+        if business_document is None:
+            raise TypeError("Missing 'business_document' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if role_type is None and 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+        if role_type is None:
+            raise TypeError("Missing 'role_type' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if service_classification is None and 'serviceClassification' in kwargs:
+            service_classification = kwargs['serviceClassification']
+        if service_classification is None:
+            raise TypeError("Missing 'service_classification' argument")
+
+        _setter("action", action)
+        _setter("business_document", business_document)
+        _setter("role", role)
+        _setter("role_type", role_type)
+        _setter("service", service)
+        _setter("service_classification", service_classification)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -3857,7 +5371,20 @@ class SkuArgs:
         The sku type.
         :param pulumi.Input['SkuName'] name: The name.
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input['SkuName']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3886,14 +5413,31 @@ class WorkflowParameterArgs:
         :param pulumi.Input['ParameterType'] type: The type.
         :param Any value: The value.
         """
+        WorkflowParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            metadata=metadata,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             type: Optional[pulumi.Input['ParameterType']] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3980,25 +5524,116 @@ class X12AcknowledgementSettingsArgs:
         :param pulumi.Input[str] functional_acknowledgement_version: The functional acknowledgement version.
         :param pulumi.Input[str] implementation_acknowledgement_version: The implementation acknowledgement version.
         """
-        pulumi.set(__self__, "acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
-        pulumi.set(__self__, "acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
-        pulumi.set(__self__, "batch_functional_acknowledgements", batch_functional_acknowledgements)
-        pulumi.set(__self__, "batch_implementation_acknowledgements", batch_implementation_acknowledgements)
-        pulumi.set(__self__, "batch_technical_acknowledgements", batch_technical_acknowledgements)
-        pulumi.set(__self__, "need_functional_acknowledgement", need_functional_acknowledgement)
-        pulumi.set(__self__, "need_implementation_acknowledgement", need_implementation_acknowledgement)
-        pulumi.set(__self__, "need_loop_for_valid_messages", need_loop_for_valid_messages)
-        pulumi.set(__self__, "need_technical_acknowledgement", need_technical_acknowledgement)
-        pulumi.set(__self__, "rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
-        pulumi.set(__self__, "send_synchronous_acknowledgement", send_synchronous_acknowledgement)
+        X12AcknowledgementSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_control_number_lower_bound=acknowledgement_control_number_lower_bound,
+            acknowledgement_control_number_upper_bound=acknowledgement_control_number_upper_bound,
+            batch_functional_acknowledgements=batch_functional_acknowledgements,
+            batch_implementation_acknowledgements=batch_implementation_acknowledgements,
+            batch_technical_acknowledgements=batch_technical_acknowledgements,
+            need_functional_acknowledgement=need_functional_acknowledgement,
+            need_implementation_acknowledgement=need_implementation_acknowledgement,
+            need_loop_for_valid_messages=need_loop_for_valid_messages,
+            need_technical_acknowledgement=need_technical_acknowledgement,
+            rollover_acknowledgement_control_number=rollover_acknowledgement_control_number,
+            send_synchronous_acknowledgement=send_synchronous_acknowledgement,
+            acknowledgement_control_number_prefix=acknowledgement_control_number_prefix,
+            acknowledgement_control_number_suffix=acknowledgement_control_number_suffix,
+            functional_acknowledgement_version=functional_acknowledgement_version,
+            implementation_acknowledgement_version=implementation_acknowledgement_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
+             acknowledgement_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
+             batch_functional_acknowledgements: Optional[pulumi.Input[bool]] = None,
+             batch_implementation_acknowledgements: Optional[pulumi.Input[bool]] = None,
+             batch_technical_acknowledgements: Optional[pulumi.Input[bool]] = None,
+             need_functional_acknowledgement: Optional[pulumi.Input[bool]] = None,
+             need_implementation_acknowledgement: Optional[pulumi.Input[bool]] = None,
+             need_loop_for_valid_messages: Optional[pulumi.Input[bool]] = None,
+             need_technical_acknowledgement: Optional[pulumi.Input[bool]] = None,
+             rollover_acknowledgement_control_number: Optional[pulumi.Input[bool]] = None,
+             send_synchronous_acknowledgement: Optional[pulumi.Input[bool]] = None,
+             acknowledgement_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             acknowledgement_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             functional_acknowledgement_version: Optional[pulumi.Input[str]] = None,
+             implementation_acknowledgement_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acknowledgement_control_number_lower_bound is None and 'acknowledgementControlNumberLowerBound' in kwargs:
+            acknowledgement_control_number_lower_bound = kwargs['acknowledgementControlNumberLowerBound']
+        if acknowledgement_control_number_lower_bound is None:
+            raise TypeError("Missing 'acknowledgement_control_number_lower_bound' argument")
+        if acknowledgement_control_number_upper_bound is None and 'acknowledgementControlNumberUpperBound' in kwargs:
+            acknowledgement_control_number_upper_bound = kwargs['acknowledgementControlNumberUpperBound']
+        if acknowledgement_control_number_upper_bound is None:
+            raise TypeError("Missing 'acknowledgement_control_number_upper_bound' argument")
+        if batch_functional_acknowledgements is None and 'batchFunctionalAcknowledgements' in kwargs:
+            batch_functional_acknowledgements = kwargs['batchFunctionalAcknowledgements']
+        if batch_functional_acknowledgements is None:
+            raise TypeError("Missing 'batch_functional_acknowledgements' argument")
+        if batch_implementation_acknowledgements is None and 'batchImplementationAcknowledgements' in kwargs:
+            batch_implementation_acknowledgements = kwargs['batchImplementationAcknowledgements']
+        if batch_implementation_acknowledgements is None:
+            raise TypeError("Missing 'batch_implementation_acknowledgements' argument")
+        if batch_technical_acknowledgements is None and 'batchTechnicalAcknowledgements' in kwargs:
+            batch_technical_acknowledgements = kwargs['batchTechnicalAcknowledgements']
+        if batch_technical_acknowledgements is None:
+            raise TypeError("Missing 'batch_technical_acknowledgements' argument")
+        if need_functional_acknowledgement is None and 'needFunctionalAcknowledgement' in kwargs:
+            need_functional_acknowledgement = kwargs['needFunctionalAcknowledgement']
+        if need_functional_acknowledgement is None:
+            raise TypeError("Missing 'need_functional_acknowledgement' argument")
+        if need_implementation_acknowledgement is None and 'needImplementationAcknowledgement' in kwargs:
+            need_implementation_acknowledgement = kwargs['needImplementationAcknowledgement']
+        if need_implementation_acknowledgement is None:
+            raise TypeError("Missing 'need_implementation_acknowledgement' argument")
+        if need_loop_for_valid_messages is None and 'needLoopForValidMessages' in kwargs:
+            need_loop_for_valid_messages = kwargs['needLoopForValidMessages']
+        if need_loop_for_valid_messages is None:
+            raise TypeError("Missing 'need_loop_for_valid_messages' argument")
+        if need_technical_acknowledgement is None and 'needTechnicalAcknowledgement' in kwargs:
+            need_technical_acknowledgement = kwargs['needTechnicalAcknowledgement']
+        if need_technical_acknowledgement is None:
+            raise TypeError("Missing 'need_technical_acknowledgement' argument")
+        if rollover_acknowledgement_control_number is None and 'rolloverAcknowledgementControlNumber' in kwargs:
+            rollover_acknowledgement_control_number = kwargs['rolloverAcknowledgementControlNumber']
+        if rollover_acknowledgement_control_number is None:
+            raise TypeError("Missing 'rollover_acknowledgement_control_number' argument")
+        if send_synchronous_acknowledgement is None and 'sendSynchronousAcknowledgement' in kwargs:
+            send_synchronous_acknowledgement = kwargs['sendSynchronousAcknowledgement']
+        if send_synchronous_acknowledgement is None:
+            raise TypeError("Missing 'send_synchronous_acknowledgement' argument")
+        if acknowledgement_control_number_prefix is None and 'acknowledgementControlNumberPrefix' in kwargs:
+            acknowledgement_control_number_prefix = kwargs['acknowledgementControlNumberPrefix']
+        if acknowledgement_control_number_suffix is None and 'acknowledgementControlNumberSuffix' in kwargs:
+            acknowledgement_control_number_suffix = kwargs['acknowledgementControlNumberSuffix']
+        if functional_acknowledgement_version is None and 'functionalAcknowledgementVersion' in kwargs:
+            functional_acknowledgement_version = kwargs['functionalAcknowledgementVersion']
+        if implementation_acknowledgement_version is None and 'implementationAcknowledgementVersion' in kwargs:
+            implementation_acknowledgement_version = kwargs['implementationAcknowledgementVersion']
+
+        _setter("acknowledgement_control_number_lower_bound", acknowledgement_control_number_lower_bound)
+        _setter("acknowledgement_control_number_upper_bound", acknowledgement_control_number_upper_bound)
+        _setter("batch_functional_acknowledgements", batch_functional_acknowledgements)
+        _setter("batch_implementation_acknowledgements", batch_implementation_acknowledgements)
+        _setter("batch_technical_acknowledgements", batch_technical_acknowledgements)
+        _setter("need_functional_acknowledgement", need_functional_acknowledgement)
+        _setter("need_implementation_acknowledgement", need_implementation_acknowledgement)
+        _setter("need_loop_for_valid_messages", need_loop_for_valid_messages)
+        _setter("need_technical_acknowledgement", need_technical_acknowledgement)
+        _setter("rollover_acknowledgement_control_number", rollover_acknowledgement_control_number)
+        _setter("send_synchronous_acknowledgement", send_synchronous_acknowledgement)
         if acknowledgement_control_number_prefix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
+            _setter("acknowledgement_control_number_prefix", acknowledgement_control_number_prefix)
         if acknowledgement_control_number_suffix is not None:
-            pulumi.set(__self__, "acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
+            _setter("acknowledgement_control_number_suffix", acknowledgement_control_number_suffix)
         if functional_acknowledgement_version is not None:
-            pulumi.set(__self__, "functional_acknowledgement_version", functional_acknowledgement_version)
+            _setter("functional_acknowledgement_version", functional_acknowledgement_version)
         if implementation_acknowledgement_version is not None:
-            pulumi.set(__self__, "implementation_acknowledgement_version", implementation_acknowledgement_version)
+            _setter("implementation_acknowledgement_version", implementation_acknowledgement_version)
 
     @property
     @pulumi.getter(name="acknowledgementControlNumberLowerBound")
@@ -4191,8 +5826,29 @@ class X12AgreementContentArgs:
         :param pulumi.Input['X12OneWayAgreementArgs'] receive_agreement: The X12 one-way receive agreement.
         :param pulumi.Input['X12OneWayAgreementArgs'] send_agreement: The X12 one-way send agreement.
         """
-        pulumi.set(__self__, "receive_agreement", receive_agreement)
-        pulumi.set(__self__, "send_agreement", send_agreement)
+        X12AgreementContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receive_agreement=receive_agreement,
+            send_agreement=send_agreement,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receive_agreement: Optional[pulumi.Input['X12OneWayAgreementArgs']] = None,
+             send_agreement: Optional[pulumi.Input['X12OneWayAgreementArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if receive_agreement is None and 'receiveAgreement' in kwargs:
+            receive_agreement = kwargs['receiveAgreement']
+        if receive_agreement is None:
+            raise TypeError("Missing 'receive_agreement' argument")
+        if send_agreement is None and 'sendAgreement' in kwargs:
+            send_agreement = kwargs['sendAgreement']
+        if send_agreement is None:
+            raise TypeError("Missing 'send_agreement' argument")
+
+        _setter("receive_agreement", receive_agreement)
+        _setter("send_agreement", send_agreement)
 
     @property
     @pulumi.getter(name="receiveAgreement")
@@ -4243,18 +5899,75 @@ class X12DelimiterOverridesArgs:
         :param pulumi.Input[str] protocol_version: The protocol version.
         :param pulumi.Input[str] target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "replace_character", replace_character)
-        pulumi.set(__self__, "replace_separators_in_payload", replace_separators_in_payload)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        X12DelimiterOverridesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            replace_character=replace_character,
+            replace_separators_in_payload=replace_separators_in_payload,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+            message_id=message_id,
+            protocol_version=protocol_version,
+            target_namespace=target_namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             component_separator: Optional[pulumi.Input[int]] = None,
+             data_element_separator: Optional[pulumi.Input[int]] = None,
+             replace_character: Optional[pulumi.Input[int]] = None,
+             replace_separators_in_payload: Optional[pulumi.Input[bool]] = None,
+             segment_terminator: Optional[pulumi.Input[int]] = None,
+             segment_terminator_suffix: Optional[pulumi.Input['SegmentTerminatorSuffix']] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             protocol_version: Optional[pulumi.Input[str]] = None,
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_separator is None and 'componentSeparator' in kwargs:
+            component_separator = kwargs['componentSeparator']
+        if component_separator is None:
+            raise TypeError("Missing 'component_separator' argument")
+        if data_element_separator is None and 'dataElementSeparator' in kwargs:
+            data_element_separator = kwargs['dataElementSeparator']
+        if data_element_separator is None:
+            raise TypeError("Missing 'data_element_separator' argument")
+        if replace_character is None and 'replaceCharacter' in kwargs:
+            replace_character = kwargs['replaceCharacter']
+        if replace_character is None:
+            raise TypeError("Missing 'replace_character' argument")
+        if replace_separators_in_payload is None and 'replaceSeparatorsInPayload' in kwargs:
+            replace_separators_in_payload = kwargs['replaceSeparatorsInPayload']
+        if replace_separators_in_payload is None:
+            raise TypeError("Missing 'replace_separators_in_payload' argument")
+        if segment_terminator is None and 'segmentTerminator' in kwargs:
+            segment_terminator = kwargs['segmentTerminator']
+        if segment_terminator is None:
+            raise TypeError("Missing 'segment_terminator' argument")
+        if segment_terminator_suffix is None and 'segmentTerminatorSuffix' in kwargs:
+            segment_terminator_suffix = kwargs['segmentTerminatorSuffix']
+        if segment_terminator_suffix is None:
+            raise TypeError("Missing 'segment_terminator_suffix' argument")
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if protocol_version is None and 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if target_namespace is None and 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("replace_character", replace_character)
+        _setter("replace_separators_in_payload", replace_separators_in_payload)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if protocol_version is not None:
-            pulumi.set(__self__, "protocol_version", protocol_version)
+            _setter("protocol_version", protocol_version)
         if target_namespace is not None:
-            pulumi.set(__self__, "target_namespace", target_namespace)
+            _setter("target_namespace", target_namespace)
 
     @property
     @pulumi.getter(name="componentSeparator")
@@ -4391,17 +6104,84 @@ class X12EnvelopeOverrideArgs:
         :param pulumi.Input['X12TimeFormat'] time_format: The time format.
         :param pulumi.Input[str] functional_identifier_code: The functional identifier code.
         """
-        pulumi.set(__self__, "date_format", date_format)
-        pulumi.set(__self__, "header_version", header_version)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "protocol_version", protocol_version)
-        pulumi.set(__self__, "receiver_application_id", receiver_application_id)
-        pulumi.set(__self__, "responsible_agency_code", responsible_agency_code)
-        pulumi.set(__self__, "sender_application_id", sender_application_id)
-        pulumi.set(__self__, "target_namespace", target_namespace)
-        pulumi.set(__self__, "time_format", time_format)
+        X12EnvelopeOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_format=date_format,
+            header_version=header_version,
+            message_id=message_id,
+            protocol_version=protocol_version,
+            receiver_application_id=receiver_application_id,
+            responsible_agency_code=responsible_agency_code,
+            sender_application_id=sender_application_id,
+            target_namespace=target_namespace,
+            time_format=time_format,
+            functional_identifier_code=functional_identifier_code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_format: Optional[pulumi.Input['X12DateFormat']] = None,
+             header_version: Optional[pulumi.Input[str]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             protocol_version: Optional[pulumi.Input[str]] = None,
+             receiver_application_id: Optional[pulumi.Input[str]] = None,
+             responsible_agency_code: Optional[pulumi.Input[str]] = None,
+             sender_application_id: Optional[pulumi.Input[str]] = None,
+             target_namespace: Optional[pulumi.Input[str]] = None,
+             time_format: Optional[pulumi.Input['X12TimeFormat']] = None,
+             functional_identifier_code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if date_format is None and 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if date_format is None:
+            raise TypeError("Missing 'date_format' argument")
+        if header_version is None and 'headerVersion' in kwargs:
+            header_version = kwargs['headerVersion']
+        if header_version is None:
+            raise TypeError("Missing 'header_version' argument")
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_id is None:
+            raise TypeError("Missing 'message_id' argument")
+        if protocol_version is None and 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if protocol_version is None:
+            raise TypeError("Missing 'protocol_version' argument")
+        if receiver_application_id is None and 'receiverApplicationId' in kwargs:
+            receiver_application_id = kwargs['receiverApplicationId']
+        if receiver_application_id is None:
+            raise TypeError("Missing 'receiver_application_id' argument")
+        if responsible_agency_code is None and 'responsibleAgencyCode' in kwargs:
+            responsible_agency_code = kwargs['responsibleAgencyCode']
+        if responsible_agency_code is None:
+            raise TypeError("Missing 'responsible_agency_code' argument")
+        if sender_application_id is None and 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+        if sender_application_id is None:
+            raise TypeError("Missing 'sender_application_id' argument")
+        if target_namespace is None and 'targetNamespace' in kwargs:
+            target_namespace = kwargs['targetNamespace']
+        if target_namespace is None:
+            raise TypeError("Missing 'target_namespace' argument")
+        if time_format is None and 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+        if time_format is None:
+            raise TypeError("Missing 'time_format' argument")
+        if functional_identifier_code is None and 'functionalIdentifierCode' in kwargs:
+            functional_identifier_code = kwargs['functionalIdentifierCode']
+
+        _setter("date_format", date_format)
+        _setter("header_version", header_version)
+        _setter("message_id", message_id)
+        _setter("protocol_version", protocol_version)
+        _setter("receiver_application_id", receiver_application_id)
+        _setter("responsible_agency_code", responsible_agency_code)
+        _setter("sender_application_id", sender_application_id)
+        _setter("target_namespace", target_namespace)
+        _setter("time_format", time_format)
         if functional_identifier_code is not None:
-            pulumi.set(__self__, "functional_identifier_code", functional_identifier_code)
+            _setter("functional_identifier_code", functional_identifier_code)
 
     @property
     @pulumi.getter(name="dateFormat")
@@ -4578,33 +6358,180 @@ class X12EnvelopeSettingsArgs:
         :param pulumi.Input[str] transaction_set_control_number_prefix: The transaction set control number prefix.
         :param pulumi.Input[str] transaction_set_control_number_suffix: The transaction set control number suffix.
         """
-        pulumi.set(__self__, "control_standards_id", control_standards_id)
-        pulumi.set(__self__, "control_version_number", control_version_number)
-        pulumi.set(__self__, "enable_default_group_headers", enable_default_group_headers)
-        pulumi.set(__self__, "group_control_number_lower_bound", group_control_number_lower_bound)
-        pulumi.set(__self__, "group_control_number_upper_bound", group_control_number_upper_bound)
-        pulumi.set(__self__, "group_header_agency_code", group_header_agency_code)
-        pulumi.set(__self__, "group_header_date_format", group_header_date_format)
-        pulumi.set(__self__, "group_header_time_format", group_header_time_format)
-        pulumi.set(__self__, "group_header_version", group_header_version)
-        pulumi.set(__self__, "interchange_control_number_lower_bound", interchange_control_number_lower_bound)
-        pulumi.set(__self__, "interchange_control_number_upper_bound", interchange_control_number_upper_bound)
-        pulumi.set(__self__, "overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
-        pulumi.set(__self__, "receiver_application_id", receiver_application_id)
-        pulumi.set(__self__, "rollover_group_control_number", rollover_group_control_number)
-        pulumi.set(__self__, "rollover_interchange_control_number", rollover_interchange_control_number)
-        pulumi.set(__self__, "rollover_transaction_set_control_number", rollover_transaction_set_control_number)
-        pulumi.set(__self__, "sender_application_id", sender_application_id)
-        pulumi.set(__self__, "transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
-        pulumi.set(__self__, "transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
-        pulumi.set(__self__, "usage_indicator", usage_indicator)
-        pulumi.set(__self__, "use_control_standards_id_as_repetition_character", use_control_standards_id_as_repetition_character)
+        X12EnvelopeSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_standards_id=control_standards_id,
+            control_version_number=control_version_number,
+            enable_default_group_headers=enable_default_group_headers,
+            group_control_number_lower_bound=group_control_number_lower_bound,
+            group_control_number_upper_bound=group_control_number_upper_bound,
+            group_header_agency_code=group_header_agency_code,
+            group_header_date_format=group_header_date_format,
+            group_header_time_format=group_header_time_format,
+            group_header_version=group_header_version,
+            interchange_control_number_lower_bound=interchange_control_number_lower_bound,
+            interchange_control_number_upper_bound=interchange_control_number_upper_bound,
+            overwrite_existing_transaction_set_control_number=overwrite_existing_transaction_set_control_number,
+            receiver_application_id=receiver_application_id,
+            rollover_group_control_number=rollover_group_control_number,
+            rollover_interchange_control_number=rollover_interchange_control_number,
+            rollover_transaction_set_control_number=rollover_transaction_set_control_number,
+            sender_application_id=sender_application_id,
+            transaction_set_control_number_lower_bound=transaction_set_control_number_lower_bound,
+            transaction_set_control_number_upper_bound=transaction_set_control_number_upper_bound,
+            usage_indicator=usage_indicator,
+            use_control_standards_id_as_repetition_character=use_control_standards_id_as_repetition_character,
+            functional_group_id=functional_group_id,
+            transaction_set_control_number_prefix=transaction_set_control_number_prefix,
+            transaction_set_control_number_suffix=transaction_set_control_number_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_standards_id: Optional[pulumi.Input[int]] = None,
+             control_version_number: Optional[pulumi.Input[str]] = None,
+             enable_default_group_headers: Optional[pulumi.Input[bool]] = None,
+             group_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
+             group_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
+             group_header_agency_code: Optional[pulumi.Input[str]] = None,
+             group_header_date_format: Optional[pulumi.Input['X12DateFormat']] = None,
+             group_header_time_format: Optional[pulumi.Input['X12TimeFormat']] = None,
+             group_header_version: Optional[pulumi.Input[str]] = None,
+             interchange_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
+             interchange_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
+             overwrite_existing_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
+             receiver_application_id: Optional[pulumi.Input[str]] = None,
+             rollover_group_control_number: Optional[pulumi.Input[bool]] = None,
+             rollover_interchange_control_number: Optional[pulumi.Input[bool]] = None,
+             rollover_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
+             sender_application_id: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
+             transaction_set_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
+             usage_indicator: Optional[pulumi.Input['UsageIndicator']] = None,
+             use_control_standards_id_as_repetition_character: Optional[pulumi.Input[bool]] = None,
+             functional_group_id: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_prefix: Optional[pulumi.Input[str]] = None,
+             transaction_set_control_number_suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if control_standards_id is None and 'controlStandardsId' in kwargs:
+            control_standards_id = kwargs['controlStandardsId']
+        if control_standards_id is None:
+            raise TypeError("Missing 'control_standards_id' argument")
+        if control_version_number is None and 'controlVersionNumber' in kwargs:
+            control_version_number = kwargs['controlVersionNumber']
+        if control_version_number is None:
+            raise TypeError("Missing 'control_version_number' argument")
+        if enable_default_group_headers is None and 'enableDefaultGroupHeaders' in kwargs:
+            enable_default_group_headers = kwargs['enableDefaultGroupHeaders']
+        if enable_default_group_headers is None:
+            raise TypeError("Missing 'enable_default_group_headers' argument")
+        if group_control_number_lower_bound is None and 'groupControlNumberLowerBound' in kwargs:
+            group_control_number_lower_bound = kwargs['groupControlNumberLowerBound']
+        if group_control_number_lower_bound is None:
+            raise TypeError("Missing 'group_control_number_lower_bound' argument")
+        if group_control_number_upper_bound is None and 'groupControlNumberUpperBound' in kwargs:
+            group_control_number_upper_bound = kwargs['groupControlNumberUpperBound']
+        if group_control_number_upper_bound is None:
+            raise TypeError("Missing 'group_control_number_upper_bound' argument")
+        if group_header_agency_code is None and 'groupHeaderAgencyCode' in kwargs:
+            group_header_agency_code = kwargs['groupHeaderAgencyCode']
+        if group_header_agency_code is None:
+            raise TypeError("Missing 'group_header_agency_code' argument")
+        if group_header_date_format is None and 'groupHeaderDateFormat' in kwargs:
+            group_header_date_format = kwargs['groupHeaderDateFormat']
+        if group_header_date_format is None:
+            raise TypeError("Missing 'group_header_date_format' argument")
+        if group_header_time_format is None and 'groupHeaderTimeFormat' in kwargs:
+            group_header_time_format = kwargs['groupHeaderTimeFormat']
+        if group_header_time_format is None:
+            raise TypeError("Missing 'group_header_time_format' argument")
+        if group_header_version is None and 'groupHeaderVersion' in kwargs:
+            group_header_version = kwargs['groupHeaderVersion']
+        if group_header_version is None:
+            raise TypeError("Missing 'group_header_version' argument")
+        if interchange_control_number_lower_bound is None and 'interchangeControlNumberLowerBound' in kwargs:
+            interchange_control_number_lower_bound = kwargs['interchangeControlNumberLowerBound']
+        if interchange_control_number_lower_bound is None:
+            raise TypeError("Missing 'interchange_control_number_lower_bound' argument")
+        if interchange_control_number_upper_bound is None and 'interchangeControlNumberUpperBound' in kwargs:
+            interchange_control_number_upper_bound = kwargs['interchangeControlNumberUpperBound']
+        if interchange_control_number_upper_bound is None:
+            raise TypeError("Missing 'interchange_control_number_upper_bound' argument")
+        if overwrite_existing_transaction_set_control_number is None and 'overwriteExistingTransactionSetControlNumber' in kwargs:
+            overwrite_existing_transaction_set_control_number = kwargs['overwriteExistingTransactionSetControlNumber']
+        if overwrite_existing_transaction_set_control_number is None:
+            raise TypeError("Missing 'overwrite_existing_transaction_set_control_number' argument")
+        if receiver_application_id is None and 'receiverApplicationId' in kwargs:
+            receiver_application_id = kwargs['receiverApplicationId']
+        if receiver_application_id is None:
+            raise TypeError("Missing 'receiver_application_id' argument")
+        if rollover_group_control_number is None and 'rolloverGroupControlNumber' in kwargs:
+            rollover_group_control_number = kwargs['rolloverGroupControlNumber']
+        if rollover_group_control_number is None:
+            raise TypeError("Missing 'rollover_group_control_number' argument")
+        if rollover_interchange_control_number is None and 'rolloverInterchangeControlNumber' in kwargs:
+            rollover_interchange_control_number = kwargs['rolloverInterchangeControlNumber']
+        if rollover_interchange_control_number is None:
+            raise TypeError("Missing 'rollover_interchange_control_number' argument")
+        if rollover_transaction_set_control_number is None and 'rolloverTransactionSetControlNumber' in kwargs:
+            rollover_transaction_set_control_number = kwargs['rolloverTransactionSetControlNumber']
+        if rollover_transaction_set_control_number is None:
+            raise TypeError("Missing 'rollover_transaction_set_control_number' argument")
+        if sender_application_id is None and 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+        if sender_application_id is None:
+            raise TypeError("Missing 'sender_application_id' argument")
+        if transaction_set_control_number_lower_bound is None and 'transactionSetControlNumberLowerBound' in kwargs:
+            transaction_set_control_number_lower_bound = kwargs['transactionSetControlNumberLowerBound']
+        if transaction_set_control_number_lower_bound is None:
+            raise TypeError("Missing 'transaction_set_control_number_lower_bound' argument")
+        if transaction_set_control_number_upper_bound is None and 'transactionSetControlNumberUpperBound' in kwargs:
+            transaction_set_control_number_upper_bound = kwargs['transactionSetControlNumberUpperBound']
+        if transaction_set_control_number_upper_bound is None:
+            raise TypeError("Missing 'transaction_set_control_number_upper_bound' argument")
+        if usage_indicator is None and 'usageIndicator' in kwargs:
+            usage_indicator = kwargs['usageIndicator']
+        if usage_indicator is None:
+            raise TypeError("Missing 'usage_indicator' argument")
+        if use_control_standards_id_as_repetition_character is None and 'useControlStandardsIdAsRepetitionCharacter' in kwargs:
+            use_control_standards_id_as_repetition_character = kwargs['useControlStandardsIdAsRepetitionCharacter']
+        if use_control_standards_id_as_repetition_character is None:
+            raise TypeError("Missing 'use_control_standards_id_as_repetition_character' argument")
+        if functional_group_id is None and 'functionalGroupId' in kwargs:
+            functional_group_id = kwargs['functionalGroupId']
+        if transaction_set_control_number_prefix is None and 'transactionSetControlNumberPrefix' in kwargs:
+            transaction_set_control_number_prefix = kwargs['transactionSetControlNumberPrefix']
+        if transaction_set_control_number_suffix is None and 'transactionSetControlNumberSuffix' in kwargs:
+            transaction_set_control_number_suffix = kwargs['transactionSetControlNumberSuffix']
+
+        _setter("control_standards_id", control_standards_id)
+        _setter("control_version_number", control_version_number)
+        _setter("enable_default_group_headers", enable_default_group_headers)
+        _setter("group_control_number_lower_bound", group_control_number_lower_bound)
+        _setter("group_control_number_upper_bound", group_control_number_upper_bound)
+        _setter("group_header_agency_code", group_header_agency_code)
+        _setter("group_header_date_format", group_header_date_format)
+        _setter("group_header_time_format", group_header_time_format)
+        _setter("group_header_version", group_header_version)
+        _setter("interchange_control_number_lower_bound", interchange_control_number_lower_bound)
+        _setter("interchange_control_number_upper_bound", interchange_control_number_upper_bound)
+        _setter("overwrite_existing_transaction_set_control_number", overwrite_existing_transaction_set_control_number)
+        _setter("receiver_application_id", receiver_application_id)
+        _setter("rollover_group_control_number", rollover_group_control_number)
+        _setter("rollover_interchange_control_number", rollover_interchange_control_number)
+        _setter("rollover_transaction_set_control_number", rollover_transaction_set_control_number)
+        _setter("sender_application_id", sender_application_id)
+        _setter("transaction_set_control_number_lower_bound", transaction_set_control_number_lower_bound)
+        _setter("transaction_set_control_number_upper_bound", transaction_set_control_number_upper_bound)
+        _setter("usage_indicator", usage_indicator)
+        _setter("use_control_standards_id_as_repetition_character", use_control_standards_id_as_repetition_character)
         if functional_group_id is not None:
-            pulumi.set(__self__, "functional_group_id", functional_group_id)
+            _setter("functional_group_id", functional_group_id)
         if transaction_set_control_number_prefix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_prefix", transaction_set_control_number_prefix)
+            _setter("transaction_set_control_number_prefix", transaction_set_control_number_prefix)
         if transaction_set_control_number_suffix is not None:
-            pulumi.set(__self__, "transaction_set_control_number_suffix", transaction_set_control_number_suffix)
+            _setter("transaction_set_control_number_suffix", transaction_set_control_number_suffix)
 
     @property
     @pulumi.getter(name="controlStandardsId")
@@ -4915,13 +6842,64 @@ class X12FramingSettingsArgs:
         :param pulumi.Input[int] segment_terminator: The segment terminator.
         :param pulumi.Input['SegmentTerminatorSuffix'] segment_terminator_suffix: The segment terminator suffix.
         """
-        pulumi.set(__self__, "character_set", character_set)
-        pulumi.set(__self__, "component_separator", component_separator)
-        pulumi.set(__self__, "data_element_separator", data_element_separator)
-        pulumi.set(__self__, "replace_character", replace_character)
-        pulumi.set(__self__, "replace_separators_in_payload", replace_separators_in_payload)
-        pulumi.set(__self__, "segment_terminator", segment_terminator)
-        pulumi.set(__self__, "segment_terminator_suffix", segment_terminator_suffix)
+        X12FramingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            character_set=character_set,
+            component_separator=component_separator,
+            data_element_separator=data_element_separator,
+            replace_character=replace_character,
+            replace_separators_in_payload=replace_separators_in_payload,
+            segment_terminator=segment_terminator,
+            segment_terminator_suffix=segment_terminator_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             character_set: Optional[pulumi.Input['X12CharacterSet']] = None,
+             component_separator: Optional[pulumi.Input[int]] = None,
+             data_element_separator: Optional[pulumi.Input[int]] = None,
+             replace_character: Optional[pulumi.Input[int]] = None,
+             replace_separators_in_payload: Optional[pulumi.Input[bool]] = None,
+             segment_terminator: Optional[pulumi.Input[int]] = None,
+             segment_terminator_suffix: Optional[pulumi.Input['SegmentTerminatorSuffix']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if character_set is None and 'characterSet' in kwargs:
+            character_set = kwargs['characterSet']
+        if character_set is None:
+            raise TypeError("Missing 'character_set' argument")
+        if component_separator is None and 'componentSeparator' in kwargs:
+            component_separator = kwargs['componentSeparator']
+        if component_separator is None:
+            raise TypeError("Missing 'component_separator' argument")
+        if data_element_separator is None and 'dataElementSeparator' in kwargs:
+            data_element_separator = kwargs['dataElementSeparator']
+        if data_element_separator is None:
+            raise TypeError("Missing 'data_element_separator' argument")
+        if replace_character is None and 'replaceCharacter' in kwargs:
+            replace_character = kwargs['replaceCharacter']
+        if replace_character is None:
+            raise TypeError("Missing 'replace_character' argument")
+        if replace_separators_in_payload is None and 'replaceSeparatorsInPayload' in kwargs:
+            replace_separators_in_payload = kwargs['replaceSeparatorsInPayload']
+        if replace_separators_in_payload is None:
+            raise TypeError("Missing 'replace_separators_in_payload' argument")
+        if segment_terminator is None and 'segmentTerminator' in kwargs:
+            segment_terminator = kwargs['segmentTerminator']
+        if segment_terminator is None:
+            raise TypeError("Missing 'segment_terminator' argument")
+        if segment_terminator_suffix is None and 'segmentTerminatorSuffix' in kwargs:
+            segment_terminator_suffix = kwargs['segmentTerminatorSuffix']
+        if segment_terminator_suffix is None:
+            raise TypeError("Missing 'segment_terminator_suffix' argument")
+
+        _setter("character_set", character_set)
+        _setter("component_separator", component_separator)
+        _setter("data_element_separator", data_element_separator)
+        _setter("replace_character", replace_character)
+        _setter("replace_separators_in_payload", replace_separators_in_payload)
+        _setter("segment_terminator", segment_terminator)
+        _setter("segment_terminator_suffix", segment_terminator_suffix)
 
     @property
     @pulumi.getter(name="characterSet")
@@ -5016,7 +6994,22 @@ class X12MessageFilterArgs:
         The X12 message filter for odata query.
         :param pulumi.Input['MessageFilterType'] message_filter_type: The message filter type.
         """
-        pulumi.set(__self__, "message_filter_type", message_filter_type)
+        X12MessageFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_filter_type=message_filter_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_filter_type: Optional[pulumi.Input['MessageFilterType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_filter_type is None and 'messageFilterType' in kwargs:
+            message_filter_type = kwargs['messageFilterType']
+        if message_filter_type is None:
+            raise TypeError("Missing 'message_filter_type' argument")
+
+        _setter("message_filter_type", message_filter_type)
 
     @property
     @pulumi.getter(name="messageFilterType")
@@ -5039,7 +7032,22 @@ class X12MessageIdentifierArgs:
         The X12 message identifier.
         :param pulumi.Input[str] message_id: The message id.
         """
-        pulumi.set(__self__, "message_id", message_id)
+        X12MessageIdentifierArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_id is None:
+            raise TypeError("Missing 'message_id' argument")
+
+        _setter("message_id", message_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -5066,9 +7074,36 @@ class X12OneWayAgreementArgs:
         :param pulumi.Input['BusinessIdentityArgs'] receiver_business_identity: The receiver business identity
         :param pulumi.Input['BusinessIdentityArgs'] sender_business_identity: The sender business identity
         """
-        pulumi.set(__self__, "protocol_settings", protocol_settings)
-        pulumi.set(__self__, "receiver_business_identity", receiver_business_identity)
-        pulumi.set(__self__, "sender_business_identity", sender_business_identity)
+        X12OneWayAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol_settings=protocol_settings,
+            receiver_business_identity=receiver_business_identity,
+            sender_business_identity=sender_business_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol_settings: Optional[pulumi.Input['X12ProtocolSettingsArgs']] = None,
+             receiver_business_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             sender_business_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if protocol_settings is None and 'protocolSettings' in kwargs:
+            protocol_settings = kwargs['protocolSettings']
+        if protocol_settings is None:
+            raise TypeError("Missing 'protocol_settings' argument")
+        if receiver_business_identity is None and 'receiverBusinessIdentity' in kwargs:
+            receiver_business_identity = kwargs['receiverBusinessIdentity']
+        if receiver_business_identity is None:
+            raise TypeError("Missing 'receiver_business_identity' argument")
+        if sender_business_identity is None and 'senderBusinessIdentity' in kwargs:
+            sender_business_identity = kwargs['senderBusinessIdentity']
+        if sender_business_identity is None:
+            raise TypeError("Missing 'sender_business_identity' argument")
+
+        _setter("protocol_settings", protocol_settings)
+        _setter("receiver_business_identity", receiver_business_identity)
+        _setter("sender_business_identity", sender_business_identity)
 
     @property
     @pulumi.getter(name="protocolSettings")
@@ -5125,12 +7160,57 @@ class X12ProcessingSettingsArgs:
         :param pulumi.Input[bool] suspend_interchange_on_error: The value indicating whether to suspend interchange on error.
         :param pulumi.Input[bool] use_dot_as_decimal_separator: The value indicating whether to use dot as decimal separator.
         """
-        pulumi.set(__self__, "convert_implied_decimal", convert_implied_decimal)
-        pulumi.set(__self__, "create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
-        pulumi.set(__self__, "mask_security_info", mask_security_info)
-        pulumi.set(__self__, "preserve_interchange", preserve_interchange)
-        pulumi.set(__self__, "suspend_interchange_on_error", suspend_interchange_on_error)
-        pulumi.set(__self__, "use_dot_as_decimal_separator", use_dot_as_decimal_separator)
+        X12ProcessingSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            convert_implied_decimal=convert_implied_decimal,
+            create_empty_xml_tags_for_trailing_separators=create_empty_xml_tags_for_trailing_separators,
+            mask_security_info=mask_security_info,
+            preserve_interchange=preserve_interchange,
+            suspend_interchange_on_error=suspend_interchange_on_error,
+            use_dot_as_decimal_separator=use_dot_as_decimal_separator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             convert_implied_decimal: Optional[pulumi.Input[bool]] = None,
+             create_empty_xml_tags_for_trailing_separators: Optional[pulumi.Input[bool]] = None,
+             mask_security_info: Optional[pulumi.Input[bool]] = None,
+             preserve_interchange: Optional[pulumi.Input[bool]] = None,
+             suspend_interchange_on_error: Optional[pulumi.Input[bool]] = None,
+             use_dot_as_decimal_separator: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if convert_implied_decimal is None and 'convertImpliedDecimal' in kwargs:
+            convert_implied_decimal = kwargs['convertImpliedDecimal']
+        if convert_implied_decimal is None:
+            raise TypeError("Missing 'convert_implied_decimal' argument")
+        if create_empty_xml_tags_for_trailing_separators is None and 'createEmptyXmlTagsForTrailingSeparators' in kwargs:
+            create_empty_xml_tags_for_trailing_separators = kwargs['createEmptyXmlTagsForTrailingSeparators']
+        if create_empty_xml_tags_for_trailing_separators is None:
+            raise TypeError("Missing 'create_empty_xml_tags_for_trailing_separators' argument")
+        if mask_security_info is None and 'maskSecurityInfo' in kwargs:
+            mask_security_info = kwargs['maskSecurityInfo']
+        if mask_security_info is None:
+            raise TypeError("Missing 'mask_security_info' argument")
+        if preserve_interchange is None and 'preserveInterchange' in kwargs:
+            preserve_interchange = kwargs['preserveInterchange']
+        if preserve_interchange is None:
+            raise TypeError("Missing 'preserve_interchange' argument")
+        if suspend_interchange_on_error is None and 'suspendInterchangeOnError' in kwargs:
+            suspend_interchange_on_error = kwargs['suspendInterchangeOnError']
+        if suspend_interchange_on_error is None:
+            raise TypeError("Missing 'suspend_interchange_on_error' argument")
+        if use_dot_as_decimal_separator is None and 'useDotAsDecimalSeparator' in kwargs:
+            use_dot_as_decimal_separator = kwargs['useDotAsDecimalSeparator']
+        if use_dot_as_decimal_separator is None:
+            raise TypeError("Missing 'use_dot_as_decimal_separator' argument")
+
+        _setter("convert_implied_decimal", convert_implied_decimal)
+        _setter("create_empty_xml_tags_for_trailing_separators", create_empty_xml_tags_for_trailing_separators)
+        _setter("mask_security_info", mask_security_info)
+        _setter("preserve_interchange", preserve_interchange)
+        _setter("suspend_interchange_on_error", suspend_interchange_on_error)
+        _setter("use_dot_as_decimal_separator", use_dot_as_decimal_separator)
 
     @property
     @pulumi.getter(name="convertImpliedDecimal")
@@ -5235,22 +7315,95 @@ class X12ProtocolSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['X12ValidationOverrideArgs']]] validation_overrides: The X12 validation override settings.
         :param pulumi.Input[Sequence[pulumi.Input['X12DelimiterOverridesArgs']]] x12_delimiter_overrides: The X12 delimiter override settings.
         """
-        pulumi.set(__self__, "acknowledgement_settings", acknowledgement_settings)
-        pulumi.set(__self__, "envelope_settings", envelope_settings)
-        pulumi.set(__self__, "framing_settings", framing_settings)
-        pulumi.set(__self__, "message_filter", message_filter)
-        pulumi.set(__self__, "processing_settings", processing_settings)
-        pulumi.set(__self__, "schema_references", schema_references)
-        pulumi.set(__self__, "security_settings", security_settings)
-        pulumi.set(__self__, "validation_settings", validation_settings)
+        X12ProtocolSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acknowledgement_settings=acknowledgement_settings,
+            envelope_settings=envelope_settings,
+            framing_settings=framing_settings,
+            message_filter=message_filter,
+            processing_settings=processing_settings,
+            schema_references=schema_references,
+            security_settings=security_settings,
+            validation_settings=validation_settings,
+            envelope_overrides=envelope_overrides,
+            message_filter_list=message_filter_list,
+            validation_overrides=validation_overrides,
+            x12_delimiter_overrides=x12_delimiter_overrides,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acknowledgement_settings: Optional[pulumi.Input['X12AcknowledgementSettingsArgs']] = None,
+             envelope_settings: Optional[pulumi.Input['X12EnvelopeSettingsArgs']] = None,
+             framing_settings: Optional[pulumi.Input['X12FramingSettingsArgs']] = None,
+             message_filter: Optional[pulumi.Input['X12MessageFilterArgs']] = None,
+             processing_settings: Optional[pulumi.Input['X12ProcessingSettingsArgs']] = None,
+             schema_references: Optional[pulumi.Input[Sequence[pulumi.Input['X12SchemaReferenceArgs']]]] = None,
+             security_settings: Optional[pulumi.Input['X12SecuritySettingsArgs']] = None,
+             validation_settings: Optional[pulumi.Input['X12ValidationSettingsArgs']] = None,
+             envelope_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['X12EnvelopeOverrideArgs']]]] = None,
+             message_filter_list: Optional[pulumi.Input[Sequence[pulumi.Input['X12MessageIdentifierArgs']]]] = None,
+             validation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['X12ValidationOverrideArgs']]]] = None,
+             x12_delimiter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['X12DelimiterOverridesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acknowledgement_settings is None and 'acknowledgementSettings' in kwargs:
+            acknowledgement_settings = kwargs['acknowledgementSettings']
+        if acknowledgement_settings is None:
+            raise TypeError("Missing 'acknowledgement_settings' argument")
+        if envelope_settings is None and 'envelopeSettings' in kwargs:
+            envelope_settings = kwargs['envelopeSettings']
+        if envelope_settings is None:
+            raise TypeError("Missing 'envelope_settings' argument")
+        if framing_settings is None and 'framingSettings' in kwargs:
+            framing_settings = kwargs['framingSettings']
+        if framing_settings is None:
+            raise TypeError("Missing 'framing_settings' argument")
+        if message_filter is None and 'messageFilter' in kwargs:
+            message_filter = kwargs['messageFilter']
+        if message_filter is None:
+            raise TypeError("Missing 'message_filter' argument")
+        if processing_settings is None and 'processingSettings' in kwargs:
+            processing_settings = kwargs['processingSettings']
+        if processing_settings is None:
+            raise TypeError("Missing 'processing_settings' argument")
+        if schema_references is None and 'schemaReferences' in kwargs:
+            schema_references = kwargs['schemaReferences']
+        if schema_references is None:
+            raise TypeError("Missing 'schema_references' argument")
+        if security_settings is None and 'securitySettings' in kwargs:
+            security_settings = kwargs['securitySettings']
+        if security_settings is None:
+            raise TypeError("Missing 'security_settings' argument")
+        if validation_settings is None and 'validationSettings' in kwargs:
+            validation_settings = kwargs['validationSettings']
+        if validation_settings is None:
+            raise TypeError("Missing 'validation_settings' argument")
+        if envelope_overrides is None and 'envelopeOverrides' in kwargs:
+            envelope_overrides = kwargs['envelopeOverrides']
+        if message_filter_list is None and 'messageFilterList' in kwargs:
+            message_filter_list = kwargs['messageFilterList']
+        if validation_overrides is None and 'validationOverrides' in kwargs:
+            validation_overrides = kwargs['validationOverrides']
+        if x12_delimiter_overrides is None and 'x12DelimiterOverrides' in kwargs:
+            x12_delimiter_overrides = kwargs['x12DelimiterOverrides']
+
+        _setter("acknowledgement_settings", acknowledgement_settings)
+        _setter("envelope_settings", envelope_settings)
+        _setter("framing_settings", framing_settings)
+        _setter("message_filter", message_filter)
+        _setter("processing_settings", processing_settings)
+        _setter("schema_references", schema_references)
+        _setter("security_settings", security_settings)
+        _setter("validation_settings", validation_settings)
         if envelope_overrides is not None:
-            pulumi.set(__self__, "envelope_overrides", envelope_overrides)
+            _setter("envelope_overrides", envelope_overrides)
         if message_filter_list is not None:
-            pulumi.set(__self__, "message_filter_list", message_filter_list)
+            _setter("message_filter_list", message_filter_list)
         if validation_overrides is not None:
-            pulumi.set(__self__, "validation_overrides", validation_overrides)
+            _setter("validation_overrides", validation_overrides)
         if x12_delimiter_overrides is not None:
-            pulumi.set(__self__, "x12_delimiter_overrides", x12_delimiter_overrides)
+            _setter("x12_delimiter_overrides", x12_delimiter_overrides)
 
     @property
     @pulumi.getter(name="acknowledgementSettings")
@@ -5411,11 +7564,42 @@ class X12SchemaReferenceArgs:
         :param pulumi.Input[str] schema_version: The schema version.
         :param pulumi.Input[str] sender_application_id: The sender application id.
         """
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "schema_version", schema_version)
+        X12SchemaReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_id=message_id,
+            schema_name=schema_name,
+            schema_version=schema_version,
+            sender_application_id=sender_application_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_id: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             schema_version: Optional[pulumi.Input[str]] = None,
+             sender_application_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_id is None:
+            raise TypeError("Missing 'message_id' argument")
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if schema_name is None:
+            raise TypeError("Missing 'schema_name' argument")
+        if schema_version is None and 'schemaVersion' in kwargs:
+            schema_version = kwargs['schemaVersion']
+        if schema_version is None:
+            raise TypeError("Missing 'schema_version' argument")
+        if sender_application_id is None and 'senderApplicationId' in kwargs:
+            sender_application_id = kwargs['senderApplicationId']
+
+        _setter("message_id", message_id)
+        _setter("schema_name", schema_name)
+        _setter("schema_version", schema_version)
         if sender_application_id is not None:
-            pulumi.set(__self__, "sender_application_id", sender_application_id)
+            _setter("sender_application_id", sender_application_id)
 
     @property
     @pulumi.getter(name="messageId")
@@ -5480,12 +7664,41 @@ class X12SecuritySettingsArgs:
         :param pulumi.Input[str] authorization_value: The authorization value.
         :param pulumi.Input[str] password_value: The password value.
         """
-        pulumi.set(__self__, "authorization_qualifier", authorization_qualifier)
-        pulumi.set(__self__, "security_qualifier", security_qualifier)
+        X12SecuritySettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_qualifier=authorization_qualifier,
+            security_qualifier=security_qualifier,
+            authorization_value=authorization_value,
+            password_value=password_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_qualifier: Optional[pulumi.Input[str]] = None,
+             security_qualifier: Optional[pulumi.Input[str]] = None,
+             authorization_value: Optional[pulumi.Input[str]] = None,
+             password_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_qualifier is None and 'authorizationQualifier' in kwargs:
+            authorization_qualifier = kwargs['authorizationQualifier']
+        if authorization_qualifier is None:
+            raise TypeError("Missing 'authorization_qualifier' argument")
+        if security_qualifier is None and 'securityQualifier' in kwargs:
+            security_qualifier = kwargs['securityQualifier']
+        if security_qualifier is None:
+            raise TypeError("Missing 'security_qualifier' argument")
+        if authorization_value is None and 'authorizationValue' in kwargs:
+            authorization_value = kwargs['authorizationValue']
+        if password_value is None and 'passwordValue' in kwargs:
+            password_value = kwargs['passwordValue']
+
+        _setter("authorization_qualifier", authorization_qualifier)
+        _setter("security_qualifier", security_qualifier)
         if authorization_value is not None:
-            pulumi.set(__self__, "authorization_value", authorization_value)
+            _setter("authorization_value", authorization_value)
         if password_value is not None:
-            pulumi.set(__self__, "password_value", password_value)
+            _setter("password_value", password_value)
 
     @property
     @pulumi.getter(name="authorizationQualifier")
@@ -5556,13 +7769,64 @@ class X12ValidationOverrideArgs:
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "message_id", message_id)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        X12ValidationOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            message_id=message_id,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
+             message_id: Optional[pulumi.Input[str]] = None,
+             trailing_separator_policy: Optional[pulumi.Input['TrailingSeparatorPolicy']] = None,
+             trim_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
+             validate_character_set: Optional[pulumi.Input[bool]] = None,
+             validate_edi_types: Optional[pulumi.Input[bool]] = None,
+             validate_xsd_types: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_leading_and_trailing_spaces_and_zeroes is None and 'allowLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            allow_leading_and_trailing_spaces_and_zeroes = kwargs['allowLeadingAndTrailingSpacesAndZeroes']
+        if allow_leading_and_trailing_spaces_and_zeroes is None:
+            raise TypeError("Missing 'allow_leading_and_trailing_spaces_and_zeroes' argument")
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_id is None:
+            raise TypeError("Missing 'message_id' argument")
+        if trailing_separator_policy is None and 'trailingSeparatorPolicy' in kwargs:
+            trailing_separator_policy = kwargs['trailingSeparatorPolicy']
+        if trailing_separator_policy is None:
+            raise TypeError("Missing 'trailing_separator_policy' argument")
+        if trim_leading_and_trailing_spaces_and_zeroes is None and 'trimLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            trim_leading_and_trailing_spaces_and_zeroes = kwargs['trimLeadingAndTrailingSpacesAndZeroes']
+        if trim_leading_and_trailing_spaces_and_zeroes is None:
+            raise TypeError("Missing 'trim_leading_and_trailing_spaces_and_zeroes' argument")
+        if validate_character_set is None and 'validateCharacterSet' in kwargs:
+            validate_character_set = kwargs['validateCharacterSet']
+        if validate_character_set is None:
+            raise TypeError("Missing 'validate_character_set' argument")
+        if validate_edi_types is None and 'validateEdiTypes' in kwargs:
+            validate_edi_types = kwargs['validateEdiTypes']
+        if validate_edi_types is None:
+            raise TypeError("Missing 'validate_edi_types' argument")
+        if validate_xsd_types is None and 'validateXsdTypes' in kwargs:
+            validate_xsd_types = kwargs['validateXsdTypes']
+        if validate_xsd_types is None:
+            raise TypeError("Missing 'validate_xsd_types' argument")
+
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("message_id", message_id)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")
@@ -5675,16 +7939,85 @@ class X12ValidationSettingsArgs:
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to Whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to Whether to validate XSD types.
         """
-        pulumi.set(__self__, "allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "check_duplicate_group_control_number", check_duplicate_group_control_number)
-        pulumi.set(__self__, "check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
-        pulumi.set(__self__, "check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
-        pulumi.set(__self__, "interchange_control_number_validity_days", interchange_control_number_validity_days)
-        pulumi.set(__self__, "trailing_separator_policy", trailing_separator_policy)
-        pulumi.set(__self__, "trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
-        pulumi.set(__self__, "validate_character_set", validate_character_set)
-        pulumi.set(__self__, "validate_edi_types", validate_edi_types)
-        pulumi.set(__self__, "validate_xsd_types", validate_xsd_types)
+        X12ValidationSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_leading_and_trailing_spaces_and_zeroes=allow_leading_and_trailing_spaces_and_zeroes,
+            check_duplicate_group_control_number=check_duplicate_group_control_number,
+            check_duplicate_interchange_control_number=check_duplicate_interchange_control_number,
+            check_duplicate_transaction_set_control_number=check_duplicate_transaction_set_control_number,
+            interchange_control_number_validity_days=interchange_control_number_validity_days,
+            trailing_separator_policy=trailing_separator_policy,
+            trim_leading_and_trailing_spaces_and_zeroes=trim_leading_and_trailing_spaces_and_zeroes,
+            validate_character_set=validate_character_set,
+            validate_edi_types=validate_edi_types,
+            validate_xsd_types=validate_xsd_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
+             check_duplicate_group_control_number: Optional[pulumi.Input[bool]] = None,
+             check_duplicate_interchange_control_number: Optional[pulumi.Input[bool]] = None,
+             check_duplicate_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
+             interchange_control_number_validity_days: Optional[pulumi.Input[int]] = None,
+             trailing_separator_policy: Optional[pulumi.Input['TrailingSeparatorPolicy']] = None,
+             trim_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
+             validate_character_set: Optional[pulumi.Input[bool]] = None,
+             validate_edi_types: Optional[pulumi.Input[bool]] = None,
+             validate_xsd_types: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_leading_and_trailing_spaces_and_zeroes is None and 'allowLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            allow_leading_and_trailing_spaces_and_zeroes = kwargs['allowLeadingAndTrailingSpacesAndZeroes']
+        if allow_leading_and_trailing_spaces_and_zeroes is None:
+            raise TypeError("Missing 'allow_leading_and_trailing_spaces_and_zeroes' argument")
+        if check_duplicate_group_control_number is None and 'checkDuplicateGroupControlNumber' in kwargs:
+            check_duplicate_group_control_number = kwargs['checkDuplicateGroupControlNumber']
+        if check_duplicate_group_control_number is None:
+            raise TypeError("Missing 'check_duplicate_group_control_number' argument")
+        if check_duplicate_interchange_control_number is None and 'checkDuplicateInterchangeControlNumber' in kwargs:
+            check_duplicate_interchange_control_number = kwargs['checkDuplicateInterchangeControlNumber']
+        if check_duplicate_interchange_control_number is None:
+            raise TypeError("Missing 'check_duplicate_interchange_control_number' argument")
+        if check_duplicate_transaction_set_control_number is None and 'checkDuplicateTransactionSetControlNumber' in kwargs:
+            check_duplicate_transaction_set_control_number = kwargs['checkDuplicateTransactionSetControlNumber']
+        if check_duplicate_transaction_set_control_number is None:
+            raise TypeError("Missing 'check_duplicate_transaction_set_control_number' argument")
+        if interchange_control_number_validity_days is None and 'interchangeControlNumberValidityDays' in kwargs:
+            interchange_control_number_validity_days = kwargs['interchangeControlNumberValidityDays']
+        if interchange_control_number_validity_days is None:
+            raise TypeError("Missing 'interchange_control_number_validity_days' argument")
+        if trailing_separator_policy is None and 'trailingSeparatorPolicy' in kwargs:
+            trailing_separator_policy = kwargs['trailingSeparatorPolicy']
+        if trailing_separator_policy is None:
+            raise TypeError("Missing 'trailing_separator_policy' argument")
+        if trim_leading_and_trailing_spaces_and_zeroes is None and 'trimLeadingAndTrailingSpacesAndZeroes' in kwargs:
+            trim_leading_and_trailing_spaces_and_zeroes = kwargs['trimLeadingAndTrailingSpacesAndZeroes']
+        if trim_leading_and_trailing_spaces_and_zeroes is None:
+            raise TypeError("Missing 'trim_leading_and_trailing_spaces_and_zeroes' argument")
+        if validate_character_set is None and 'validateCharacterSet' in kwargs:
+            validate_character_set = kwargs['validateCharacterSet']
+        if validate_character_set is None:
+            raise TypeError("Missing 'validate_character_set' argument")
+        if validate_edi_types is None and 'validateEdiTypes' in kwargs:
+            validate_edi_types = kwargs['validateEdiTypes']
+        if validate_edi_types is None:
+            raise TypeError("Missing 'validate_edi_types' argument")
+        if validate_xsd_types is None and 'validateXsdTypes' in kwargs:
+            validate_xsd_types = kwargs['validateXsdTypes']
+        if validate_xsd_types is None:
+            raise TypeError("Missing 'validate_xsd_types' argument")
+
+        _setter("allow_leading_and_trailing_spaces_and_zeroes", allow_leading_and_trailing_spaces_and_zeroes)
+        _setter("check_duplicate_group_control_number", check_duplicate_group_control_number)
+        _setter("check_duplicate_interchange_control_number", check_duplicate_interchange_control_number)
+        _setter("check_duplicate_transaction_set_control_number", check_duplicate_transaction_set_control_number)
+        _setter("interchange_control_number_validity_days", interchange_control_number_validity_days)
+        _setter("trailing_separator_policy", trailing_separator_policy)
+        _setter("trim_leading_and_trailing_spaces_and_zeroes", trim_leading_and_trailing_spaces_and_zeroes)
+        _setter("validate_character_set", validate_character_set)
+        _setter("validate_edi_types", validate_edi_types)
+        _setter("validate_xsd_types", validate_xsd_types)
 
     @property
     @pulumi.getter(name="allowLeadingAndTrailingSpacesAndZeroes")

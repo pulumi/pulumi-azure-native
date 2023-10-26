@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,22 +44,87 @@ class IntegrationAccountAgreementArgs:
         :param Any metadata: The metadata.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "agreement_type", agreement_type)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "guest_identity", guest_identity)
-        pulumi.set(__self__, "guest_partner", guest_partner)
-        pulumi.set(__self__, "host_identity", host_identity)
-        pulumi.set(__self__, "host_partner", host_partner)
-        pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IntegrationAccountAgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agreement_type=agreement_type,
+            content=content,
+            guest_identity=guest_identity,
+            guest_partner=guest_partner,
+            host_identity=host_identity,
+            host_partner=host_partner,
+            integration_account_name=integration_account_name,
+            resource_group_name=resource_group_name,
+            agreement_name=agreement_name,
+            location=location,
+            metadata=metadata,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agreement_type: Optional[pulumi.Input['AgreementType']] = None,
+             content: Optional[pulumi.Input['AgreementContentArgs']] = None,
+             guest_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             guest_partner: Optional[pulumi.Input[str]] = None,
+             host_identity: Optional[pulumi.Input['BusinessIdentityArgs']] = None,
+             host_partner: Optional[pulumi.Input[str]] = None,
+             integration_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             agreement_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[Any] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agreement_type is None and 'agreementType' in kwargs:
+            agreement_type = kwargs['agreementType']
+        if agreement_type is None:
+            raise TypeError("Missing 'agreement_type' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if guest_identity is None and 'guestIdentity' in kwargs:
+            guest_identity = kwargs['guestIdentity']
+        if guest_identity is None:
+            raise TypeError("Missing 'guest_identity' argument")
+        if guest_partner is None and 'guestPartner' in kwargs:
+            guest_partner = kwargs['guestPartner']
+        if guest_partner is None:
+            raise TypeError("Missing 'guest_partner' argument")
+        if host_identity is None and 'hostIdentity' in kwargs:
+            host_identity = kwargs['hostIdentity']
+        if host_identity is None:
+            raise TypeError("Missing 'host_identity' argument")
+        if host_partner is None and 'hostPartner' in kwargs:
+            host_partner = kwargs['hostPartner']
+        if host_partner is None:
+            raise TypeError("Missing 'host_partner' argument")
+        if integration_account_name is None and 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if integration_account_name is None:
+            raise TypeError("Missing 'integration_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if agreement_name is None and 'agreementName' in kwargs:
+            agreement_name = kwargs['agreementName']
+
+        _setter("agreement_type", agreement_type)
+        _setter("content", content)
+        _setter("guest_identity", guest_identity)
+        _setter("guest_partner", guest_partner)
+        _setter("host_identity", host_identity)
+        _setter("host_partner", host_partner)
+        _setter("integration_account_name", integration_account_name)
+        _setter("resource_group_name", resource_group_name)
         if agreement_name is not None:
-            pulumi.set(__self__, "agreement_name", agreement_name)
+            _setter("agreement_name", agreement_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="agreementType")
@@ -267,6 +332,10 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationAccountAgreementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -297,15 +366,18 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             if agreement_type is None and not opts.urn:
                 raise TypeError("Missing required property 'agreement_type'")
             __props__.__dict__["agreement_type"] = agreement_type
+            content = _utilities.configure(content, AgreementContentArgs, True)
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content
+            guest_identity = _utilities.configure(guest_identity, BusinessIdentityArgs, True)
             if guest_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_identity'")
             __props__.__dict__["guest_identity"] = guest_identity
             if guest_partner is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_partner'")
             __props__.__dict__["guest_partner"] = guest_partner
+            host_identity = _utilities.configure(host_identity, BusinessIdentityArgs, True)
             if host_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'host_identity'")
             __props__.__dict__["host_identity"] = host_identity

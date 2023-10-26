@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,43 @@ class ApiPortalArgs:
         :param pulumi.Input['ApiPortalPropertiesArgs'] properties: API portal properties payload
         :param pulumi.Input['SkuArgs'] sku: Sku of the API portal resource
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ApiPortalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            api_portal_name=api_portal_name,
+            properties=properties,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             api_portal_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ApiPortalPropertiesArgs']] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if api_portal_name is None and 'apiPortalName' in kwargs:
+            api_portal_name = kwargs['apiPortalName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if api_portal_name is not None:
-            pulumi.set(__self__, "api_portal_name", api_portal_name)
+            _setter("api_portal_name", api_portal_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -141,6 +170,10 @@ class ApiPortal(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiPortalArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,6 +194,7 @@ class ApiPortal(pulumi.CustomResource):
             __props__ = ApiPortalArgs.__new__(ApiPortalArgs)
 
             __props__.__dict__["api_portal_name"] = api_portal_name
+            properties = _utilities.configure(properties, ApiPortalPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -168,6 +202,7 @@ class ApiPortal(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None

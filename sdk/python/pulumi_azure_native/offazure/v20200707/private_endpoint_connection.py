@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -24,10 +24,35 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input[str] site_name: Site name.
         :param pulumi.Input[str] pe_connection_name: Private link resource name.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "site_name", site_name)
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            site_name=site_name,
+            pe_connection_name=pe_connection_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             site_name: Optional[pulumi.Input[str]] = None,
+             pe_connection_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if site_name is None and 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+        if site_name is None:
+            raise TypeError("Missing 'site_name' argument")
+        if pe_connection_name is None and 'peConnectionName' in kwargs:
+            pe_connection_name = kwargs['peConnectionName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("site_name", site_name)
         if pe_connection_name is not None:
-            pulumi.set(__self__, "pe_connection_name", pe_connection_name)
+            _setter("pe_connection_name", pe_connection_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -103,6 +128,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateEndpointConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

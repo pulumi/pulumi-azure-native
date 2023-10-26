@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,63 @@ class MetricsConfigurationArgs:
         :param pulumi.Input[str] metrics_configuration_name: The name of the metrics configuration for the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "collection_interval", collection_interval)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MetricsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            collection_interval=collection_interval,
+            extended_location=extended_location,
+            resource_group_name=resource_group_name,
+            enabled_metrics=enabled_metrics,
+            location=location,
+            metrics_configuration_name=metrics_configuration_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             collection_interval: Optional[pulumi.Input[float]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             metrics_configuration_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if collection_interval is None and 'collectionInterval' in kwargs:
+            collection_interval = kwargs['collectionInterval']
+        if collection_interval is None:
+            raise TypeError("Missing 'collection_interval' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if extended_location is None:
+            raise TypeError("Missing 'extended_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if enabled_metrics is None and 'enabledMetrics' in kwargs:
+            enabled_metrics = kwargs['enabledMetrics']
+        if metrics_configuration_name is None and 'metricsConfigurationName' in kwargs:
+            metrics_configuration_name = kwargs['metricsConfigurationName']
+
+        _setter("cluster_name", cluster_name)
+        _setter("collection_interval", collection_interval)
+        _setter("extended_location", extended_location)
+        _setter("resource_group_name", resource_group_name)
         if enabled_metrics is not None:
-            pulumi.set(__self__, "enabled_metrics", enabled_metrics)
+            _setter("enabled_metrics", enabled_metrics)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if metrics_configuration_name is not None:
-            pulumi.set(__self__, "metrics_configuration_name", metrics_configuration_name)
+            _setter("metrics_configuration_name", metrics_configuration_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -190,6 +235,10 @@ class MetricsConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MetricsConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -219,6 +268,7 @@ class MetricsConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'collection_interval'")
             __props__.__dict__["collection_interval"] = collection_interval
             __props__.__dict__["enabled_metrics"] = enabled_metrics
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,14 +30,53 @@ class SandboxCustomImageArgs:
         :param pulumi.Input[str] requirements_file_content: The requirements file content.
         :param pulumi.Input[str] sandbox_custom_image_name: The name of the sandbox custom image.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "language", language)
-        pulumi.set(__self__, "language_version", language_version)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SandboxCustomImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            language=language,
+            language_version=language_version,
+            resource_group_name=resource_group_name,
+            requirements_file_content=requirements_file_content,
+            sandbox_custom_image_name=sandbox_custom_image_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             language: Optional[pulumi.Input[Union[str, 'Language']]] = None,
+             language_version: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             requirements_file_content: Optional[pulumi.Input[str]] = None,
+             sandbox_custom_image_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if language is None:
+            raise TypeError("Missing 'language' argument")
+        if language_version is None and 'languageVersion' in kwargs:
+            language_version = kwargs['languageVersion']
+        if language_version is None:
+            raise TypeError("Missing 'language_version' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if requirements_file_content is None and 'requirementsFileContent' in kwargs:
+            requirements_file_content = kwargs['requirementsFileContent']
+        if sandbox_custom_image_name is None and 'sandboxCustomImageName' in kwargs:
+            sandbox_custom_image_name = kwargs['sandboxCustomImageName']
+
+        _setter("cluster_name", cluster_name)
+        _setter("language", language)
+        _setter("language_version", language_version)
+        _setter("resource_group_name", resource_group_name)
         if requirements_file_content is not None:
-            pulumi.set(__self__, "requirements_file_content", requirements_file_content)
+            _setter("requirements_file_content", requirements_file_content)
         if sandbox_custom_image_name is not None:
-            pulumi.set(__self__, "sandbox_custom_image_name", sandbox_custom_image_name)
+            _setter("sandbox_custom_image_name", sandbox_custom_image_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -157,6 +196,10 @@ class SandboxCustomImage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SandboxCustomImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

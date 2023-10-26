@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,47 @@ class OrderArgs:
         :param pulumi.Input[Union[str, 'ShipmentType']] shipment_type: ShipmentType of the order
         :param pulumi.Input['AddressArgs'] shipping_address: The shipping address.
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        OrderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            resource_group_name=resource_group_name,
+            contact_information=contact_information,
+            shipment_type=shipment_type,
+            shipping_address=shipping_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             contact_information: Optional[pulumi.Input['ContactDetailsArgs']] = None,
+             shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
+             shipping_address: Optional[pulumi.Input['AddressArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if contact_information is None and 'contactInformation' in kwargs:
+            contact_information = kwargs['contactInformation']
+        if shipment_type is None and 'shipmentType' in kwargs:
+            shipment_type = kwargs['shipmentType']
+        if shipping_address is None and 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("device_name", device_name)
+        _setter("resource_group_name", resource_group_name)
         if contact_information is not None:
-            pulumi.set(__self__, "contact_information", contact_information)
+            _setter("contact_information", contact_information)
         if shipment_type is not None:
-            pulumi.set(__self__, "shipment_type", shipment_type)
+            _setter("shipment_type", shipment_type)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -141,6 +174,10 @@ class Order(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OrderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,6 +197,7 @@ class Order(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrderArgs.__new__(OrderArgs)
 
+            contact_information = _utilities.configure(contact_information, ContactDetailsArgs, True)
             __props__.__dict__["contact_information"] = contact_information
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
@@ -168,6 +206,7 @@ class Order(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["shipment_type"] = shipment_type
+            shipping_address = _utilities.configure(shipping_address, AddressArgs, True)
             __props__.__dict__["shipping_address"] = shipping_address
             __props__.__dict__["current_status"] = None
             __props__.__dict__["delivery_tracking_info"] = None

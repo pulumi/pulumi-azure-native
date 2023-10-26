@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -209,19 +209,58 @@ class A2ACrossClusterMigrationReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'A2ACrossClusterMigration')
+        A2ACrossClusterMigrationReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            fabric_object_id=fabric_object_id,
+            lifecycle_id=lifecycle_id,
+            os_type=os_type,
+            primary_fabric_location=primary_fabric_location,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             lifecycle_id: Optional[str] = None,
+             os_type: Optional[str] = None,
+             primary_fabric_location: Optional[str] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if lifecycle_id is None and 'lifecycleId' in kwargs:
+            lifecycle_id = kwargs['lifecycleId']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if primary_fabric_location is None and 'primaryFabricLocation' in kwargs:
+            primary_fabric_location = kwargs['primaryFabricLocation']
+        if vm_protection_state is None and 'vmProtectionState' in kwargs:
+            vm_protection_state = kwargs['vmProtectionState']
+        if vm_protection_state_description is None and 'vmProtectionStateDescription' in kwargs:
+            vm_protection_state_description = kwargs['vmProtectionStateDescription']
+
+        _setter("instance_type", 'A2ACrossClusterMigration')
         if fabric_object_id is not None:
-            pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+            _setter("fabric_object_id", fabric_object_id)
         if lifecycle_id is not None:
-            pulumi.set(__self__, "lifecycle_id", lifecycle_id)
+            _setter("lifecycle_id", lifecycle_id)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -313,10 +352,27 @@ class A2AExtendedLocationDetailsResponse(dict):
         :param 'ExtendedLocationResponse' primary_extended_location: The primary ExtendedLocation.
         :param 'ExtendedLocationResponse' recovery_extended_location: The recovery ExtendedLocation.
         """
+        A2AExtendedLocationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_extended_location=primary_extended_location,
+            recovery_extended_location=recovery_extended_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary_extended_location is None and 'primaryExtendedLocation' in kwargs:
+            primary_extended_location = kwargs['primaryExtendedLocation']
+        if recovery_extended_location is None and 'recoveryExtendedLocation' in kwargs:
+            recovery_extended_location = kwargs['recoveryExtendedLocation']
+
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
 
     @property
     @pulumi.getter(name="primaryExtendedLocation")
@@ -407,30 +463,87 @@ class A2AFabricSpecificLocationDetailsResponse(dict):
         :param str recovery_fabric_location: The recovery fabric location info.
         :param str recovery_zone: The target zone info.
         """
+        A2AFabricSpecificLocationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initial_primary_extended_location=initial_primary_extended_location,
+            initial_primary_fabric_location=initial_primary_fabric_location,
+            initial_primary_zone=initial_primary_zone,
+            initial_recovery_extended_location=initial_recovery_extended_location,
+            initial_recovery_fabric_location=initial_recovery_fabric_location,
+            initial_recovery_zone=initial_recovery_zone,
+            primary_extended_location=primary_extended_location,
+            primary_fabric_location=primary_fabric_location,
+            primary_zone=primary_zone,
+            recovery_extended_location=recovery_extended_location,
+            recovery_fabric_location=recovery_fabric_location,
+            recovery_zone=recovery_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initial_primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             initial_primary_fabric_location: Optional[str] = None,
+             initial_primary_zone: Optional[str] = None,
+             initial_recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             initial_recovery_fabric_location: Optional[str] = None,
+             initial_recovery_zone: Optional[str] = None,
+             primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             primary_fabric_location: Optional[str] = None,
+             primary_zone: Optional[str] = None,
+             recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             recovery_fabric_location: Optional[str] = None,
+             recovery_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if initial_primary_extended_location is None and 'initialPrimaryExtendedLocation' in kwargs:
+            initial_primary_extended_location = kwargs['initialPrimaryExtendedLocation']
+        if initial_primary_fabric_location is None and 'initialPrimaryFabricLocation' in kwargs:
+            initial_primary_fabric_location = kwargs['initialPrimaryFabricLocation']
+        if initial_primary_zone is None and 'initialPrimaryZone' in kwargs:
+            initial_primary_zone = kwargs['initialPrimaryZone']
+        if initial_recovery_extended_location is None and 'initialRecoveryExtendedLocation' in kwargs:
+            initial_recovery_extended_location = kwargs['initialRecoveryExtendedLocation']
+        if initial_recovery_fabric_location is None and 'initialRecoveryFabricLocation' in kwargs:
+            initial_recovery_fabric_location = kwargs['initialRecoveryFabricLocation']
+        if initial_recovery_zone is None and 'initialRecoveryZone' in kwargs:
+            initial_recovery_zone = kwargs['initialRecoveryZone']
+        if primary_extended_location is None and 'primaryExtendedLocation' in kwargs:
+            primary_extended_location = kwargs['primaryExtendedLocation']
+        if primary_fabric_location is None and 'primaryFabricLocation' in kwargs:
+            primary_fabric_location = kwargs['primaryFabricLocation']
+        if primary_zone is None and 'primaryZone' in kwargs:
+            primary_zone = kwargs['primaryZone']
+        if recovery_extended_location is None and 'recoveryExtendedLocation' in kwargs:
+            recovery_extended_location = kwargs['recoveryExtendedLocation']
+        if recovery_fabric_location is None and 'recoveryFabricLocation' in kwargs:
+            recovery_fabric_location = kwargs['recoveryFabricLocation']
+        if recovery_zone is None and 'recoveryZone' in kwargs:
+            recovery_zone = kwargs['recoveryZone']
+
         if initial_primary_extended_location is not None:
-            pulumi.set(__self__, "initial_primary_extended_location", initial_primary_extended_location)
+            _setter("initial_primary_extended_location", initial_primary_extended_location)
         if initial_primary_fabric_location is not None:
-            pulumi.set(__self__, "initial_primary_fabric_location", initial_primary_fabric_location)
+            _setter("initial_primary_fabric_location", initial_primary_fabric_location)
         if initial_primary_zone is not None:
-            pulumi.set(__self__, "initial_primary_zone", initial_primary_zone)
+            _setter("initial_primary_zone", initial_primary_zone)
         if initial_recovery_extended_location is not None:
-            pulumi.set(__self__, "initial_recovery_extended_location", initial_recovery_extended_location)
+            _setter("initial_recovery_extended_location", initial_recovery_extended_location)
         if initial_recovery_fabric_location is not None:
-            pulumi.set(__self__, "initial_recovery_fabric_location", initial_recovery_fabric_location)
+            _setter("initial_recovery_fabric_location", initial_recovery_fabric_location)
         if initial_recovery_zone is not None:
-            pulumi.set(__self__, "initial_recovery_zone", initial_recovery_zone)
+            _setter("initial_recovery_zone", initial_recovery_zone)
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if primary_zone is not None:
-            pulumi.set(__self__, "primary_zone", primary_zone)
+            _setter("primary_zone", primary_zone)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
         if recovery_fabric_location is not None:
-            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+            _setter("recovery_fabric_location", recovery_fabric_location)
         if recovery_zone is not None:
-            pulumi.set(__self__, "recovery_zone", recovery_zone)
+            _setter("recovery_zone", recovery_zone)
 
     @property
     @pulumi.getter(name="initialPrimaryExtendedLocation")
@@ -578,17 +691,52 @@ class A2APolicyDetailsResponse(dict):
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
+        A2APolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            multi_vm_sync_status=multi_vm_sync_status,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             recovery_point_history: Optional[int] = None,
+             recovery_point_threshold_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if crash_consistent_frequency_in_minutes is None and 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+        if multi_vm_sync_status is None and 'multiVmSyncStatus' in kwargs:
+            multi_vm_sync_status = kwargs['multiVmSyncStatus']
+        if recovery_point_history is None and 'recoveryPointHistory' in kwargs:
+            recovery_point_history = kwargs['recoveryPointHistory']
+        if recovery_point_threshold_in_minutes is None and 'recoveryPointThresholdInMinutes' in kwargs:
+            recovery_point_threshold_in_minutes = kwargs['recoveryPointThresholdInMinutes']
+
+        _setter("instance_type", 'A2A')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -756,52 +904,153 @@ class A2AProtectedDiskDetailsResponse(dict):
         :param str secret_identifier: The secret URL / identifier (BEK).
         :param str tfo_disk_name: The test failover name for the managed disk.
         """
+        A2AProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_disk_level_operation=allowed_disk_level_operation,
+            data_pending_at_source_agent_in_mb=data_pending_at_source_agent_in_mb,
+            data_pending_in_staging_storage_account_in_mb=data_pending_in_staging_storage_account_in_mb,
+            dek_key_vault_arm_id=dek_key_vault_arm_id,
+            disk_capacity_in_bytes=disk_capacity_in_bytes,
+            disk_name=disk_name,
+            disk_state=disk_state,
+            disk_type=disk_type,
+            disk_uri=disk_uri,
+            failover_disk_name=failover_disk_name,
+            is_disk_encrypted=is_disk_encrypted,
+            is_disk_key_encrypted=is_disk_key_encrypted,
+            kek_key_vault_arm_id=kek_key_vault_arm_id,
+            key_identifier=key_identifier,
+            monitoring_job_type=monitoring_job_type,
+            monitoring_percentage_completion=monitoring_percentage_completion,
+            primary_disk_azure_storage_account_id=primary_disk_azure_storage_account_id,
+            primary_staging_azure_storage_account_id=primary_staging_azure_storage_account_id,
+            recovery_azure_storage_account_id=recovery_azure_storage_account_id,
+            recovery_disk_uri=recovery_disk_uri,
+            resync_required=resync_required,
+            secret_identifier=secret_identifier,
+            tfo_disk_name=tfo_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_disk_level_operation: Optional[Sequence[str]] = None,
+             data_pending_at_source_agent_in_mb: Optional[float] = None,
+             data_pending_in_staging_storage_account_in_mb: Optional[float] = None,
+             dek_key_vault_arm_id: Optional[str] = None,
+             disk_capacity_in_bytes: Optional[float] = None,
+             disk_name: Optional[str] = None,
+             disk_state: Optional[str] = None,
+             disk_type: Optional[str] = None,
+             disk_uri: Optional[str] = None,
+             failover_disk_name: Optional[str] = None,
+             is_disk_encrypted: Optional[bool] = None,
+             is_disk_key_encrypted: Optional[bool] = None,
+             kek_key_vault_arm_id: Optional[str] = None,
+             key_identifier: Optional[str] = None,
+             monitoring_job_type: Optional[str] = None,
+             monitoring_percentage_completion: Optional[int] = None,
+             primary_disk_azure_storage_account_id: Optional[str] = None,
+             primary_staging_azure_storage_account_id: Optional[str] = None,
+             recovery_azure_storage_account_id: Optional[str] = None,
+             recovery_disk_uri: Optional[str] = None,
+             resync_required: Optional[bool] = None,
+             secret_identifier: Optional[str] = None,
+             tfo_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_disk_level_operation is None and 'allowedDiskLevelOperation' in kwargs:
+            allowed_disk_level_operation = kwargs['allowedDiskLevelOperation']
+        if data_pending_at_source_agent_in_mb is None and 'dataPendingAtSourceAgentInMB' in kwargs:
+            data_pending_at_source_agent_in_mb = kwargs['dataPendingAtSourceAgentInMB']
+        if data_pending_in_staging_storage_account_in_mb is None and 'dataPendingInStagingStorageAccountInMB' in kwargs:
+            data_pending_in_staging_storage_account_in_mb = kwargs['dataPendingInStagingStorageAccountInMB']
+        if dek_key_vault_arm_id is None and 'dekKeyVaultArmId' in kwargs:
+            dek_key_vault_arm_id = kwargs['dekKeyVaultArmId']
+        if disk_capacity_in_bytes is None and 'diskCapacityInBytes' in kwargs:
+            disk_capacity_in_bytes = kwargs['diskCapacityInBytes']
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_state is None and 'diskState' in kwargs:
+            disk_state = kwargs['diskState']
+        if disk_type is None and 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if disk_uri is None and 'diskUri' in kwargs:
+            disk_uri = kwargs['diskUri']
+        if failover_disk_name is None and 'failoverDiskName' in kwargs:
+            failover_disk_name = kwargs['failoverDiskName']
+        if is_disk_encrypted is None and 'isDiskEncrypted' in kwargs:
+            is_disk_encrypted = kwargs['isDiskEncrypted']
+        if is_disk_key_encrypted is None and 'isDiskKeyEncrypted' in kwargs:
+            is_disk_key_encrypted = kwargs['isDiskKeyEncrypted']
+        if kek_key_vault_arm_id is None and 'kekKeyVaultArmId' in kwargs:
+            kek_key_vault_arm_id = kwargs['kekKeyVaultArmId']
+        if key_identifier is None and 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+        if monitoring_job_type is None and 'monitoringJobType' in kwargs:
+            monitoring_job_type = kwargs['monitoringJobType']
+        if monitoring_percentage_completion is None and 'monitoringPercentageCompletion' in kwargs:
+            monitoring_percentage_completion = kwargs['monitoringPercentageCompletion']
+        if primary_disk_azure_storage_account_id is None and 'primaryDiskAzureStorageAccountId' in kwargs:
+            primary_disk_azure_storage_account_id = kwargs['primaryDiskAzureStorageAccountId']
+        if primary_staging_azure_storage_account_id is None and 'primaryStagingAzureStorageAccountId' in kwargs:
+            primary_staging_azure_storage_account_id = kwargs['primaryStagingAzureStorageAccountId']
+        if recovery_azure_storage_account_id is None and 'recoveryAzureStorageAccountId' in kwargs:
+            recovery_azure_storage_account_id = kwargs['recoveryAzureStorageAccountId']
+        if recovery_disk_uri is None and 'recoveryDiskUri' in kwargs:
+            recovery_disk_uri = kwargs['recoveryDiskUri']
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if secret_identifier is None and 'secretIdentifier' in kwargs:
+            secret_identifier = kwargs['secretIdentifier']
+        if tfo_disk_name is None and 'tfoDiskName' in kwargs:
+            tfo_disk_name = kwargs['tfoDiskName']
+
         if allowed_disk_level_operation is not None:
-            pulumi.set(__self__, "allowed_disk_level_operation", allowed_disk_level_operation)
+            _setter("allowed_disk_level_operation", allowed_disk_level_operation)
         if data_pending_at_source_agent_in_mb is not None:
-            pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+            _setter("data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
         if data_pending_in_staging_storage_account_in_mb is not None:
-            pulumi.set(__self__, "data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
+            _setter("data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
         if dek_key_vault_arm_id is not None:
-            pulumi.set(__self__, "dek_key_vault_arm_id", dek_key_vault_arm_id)
+            _setter("dek_key_vault_arm_id", dek_key_vault_arm_id)
         if disk_capacity_in_bytes is not None:
-            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+            _setter("disk_capacity_in_bytes", disk_capacity_in_bytes)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_state is not None:
-            pulumi.set(__self__, "disk_state", disk_state)
+            _setter("disk_state", disk_state)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if disk_uri is not None:
-            pulumi.set(__self__, "disk_uri", disk_uri)
+            _setter("disk_uri", disk_uri)
         if failover_disk_name is not None:
-            pulumi.set(__self__, "failover_disk_name", failover_disk_name)
+            _setter("failover_disk_name", failover_disk_name)
         if is_disk_encrypted is not None:
-            pulumi.set(__self__, "is_disk_encrypted", is_disk_encrypted)
+            _setter("is_disk_encrypted", is_disk_encrypted)
         if is_disk_key_encrypted is not None:
-            pulumi.set(__self__, "is_disk_key_encrypted", is_disk_key_encrypted)
+            _setter("is_disk_key_encrypted", is_disk_key_encrypted)
         if kek_key_vault_arm_id is not None:
-            pulumi.set(__self__, "kek_key_vault_arm_id", kek_key_vault_arm_id)
+            _setter("kek_key_vault_arm_id", kek_key_vault_arm_id)
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
         if monitoring_job_type is not None:
-            pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
+            _setter("monitoring_job_type", monitoring_job_type)
         if monitoring_percentage_completion is not None:
-            pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+            _setter("monitoring_percentage_completion", monitoring_percentage_completion)
         if primary_disk_azure_storage_account_id is not None:
-            pulumi.set(__self__, "primary_disk_azure_storage_account_id", primary_disk_azure_storage_account_id)
+            _setter("primary_disk_azure_storage_account_id", primary_disk_azure_storage_account_id)
         if primary_staging_azure_storage_account_id is not None:
-            pulumi.set(__self__, "primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
+            _setter("primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
         if recovery_azure_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_azure_storage_account_id", recovery_azure_storage_account_id)
+            _setter("recovery_azure_storage_account_id", recovery_azure_storage_account_id)
         if recovery_disk_uri is not None:
-            pulumi.set(__self__, "recovery_disk_uri", recovery_disk_uri)
+            _setter("recovery_disk_uri", recovery_disk_uri)
         if resync_required is not None:
-            pulumi.set(__self__, "resync_required", resync_required)
+            _setter("resync_required", resync_required)
         if secret_identifier is not None:
-            pulumi.set(__self__, "secret_identifier", secret_identifier)
+            _setter("secret_identifier", secret_identifier)
         if tfo_disk_name is not None:
-            pulumi.set(__self__, "tfo_disk_name", tfo_disk_name)
+            _setter("tfo_disk_name", tfo_disk_name)
 
     @property
     @pulumi.getter(name="allowedDiskLevelOperation")
@@ -1124,62 +1373,183 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
         :param str secret_identifier: The secret URL / identifier (BEK).
         :param str tfo_disk_name: The test failover name for the managed disk.
         """
+        A2AProtectedManagedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_disk_level_operation=allowed_disk_level_operation,
+            data_pending_at_source_agent_in_mb=data_pending_at_source_agent_in_mb,
+            data_pending_in_staging_storage_account_in_mb=data_pending_in_staging_storage_account_in_mb,
+            dek_key_vault_arm_id=dek_key_vault_arm_id,
+            disk_capacity_in_bytes=disk_capacity_in_bytes,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_state=disk_state,
+            disk_type=disk_type,
+            failover_disk_name=failover_disk_name,
+            is_disk_encrypted=is_disk_encrypted,
+            is_disk_key_encrypted=is_disk_key_encrypted,
+            kek_key_vault_arm_id=kek_key_vault_arm_id,
+            key_identifier=key_identifier,
+            monitoring_job_type=monitoring_job_type,
+            monitoring_percentage_completion=monitoring_percentage_completion,
+            primary_disk_encryption_set_id=primary_disk_encryption_set_id,
+            primary_staging_azure_storage_account_id=primary_staging_azure_storage_account_id,
+            recovery_disk_encryption_set_id=recovery_disk_encryption_set_id,
+            recovery_orignal_target_disk_id=recovery_orignal_target_disk_id,
+            recovery_replica_disk_account_type=recovery_replica_disk_account_type,
+            recovery_replica_disk_id=recovery_replica_disk_id,
+            recovery_resource_group_id=recovery_resource_group_id,
+            recovery_target_disk_account_type=recovery_target_disk_account_type,
+            recovery_target_disk_id=recovery_target_disk_id,
+            resync_required=resync_required,
+            secret_identifier=secret_identifier,
+            tfo_disk_name=tfo_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_disk_level_operation: Optional[Sequence[str]] = None,
+             data_pending_at_source_agent_in_mb: Optional[float] = None,
+             data_pending_in_staging_storage_account_in_mb: Optional[float] = None,
+             dek_key_vault_arm_id: Optional[str] = None,
+             disk_capacity_in_bytes: Optional[float] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             disk_state: Optional[str] = None,
+             disk_type: Optional[str] = None,
+             failover_disk_name: Optional[str] = None,
+             is_disk_encrypted: Optional[bool] = None,
+             is_disk_key_encrypted: Optional[bool] = None,
+             kek_key_vault_arm_id: Optional[str] = None,
+             key_identifier: Optional[str] = None,
+             monitoring_job_type: Optional[str] = None,
+             monitoring_percentage_completion: Optional[int] = None,
+             primary_disk_encryption_set_id: Optional[str] = None,
+             primary_staging_azure_storage_account_id: Optional[str] = None,
+             recovery_disk_encryption_set_id: Optional[str] = None,
+             recovery_orignal_target_disk_id: Optional[str] = None,
+             recovery_replica_disk_account_type: Optional[str] = None,
+             recovery_replica_disk_id: Optional[str] = None,
+             recovery_resource_group_id: Optional[str] = None,
+             recovery_target_disk_account_type: Optional[str] = None,
+             recovery_target_disk_id: Optional[str] = None,
+             resync_required: Optional[bool] = None,
+             secret_identifier: Optional[str] = None,
+             tfo_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_disk_level_operation is None and 'allowedDiskLevelOperation' in kwargs:
+            allowed_disk_level_operation = kwargs['allowedDiskLevelOperation']
+        if data_pending_at_source_agent_in_mb is None and 'dataPendingAtSourceAgentInMB' in kwargs:
+            data_pending_at_source_agent_in_mb = kwargs['dataPendingAtSourceAgentInMB']
+        if data_pending_in_staging_storage_account_in_mb is None and 'dataPendingInStagingStorageAccountInMB' in kwargs:
+            data_pending_in_staging_storage_account_in_mb = kwargs['dataPendingInStagingStorageAccountInMB']
+        if dek_key_vault_arm_id is None and 'dekKeyVaultArmId' in kwargs:
+            dek_key_vault_arm_id = kwargs['dekKeyVaultArmId']
+        if disk_capacity_in_bytes is None and 'diskCapacityInBytes' in kwargs:
+            disk_capacity_in_bytes = kwargs['diskCapacityInBytes']
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_state is None and 'diskState' in kwargs:
+            disk_state = kwargs['diskState']
+        if disk_type is None and 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if failover_disk_name is None and 'failoverDiskName' in kwargs:
+            failover_disk_name = kwargs['failoverDiskName']
+        if is_disk_encrypted is None and 'isDiskEncrypted' in kwargs:
+            is_disk_encrypted = kwargs['isDiskEncrypted']
+        if is_disk_key_encrypted is None and 'isDiskKeyEncrypted' in kwargs:
+            is_disk_key_encrypted = kwargs['isDiskKeyEncrypted']
+        if kek_key_vault_arm_id is None and 'kekKeyVaultArmId' in kwargs:
+            kek_key_vault_arm_id = kwargs['kekKeyVaultArmId']
+        if key_identifier is None and 'keyIdentifier' in kwargs:
+            key_identifier = kwargs['keyIdentifier']
+        if monitoring_job_type is None and 'monitoringJobType' in kwargs:
+            monitoring_job_type = kwargs['monitoringJobType']
+        if monitoring_percentage_completion is None and 'monitoringPercentageCompletion' in kwargs:
+            monitoring_percentage_completion = kwargs['monitoringPercentageCompletion']
+        if primary_disk_encryption_set_id is None and 'primaryDiskEncryptionSetId' in kwargs:
+            primary_disk_encryption_set_id = kwargs['primaryDiskEncryptionSetId']
+        if primary_staging_azure_storage_account_id is None and 'primaryStagingAzureStorageAccountId' in kwargs:
+            primary_staging_azure_storage_account_id = kwargs['primaryStagingAzureStorageAccountId']
+        if recovery_disk_encryption_set_id is None and 'recoveryDiskEncryptionSetId' in kwargs:
+            recovery_disk_encryption_set_id = kwargs['recoveryDiskEncryptionSetId']
+        if recovery_orignal_target_disk_id is None and 'recoveryOrignalTargetDiskId' in kwargs:
+            recovery_orignal_target_disk_id = kwargs['recoveryOrignalTargetDiskId']
+        if recovery_replica_disk_account_type is None and 'recoveryReplicaDiskAccountType' in kwargs:
+            recovery_replica_disk_account_type = kwargs['recoveryReplicaDiskAccountType']
+        if recovery_replica_disk_id is None and 'recoveryReplicaDiskId' in kwargs:
+            recovery_replica_disk_id = kwargs['recoveryReplicaDiskId']
+        if recovery_resource_group_id is None and 'recoveryResourceGroupId' in kwargs:
+            recovery_resource_group_id = kwargs['recoveryResourceGroupId']
+        if recovery_target_disk_account_type is None and 'recoveryTargetDiskAccountType' in kwargs:
+            recovery_target_disk_account_type = kwargs['recoveryTargetDiskAccountType']
+        if recovery_target_disk_id is None and 'recoveryTargetDiskId' in kwargs:
+            recovery_target_disk_id = kwargs['recoveryTargetDiskId']
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if secret_identifier is None and 'secretIdentifier' in kwargs:
+            secret_identifier = kwargs['secretIdentifier']
+        if tfo_disk_name is None and 'tfoDiskName' in kwargs:
+            tfo_disk_name = kwargs['tfoDiskName']
+
         if allowed_disk_level_operation is not None:
-            pulumi.set(__self__, "allowed_disk_level_operation", allowed_disk_level_operation)
+            _setter("allowed_disk_level_operation", allowed_disk_level_operation)
         if data_pending_at_source_agent_in_mb is not None:
-            pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+            _setter("data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
         if data_pending_in_staging_storage_account_in_mb is not None:
-            pulumi.set(__self__, "data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
+            _setter("data_pending_in_staging_storage_account_in_mb", data_pending_in_staging_storage_account_in_mb)
         if dek_key_vault_arm_id is not None:
-            pulumi.set(__self__, "dek_key_vault_arm_id", dek_key_vault_arm_id)
+            _setter("dek_key_vault_arm_id", dek_key_vault_arm_id)
         if disk_capacity_in_bytes is not None:
-            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+            _setter("disk_capacity_in_bytes", disk_capacity_in_bytes)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_state is not None:
-            pulumi.set(__self__, "disk_state", disk_state)
+            _setter("disk_state", disk_state)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if failover_disk_name is not None:
-            pulumi.set(__self__, "failover_disk_name", failover_disk_name)
+            _setter("failover_disk_name", failover_disk_name)
         if is_disk_encrypted is not None:
-            pulumi.set(__self__, "is_disk_encrypted", is_disk_encrypted)
+            _setter("is_disk_encrypted", is_disk_encrypted)
         if is_disk_key_encrypted is not None:
-            pulumi.set(__self__, "is_disk_key_encrypted", is_disk_key_encrypted)
+            _setter("is_disk_key_encrypted", is_disk_key_encrypted)
         if kek_key_vault_arm_id is not None:
-            pulumi.set(__self__, "kek_key_vault_arm_id", kek_key_vault_arm_id)
+            _setter("kek_key_vault_arm_id", kek_key_vault_arm_id)
         if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
+            _setter("key_identifier", key_identifier)
         if monitoring_job_type is not None:
-            pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
+            _setter("monitoring_job_type", monitoring_job_type)
         if monitoring_percentage_completion is not None:
-            pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+            _setter("monitoring_percentage_completion", monitoring_percentage_completion)
         if primary_disk_encryption_set_id is not None:
-            pulumi.set(__self__, "primary_disk_encryption_set_id", primary_disk_encryption_set_id)
+            _setter("primary_disk_encryption_set_id", primary_disk_encryption_set_id)
         if primary_staging_azure_storage_account_id is not None:
-            pulumi.set(__self__, "primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
+            _setter("primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
         if recovery_disk_encryption_set_id is not None:
-            pulumi.set(__self__, "recovery_disk_encryption_set_id", recovery_disk_encryption_set_id)
+            _setter("recovery_disk_encryption_set_id", recovery_disk_encryption_set_id)
         if recovery_orignal_target_disk_id is not None:
-            pulumi.set(__self__, "recovery_orignal_target_disk_id", recovery_orignal_target_disk_id)
+            _setter("recovery_orignal_target_disk_id", recovery_orignal_target_disk_id)
         if recovery_replica_disk_account_type is not None:
-            pulumi.set(__self__, "recovery_replica_disk_account_type", recovery_replica_disk_account_type)
+            _setter("recovery_replica_disk_account_type", recovery_replica_disk_account_type)
         if recovery_replica_disk_id is not None:
-            pulumi.set(__self__, "recovery_replica_disk_id", recovery_replica_disk_id)
+            _setter("recovery_replica_disk_id", recovery_replica_disk_id)
         if recovery_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_resource_group_id", recovery_resource_group_id)
+            _setter("recovery_resource_group_id", recovery_resource_group_id)
         if recovery_target_disk_account_type is not None:
-            pulumi.set(__self__, "recovery_target_disk_account_type", recovery_target_disk_account_type)
+            _setter("recovery_target_disk_account_type", recovery_target_disk_account_type)
         if recovery_target_disk_id is not None:
-            pulumi.set(__self__, "recovery_target_disk_id", recovery_target_disk_id)
+            _setter("recovery_target_disk_id", recovery_target_disk_id)
         if resync_required is not None:
-            pulumi.set(__self__, "resync_required", resync_required)
+            _setter("resync_required", resync_required)
         if secret_identifier is not None:
-            pulumi.set(__self__, "secret_identifier", secret_identifier)
+            _setter("secret_identifier", secret_identifier)
         if tfo_disk_name is not None:
-            pulumi.set(__self__, "tfo_disk_name", tfo_disk_name)
+            _setter("tfo_disk_name", tfo_disk_name)
 
     @property
     @pulumi.getter(name="allowedDiskLevelOperation")
@@ -1455,19 +1825,54 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
         :param str job_schedule_name: The job schedule arm name.
         :param str schedule_name: The schedule arm name.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
+        A2AProtectionContainerMappingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            agent_auto_update_status=agent_auto_update_status,
+            automation_account_arm_id=automation_account_arm_id,
+            automation_account_authentication_type=automation_account_authentication_type,
+            job_schedule_name=job_schedule_name,
+            schedule_name=schedule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             agent_auto_update_status: Optional[str] = None,
+             automation_account_arm_id: Optional[str] = None,
+             automation_account_authentication_type: Optional[str] = None,
+             job_schedule_name: Optional[str] = None,
+             schedule_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if agent_auto_update_status is None and 'agentAutoUpdateStatus' in kwargs:
+            agent_auto_update_status = kwargs['agentAutoUpdateStatus']
+        if automation_account_arm_id is None and 'automationAccountArmId' in kwargs:
+            automation_account_arm_id = kwargs['automationAccountArmId']
+        if automation_account_authentication_type is None and 'automationAccountAuthenticationType' in kwargs:
+            automation_account_authentication_type = kwargs['automationAccountAuthenticationType']
+        if job_schedule_name is None and 'jobScheduleName' in kwargs:
+            job_schedule_name = kwargs['jobScheduleName']
+        if schedule_name is None and 'scheduleName' in kwargs:
+            schedule_name = kwargs['scheduleName']
+
+        _setter("instance_type", 'A2A')
         if agent_auto_update_status is not None:
-            pulumi.set(__self__, "agent_auto_update_status", agent_auto_update_status)
+            _setter("agent_auto_update_status", agent_auto_update_status)
         if automation_account_arm_id is not None:
-            pulumi.set(__self__, "automation_account_arm_id", automation_account_arm_id)
+            _setter("automation_account_arm_id", automation_account_arm_id)
         if automation_account_authentication_type is None:
             automation_account_authentication_type = 'RunAsAccount'
         if automation_account_authentication_type is not None:
-            pulumi.set(__self__, "automation_account_authentication_type", automation_account_authentication_type)
+            _setter("automation_account_authentication_type", automation_account_authentication_type)
         if job_schedule_name is not None:
-            pulumi.set(__self__, "job_schedule_name", job_schedule_name)
+            _setter("job_schedule_name", job_schedule_name)
         if schedule_name is not None:
-            pulumi.set(__self__, "schedule_name", schedule_name)
+            _setter("schedule_name", schedule_name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1764,107 +2169,354 @@ class A2AReplicationDetailsResponse(dict):
         :param str vm_protection_state_description: The protection state description for the vm.
         :param 'AzureToAzureVmSyncedConfigDetailsResponse' vm_synced_config_details: The synced configuration details.
         """
-        pulumi.set(__self__, "agent_certificate_expiry_date", agent_certificate_expiry_date)
-        pulumi.set(__self__, "churn_option_selected", churn_option_selected)
-        pulumi.set(__self__, "initial_primary_fabric_location", initial_primary_fabric_location)
-        pulumi.set(__self__, "initial_primary_zone", initial_primary_zone)
-        pulumi.set(__self__, "initial_recovery_fabric_location", initial_recovery_fabric_location)
-        pulumi.set(__self__, "initial_recovery_zone", initial_recovery_zone)
-        pulumi.set(__self__, "instance_type", 'A2A')
-        pulumi.set(__self__, "recovery_azure_generation", recovery_azure_generation)
-        pulumi.set(__self__, "vm_encryption_type", vm_encryption_type)
+        A2AReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_certificate_expiry_date=agent_certificate_expiry_date,
+            churn_option_selected=churn_option_selected,
+            initial_primary_fabric_location=initial_primary_fabric_location,
+            initial_primary_zone=initial_primary_zone,
+            initial_recovery_fabric_location=initial_recovery_fabric_location,
+            initial_recovery_zone=initial_recovery_zone,
+            instance_type=instance_type,
+            recovery_azure_generation=recovery_azure_generation,
+            vm_encryption_type=vm_encryption_type,
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            auto_protection_of_data_disk=auto_protection_of_data_disk,
+            fabric_object_id=fabric_object_id,
+            initial_primary_extended_location=initial_primary_extended_location,
+            initial_recovery_extended_location=initial_recovery_extended_location,
+            is_replication_agent_certificate_update_required=is_replication_agent_certificate_update_required,
+            is_replication_agent_update_required=is_replication_agent_update_required,
+            last_heartbeat=last_heartbeat,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            lifecycle_id=lifecycle_id,
+            management_id=management_id,
+            monitoring_job_type=monitoring_job_type,
+            monitoring_percentage_completion=monitoring_percentage_completion,
+            multi_vm_group_create_option=multi_vm_group_create_option,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            os_type=os_type,
+            primary_availability_zone=primary_availability_zone,
+            primary_extended_location=primary_extended_location,
+            primary_fabric_location=primary_fabric_location,
+            protected_disks=protected_disks,
+            protected_managed_disks=protected_managed_disks,
+            recovery_availability_set=recovery_availability_set,
+            recovery_availability_zone=recovery_availability_zone,
+            recovery_azure_resource_group_id=recovery_azure_resource_group_id,
+            recovery_azure_vm_name=recovery_azure_vm_name,
+            recovery_azure_vm_size=recovery_azure_vm_size,
+            recovery_boot_diag_storage_account_id=recovery_boot_diag_storage_account_id,
+            recovery_capacity_reservation_group_id=recovery_capacity_reservation_group_id,
+            recovery_cloud_service=recovery_cloud_service,
+            recovery_extended_location=recovery_extended_location,
+            recovery_fabric_location=recovery_fabric_location,
+            recovery_fabric_object_id=recovery_fabric_object_id,
+            recovery_proximity_placement_group_id=recovery_proximity_placement_group_id,
+            recovery_virtual_machine_scale_set_id=recovery_virtual_machine_scale_set_id,
+            rpo_in_seconds=rpo_in_seconds,
+            selected_recovery_azure_network_id=selected_recovery_azure_network_id,
+            selected_tfo_azure_network_id=selected_tfo_azure_network_id,
+            test_failover_recovery_fabric_object_id=test_failover_recovery_fabric_object_id,
+            tfo_azure_vm_name=tfo_azure_vm_name,
+            unprotected_disks=unprotected_disks,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+            vm_synced_config_details=vm_synced_config_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_certificate_expiry_date: Optional[str] = None,
+             churn_option_selected: Optional[str] = None,
+             initial_primary_fabric_location: Optional[str] = None,
+             initial_primary_zone: Optional[str] = None,
+             initial_recovery_fabric_location: Optional[str] = None,
+             initial_recovery_zone: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             recovery_azure_generation: Optional[str] = None,
+             vm_encryption_type: Optional[str] = None,
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             auto_protection_of_data_disk: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             initial_primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             initial_recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             is_replication_agent_certificate_update_required: Optional[bool] = None,
+             is_replication_agent_update_required: Optional[bool] = None,
+             last_heartbeat: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             lifecycle_id: Optional[str] = None,
+             management_id: Optional[str] = None,
+             monitoring_job_type: Optional[str] = None,
+             monitoring_percentage_completion: Optional[int] = None,
+             multi_vm_group_create_option: Optional[str] = None,
+             multi_vm_group_id: Optional[str] = None,
+             multi_vm_group_name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             primary_availability_zone: Optional[str] = None,
+             primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             primary_fabric_location: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.A2AProtectedDiskDetailsResponse']] = None,
+             protected_managed_disks: Optional[Sequence['outputs.A2AProtectedManagedDiskDetailsResponse']] = None,
+             recovery_availability_set: Optional[str] = None,
+             recovery_availability_zone: Optional[str] = None,
+             recovery_azure_resource_group_id: Optional[str] = None,
+             recovery_azure_vm_name: Optional[str] = None,
+             recovery_azure_vm_size: Optional[str] = None,
+             recovery_boot_diag_storage_account_id: Optional[str] = None,
+             recovery_capacity_reservation_group_id: Optional[str] = None,
+             recovery_cloud_service: Optional[str] = None,
+             recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             recovery_fabric_location: Optional[str] = None,
+             recovery_fabric_object_id: Optional[str] = None,
+             recovery_proximity_placement_group_id: Optional[str] = None,
+             recovery_virtual_machine_scale_set_id: Optional[str] = None,
+             rpo_in_seconds: Optional[float] = None,
+             selected_recovery_azure_network_id: Optional[str] = None,
+             selected_tfo_azure_network_id: Optional[str] = None,
+             test_failover_recovery_fabric_object_id: Optional[str] = None,
+             tfo_azure_vm_name: Optional[str] = None,
+             unprotected_disks: Optional[Sequence['outputs.A2AUnprotectedDiskDetailsResponse']] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             vm_synced_config_details: Optional['outputs.AzureToAzureVmSyncedConfigDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_certificate_expiry_date is None and 'agentCertificateExpiryDate' in kwargs:
+            agent_certificate_expiry_date = kwargs['agentCertificateExpiryDate']
+        if agent_certificate_expiry_date is None:
+            raise TypeError("Missing 'agent_certificate_expiry_date' argument")
+        if churn_option_selected is None and 'churnOptionSelected' in kwargs:
+            churn_option_selected = kwargs['churnOptionSelected']
+        if churn_option_selected is None:
+            raise TypeError("Missing 'churn_option_selected' argument")
+        if initial_primary_fabric_location is None and 'initialPrimaryFabricLocation' in kwargs:
+            initial_primary_fabric_location = kwargs['initialPrimaryFabricLocation']
+        if initial_primary_fabric_location is None:
+            raise TypeError("Missing 'initial_primary_fabric_location' argument")
+        if initial_primary_zone is None and 'initialPrimaryZone' in kwargs:
+            initial_primary_zone = kwargs['initialPrimaryZone']
+        if initial_primary_zone is None:
+            raise TypeError("Missing 'initial_primary_zone' argument")
+        if initial_recovery_fabric_location is None and 'initialRecoveryFabricLocation' in kwargs:
+            initial_recovery_fabric_location = kwargs['initialRecoveryFabricLocation']
+        if initial_recovery_fabric_location is None:
+            raise TypeError("Missing 'initial_recovery_fabric_location' argument")
+        if initial_recovery_zone is None and 'initialRecoveryZone' in kwargs:
+            initial_recovery_zone = kwargs['initialRecoveryZone']
+        if initial_recovery_zone is None:
+            raise TypeError("Missing 'initial_recovery_zone' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if recovery_azure_generation is None and 'recoveryAzureGeneration' in kwargs:
+            recovery_azure_generation = kwargs['recoveryAzureGeneration']
+        if recovery_azure_generation is None:
+            raise TypeError("Missing 'recovery_azure_generation' argument")
+        if vm_encryption_type is None and 'vmEncryptionType' in kwargs:
+            vm_encryption_type = kwargs['vmEncryptionType']
+        if vm_encryption_type is None:
+            raise TypeError("Missing 'vm_encryption_type' argument")
+        if agent_expiry_date is None and 'agentExpiryDate' in kwargs:
+            agent_expiry_date = kwargs['agentExpiryDate']
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if auto_protection_of_data_disk is None and 'autoProtectionOfDataDisk' in kwargs:
+            auto_protection_of_data_disk = kwargs['autoProtectionOfDataDisk']
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if initial_primary_extended_location is None and 'initialPrimaryExtendedLocation' in kwargs:
+            initial_primary_extended_location = kwargs['initialPrimaryExtendedLocation']
+        if initial_recovery_extended_location is None and 'initialRecoveryExtendedLocation' in kwargs:
+            initial_recovery_extended_location = kwargs['initialRecoveryExtendedLocation']
+        if is_replication_agent_certificate_update_required is None and 'isReplicationAgentCertificateUpdateRequired' in kwargs:
+            is_replication_agent_certificate_update_required = kwargs['isReplicationAgentCertificateUpdateRequired']
+        if is_replication_agent_update_required is None and 'isReplicationAgentUpdateRequired' in kwargs:
+            is_replication_agent_update_required = kwargs['isReplicationAgentUpdateRequired']
+        if last_heartbeat is None and 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if last_rpo_calculated_time is None and 'lastRpoCalculatedTime' in kwargs:
+            last_rpo_calculated_time = kwargs['lastRpoCalculatedTime']
+        if lifecycle_id is None and 'lifecycleId' in kwargs:
+            lifecycle_id = kwargs['lifecycleId']
+        if management_id is None and 'managementId' in kwargs:
+            management_id = kwargs['managementId']
+        if monitoring_job_type is None and 'monitoringJobType' in kwargs:
+            monitoring_job_type = kwargs['monitoringJobType']
+        if monitoring_percentage_completion is None and 'monitoringPercentageCompletion' in kwargs:
+            monitoring_percentage_completion = kwargs['monitoringPercentageCompletion']
+        if multi_vm_group_create_option is None and 'multiVmGroupCreateOption' in kwargs:
+            multi_vm_group_create_option = kwargs['multiVmGroupCreateOption']
+        if multi_vm_group_id is None and 'multiVmGroupId' in kwargs:
+            multi_vm_group_id = kwargs['multiVmGroupId']
+        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
+            multi_vm_group_name = kwargs['multiVmGroupName']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if primary_availability_zone is None and 'primaryAvailabilityZone' in kwargs:
+            primary_availability_zone = kwargs['primaryAvailabilityZone']
+        if primary_extended_location is None and 'primaryExtendedLocation' in kwargs:
+            primary_extended_location = kwargs['primaryExtendedLocation']
+        if primary_fabric_location is None and 'primaryFabricLocation' in kwargs:
+            primary_fabric_location = kwargs['primaryFabricLocation']
+        if protected_disks is None and 'protectedDisks' in kwargs:
+            protected_disks = kwargs['protectedDisks']
+        if protected_managed_disks is None and 'protectedManagedDisks' in kwargs:
+            protected_managed_disks = kwargs['protectedManagedDisks']
+        if recovery_availability_set is None and 'recoveryAvailabilitySet' in kwargs:
+            recovery_availability_set = kwargs['recoveryAvailabilitySet']
+        if recovery_availability_zone is None and 'recoveryAvailabilityZone' in kwargs:
+            recovery_availability_zone = kwargs['recoveryAvailabilityZone']
+        if recovery_azure_resource_group_id is None and 'recoveryAzureResourceGroupId' in kwargs:
+            recovery_azure_resource_group_id = kwargs['recoveryAzureResourceGroupId']
+        if recovery_azure_vm_name is None and 'recoveryAzureVMName' in kwargs:
+            recovery_azure_vm_name = kwargs['recoveryAzureVMName']
+        if recovery_azure_vm_size is None and 'recoveryAzureVMSize' in kwargs:
+            recovery_azure_vm_size = kwargs['recoveryAzureVMSize']
+        if recovery_boot_diag_storage_account_id is None and 'recoveryBootDiagStorageAccountId' in kwargs:
+            recovery_boot_diag_storage_account_id = kwargs['recoveryBootDiagStorageAccountId']
+        if recovery_capacity_reservation_group_id is None and 'recoveryCapacityReservationGroupId' in kwargs:
+            recovery_capacity_reservation_group_id = kwargs['recoveryCapacityReservationGroupId']
+        if recovery_cloud_service is None and 'recoveryCloudService' in kwargs:
+            recovery_cloud_service = kwargs['recoveryCloudService']
+        if recovery_extended_location is None and 'recoveryExtendedLocation' in kwargs:
+            recovery_extended_location = kwargs['recoveryExtendedLocation']
+        if recovery_fabric_location is None and 'recoveryFabricLocation' in kwargs:
+            recovery_fabric_location = kwargs['recoveryFabricLocation']
+        if recovery_fabric_object_id is None and 'recoveryFabricObjectId' in kwargs:
+            recovery_fabric_object_id = kwargs['recoveryFabricObjectId']
+        if recovery_proximity_placement_group_id is None and 'recoveryProximityPlacementGroupId' in kwargs:
+            recovery_proximity_placement_group_id = kwargs['recoveryProximityPlacementGroupId']
+        if recovery_virtual_machine_scale_set_id is None and 'recoveryVirtualMachineScaleSetId' in kwargs:
+            recovery_virtual_machine_scale_set_id = kwargs['recoveryVirtualMachineScaleSetId']
+        if rpo_in_seconds is None and 'rpoInSeconds' in kwargs:
+            rpo_in_seconds = kwargs['rpoInSeconds']
+        if selected_recovery_azure_network_id is None and 'selectedRecoveryAzureNetworkId' in kwargs:
+            selected_recovery_azure_network_id = kwargs['selectedRecoveryAzureNetworkId']
+        if selected_tfo_azure_network_id is None and 'selectedTfoAzureNetworkId' in kwargs:
+            selected_tfo_azure_network_id = kwargs['selectedTfoAzureNetworkId']
+        if test_failover_recovery_fabric_object_id is None and 'testFailoverRecoveryFabricObjectId' in kwargs:
+            test_failover_recovery_fabric_object_id = kwargs['testFailoverRecoveryFabricObjectId']
+        if tfo_azure_vm_name is None and 'tfoAzureVMName' in kwargs:
+            tfo_azure_vm_name = kwargs['tfoAzureVMName']
+        if unprotected_disks is None and 'unprotectedDisks' in kwargs:
+            unprotected_disks = kwargs['unprotectedDisks']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+        if vm_protection_state is None and 'vmProtectionState' in kwargs:
+            vm_protection_state = kwargs['vmProtectionState']
+        if vm_protection_state_description is None and 'vmProtectionStateDescription' in kwargs:
+            vm_protection_state_description = kwargs['vmProtectionStateDescription']
+        if vm_synced_config_details is None and 'vmSyncedConfigDetails' in kwargs:
+            vm_synced_config_details = kwargs['vmSyncedConfigDetails']
+
+        _setter("agent_certificate_expiry_date", agent_certificate_expiry_date)
+        _setter("churn_option_selected", churn_option_selected)
+        _setter("initial_primary_fabric_location", initial_primary_fabric_location)
+        _setter("initial_primary_zone", initial_primary_zone)
+        _setter("initial_recovery_fabric_location", initial_recovery_fabric_location)
+        _setter("initial_recovery_zone", initial_recovery_zone)
+        _setter("instance_type", 'A2A')
+        _setter("recovery_azure_generation", recovery_azure_generation)
+        _setter("vm_encryption_type", vm_encryption_type)
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if auto_protection_of_data_disk is not None:
-            pulumi.set(__self__, "auto_protection_of_data_disk", auto_protection_of_data_disk)
+            _setter("auto_protection_of_data_disk", auto_protection_of_data_disk)
         if fabric_object_id is not None:
-            pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+            _setter("fabric_object_id", fabric_object_id)
         if initial_primary_extended_location is not None:
-            pulumi.set(__self__, "initial_primary_extended_location", initial_primary_extended_location)
+            _setter("initial_primary_extended_location", initial_primary_extended_location)
         if initial_recovery_extended_location is not None:
-            pulumi.set(__self__, "initial_recovery_extended_location", initial_recovery_extended_location)
+            _setter("initial_recovery_extended_location", initial_recovery_extended_location)
         if is_replication_agent_certificate_update_required is not None:
-            pulumi.set(__self__, "is_replication_agent_certificate_update_required", is_replication_agent_certificate_update_required)
+            _setter("is_replication_agent_certificate_update_required", is_replication_agent_certificate_update_required)
         if is_replication_agent_update_required is not None:
-            pulumi.set(__self__, "is_replication_agent_update_required", is_replication_agent_update_required)
+            _setter("is_replication_agent_update_required", is_replication_agent_update_required)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if lifecycle_id is not None:
-            pulumi.set(__self__, "lifecycle_id", lifecycle_id)
+            _setter("lifecycle_id", lifecycle_id)
         if management_id is not None:
-            pulumi.set(__self__, "management_id", management_id)
+            _setter("management_id", management_id)
         if monitoring_job_type is not None:
-            pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
+            _setter("monitoring_job_type", monitoring_job_type)
         if monitoring_percentage_completion is not None:
-            pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+            _setter("monitoring_percentage_completion", monitoring_percentage_completion)
         if multi_vm_group_create_option is not None:
-            pulumi.set(__self__, "multi_vm_group_create_option", multi_vm_group_create_option)
+            _setter("multi_vm_group_create_option", multi_vm_group_create_option)
         if multi_vm_group_id is not None:
-            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+            _setter("multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if primary_availability_zone is not None:
-            pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
+            _setter("primary_availability_zone", primary_availability_zone)
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if protected_managed_disks is not None:
-            pulumi.set(__self__, "protected_managed_disks", protected_managed_disks)
+            _setter("protected_managed_disks", protected_managed_disks)
         if recovery_availability_set is not None:
-            pulumi.set(__self__, "recovery_availability_set", recovery_availability_set)
+            _setter("recovery_availability_set", recovery_availability_set)
         if recovery_availability_zone is not None:
-            pulumi.set(__self__, "recovery_availability_zone", recovery_availability_zone)
+            _setter("recovery_availability_zone", recovery_availability_zone)
         if recovery_azure_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_azure_resource_group_id", recovery_azure_resource_group_id)
+            _setter("recovery_azure_resource_group_id", recovery_azure_resource_group_id)
         if recovery_azure_vm_name is not None:
-            pulumi.set(__self__, "recovery_azure_vm_name", recovery_azure_vm_name)
+            _setter("recovery_azure_vm_name", recovery_azure_vm_name)
         if recovery_azure_vm_size is not None:
-            pulumi.set(__self__, "recovery_azure_vm_size", recovery_azure_vm_size)
+            _setter("recovery_azure_vm_size", recovery_azure_vm_size)
         if recovery_boot_diag_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_boot_diag_storage_account_id", recovery_boot_diag_storage_account_id)
+            _setter("recovery_boot_diag_storage_account_id", recovery_boot_diag_storage_account_id)
         if recovery_capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "recovery_capacity_reservation_group_id", recovery_capacity_reservation_group_id)
+            _setter("recovery_capacity_reservation_group_id", recovery_capacity_reservation_group_id)
         if recovery_cloud_service is not None:
-            pulumi.set(__self__, "recovery_cloud_service", recovery_cloud_service)
+            _setter("recovery_cloud_service", recovery_cloud_service)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
         if recovery_fabric_location is not None:
-            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+            _setter("recovery_fabric_location", recovery_fabric_location)
         if recovery_fabric_object_id is not None:
-            pulumi.set(__self__, "recovery_fabric_object_id", recovery_fabric_object_id)
+            _setter("recovery_fabric_object_id", recovery_fabric_object_id)
         if recovery_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "recovery_proximity_placement_group_id", recovery_proximity_placement_group_id)
+            _setter("recovery_proximity_placement_group_id", recovery_proximity_placement_group_id)
         if recovery_virtual_machine_scale_set_id is not None:
-            pulumi.set(__self__, "recovery_virtual_machine_scale_set_id", recovery_virtual_machine_scale_set_id)
+            _setter("recovery_virtual_machine_scale_set_id", recovery_virtual_machine_scale_set_id)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if selected_recovery_azure_network_id is not None:
-            pulumi.set(__self__, "selected_recovery_azure_network_id", selected_recovery_azure_network_id)
+            _setter("selected_recovery_azure_network_id", selected_recovery_azure_network_id)
         if selected_tfo_azure_network_id is not None:
-            pulumi.set(__self__, "selected_tfo_azure_network_id", selected_tfo_azure_network_id)
+            _setter("selected_tfo_azure_network_id", selected_tfo_azure_network_id)
         if test_failover_recovery_fabric_object_id is not None:
-            pulumi.set(__self__, "test_failover_recovery_fabric_object_id", test_failover_recovery_fabric_object_id)
+            _setter("test_failover_recovery_fabric_object_id", test_failover_recovery_fabric_object_id)
         if tfo_azure_vm_name is not None:
-            pulumi.set(__self__, "tfo_azure_vm_name", tfo_azure_vm_name)
+            _setter("tfo_azure_vm_name", tfo_azure_vm_name)
         if unprotected_disks is not None:
-            pulumi.set(__self__, "unprotected_disks", unprotected_disks)
+            _setter("unprotected_disks", unprotected_disks)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
         if vm_synced_config_details is not None:
-            pulumi.set(__self__, "vm_synced_config_details", vm_synced_config_details)
+            _setter("vm_synced_config_details", vm_synced_config_details)
 
     @property
     @pulumi.getter(name="agentCertificateExpiryDate")
@@ -2340,10 +2992,27 @@ class A2AUnprotectedDiskDetailsResponse(dict):
         :param str disk_auto_protection_status: A value indicating whether the disk auto protection is enabled.
         :param int disk_lun_id: The source lun Id for the data disk.
         """
+        A2AUnprotectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_auto_protection_status=disk_auto_protection_status,
+            disk_lun_id=disk_lun_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_auto_protection_status: Optional[str] = None,
+             disk_lun_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_auto_protection_status is None and 'diskAutoProtectionStatus' in kwargs:
+            disk_auto_protection_status = kwargs['diskAutoProtectionStatus']
+        if disk_lun_id is None and 'diskLunId' in kwargs:
+            disk_lun_id = kwargs['diskLunId']
+
         if disk_auto_protection_status is not None:
-            pulumi.set(__self__, "disk_auto_protection_status", disk_auto_protection_status)
+            _setter("disk_auto_protection_status", disk_auto_protection_status)
         if disk_lun_id is not None:
-            pulumi.set(__self__, "disk_lun_id", disk_lun_id)
+            _setter("disk_lun_id", disk_lun_id)
 
     @property
     @pulumi.getter(name="diskAutoProtectionStatus")
@@ -2375,10 +3044,23 @@ class A2AZoneDetailsResponse(dict):
         :param str source: Source zone info.
         :param str target: The target zone info.
         """
+        A2AZoneDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source=source,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source: Optional[str] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if target is not None:
-            pulumi.set(__self__, "target", target)
+            _setter("target", target)
 
     @property
     @pulumi.getter
@@ -2437,11 +3119,46 @@ class AgentDetailsResponse(dict):
         :param str fqdn: The machine FQDN.
         :param str machine_id: The Id of the machine to which the agent is registered.
         """
-        pulumi.set(__self__, "agent_id", agent_id)
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "disks", disks)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "machine_id", machine_id)
+        AgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_id=agent_id,
+            bios_id=bios_id,
+            disks=disks,
+            fqdn=fqdn,
+            machine_id=machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_id: Optional[str] = None,
+             bios_id: Optional[str] = None,
+             disks: Optional[Sequence['outputs.AgentDiskDetailsResponse']] = None,
+             fqdn: Optional[str] = None,
+             machine_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_id is None and 'agentId' in kwargs:
+            agent_id = kwargs['agentId']
+        if agent_id is None:
+            raise TypeError("Missing 'agent_id' argument")
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if disks is None:
+            raise TypeError("Missing 'disks' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if machine_id is None and 'machineId' in kwargs:
+            machine_id = kwargs['machineId']
+        if machine_id is None:
+            raise TypeError("Missing 'machine_id' argument")
+
+        _setter("agent_id", agent_id)
+        _setter("bios_id", bios_id)
+        _setter("disks", disks)
+        _setter("fqdn", fqdn)
+        _setter("machine_id", machine_id)
 
     @property
     @pulumi.getter(name="agentId")
@@ -2528,11 +3245,50 @@ class AgentDiskDetailsResponse(dict):
         :param str is_os_disk: A value indicating whether the disk is the OS disk.
         :param int lun_id: The lun of disk.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "lun_id", lun_id)
+        AgentDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            is_os_disk=is_os_disk,
+            lun_id=lun_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: Optional[float] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             is_os_disk: Optional[str] = None,
+             lun_id: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_in_bytes is None and 'capacityInBytes' in kwargs:
+            capacity_in_bytes = kwargs['capacityInBytes']
+        if capacity_in_bytes is None:
+            raise TypeError("Missing 'capacity_in_bytes' argument")
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_name is None:
+            raise TypeError("Missing 'disk_name' argument")
+        if is_os_disk is None and 'isOSDisk' in kwargs:
+            is_os_disk = kwargs['isOSDisk']
+        if is_os_disk is None:
+            raise TypeError("Missing 'is_os_disk' argument")
+        if lun_id is None and 'lunId' in kwargs:
+            lun_id = kwargs['lunId']
+        if lun_id is None:
+            raise TypeError("Missing 'lun_id' argument")
+
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("disk_id", disk_id)
+        _setter("disk_name", disk_name)
+        _setter("is_os_disk", is_os_disk)
+        _setter("lun_id", lun_id)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -2623,12 +3379,57 @@ class ApplianceMonitoringDetailsResponse(dict):
         :param 'ApplianceResourceDetailsResponse' network_bandwidth: The appliance network bandwidth details.
         :param 'ApplianceResourceDetailsResponse' ram_details: The appliance RAM details.
         """
-        pulumi.set(__self__, "cpu_details", cpu_details)
-        pulumi.set(__self__, "datastore_snapshot", datastore_snapshot)
-        pulumi.set(__self__, "disks_replication_details", disks_replication_details)
-        pulumi.set(__self__, "esxi_nfc_buffer", esxi_nfc_buffer)
-        pulumi.set(__self__, "network_bandwidth", network_bandwidth)
-        pulumi.set(__self__, "ram_details", ram_details)
+        ApplianceMonitoringDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_details=cpu_details,
+            datastore_snapshot=datastore_snapshot,
+            disks_replication_details=disks_replication_details,
+            esxi_nfc_buffer=esxi_nfc_buffer,
+            network_bandwidth=network_bandwidth,
+            ram_details=ram_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_details: Optional['outputs.ApplianceResourceDetailsResponse'] = None,
+             datastore_snapshot: Optional[Sequence['outputs.DataStoreUtilizationDetailsResponse']] = None,
+             disks_replication_details: Optional['outputs.ApplianceResourceDetailsResponse'] = None,
+             esxi_nfc_buffer: Optional['outputs.ApplianceResourceDetailsResponse'] = None,
+             network_bandwidth: Optional['outputs.ApplianceResourceDetailsResponse'] = None,
+             ram_details: Optional['outputs.ApplianceResourceDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu_details is None and 'cpuDetails' in kwargs:
+            cpu_details = kwargs['cpuDetails']
+        if cpu_details is None:
+            raise TypeError("Missing 'cpu_details' argument")
+        if datastore_snapshot is None and 'datastoreSnapshot' in kwargs:
+            datastore_snapshot = kwargs['datastoreSnapshot']
+        if datastore_snapshot is None:
+            raise TypeError("Missing 'datastore_snapshot' argument")
+        if disks_replication_details is None and 'disksReplicationDetails' in kwargs:
+            disks_replication_details = kwargs['disksReplicationDetails']
+        if disks_replication_details is None:
+            raise TypeError("Missing 'disks_replication_details' argument")
+        if esxi_nfc_buffer is None and 'esxiNfcBuffer' in kwargs:
+            esxi_nfc_buffer = kwargs['esxiNfcBuffer']
+        if esxi_nfc_buffer is None:
+            raise TypeError("Missing 'esxi_nfc_buffer' argument")
+        if network_bandwidth is None and 'networkBandwidth' in kwargs:
+            network_bandwidth = kwargs['networkBandwidth']
+        if network_bandwidth is None:
+            raise TypeError("Missing 'network_bandwidth' argument")
+        if ram_details is None and 'ramDetails' in kwargs:
+            ram_details = kwargs['ramDetails']
+        if ram_details is None:
+            raise TypeError("Missing 'ram_details' argument")
+
+        _setter("cpu_details", cpu_details)
+        _setter("datastore_snapshot", datastore_snapshot)
+        _setter("disks_replication_details", disks_replication_details)
+        _setter("esxi_nfc_buffer", esxi_nfc_buffer)
+        _setter("network_bandwidth", network_bandwidth)
+        _setter("ram_details", ram_details)
 
     @property
     @pulumi.getter(name="cpuDetails")
@@ -2715,10 +3516,39 @@ class ApplianceResourceDetailsResponse(dict):
         :param str status: A value indicating the status of appliance resource.
         :param float total_utilization: A value indicating the total utilization percentage for all processes on the appliance.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "process_utilization", process_utilization)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "total_utilization", total_utilization)
+        ApplianceResourceDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            process_utilization=process_utilization,
+            status=status,
+            total_utilization=total_utilization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[float] = None,
+             process_utilization: Optional[float] = None,
+             status: Optional[str] = None,
+             total_utilization: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if process_utilization is None and 'processUtilization' in kwargs:
+            process_utilization = kwargs['processUtilization']
+        if process_utilization is None:
+            raise TypeError("Missing 'process_utilization' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if total_utilization is None and 'totalUtilization' in kwargs:
+            total_utilization = kwargs['totalUtilization']
+        if total_utilization is None:
+            raise TypeError("Missing 'total_utilization' argument")
+
+        _setter("capacity", capacity)
+        _setter("process_utilization", process_utilization)
+        _setter("status", status)
+        _setter("total_utilization", total_utilization)
 
     @property
     @pulumi.getter
@@ -2798,17 +3628,48 @@ class AzureFabricSpecificDetailsResponse(dict):
         :param Sequence['A2AFabricSpecificLocationDetailsResponse'] location_details: The location details.
         :param Sequence['A2AZoneDetailsResponse'] zones: The zones.
         """
-        pulumi.set(__self__, "instance_type", 'Azure')
+        AzureFabricSpecificDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            container_ids=container_ids,
+            extended_locations=extended_locations,
+            location=location,
+            location_details=location_details,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             container_ids: Optional[Sequence[str]] = None,
+             extended_locations: Optional[Sequence['outputs.A2AExtendedLocationDetailsResponse']] = None,
+             location: Optional[str] = None,
+             location_details: Optional[Sequence['outputs.A2AFabricSpecificLocationDetailsResponse']] = None,
+             zones: Optional[Sequence['outputs.A2AZoneDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if container_ids is None and 'containerIds' in kwargs:
+            container_ids = kwargs['containerIds']
+        if extended_locations is None and 'extendedLocations' in kwargs:
+            extended_locations = kwargs['extendedLocations']
+        if location_details is None and 'locationDetails' in kwargs:
+            location_details = kwargs['locationDetails']
+
+        _setter("instance_type", 'Azure')
         if container_ids is not None:
-            pulumi.set(__self__, "container_ids", container_ids)
+            _setter("container_ids", container_ids)
         if extended_locations is not None:
-            pulumi.set(__self__, "extended_locations", extended_locations)
+            _setter("extended_locations", extended_locations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if location_details is not None:
-            pulumi.set(__self__, "location_details", location_details)
+            _setter("location_details", location_details)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2887,8 +3748,21 @@ class AzureMonitorAlertSettingsResponse(dict):
         """
         Settings for Azure Monitor based alerts
         """
+        AzureMonitorAlertSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alerts_for_all_job_failures=alerts_for_all_job_failures,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alerts_for_all_job_failures: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alerts_for_all_job_failures is None and 'alertsForAllJobFailures' in kwargs:
+            alerts_for_all_job_failures = kwargs['alertsForAllJobFailures']
+
         if alerts_for_all_job_failures is not None:
-            pulumi.set(__self__, "alerts_for_all_job_failures", alerts_for_all_job_failures)
+            _setter("alerts_for_all_job_failures", alerts_for_all_job_failures)
 
     @property
     @pulumi.getter(name="alertsForAllJobFailures")
@@ -2933,11 +3807,34 @@ class AzureToAzureNetworkMappingSettingsResponse(dict):
         :param str primary_fabric_location: The primary fabric location.
         :param str recovery_fabric_location: The recovery fabric location.
         """
-        pulumi.set(__self__, "instance_type", 'AzureToAzure')
+        AzureToAzureNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            primary_fabric_location=primary_fabric_location,
+            recovery_fabric_location=recovery_fabric_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             primary_fabric_location: Optional[str] = None,
+             recovery_fabric_location: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if primary_fabric_location is None and 'primaryFabricLocation' in kwargs:
+            primary_fabric_location = kwargs['primaryFabricLocation']
+        if recovery_fabric_location is None and 'recoveryFabricLocation' in kwargs:
+            recovery_fabric_location = kwargs['recoveryFabricLocation']
+
+        _setter("instance_type", 'AzureToAzure')
         if primary_fabric_location is not None:
-            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+            _setter("primary_fabric_location", primary_fabric_location)
         if recovery_fabric_location is not None:
-            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+            _setter("recovery_fabric_location", recovery_fabric_location)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2995,10 +3892,25 @@ class AzureToAzureVmSyncedConfigDetailsResponse(dict):
         :param Sequence['InputEndpointResponse'] input_endpoints: The Azure VM input endpoints.
         :param Mapping[str, str] tags: The Azure VM tags.
         """
+        AzureToAzureVmSyncedConfigDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_endpoints=input_endpoints,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_endpoints: Optional[Sequence['outputs.InputEndpointResponse']] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_endpoints is None and 'inputEndpoints' in kwargs:
+            input_endpoints = kwargs['inputEndpoints']
+
         if input_endpoints is not None:
-            pulumi.set(__self__, "input_endpoints", input_endpoints)
+            _setter("input_endpoints", input_endpoints)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="inputEndpoints")
@@ -3081,26 +3993,75 @@ class AzureVmDiskDetailsResponse(dict):
         :param str vhd_name: VHD name.
         :param str vhd_type: VHD type.
         """
+        AzureVmDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_target_disk_name=custom_target_disk_name,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            lun_id=lun_id,
+            max_size_mb=max_size_mb,
+            target_disk_location=target_disk_location,
+            target_disk_name=target_disk_name,
+            vhd_id=vhd_id,
+            vhd_name=vhd_name,
+            vhd_type=vhd_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_target_disk_name: Optional[str] = None,
+             disk_encryption_set_id: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             lun_id: Optional[str] = None,
+             max_size_mb: Optional[str] = None,
+             target_disk_location: Optional[str] = None,
+             target_disk_name: Optional[str] = None,
+             vhd_id: Optional[str] = None,
+             vhd_name: Optional[str] = None,
+             vhd_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_target_disk_name is None and 'customTargetDiskName' in kwargs:
+            custom_target_disk_name = kwargs['customTargetDiskName']
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if lun_id is None and 'lunId' in kwargs:
+            lun_id = kwargs['lunId']
+        if max_size_mb is None and 'maxSizeMB' in kwargs:
+            max_size_mb = kwargs['maxSizeMB']
+        if target_disk_location is None and 'targetDiskLocation' in kwargs:
+            target_disk_location = kwargs['targetDiskLocation']
+        if target_disk_name is None and 'targetDiskName' in kwargs:
+            target_disk_name = kwargs['targetDiskName']
+        if vhd_id is None and 'vhdId' in kwargs:
+            vhd_id = kwargs['vhdId']
+        if vhd_name is None and 'vhdName' in kwargs:
+            vhd_name = kwargs['vhdName']
+        if vhd_type is None and 'vhdType' in kwargs:
+            vhd_type = kwargs['vhdType']
+
         if custom_target_disk_name is not None:
-            pulumi.set(__self__, "custom_target_disk_name", custom_target_disk_name)
+            _setter("custom_target_disk_name", custom_target_disk_name)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if lun_id is not None:
-            pulumi.set(__self__, "lun_id", lun_id)
+            _setter("lun_id", lun_id)
         if max_size_mb is not None:
-            pulumi.set(__self__, "max_size_mb", max_size_mb)
+            _setter("max_size_mb", max_size_mb)
         if target_disk_location is not None:
-            pulumi.set(__self__, "target_disk_location", target_disk_location)
+            _setter("target_disk_location", target_disk_location)
         if target_disk_name is not None:
-            pulumi.set(__self__, "target_disk_name", target_disk_name)
+            _setter("target_disk_name", target_disk_name)
         if vhd_id is not None:
-            pulumi.set(__self__, "vhd_id", vhd_id)
+            _setter("vhd_id", vhd_id)
         if vhd_name is not None:
-            pulumi.set(__self__, "vhd_name", vhd_name)
+            _setter("vhd_name", vhd_name)
         if vhd_type is not None:
-            pulumi.set(__self__, "vhd_type", vhd_type)
+            _setter("vhd_type", vhd_type)
 
     @property
     @pulumi.getter(name="customTargetDiskName")
@@ -3210,8 +4171,21 @@ class ClassicAlertSettingsResponse(dict):
         """
         Settings for classic alerts
         """
+        ClassicAlertSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alerts_for_critical_operations=alerts_for_critical_operations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alerts_for_critical_operations: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alerts_for_critical_operations is None and 'alertsForCriticalOperations' in kwargs:
+            alerts_for_critical_operations = kwargs['alertsForCriticalOperations']
+
         if alerts_for_critical_operations is not None:
-            pulumi.set(__self__, "alerts_for_critical_operations", alerts_for_critical_operations)
+            _setter("alerts_for_critical_operations", alerts_for_critical_operations)
 
     @property
     @pulumi.getter(name="alertsForCriticalOperations")
@@ -3251,10 +4225,27 @@ class CmkKekIdentityResponse(dict):
         :param bool use_system_assigned_identity: Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field
         :param str user_assigned_identity: The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned
         """
+        CmkKekIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_system_assigned_identity: Optional[bool] = None,
+             user_assigned_identity: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+            _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="useSystemAssignedIdentity")
@@ -3301,8 +4292,21 @@ class CmkKeyVaultPropertiesResponse(dict):
         The properties of the Key Vault which hosts CMK
         :param str key_uri: The key uri of the Customer Managed Key
         """
+        CmkKeyVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_uri=key_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_uri is None and 'keyUri' in kwargs:
+            key_uri = kwargs['keyUri']
+
         if key_uri is not None:
-            pulumi.set(__self__, "key_uri", key_uri)
+            _setter("key_uri", key_uri)
 
     @property
     @pulumi.getter(name="keyUri")
@@ -3353,10 +4357,43 @@ class CriticalJobHistoryDetailsResponse(dict):
         :param str job_status: The job state.
         :param str start_time: The start time of the job.
         """
-        pulumi.set(__self__, "job_id", job_id)
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "job_status", job_status)
-        pulumi.set(__self__, "start_time", start_time)
+        CriticalJobHistoryDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_id=job_id,
+            job_name=job_name,
+            job_status=job_status,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_id: Optional[str] = None,
+             job_name: Optional[str] = None,
+             job_status: Optional[str] = None,
+             start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_id is None and 'jobId' in kwargs:
+            job_id = kwargs['jobId']
+        if job_id is None:
+            raise TypeError("Missing 'job_id' argument")
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if job_name is None:
+            raise TypeError("Missing 'job_name' argument")
+        if job_status is None and 'jobStatus' in kwargs:
+            job_status = kwargs['jobStatus']
+        if job_status is None:
+            raise TypeError("Missing 'job_status' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
+        _setter("job_id", job_id)
+        _setter("job_name", job_name)
+        _setter("job_status", job_status)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="jobId")
@@ -3418,8 +4455,21 @@ class CrossSubscriptionRestoreSettingsResponse(dict):
         """
         Settings for Cross Subscription Restore Settings
         """
+        CrossSubscriptionRestoreSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_subscription_restore_state=cross_subscription_restore_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_subscription_restore_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cross_subscription_restore_state is None and 'crossSubscriptionRestoreState' in kwargs:
+            cross_subscription_restore_state = kwargs['crossSubscriptionRestoreState']
+
         if cross_subscription_restore_state is not None:
-            pulumi.set(__self__, "cross_subscription_restore_state", cross_subscription_restore_state)
+            _setter("cross_subscription_restore_state", cross_subscription_restore_state)
 
     @property
     @pulumi.getter(name="crossSubscriptionRestoreState")
@@ -3463,9 +4513,36 @@ class CurrentJobDetailsResponse(dict):
         :param str job_name: The job name.
         :param str start_time: The start time of the job.
         """
-        pulumi.set(__self__, "job_id", job_id)
-        pulumi.set(__self__, "job_name", job_name)
-        pulumi.set(__self__, "start_time", start_time)
+        CurrentJobDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_id=job_id,
+            job_name=job_name,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_id: Optional[str] = None,
+             job_name: Optional[str] = None,
+             start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_id is None and 'jobId' in kwargs:
+            job_id = kwargs['jobId']
+        if job_id is None:
+            raise TypeError("Missing 'job_id' argument")
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if job_name is None:
+            raise TypeError("Missing 'job_name' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
+        _setter("job_id", job_id)
+        _setter("job_name", job_name)
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="jobId")
@@ -3528,12 +4605,33 @@ class CurrentScenarioDetailsResponse(dict):
         :param str scenario_name: Scenario name.
         :param str start_time: Start time of the workflow.
         """
+        CurrentScenarioDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_id=job_id,
+            scenario_name=scenario_name,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_id: Optional[str] = None,
+             scenario_name: Optional[str] = None,
+             start_time: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_id is None and 'jobId' in kwargs:
+            job_id = kwargs['jobId']
+        if scenario_name is None and 'scenarioName' in kwargs:
+            scenario_name = kwargs['scenarioName']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         if job_id is not None:
-            pulumi.set(__self__, "job_id", job_id)
+            _setter("job_id", job_id)
         if scenario_name is not None:
-            pulumi.set(__self__, "scenario_name", scenario_name)
+            _setter("scenario_name", scenario_name)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="jobId")
@@ -3598,16 +4696,39 @@ class DataStoreResponse(dict):
         :param str type: The type of data store.
         :param str uuid: The uuid of data store.
         """
+        DataStoreResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            free_space=free_space,
+            symbolic_name=symbolic_name,
+            type=type,
+            uuid=uuid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[str] = None,
+             free_space: Optional[str] = None,
+             symbolic_name: Optional[str] = None,
+             type: Optional[str] = None,
+             uuid: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if free_space is None and 'freeSpace' in kwargs:
+            free_space = kwargs['freeSpace']
+        if symbolic_name is None and 'symbolicName' in kwargs:
+            symbolic_name = kwargs['symbolicName']
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if free_space is not None:
-            pulumi.set(__self__, "free_space", free_space)
+            _setter("free_space", free_space)
         if symbolic_name is not None:
-            pulumi.set(__self__, "symbolic_name", symbolic_name)
+            _setter("symbolic_name", symbolic_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if uuid is not None:
-            pulumi.set(__self__, "uuid", uuid)
+            _setter("uuid", uuid)
 
     @property
     @pulumi.getter
@@ -3686,9 +4807,36 @@ class DataStoreUtilizationDetailsResponse(dict):
         :param float total_snapshots_created: The total snapshots created for server migration in the datastore.
         :param float total_snapshots_supported: The total count of snapshots supported by the datastore.
         """
-        pulumi.set(__self__, "data_store_name", data_store_name)
-        pulumi.set(__self__, "total_snapshots_created", total_snapshots_created)
-        pulumi.set(__self__, "total_snapshots_supported", total_snapshots_supported)
+        DataStoreUtilizationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_store_name=data_store_name,
+            total_snapshots_created=total_snapshots_created,
+            total_snapshots_supported=total_snapshots_supported,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_store_name: Optional[str] = None,
+             total_snapshots_created: Optional[float] = None,
+             total_snapshots_supported: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_store_name is None and 'dataStoreName' in kwargs:
+            data_store_name = kwargs['dataStoreName']
+        if data_store_name is None:
+            raise TypeError("Missing 'data_store_name' argument")
+        if total_snapshots_created is None and 'totalSnapshotsCreated' in kwargs:
+            total_snapshots_created = kwargs['totalSnapshotsCreated']
+        if total_snapshots_created is None:
+            raise TypeError("Missing 'total_snapshots_created' argument")
+        if total_snapshots_supported is None and 'totalSnapshotsSupported' in kwargs:
+            total_snapshots_supported = kwargs['totalSnapshotsSupported']
+        if total_snapshots_supported is None:
+            raise TypeError("Missing 'total_snapshots_supported' argument")
+
+        _setter("data_store_name", data_store_name)
+        _setter("total_snapshots_created", total_snapshots_created)
+        _setter("total_snapshots_supported", total_snapshots_supported)
 
     @property
     @pulumi.getter(name="dataStoreName")
@@ -3755,14 +4903,39 @@ class DiskDetailsResponse(dict):
         :param str vhd_name: The VHD name.
         :param str vhd_type: The type of the volume.
         """
+        DiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_size_mb=max_size_mb,
+            vhd_id=vhd_id,
+            vhd_name=vhd_name,
+            vhd_type=vhd_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_size_mb: Optional[float] = None,
+             vhd_id: Optional[str] = None,
+             vhd_name: Optional[str] = None,
+             vhd_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_size_mb is None and 'maxSizeMB' in kwargs:
+            max_size_mb = kwargs['maxSizeMB']
+        if vhd_id is None and 'vhdId' in kwargs:
+            vhd_id = kwargs['vhdId']
+        if vhd_name is None and 'vhdName' in kwargs:
+            vhd_name = kwargs['vhdName']
+        if vhd_type is None and 'vhdType' in kwargs:
+            vhd_type = kwargs['vhdType']
+
         if max_size_mb is not None:
-            pulumi.set(__self__, "max_size_mb", max_size_mb)
+            _setter("max_size_mb", max_size_mb)
         if vhd_id is not None:
-            pulumi.set(__self__, "vhd_id", vhd_id)
+            _setter("vhd_id", vhd_id)
         if vhd_name is not None:
-            pulumi.set(__self__, "vhd_name", vhd_name)
+            _setter("vhd_name", vhd_name)
         if vhd_type is not None:
-            pulumi.set(__self__, "vhd_type", vhd_type)
+            _setter("vhd_type", vhd_type)
 
     @property
     @pulumi.getter(name="maxSizeMB")
@@ -3849,15 +5022,70 @@ class DraDetailsResponse(dict):
         :param int reverse_protected_item_count: The count of protected items which are protected in reverse direction.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "forward_protected_item_count", forward_protected_item_count)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "reverse_protected_item_count", reverse_protected_item_count)
-        pulumi.set(__self__, "version", version)
+        DraDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            forward_protected_item_count=forward_protected_item_count,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            reverse_protected_item_count=reverse_protected_item_count,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: Optional[str] = None,
+             forward_protected_item_count: Optional[int] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             id: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             name: Optional[str] = None,
+             reverse_protected_item_count: Optional[int] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if forward_protected_item_count is None and 'forwardProtectedItemCount' in kwargs:
+            forward_protected_item_count = kwargs['forwardProtectedItemCount']
+        if forward_protected_item_count is None:
+            raise TypeError("Missing 'forward_protected_item_count' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if reverse_protected_item_count is None and 'reverseProtectedItemCount' in kwargs:
+            reverse_protected_item_count = kwargs['reverseProtectedItemCount']
+        if reverse_protected_item_count is None:
+            raise TypeError("Missing 'reverse_protected_item_count' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("bios_id", bios_id)
+        _setter("forward_protected_item_count", forward_protected_item_count)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("reverse_protected_item_count", reverse_protected_item_count)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -3968,12 +5196,33 @@ class EncryptionDetailsResponse(dict):
         :param str kek_cert_thumbprint: The key encryption key certificate thumbprint.
         :param str kek_state: The key encryption key state for the Vmm.
         """
+        EncryptionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kek_cert_expiry_date=kek_cert_expiry_date,
+            kek_cert_thumbprint=kek_cert_thumbprint,
+            kek_state=kek_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kek_cert_expiry_date: Optional[str] = None,
+             kek_cert_thumbprint: Optional[str] = None,
+             kek_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kek_cert_expiry_date is None and 'kekCertExpiryDate' in kwargs:
+            kek_cert_expiry_date = kwargs['kekCertExpiryDate']
+        if kek_cert_thumbprint is None and 'kekCertThumbprint' in kwargs:
+            kek_cert_thumbprint = kwargs['kekCertThumbprint']
+        if kek_state is None and 'kekState' in kwargs:
+            kek_state = kwargs['kekState']
+
         if kek_cert_expiry_date is not None:
-            pulumi.set(__self__, "kek_cert_expiry_date", kek_cert_expiry_date)
+            _setter("kek_cert_expiry_date", kek_cert_expiry_date)
         if kek_cert_thumbprint is not None:
-            pulumi.set(__self__, "kek_cert_thumbprint", kek_cert_thumbprint)
+            _setter("kek_cert_thumbprint", kek_cert_thumbprint)
         if kek_state is not None:
-            pulumi.set(__self__, "kek_state", kek_state)
+            _setter("kek_state", kek_state)
 
     @property
     @pulumi.getter(name="kekCertExpiryDate")
@@ -4013,8 +5262,25 @@ class ExtendedLocationResponse(dict):
         :param str name: The name of the extended location.
         :param str type: The extended location type.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ExtendedLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -4087,22 +5353,61 @@ class FabricPropertiesResponse(dict):
         :param str internal_identifier: Dra Registration Id.
         :param 'EncryptionDetailsResponse' rollover_encryption_details: Rollover encryption details for the fabric.
         """
+        FabricPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bcdr_state=bcdr_state,
+            custom_details=custom_details,
+            encryption_details=encryption_details,
+            friendly_name=friendly_name,
+            health=health,
+            health_error_details=health_error_details,
+            internal_identifier=internal_identifier,
+            rollover_encryption_details=rollover_encryption_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bcdr_state: Optional[str] = None,
+             custom_details: Optional[Any] = None,
+             encryption_details: Optional['outputs.EncryptionDetailsResponse'] = None,
+             friendly_name: Optional[str] = None,
+             health: Optional[str] = None,
+             health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             internal_identifier: Optional[str] = None,
+             rollover_encryption_details: Optional['outputs.EncryptionDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bcdr_state is None and 'bcdrState' in kwargs:
+            bcdr_state = kwargs['bcdrState']
+        if custom_details is None and 'customDetails' in kwargs:
+            custom_details = kwargs['customDetails']
+        if encryption_details is None and 'encryptionDetails' in kwargs:
+            encryption_details = kwargs['encryptionDetails']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if health_error_details is None and 'healthErrorDetails' in kwargs:
+            health_error_details = kwargs['healthErrorDetails']
+        if internal_identifier is None and 'internalIdentifier' in kwargs:
+            internal_identifier = kwargs['internalIdentifier']
+        if rollover_encryption_details is None and 'rolloverEncryptionDetails' in kwargs:
+            rollover_encryption_details = kwargs['rolloverEncryptionDetails']
+
         if bcdr_state is not None:
-            pulumi.set(__self__, "bcdr_state", bcdr_state)
+            _setter("bcdr_state", bcdr_state)
         if custom_details is not None:
-            pulumi.set(__self__, "custom_details", custom_details)
+            _setter("custom_details", custom_details)
         if encryption_details is not None:
-            pulumi.set(__self__, "encryption_details", encryption_details)
+            _setter("encryption_details", encryption_details)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health is not None:
-            pulumi.set(__self__, "health", health)
+            _setter("health", health)
         if health_error_details is not None:
-            pulumi.set(__self__, "health_error_details", health_error_details)
+            _setter("health_error_details", health_error_details)
         if internal_identifier is not None:
-            pulumi.set(__self__, "internal_identifier", internal_identifier)
+            _setter("internal_identifier", internal_identifier)
         if rollover_encryption_details is not None:
-            pulumi.set(__self__, "rollover_encryption_details", rollover_encryption_details)
+            _setter("rollover_encryption_details", rollover_encryption_details)
 
     @property
     @pulumi.getter(name="bcdrState")
@@ -4223,14 +5528,69 @@ class GatewayOperationDetailsResponse(dict):
         :param float upload_speed: A value indicating the upload speed in bytes per second.
         :param float vmware_read_throughput: A value indicating the VMware read throughput in bytes per second.
         """
-        pulumi.set(__self__, "data_stores", data_stores)
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "progress_percentage", progress_percentage)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "time_elapsed", time_elapsed)
-        pulumi.set(__self__, "time_remaining", time_remaining)
-        pulumi.set(__self__, "upload_speed", upload_speed)
-        pulumi.set(__self__, "vmware_read_throughput", vmware_read_throughput)
+        GatewayOperationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_stores=data_stores,
+            host_name=host_name,
+            progress_percentage=progress_percentage,
+            state=state,
+            time_elapsed=time_elapsed,
+            time_remaining=time_remaining,
+            upload_speed=upload_speed,
+            vmware_read_throughput=vmware_read_throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_stores: Optional[Sequence[str]] = None,
+             host_name: Optional[str] = None,
+             progress_percentage: Optional[int] = None,
+             state: Optional[str] = None,
+             time_elapsed: Optional[float] = None,
+             time_remaining: Optional[float] = None,
+             upload_speed: Optional[float] = None,
+             vmware_read_throughput: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_stores is None and 'dataStores' in kwargs:
+            data_stores = kwargs['dataStores']
+        if data_stores is None:
+            raise TypeError("Missing 'data_stores' argument")
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if progress_percentage is None and 'progressPercentage' in kwargs:
+            progress_percentage = kwargs['progressPercentage']
+        if progress_percentage is None:
+            raise TypeError("Missing 'progress_percentage' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if time_elapsed is None and 'timeElapsed' in kwargs:
+            time_elapsed = kwargs['timeElapsed']
+        if time_elapsed is None:
+            raise TypeError("Missing 'time_elapsed' argument")
+        if time_remaining is None and 'timeRemaining' in kwargs:
+            time_remaining = kwargs['timeRemaining']
+        if time_remaining is None:
+            raise TypeError("Missing 'time_remaining' argument")
+        if upload_speed is None and 'uploadSpeed' in kwargs:
+            upload_speed = kwargs['uploadSpeed']
+        if upload_speed is None:
+            raise TypeError("Missing 'upload_speed' argument")
+        if vmware_read_throughput is None and 'vmwareReadThroughput' in kwargs:
+            vmware_read_throughput = kwargs['vmwareReadThroughput']
+        if vmware_read_throughput is None:
+            raise TypeError("Missing 'vmware_read_throughput' argument")
+
+        _setter("data_stores", data_stores)
+        _setter("host_name", host_name)
+        _setter("progress_percentage", progress_percentage)
+        _setter("state", state)
+        _setter("time_elapsed", time_elapsed)
+        _setter("time_remaining", time_remaining)
+        _setter("upload_speed", upload_speed)
+        _setter("vmware_read_throughput", vmware_read_throughput)
 
     @property
     @pulumi.getter(name="dataStores")
@@ -4381,36 +5741,105 @@ class HealthErrorResponse(dict):
         :param str recovery_provider_error_message: DRA error message.
         :param str summary_message: Summary message of the entity.
         """
+        HealthErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time_utc=creation_time_utc,
+            customer_resolvability=customer_resolvability,
+            entity_id=entity_id,
+            error_category=error_category,
+            error_code=error_code,
+            error_id=error_id,
+            error_level=error_level,
+            error_message=error_message,
+            error_source=error_source,
+            error_type=error_type,
+            inner_health_errors=inner_health_errors,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+            recovery_provider_error_message=recovery_provider_error_message,
+            summary_message=summary_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time_utc: Optional[str] = None,
+             customer_resolvability: Optional[str] = None,
+             entity_id: Optional[str] = None,
+             error_category: Optional[str] = None,
+             error_code: Optional[str] = None,
+             error_id: Optional[str] = None,
+             error_level: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_source: Optional[str] = None,
+             error_type: Optional[str] = None,
+             inner_health_errors: Optional[Sequence['outputs.InnerHealthErrorResponse']] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             recovery_provider_error_message: Optional[str] = None,
+             summary_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_time_utc is None and 'creationTimeUtc' in kwargs:
+            creation_time_utc = kwargs['creationTimeUtc']
+        if customer_resolvability is None and 'customerResolvability' in kwargs:
+            customer_resolvability = kwargs['customerResolvability']
+        if entity_id is None and 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if error_category is None and 'errorCategory' in kwargs:
+            error_category = kwargs['errorCategory']
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_id is None and 'errorId' in kwargs:
+            error_id = kwargs['errorId']
+        if error_level is None and 'errorLevel' in kwargs:
+            error_level = kwargs['errorLevel']
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if error_source is None and 'errorSource' in kwargs:
+            error_source = kwargs['errorSource']
+        if error_type is None and 'errorType' in kwargs:
+            error_type = kwargs['errorType']
+        if inner_health_errors is None and 'innerHealthErrors' in kwargs:
+            inner_health_errors = kwargs['innerHealthErrors']
+        if possible_causes is None and 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if recommended_action is None and 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if recovery_provider_error_message is None and 'recoveryProviderErrorMessage' in kwargs:
+            recovery_provider_error_message = kwargs['recoveryProviderErrorMessage']
+        if summary_message is None and 'summaryMessage' in kwargs:
+            summary_message = kwargs['summaryMessage']
+
         if creation_time_utc is not None:
-            pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+            _setter("creation_time_utc", creation_time_utc)
         if customer_resolvability is not None:
-            pulumi.set(__self__, "customer_resolvability", customer_resolvability)
+            _setter("customer_resolvability", customer_resolvability)
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if error_category is not None:
-            pulumi.set(__self__, "error_category", error_category)
+            _setter("error_category", error_category)
         if error_code is not None:
-            pulumi.set(__self__, "error_code", error_code)
+            _setter("error_code", error_code)
         if error_id is not None:
-            pulumi.set(__self__, "error_id", error_id)
+            _setter("error_id", error_id)
         if error_level is not None:
-            pulumi.set(__self__, "error_level", error_level)
+            _setter("error_level", error_level)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if error_source is not None:
-            pulumi.set(__self__, "error_source", error_source)
+            _setter("error_source", error_source)
         if error_type is not None:
-            pulumi.set(__self__, "error_type", error_type)
+            _setter("error_type", error_type)
         if inner_health_errors is not None:
-            pulumi.set(__self__, "inner_health_errors", inner_health_errors)
+            _setter("inner_health_errors", inner_health_errors)
         if possible_causes is not None:
-            pulumi.set(__self__, "possible_causes", possible_causes)
+            _setter("possible_causes", possible_causes)
         if recommended_action is not None:
-            pulumi.set(__self__, "recommended_action", recommended_action)
+            _setter("recommended_action", recommended_action)
         if recovery_provider_error_message is not None:
-            pulumi.set(__self__, "recovery_provider_error_message", recovery_provider_error_message)
+            _setter("recovery_provider_error_message", recovery_provider_error_message)
         if summary_message is not None:
-            pulumi.set(__self__, "summary_message", summary_message)
+            _setter("summary_message", summary_message)
 
     @property
     @pulumi.getter(name="creationTimeUtc")
@@ -4565,9 +5994,32 @@ class HyperVHostDetailsResponse(dict):
         :param str mars_agent_version: The Mars agent version.
         :param str name: The Hyper-V host name.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "mars_agent_version", mars_agent_version)
-        pulumi.set(__self__, "name", name)
+        HyperVHostDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            mars_agent_version=mars_agent_version,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             mars_agent_version: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if mars_agent_version is None and 'marsAgentVersion' in kwargs:
+            mars_agent_version = kwargs['marsAgentVersion']
+        if mars_agent_version is None:
+            raise TypeError("Missing 'mars_agent_version' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("id", id)
+        _setter("mars_agent_version", mars_agent_version)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4634,14 +6086,39 @@ class HyperVReplicaAzureManagedDiskDetailsResponse(dict):
         :param str replica_disk_type: The replica disk type.
         :param str seed_managed_disk_id: Seed managed disk Id.
         """
+        HyperVReplicaAzureManagedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            replica_disk_type=replica_disk_type,
+            seed_managed_disk_id=seed_managed_disk_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             replica_disk_type: Optional[str] = None,
+             seed_managed_disk_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if replica_disk_type is None and 'replicaDiskType' in kwargs:
+            replica_disk_type = kwargs['replicaDiskType']
+        if seed_managed_disk_id is None and 'seedManagedDiskId' in kwargs:
+            seed_managed_disk_id = kwargs['seedManagedDiskId']
+
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if replica_disk_type is not None:
-            pulumi.set(__self__, "replica_disk_type", replica_disk_type)
+            _setter("replica_disk_type", replica_disk_type)
         if seed_managed_disk_id is not None:
-            pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
+            _setter("seed_managed_disk_id", seed_managed_disk_id)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -4727,19 +6204,56 @@ class HyperVReplicaAzurePolicyDetailsResponse(dict):
         :param int recovery_point_history_duration_in_hours: The duration (in hours) to which point the recovery history needs to be maintained.
         :param int replication_interval: The replication interval.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaAzure')
+        HyperVReplicaAzurePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            active_storage_account_id=active_storage_account_id,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            encryption=encryption,
+            online_replication_start_time=online_replication_start_time,
+            recovery_point_history_duration_in_hours=recovery_point_history_duration_in_hours,
+            replication_interval=replication_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             active_storage_account_id: Optional[str] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
+             encryption: Optional[str] = None,
+             online_replication_start_time: Optional[str] = None,
+             recovery_point_history_duration_in_hours: Optional[int] = None,
+             replication_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if active_storage_account_id is None and 'activeStorageAccountId' in kwargs:
+            active_storage_account_id = kwargs['activeStorageAccountId']
+        if application_consistent_snapshot_frequency_in_hours is None and 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
+            application_consistent_snapshot_frequency_in_hours = kwargs['applicationConsistentSnapshotFrequencyInHours']
+        if online_replication_start_time is None and 'onlineReplicationStartTime' in kwargs:
+            online_replication_start_time = kwargs['onlineReplicationStartTime']
+        if recovery_point_history_duration_in_hours is None and 'recoveryPointHistoryDurationInHours' in kwargs:
+            recovery_point_history_duration_in_hours = kwargs['recoveryPointHistoryDurationInHours']
+        if replication_interval is None and 'replicationInterval' in kwargs:
+            replication_interval = kwargs['replicationInterval']
+
+        _setter("instance_type", 'HyperVReplicaAzure')
         if active_storage_account_id is not None:
-            pulumi.set(__self__, "active_storage_account_id", active_storage_account_id)
+            _setter("active_storage_account_id", active_storage_account_id)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_point_history_duration_in_hours is not None:
-            pulumi.set(__self__, "recovery_point_history_duration_in_hours", recovery_point_history_duration_in_hours)
+            _setter("recovery_point_history_duration_in_hours", recovery_point_history_duration_in_hours)
         if replication_interval is not None:
-            pulumi.set(__self__, "replication_interval", replication_interval)
+            _setter("replication_interval", replication_interval)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -4962,74 +6476,225 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaAzure')
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
+        HyperVReplicaAzureReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            last_recovery_point_received=last_recovery_point_received,
+            all_available_os_upgrade_configurations=all_available_os_upgrade_configurations,
+            azure_vm_disk_details=azure_vm_disk_details,
+            enable_rdp_on_target_option=enable_rdp_on_target_option,
+            encryption=encryption,
+            initial_replication_details=initial_replication_details,
+            last_replicated_time=last_replicated_time,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            license_type=license_type,
+            o_s_details=o_s_details,
+            protected_managed_disks=protected_managed_disks,
+            recovery_availability_set_id=recovery_availability_set_id,
+            recovery_azure_log_storage_account_id=recovery_azure_log_storage_account_id,
+            recovery_azure_resource_group_id=recovery_azure_resource_group_id,
+            recovery_azure_storage_account=recovery_azure_storage_account,
+            recovery_azure_vm_size=recovery_azure_vm_size,
+            recovery_azure_vm_name=recovery_azure_vm_name,
+            rpo_in_seconds=rpo_in_seconds,
+            seed_managed_disk_tags=seed_managed_disk_tags,
+            selected_recovery_azure_network_id=selected_recovery_azure_network_id,
+            selected_source_nic_id=selected_source_nic_id,
+            source_vm_cpu_count=source_vm_cpu_count,
+            source_vm_ram_size_in_mb=source_vm_ram_size_in_mb,
+            sql_server_license_type=sql_server_license_type,
+            target_availability_zone=target_availability_zone,
+            target_managed_disk_tags=target_managed_disk_tags,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_vm_tags=target_vm_tags,
+            use_managed_disks=use_managed_disks,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             last_recovery_point_received: Optional[str] = None,
+             all_available_os_upgrade_configurations: Optional[Sequence['outputs.OSUpgradeSupportedVersionsResponse']] = None,
+             azure_vm_disk_details: Optional[Sequence['outputs.AzureVmDiskDetailsResponse']] = None,
+             enable_rdp_on_target_option: Optional[str] = None,
+             encryption: Optional[str] = None,
+             initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             last_replicated_time: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             license_type: Optional[str] = None,
+             o_s_details: Optional['outputs.OSDetailsResponse'] = None,
+             protected_managed_disks: Optional[Sequence['outputs.HyperVReplicaAzureManagedDiskDetailsResponse']] = None,
+             recovery_availability_set_id: Optional[str] = None,
+             recovery_azure_log_storage_account_id: Optional[str] = None,
+             recovery_azure_resource_group_id: Optional[str] = None,
+             recovery_azure_storage_account: Optional[str] = None,
+             recovery_azure_vm_size: Optional[str] = None,
+             recovery_azure_vm_name: Optional[str] = None,
+             rpo_in_seconds: Optional[float] = None,
+             seed_managed_disk_tags: Optional[Mapping[str, str]] = None,
+             selected_recovery_azure_network_id: Optional[str] = None,
+             selected_source_nic_id: Optional[str] = None,
+             source_vm_cpu_count: Optional[int] = None,
+             source_vm_ram_size_in_mb: Optional[int] = None,
+             sql_server_license_type: Optional[str] = None,
+             target_availability_zone: Optional[str] = None,
+             target_managed_disk_tags: Optional[Mapping[str, str]] = None,
+             target_nic_tags: Optional[Mapping[str, str]] = None,
+             target_proximity_placement_group_id: Optional[str] = None,
+             target_vm_tags: Optional[Mapping[str, str]] = None,
+             use_managed_disks: Optional[str] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if last_recovery_point_received is None and 'lastRecoveryPointReceived' in kwargs:
+            last_recovery_point_received = kwargs['lastRecoveryPointReceived']
+        if last_recovery_point_received is None:
+            raise TypeError("Missing 'last_recovery_point_received' argument")
+        if all_available_os_upgrade_configurations is None and 'allAvailableOSUpgradeConfigurations' in kwargs:
+            all_available_os_upgrade_configurations = kwargs['allAvailableOSUpgradeConfigurations']
+        if azure_vm_disk_details is None and 'azureVmDiskDetails' in kwargs:
+            azure_vm_disk_details = kwargs['azureVmDiskDetails']
+        if enable_rdp_on_target_option is None and 'enableRdpOnTargetOption' in kwargs:
+            enable_rdp_on_target_option = kwargs['enableRdpOnTargetOption']
+        if initial_replication_details is None and 'initialReplicationDetails' in kwargs:
+            initial_replication_details = kwargs['initialReplicationDetails']
+        if last_replicated_time is None and 'lastReplicatedTime' in kwargs:
+            last_replicated_time = kwargs['lastReplicatedTime']
+        if last_rpo_calculated_time is None and 'lastRpoCalculatedTime' in kwargs:
+            last_rpo_calculated_time = kwargs['lastRpoCalculatedTime']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if o_s_details is None and 'oSDetails' in kwargs:
+            o_s_details = kwargs['oSDetails']
+        if protected_managed_disks is None and 'protectedManagedDisks' in kwargs:
+            protected_managed_disks = kwargs['protectedManagedDisks']
+        if recovery_availability_set_id is None and 'recoveryAvailabilitySetId' in kwargs:
+            recovery_availability_set_id = kwargs['recoveryAvailabilitySetId']
+        if recovery_azure_log_storage_account_id is None and 'recoveryAzureLogStorageAccountId' in kwargs:
+            recovery_azure_log_storage_account_id = kwargs['recoveryAzureLogStorageAccountId']
+        if recovery_azure_resource_group_id is None and 'recoveryAzureResourceGroupId' in kwargs:
+            recovery_azure_resource_group_id = kwargs['recoveryAzureResourceGroupId']
+        if recovery_azure_storage_account is None and 'recoveryAzureStorageAccount' in kwargs:
+            recovery_azure_storage_account = kwargs['recoveryAzureStorageAccount']
+        if recovery_azure_vm_size is None and 'recoveryAzureVMSize' in kwargs:
+            recovery_azure_vm_size = kwargs['recoveryAzureVMSize']
+        if recovery_azure_vm_name is None and 'recoveryAzureVmName' in kwargs:
+            recovery_azure_vm_name = kwargs['recoveryAzureVmName']
+        if rpo_in_seconds is None and 'rpoInSeconds' in kwargs:
+            rpo_in_seconds = kwargs['rpoInSeconds']
+        if seed_managed_disk_tags is None and 'seedManagedDiskTags' in kwargs:
+            seed_managed_disk_tags = kwargs['seedManagedDiskTags']
+        if selected_recovery_azure_network_id is None and 'selectedRecoveryAzureNetworkId' in kwargs:
+            selected_recovery_azure_network_id = kwargs['selectedRecoveryAzureNetworkId']
+        if selected_source_nic_id is None and 'selectedSourceNicId' in kwargs:
+            selected_source_nic_id = kwargs['selectedSourceNicId']
+        if source_vm_cpu_count is None and 'sourceVmCpuCount' in kwargs:
+            source_vm_cpu_count = kwargs['sourceVmCpuCount']
+        if source_vm_ram_size_in_mb is None and 'sourceVmRamSizeInMB' in kwargs:
+            source_vm_ram_size_in_mb = kwargs['sourceVmRamSizeInMB']
+        if sql_server_license_type is None and 'sqlServerLicenseType' in kwargs:
+            sql_server_license_type = kwargs['sqlServerLicenseType']
+        if target_availability_zone is None and 'targetAvailabilityZone' in kwargs:
+            target_availability_zone = kwargs['targetAvailabilityZone']
+        if target_managed_disk_tags is None and 'targetManagedDiskTags' in kwargs:
+            target_managed_disk_tags = kwargs['targetManagedDiskTags']
+        if target_nic_tags is None and 'targetNicTags' in kwargs:
+            target_nic_tags = kwargs['targetNicTags']
+        if target_proximity_placement_group_id is None and 'targetProximityPlacementGroupId' in kwargs:
+            target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
+        if target_vm_tags is None and 'targetVmTags' in kwargs:
+            target_vm_tags = kwargs['targetVmTags']
+        if use_managed_disks is None and 'useManagedDisks' in kwargs:
+            use_managed_disks = kwargs['useManagedDisks']
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+        if vm_protection_state is None and 'vmProtectionState' in kwargs:
+            vm_protection_state = kwargs['vmProtectionState']
+        if vm_protection_state_description is None and 'vmProtectionStateDescription' in kwargs:
+            vm_protection_state_description = kwargs['vmProtectionStateDescription']
+
+        _setter("instance_type", 'HyperVReplicaAzure')
+        _setter("last_recovery_point_received", last_recovery_point_received)
         if all_available_os_upgrade_configurations is not None:
-            pulumi.set(__self__, "all_available_os_upgrade_configurations", all_available_os_upgrade_configurations)
+            _setter("all_available_os_upgrade_configurations", all_available_os_upgrade_configurations)
         if azure_vm_disk_details is not None:
-            pulumi.set(__self__, "azure_vm_disk_details", azure_vm_disk_details)
+            _setter("azure_vm_disk_details", azure_vm_disk_details)
         if enable_rdp_on_target_option is not None:
-            pulumi.set(__self__, "enable_rdp_on_target_option", enable_rdp_on_target_option)
+            _setter("enable_rdp_on_target_option", enable_rdp_on_target_option)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if initial_replication_details is not None:
-            pulumi.set(__self__, "initial_replication_details", initial_replication_details)
+            _setter("initial_replication_details", initial_replication_details)
         if last_replicated_time is not None:
-            pulumi.set(__self__, "last_replicated_time", last_replicated_time)
+            _setter("last_replicated_time", last_replicated_time)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if o_s_details is not None:
-            pulumi.set(__self__, "o_s_details", o_s_details)
+            _setter("o_s_details", o_s_details)
         if protected_managed_disks is not None:
-            pulumi.set(__self__, "protected_managed_disks", protected_managed_disks)
+            _setter("protected_managed_disks", protected_managed_disks)
         if recovery_availability_set_id is not None:
-            pulumi.set(__self__, "recovery_availability_set_id", recovery_availability_set_id)
+            _setter("recovery_availability_set_id", recovery_availability_set_id)
         if recovery_azure_log_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_azure_log_storage_account_id", recovery_azure_log_storage_account_id)
+            _setter("recovery_azure_log_storage_account_id", recovery_azure_log_storage_account_id)
         if recovery_azure_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_azure_resource_group_id", recovery_azure_resource_group_id)
+            _setter("recovery_azure_resource_group_id", recovery_azure_resource_group_id)
         if recovery_azure_storage_account is not None:
-            pulumi.set(__self__, "recovery_azure_storage_account", recovery_azure_storage_account)
+            _setter("recovery_azure_storage_account", recovery_azure_storage_account)
         if recovery_azure_vm_size is not None:
-            pulumi.set(__self__, "recovery_azure_vm_size", recovery_azure_vm_size)
+            _setter("recovery_azure_vm_size", recovery_azure_vm_size)
         if recovery_azure_vm_name is not None:
-            pulumi.set(__self__, "recovery_azure_vm_name", recovery_azure_vm_name)
+            _setter("recovery_azure_vm_name", recovery_azure_vm_name)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if seed_managed_disk_tags is not None:
-            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
+            _setter("seed_managed_disk_tags", seed_managed_disk_tags)
         if selected_recovery_azure_network_id is not None:
-            pulumi.set(__self__, "selected_recovery_azure_network_id", selected_recovery_azure_network_id)
+            _setter("selected_recovery_azure_network_id", selected_recovery_azure_network_id)
         if selected_source_nic_id is not None:
-            pulumi.set(__self__, "selected_source_nic_id", selected_source_nic_id)
+            _setter("selected_source_nic_id", selected_source_nic_id)
         if source_vm_cpu_count is not None:
-            pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
+            _setter("source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
-            pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+            _setter("source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_managed_disk_tags is not None:
-            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
+            _setter("target_managed_disk_tags", target_managed_disk_tags)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
         if use_managed_disks is not None:
-            pulumi.set(__self__, "use_managed_disks", use_managed_disks)
+            _setter("use_managed_disks", use_managed_disks)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5380,27 +7045,80 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
         :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud.
         :param int replication_port: A value indicating the recovery HTTPS port.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaBasePolicyDetails')
+        HyperVReplicaBasePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            allowed_authentication_type=allowed_authentication_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            compression=compression,
+            initial_replication_method=initial_replication_method,
+            offline_replication_export_path=offline_replication_export_path,
+            offline_replication_import_path=offline_replication_import_path,
+            online_replication_start_time=online_replication_start_time,
+            recovery_points=recovery_points,
+            replica_deletion_option=replica_deletion_option,
+            replication_port=replication_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             allowed_authentication_type: Optional[int] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
+             compression: Optional[str] = None,
+             initial_replication_method: Optional[str] = None,
+             offline_replication_export_path: Optional[str] = None,
+             offline_replication_import_path: Optional[str] = None,
+             online_replication_start_time: Optional[str] = None,
+             recovery_points: Optional[int] = None,
+             replica_deletion_option: Optional[str] = None,
+             replication_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if allowed_authentication_type is None and 'allowedAuthenticationType' in kwargs:
+            allowed_authentication_type = kwargs['allowedAuthenticationType']
+        if application_consistent_snapshot_frequency_in_hours is None and 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
+            application_consistent_snapshot_frequency_in_hours = kwargs['applicationConsistentSnapshotFrequencyInHours']
+        if initial_replication_method is None and 'initialReplicationMethod' in kwargs:
+            initial_replication_method = kwargs['initialReplicationMethod']
+        if offline_replication_export_path is None and 'offlineReplicationExportPath' in kwargs:
+            offline_replication_export_path = kwargs['offlineReplicationExportPath']
+        if offline_replication_import_path is None and 'offlineReplicationImportPath' in kwargs:
+            offline_replication_import_path = kwargs['offlineReplicationImportPath']
+        if online_replication_start_time is None and 'onlineReplicationStartTime' in kwargs:
+            online_replication_start_time = kwargs['onlineReplicationStartTime']
+        if recovery_points is None and 'recoveryPoints' in kwargs:
+            recovery_points = kwargs['recoveryPoints']
+        if replica_deletion_option is None and 'replicaDeletionOption' in kwargs:
+            replica_deletion_option = kwargs['replicaDeletionOption']
+        if replication_port is None and 'replicationPort' in kwargs:
+            replication_port = kwargs['replicationPort']
+
+        _setter("instance_type", 'HyperVReplicaBasePolicyDetails')
         if allowed_authentication_type is not None:
-            pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
+            _setter("allowed_authentication_type", allowed_authentication_type)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if initial_replication_method is not None:
-            pulumi.set(__self__, "initial_replication_method", initial_replication_method)
+            _setter("initial_replication_method", initial_replication_method)
         if offline_replication_export_path is not None:
-            pulumi.set(__self__, "offline_replication_export_path", offline_replication_export_path)
+            _setter("offline_replication_export_path", offline_replication_export_path)
         if offline_replication_import_path is not None:
-            pulumi.set(__self__, "offline_replication_import_path", offline_replication_import_path)
+            _setter("offline_replication_import_path", offline_replication_import_path)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_points is not None:
-            pulumi.set(__self__, "recovery_points", recovery_points)
+            _setter("recovery_points", recovery_points)
         if replica_deletion_option is not None:
-            pulumi.set(__self__, "replica_deletion_option", replica_deletion_option)
+            _setter("replica_deletion_option", replica_deletion_option)
         if replication_port is not None:
-            pulumi.set(__self__, "replication_port", replication_port)
+            _setter("replication_port", replication_port)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5549,21 +7267,64 @@ class HyperVReplicaBaseReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplicaBaseReplicationDetails')
+        HyperVReplicaBaseReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            initial_replication_details=initial_replication_details,
+            last_replicated_time=last_replicated_time,
+            v_m_disk_details=v_m_disk_details,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             last_replicated_time: Optional[str] = None,
+             v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if initial_replication_details is None and 'initialReplicationDetails' in kwargs:
+            initial_replication_details = kwargs['initialReplicationDetails']
+        if last_replicated_time is None and 'lastReplicatedTime' in kwargs:
+            last_replicated_time = kwargs['lastReplicatedTime']
+        if v_m_disk_details is None and 'vMDiskDetails' in kwargs:
+            v_m_disk_details = kwargs['vMDiskDetails']
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+        if vm_protection_state is None and 'vmProtectionState' in kwargs:
+            vm_protection_state = kwargs['vmProtectionState']
+        if vm_protection_state_description is None and 'vmProtectionStateDescription' in kwargs:
+            vm_protection_state_description = kwargs['vmProtectionStateDescription']
+
+        _setter("instance_type", 'HyperVReplicaBaseReplicationDetails')
         if initial_replication_details is not None:
-            pulumi.set(__self__, "initial_replication_details", initial_replication_details)
+            _setter("initial_replication_details", initial_replication_details)
         if last_replicated_time is not None:
-            pulumi.set(__self__, "last_replicated_time", last_replicated_time)
+            _setter("last_replicated_time", last_replicated_time)
         if v_m_disk_details is not None:
-            pulumi.set(__self__, "v_m_disk_details", v_m_disk_details)
+            _setter("v_m_disk_details", v_m_disk_details)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5702,29 +7463,86 @@ class HyperVReplicaBluePolicyDetailsResponse(dict):
         :param int replication_frequency_in_seconds: A value indicating the replication interval.
         :param int replication_port: A value indicating the recovery HTTPS port.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012R2')
+        HyperVReplicaBluePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            allowed_authentication_type=allowed_authentication_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            compression=compression,
+            initial_replication_method=initial_replication_method,
+            offline_replication_export_path=offline_replication_export_path,
+            offline_replication_import_path=offline_replication_import_path,
+            online_replication_start_time=online_replication_start_time,
+            recovery_points=recovery_points,
+            replica_deletion_option=replica_deletion_option,
+            replication_frequency_in_seconds=replication_frequency_in_seconds,
+            replication_port=replication_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             allowed_authentication_type: Optional[int] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
+             compression: Optional[str] = None,
+             initial_replication_method: Optional[str] = None,
+             offline_replication_export_path: Optional[str] = None,
+             offline_replication_import_path: Optional[str] = None,
+             online_replication_start_time: Optional[str] = None,
+             recovery_points: Optional[int] = None,
+             replica_deletion_option: Optional[str] = None,
+             replication_frequency_in_seconds: Optional[int] = None,
+             replication_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if allowed_authentication_type is None and 'allowedAuthenticationType' in kwargs:
+            allowed_authentication_type = kwargs['allowedAuthenticationType']
+        if application_consistent_snapshot_frequency_in_hours is None and 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
+            application_consistent_snapshot_frequency_in_hours = kwargs['applicationConsistentSnapshotFrequencyInHours']
+        if initial_replication_method is None and 'initialReplicationMethod' in kwargs:
+            initial_replication_method = kwargs['initialReplicationMethod']
+        if offline_replication_export_path is None and 'offlineReplicationExportPath' in kwargs:
+            offline_replication_export_path = kwargs['offlineReplicationExportPath']
+        if offline_replication_import_path is None and 'offlineReplicationImportPath' in kwargs:
+            offline_replication_import_path = kwargs['offlineReplicationImportPath']
+        if online_replication_start_time is None and 'onlineReplicationStartTime' in kwargs:
+            online_replication_start_time = kwargs['onlineReplicationStartTime']
+        if recovery_points is None and 'recoveryPoints' in kwargs:
+            recovery_points = kwargs['recoveryPoints']
+        if replica_deletion_option is None and 'replicaDeletionOption' in kwargs:
+            replica_deletion_option = kwargs['replicaDeletionOption']
+        if replication_frequency_in_seconds is None and 'replicationFrequencyInSeconds' in kwargs:
+            replication_frequency_in_seconds = kwargs['replicationFrequencyInSeconds']
+        if replication_port is None and 'replicationPort' in kwargs:
+            replication_port = kwargs['replicationPort']
+
+        _setter("instance_type", 'HyperVReplica2012R2')
         if allowed_authentication_type is not None:
-            pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
+            _setter("allowed_authentication_type", allowed_authentication_type)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if initial_replication_method is not None:
-            pulumi.set(__self__, "initial_replication_method", initial_replication_method)
+            _setter("initial_replication_method", initial_replication_method)
         if offline_replication_export_path is not None:
-            pulumi.set(__self__, "offline_replication_export_path", offline_replication_export_path)
+            _setter("offline_replication_export_path", offline_replication_export_path)
         if offline_replication_import_path is not None:
-            pulumi.set(__self__, "offline_replication_import_path", offline_replication_import_path)
+            _setter("offline_replication_import_path", offline_replication_import_path)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_points is not None:
-            pulumi.set(__self__, "recovery_points", recovery_points)
+            _setter("recovery_points", recovery_points)
         if replica_deletion_option is not None:
-            pulumi.set(__self__, "replica_deletion_option", replica_deletion_option)
+            _setter("replica_deletion_option", replica_deletion_option)
         if replication_frequency_in_seconds is not None:
-            pulumi.set(__self__, "replication_frequency_in_seconds", replication_frequency_in_seconds)
+            _setter("replication_frequency_in_seconds", replication_frequency_in_seconds)
         if replication_port is not None:
-            pulumi.set(__self__, "replication_port", replication_port)
+            _setter("replication_port", replication_port)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -5881,21 +7699,64 @@ class HyperVReplicaBlueReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012R2')
+        HyperVReplicaBlueReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            initial_replication_details=initial_replication_details,
+            last_replicated_time=last_replicated_time,
+            v_m_disk_details=v_m_disk_details,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             last_replicated_time: Optional[str] = None,
+             v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if initial_replication_details is None and 'initialReplicationDetails' in kwargs:
+            initial_replication_details = kwargs['initialReplicationDetails']
+        if last_replicated_time is None and 'lastReplicatedTime' in kwargs:
+            last_replicated_time = kwargs['lastReplicatedTime']
+        if v_m_disk_details is None and 'vMDiskDetails' in kwargs:
+            v_m_disk_details = kwargs['vMDiskDetails']
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+        if vm_protection_state is None and 'vmProtectionState' in kwargs:
+            vm_protection_state = kwargs['vmProtectionState']
+        if vm_protection_state_description is None and 'vmProtectionStateDescription' in kwargs:
+            vm_protection_state_description = kwargs['vmProtectionStateDescription']
+
+        _setter("instance_type", 'HyperVReplica2012R2')
         if initial_replication_details is not None:
-            pulumi.set(__self__, "initial_replication_details", initial_replication_details)
+            _setter("initial_replication_details", initial_replication_details)
         if last_replicated_time is not None:
-            pulumi.set(__self__, "last_replicated_time", last_replicated_time)
+            _setter("last_replicated_time", last_replicated_time)
         if v_m_disk_details is not None:
-            pulumi.set(__self__, "v_m_disk_details", v_m_disk_details)
+            _setter("v_m_disk_details", v_m_disk_details)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6030,27 +7891,80 @@ class HyperVReplicaPolicyDetailsResponse(dict):
         :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
         :param int replication_port: A value indicating the recovery HTTPS port.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012')
+        HyperVReplicaPolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            allowed_authentication_type=allowed_authentication_type,
+            application_consistent_snapshot_frequency_in_hours=application_consistent_snapshot_frequency_in_hours,
+            compression=compression,
+            initial_replication_method=initial_replication_method,
+            offline_replication_export_path=offline_replication_export_path,
+            offline_replication_import_path=offline_replication_import_path,
+            online_replication_start_time=online_replication_start_time,
+            recovery_points=recovery_points,
+            replica_deletion_option=replica_deletion_option,
+            replication_port=replication_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             allowed_authentication_type: Optional[int] = None,
+             application_consistent_snapshot_frequency_in_hours: Optional[int] = None,
+             compression: Optional[str] = None,
+             initial_replication_method: Optional[str] = None,
+             offline_replication_export_path: Optional[str] = None,
+             offline_replication_import_path: Optional[str] = None,
+             online_replication_start_time: Optional[str] = None,
+             recovery_points: Optional[int] = None,
+             replica_deletion_option: Optional[str] = None,
+             replication_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if allowed_authentication_type is None and 'allowedAuthenticationType' in kwargs:
+            allowed_authentication_type = kwargs['allowedAuthenticationType']
+        if application_consistent_snapshot_frequency_in_hours is None and 'applicationConsistentSnapshotFrequencyInHours' in kwargs:
+            application_consistent_snapshot_frequency_in_hours = kwargs['applicationConsistentSnapshotFrequencyInHours']
+        if initial_replication_method is None and 'initialReplicationMethod' in kwargs:
+            initial_replication_method = kwargs['initialReplicationMethod']
+        if offline_replication_export_path is None and 'offlineReplicationExportPath' in kwargs:
+            offline_replication_export_path = kwargs['offlineReplicationExportPath']
+        if offline_replication_import_path is None and 'offlineReplicationImportPath' in kwargs:
+            offline_replication_import_path = kwargs['offlineReplicationImportPath']
+        if online_replication_start_time is None and 'onlineReplicationStartTime' in kwargs:
+            online_replication_start_time = kwargs['onlineReplicationStartTime']
+        if recovery_points is None and 'recoveryPoints' in kwargs:
+            recovery_points = kwargs['recoveryPoints']
+        if replica_deletion_option is None and 'replicaDeletionOption' in kwargs:
+            replica_deletion_option = kwargs['replicaDeletionOption']
+        if replication_port is None and 'replicationPort' in kwargs:
+            replication_port = kwargs['replicationPort']
+
+        _setter("instance_type", 'HyperVReplica2012')
         if allowed_authentication_type is not None:
-            pulumi.set(__self__, "allowed_authentication_type", allowed_authentication_type)
+            _setter("allowed_authentication_type", allowed_authentication_type)
         if application_consistent_snapshot_frequency_in_hours is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
+            _setter("application_consistent_snapshot_frequency_in_hours", application_consistent_snapshot_frequency_in_hours)
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if initial_replication_method is not None:
-            pulumi.set(__self__, "initial_replication_method", initial_replication_method)
+            _setter("initial_replication_method", initial_replication_method)
         if offline_replication_export_path is not None:
-            pulumi.set(__self__, "offline_replication_export_path", offline_replication_export_path)
+            _setter("offline_replication_export_path", offline_replication_export_path)
         if offline_replication_import_path is not None:
-            pulumi.set(__self__, "offline_replication_import_path", offline_replication_import_path)
+            _setter("offline_replication_import_path", offline_replication_import_path)
         if online_replication_start_time is not None:
-            pulumi.set(__self__, "online_replication_start_time", online_replication_start_time)
+            _setter("online_replication_start_time", online_replication_start_time)
         if recovery_points is not None:
-            pulumi.set(__self__, "recovery_points", recovery_points)
+            _setter("recovery_points", recovery_points)
         if replica_deletion_option is not None:
-            pulumi.set(__self__, "replica_deletion_option", replica_deletion_option)
+            _setter("replica_deletion_option", replica_deletion_option)
         if replication_port is not None:
-            pulumi.set(__self__, "replication_port", replication_port)
+            _setter("replication_port", replication_port)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6199,21 +8113,64 @@ class HyperVReplicaReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVReplica2012')
+        HyperVReplicaReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            initial_replication_details=initial_replication_details,
+            last_replicated_time=last_replicated_time,
+            v_m_disk_details=v_m_disk_details,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             initial_replication_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             last_replicated_time: Optional[str] = None,
+             v_m_disk_details: Optional[Sequence['outputs.DiskDetailsResponse']] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if initial_replication_details is None and 'initialReplicationDetails' in kwargs:
+            initial_replication_details = kwargs['initialReplicationDetails']
+        if last_replicated_time is None and 'lastReplicatedTime' in kwargs:
+            last_replicated_time = kwargs['lastReplicatedTime']
+        if v_m_disk_details is None and 'vMDiskDetails' in kwargs:
+            v_m_disk_details = kwargs['vMDiskDetails']
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+        if vm_protection_state is None and 'vmProtectionState' in kwargs:
+            vm_protection_state = kwargs['vmProtectionState']
+        if vm_protection_state_description is None and 'vmProtectionStateDescription' in kwargs:
+            vm_protection_state_description = kwargs['vmProtectionStateDescription']
+
+        _setter("instance_type", 'HyperVReplica2012')
         if initial_replication_details is not None:
-            pulumi.set(__self__, "initial_replication_details", initial_replication_details)
+            _setter("initial_replication_details", initial_replication_details)
         if last_replicated_time is not None:
-            pulumi.set(__self__, "last_replicated_time", last_replicated_time)
+            _setter("last_replicated_time", last_replicated_time)
         if v_m_disk_details is not None:
-            pulumi.set(__self__, "v_m_disk_details", v_m_disk_details)
+            _setter("v_m_disk_details", v_m_disk_details)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6314,9 +8271,28 @@ class HyperVSiteDetailsResponse(dict):
                Expected value is 'HyperVSite'.
         :param Sequence['HyperVHostDetailsResponse'] hyper_v_hosts: The list of Hyper-V hosts associated with the fabric.
         """
-        pulumi.set(__self__, "instance_type", 'HyperVSite')
+        HyperVSiteDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            hyper_v_hosts=hyper_v_hosts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             hyper_v_hosts: Optional[Sequence['outputs.HyperVHostDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if hyper_v_hosts is None and 'hyperVHosts' in kwargs:
+            hyper_v_hosts = kwargs['hyperVHosts']
+
+        _setter("instance_type", 'HyperVSite')
         if hyper_v_hosts is not None:
-            pulumi.set(__self__, "hyper_v_hosts", hyper_v_hosts)
+            _setter("hyper_v_hosts", hyper_v_hosts)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6397,36 +8373,103 @@ class IPConfigDetailsResponse(dict):
                  tfo_public_ip_address_id: Optional[str] = None,
                  tfo_static_ip_address: Optional[str] = None,
                  tfo_subnet_name: Optional[str] = None):
+        IPConfigDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address_type=ip_address_type,
+            is_primary=is_primary,
+            is_seleted_for_failover=is_seleted_for_failover,
+            name=name,
+            recovery_ip_address_type=recovery_ip_address_type,
+            recovery_lb_backend_address_pool_ids=recovery_lb_backend_address_pool_ids,
+            recovery_public_ip_address_id=recovery_public_ip_address_id,
+            recovery_static_ip_address=recovery_static_ip_address,
+            recovery_subnet_name=recovery_subnet_name,
+            static_ip_address=static_ip_address,
+            subnet_name=subnet_name,
+            tfo_lb_backend_address_pool_ids=tfo_lb_backend_address_pool_ids,
+            tfo_public_ip_address_id=tfo_public_ip_address_id,
+            tfo_static_ip_address=tfo_static_ip_address,
+            tfo_subnet_name=tfo_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address_type: Optional[str] = None,
+             is_primary: Optional[bool] = None,
+             is_seleted_for_failover: Optional[bool] = None,
+             name: Optional[str] = None,
+             recovery_ip_address_type: Optional[str] = None,
+             recovery_lb_backend_address_pool_ids: Optional[Sequence[str]] = None,
+             recovery_public_ip_address_id: Optional[str] = None,
+             recovery_static_ip_address: Optional[str] = None,
+             recovery_subnet_name: Optional[str] = None,
+             static_ip_address: Optional[str] = None,
+             subnet_name: Optional[str] = None,
+             tfo_lb_backend_address_pool_ids: Optional[Sequence[str]] = None,
+             tfo_public_ip_address_id: Optional[str] = None,
+             tfo_static_ip_address: Optional[str] = None,
+             tfo_subnet_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if is_primary is None and 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+        if is_seleted_for_failover is None and 'isSeletedForFailover' in kwargs:
+            is_seleted_for_failover = kwargs['isSeletedForFailover']
+        if recovery_ip_address_type is None and 'recoveryIPAddressType' in kwargs:
+            recovery_ip_address_type = kwargs['recoveryIPAddressType']
+        if recovery_lb_backend_address_pool_ids is None and 'recoveryLBBackendAddressPoolIds' in kwargs:
+            recovery_lb_backend_address_pool_ids = kwargs['recoveryLBBackendAddressPoolIds']
+        if recovery_public_ip_address_id is None and 'recoveryPublicIPAddressId' in kwargs:
+            recovery_public_ip_address_id = kwargs['recoveryPublicIPAddressId']
+        if recovery_static_ip_address is None and 'recoveryStaticIPAddress' in kwargs:
+            recovery_static_ip_address = kwargs['recoveryStaticIPAddress']
+        if recovery_subnet_name is None and 'recoverySubnetName' in kwargs:
+            recovery_subnet_name = kwargs['recoverySubnetName']
+        if static_ip_address is None and 'staticIPAddress' in kwargs:
+            static_ip_address = kwargs['staticIPAddress']
+        if subnet_name is None and 'subnetName' in kwargs:
+            subnet_name = kwargs['subnetName']
+        if tfo_lb_backend_address_pool_ids is None and 'tfoLBBackendAddressPoolIds' in kwargs:
+            tfo_lb_backend_address_pool_ids = kwargs['tfoLBBackendAddressPoolIds']
+        if tfo_public_ip_address_id is None and 'tfoPublicIPAddressId' in kwargs:
+            tfo_public_ip_address_id = kwargs['tfoPublicIPAddressId']
+        if tfo_static_ip_address is None and 'tfoStaticIPAddress' in kwargs:
+            tfo_static_ip_address = kwargs['tfoStaticIPAddress']
+        if tfo_subnet_name is None and 'tfoSubnetName' in kwargs:
+            tfo_subnet_name = kwargs['tfoSubnetName']
+
         if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+            _setter("ip_address_type", ip_address_type)
         if is_primary is not None:
-            pulumi.set(__self__, "is_primary", is_primary)
+            _setter("is_primary", is_primary)
         if is_seleted_for_failover is not None:
-            pulumi.set(__self__, "is_seleted_for_failover", is_seleted_for_failover)
+            _setter("is_seleted_for_failover", is_seleted_for_failover)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recovery_ip_address_type is not None:
-            pulumi.set(__self__, "recovery_ip_address_type", recovery_ip_address_type)
+            _setter("recovery_ip_address_type", recovery_ip_address_type)
         if recovery_lb_backend_address_pool_ids is not None:
-            pulumi.set(__self__, "recovery_lb_backend_address_pool_ids", recovery_lb_backend_address_pool_ids)
+            _setter("recovery_lb_backend_address_pool_ids", recovery_lb_backend_address_pool_ids)
         if recovery_public_ip_address_id is not None:
-            pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
+            _setter("recovery_public_ip_address_id", recovery_public_ip_address_id)
         if recovery_static_ip_address is not None:
-            pulumi.set(__self__, "recovery_static_ip_address", recovery_static_ip_address)
+            _setter("recovery_static_ip_address", recovery_static_ip_address)
         if recovery_subnet_name is not None:
-            pulumi.set(__self__, "recovery_subnet_name", recovery_subnet_name)
+            _setter("recovery_subnet_name", recovery_subnet_name)
         if static_ip_address is not None:
-            pulumi.set(__self__, "static_ip_address", static_ip_address)
+            _setter("static_ip_address", static_ip_address)
         if subnet_name is not None:
-            pulumi.set(__self__, "subnet_name", subnet_name)
+            _setter("subnet_name", subnet_name)
         if tfo_lb_backend_address_pool_ids is not None:
-            pulumi.set(__self__, "tfo_lb_backend_address_pool_ids", tfo_lb_backend_address_pool_ids)
+            _setter("tfo_lb_backend_address_pool_ids", tfo_lb_backend_address_pool_ids)
         if tfo_public_ip_address_id is not None:
-            pulumi.set(__self__, "tfo_public_ip_address_id", tfo_public_ip_address_id)
+            _setter("tfo_public_ip_address_id", tfo_public_ip_address_id)
         if tfo_static_ip_address is not None:
-            pulumi.set(__self__, "tfo_static_ip_address", tfo_static_ip_address)
+            _setter("tfo_static_ip_address", tfo_static_ip_address)
         if tfo_subnet_name is not None:
-            pulumi.set(__self__, "tfo_subnet_name", tfo_subnet_name)
+            _setter("tfo_subnet_name", tfo_subnet_name)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -6542,11 +8585,40 @@ class IdentityDataResponse(dict):
         :param str type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        IdentityDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -6623,16 +8695,43 @@ class IdentityProviderDetailsResponse(dict):
         :param str object_id: The object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         :param str tenant_id: The tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
         """
+        IdentityProviderDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: Optional[str] = None,
+             application_id: Optional[str] = None,
+             audience: Optional[str] = None,
+             object_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aad_authority is None and 'aadAuthority' in kwargs:
+            aad_authority = kwargs['aadAuthority']
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if aad_authority is not None:
-            pulumi.set(__self__, "aad_authority", aad_authority)
+            _setter("aad_authority", aad_authority)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")
@@ -6685,8 +8784,19 @@ class ImmutabilitySettingsResponse(dict):
         """
         Immutability Settings of vault
         """
+        ImmutabilitySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -6734,14 +8844,39 @@ class InMageAgentDetailsResponse(dict):
         :param str agent_version: The agent version.
         :param str post_update_reboot_status: A value indicating whether reboot is required after update is applied.
         """
+        InMageAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_expiry_date=agent_expiry_date,
+            agent_update_status=agent_update_status,
+            agent_version=agent_version,
+            post_update_reboot_status=post_update_reboot_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_expiry_date: Optional[str] = None,
+             agent_update_status: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             post_update_reboot_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_expiry_date is None and 'agentExpiryDate' in kwargs:
+            agent_expiry_date = kwargs['agentExpiryDate']
+        if agent_update_status is None and 'agentUpdateStatus' in kwargs:
+            agent_update_status = kwargs['agentUpdateStatus']
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if post_update_reboot_status is None and 'postUpdateRebootStatus' in kwargs:
+            post_update_reboot_status = kwargs['postUpdateRebootStatus']
+
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_update_status is not None:
-            pulumi.set(__self__, "agent_update_status", agent_update_status)
+            _setter("agent_update_status", agent_update_status)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if post_update_reboot_status is not None:
-            pulumi.set(__self__, "post_update_reboot_status", post_update_reboot_status)
+            _setter("post_update_reboot_status", post_update_reboot_status)
 
     @property
     @pulumi.getter(name="agentExpiryDate")
@@ -6820,16 +8955,45 @@ class InMageAzureV2ManagedDiskDetailsResponse(dict):
         :param str seed_managed_disk_id: Seed managed disk Id.
         :param str target_disk_name: The target disk name.
         """
+        InMageAzureV2ManagedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            replica_disk_type=replica_disk_type,
+            seed_managed_disk_id=seed_managed_disk_id,
+            target_disk_name=target_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_set_id: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             replica_disk_type: Optional[str] = None,
+             seed_managed_disk_id: Optional[str] = None,
+             target_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if replica_disk_type is None and 'replicaDiskType' in kwargs:
+            replica_disk_type = kwargs['replicaDiskType']
+        if seed_managed_disk_id is None and 'seedManagedDiskId' in kwargs:
+            seed_managed_disk_id = kwargs['seedManagedDiskId']
+        if target_disk_name is None and 'targetDiskName' in kwargs:
+            target_disk_name = kwargs['targetDiskName']
+
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if replica_disk_type is not None:
-            pulumi.set(__self__, "replica_disk_type", replica_disk_type)
+            _setter("replica_disk_type", replica_disk_type)
         if seed_managed_disk_id is not None:
-            pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
+            _setter("seed_managed_disk_id", seed_managed_disk_id)
         if target_disk_name is not None:
-            pulumi.set(__self__, "target_disk_name", target_disk_name)
+            _setter("target_disk_name", target_disk_name)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -6921,17 +9085,52 @@ class InMageAzureV2PolicyDetailsResponse(dict):
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMageAzureV2')
+        InMageAzureV2PolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            multi_vm_sync_status=multi_vm_sync_status,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             recovery_point_history: Optional[int] = None,
+             recovery_point_threshold_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if crash_consistent_frequency_in_minutes is None and 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+        if multi_vm_sync_status is None and 'multiVmSyncStatus' in kwargs:
+            multi_vm_sync_status = kwargs['multiVmSyncStatus']
+        if recovery_point_history is None and 'recoveryPointHistory' in kwargs:
+            recovery_point_history = kwargs['recoveryPointHistory']
+        if recovery_point_threshold_in_minutes is None and 'recoveryPointThresholdInMinutes' in kwargs:
+            recovery_point_threshold_in_minutes = kwargs['recoveryPointThresholdInMinutes']
+
+        _setter("instance_type", 'InMageAzureV2')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -7099,52 +9298,153 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
         :param float source_data_in_mega_bytes: The source data transit in MB.
         :param float target_data_in_mega_bytes: The target data transit in MB.
         """
+        InMageAzureV2ProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_capacity_in_bytes=disk_capacity_in_bytes,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_resized=disk_resized,
+            file_system_capacity_in_bytes=file_system_capacity_in_bytes,
+            health_error_code=health_error_code,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            progress_health=progress_health,
+            progress_status=progress_status,
+            protection_stage=protection_stage,
+            ps_data_in_mega_bytes=ps_data_in_mega_bytes,
+            resync_duration_in_seconds=resync_duration_in_seconds,
+            resync_last15_minutes_transferred_bytes=resync_last15_minutes_transferred_bytes,
+            resync_last_data_transfer_time_utc=resync_last_data_transfer_time_utc,
+            resync_processed_bytes=resync_processed_bytes,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_start_time=resync_start_time,
+            resync_total_transferred_bytes=resync_total_transferred_bytes,
+            rpo_in_seconds=rpo_in_seconds,
+            seconds_to_take_switch_provider=seconds_to_take_switch_provider,
+            source_data_in_mega_bytes=source_data_in_mega_bytes,
+            target_data_in_mega_bytes=target_data_in_mega_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_capacity_in_bytes: Optional[float] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             disk_resized: Optional[str] = None,
+             file_system_capacity_in_bytes: Optional[float] = None,
+             health_error_code: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             progress_health: Optional[str] = None,
+             progress_status: Optional[str] = None,
+             protection_stage: Optional[str] = None,
+             ps_data_in_mega_bytes: Optional[float] = None,
+             resync_duration_in_seconds: Optional[float] = None,
+             resync_last15_minutes_transferred_bytes: Optional[float] = None,
+             resync_last_data_transfer_time_utc: Optional[str] = None,
+             resync_processed_bytes: Optional[float] = None,
+             resync_progress_percentage: Optional[int] = None,
+             resync_required: Optional[str] = None,
+             resync_start_time: Optional[str] = None,
+             resync_total_transferred_bytes: Optional[float] = None,
+             rpo_in_seconds: Optional[float] = None,
+             seconds_to_take_switch_provider: Optional[float] = None,
+             source_data_in_mega_bytes: Optional[float] = None,
+             target_data_in_mega_bytes: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_capacity_in_bytes is None and 'diskCapacityInBytes' in kwargs:
+            disk_capacity_in_bytes = kwargs['diskCapacityInBytes']
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_resized is None and 'diskResized' in kwargs:
+            disk_resized = kwargs['diskResized']
+        if file_system_capacity_in_bytes is None and 'fileSystemCapacityInBytes' in kwargs:
+            file_system_capacity_in_bytes = kwargs['fileSystemCapacityInBytes']
+        if health_error_code is None and 'healthErrorCode' in kwargs:
+            health_error_code = kwargs['healthErrorCode']
+        if last_rpo_calculated_time is None and 'lastRpoCalculatedTime' in kwargs:
+            last_rpo_calculated_time = kwargs['lastRpoCalculatedTime']
+        if progress_health is None and 'progressHealth' in kwargs:
+            progress_health = kwargs['progressHealth']
+        if progress_status is None and 'progressStatus' in kwargs:
+            progress_status = kwargs['progressStatus']
+        if protection_stage is None and 'protectionStage' in kwargs:
+            protection_stage = kwargs['protectionStage']
+        if ps_data_in_mega_bytes is None and 'psDataInMegaBytes' in kwargs:
+            ps_data_in_mega_bytes = kwargs['psDataInMegaBytes']
+        if resync_duration_in_seconds is None and 'resyncDurationInSeconds' in kwargs:
+            resync_duration_in_seconds = kwargs['resyncDurationInSeconds']
+        if resync_last15_minutes_transferred_bytes is None and 'resyncLast15MinutesTransferredBytes' in kwargs:
+            resync_last15_minutes_transferred_bytes = kwargs['resyncLast15MinutesTransferredBytes']
+        if resync_last_data_transfer_time_utc is None and 'resyncLastDataTransferTimeUTC' in kwargs:
+            resync_last_data_transfer_time_utc = kwargs['resyncLastDataTransferTimeUTC']
+        if resync_processed_bytes is None and 'resyncProcessedBytes' in kwargs:
+            resync_processed_bytes = kwargs['resyncProcessedBytes']
+        if resync_progress_percentage is None and 'resyncProgressPercentage' in kwargs:
+            resync_progress_percentage = kwargs['resyncProgressPercentage']
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if resync_start_time is None and 'resyncStartTime' in kwargs:
+            resync_start_time = kwargs['resyncStartTime']
+        if resync_total_transferred_bytes is None and 'resyncTotalTransferredBytes' in kwargs:
+            resync_total_transferred_bytes = kwargs['resyncTotalTransferredBytes']
+        if rpo_in_seconds is None and 'rpoInSeconds' in kwargs:
+            rpo_in_seconds = kwargs['rpoInSeconds']
+        if seconds_to_take_switch_provider is None and 'secondsToTakeSwitchProvider' in kwargs:
+            seconds_to_take_switch_provider = kwargs['secondsToTakeSwitchProvider']
+        if source_data_in_mega_bytes is None and 'sourceDataInMegaBytes' in kwargs:
+            source_data_in_mega_bytes = kwargs['sourceDataInMegaBytes']
+        if target_data_in_mega_bytes is None and 'targetDataInMegaBytes' in kwargs:
+            target_data_in_mega_bytes = kwargs['targetDataInMegaBytes']
+
         if disk_capacity_in_bytes is not None:
-            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+            _setter("disk_capacity_in_bytes", disk_capacity_in_bytes)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_resized is not None:
-            pulumi.set(__self__, "disk_resized", disk_resized)
+            _setter("disk_resized", disk_resized)
         if file_system_capacity_in_bytes is not None:
-            pulumi.set(__self__, "file_system_capacity_in_bytes", file_system_capacity_in_bytes)
+            _setter("file_system_capacity_in_bytes", file_system_capacity_in_bytes)
         if health_error_code is not None:
-            pulumi.set(__self__, "health_error_code", health_error_code)
+            _setter("health_error_code", health_error_code)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if progress_health is not None:
-            pulumi.set(__self__, "progress_health", progress_health)
+            _setter("progress_health", progress_health)
         if progress_status is not None:
-            pulumi.set(__self__, "progress_status", progress_status)
+            _setter("progress_status", progress_status)
         if protection_stage is not None:
-            pulumi.set(__self__, "protection_stage", protection_stage)
+            _setter("protection_stage", protection_stage)
         if ps_data_in_mega_bytes is not None:
-            pulumi.set(__self__, "ps_data_in_mega_bytes", ps_data_in_mega_bytes)
+            _setter("ps_data_in_mega_bytes", ps_data_in_mega_bytes)
         if resync_duration_in_seconds is not None:
-            pulumi.set(__self__, "resync_duration_in_seconds", resync_duration_in_seconds)
+            _setter("resync_duration_in_seconds", resync_duration_in_seconds)
         if resync_last15_minutes_transferred_bytes is not None:
-            pulumi.set(__self__, "resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
+            _setter("resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
         if resync_last_data_transfer_time_utc is not None:
-            pulumi.set(__self__, "resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
+            _setter("resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
         if resync_processed_bytes is not None:
-            pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
+            _setter("resync_processed_bytes", resync_processed_bytes)
         if resync_progress_percentage is not None:
-            pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+            _setter("resync_progress_percentage", resync_progress_percentage)
         if resync_required is not None:
-            pulumi.set(__self__, "resync_required", resync_required)
+            _setter("resync_required", resync_required)
         if resync_start_time is not None:
-            pulumi.set(__self__, "resync_start_time", resync_start_time)
+            _setter("resync_start_time", resync_start_time)
         if resync_total_transferred_bytes is not None:
-            pulumi.set(__self__, "resync_total_transferred_bytes", resync_total_transferred_bytes)
+            _setter("resync_total_transferred_bytes", resync_total_transferred_bytes)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if seconds_to_take_switch_provider is not None:
-            pulumi.set(__self__, "seconds_to_take_switch_provider", seconds_to_take_switch_provider)
+            _setter("seconds_to_take_switch_provider", seconds_to_take_switch_provider)
         if source_data_in_mega_bytes is not None:
-            pulumi.set(__self__, "source_data_in_mega_bytes", source_data_in_mega_bytes)
+            _setter("source_data_in_mega_bytes", source_data_in_mega_bytes)
         if target_data_in_mega_bytes is not None:
-            pulumi.set(__self__, "target_data_in_mega_bytes", target_data_in_mega_bytes)
+            _setter("target_data_in_mega_bytes", target_data_in_mega_bytes)
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
@@ -7638,145 +9938,442 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'InMageAzureV2')
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
-        pulumi.set(__self__, "os_name", os_name)
+        InMageAzureV2ReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            last_recovery_point_received=last_recovery_point_received,
+            os_name=os_name,
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            all_available_os_upgrade_configurations=all_available_os_upgrade_configurations,
+            azure_vm_disk_details=azure_vm_disk_details,
+            azure_vm_generation=azure_vm_generation,
+            compressed_data_rate_in_mb=compressed_data_rate_in_mb,
+            datastores=datastores,
+            discovery_type=discovery_type,
+            disk_resized=disk_resized,
+            enable_rdp_on_target_option=enable_rdp_on_target_option,
+            firmware_type=firmware_type,
+            infrastructure_vm_id=infrastructure_vm_id,
+            ip_address=ip_address,
+            is_additional_stats_available=is_additional_stats_available,
+            is_agent_update_required=is_agent_update_required,
+            is_reboot_after_update_required=is_reboot_after_update_required,
+            last_heartbeat=last_heartbeat,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            last_update_received_time=last_update_received_time,
+            license_type=license_type,
+            master_target_id=master_target_id,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            multi_vm_sync_status=multi_vm_sync_status,
+            os_disk_id=os_disk_id,
+            os_type=os_type,
+            os_version=os_version,
+            process_server_id=process_server_id,
+            process_server_name=process_server_name,
+            protected_disks=protected_disks,
+            protected_managed_disks=protected_managed_disks,
+            protection_stage=protection_stage,
+            recovery_availability_set_id=recovery_availability_set_id,
+            recovery_azure_log_storage_account_id=recovery_azure_log_storage_account_id,
+            recovery_azure_resource_group_id=recovery_azure_resource_group_id,
+            recovery_azure_storage_account=recovery_azure_storage_account,
+            recovery_azure_vm_name=recovery_azure_vm_name,
+            recovery_azure_vm_size=recovery_azure_vm_size,
+            replica_id=replica_id,
+            resync_progress_percentage=resync_progress_percentage,
+            rpo_in_seconds=rpo_in_seconds,
+            seed_managed_disk_tags=seed_managed_disk_tags,
+            selected_recovery_azure_network_id=selected_recovery_azure_network_id,
+            selected_source_nic_id=selected_source_nic_id,
+            selected_tfo_azure_network_id=selected_tfo_azure_network_id,
+            source_vm_cpu_count=source_vm_cpu_count,
+            source_vm_ram_size_in_mb=source_vm_ram_size_in_mb,
+            sql_server_license_type=sql_server_license_type,
+            supported_os_versions=supported_os_versions,
+            switch_provider_blocking_error_details=switch_provider_blocking_error_details,
+            switch_provider_details=switch_provider_details,
+            target_availability_zone=target_availability_zone,
+            target_managed_disk_tags=target_managed_disk_tags,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_vm_id=target_vm_id,
+            target_vm_tags=target_vm_tags,
+            total_data_transferred=total_data_transferred,
+            total_progress_health=total_progress_health,
+            uncompressed_data_rate_in_mb=uncompressed_data_rate_in_mb,
+            use_managed_disks=use_managed_disks,
+            v_center_infrastructure_id=v_center_infrastructure_id,
+            validation_errors=validation_errors,
+            vhd_name=vhd_name,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             last_recovery_point_received: Optional[str] = None,
+             os_name: Optional[str] = None,
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             all_available_os_upgrade_configurations: Optional[Sequence['outputs.OSUpgradeSupportedVersionsResponse']] = None,
+             azure_vm_disk_details: Optional[Sequence['outputs.AzureVmDiskDetailsResponse']] = None,
+             azure_vm_generation: Optional[str] = None,
+             compressed_data_rate_in_mb: Optional[float] = None,
+             datastores: Optional[Sequence[str]] = None,
+             discovery_type: Optional[str] = None,
+             disk_resized: Optional[str] = None,
+             enable_rdp_on_target_option: Optional[str] = None,
+             firmware_type: Optional[str] = None,
+             infrastructure_vm_id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             is_additional_stats_available: Optional[bool] = None,
+             is_agent_update_required: Optional[str] = None,
+             is_reboot_after_update_required: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             last_update_received_time: Optional[str] = None,
+             license_type: Optional[str] = None,
+             master_target_id: Optional[str] = None,
+             multi_vm_group_id: Optional[str] = None,
+             multi_vm_group_name: Optional[str] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             os_disk_id: Optional[str] = None,
+             os_type: Optional[str] = None,
+             os_version: Optional[str] = None,
+             process_server_id: Optional[str] = None,
+             process_server_name: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.InMageAzureV2ProtectedDiskDetailsResponse']] = None,
+             protected_managed_disks: Optional[Sequence['outputs.InMageAzureV2ManagedDiskDetailsResponse']] = None,
+             protection_stage: Optional[str] = None,
+             recovery_availability_set_id: Optional[str] = None,
+             recovery_azure_log_storage_account_id: Optional[str] = None,
+             recovery_azure_resource_group_id: Optional[str] = None,
+             recovery_azure_storage_account: Optional[str] = None,
+             recovery_azure_vm_name: Optional[str] = None,
+             recovery_azure_vm_size: Optional[str] = None,
+             replica_id: Optional[str] = None,
+             resync_progress_percentage: Optional[int] = None,
+             rpo_in_seconds: Optional[float] = None,
+             seed_managed_disk_tags: Optional[Mapping[str, str]] = None,
+             selected_recovery_azure_network_id: Optional[str] = None,
+             selected_source_nic_id: Optional[str] = None,
+             selected_tfo_azure_network_id: Optional[str] = None,
+             source_vm_cpu_count: Optional[int] = None,
+             source_vm_ram_size_in_mb: Optional[int] = None,
+             sql_server_license_type: Optional[str] = None,
+             supported_os_versions: Optional[Sequence[str]] = None,
+             switch_provider_blocking_error_details: Optional[Sequence['outputs.InMageAzureV2SwitchProviderBlockingErrorDetailsResponse']] = None,
+             switch_provider_details: Optional['outputs.InMageAzureV2SwitchProviderDetailsResponse'] = None,
+             target_availability_zone: Optional[str] = None,
+             target_managed_disk_tags: Optional[Mapping[str, str]] = None,
+             target_nic_tags: Optional[Mapping[str, str]] = None,
+             target_proximity_placement_group_id: Optional[str] = None,
+             target_vm_id: Optional[str] = None,
+             target_vm_tags: Optional[Mapping[str, str]] = None,
+             total_data_transferred: Optional[float] = None,
+             total_progress_health: Optional[str] = None,
+             uncompressed_data_rate_in_mb: Optional[float] = None,
+             use_managed_disks: Optional[str] = None,
+             v_center_infrastructure_id: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             vhd_name: Optional[str] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if last_recovery_point_received is None and 'lastRecoveryPointReceived' in kwargs:
+            last_recovery_point_received = kwargs['lastRecoveryPointReceived']
+        if last_recovery_point_received is None:
+            raise TypeError("Missing 'last_recovery_point_received' argument")
+        if os_name is None and 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if os_name is None:
+            raise TypeError("Missing 'os_name' argument")
+        if agent_expiry_date is None and 'agentExpiryDate' in kwargs:
+            agent_expiry_date = kwargs['agentExpiryDate']
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if all_available_os_upgrade_configurations is None and 'allAvailableOSUpgradeConfigurations' in kwargs:
+            all_available_os_upgrade_configurations = kwargs['allAvailableOSUpgradeConfigurations']
+        if azure_vm_disk_details is None and 'azureVMDiskDetails' in kwargs:
+            azure_vm_disk_details = kwargs['azureVMDiskDetails']
+        if azure_vm_generation is None and 'azureVmGeneration' in kwargs:
+            azure_vm_generation = kwargs['azureVmGeneration']
+        if compressed_data_rate_in_mb is None and 'compressedDataRateInMB' in kwargs:
+            compressed_data_rate_in_mb = kwargs['compressedDataRateInMB']
+        if discovery_type is None and 'discoveryType' in kwargs:
+            discovery_type = kwargs['discoveryType']
+        if disk_resized is None and 'diskResized' in kwargs:
+            disk_resized = kwargs['diskResized']
+        if enable_rdp_on_target_option is None and 'enableRdpOnTargetOption' in kwargs:
+            enable_rdp_on_target_option = kwargs['enableRdpOnTargetOption']
+        if firmware_type is None and 'firmwareType' in kwargs:
+            firmware_type = kwargs['firmwareType']
+        if infrastructure_vm_id is None and 'infrastructureVmId' in kwargs:
+            infrastructure_vm_id = kwargs['infrastructureVmId']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if is_additional_stats_available is None and 'isAdditionalStatsAvailable' in kwargs:
+            is_additional_stats_available = kwargs['isAdditionalStatsAvailable']
+        if is_agent_update_required is None and 'isAgentUpdateRequired' in kwargs:
+            is_agent_update_required = kwargs['isAgentUpdateRequired']
+        if is_reboot_after_update_required is None and 'isRebootAfterUpdateRequired' in kwargs:
+            is_reboot_after_update_required = kwargs['isRebootAfterUpdateRequired']
+        if last_heartbeat is None and 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if last_rpo_calculated_time is None and 'lastRpoCalculatedTime' in kwargs:
+            last_rpo_calculated_time = kwargs['lastRpoCalculatedTime']
+        if last_update_received_time is None and 'lastUpdateReceivedTime' in kwargs:
+            last_update_received_time = kwargs['lastUpdateReceivedTime']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if master_target_id is None and 'masterTargetId' in kwargs:
+            master_target_id = kwargs['masterTargetId']
+        if multi_vm_group_id is None and 'multiVmGroupId' in kwargs:
+            multi_vm_group_id = kwargs['multiVmGroupId']
+        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
+            multi_vm_group_name = kwargs['multiVmGroupName']
+        if multi_vm_sync_status is None and 'multiVmSyncStatus' in kwargs:
+            multi_vm_sync_status = kwargs['multiVmSyncStatus']
+        if os_disk_id is None and 'osDiskId' in kwargs:
+            os_disk_id = kwargs['osDiskId']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if process_server_id is None and 'processServerId' in kwargs:
+            process_server_id = kwargs['processServerId']
+        if process_server_name is None and 'processServerName' in kwargs:
+            process_server_name = kwargs['processServerName']
+        if protected_disks is None and 'protectedDisks' in kwargs:
+            protected_disks = kwargs['protectedDisks']
+        if protected_managed_disks is None and 'protectedManagedDisks' in kwargs:
+            protected_managed_disks = kwargs['protectedManagedDisks']
+        if protection_stage is None and 'protectionStage' in kwargs:
+            protection_stage = kwargs['protectionStage']
+        if recovery_availability_set_id is None and 'recoveryAvailabilitySetId' in kwargs:
+            recovery_availability_set_id = kwargs['recoveryAvailabilitySetId']
+        if recovery_azure_log_storage_account_id is None and 'recoveryAzureLogStorageAccountId' in kwargs:
+            recovery_azure_log_storage_account_id = kwargs['recoveryAzureLogStorageAccountId']
+        if recovery_azure_resource_group_id is None and 'recoveryAzureResourceGroupId' in kwargs:
+            recovery_azure_resource_group_id = kwargs['recoveryAzureResourceGroupId']
+        if recovery_azure_storage_account is None and 'recoveryAzureStorageAccount' in kwargs:
+            recovery_azure_storage_account = kwargs['recoveryAzureStorageAccount']
+        if recovery_azure_vm_name is None and 'recoveryAzureVMName' in kwargs:
+            recovery_azure_vm_name = kwargs['recoveryAzureVMName']
+        if recovery_azure_vm_size is None and 'recoveryAzureVMSize' in kwargs:
+            recovery_azure_vm_size = kwargs['recoveryAzureVMSize']
+        if replica_id is None and 'replicaId' in kwargs:
+            replica_id = kwargs['replicaId']
+        if resync_progress_percentage is None and 'resyncProgressPercentage' in kwargs:
+            resync_progress_percentage = kwargs['resyncProgressPercentage']
+        if rpo_in_seconds is None and 'rpoInSeconds' in kwargs:
+            rpo_in_seconds = kwargs['rpoInSeconds']
+        if seed_managed_disk_tags is None and 'seedManagedDiskTags' in kwargs:
+            seed_managed_disk_tags = kwargs['seedManagedDiskTags']
+        if selected_recovery_azure_network_id is None and 'selectedRecoveryAzureNetworkId' in kwargs:
+            selected_recovery_azure_network_id = kwargs['selectedRecoveryAzureNetworkId']
+        if selected_source_nic_id is None and 'selectedSourceNicId' in kwargs:
+            selected_source_nic_id = kwargs['selectedSourceNicId']
+        if selected_tfo_azure_network_id is None and 'selectedTfoAzureNetworkId' in kwargs:
+            selected_tfo_azure_network_id = kwargs['selectedTfoAzureNetworkId']
+        if source_vm_cpu_count is None and 'sourceVmCpuCount' in kwargs:
+            source_vm_cpu_count = kwargs['sourceVmCpuCount']
+        if source_vm_ram_size_in_mb is None and 'sourceVmRamSizeInMB' in kwargs:
+            source_vm_ram_size_in_mb = kwargs['sourceVmRamSizeInMB']
+        if sql_server_license_type is None and 'sqlServerLicenseType' in kwargs:
+            sql_server_license_type = kwargs['sqlServerLicenseType']
+        if supported_os_versions is None and 'supportedOSVersions' in kwargs:
+            supported_os_versions = kwargs['supportedOSVersions']
+        if switch_provider_blocking_error_details is None and 'switchProviderBlockingErrorDetails' in kwargs:
+            switch_provider_blocking_error_details = kwargs['switchProviderBlockingErrorDetails']
+        if switch_provider_details is None and 'switchProviderDetails' in kwargs:
+            switch_provider_details = kwargs['switchProviderDetails']
+        if target_availability_zone is None and 'targetAvailabilityZone' in kwargs:
+            target_availability_zone = kwargs['targetAvailabilityZone']
+        if target_managed_disk_tags is None and 'targetManagedDiskTags' in kwargs:
+            target_managed_disk_tags = kwargs['targetManagedDiskTags']
+        if target_nic_tags is None and 'targetNicTags' in kwargs:
+            target_nic_tags = kwargs['targetNicTags']
+        if target_proximity_placement_group_id is None and 'targetProximityPlacementGroupId' in kwargs:
+            target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
+        if target_vm_id is None and 'targetVmId' in kwargs:
+            target_vm_id = kwargs['targetVmId']
+        if target_vm_tags is None and 'targetVmTags' in kwargs:
+            target_vm_tags = kwargs['targetVmTags']
+        if total_data_transferred is None and 'totalDataTransferred' in kwargs:
+            total_data_transferred = kwargs['totalDataTransferred']
+        if total_progress_health is None and 'totalProgressHealth' in kwargs:
+            total_progress_health = kwargs['totalProgressHealth']
+        if uncompressed_data_rate_in_mb is None and 'uncompressedDataRateInMB' in kwargs:
+            uncompressed_data_rate_in_mb = kwargs['uncompressedDataRateInMB']
+        if use_managed_disks is None and 'useManagedDisks' in kwargs:
+            use_managed_disks = kwargs['useManagedDisks']
+        if v_center_infrastructure_id is None and 'vCenterInfrastructureId' in kwargs:
+            v_center_infrastructure_id = kwargs['vCenterInfrastructureId']
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if vhd_name is None and 'vhdName' in kwargs:
+            vhd_name = kwargs['vhdName']
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+        if vm_protection_state is None and 'vmProtectionState' in kwargs:
+            vm_protection_state = kwargs['vmProtectionState']
+        if vm_protection_state_description is None and 'vmProtectionStateDescription' in kwargs:
+            vm_protection_state_description = kwargs['vmProtectionStateDescription']
+
+        _setter("instance_type", 'InMageAzureV2')
+        _setter("last_recovery_point_received", last_recovery_point_received)
+        _setter("os_name", os_name)
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if all_available_os_upgrade_configurations is not None:
-            pulumi.set(__self__, "all_available_os_upgrade_configurations", all_available_os_upgrade_configurations)
+            _setter("all_available_os_upgrade_configurations", all_available_os_upgrade_configurations)
         if azure_vm_disk_details is not None:
-            pulumi.set(__self__, "azure_vm_disk_details", azure_vm_disk_details)
+            _setter("azure_vm_disk_details", azure_vm_disk_details)
         if azure_vm_generation is not None:
-            pulumi.set(__self__, "azure_vm_generation", azure_vm_generation)
+            _setter("azure_vm_generation", azure_vm_generation)
         if compressed_data_rate_in_mb is not None:
-            pulumi.set(__self__, "compressed_data_rate_in_mb", compressed_data_rate_in_mb)
+            _setter("compressed_data_rate_in_mb", compressed_data_rate_in_mb)
         if datastores is not None:
-            pulumi.set(__self__, "datastores", datastores)
+            _setter("datastores", datastores)
         if discovery_type is not None:
-            pulumi.set(__self__, "discovery_type", discovery_type)
+            _setter("discovery_type", discovery_type)
         if disk_resized is not None:
-            pulumi.set(__self__, "disk_resized", disk_resized)
+            _setter("disk_resized", disk_resized)
         if enable_rdp_on_target_option is not None:
-            pulumi.set(__self__, "enable_rdp_on_target_option", enable_rdp_on_target_option)
+            _setter("enable_rdp_on_target_option", enable_rdp_on_target_option)
         if firmware_type is not None:
-            pulumi.set(__self__, "firmware_type", firmware_type)
+            _setter("firmware_type", firmware_type)
         if infrastructure_vm_id is not None:
-            pulumi.set(__self__, "infrastructure_vm_id", infrastructure_vm_id)
+            _setter("infrastructure_vm_id", infrastructure_vm_id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if is_additional_stats_available is not None:
-            pulumi.set(__self__, "is_additional_stats_available", is_additional_stats_available)
+            _setter("is_additional_stats_available", is_additional_stats_available)
         if is_agent_update_required is not None:
-            pulumi.set(__self__, "is_agent_update_required", is_agent_update_required)
+            _setter("is_agent_update_required", is_agent_update_required)
         if is_reboot_after_update_required is not None:
-            pulumi.set(__self__, "is_reboot_after_update_required", is_reboot_after_update_required)
+            _setter("is_reboot_after_update_required", is_reboot_after_update_required)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if last_update_received_time is not None:
-            pulumi.set(__self__, "last_update_received_time", last_update_received_time)
+            _setter("last_update_received_time", last_update_received_time)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if master_target_id is not None:
-            pulumi.set(__self__, "master_target_id", master_target_id)
+            _setter("master_target_id", master_target_id)
         if multi_vm_group_id is not None:
-            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+            _setter("multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if os_disk_id is not None:
-            pulumi.set(__self__, "os_disk_id", os_disk_id)
+            _setter("os_disk_id", os_disk_id)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if process_server_name is not None:
-            pulumi.set(__self__, "process_server_name", process_server_name)
+            _setter("process_server_name", process_server_name)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if protected_managed_disks is not None:
-            pulumi.set(__self__, "protected_managed_disks", protected_managed_disks)
+            _setter("protected_managed_disks", protected_managed_disks)
         if protection_stage is not None:
-            pulumi.set(__self__, "protection_stage", protection_stage)
+            _setter("protection_stage", protection_stage)
         if recovery_availability_set_id is not None:
-            pulumi.set(__self__, "recovery_availability_set_id", recovery_availability_set_id)
+            _setter("recovery_availability_set_id", recovery_availability_set_id)
         if recovery_azure_log_storage_account_id is not None:
-            pulumi.set(__self__, "recovery_azure_log_storage_account_id", recovery_azure_log_storage_account_id)
+            _setter("recovery_azure_log_storage_account_id", recovery_azure_log_storage_account_id)
         if recovery_azure_resource_group_id is not None:
-            pulumi.set(__self__, "recovery_azure_resource_group_id", recovery_azure_resource_group_id)
+            _setter("recovery_azure_resource_group_id", recovery_azure_resource_group_id)
         if recovery_azure_storage_account is not None:
-            pulumi.set(__self__, "recovery_azure_storage_account", recovery_azure_storage_account)
+            _setter("recovery_azure_storage_account", recovery_azure_storage_account)
         if recovery_azure_vm_name is not None:
-            pulumi.set(__self__, "recovery_azure_vm_name", recovery_azure_vm_name)
+            _setter("recovery_azure_vm_name", recovery_azure_vm_name)
         if recovery_azure_vm_size is not None:
-            pulumi.set(__self__, "recovery_azure_vm_size", recovery_azure_vm_size)
+            _setter("recovery_azure_vm_size", recovery_azure_vm_size)
         if replica_id is not None:
-            pulumi.set(__self__, "replica_id", replica_id)
+            _setter("replica_id", replica_id)
         if resync_progress_percentage is not None:
-            pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+            _setter("resync_progress_percentage", resync_progress_percentage)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if seed_managed_disk_tags is not None:
-            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
+            _setter("seed_managed_disk_tags", seed_managed_disk_tags)
         if selected_recovery_azure_network_id is not None:
-            pulumi.set(__self__, "selected_recovery_azure_network_id", selected_recovery_azure_network_id)
+            _setter("selected_recovery_azure_network_id", selected_recovery_azure_network_id)
         if selected_source_nic_id is not None:
-            pulumi.set(__self__, "selected_source_nic_id", selected_source_nic_id)
+            _setter("selected_source_nic_id", selected_source_nic_id)
         if selected_tfo_azure_network_id is not None:
-            pulumi.set(__self__, "selected_tfo_azure_network_id", selected_tfo_azure_network_id)
+            _setter("selected_tfo_azure_network_id", selected_tfo_azure_network_id)
         if source_vm_cpu_count is not None:
-            pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
+            _setter("source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
-            pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+            _setter("source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if supported_os_versions is not None:
-            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
+            _setter("supported_os_versions", supported_os_versions)
         if switch_provider_blocking_error_details is not None:
-            pulumi.set(__self__, "switch_provider_blocking_error_details", switch_provider_blocking_error_details)
+            _setter("switch_provider_blocking_error_details", switch_provider_blocking_error_details)
         if switch_provider_details is not None:
-            pulumi.set(__self__, "switch_provider_details", switch_provider_details)
+            _setter("switch_provider_details", switch_provider_details)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_managed_disk_tags is not None:
-            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
+            _setter("target_managed_disk_tags", target_managed_disk_tags)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_vm_id is not None:
-            pulumi.set(__self__, "target_vm_id", target_vm_id)
+            _setter("target_vm_id", target_vm_id)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
         if total_data_transferred is not None:
-            pulumi.set(__self__, "total_data_transferred", total_data_transferred)
+            _setter("total_data_transferred", total_data_transferred)
         if total_progress_health is not None:
-            pulumi.set(__self__, "total_progress_health", total_progress_health)
+            _setter("total_progress_health", total_progress_health)
         if uncompressed_data_rate_in_mb is not None:
-            pulumi.set(__self__, "uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
+            _setter("uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
         if use_managed_disks is not None:
-            pulumi.set(__self__, "use_managed_disks", use_managed_disks)
+            _setter("use_managed_disks", use_managed_disks)
         if v_center_infrastructure_id is not None:
-            pulumi.set(__self__, "v_center_infrastructure_id", v_center_infrastructure_id)
+            _setter("v_center_infrastructure_id", v_center_infrastructure_id)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
         if vhd_name is not None:
-            pulumi.set(__self__, "vhd_name", vhd_name)
+            _setter("vhd_name", vhd_name)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -8396,12 +10993,57 @@ class InMageAzureV2SwitchProviderBlockingErrorDetailsResponse(dict):
         :param str possible_causes: The possible causes.
         :param str recommended_action: The recommended action.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
-        pulumi.set(__self__, "error_tags", error_tags)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
+        InMageAzureV2SwitchProviderBlockingErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_message_parameters=error_message_parameters,
+            error_tags=error_tags,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_message_parameters: Optional[Mapping[str, str]] = None,
+             error_tags: Optional[Mapping[str, str]] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_code is None:
+            raise TypeError("Missing 'error_code' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if error_message is None:
+            raise TypeError("Missing 'error_message' argument")
+        if error_message_parameters is None and 'errorMessageParameters' in kwargs:
+            error_message_parameters = kwargs['errorMessageParameters']
+        if error_message_parameters is None:
+            raise TypeError("Missing 'error_message_parameters' argument")
+        if error_tags is None and 'errorTags' in kwargs:
+            error_tags = kwargs['errorTags']
+        if error_tags is None:
+            raise TypeError("Missing 'error_tags' argument")
+        if possible_causes is None and 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if possible_causes is None:
+            raise TypeError("Missing 'possible_causes' argument")
+        if recommended_action is None and 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if recommended_action is None:
+            raise TypeError("Missing 'recommended_action' argument")
+
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_message_parameters", error_message_parameters)
+        _setter("error_tags", error_tags)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -8492,10 +11134,43 @@ class InMageAzureV2SwitchProviderDetailsResponse(dict):
         :param str target_resource_id: The target resource Id.
         :param str target_vault_id: The target vault Id.
         """
-        pulumi.set(__self__, "target_appliance_id", target_appliance_id)
-        pulumi.set(__self__, "target_fabric_id", target_fabric_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_vault_id", target_vault_id)
+        InMageAzureV2SwitchProviderDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_appliance_id=target_appliance_id,
+            target_fabric_id=target_fabric_id,
+            target_resource_id=target_resource_id,
+            target_vault_id=target_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_appliance_id: Optional[str] = None,
+             target_fabric_id: Optional[str] = None,
+             target_resource_id: Optional[str] = None,
+             target_vault_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_appliance_id is None and 'targetApplianceId' in kwargs:
+            target_appliance_id = kwargs['targetApplianceId']
+        if target_appliance_id is None:
+            raise TypeError("Missing 'target_appliance_id' argument")
+        if target_fabric_id is None and 'targetFabricId' in kwargs:
+            target_fabric_id = kwargs['targetFabricId']
+        if target_fabric_id is None:
+            raise TypeError("Missing 'target_fabric_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if target_vault_id is None and 'targetVaultId' in kwargs:
+            target_vault_id = kwargs['targetVaultId']
+        if target_vault_id is None:
+            raise TypeError("Missing 'target_vault_id' argument")
+
+        _setter("target_appliance_id", target_appliance_id)
+        _setter("target_fabric_id", target_fabric_id)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_vault_id", target_vault_id)
 
     @property
     @pulumi.getter(name="targetApplianceId")
@@ -8575,15 +11250,46 @@ class InMageBasePolicyDetailsResponse(dict):
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMageBasePolicyDetails')
+        InMageBasePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            multi_vm_sync_status=multi_vm_sync_status,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             recovery_point_history: Optional[int] = None,
+             recovery_point_threshold_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if multi_vm_sync_status is None and 'multiVmSyncStatus' in kwargs:
+            multi_vm_sync_status = kwargs['multiVmSyncStatus']
+        if recovery_point_history is None and 'recoveryPointHistory' in kwargs:
+            recovery_point_history = kwargs['recoveryPointHistory']
+        if recovery_point_threshold_in_minutes is None and 'recoveryPointThresholdInMinutes' in kwargs:
+            recovery_point_threshold_in_minutes = kwargs['recoveryPointThresholdInMinutes']
+
+        _setter("instance_type", 'InMageBasePolicyDetails')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -8675,12 +11381,57 @@ class InMageFabricSwitchProviderBlockingErrorDetailsResponse(dict):
         :param str possible_causes: The possible causes.
         :param str recommended_action: The recommended action.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
-        pulumi.set(__self__, "error_tags", error_tags)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
+        InMageFabricSwitchProviderBlockingErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_message_parameters=error_message_parameters,
+            error_tags=error_tags,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_message_parameters: Optional[Mapping[str, str]] = None,
+             error_tags: Optional[Mapping[str, str]] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_code is None:
+            raise TypeError("Missing 'error_code' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if error_message is None:
+            raise TypeError("Missing 'error_message' argument")
+        if error_message_parameters is None and 'errorMessageParameters' in kwargs:
+            error_message_parameters = kwargs['errorMessageParameters']
+        if error_message_parameters is None:
+            raise TypeError("Missing 'error_message_parameters' argument")
+        if error_tags is None and 'errorTags' in kwargs:
+            error_tags = kwargs['errorTags']
+        if error_tags is None:
+            raise TypeError("Missing 'error_tags' argument")
+        if possible_causes is None and 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if possible_causes is None:
+            raise TypeError("Missing 'possible_causes' argument")
+        if recommended_action is None and 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if recommended_action is None:
+            raise TypeError("Missing 'recommended_action' argument")
+
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_message_parameters", error_message_parameters)
+        _setter("error_tags", error_tags)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -8776,15 +11527,46 @@ class InMagePolicyDetailsResponse(dict):
         :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
         :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMage')
+        InMagePolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            multi_vm_sync_status=multi_vm_sync_status,
+            recovery_point_history=recovery_point_history,
+            recovery_point_threshold_in_minutes=recovery_point_threshold_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             recovery_point_history: Optional[int] = None,
+             recovery_point_threshold_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if multi_vm_sync_status is None and 'multiVmSyncStatus' in kwargs:
+            multi_vm_sync_status = kwargs['multiVmSyncStatus']
+        if recovery_point_history is None and 'recoveryPointHistory' in kwargs:
+            recovery_point_history = kwargs['recoveryPointHistory']
+        if recovery_point_threshold_in_minutes is None and 'recoveryPointThresholdInMinutes' in kwargs:
+            recovery_point_threshold_in_minutes = kwargs['recoveryPointThresholdInMinutes']
+
+        _setter("instance_type", 'InMage')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
+            _setter("recovery_point_history", recovery_point_history)
         if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
+            _setter("recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -8940,50 +11722,147 @@ class InMageProtectedDiskDetailsResponse(dict):
         :param float source_data_in_mb: The source data transit in MB.
         :param float target_data_in_mb: The target data transit in MB.
         """
+        InMageProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_capacity_in_bytes=disk_capacity_in_bytes,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_resized=disk_resized,
+            file_system_capacity_in_bytes=file_system_capacity_in_bytes,
+            health_error_code=health_error_code,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            progress_health=progress_health,
+            progress_status=progress_status,
+            protection_stage=protection_stage,
+            ps_data_in_mb=ps_data_in_mb,
+            resync_duration_in_seconds=resync_duration_in_seconds,
+            resync_last15_minutes_transferred_bytes=resync_last15_minutes_transferred_bytes,
+            resync_last_data_transfer_time_utc=resync_last_data_transfer_time_utc,
+            resync_processed_bytes=resync_processed_bytes,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_start_time=resync_start_time,
+            resync_total_transferred_bytes=resync_total_transferred_bytes,
+            rpo_in_seconds=rpo_in_seconds,
+            source_data_in_mb=source_data_in_mb,
+            target_data_in_mb=target_data_in_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_capacity_in_bytes: Optional[float] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             disk_resized: Optional[str] = None,
+             file_system_capacity_in_bytes: Optional[float] = None,
+             health_error_code: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             progress_health: Optional[str] = None,
+             progress_status: Optional[str] = None,
+             protection_stage: Optional[str] = None,
+             ps_data_in_mb: Optional[float] = None,
+             resync_duration_in_seconds: Optional[float] = None,
+             resync_last15_minutes_transferred_bytes: Optional[float] = None,
+             resync_last_data_transfer_time_utc: Optional[str] = None,
+             resync_processed_bytes: Optional[float] = None,
+             resync_progress_percentage: Optional[int] = None,
+             resync_required: Optional[str] = None,
+             resync_start_time: Optional[str] = None,
+             resync_total_transferred_bytes: Optional[float] = None,
+             rpo_in_seconds: Optional[float] = None,
+             source_data_in_mb: Optional[float] = None,
+             target_data_in_mb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_capacity_in_bytes is None and 'diskCapacityInBytes' in kwargs:
+            disk_capacity_in_bytes = kwargs['diskCapacityInBytes']
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_resized is None and 'diskResized' in kwargs:
+            disk_resized = kwargs['diskResized']
+        if file_system_capacity_in_bytes is None and 'fileSystemCapacityInBytes' in kwargs:
+            file_system_capacity_in_bytes = kwargs['fileSystemCapacityInBytes']
+        if health_error_code is None and 'healthErrorCode' in kwargs:
+            health_error_code = kwargs['healthErrorCode']
+        if last_rpo_calculated_time is None and 'lastRpoCalculatedTime' in kwargs:
+            last_rpo_calculated_time = kwargs['lastRpoCalculatedTime']
+        if progress_health is None and 'progressHealth' in kwargs:
+            progress_health = kwargs['progressHealth']
+        if progress_status is None and 'progressStatus' in kwargs:
+            progress_status = kwargs['progressStatus']
+        if protection_stage is None and 'protectionStage' in kwargs:
+            protection_stage = kwargs['protectionStage']
+        if ps_data_in_mb is None and 'psDataInMB' in kwargs:
+            ps_data_in_mb = kwargs['psDataInMB']
+        if resync_duration_in_seconds is None and 'resyncDurationInSeconds' in kwargs:
+            resync_duration_in_seconds = kwargs['resyncDurationInSeconds']
+        if resync_last15_minutes_transferred_bytes is None and 'resyncLast15MinutesTransferredBytes' in kwargs:
+            resync_last15_minutes_transferred_bytes = kwargs['resyncLast15MinutesTransferredBytes']
+        if resync_last_data_transfer_time_utc is None and 'resyncLastDataTransferTimeUTC' in kwargs:
+            resync_last_data_transfer_time_utc = kwargs['resyncLastDataTransferTimeUTC']
+        if resync_processed_bytes is None and 'resyncProcessedBytes' in kwargs:
+            resync_processed_bytes = kwargs['resyncProcessedBytes']
+        if resync_progress_percentage is None and 'resyncProgressPercentage' in kwargs:
+            resync_progress_percentage = kwargs['resyncProgressPercentage']
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if resync_start_time is None and 'resyncStartTime' in kwargs:
+            resync_start_time = kwargs['resyncStartTime']
+        if resync_total_transferred_bytes is None and 'resyncTotalTransferredBytes' in kwargs:
+            resync_total_transferred_bytes = kwargs['resyncTotalTransferredBytes']
+        if rpo_in_seconds is None and 'rpoInSeconds' in kwargs:
+            rpo_in_seconds = kwargs['rpoInSeconds']
+        if source_data_in_mb is None and 'sourceDataInMB' in kwargs:
+            source_data_in_mb = kwargs['sourceDataInMB']
+        if target_data_in_mb is None and 'targetDataInMB' in kwargs:
+            target_data_in_mb = kwargs['targetDataInMB']
+
         if disk_capacity_in_bytes is not None:
-            pulumi.set(__self__, "disk_capacity_in_bytes", disk_capacity_in_bytes)
+            _setter("disk_capacity_in_bytes", disk_capacity_in_bytes)
         if disk_id is not None:
-            pulumi.set(__self__, "disk_id", disk_id)
+            _setter("disk_id", disk_id)
         if disk_name is not None:
-            pulumi.set(__self__, "disk_name", disk_name)
+            _setter("disk_name", disk_name)
         if disk_resized is not None:
-            pulumi.set(__self__, "disk_resized", disk_resized)
+            _setter("disk_resized", disk_resized)
         if file_system_capacity_in_bytes is not None:
-            pulumi.set(__self__, "file_system_capacity_in_bytes", file_system_capacity_in_bytes)
+            _setter("file_system_capacity_in_bytes", file_system_capacity_in_bytes)
         if health_error_code is not None:
-            pulumi.set(__self__, "health_error_code", health_error_code)
+            _setter("health_error_code", health_error_code)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if progress_health is not None:
-            pulumi.set(__self__, "progress_health", progress_health)
+            _setter("progress_health", progress_health)
         if progress_status is not None:
-            pulumi.set(__self__, "progress_status", progress_status)
+            _setter("progress_status", progress_status)
         if protection_stage is not None:
-            pulumi.set(__self__, "protection_stage", protection_stage)
+            _setter("protection_stage", protection_stage)
         if ps_data_in_mb is not None:
-            pulumi.set(__self__, "ps_data_in_mb", ps_data_in_mb)
+            _setter("ps_data_in_mb", ps_data_in_mb)
         if resync_duration_in_seconds is not None:
-            pulumi.set(__self__, "resync_duration_in_seconds", resync_duration_in_seconds)
+            _setter("resync_duration_in_seconds", resync_duration_in_seconds)
         if resync_last15_minutes_transferred_bytes is not None:
-            pulumi.set(__self__, "resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
+            _setter("resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
         if resync_last_data_transfer_time_utc is not None:
-            pulumi.set(__self__, "resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
+            _setter("resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
         if resync_processed_bytes is not None:
-            pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
+            _setter("resync_processed_bytes", resync_processed_bytes)
         if resync_progress_percentage is not None:
-            pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+            _setter("resync_progress_percentage", resync_progress_percentage)
         if resync_required is not None:
-            pulumi.set(__self__, "resync_required", resync_required)
+            _setter("resync_required", resync_required)
         if resync_start_time is not None:
-            pulumi.set(__self__, "resync_start_time", resync_start_time)
+            _setter("resync_start_time", resync_start_time)
         if resync_total_transferred_bytes is not None:
-            pulumi.set(__self__, "resync_total_transferred_bytes", resync_total_transferred_bytes)
+            _setter("resync_total_transferred_bytes", resync_total_transferred_bytes)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if source_data_in_mb is not None:
-            pulumi.set(__self__, "source_data_in_mb", source_data_in_mb)
+            _setter("source_data_in_mb", source_data_in_mb)
         if target_data_in_mb is not None:
-            pulumi.set(__self__, "target_data_in_mb", target_data_in_mb)
+            _setter("target_data_in_mb", target_data_in_mb)
 
     @property
     @pulumi.getter(name="diskCapacityInBytes")
@@ -9210,12 +12089,57 @@ class InMageRcmAgentUpgradeBlockingErrorDetailsResponse(dict):
         :param str possible_causes: The possible causes.
         :param str recommended_action: The recommended action.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
-        pulumi.set(__self__, "error_tags", error_tags)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
+        InMageRcmAgentUpgradeBlockingErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_message_parameters=error_message_parameters,
+            error_tags=error_tags,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_message_parameters: Optional[Mapping[str, str]] = None,
+             error_tags: Optional[Mapping[str, str]] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_code is None:
+            raise TypeError("Missing 'error_code' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if error_message is None:
+            raise TypeError("Missing 'error_message' argument")
+        if error_message_parameters is None and 'errorMessageParameters' in kwargs:
+            error_message_parameters = kwargs['errorMessageParameters']
+        if error_message_parameters is None:
+            raise TypeError("Missing 'error_message_parameters' argument")
+        if error_tags is None and 'errorTags' in kwargs:
+            error_tags = kwargs['errorTags']
+        if error_tags is None:
+            raise TypeError("Missing 'error_tags' argument")
+        if possible_causes is None and 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if possible_causes is None:
+            raise TypeError("Missing 'possible_causes' argument")
+        if recommended_action is None and 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if recommended_action is None:
+            raise TypeError("Missing 'recommended_action' argument")
+
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_message_parameters", error_message_parameters)
+        _setter("error_tags", error_tags)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -9336,18 +12260,97 @@ class InMageRcmDiscoveredProtectedVmDetailsResponse(dict):
         :param str vm_fqdn: The VM fqdn.
         :param str vmware_tools_status: The VMware tools status.
         """
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "datastores", datastores)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "is_deleted", is_deleted)
-        pulumi.set(__self__, "last_discovery_time_in_utc", last_discovery_time_in_utc)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "power_status", power_status)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
-        pulumi.set(__self__, "v_center_fqdn", v_center_fqdn)
-        pulumi.set(__self__, "v_center_id", v_center_id)
-        pulumi.set(__self__, "vm_fqdn", vm_fqdn)
-        pulumi.set(__self__, "vmware_tools_status", vmware_tools_status)
+        InMageRcmDiscoveredProtectedVmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            datastores=datastores,
+            ip_addresses=ip_addresses,
+            is_deleted=is_deleted,
+            last_discovery_time_in_utc=last_discovery_time_in_utc,
+            os_name=os_name,
+            power_status=power_status,
+            updated_timestamp=updated_timestamp,
+            v_center_fqdn=v_center_fqdn,
+            v_center_id=v_center_id,
+            vm_fqdn=vm_fqdn,
+            vmware_tools_status=vmware_tools_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: Optional[str] = None,
+             datastores: Optional[Sequence[str]] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             is_deleted: Optional[bool] = None,
+             last_discovery_time_in_utc: Optional[str] = None,
+             os_name: Optional[str] = None,
+             power_status: Optional[str] = None,
+             updated_timestamp: Optional[str] = None,
+             v_center_fqdn: Optional[str] = None,
+             v_center_id: Optional[str] = None,
+             vm_fqdn: Optional[str] = None,
+             vmware_tools_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_timestamp is None and 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if created_timestamp is None:
+            raise TypeError("Missing 'created_timestamp' argument")
+        if datastores is None:
+            raise TypeError("Missing 'datastores' argument")
+        if ip_addresses is None and 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+        if ip_addresses is None:
+            raise TypeError("Missing 'ip_addresses' argument")
+        if is_deleted is None and 'isDeleted' in kwargs:
+            is_deleted = kwargs['isDeleted']
+        if is_deleted is None:
+            raise TypeError("Missing 'is_deleted' argument")
+        if last_discovery_time_in_utc is None and 'lastDiscoveryTimeInUtc' in kwargs:
+            last_discovery_time_in_utc = kwargs['lastDiscoveryTimeInUtc']
+        if last_discovery_time_in_utc is None:
+            raise TypeError("Missing 'last_discovery_time_in_utc' argument")
+        if os_name is None and 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if os_name is None:
+            raise TypeError("Missing 'os_name' argument")
+        if power_status is None and 'powerStatus' in kwargs:
+            power_status = kwargs['powerStatus']
+        if power_status is None:
+            raise TypeError("Missing 'power_status' argument")
+        if updated_timestamp is None and 'updatedTimestamp' in kwargs:
+            updated_timestamp = kwargs['updatedTimestamp']
+        if updated_timestamp is None:
+            raise TypeError("Missing 'updated_timestamp' argument")
+        if v_center_fqdn is None and 'vCenterFqdn' in kwargs:
+            v_center_fqdn = kwargs['vCenterFqdn']
+        if v_center_fqdn is None:
+            raise TypeError("Missing 'v_center_fqdn' argument")
+        if v_center_id is None and 'vCenterId' in kwargs:
+            v_center_id = kwargs['vCenterId']
+        if v_center_id is None:
+            raise TypeError("Missing 'v_center_id' argument")
+        if vm_fqdn is None and 'vmFqdn' in kwargs:
+            vm_fqdn = kwargs['vmFqdn']
+        if vm_fqdn is None:
+            raise TypeError("Missing 'vm_fqdn' argument")
+        if vmware_tools_status is None and 'vmwareToolsStatus' in kwargs:
+            vmware_tools_status = kwargs['vmwareToolsStatus']
+        if vmware_tools_status is None:
+            raise TypeError("Missing 'vmware_tools_status' argument")
+
+        _setter("created_timestamp", created_timestamp)
+        _setter("datastores", datastores)
+        _setter("ip_addresses", ip_addresses)
+        _setter("is_deleted", is_deleted)
+        _setter("last_discovery_time_in_utc", last_discovery_time_in_utc)
+        _setter("os_name", os_name)
+        _setter("power_status", power_status)
+        _setter("updated_timestamp", updated_timestamp)
+        _setter("v_center_fqdn", v_center_fqdn)
+        _setter("v_center_id", v_center_id)
+        _setter("vm_fqdn", vm_fqdn)
+        _setter("vmware_tools_status", vmware_tools_status)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -9537,24 +12540,131 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
         :param str vmware_site_id: The ARM Id of the VMware site.
         :param 'IdentityProviderDetailsResponse' source_agent_identity_details: The source agent identity details.
         """
-        pulumi.set(__self__, "agent_details", agent_details)
-        pulumi.set(__self__, "control_plane_uri", control_plane_uri)
-        pulumi.set(__self__, "data_plane_uri", data_plane_uri)
-        pulumi.set(__self__, "dras", dras)
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
-        pulumi.set(__self__, "mars_agents", mars_agents)
-        pulumi.set(__self__, "physical_site_id", physical_site_id)
-        pulumi.set(__self__, "process_servers", process_servers)
-        pulumi.set(__self__, "push_installers", push_installers)
-        pulumi.set(__self__, "rcm_proxies", rcm_proxies)
-        pulumi.set(__self__, "replication_agents", replication_agents)
-        pulumi.set(__self__, "reprotect_agents", reprotect_agents)
-        pulumi.set(__self__, "service_container_id", service_container_id)
-        pulumi.set(__self__, "service_endpoint", service_endpoint)
-        pulumi.set(__self__, "service_resource_id", service_resource_id)
-        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        InMageRcmFabricSpecificDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_details=agent_details,
+            control_plane_uri=control_plane_uri,
+            data_plane_uri=data_plane_uri,
+            dras=dras,
+            instance_type=instance_type,
+            mars_agents=mars_agents,
+            physical_site_id=physical_site_id,
+            process_servers=process_servers,
+            push_installers=push_installers,
+            rcm_proxies=rcm_proxies,
+            replication_agents=replication_agents,
+            reprotect_agents=reprotect_agents,
+            service_container_id=service_container_id,
+            service_endpoint=service_endpoint,
+            service_resource_id=service_resource_id,
+            vmware_site_id=vmware_site_id,
+            source_agent_identity_details=source_agent_identity_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_details: Optional[Sequence['outputs.AgentDetailsResponse']] = None,
+             control_plane_uri: Optional[str] = None,
+             data_plane_uri: Optional[str] = None,
+             dras: Optional[Sequence['outputs.DraDetailsResponse']] = None,
+             instance_type: Optional[str] = None,
+             mars_agents: Optional[Sequence['outputs.MarsAgentDetailsResponse']] = None,
+             physical_site_id: Optional[str] = None,
+             process_servers: Optional[Sequence['outputs.ProcessServerDetailsResponse']] = None,
+             push_installers: Optional[Sequence['outputs.PushInstallerDetailsResponse']] = None,
+             rcm_proxies: Optional[Sequence['outputs.RcmProxyDetailsResponse']] = None,
+             replication_agents: Optional[Sequence['outputs.ReplicationAgentDetailsResponse']] = None,
+             reprotect_agents: Optional[Sequence['outputs.ReprotectAgentDetailsResponse']] = None,
+             service_container_id: Optional[str] = None,
+             service_endpoint: Optional[str] = None,
+             service_resource_id: Optional[str] = None,
+             vmware_site_id: Optional[str] = None,
+             source_agent_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_details is None and 'agentDetails' in kwargs:
+            agent_details = kwargs['agentDetails']
+        if agent_details is None:
+            raise TypeError("Missing 'agent_details' argument")
+        if control_plane_uri is None and 'controlPlaneUri' in kwargs:
+            control_plane_uri = kwargs['controlPlaneUri']
+        if control_plane_uri is None:
+            raise TypeError("Missing 'control_plane_uri' argument")
+        if data_plane_uri is None and 'dataPlaneUri' in kwargs:
+            data_plane_uri = kwargs['dataPlaneUri']
+        if data_plane_uri is None:
+            raise TypeError("Missing 'data_plane_uri' argument")
+        if dras is None:
+            raise TypeError("Missing 'dras' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if mars_agents is None and 'marsAgents' in kwargs:
+            mars_agents = kwargs['marsAgents']
+        if mars_agents is None:
+            raise TypeError("Missing 'mars_agents' argument")
+        if physical_site_id is None and 'physicalSiteId' in kwargs:
+            physical_site_id = kwargs['physicalSiteId']
+        if physical_site_id is None:
+            raise TypeError("Missing 'physical_site_id' argument")
+        if process_servers is None and 'processServers' in kwargs:
+            process_servers = kwargs['processServers']
+        if process_servers is None:
+            raise TypeError("Missing 'process_servers' argument")
+        if push_installers is None and 'pushInstallers' in kwargs:
+            push_installers = kwargs['pushInstallers']
+        if push_installers is None:
+            raise TypeError("Missing 'push_installers' argument")
+        if rcm_proxies is None and 'rcmProxies' in kwargs:
+            rcm_proxies = kwargs['rcmProxies']
+        if rcm_proxies is None:
+            raise TypeError("Missing 'rcm_proxies' argument")
+        if replication_agents is None and 'replicationAgents' in kwargs:
+            replication_agents = kwargs['replicationAgents']
+        if replication_agents is None:
+            raise TypeError("Missing 'replication_agents' argument")
+        if reprotect_agents is None and 'reprotectAgents' in kwargs:
+            reprotect_agents = kwargs['reprotectAgents']
+        if reprotect_agents is None:
+            raise TypeError("Missing 'reprotect_agents' argument")
+        if service_container_id is None and 'serviceContainerId' in kwargs:
+            service_container_id = kwargs['serviceContainerId']
+        if service_container_id is None:
+            raise TypeError("Missing 'service_container_id' argument")
+        if service_endpoint is None and 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if service_endpoint is None:
+            raise TypeError("Missing 'service_endpoint' argument")
+        if service_resource_id is None and 'serviceResourceId' in kwargs:
+            service_resource_id = kwargs['serviceResourceId']
+        if service_resource_id is None:
+            raise TypeError("Missing 'service_resource_id' argument")
+        if vmware_site_id is None and 'vmwareSiteId' in kwargs:
+            vmware_site_id = kwargs['vmwareSiteId']
+        if vmware_site_id is None:
+            raise TypeError("Missing 'vmware_site_id' argument")
+        if source_agent_identity_details is None and 'sourceAgentIdentityDetails' in kwargs:
+            source_agent_identity_details = kwargs['sourceAgentIdentityDetails']
+
+        _setter("agent_details", agent_details)
+        _setter("control_plane_uri", control_plane_uri)
+        _setter("data_plane_uri", data_plane_uri)
+        _setter("dras", dras)
+        _setter("instance_type", 'InMageRcm')
+        _setter("mars_agents", mars_agents)
+        _setter("physical_site_id", physical_site_id)
+        _setter("process_servers", process_servers)
+        _setter("push_installers", push_installers)
+        _setter("rcm_proxies", rcm_proxies)
+        _setter("replication_agents", replication_agents)
+        _setter("reprotect_agents", reprotect_agents)
+        _setter("service_container_id", service_container_id)
+        _setter("service_endpoint", service_endpoint)
+        _setter("service_resource_id", service_resource_id)
+        _setter("vmware_site_id", vmware_site_id)
         if source_agent_identity_details is not None:
-            pulumi.set(__self__, "source_agent_identity_details", source_agent_identity_details)
+            _setter("source_agent_identity_details", source_agent_identity_details)
 
     @property
     @pulumi.getter(name="agentDetails")
@@ -9764,18 +12874,97 @@ class InMageRcmFailbackDiscoveredProtectedVmDetailsResponse(dict):
         :param str vm_fqdn: The VM fqdn.
         :param str vmware_tools_status: The VMware tools status.
         """
-        pulumi.set(__self__, "created_timestamp", created_timestamp)
-        pulumi.set(__self__, "datastores", datastores)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "is_deleted", is_deleted)
-        pulumi.set(__self__, "last_discovery_time_in_utc", last_discovery_time_in_utc)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "power_status", power_status)
-        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
-        pulumi.set(__self__, "v_center_fqdn", v_center_fqdn)
-        pulumi.set(__self__, "v_center_id", v_center_id)
-        pulumi.set(__self__, "vm_fqdn", vm_fqdn)
-        pulumi.set(__self__, "vmware_tools_status", vmware_tools_status)
+        InMageRcmFailbackDiscoveredProtectedVmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_timestamp=created_timestamp,
+            datastores=datastores,
+            ip_addresses=ip_addresses,
+            is_deleted=is_deleted,
+            last_discovery_time_in_utc=last_discovery_time_in_utc,
+            os_name=os_name,
+            power_status=power_status,
+            updated_timestamp=updated_timestamp,
+            v_center_fqdn=v_center_fqdn,
+            v_center_id=v_center_id,
+            vm_fqdn=vm_fqdn,
+            vmware_tools_status=vmware_tools_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_timestamp: Optional[str] = None,
+             datastores: Optional[Sequence[str]] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             is_deleted: Optional[bool] = None,
+             last_discovery_time_in_utc: Optional[str] = None,
+             os_name: Optional[str] = None,
+             power_status: Optional[str] = None,
+             updated_timestamp: Optional[str] = None,
+             v_center_fqdn: Optional[str] = None,
+             v_center_id: Optional[str] = None,
+             vm_fqdn: Optional[str] = None,
+             vmware_tools_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_timestamp is None and 'createdTimestamp' in kwargs:
+            created_timestamp = kwargs['createdTimestamp']
+        if created_timestamp is None:
+            raise TypeError("Missing 'created_timestamp' argument")
+        if datastores is None:
+            raise TypeError("Missing 'datastores' argument")
+        if ip_addresses is None and 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+        if ip_addresses is None:
+            raise TypeError("Missing 'ip_addresses' argument")
+        if is_deleted is None and 'isDeleted' in kwargs:
+            is_deleted = kwargs['isDeleted']
+        if is_deleted is None:
+            raise TypeError("Missing 'is_deleted' argument")
+        if last_discovery_time_in_utc is None and 'lastDiscoveryTimeInUtc' in kwargs:
+            last_discovery_time_in_utc = kwargs['lastDiscoveryTimeInUtc']
+        if last_discovery_time_in_utc is None:
+            raise TypeError("Missing 'last_discovery_time_in_utc' argument")
+        if os_name is None and 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if os_name is None:
+            raise TypeError("Missing 'os_name' argument")
+        if power_status is None and 'powerStatus' in kwargs:
+            power_status = kwargs['powerStatus']
+        if power_status is None:
+            raise TypeError("Missing 'power_status' argument")
+        if updated_timestamp is None and 'updatedTimestamp' in kwargs:
+            updated_timestamp = kwargs['updatedTimestamp']
+        if updated_timestamp is None:
+            raise TypeError("Missing 'updated_timestamp' argument")
+        if v_center_fqdn is None and 'vCenterFqdn' in kwargs:
+            v_center_fqdn = kwargs['vCenterFqdn']
+        if v_center_fqdn is None:
+            raise TypeError("Missing 'v_center_fqdn' argument")
+        if v_center_id is None and 'vCenterId' in kwargs:
+            v_center_id = kwargs['vCenterId']
+        if v_center_id is None:
+            raise TypeError("Missing 'v_center_id' argument")
+        if vm_fqdn is None and 'vmFqdn' in kwargs:
+            vm_fqdn = kwargs['vmFqdn']
+        if vm_fqdn is None:
+            raise TypeError("Missing 'vm_fqdn' argument")
+        if vmware_tools_status is None and 'vmwareToolsStatus' in kwargs:
+            vmware_tools_status = kwargs['vmwareToolsStatus']
+        if vmware_tools_status is None:
+            raise TypeError("Missing 'vmware_tools_status' argument")
+
+        _setter("created_timestamp", created_timestamp)
+        _setter("datastores", datastores)
+        _setter("ip_addresses", ip_addresses)
+        _setter("is_deleted", is_deleted)
+        _setter("last_discovery_time_in_utc", last_discovery_time_in_utc)
+        _setter("os_name", os_name)
+        _setter("power_status", power_status)
+        _setter("updated_timestamp", updated_timestamp)
+        _setter("v_center_fqdn", v_center_fqdn)
+        _setter("v_center_id", v_center_id)
+        _setter("vm_fqdn", vm_fqdn)
+        _setter("vmware_tools_status", vmware_tools_status)
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -9932,15 +13121,76 @@ class InMageRcmFailbackMobilityAgentDetailsResponse(dict):
         :param Sequence[str] reasons_blocking_upgrade: The whether update is possible or not.
         :param str version: The agent version.
         """
-        pulumi.set(__self__, "agent_version_expiry_date", agent_version_expiry_date)
-        pulumi.set(__self__, "driver_version", driver_version)
-        pulumi.set(__self__, "driver_version_expiry_date", driver_version_expiry_date)
-        pulumi.set(__self__, "is_upgradeable", is_upgradeable)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
-        pulumi.set(__self__, "latest_version", latest_version)
-        pulumi.set(__self__, "reasons_blocking_upgrade", reasons_blocking_upgrade)
-        pulumi.set(__self__, "version", version)
+        InMageRcmFailbackMobilityAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version_expiry_date=agent_version_expiry_date,
+            driver_version=driver_version,
+            driver_version_expiry_date=driver_version_expiry_date,
+            is_upgradeable=is_upgradeable,
+            last_heartbeat_utc=last_heartbeat_utc,
+            latest_upgradable_version_without_reboot=latest_upgradable_version_without_reboot,
+            latest_version=latest_version,
+            reasons_blocking_upgrade=reasons_blocking_upgrade,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version_expiry_date: Optional[str] = None,
+             driver_version: Optional[str] = None,
+             driver_version_expiry_date: Optional[str] = None,
+             is_upgradeable: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             latest_upgradable_version_without_reboot: Optional[str] = None,
+             latest_version: Optional[str] = None,
+             reasons_blocking_upgrade: Optional[Sequence[str]] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_version_expiry_date is None and 'agentVersionExpiryDate' in kwargs:
+            agent_version_expiry_date = kwargs['agentVersionExpiryDate']
+        if agent_version_expiry_date is None:
+            raise TypeError("Missing 'agent_version_expiry_date' argument")
+        if driver_version is None and 'driverVersion' in kwargs:
+            driver_version = kwargs['driverVersion']
+        if driver_version is None:
+            raise TypeError("Missing 'driver_version' argument")
+        if driver_version_expiry_date is None and 'driverVersionExpiryDate' in kwargs:
+            driver_version_expiry_date = kwargs['driverVersionExpiryDate']
+        if driver_version_expiry_date is None:
+            raise TypeError("Missing 'driver_version_expiry_date' argument")
+        if is_upgradeable is None and 'isUpgradeable' in kwargs:
+            is_upgradeable = kwargs['isUpgradeable']
+        if is_upgradeable is None:
+            raise TypeError("Missing 'is_upgradeable' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if latest_upgradable_version_without_reboot is None and 'latestUpgradableVersionWithoutReboot' in kwargs:
+            latest_upgradable_version_without_reboot = kwargs['latestUpgradableVersionWithoutReboot']
+        if latest_upgradable_version_without_reboot is None:
+            raise TypeError("Missing 'latest_upgradable_version_without_reboot' argument")
+        if latest_version is None and 'latestVersion' in kwargs:
+            latest_version = kwargs['latestVersion']
+        if latest_version is None:
+            raise TypeError("Missing 'latest_version' argument")
+        if reasons_blocking_upgrade is None and 'reasonsBlockingUpgrade' in kwargs:
+            reasons_blocking_upgrade = kwargs['reasonsBlockingUpgrade']
+        if reasons_blocking_upgrade is None:
+            raise TypeError("Missing 'reasons_blocking_upgrade' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("agent_version_expiry_date", agent_version_expiry_date)
+        _setter("driver_version", driver_version)
+        _setter("driver_version_expiry_date", driver_version_expiry_date)
+        _setter("is_upgradeable", is_upgradeable)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
+        _setter("latest_version", latest_version)
+        _setter("reasons_blocking_upgrade", reasons_blocking_upgrade)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="agentVersionExpiryDate")
@@ -10055,10 +13305,43 @@ class InMageRcmFailbackNicDetailsResponse(dict):
         :param str network_name: The network name.
         :param str source_ip_address: The IP address.
         """
-        pulumi.set(__self__, "adapter_type", adapter_type)
-        pulumi.set(__self__, "mac_address", mac_address)
-        pulumi.set(__self__, "network_name", network_name)
-        pulumi.set(__self__, "source_ip_address", source_ip_address)
+        InMageRcmFailbackNicDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adapter_type=adapter_type,
+            mac_address=mac_address,
+            network_name=network_name,
+            source_ip_address=source_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adapter_type: Optional[str] = None,
+             mac_address: Optional[str] = None,
+             network_name: Optional[str] = None,
+             source_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if adapter_type is None and 'adapterType' in kwargs:
+            adapter_type = kwargs['adapterType']
+        if adapter_type is None:
+            raise TypeError("Missing 'adapter_type' argument")
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if mac_address is None:
+            raise TypeError("Missing 'mac_address' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if source_ip_address is None and 'sourceIpAddress' in kwargs:
+            source_ip_address = kwargs['sourceIpAddress']
+        if source_ip_address is None:
+            raise TypeError("Missing 'source_ip_address' argument")
+
+        _setter("adapter_type", adapter_type)
+        _setter("mac_address", mac_address)
+        _setter("network_name", network_name)
+        _setter("source_ip_address", source_ip_address)
 
     @property
     @pulumi.getter(name="adapterType")
@@ -10130,11 +13413,34 @@ class InMageRcmFailbackPolicyDetailsResponse(dict):
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         """
-        pulumi.set(__self__, "instance_type", 'InMageRcmFailback')
+        InMageRcmFailbackPolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if crash_consistent_frequency_in_minutes is None and 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+
+        _setter("instance_type", 'InMageRcmFailback')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -10230,19 +13536,90 @@ class InMageRcmFailbackProtectedDiskDetailsResponse(dict):
         :param 'InMageRcmFailbackSyncDetailsResponse' ir_details: The initial replication details.
         :param 'InMageRcmFailbackSyncDetailsResponse' resync_details: The resync details.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
-        pulumi.set(__self__, "data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "disk_uuid", disk_uuid)
-        pulumi.set(__self__, "is_initial_replication_complete", is_initial_replication_complete)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "last_sync_time", last_sync_time)
+        InMageRcmFailbackProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            data_pending_at_source_agent_in_mb=data_pending_at_source_agent_in_mb,
+            data_pending_in_log_data_store_in_mb=data_pending_in_log_data_store_in_mb,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_uuid=disk_uuid,
+            is_initial_replication_complete=is_initial_replication_complete,
+            is_os_disk=is_os_disk,
+            last_sync_time=last_sync_time,
+            ir_details=ir_details,
+            resync_details=resync_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: Optional[float] = None,
+             data_pending_at_source_agent_in_mb: Optional[float] = None,
+             data_pending_in_log_data_store_in_mb: Optional[float] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             disk_uuid: Optional[str] = None,
+             is_initial_replication_complete: Optional[str] = None,
+             is_os_disk: Optional[str] = None,
+             last_sync_time: Optional[str] = None,
+             ir_details: Optional['outputs.InMageRcmFailbackSyncDetailsResponse'] = None,
+             resync_details: Optional['outputs.InMageRcmFailbackSyncDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_in_bytes is None and 'capacityInBytes' in kwargs:
+            capacity_in_bytes = kwargs['capacityInBytes']
+        if capacity_in_bytes is None:
+            raise TypeError("Missing 'capacity_in_bytes' argument")
+        if data_pending_at_source_agent_in_mb is None and 'dataPendingAtSourceAgentInMB' in kwargs:
+            data_pending_at_source_agent_in_mb = kwargs['dataPendingAtSourceAgentInMB']
+        if data_pending_at_source_agent_in_mb is None:
+            raise TypeError("Missing 'data_pending_at_source_agent_in_mb' argument")
+        if data_pending_in_log_data_store_in_mb is None and 'dataPendingInLogDataStoreInMB' in kwargs:
+            data_pending_in_log_data_store_in_mb = kwargs['dataPendingInLogDataStoreInMB']
+        if data_pending_in_log_data_store_in_mb is None:
+            raise TypeError("Missing 'data_pending_in_log_data_store_in_mb' argument")
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_name is None:
+            raise TypeError("Missing 'disk_name' argument")
+        if disk_uuid is None and 'diskUuid' in kwargs:
+            disk_uuid = kwargs['diskUuid']
+        if disk_uuid is None:
+            raise TypeError("Missing 'disk_uuid' argument")
+        if is_initial_replication_complete is None and 'isInitialReplicationComplete' in kwargs:
+            is_initial_replication_complete = kwargs['isInitialReplicationComplete']
+        if is_initial_replication_complete is None:
+            raise TypeError("Missing 'is_initial_replication_complete' argument")
+        if is_os_disk is None and 'isOSDisk' in kwargs:
+            is_os_disk = kwargs['isOSDisk']
+        if is_os_disk is None:
+            raise TypeError("Missing 'is_os_disk' argument")
+        if last_sync_time is None and 'lastSyncTime' in kwargs:
+            last_sync_time = kwargs['lastSyncTime']
+        if last_sync_time is None:
+            raise TypeError("Missing 'last_sync_time' argument")
+        if ir_details is None and 'irDetails' in kwargs:
+            ir_details = kwargs['irDetails']
+        if resync_details is None and 'resyncDetails' in kwargs:
+            resync_details = kwargs['resyncDetails']
+
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+        _setter("data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
+        _setter("disk_id", disk_id)
+        _setter("disk_name", disk_name)
+        _setter("disk_uuid", disk_uuid)
+        _setter("is_initial_replication_complete", is_initial_replication_complete)
+        _setter("is_os_disk", is_os_disk)
+        _setter("last_sync_time", last_sync_time)
         if ir_details is not None:
-            pulumi.set(__self__, "ir_details", ir_details)
+            _setter("ir_details", ir_details)
         if resync_details is not None:
-            pulumi.set(__self__, "resync_details", resync_details)
+            _setter("resync_details", resync_details)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -10478,40 +13855,221 @@ class InMageRcmFailbackReplicationDetailsResponse(dict):
         :param Sequence['InMageRcmFailbackProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param Sequence['InMageRcmFailbackNicDetailsResponse'] vm_nics: The network details.
         """
-        pulumi.set(__self__, "azure_virtual_machine_id", azure_virtual_machine_id)
-        pulumi.set(__self__, "initial_replication_processed_bytes", initial_replication_processed_bytes)
-        pulumi.set(__self__, "initial_replication_progress_health", initial_replication_progress_health)
-        pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
-        pulumi.set(__self__, "initial_replication_transferred_bytes", initial_replication_transferred_bytes)
-        pulumi.set(__self__, "instance_type", 'InMageRcmFailback')
-        pulumi.set(__self__, "internal_identifier", internal_identifier)
-        pulumi.set(__self__, "is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
-        pulumi.set(__self__, "last_planned_failover_start_time", last_planned_failover_start_time)
-        pulumi.set(__self__, "last_planned_failover_status", last_planned_failover_status)
-        pulumi.set(__self__, "last_used_policy_friendly_name", last_used_policy_friendly_name)
-        pulumi.set(__self__, "last_used_policy_id", last_used_policy_id)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
-        pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "reprotect_agent_id", reprotect_agent_id)
-        pulumi.set(__self__, "reprotect_agent_name", reprotect_agent_name)
-        pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
-        pulumi.set(__self__, "resync_progress_health", resync_progress_health)
-        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
-        pulumi.set(__self__, "resync_required", resync_required)
-        pulumi.set(__self__, "resync_state", resync_state)
-        pulumi.set(__self__, "resync_transferred_bytes", resync_transferred_bytes)
-        pulumi.set(__self__, "target_data_store_name", target_data_store_name)
-        pulumi.set(__self__, "target_vm_name", target_vm_name)
-        pulumi.set(__self__, "targetv_center_id", targetv_center_id)
+        InMageRcmFailbackReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_virtual_machine_id=azure_virtual_machine_id,
+            initial_replication_processed_bytes=initial_replication_processed_bytes,
+            initial_replication_progress_health=initial_replication_progress_health,
+            initial_replication_progress_percentage=initial_replication_progress_percentage,
+            initial_replication_transferred_bytes=initial_replication_transferred_bytes,
+            instance_type=instance_type,
+            internal_identifier=internal_identifier,
+            is_agent_registration_successful_after_failover=is_agent_registration_successful_after_failover,
+            last_planned_failover_start_time=last_planned_failover_start_time,
+            last_planned_failover_status=last_planned_failover_status,
+            last_used_policy_friendly_name=last_used_policy_friendly_name,
+            last_used_policy_id=last_used_policy_id,
+            log_storage_account_id=log_storage_account_id,
+            multi_vm_group_name=multi_vm_group_name,
+            os_type=os_type,
+            reprotect_agent_id=reprotect_agent_id,
+            reprotect_agent_name=reprotect_agent_name,
+            resync_processed_bytes=resync_processed_bytes,
+            resync_progress_health=resync_progress_health,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_state=resync_state,
+            resync_transferred_bytes=resync_transferred_bytes,
+            target_data_store_name=target_data_store_name,
+            target_vm_name=target_vm_name,
+            targetv_center_id=targetv_center_id,
+            discovered_vm_details=discovered_vm_details,
+            mobility_agent_details=mobility_agent_details,
+            protected_disks=protected_disks,
+            vm_nics=vm_nics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_virtual_machine_id: Optional[str] = None,
+             initial_replication_processed_bytes: Optional[float] = None,
+             initial_replication_progress_health: Optional[str] = None,
+             initial_replication_progress_percentage: Optional[int] = None,
+             initial_replication_transferred_bytes: Optional[float] = None,
+             instance_type: Optional[str] = None,
+             internal_identifier: Optional[str] = None,
+             is_agent_registration_successful_after_failover: Optional[bool] = None,
+             last_planned_failover_start_time: Optional[str] = None,
+             last_planned_failover_status: Optional[str] = None,
+             last_used_policy_friendly_name: Optional[str] = None,
+             last_used_policy_id: Optional[str] = None,
+             log_storage_account_id: Optional[str] = None,
+             multi_vm_group_name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             reprotect_agent_id: Optional[str] = None,
+             reprotect_agent_name: Optional[str] = None,
+             resync_processed_bytes: Optional[float] = None,
+             resync_progress_health: Optional[str] = None,
+             resync_progress_percentage: Optional[int] = None,
+             resync_required: Optional[str] = None,
+             resync_state: Optional[str] = None,
+             resync_transferred_bytes: Optional[float] = None,
+             target_data_store_name: Optional[str] = None,
+             target_vm_name: Optional[str] = None,
+             targetv_center_id: Optional[str] = None,
+             discovered_vm_details: Optional['outputs.InMageRcmFailbackDiscoveredProtectedVmDetailsResponse'] = None,
+             mobility_agent_details: Optional['outputs.InMageRcmFailbackMobilityAgentDetailsResponse'] = None,
+             protected_disks: Optional[Sequence['outputs.InMageRcmFailbackProtectedDiskDetailsResponse']] = None,
+             vm_nics: Optional[Sequence['outputs.InMageRcmFailbackNicDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_virtual_machine_id is None and 'azureVirtualMachineId' in kwargs:
+            azure_virtual_machine_id = kwargs['azureVirtualMachineId']
+        if azure_virtual_machine_id is None:
+            raise TypeError("Missing 'azure_virtual_machine_id' argument")
+        if initial_replication_processed_bytes is None and 'initialReplicationProcessedBytes' in kwargs:
+            initial_replication_processed_bytes = kwargs['initialReplicationProcessedBytes']
+        if initial_replication_processed_bytes is None:
+            raise TypeError("Missing 'initial_replication_processed_bytes' argument")
+        if initial_replication_progress_health is None and 'initialReplicationProgressHealth' in kwargs:
+            initial_replication_progress_health = kwargs['initialReplicationProgressHealth']
+        if initial_replication_progress_health is None:
+            raise TypeError("Missing 'initial_replication_progress_health' argument")
+        if initial_replication_progress_percentage is None and 'initialReplicationProgressPercentage' in kwargs:
+            initial_replication_progress_percentage = kwargs['initialReplicationProgressPercentage']
+        if initial_replication_progress_percentage is None:
+            raise TypeError("Missing 'initial_replication_progress_percentage' argument")
+        if initial_replication_transferred_bytes is None and 'initialReplicationTransferredBytes' in kwargs:
+            initial_replication_transferred_bytes = kwargs['initialReplicationTransferredBytes']
+        if initial_replication_transferred_bytes is None:
+            raise TypeError("Missing 'initial_replication_transferred_bytes' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if internal_identifier is None and 'internalIdentifier' in kwargs:
+            internal_identifier = kwargs['internalIdentifier']
+        if internal_identifier is None:
+            raise TypeError("Missing 'internal_identifier' argument")
+        if is_agent_registration_successful_after_failover is None and 'isAgentRegistrationSuccessfulAfterFailover' in kwargs:
+            is_agent_registration_successful_after_failover = kwargs['isAgentRegistrationSuccessfulAfterFailover']
+        if is_agent_registration_successful_after_failover is None:
+            raise TypeError("Missing 'is_agent_registration_successful_after_failover' argument")
+        if last_planned_failover_start_time is None and 'lastPlannedFailoverStartTime' in kwargs:
+            last_planned_failover_start_time = kwargs['lastPlannedFailoverStartTime']
+        if last_planned_failover_start_time is None:
+            raise TypeError("Missing 'last_planned_failover_start_time' argument")
+        if last_planned_failover_status is None and 'lastPlannedFailoverStatus' in kwargs:
+            last_planned_failover_status = kwargs['lastPlannedFailoverStatus']
+        if last_planned_failover_status is None:
+            raise TypeError("Missing 'last_planned_failover_status' argument")
+        if last_used_policy_friendly_name is None and 'lastUsedPolicyFriendlyName' in kwargs:
+            last_used_policy_friendly_name = kwargs['lastUsedPolicyFriendlyName']
+        if last_used_policy_friendly_name is None:
+            raise TypeError("Missing 'last_used_policy_friendly_name' argument")
+        if last_used_policy_id is None and 'lastUsedPolicyId' in kwargs:
+            last_used_policy_id = kwargs['lastUsedPolicyId']
+        if last_used_policy_id is None:
+            raise TypeError("Missing 'last_used_policy_id' argument")
+        if log_storage_account_id is None and 'logStorageAccountId' in kwargs:
+            log_storage_account_id = kwargs['logStorageAccountId']
+        if log_storage_account_id is None:
+            raise TypeError("Missing 'log_storage_account_id' argument")
+        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
+            multi_vm_group_name = kwargs['multiVmGroupName']
+        if multi_vm_group_name is None:
+            raise TypeError("Missing 'multi_vm_group_name' argument")
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if reprotect_agent_id is None and 'reprotectAgentId' in kwargs:
+            reprotect_agent_id = kwargs['reprotectAgentId']
+        if reprotect_agent_id is None:
+            raise TypeError("Missing 'reprotect_agent_id' argument")
+        if reprotect_agent_name is None and 'reprotectAgentName' in kwargs:
+            reprotect_agent_name = kwargs['reprotectAgentName']
+        if reprotect_agent_name is None:
+            raise TypeError("Missing 'reprotect_agent_name' argument")
+        if resync_processed_bytes is None and 'resyncProcessedBytes' in kwargs:
+            resync_processed_bytes = kwargs['resyncProcessedBytes']
+        if resync_processed_bytes is None:
+            raise TypeError("Missing 'resync_processed_bytes' argument")
+        if resync_progress_health is None and 'resyncProgressHealth' in kwargs:
+            resync_progress_health = kwargs['resyncProgressHealth']
+        if resync_progress_health is None:
+            raise TypeError("Missing 'resync_progress_health' argument")
+        if resync_progress_percentage is None and 'resyncProgressPercentage' in kwargs:
+            resync_progress_percentage = kwargs['resyncProgressPercentage']
+        if resync_progress_percentage is None:
+            raise TypeError("Missing 'resync_progress_percentage' argument")
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if resync_required is None:
+            raise TypeError("Missing 'resync_required' argument")
+        if resync_state is None and 'resyncState' in kwargs:
+            resync_state = kwargs['resyncState']
+        if resync_state is None:
+            raise TypeError("Missing 'resync_state' argument")
+        if resync_transferred_bytes is None and 'resyncTransferredBytes' in kwargs:
+            resync_transferred_bytes = kwargs['resyncTransferredBytes']
+        if resync_transferred_bytes is None:
+            raise TypeError("Missing 'resync_transferred_bytes' argument")
+        if target_data_store_name is None and 'targetDataStoreName' in kwargs:
+            target_data_store_name = kwargs['targetDataStoreName']
+        if target_data_store_name is None:
+            raise TypeError("Missing 'target_data_store_name' argument")
+        if target_vm_name is None and 'targetVmName' in kwargs:
+            target_vm_name = kwargs['targetVmName']
+        if target_vm_name is None:
+            raise TypeError("Missing 'target_vm_name' argument")
+        if targetv_center_id is None and 'targetvCenterId' in kwargs:
+            targetv_center_id = kwargs['targetvCenterId']
+        if targetv_center_id is None:
+            raise TypeError("Missing 'targetv_center_id' argument")
+        if discovered_vm_details is None and 'discoveredVmDetails' in kwargs:
+            discovered_vm_details = kwargs['discoveredVmDetails']
+        if mobility_agent_details is None and 'mobilityAgentDetails' in kwargs:
+            mobility_agent_details = kwargs['mobilityAgentDetails']
+        if protected_disks is None and 'protectedDisks' in kwargs:
+            protected_disks = kwargs['protectedDisks']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+
+        _setter("azure_virtual_machine_id", azure_virtual_machine_id)
+        _setter("initial_replication_processed_bytes", initial_replication_processed_bytes)
+        _setter("initial_replication_progress_health", initial_replication_progress_health)
+        _setter("initial_replication_progress_percentage", initial_replication_progress_percentage)
+        _setter("initial_replication_transferred_bytes", initial_replication_transferred_bytes)
+        _setter("instance_type", 'InMageRcmFailback')
+        _setter("internal_identifier", internal_identifier)
+        _setter("is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
+        _setter("last_planned_failover_start_time", last_planned_failover_start_time)
+        _setter("last_planned_failover_status", last_planned_failover_status)
+        _setter("last_used_policy_friendly_name", last_used_policy_friendly_name)
+        _setter("last_used_policy_id", last_used_policy_id)
+        _setter("log_storage_account_id", log_storage_account_id)
+        _setter("multi_vm_group_name", multi_vm_group_name)
+        _setter("os_type", os_type)
+        _setter("reprotect_agent_id", reprotect_agent_id)
+        _setter("reprotect_agent_name", reprotect_agent_name)
+        _setter("resync_processed_bytes", resync_processed_bytes)
+        _setter("resync_progress_health", resync_progress_health)
+        _setter("resync_progress_percentage", resync_progress_percentage)
+        _setter("resync_required", resync_required)
+        _setter("resync_state", resync_state)
+        _setter("resync_transferred_bytes", resync_transferred_bytes)
+        _setter("target_data_store_name", target_data_store_name)
+        _setter("target_vm_name", target_vm_name)
+        _setter("targetv_center_id", targetv_center_id)
         if discovered_vm_details is not None:
-            pulumi.set(__self__, "discovered_vm_details", discovered_vm_details)
+            _setter("discovered_vm_details", discovered_vm_details)
         if mobility_agent_details is not None:
-            pulumi.set(__self__, "mobility_agent_details", mobility_agent_details)
+            _setter("mobility_agent_details", mobility_agent_details)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
 
     @property
     @pulumi.getter(name="azureVirtualMachineId")
@@ -10811,14 +14369,71 @@ class InMageRcmFailbackSyncDetailsResponse(dict):
         :param str start_time: The start time.
         :param float transferred_bytes: The transferred bytes from source VM to azure for the disk.
         """
-        pulumi.set(__self__, "last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
-        pulumi.set(__self__, "last_data_transfer_time_utc", last_data_transfer_time_utc)
-        pulumi.set(__self__, "last_refresh_time", last_refresh_time)
-        pulumi.set(__self__, "processed_bytes", processed_bytes)
-        pulumi.set(__self__, "progress_health", progress_health)
-        pulumi.set(__self__, "progress_percentage", progress_percentage)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "transferred_bytes", transferred_bytes)
+        InMageRcmFailbackSyncDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last15_minutes_transferred_bytes=last15_minutes_transferred_bytes,
+            last_data_transfer_time_utc=last_data_transfer_time_utc,
+            last_refresh_time=last_refresh_time,
+            processed_bytes=processed_bytes,
+            progress_health=progress_health,
+            progress_percentage=progress_percentage,
+            start_time=start_time,
+            transferred_bytes=transferred_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last15_minutes_transferred_bytes: Optional[float] = None,
+             last_data_transfer_time_utc: Optional[str] = None,
+             last_refresh_time: Optional[str] = None,
+             processed_bytes: Optional[float] = None,
+             progress_health: Optional[str] = None,
+             progress_percentage: Optional[int] = None,
+             start_time: Optional[str] = None,
+             transferred_bytes: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last15_minutes_transferred_bytes is None and 'last15MinutesTransferredBytes' in kwargs:
+            last15_minutes_transferred_bytes = kwargs['last15MinutesTransferredBytes']
+        if last15_minutes_transferred_bytes is None:
+            raise TypeError("Missing 'last15_minutes_transferred_bytes' argument")
+        if last_data_transfer_time_utc is None and 'lastDataTransferTimeUtc' in kwargs:
+            last_data_transfer_time_utc = kwargs['lastDataTransferTimeUtc']
+        if last_data_transfer_time_utc is None:
+            raise TypeError("Missing 'last_data_transfer_time_utc' argument")
+        if last_refresh_time is None and 'lastRefreshTime' in kwargs:
+            last_refresh_time = kwargs['lastRefreshTime']
+        if last_refresh_time is None:
+            raise TypeError("Missing 'last_refresh_time' argument")
+        if processed_bytes is None and 'processedBytes' in kwargs:
+            processed_bytes = kwargs['processedBytes']
+        if processed_bytes is None:
+            raise TypeError("Missing 'processed_bytes' argument")
+        if progress_health is None and 'progressHealth' in kwargs:
+            progress_health = kwargs['progressHealth']
+        if progress_health is None:
+            raise TypeError("Missing 'progress_health' argument")
+        if progress_percentage is None and 'progressPercentage' in kwargs:
+            progress_percentage = kwargs['progressPercentage']
+        if progress_percentage is None:
+            raise TypeError("Missing 'progress_percentage' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if transferred_bytes is None and 'transferredBytes' in kwargs:
+            transferred_bytes = kwargs['transferredBytes']
+        if transferred_bytes is None:
+            raise TypeError("Missing 'transferred_bytes' argument")
+
+        _setter("last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
+        _setter("last_data_transfer_time_utc", last_data_transfer_time_utc)
+        _setter("last_refresh_time", last_refresh_time)
+        _setter("processed_bytes", processed_bytes)
+        _setter("progress_health", progress_health)
+        _setter("progress_percentage", progress_percentage)
+        _setter("start_time", start_time)
+        _setter("transferred_bytes", transferred_bytes)
 
     @property
     @pulumi.getter(name="last15MinutesTransferredBytes")
@@ -10933,12 +14548,57 @@ class InMageRcmLastAgentUpgradeErrorDetailsResponse(dict):
         :param str possible_causes: The possible causes.
         :param str recommended_action: The recommended action.
         """
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
-        pulumi.set(__self__, "error_tags", error_tags)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
+        InMageRcmLastAgentUpgradeErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_code=error_code,
+            error_message=error_message,
+            error_message_parameters=error_message_parameters,
+            error_tags=error_tags,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_code: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_message_parameters: Optional[Mapping[str, str]] = None,
+             error_tags: Optional[Mapping[str, str]] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_code is None:
+            raise TypeError("Missing 'error_code' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if error_message is None:
+            raise TypeError("Missing 'error_message' argument")
+        if error_message_parameters is None and 'errorMessageParameters' in kwargs:
+            error_message_parameters = kwargs['errorMessageParameters']
+        if error_message_parameters is None:
+            raise TypeError("Missing 'error_message_parameters' argument")
+        if error_tags is None and 'errorTags' in kwargs:
+            error_tags = kwargs['errorTags']
+        if error_tags is None:
+            raise TypeError("Missing 'error_tags' argument")
+        if possible_causes is None and 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if possible_causes is None:
+            raise TypeError("Missing 'possible_causes' argument")
+        if recommended_action is None and 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if recommended_action is None:
+            raise TypeError("Missing 'recommended_action' argument")
+
+        _setter("error_code", error_code)
+        _setter("error_message", error_message)
+        _setter("error_message_parameters", error_message_parameters)
+        _setter("error_tags", error_tags)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -11051,16 +14711,83 @@ class InMageRcmMobilityAgentDetailsResponse(dict):
         :param Sequence[str] reasons_blocking_upgrade: The whether update is possible or not.
         :param str version: The agent version.
         """
-        pulumi.set(__self__, "agent_version_expiry_date", agent_version_expiry_date)
-        pulumi.set(__self__, "driver_version", driver_version)
-        pulumi.set(__self__, "driver_version_expiry_date", driver_version_expiry_date)
-        pulumi.set(__self__, "is_upgradeable", is_upgradeable)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "latest_agent_release_date", latest_agent_release_date)
-        pulumi.set(__self__, "latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
-        pulumi.set(__self__, "latest_version", latest_version)
-        pulumi.set(__self__, "reasons_blocking_upgrade", reasons_blocking_upgrade)
-        pulumi.set(__self__, "version", version)
+        InMageRcmMobilityAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version_expiry_date=agent_version_expiry_date,
+            driver_version=driver_version,
+            driver_version_expiry_date=driver_version_expiry_date,
+            is_upgradeable=is_upgradeable,
+            last_heartbeat_utc=last_heartbeat_utc,
+            latest_agent_release_date=latest_agent_release_date,
+            latest_upgradable_version_without_reboot=latest_upgradable_version_without_reboot,
+            latest_version=latest_version,
+            reasons_blocking_upgrade=reasons_blocking_upgrade,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version_expiry_date: Optional[str] = None,
+             driver_version: Optional[str] = None,
+             driver_version_expiry_date: Optional[str] = None,
+             is_upgradeable: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             latest_agent_release_date: Optional[str] = None,
+             latest_upgradable_version_without_reboot: Optional[str] = None,
+             latest_version: Optional[str] = None,
+             reasons_blocking_upgrade: Optional[Sequence[str]] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_version_expiry_date is None and 'agentVersionExpiryDate' in kwargs:
+            agent_version_expiry_date = kwargs['agentVersionExpiryDate']
+        if agent_version_expiry_date is None:
+            raise TypeError("Missing 'agent_version_expiry_date' argument")
+        if driver_version is None and 'driverVersion' in kwargs:
+            driver_version = kwargs['driverVersion']
+        if driver_version is None:
+            raise TypeError("Missing 'driver_version' argument")
+        if driver_version_expiry_date is None and 'driverVersionExpiryDate' in kwargs:
+            driver_version_expiry_date = kwargs['driverVersionExpiryDate']
+        if driver_version_expiry_date is None:
+            raise TypeError("Missing 'driver_version_expiry_date' argument")
+        if is_upgradeable is None and 'isUpgradeable' in kwargs:
+            is_upgradeable = kwargs['isUpgradeable']
+        if is_upgradeable is None:
+            raise TypeError("Missing 'is_upgradeable' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if latest_agent_release_date is None and 'latestAgentReleaseDate' in kwargs:
+            latest_agent_release_date = kwargs['latestAgentReleaseDate']
+        if latest_agent_release_date is None:
+            raise TypeError("Missing 'latest_agent_release_date' argument")
+        if latest_upgradable_version_without_reboot is None and 'latestUpgradableVersionWithoutReboot' in kwargs:
+            latest_upgradable_version_without_reboot = kwargs['latestUpgradableVersionWithoutReboot']
+        if latest_upgradable_version_without_reboot is None:
+            raise TypeError("Missing 'latest_upgradable_version_without_reboot' argument")
+        if latest_version is None and 'latestVersion' in kwargs:
+            latest_version = kwargs['latestVersion']
+        if latest_version is None:
+            raise TypeError("Missing 'latest_version' argument")
+        if reasons_blocking_upgrade is None and 'reasonsBlockingUpgrade' in kwargs:
+            reasons_blocking_upgrade = kwargs['reasonsBlockingUpgrade']
+        if reasons_blocking_upgrade is None:
+            raise TypeError("Missing 'reasons_blocking_upgrade' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("agent_version_expiry_date", agent_version_expiry_date)
+        _setter("driver_version", driver_version)
+        _setter("driver_version_expiry_date", driver_version_expiry_date)
+        _setter("is_upgradeable", is_upgradeable)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("latest_agent_release_date", latest_agent_release_date)
+        _setter("latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
+        _setter("latest_version", latest_version)
+        _setter("reasons_blocking_upgrade", reasons_blocking_upgrade)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="agentVersionExpiryDate")
@@ -11219,27 +14946,98 @@ class InMageRcmNicDetailsResponse(dict):
         :param str test_ip_address_type: The test IP address type.
         :param str test_subnet_name: Test subnet name.
         """
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "source_ip_address", source_ip_address)
-        pulumi.set(__self__, "source_ip_address_type", source_ip_address_type)
-        pulumi.set(__self__, "source_network_id", source_network_id)
-        pulumi.set(__self__, "source_subnet_name", source_subnet_name)
+        InMageRcmNicDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nic_id=nic_id,
+            source_ip_address=source_ip_address,
+            source_ip_address_type=source_ip_address_type,
+            source_network_id=source_network_id,
+            source_subnet_name=source_subnet_name,
+            is_primary_nic=is_primary_nic,
+            is_selected_for_failover=is_selected_for_failover,
+            target_ip_address=target_ip_address,
+            target_ip_address_type=target_ip_address_type,
+            target_subnet_name=target_subnet_name,
+            test_ip_address=test_ip_address,
+            test_ip_address_type=test_ip_address_type,
+            test_subnet_name=test_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nic_id: Optional[str] = None,
+             source_ip_address: Optional[str] = None,
+             source_ip_address_type: Optional[str] = None,
+             source_network_id: Optional[str] = None,
+             source_subnet_name: Optional[str] = None,
+             is_primary_nic: Optional[str] = None,
+             is_selected_for_failover: Optional[str] = None,
+             target_ip_address: Optional[str] = None,
+             target_ip_address_type: Optional[str] = None,
+             target_subnet_name: Optional[str] = None,
+             test_ip_address: Optional[str] = None,
+             test_ip_address_type: Optional[str] = None,
+             test_subnet_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nic_id is None and 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if nic_id is None:
+            raise TypeError("Missing 'nic_id' argument")
+        if source_ip_address is None and 'sourceIPAddress' in kwargs:
+            source_ip_address = kwargs['sourceIPAddress']
+        if source_ip_address is None:
+            raise TypeError("Missing 'source_ip_address' argument")
+        if source_ip_address_type is None and 'sourceIPAddressType' in kwargs:
+            source_ip_address_type = kwargs['sourceIPAddressType']
+        if source_ip_address_type is None:
+            raise TypeError("Missing 'source_ip_address_type' argument")
+        if source_network_id is None and 'sourceNetworkId' in kwargs:
+            source_network_id = kwargs['sourceNetworkId']
+        if source_network_id is None:
+            raise TypeError("Missing 'source_network_id' argument")
+        if source_subnet_name is None and 'sourceSubnetName' in kwargs:
+            source_subnet_name = kwargs['sourceSubnetName']
+        if source_subnet_name is None:
+            raise TypeError("Missing 'source_subnet_name' argument")
+        if is_primary_nic is None and 'isPrimaryNic' in kwargs:
+            is_primary_nic = kwargs['isPrimaryNic']
+        if is_selected_for_failover is None and 'isSelectedForFailover' in kwargs:
+            is_selected_for_failover = kwargs['isSelectedForFailover']
+        if target_ip_address is None and 'targetIPAddress' in kwargs:
+            target_ip_address = kwargs['targetIPAddress']
+        if target_ip_address_type is None and 'targetIPAddressType' in kwargs:
+            target_ip_address_type = kwargs['targetIPAddressType']
+        if target_subnet_name is None and 'targetSubnetName' in kwargs:
+            target_subnet_name = kwargs['targetSubnetName']
+        if test_ip_address is None and 'testIPAddress' in kwargs:
+            test_ip_address = kwargs['testIPAddress']
+        if test_ip_address_type is None and 'testIPAddressType' in kwargs:
+            test_ip_address_type = kwargs['testIPAddressType']
+        if test_subnet_name is None and 'testSubnetName' in kwargs:
+            test_subnet_name = kwargs['testSubnetName']
+
+        _setter("nic_id", nic_id)
+        _setter("source_ip_address", source_ip_address)
+        _setter("source_ip_address_type", source_ip_address_type)
+        _setter("source_network_id", source_network_id)
+        _setter("source_subnet_name", source_subnet_name)
         if is_primary_nic is not None:
-            pulumi.set(__self__, "is_primary_nic", is_primary_nic)
+            _setter("is_primary_nic", is_primary_nic)
         if is_selected_for_failover is not None:
-            pulumi.set(__self__, "is_selected_for_failover", is_selected_for_failover)
+            _setter("is_selected_for_failover", is_selected_for_failover)
         if target_ip_address is not None:
-            pulumi.set(__self__, "target_ip_address", target_ip_address)
+            _setter("target_ip_address", target_ip_address)
         if target_ip_address_type is not None:
-            pulumi.set(__self__, "target_ip_address_type", target_ip_address_type)
+            _setter("target_ip_address_type", target_ip_address_type)
         if target_subnet_name is not None:
-            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+            _setter("target_subnet_name", target_subnet_name)
         if test_ip_address is not None:
-            pulumi.set(__self__, "test_ip_address", test_ip_address)
+            _setter("test_ip_address", test_ip_address)
         if test_ip_address_type is not None:
-            pulumi.set(__self__, "test_ip_address_type", test_ip_address_type)
+            _setter("test_ip_address_type", test_ip_address_type)
         if test_subnet_name is not None:
-            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+            _setter("test_subnet_name", test_subnet_name)
 
     @property
     @pulumi.getter(name="nicId")
@@ -11391,15 +15189,46 @@ class InMageRcmPolicyDetailsResponse(dict):
         :param str enable_multi_vm_sync: A value indicating whether multi-VM sync has to be enabled.
         :param int recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
+        InMageRcmPolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            enable_multi_vm_sync=enable_multi_vm_sync,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             enable_multi_vm_sync: Optional[str] = None,
+             recovery_point_history_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if crash_consistent_frequency_in_minutes is None and 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+        if enable_multi_vm_sync is None and 'enableMultiVmSync' in kwargs:
+            enable_multi_vm_sync = kwargs['enableMultiVmSync']
+        if recovery_point_history_in_minutes is None and 'recoveryPointHistoryInMinutes' in kwargs:
+            recovery_point_history_in_minutes = kwargs['recoveryPointHistoryInMinutes']
+
+        _setter("instance_type", 'InMageRcm')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if enable_multi_vm_sync is not None:
-            pulumi.set(__self__, "enable_multi_vm_sync", enable_multi_vm_sync)
+            _setter("enable_multi_vm_sync", enable_multi_vm_sync)
         if recovery_point_history_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+            _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -11527,24 +15356,117 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
         :param 'InMageRcmSyncDetailsResponse' ir_details: The initial replication details.
         :param 'InMageRcmSyncDetailsResponse' resync_details: The resync details.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
-        pulumi.set(__self__, "data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
-        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "is_initial_replication_complete", is_initial_replication_complete)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
-        pulumi.set(__self__, "seed_blob_uri", seed_blob_uri)
-        pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
-        pulumi.set(__self__, "target_managed_disk_id", target_managed_disk_id)
+        InMageRcmProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            data_pending_at_source_agent_in_mb=data_pending_at_source_agent_in_mb,
+            data_pending_in_log_data_store_in_mb=data_pending_in_log_data_store_in_mb,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            is_initial_replication_complete=is_initial_replication_complete,
+            is_os_disk=is_os_disk,
+            log_storage_account_id=log_storage_account_id,
+            seed_blob_uri=seed_blob_uri,
+            seed_managed_disk_id=seed_managed_disk_id,
+            target_managed_disk_id=target_managed_disk_id,
+            disk_type=disk_type,
+            ir_details=ir_details,
+            resync_details=resync_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: Optional[float] = None,
+             data_pending_at_source_agent_in_mb: Optional[float] = None,
+             data_pending_in_log_data_store_in_mb: Optional[float] = None,
+             disk_encryption_set_id: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             is_initial_replication_complete: Optional[str] = None,
+             is_os_disk: Optional[str] = None,
+             log_storage_account_id: Optional[str] = None,
+             seed_blob_uri: Optional[str] = None,
+             seed_managed_disk_id: Optional[str] = None,
+             target_managed_disk_id: Optional[str] = None,
+             disk_type: Optional[str] = None,
+             ir_details: Optional['outputs.InMageRcmSyncDetailsResponse'] = None,
+             resync_details: Optional['outputs.InMageRcmSyncDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_in_bytes is None and 'capacityInBytes' in kwargs:
+            capacity_in_bytes = kwargs['capacityInBytes']
+        if capacity_in_bytes is None:
+            raise TypeError("Missing 'capacity_in_bytes' argument")
+        if data_pending_at_source_agent_in_mb is None and 'dataPendingAtSourceAgentInMB' in kwargs:
+            data_pending_at_source_agent_in_mb = kwargs['dataPendingAtSourceAgentInMB']
+        if data_pending_at_source_agent_in_mb is None:
+            raise TypeError("Missing 'data_pending_at_source_agent_in_mb' argument")
+        if data_pending_in_log_data_store_in_mb is None and 'dataPendingInLogDataStoreInMB' in kwargs:
+            data_pending_in_log_data_store_in_mb = kwargs['dataPendingInLogDataStoreInMB']
+        if data_pending_in_log_data_store_in_mb is None:
+            raise TypeError("Missing 'data_pending_in_log_data_store_in_mb' argument")
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if disk_encryption_set_id is None:
+            raise TypeError("Missing 'disk_encryption_set_id' argument")
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_name is None:
+            raise TypeError("Missing 'disk_name' argument")
+        if is_initial_replication_complete is None and 'isInitialReplicationComplete' in kwargs:
+            is_initial_replication_complete = kwargs['isInitialReplicationComplete']
+        if is_initial_replication_complete is None:
+            raise TypeError("Missing 'is_initial_replication_complete' argument")
+        if is_os_disk is None and 'isOSDisk' in kwargs:
+            is_os_disk = kwargs['isOSDisk']
+        if is_os_disk is None:
+            raise TypeError("Missing 'is_os_disk' argument")
+        if log_storage_account_id is None and 'logStorageAccountId' in kwargs:
+            log_storage_account_id = kwargs['logStorageAccountId']
+        if log_storage_account_id is None:
+            raise TypeError("Missing 'log_storage_account_id' argument")
+        if seed_blob_uri is None and 'seedBlobUri' in kwargs:
+            seed_blob_uri = kwargs['seedBlobUri']
+        if seed_blob_uri is None:
+            raise TypeError("Missing 'seed_blob_uri' argument")
+        if seed_managed_disk_id is None and 'seedManagedDiskId' in kwargs:
+            seed_managed_disk_id = kwargs['seedManagedDiskId']
+        if seed_managed_disk_id is None:
+            raise TypeError("Missing 'seed_managed_disk_id' argument")
+        if target_managed_disk_id is None and 'targetManagedDiskId' in kwargs:
+            target_managed_disk_id = kwargs['targetManagedDiskId']
+        if target_managed_disk_id is None:
+            raise TypeError("Missing 'target_managed_disk_id' argument")
+        if disk_type is None and 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if ir_details is None and 'irDetails' in kwargs:
+            ir_details = kwargs['irDetails']
+        if resync_details is None and 'resyncDetails' in kwargs:
+            resync_details = kwargs['resyncDetails']
+
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+        _setter("data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
+        _setter("disk_encryption_set_id", disk_encryption_set_id)
+        _setter("disk_id", disk_id)
+        _setter("disk_name", disk_name)
+        _setter("is_initial_replication_complete", is_initial_replication_complete)
+        _setter("is_os_disk", is_os_disk)
+        _setter("log_storage_account_id", log_storage_account_id)
+        _setter("seed_blob_uri", seed_blob_uri)
+        _setter("seed_managed_disk_id", seed_managed_disk_id)
+        _setter("target_managed_disk_id", target_managed_disk_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if ir_details is not None:
-            pulumi.set(__self__, "ir_details", ir_details)
+            _setter("ir_details", ir_details)
         if resync_details is not None:
-            pulumi.set(__self__, "resync_details", resync_details)
+            _setter("resync_details", resync_details)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -11700,8 +15622,29 @@ class InMageRcmProtectionContainerMappingDetailsResponse(dict):
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageRcm'.
         """
-        pulumi.set(__self__, "enable_agent_auto_upgrade", enable_agent_auto_upgrade)
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
+        InMageRcmProtectionContainerMappingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_agent_auto_upgrade=enable_agent_auto_upgrade,
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_agent_auto_upgrade: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_agent_auto_upgrade is None and 'enableAgentAutoUpgrade' in kwargs:
+            enable_agent_auto_upgrade = kwargs['enableAgentAutoUpgrade']
+        if enable_agent_auto_upgrade is None:
+            raise TypeError("Missing 'enable_agent_auto_upgrade' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+
+        _setter("enable_agent_auto_upgrade", enable_agent_auto_upgrade)
+        _setter("instance_type", 'InMageRcm')
 
     @property
     @pulumi.getter(name="enableAgentAutoUpgrade")
@@ -11958,76 +15901,369 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str test_network_id: The test network Id.
         :param Sequence['InMageRcmNicDetailsResponse'] vm_nics: The network details.
         """
-        pulumi.set(__self__, "agent_upgrade_attempt_to_version", agent_upgrade_attempt_to_version)
-        pulumi.set(__self__, "agent_upgrade_job_id", agent_upgrade_job_id)
-        pulumi.set(__self__, "agent_upgrade_state", agent_upgrade_state)
-        pulumi.set(__self__, "allocated_memory_in_mb", allocated_memory_in_mb)
-        pulumi.set(__self__, "discovery_type", discovery_type)
-        pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
-        pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
-        pulumi.set(__self__, "firmware_type", firmware_type)
-        pulumi.set(__self__, "initial_replication_processed_bytes", initial_replication_processed_bytes)
-        pulumi.set(__self__, "initial_replication_progress_health", initial_replication_progress_health)
-        pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
-        pulumi.set(__self__, "initial_replication_transferred_bytes", initial_replication_transferred_bytes)
-        pulumi.set(__self__, "instance_type", 'InMageRcm')
-        pulumi.set(__self__, "internal_identifier", internal_identifier)
-        pulumi.set(__self__, "is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
-        pulumi.set(__self__, "is_last_upgrade_successful", is_last_upgrade_successful)
-        pulumi.set(__self__, "last_agent_upgrade_type", last_agent_upgrade_type)
-        pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
-        pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
-        pulumi.set(__self__, "last_rpo_in_seconds", last_rpo_in_seconds)
-        pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "primary_nic_ip_address", primary_nic_ip_address)
-        pulumi.set(__self__, "process_server_id", process_server_id)
-        pulumi.set(__self__, "process_server_name", process_server_name)
-        pulumi.set(__self__, "processor_core_count", processor_core_count)
-        pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
-        pulumi.set(__self__, "resync_progress_health", resync_progress_health)
-        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
-        pulumi.set(__self__, "resync_required", resync_required)
-        pulumi.set(__self__, "resync_state", resync_state)
-        pulumi.set(__self__, "resync_transferred_bytes", resync_transferred_bytes)
-        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "target_generation", target_generation)
+        InMageRcmReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_upgrade_attempt_to_version=agent_upgrade_attempt_to_version,
+            agent_upgrade_job_id=agent_upgrade_job_id,
+            agent_upgrade_state=agent_upgrade_state,
+            allocated_memory_in_mb=allocated_memory_in_mb,
+            discovery_type=discovery_type,
+            fabric_discovery_machine_id=fabric_discovery_machine_id,
+            failover_recovery_point_id=failover_recovery_point_id,
+            firmware_type=firmware_type,
+            initial_replication_processed_bytes=initial_replication_processed_bytes,
+            initial_replication_progress_health=initial_replication_progress_health,
+            initial_replication_progress_percentage=initial_replication_progress_percentage,
+            initial_replication_transferred_bytes=initial_replication_transferred_bytes,
+            instance_type=instance_type,
+            internal_identifier=internal_identifier,
+            is_agent_registration_successful_after_failover=is_agent_registration_successful_after_failover,
+            is_last_upgrade_successful=is_last_upgrade_successful,
+            last_agent_upgrade_type=last_agent_upgrade_type,
+            last_recovery_point_id=last_recovery_point_id,
+            last_recovery_point_received=last_recovery_point_received,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            last_rpo_in_seconds=last_rpo_in_seconds,
+            multi_vm_group_name=multi_vm_group_name,
+            os_type=os_type,
+            primary_nic_ip_address=primary_nic_ip_address,
+            process_server_id=process_server_id,
+            process_server_name=process_server_name,
+            processor_core_count=processor_core_count,
+            resync_processed_bytes=resync_processed_bytes,
+            resync_progress_health=resync_progress_health,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_state=resync_state,
+            resync_transferred_bytes=resync_transferred_bytes,
+            run_as_account_id=run_as_account_id,
+            storage_account_id=storage_account_id,
+            target_generation=target_generation,
+            agent_upgrade_blocking_error_details=agent_upgrade_blocking_error_details,
+            discovered_vm_details=discovered_vm_details,
+            last_agent_upgrade_error_details=last_agent_upgrade_error_details,
+            license_type=license_type,
+            mobility_agent_details=mobility_agent_details,
+            protected_disks=protected_disks,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_boot_diagnostics_storage_account_id=target_boot_diagnostics_storage_account_id,
+            target_location=target_location,
+            target_network_id=target_network_id,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_resource_group_id=target_resource_group_id,
+            target_vm_name=target_vm_name,
+            target_vm_size=target_vm_size,
+            test_network_id=test_network_id,
+            vm_nics=vm_nics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_upgrade_attempt_to_version: Optional[str] = None,
+             agent_upgrade_job_id: Optional[str] = None,
+             agent_upgrade_state: Optional[str] = None,
+             allocated_memory_in_mb: Optional[float] = None,
+             discovery_type: Optional[str] = None,
+             fabric_discovery_machine_id: Optional[str] = None,
+             failover_recovery_point_id: Optional[str] = None,
+             firmware_type: Optional[str] = None,
+             initial_replication_processed_bytes: Optional[float] = None,
+             initial_replication_progress_health: Optional[str] = None,
+             initial_replication_progress_percentage: Optional[int] = None,
+             initial_replication_transferred_bytes: Optional[float] = None,
+             instance_type: Optional[str] = None,
+             internal_identifier: Optional[str] = None,
+             is_agent_registration_successful_after_failover: Optional[bool] = None,
+             is_last_upgrade_successful: Optional[str] = None,
+             last_agent_upgrade_type: Optional[str] = None,
+             last_recovery_point_id: Optional[str] = None,
+             last_recovery_point_received: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             last_rpo_in_seconds: Optional[float] = None,
+             multi_vm_group_name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             primary_nic_ip_address: Optional[str] = None,
+             process_server_id: Optional[str] = None,
+             process_server_name: Optional[str] = None,
+             processor_core_count: Optional[int] = None,
+             resync_processed_bytes: Optional[float] = None,
+             resync_progress_health: Optional[str] = None,
+             resync_progress_percentage: Optional[int] = None,
+             resync_required: Optional[str] = None,
+             resync_state: Optional[str] = None,
+             resync_transferred_bytes: Optional[float] = None,
+             run_as_account_id: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             target_generation: Optional[str] = None,
+             agent_upgrade_blocking_error_details: Optional[Sequence['outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse']] = None,
+             discovered_vm_details: Optional['outputs.InMageRcmDiscoveredProtectedVmDetailsResponse'] = None,
+             last_agent_upgrade_error_details: Optional[Sequence['outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse']] = None,
+             license_type: Optional[str] = None,
+             mobility_agent_details: Optional['outputs.InMageRcmMobilityAgentDetailsResponse'] = None,
+             protected_disks: Optional[Sequence['outputs.InMageRcmProtectedDiskDetailsResponse']] = None,
+             target_availability_set_id: Optional[str] = None,
+             target_availability_zone: Optional[str] = None,
+             target_boot_diagnostics_storage_account_id: Optional[str] = None,
+             target_location: Optional[str] = None,
+             target_network_id: Optional[str] = None,
+             target_proximity_placement_group_id: Optional[str] = None,
+             target_resource_group_id: Optional[str] = None,
+             target_vm_name: Optional[str] = None,
+             target_vm_size: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.InMageRcmNicDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_upgrade_attempt_to_version is None and 'agentUpgradeAttemptToVersion' in kwargs:
+            agent_upgrade_attempt_to_version = kwargs['agentUpgradeAttemptToVersion']
+        if agent_upgrade_attempt_to_version is None:
+            raise TypeError("Missing 'agent_upgrade_attempt_to_version' argument")
+        if agent_upgrade_job_id is None and 'agentUpgradeJobId' in kwargs:
+            agent_upgrade_job_id = kwargs['agentUpgradeJobId']
+        if agent_upgrade_job_id is None:
+            raise TypeError("Missing 'agent_upgrade_job_id' argument")
+        if agent_upgrade_state is None and 'agentUpgradeState' in kwargs:
+            agent_upgrade_state = kwargs['agentUpgradeState']
+        if agent_upgrade_state is None:
+            raise TypeError("Missing 'agent_upgrade_state' argument")
+        if allocated_memory_in_mb is None and 'allocatedMemoryInMB' in kwargs:
+            allocated_memory_in_mb = kwargs['allocatedMemoryInMB']
+        if allocated_memory_in_mb is None:
+            raise TypeError("Missing 'allocated_memory_in_mb' argument")
+        if discovery_type is None and 'discoveryType' in kwargs:
+            discovery_type = kwargs['discoveryType']
+        if discovery_type is None:
+            raise TypeError("Missing 'discovery_type' argument")
+        if fabric_discovery_machine_id is None and 'fabricDiscoveryMachineId' in kwargs:
+            fabric_discovery_machine_id = kwargs['fabricDiscoveryMachineId']
+        if fabric_discovery_machine_id is None:
+            raise TypeError("Missing 'fabric_discovery_machine_id' argument")
+        if failover_recovery_point_id is None and 'failoverRecoveryPointId' in kwargs:
+            failover_recovery_point_id = kwargs['failoverRecoveryPointId']
+        if failover_recovery_point_id is None:
+            raise TypeError("Missing 'failover_recovery_point_id' argument")
+        if firmware_type is None and 'firmwareType' in kwargs:
+            firmware_type = kwargs['firmwareType']
+        if firmware_type is None:
+            raise TypeError("Missing 'firmware_type' argument")
+        if initial_replication_processed_bytes is None and 'initialReplicationProcessedBytes' in kwargs:
+            initial_replication_processed_bytes = kwargs['initialReplicationProcessedBytes']
+        if initial_replication_processed_bytes is None:
+            raise TypeError("Missing 'initial_replication_processed_bytes' argument")
+        if initial_replication_progress_health is None and 'initialReplicationProgressHealth' in kwargs:
+            initial_replication_progress_health = kwargs['initialReplicationProgressHealth']
+        if initial_replication_progress_health is None:
+            raise TypeError("Missing 'initial_replication_progress_health' argument")
+        if initial_replication_progress_percentage is None and 'initialReplicationProgressPercentage' in kwargs:
+            initial_replication_progress_percentage = kwargs['initialReplicationProgressPercentage']
+        if initial_replication_progress_percentage is None:
+            raise TypeError("Missing 'initial_replication_progress_percentage' argument")
+        if initial_replication_transferred_bytes is None and 'initialReplicationTransferredBytes' in kwargs:
+            initial_replication_transferred_bytes = kwargs['initialReplicationTransferredBytes']
+        if initial_replication_transferred_bytes is None:
+            raise TypeError("Missing 'initial_replication_transferred_bytes' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if internal_identifier is None and 'internalIdentifier' in kwargs:
+            internal_identifier = kwargs['internalIdentifier']
+        if internal_identifier is None:
+            raise TypeError("Missing 'internal_identifier' argument")
+        if is_agent_registration_successful_after_failover is None and 'isAgentRegistrationSuccessfulAfterFailover' in kwargs:
+            is_agent_registration_successful_after_failover = kwargs['isAgentRegistrationSuccessfulAfterFailover']
+        if is_agent_registration_successful_after_failover is None:
+            raise TypeError("Missing 'is_agent_registration_successful_after_failover' argument")
+        if is_last_upgrade_successful is None and 'isLastUpgradeSuccessful' in kwargs:
+            is_last_upgrade_successful = kwargs['isLastUpgradeSuccessful']
+        if is_last_upgrade_successful is None:
+            raise TypeError("Missing 'is_last_upgrade_successful' argument")
+        if last_agent_upgrade_type is None and 'lastAgentUpgradeType' in kwargs:
+            last_agent_upgrade_type = kwargs['lastAgentUpgradeType']
+        if last_agent_upgrade_type is None:
+            raise TypeError("Missing 'last_agent_upgrade_type' argument")
+        if last_recovery_point_id is None and 'lastRecoveryPointId' in kwargs:
+            last_recovery_point_id = kwargs['lastRecoveryPointId']
+        if last_recovery_point_id is None:
+            raise TypeError("Missing 'last_recovery_point_id' argument")
+        if last_recovery_point_received is None and 'lastRecoveryPointReceived' in kwargs:
+            last_recovery_point_received = kwargs['lastRecoveryPointReceived']
+        if last_recovery_point_received is None:
+            raise TypeError("Missing 'last_recovery_point_received' argument")
+        if last_rpo_calculated_time is None and 'lastRpoCalculatedTime' in kwargs:
+            last_rpo_calculated_time = kwargs['lastRpoCalculatedTime']
+        if last_rpo_calculated_time is None:
+            raise TypeError("Missing 'last_rpo_calculated_time' argument")
+        if last_rpo_in_seconds is None and 'lastRpoInSeconds' in kwargs:
+            last_rpo_in_seconds = kwargs['lastRpoInSeconds']
+        if last_rpo_in_seconds is None:
+            raise TypeError("Missing 'last_rpo_in_seconds' argument")
+        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
+            multi_vm_group_name = kwargs['multiVmGroupName']
+        if multi_vm_group_name is None:
+            raise TypeError("Missing 'multi_vm_group_name' argument")
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if primary_nic_ip_address is None and 'primaryNicIpAddress' in kwargs:
+            primary_nic_ip_address = kwargs['primaryNicIpAddress']
+        if primary_nic_ip_address is None:
+            raise TypeError("Missing 'primary_nic_ip_address' argument")
+        if process_server_id is None and 'processServerId' in kwargs:
+            process_server_id = kwargs['processServerId']
+        if process_server_id is None:
+            raise TypeError("Missing 'process_server_id' argument")
+        if process_server_name is None and 'processServerName' in kwargs:
+            process_server_name = kwargs['processServerName']
+        if process_server_name is None:
+            raise TypeError("Missing 'process_server_name' argument")
+        if processor_core_count is None and 'processorCoreCount' in kwargs:
+            processor_core_count = kwargs['processorCoreCount']
+        if processor_core_count is None:
+            raise TypeError("Missing 'processor_core_count' argument")
+        if resync_processed_bytes is None and 'resyncProcessedBytes' in kwargs:
+            resync_processed_bytes = kwargs['resyncProcessedBytes']
+        if resync_processed_bytes is None:
+            raise TypeError("Missing 'resync_processed_bytes' argument")
+        if resync_progress_health is None and 'resyncProgressHealth' in kwargs:
+            resync_progress_health = kwargs['resyncProgressHealth']
+        if resync_progress_health is None:
+            raise TypeError("Missing 'resync_progress_health' argument")
+        if resync_progress_percentage is None and 'resyncProgressPercentage' in kwargs:
+            resync_progress_percentage = kwargs['resyncProgressPercentage']
+        if resync_progress_percentage is None:
+            raise TypeError("Missing 'resync_progress_percentage' argument")
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if resync_required is None:
+            raise TypeError("Missing 'resync_required' argument")
+        if resync_state is None and 'resyncState' in kwargs:
+            resync_state = kwargs['resyncState']
+        if resync_state is None:
+            raise TypeError("Missing 'resync_state' argument")
+        if resync_transferred_bytes is None and 'resyncTransferredBytes' in kwargs:
+            resync_transferred_bytes = kwargs['resyncTransferredBytes']
+        if resync_transferred_bytes is None:
+            raise TypeError("Missing 'resync_transferred_bytes' argument")
+        if run_as_account_id is None and 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+        if run_as_account_id is None:
+            raise TypeError("Missing 'run_as_account_id' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if target_generation is None and 'targetGeneration' in kwargs:
+            target_generation = kwargs['targetGeneration']
+        if target_generation is None:
+            raise TypeError("Missing 'target_generation' argument")
+        if agent_upgrade_blocking_error_details is None and 'agentUpgradeBlockingErrorDetails' in kwargs:
+            agent_upgrade_blocking_error_details = kwargs['agentUpgradeBlockingErrorDetails']
+        if discovered_vm_details is None and 'discoveredVmDetails' in kwargs:
+            discovered_vm_details = kwargs['discoveredVmDetails']
+        if last_agent_upgrade_error_details is None and 'lastAgentUpgradeErrorDetails' in kwargs:
+            last_agent_upgrade_error_details = kwargs['lastAgentUpgradeErrorDetails']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if mobility_agent_details is None and 'mobilityAgentDetails' in kwargs:
+            mobility_agent_details = kwargs['mobilityAgentDetails']
+        if protected_disks is None and 'protectedDisks' in kwargs:
+            protected_disks = kwargs['protectedDisks']
+        if target_availability_set_id is None and 'targetAvailabilitySetId' in kwargs:
+            target_availability_set_id = kwargs['targetAvailabilitySetId']
+        if target_availability_zone is None and 'targetAvailabilityZone' in kwargs:
+            target_availability_zone = kwargs['targetAvailabilityZone']
+        if target_boot_diagnostics_storage_account_id is None and 'targetBootDiagnosticsStorageAccountId' in kwargs:
+            target_boot_diagnostics_storage_account_id = kwargs['targetBootDiagnosticsStorageAccountId']
+        if target_location is None and 'targetLocation' in kwargs:
+            target_location = kwargs['targetLocation']
+        if target_network_id is None and 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if target_proximity_placement_group_id is None and 'targetProximityPlacementGroupId' in kwargs:
+            target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
+        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if target_vm_name is None and 'targetVmName' in kwargs:
+            target_vm_name = kwargs['targetVmName']
+        if target_vm_size is None and 'targetVmSize' in kwargs:
+            target_vm_size = kwargs['targetVmSize']
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+
+        _setter("agent_upgrade_attempt_to_version", agent_upgrade_attempt_to_version)
+        _setter("agent_upgrade_job_id", agent_upgrade_job_id)
+        _setter("agent_upgrade_state", agent_upgrade_state)
+        _setter("allocated_memory_in_mb", allocated_memory_in_mb)
+        _setter("discovery_type", discovery_type)
+        _setter("fabric_discovery_machine_id", fabric_discovery_machine_id)
+        _setter("failover_recovery_point_id", failover_recovery_point_id)
+        _setter("firmware_type", firmware_type)
+        _setter("initial_replication_processed_bytes", initial_replication_processed_bytes)
+        _setter("initial_replication_progress_health", initial_replication_progress_health)
+        _setter("initial_replication_progress_percentage", initial_replication_progress_percentage)
+        _setter("initial_replication_transferred_bytes", initial_replication_transferred_bytes)
+        _setter("instance_type", 'InMageRcm')
+        _setter("internal_identifier", internal_identifier)
+        _setter("is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
+        _setter("is_last_upgrade_successful", is_last_upgrade_successful)
+        _setter("last_agent_upgrade_type", last_agent_upgrade_type)
+        _setter("last_recovery_point_id", last_recovery_point_id)
+        _setter("last_recovery_point_received", last_recovery_point_received)
+        _setter("last_rpo_calculated_time", last_rpo_calculated_time)
+        _setter("last_rpo_in_seconds", last_rpo_in_seconds)
+        _setter("multi_vm_group_name", multi_vm_group_name)
+        _setter("os_type", os_type)
+        _setter("primary_nic_ip_address", primary_nic_ip_address)
+        _setter("process_server_id", process_server_id)
+        _setter("process_server_name", process_server_name)
+        _setter("processor_core_count", processor_core_count)
+        _setter("resync_processed_bytes", resync_processed_bytes)
+        _setter("resync_progress_health", resync_progress_health)
+        _setter("resync_progress_percentage", resync_progress_percentage)
+        _setter("resync_required", resync_required)
+        _setter("resync_state", resync_state)
+        _setter("resync_transferred_bytes", resync_transferred_bytes)
+        _setter("run_as_account_id", run_as_account_id)
+        _setter("storage_account_id", storage_account_id)
+        _setter("target_generation", target_generation)
         if agent_upgrade_blocking_error_details is not None:
-            pulumi.set(__self__, "agent_upgrade_blocking_error_details", agent_upgrade_blocking_error_details)
+            _setter("agent_upgrade_blocking_error_details", agent_upgrade_blocking_error_details)
         if discovered_vm_details is not None:
-            pulumi.set(__self__, "discovered_vm_details", discovered_vm_details)
+            _setter("discovered_vm_details", discovered_vm_details)
         if last_agent_upgrade_error_details is not None:
-            pulumi.set(__self__, "last_agent_upgrade_error_details", last_agent_upgrade_error_details)
+            _setter("last_agent_upgrade_error_details", last_agent_upgrade_error_details)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if mobility_agent_details is not None:
-            pulumi.set(__self__, "mobility_agent_details", mobility_agent_details)
+            _setter("mobility_agent_details", mobility_agent_details)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_boot_diagnostics_storage_account_id is not None:
-            pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+            _setter("target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
         if target_location is not None:
-            pulumi.set(__self__, "target_location", target_location)
+            _setter("target_location", target_location)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_resource_group_id is not None:
-            pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+            _setter("target_resource_group_id", target_resource_group_id)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
 
     @property
     @pulumi.getter(name="agentUpgradeAttemptToVersion")
@@ -12511,14 +16747,71 @@ class InMageRcmSyncDetailsResponse(dict):
         :param str start_time: The start time.
         :param float transferred_bytes: The transferred bytes from source VM to azure for the disk.
         """
-        pulumi.set(__self__, "last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
-        pulumi.set(__self__, "last_data_transfer_time_utc", last_data_transfer_time_utc)
-        pulumi.set(__self__, "last_refresh_time", last_refresh_time)
-        pulumi.set(__self__, "processed_bytes", processed_bytes)
-        pulumi.set(__self__, "progress_health", progress_health)
-        pulumi.set(__self__, "progress_percentage", progress_percentage)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "transferred_bytes", transferred_bytes)
+        InMageRcmSyncDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last15_minutes_transferred_bytes=last15_minutes_transferred_bytes,
+            last_data_transfer_time_utc=last_data_transfer_time_utc,
+            last_refresh_time=last_refresh_time,
+            processed_bytes=processed_bytes,
+            progress_health=progress_health,
+            progress_percentage=progress_percentage,
+            start_time=start_time,
+            transferred_bytes=transferred_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last15_minutes_transferred_bytes: Optional[float] = None,
+             last_data_transfer_time_utc: Optional[str] = None,
+             last_refresh_time: Optional[str] = None,
+             processed_bytes: Optional[float] = None,
+             progress_health: Optional[str] = None,
+             progress_percentage: Optional[int] = None,
+             start_time: Optional[str] = None,
+             transferred_bytes: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last15_minutes_transferred_bytes is None and 'last15MinutesTransferredBytes' in kwargs:
+            last15_minutes_transferred_bytes = kwargs['last15MinutesTransferredBytes']
+        if last15_minutes_transferred_bytes is None:
+            raise TypeError("Missing 'last15_minutes_transferred_bytes' argument")
+        if last_data_transfer_time_utc is None and 'lastDataTransferTimeUtc' in kwargs:
+            last_data_transfer_time_utc = kwargs['lastDataTransferTimeUtc']
+        if last_data_transfer_time_utc is None:
+            raise TypeError("Missing 'last_data_transfer_time_utc' argument")
+        if last_refresh_time is None and 'lastRefreshTime' in kwargs:
+            last_refresh_time = kwargs['lastRefreshTime']
+        if last_refresh_time is None:
+            raise TypeError("Missing 'last_refresh_time' argument")
+        if processed_bytes is None and 'processedBytes' in kwargs:
+            processed_bytes = kwargs['processedBytes']
+        if processed_bytes is None:
+            raise TypeError("Missing 'processed_bytes' argument")
+        if progress_health is None and 'progressHealth' in kwargs:
+            progress_health = kwargs['progressHealth']
+        if progress_health is None:
+            raise TypeError("Missing 'progress_health' argument")
+        if progress_percentage is None and 'progressPercentage' in kwargs:
+            progress_percentage = kwargs['progressPercentage']
+        if progress_percentage is None:
+            raise TypeError("Missing 'progress_percentage' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if transferred_bytes is None and 'transferredBytes' in kwargs:
+            transferred_bytes = kwargs['transferredBytes']
+        if transferred_bytes is None:
+            raise TypeError("Missing 'transferred_bytes' argument")
+
+        _setter("last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
+        _setter("last_data_transfer_time_utc", last_data_transfer_time_utc)
+        _setter("last_refresh_time", last_refresh_time)
+        _setter("processed_bytes", processed_bytes)
+        _setter("progress_health", progress_health)
+        _setter("progress_percentage", progress_percentage)
+        _setter("start_time", start_time)
+        _setter("transferred_bytes", transferred_bytes)
 
     @property
     @pulumi.getter(name="last15MinutesTransferredBytes")
@@ -12772,87 +17065,260 @@ class InMageReplicationDetailsResponse(dict):
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         """
-        pulumi.set(__self__, "instance_type", 'InMage')
+        InMageReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            active_site_type=active_site_type,
+            agent_details=agent_details,
+            azure_storage_account_id=azure_storage_account_id,
+            compressed_data_rate_in_mb=compressed_data_rate_in_mb,
+            consistency_points=consistency_points,
+            datastores=datastores,
+            discovery_type=discovery_type,
+            disk_resized=disk_resized,
+            infrastructure_vm_id=infrastructure_vm_id,
+            ip_address=ip_address,
+            is_additional_stats_available=is_additional_stats_available,
+            last_heartbeat=last_heartbeat,
+            last_rpo_calculated_time=last_rpo_calculated_time,
+            last_update_received_time=last_update_received_time,
+            master_target_id=master_target_id,
+            multi_vm_group_id=multi_vm_group_id,
+            multi_vm_group_name=multi_vm_group_name,
+            multi_vm_sync_status=multi_vm_sync_status,
+            os_details=os_details,
+            os_version=os_version,
+            process_server_id=process_server_id,
+            protected_disks=protected_disks,
+            protection_stage=protection_stage,
+            reboot_after_update_status=reboot_after_update_status,
+            replica_id=replica_id,
+            resync_details=resync_details,
+            retention_window_end=retention_window_end,
+            retention_window_start=retention_window_start,
+            rpo_in_seconds=rpo_in_seconds,
+            source_vm_cpu_count=source_vm_cpu_count,
+            source_vm_ram_size_in_mb=source_vm_ram_size_in_mb,
+            total_data_transferred=total_data_transferred,
+            total_progress_health=total_progress_health,
+            uncompressed_data_rate_in_mb=uncompressed_data_rate_in_mb,
+            v_center_infrastructure_id=v_center_infrastructure_id,
+            validation_errors=validation_errors,
+            vm_id=vm_id,
+            vm_nics=vm_nics,
+            vm_protection_state=vm_protection_state,
+            vm_protection_state_description=vm_protection_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             active_site_type: Optional[str] = None,
+             agent_details: Optional['outputs.InMageAgentDetailsResponse'] = None,
+             azure_storage_account_id: Optional[str] = None,
+             compressed_data_rate_in_mb: Optional[float] = None,
+             consistency_points: Optional[Mapping[str, str]] = None,
+             datastores: Optional[Sequence[str]] = None,
+             discovery_type: Optional[str] = None,
+             disk_resized: Optional[str] = None,
+             infrastructure_vm_id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             is_additional_stats_available: Optional[bool] = None,
+             last_heartbeat: Optional[str] = None,
+             last_rpo_calculated_time: Optional[str] = None,
+             last_update_received_time: Optional[str] = None,
+             master_target_id: Optional[str] = None,
+             multi_vm_group_id: Optional[str] = None,
+             multi_vm_group_name: Optional[str] = None,
+             multi_vm_sync_status: Optional[str] = None,
+             os_details: Optional['outputs.OSDiskDetailsResponse'] = None,
+             os_version: Optional[str] = None,
+             process_server_id: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.InMageProtectedDiskDetailsResponse']] = None,
+             protection_stage: Optional[str] = None,
+             reboot_after_update_status: Optional[str] = None,
+             replica_id: Optional[str] = None,
+             resync_details: Optional['outputs.InitialReplicationDetailsResponse'] = None,
+             retention_window_end: Optional[str] = None,
+             retention_window_start: Optional[str] = None,
+             rpo_in_seconds: Optional[float] = None,
+             source_vm_cpu_count: Optional[int] = None,
+             source_vm_ram_size_in_mb: Optional[int] = None,
+             total_data_transferred: Optional[float] = None,
+             total_progress_health: Optional[str] = None,
+             uncompressed_data_rate_in_mb: Optional[float] = None,
+             v_center_infrastructure_id: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             vm_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
+             vm_protection_state: Optional[str] = None,
+             vm_protection_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if active_site_type is None and 'activeSiteType' in kwargs:
+            active_site_type = kwargs['activeSiteType']
+        if agent_details is None and 'agentDetails' in kwargs:
+            agent_details = kwargs['agentDetails']
+        if azure_storage_account_id is None and 'azureStorageAccountId' in kwargs:
+            azure_storage_account_id = kwargs['azureStorageAccountId']
+        if compressed_data_rate_in_mb is None and 'compressedDataRateInMB' in kwargs:
+            compressed_data_rate_in_mb = kwargs['compressedDataRateInMB']
+        if consistency_points is None and 'consistencyPoints' in kwargs:
+            consistency_points = kwargs['consistencyPoints']
+        if discovery_type is None and 'discoveryType' in kwargs:
+            discovery_type = kwargs['discoveryType']
+        if disk_resized is None and 'diskResized' in kwargs:
+            disk_resized = kwargs['diskResized']
+        if infrastructure_vm_id is None and 'infrastructureVmId' in kwargs:
+            infrastructure_vm_id = kwargs['infrastructureVmId']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if is_additional_stats_available is None and 'isAdditionalStatsAvailable' in kwargs:
+            is_additional_stats_available = kwargs['isAdditionalStatsAvailable']
+        if last_heartbeat is None and 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if last_rpo_calculated_time is None and 'lastRpoCalculatedTime' in kwargs:
+            last_rpo_calculated_time = kwargs['lastRpoCalculatedTime']
+        if last_update_received_time is None and 'lastUpdateReceivedTime' in kwargs:
+            last_update_received_time = kwargs['lastUpdateReceivedTime']
+        if master_target_id is None and 'masterTargetId' in kwargs:
+            master_target_id = kwargs['masterTargetId']
+        if multi_vm_group_id is None and 'multiVmGroupId' in kwargs:
+            multi_vm_group_id = kwargs['multiVmGroupId']
+        if multi_vm_group_name is None and 'multiVmGroupName' in kwargs:
+            multi_vm_group_name = kwargs['multiVmGroupName']
+        if multi_vm_sync_status is None and 'multiVmSyncStatus' in kwargs:
+            multi_vm_sync_status = kwargs['multiVmSyncStatus']
+        if os_details is None and 'osDetails' in kwargs:
+            os_details = kwargs['osDetails']
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if process_server_id is None and 'processServerId' in kwargs:
+            process_server_id = kwargs['processServerId']
+        if protected_disks is None and 'protectedDisks' in kwargs:
+            protected_disks = kwargs['protectedDisks']
+        if protection_stage is None and 'protectionStage' in kwargs:
+            protection_stage = kwargs['protectionStage']
+        if reboot_after_update_status is None and 'rebootAfterUpdateStatus' in kwargs:
+            reboot_after_update_status = kwargs['rebootAfterUpdateStatus']
+        if replica_id is None and 'replicaId' in kwargs:
+            replica_id = kwargs['replicaId']
+        if resync_details is None and 'resyncDetails' in kwargs:
+            resync_details = kwargs['resyncDetails']
+        if retention_window_end is None and 'retentionWindowEnd' in kwargs:
+            retention_window_end = kwargs['retentionWindowEnd']
+        if retention_window_start is None and 'retentionWindowStart' in kwargs:
+            retention_window_start = kwargs['retentionWindowStart']
+        if rpo_in_seconds is None and 'rpoInSeconds' in kwargs:
+            rpo_in_seconds = kwargs['rpoInSeconds']
+        if source_vm_cpu_count is None and 'sourceVmCpuCount' in kwargs:
+            source_vm_cpu_count = kwargs['sourceVmCpuCount']
+        if source_vm_ram_size_in_mb is None and 'sourceVmRamSizeInMB' in kwargs:
+            source_vm_ram_size_in_mb = kwargs['sourceVmRamSizeInMB']
+        if total_data_transferred is None and 'totalDataTransferred' in kwargs:
+            total_data_transferred = kwargs['totalDataTransferred']
+        if total_progress_health is None and 'totalProgressHealth' in kwargs:
+            total_progress_health = kwargs['totalProgressHealth']
+        if uncompressed_data_rate_in_mb is None and 'uncompressedDataRateInMB' in kwargs:
+            uncompressed_data_rate_in_mb = kwargs['uncompressedDataRateInMB']
+        if v_center_infrastructure_id is None and 'vCenterInfrastructureId' in kwargs:
+            v_center_infrastructure_id = kwargs['vCenterInfrastructureId']
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if vm_id is None and 'vmId' in kwargs:
+            vm_id = kwargs['vmId']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+        if vm_protection_state is None and 'vmProtectionState' in kwargs:
+            vm_protection_state = kwargs['vmProtectionState']
+        if vm_protection_state_description is None and 'vmProtectionStateDescription' in kwargs:
+            vm_protection_state_description = kwargs['vmProtectionStateDescription']
+
+        _setter("instance_type", 'InMage')
         if active_site_type is not None:
-            pulumi.set(__self__, "active_site_type", active_site_type)
+            _setter("active_site_type", active_site_type)
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if azure_storage_account_id is not None:
-            pulumi.set(__self__, "azure_storage_account_id", azure_storage_account_id)
+            _setter("azure_storage_account_id", azure_storage_account_id)
         if compressed_data_rate_in_mb is not None:
-            pulumi.set(__self__, "compressed_data_rate_in_mb", compressed_data_rate_in_mb)
+            _setter("compressed_data_rate_in_mb", compressed_data_rate_in_mb)
         if consistency_points is not None:
-            pulumi.set(__self__, "consistency_points", consistency_points)
+            _setter("consistency_points", consistency_points)
         if datastores is not None:
-            pulumi.set(__self__, "datastores", datastores)
+            _setter("datastores", datastores)
         if discovery_type is not None:
-            pulumi.set(__self__, "discovery_type", discovery_type)
+            _setter("discovery_type", discovery_type)
         if disk_resized is not None:
-            pulumi.set(__self__, "disk_resized", disk_resized)
+            _setter("disk_resized", disk_resized)
         if infrastructure_vm_id is not None:
-            pulumi.set(__self__, "infrastructure_vm_id", infrastructure_vm_id)
+            _setter("infrastructure_vm_id", infrastructure_vm_id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if is_additional_stats_available is not None:
-            pulumi.set(__self__, "is_additional_stats_available", is_additional_stats_available)
+            _setter("is_additional_stats_available", is_additional_stats_available)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if last_rpo_calculated_time is not None:
-            pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+            _setter("last_rpo_calculated_time", last_rpo_calculated_time)
         if last_update_received_time is not None:
-            pulumi.set(__self__, "last_update_received_time", last_update_received_time)
+            _setter("last_update_received_time", last_update_received_time)
         if master_target_id is not None:
-            pulumi.set(__self__, "master_target_id", master_target_id)
+            _setter("master_target_id", master_target_id)
         if multi_vm_group_id is not None:
-            pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
+            _setter("multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
-            pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+            _setter("multi_vm_group_name", multi_vm_group_name)
         if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
+            _setter("multi_vm_sync_status", multi_vm_sync_status)
         if os_details is not None:
-            pulumi.set(__self__, "os_details", os_details)
+            _setter("os_details", os_details)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if protection_stage is not None:
-            pulumi.set(__self__, "protection_stage", protection_stage)
+            _setter("protection_stage", protection_stage)
         if reboot_after_update_status is not None:
-            pulumi.set(__self__, "reboot_after_update_status", reboot_after_update_status)
+            _setter("reboot_after_update_status", reboot_after_update_status)
         if replica_id is not None:
-            pulumi.set(__self__, "replica_id", replica_id)
+            _setter("replica_id", replica_id)
         if resync_details is not None:
-            pulumi.set(__self__, "resync_details", resync_details)
+            _setter("resync_details", resync_details)
         if retention_window_end is not None:
-            pulumi.set(__self__, "retention_window_end", retention_window_end)
+            _setter("retention_window_end", retention_window_end)
         if retention_window_start is not None:
-            pulumi.set(__self__, "retention_window_start", retention_window_start)
+            _setter("retention_window_start", retention_window_start)
         if rpo_in_seconds is not None:
-            pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+            _setter("rpo_in_seconds", rpo_in_seconds)
         if source_vm_cpu_count is not None:
-            pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
+            _setter("source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
-            pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+            _setter("source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
         if total_data_transferred is not None:
-            pulumi.set(__self__, "total_data_transferred", total_data_transferred)
+            _setter("total_data_transferred", total_data_transferred)
         if total_progress_health is not None:
-            pulumi.set(__self__, "total_progress_health", total_progress_health)
+            _setter("total_progress_health", total_progress_health)
         if uncompressed_data_rate_in_mb is not None:
-            pulumi.set(__self__, "uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
+            _setter("uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
         if v_center_infrastructure_id is not None:
-            pulumi.set(__self__, "v_center_infrastructure_id", v_center_infrastructure_id)
+            _setter("v_center_infrastructure_id", v_center_infrastructure_id)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
         if vm_id is not None:
-            pulumi.set(__self__, "vm_id", vm_id)
+            _setter("vm_id", vm_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
         if vm_protection_state is not None:
-            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+            _setter("vm_protection_state", vm_protection_state)
         if vm_protection_state_description is not None:
-            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+            _setter("vm_protection_state_description", vm_protection_state_description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -13216,10 +17682,27 @@ class InitialReplicationDetailsResponse(dict):
         :param str initial_replication_progress_percentage: The initial replication progress percentage.
         :param str initial_replication_type: Initial replication type.
         """
+        InitialReplicationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initial_replication_progress_percentage=initial_replication_progress_percentage,
+            initial_replication_type=initial_replication_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initial_replication_progress_percentage: Optional[str] = None,
+             initial_replication_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if initial_replication_progress_percentage is None and 'initialReplicationProgressPercentage' in kwargs:
+            initial_replication_progress_percentage = kwargs['initialReplicationProgressPercentage']
+        if initial_replication_type is None and 'initialReplicationType' in kwargs:
+            initial_replication_type = kwargs['initialReplicationType']
+
         if initial_replication_progress_percentage is not None:
-            pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
+            _setter("initial_replication_progress_percentage", initial_replication_progress_percentage)
         if initial_replication_type is not None:
-            pulumi.set(__self__, "initial_replication_type", initial_replication_type)
+            _setter("initial_replication_type", initial_replication_type)
 
     @property
     @pulumi.getter(name="initialReplicationProgressPercentage")
@@ -13318,34 +17801,99 @@ class InnerHealthErrorResponse(dict):
         :param str recovery_provider_error_message: DRA error message.
         :param str summary_message: Summary message of the entity.
         """
+        InnerHealthErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            creation_time_utc=creation_time_utc,
+            customer_resolvability=customer_resolvability,
+            entity_id=entity_id,
+            error_category=error_category,
+            error_code=error_code,
+            error_id=error_id,
+            error_level=error_level,
+            error_message=error_message,
+            error_source=error_source,
+            error_type=error_type,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+            recovery_provider_error_message=recovery_provider_error_message,
+            summary_message=summary_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             creation_time_utc: Optional[str] = None,
+             customer_resolvability: Optional[str] = None,
+             entity_id: Optional[str] = None,
+             error_category: Optional[str] = None,
+             error_code: Optional[str] = None,
+             error_id: Optional[str] = None,
+             error_level: Optional[str] = None,
+             error_message: Optional[str] = None,
+             error_source: Optional[str] = None,
+             error_type: Optional[str] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             recovery_provider_error_message: Optional[str] = None,
+             summary_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_time_utc is None and 'creationTimeUtc' in kwargs:
+            creation_time_utc = kwargs['creationTimeUtc']
+        if customer_resolvability is None and 'customerResolvability' in kwargs:
+            customer_resolvability = kwargs['customerResolvability']
+        if entity_id is None and 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if error_category is None and 'errorCategory' in kwargs:
+            error_category = kwargs['errorCategory']
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_id is None and 'errorId' in kwargs:
+            error_id = kwargs['errorId']
+        if error_level is None and 'errorLevel' in kwargs:
+            error_level = kwargs['errorLevel']
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if error_source is None and 'errorSource' in kwargs:
+            error_source = kwargs['errorSource']
+        if error_type is None and 'errorType' in kwargs:
+            error_type = kwargs['errorType']
+        if possible_causes is None and 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if recommended_action is None and 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if recovery_provider_error_message is None and 'recoveryProviderErrorMessage' in kwargs:
+            recovery_provider_error_message = kwargs['recoveryProviderErrorMessage']
+        if summary_message is None and 'summaryMessage' in kwargs:
+            summary_message = kwargs['summaryMessage']
+
         if creation_time_utc is not None:
-            pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+            _setter("creation_time_utc", creation_time_utc)
         if customer_resolvability is not None:
-            pulumi.set(__self__, "customer_resolvability", customer_resolvability)
+            _setter("customer_resolvability", customer_resolvability)
         if entity_id is not None:
-            pulumi.set(__self__, "entity_id", entity_id)
+            _setter("entity_id", entity_id)
         if error_category is not None:
-            pulumi.set(__self__, "error_category", error_category)
+            _setter("error_category", error_category)
         if error_code is not None:
-            pulumi.set(__self__, "error_code", error_code)
+            _setter("error_code", error_code)
         if error_id is not None:
-            pulumi.set(__self__, "error_id", error_id)
+            _setter("error_id", error_id)
         if error_level is not None:
-            pulumi.set(__self__, "error_level", error_level)
+            _setter("error_level", error_level)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if error_source is not None:
-            pulumi.set(__self__, "error_source", error_source)
+            _setter("error_source", error_source)
         if error_type is not None:
-            pulumi.set(__self__, "error_type", error_type)
+            _setter("error_type", error_type)
         if possible_causes is not None:
-            pulumi.set(__self__, "possible_causes", possible_causes)
+            _setter("possible_causes", possible_causes)
         if recommended_action is not None:
-            pulumi.set(__self__, "recommended_action", recommended_action)
+            _setter("recommended_action", recommended_action)
         if recovery_provider_error_message is not None:
-            pulumi.set(__self__, "recovery_provider_error_message", recovery_provider_error_message)
+            _setter("recovery_provider_error_message", recovery_provider_error_message)
         if summary_message is not None:
-            pulumi.set(__self__, "summary_message", summary_message)
+            _setter("summary_message", summary_message)
 
     @property
     @pulumi.getter(name="creationTimeUtc")
@@ -13488,14 +18036,37 @@ class InputEndpointResponse(dict):
                  private_port: Optional[int] = None,
                  protocol: Optional[str] = None,
                  public_port: Optional[int] = None):
+        InputEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_name=endpoint_name,
+            private_port=private_port,
+            protocol=protocol,
+            public_port=public_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_name: Optional[str] = None,
+             private_port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             public_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if private_port is None and 'privatePort' in kwargs:
+            private_port = kwargs['privatePort']
+        if public_port is None and 'publicPort' in kwargs:
+            public_port = kwargs['publicPort']
+
         if endpoint_name is not None:
-            pulumi.set(__self__, "endpoint_name", endpoint_name)
+            _setter("endpoint_name", endpoint_name)
         if private_port is not None:
-            pulumi.set(__self__, "private_port", private_port)
+            _setter("private_port", private_port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if public_port is not None:
-            pulumi.set(__self__, "public_port", public_port)
+            _setter("public_port", public_port)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -13568,15 +18139,68 @@ class MarsAgentDetailsResponse(dict):
         :param str name: The Mars agent name.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        MarsAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             id: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if fabric_object_id is None:
+            raise TypeError("Missing 'fabric_object_id' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("bios_id", bios_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -13743,42 +18367,119 @@ class MasterTargetServerResponse(dict):
         :param Sequence['HealthErrorResponse'] validation_errors: Validation errors.
         :param str version_status: Version status.
         """
+        MasterTargetServerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            agent_version_details=agent_version_details,
+            data_stores=data_stores,
+            disk_count=disk_count,
+            health_errors=health_errors,
+            id=id,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            mars_agent_expiry_date=mars_agent_expiry_date,
+            mars_agent_version=mars_agent_version,
+            mars_agent_version_details=mars_agent_version_details,
+            name=name,
+            os_type=os_type,
+            os_version=os_version,
+            retention_volumes=retention_volumes,
+            validation_errors=validation_errors,
+            version_status=version_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             data_stores: Optional[Sequence['outputs.DataStoreResponse']] = None,
+             disk_count: Optional[int] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             mars_agent_expiry_date: Optional[str] = None,
+             mars_agent_version: Optional[str] = None,
+             mars_agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             os_version: Optional[str] = None,
+             retention_volumes: Optional[Sequence['outputs.RetentionVolumeResponse']] = None,
+             validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             version_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_expiry_date is None and 'agentExpiryDate' in kwargs:
+            agent_expiry_date = kwargs['agentExpiryDate']
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if agent_version_details is None and 'agentVersionDetails' in kwargs:
+            agent_version_details = kwargs['agentVersionDetails']
+        if data_stores is None and 'dataStores' in kwargs:
+            data_stores = kwargs['dataStores']
+        if disk_count is None and 'diskCount' in kwargs:
+            disk_count = kwargs['diskCount']
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if last_heartbeat is None and 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if mars_agent_expiry_date is None and 'marsAgentExpiryDate' in kwargs:
+            mars_agent_expiry_date = kwargs['marsAgentExpiryDate']
+        if mars_agent_version is None and 'marsAgentVersion' in kwargs:
+            mars_agent_version = kwargs['marsAgentVersion']
+        if mars_agent_version_details is None and 'marsAgentVersionDetails' in kwargs:
+            mars_agent_version_details = kwargs['marsAgentVersionDetails']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if retention_volumes is None and 'retentionVolumes' in kwargs:
+            retention_volumes = kwargs['retentionVolumes']
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if version_status is None and 'versionStatus' in kwargs:
+            version_status = kwargs['versionStatus']
+
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if agent_version_details is not None:
-            pulumi.set(__self__, "agent_version_details", agent_version_details)
+            _setter("agent_version_details", agent_version_details)
         if data_stores is not None:
-            pulumi.set(__self__, "data_stores", data_stores)
+            _setter("data_stores", data_stores)
         if disk_count is not None:
-            pulumi.set(__self__, "disk_count", disk_count)
+            _setter("disk_count", disk_count)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if mars_agent_expiry_date is not None:
-            pulumi.set(__self__, "mars_agent_expiry_date", mars_agent_expiry_date)
+            _setter("mars_agent_expiry_date", mars_agent_expiry_date)
         if mars_agent_version is not None:
-            pulumi.set(__self__, "mars_agent_version", mars_agent_version)
+            _setter("mars_agent_version", mars_agent_version)
         if mars_agent_version_details is not None:
-            pulumi.set(__self__, "mars_agent_version_details", mars_agent_version_details)
+            _setter("mars_agent_version_details", mars_agent_version_details)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if retention_volumes is not None:
-            pulumi.set(__self__, "retention_volumes", retention_volumes)
+            _setter("retention_volumes", retention_volumes)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
         if version_status is not None:
-            pulumi.set(__self__, "version_status", version_status)
+            _setter("version_status", version_status)
 
     @property
     @pulumi.getter(name="agentExpiryDate")
@@ -14027,27 +18728,152 @@ class MigrationItemPropertiesResponse(dict):
         :param str test_migrate_state_description: The test migrate state description.
         :param 'VMwareCbtMigrationDetailsResponse' provider_specific_details: The migration provider custom settings.
         """
-        pulumi.set(__self__, "allowed_operations", allowed_operations)
-        pulumi.set(__self__, "critical_job_history", critical_job_history)
-        pulumi.set(__self__, "current_job", current_job)
-        pulumi.set(__self__, "event_correlation_id", event_correlation_id)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "last_migration_status", last_migration_status)
-        pulumi.set(__self__, "last_migration_time", last_migration_time)
-        pulumi.set(__self__, "last_test_migration_status", last_test_migration_status)
-        pulumi.set(__self__, "last_test_migration_time", last_test_migration_time)
-        pulumi.set(__self__, "machine_name", machine_name)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "migration_state_description", migration_state_description)
-        pulumi.set(__self__, "policy_friendly_name", policy_friendly_name)
-        pulumi.set(__self__, "policy_id", policy_id)
-        pulumi.set(__self__, "recovery_services_provider_id", recovery_services_provider_id)
-        pulumi.set(__self__, "replication_status", replication_status)
-        pulumi.set(__self__, "test_migrate_state", test_migrate_state)
-        pulumi.set(__self__, "test_migrate_state_description", test_migrate_state_description)
+        MigrationItemPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_operations=allowed_operations,
+            critical_job_history=critical_job_history,
+            current_job=current_job,
+            event_correlation_id=event_correlation_id,
+            health=health,
+            health_errors=health_errors,
+            last_migration_status=last_migration_status,
+            last_migration_time=last_migration_time,
+            last_test_migration_status=last_test_migration_status,
+            last_test_migration_time=last_test_migration_time,
+            machine_name=machine_name,
+            migration_state=migration_state,
+            migration_state_description=migration_state_description,
+            policy_friendly_name=policy_friendly_name,
+            policy_id=policy_id,
+            recovery_services_provider_id=recovery_services_provider_id,
+            replication_status=replication_status,
+            test_migrate_state=test_migrate_state,
+            test_migrate_state_description=test_migrate_state_description,
+            provider_specific_details=provider_specific_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_operations: Optional[Sequence[str]] = None,
+             critical_job_history: Optional[Sequence['outputs.CriticalJobHistoryDetailsResponse']] = None,
+             current_job: Optional['outputs.CurrentJobDetailsResponse'] = None,
+             event_correlation_id: Optional[str] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             last_migration_status: Optional[str] = None,
+             last_migration_time: Optional[str] = None,
+             last_test_migration_status: Optional[str] = None,
+             last_test_migration_time: Optional[str] = None,
+             machine_name: Optional[str] = None,
+             migration_state: Optional[str] = None,
+             migration_state_description: Optional[str] = None,
+             policy_friendly_name: Optional[str] = None,
+             policy_id: Optional[str] = None,
+             recovery_services_provider_id: Optional[str] = None,
+             replication_status: Optional[str] = None,
+             test_migrate_state: Optional[str] = None,
+             test_migrate_state_description: Optional[str] = None,
+             provider_specific_details: Optional['outputs.VMwareCbtMigrationDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_operations is None and 'allowedOperations' in kwargs:
+            allowed_operations = kwargs['allowedOperations']
+        if allowed_operations is None:
+            raise TypeError("Missing 'allowed_operations' argument")
+        if critical_job_history is None and 'criticalJobHistory' in kwargs:
+            critical_job_history = kwargs['criticalJobHistory']
+        if critical_job_history is None:
+            raise TypeError("Missing 'critical_job_history' argument")
+        if current_job is None and 'currentJob' in kwargs:
+            current_job = kwargs['currentJob']
+        if current_job is None:
+            raise TypeError("Missing 'current_job' argument")
+        if event_correlation_id is None and 'eventCorrelationId' in kwargs:
+            event_correlation_id = kwargs['eventCorrelationId']
+        if event_correlation_id is None:
+            raise TypeError("Missing 'event_correlation_id' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if last_migration_status is None and 'lastMigrationStatus' in kwargs:
+            last_migration_status = kwargs['lastMigrationStatus']
+        if last_migration_status is None:
+            raise TypeError("Missing 'last_migration_status' argument")
+        if last_migration_time is None and 'lastMigrationTime' in kwargs:
+            last_migration_time = kwargs['lastMigrationTime']
+        if last_migration_time is None:
+            raise TypeError("Missing 'last_migration_time' argument")
+        if last_test_migration_status is None and 'lastTestMigrationStatus' in kwargs:
+            last_test_migration_status = kwargs['lastTestMigrationStatus']
+        if last_test_migration_status is None:
+            raise TypeError("Missing 'last_test_migration_status' argument")
+        if last_test_migration_time is None and 'lastTestMigrationTime' in kwargs:
+            last_test_migration_time = kwargs['lastTestMigrationTime']
+        if last_test_migration_time is None:
+            raise TypeError("Missing 'last_test_migration_time' argument")
+        if machine_name is None and 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if machine_name is None:
+            raise TypeError("Missing 'machine_name' argument")
+        if migration_state is None and 'migrationState' in kwargs:
+            migration_state = kwargs['migrationState']
+        if migration_state is None:
+            raise TypeError("Missing 'migration_state' argument")
+        if migration_state_description is None and 'migrationStateDescription' in kwargs:
+            migration_state_description = kwargs['migrationStateDescription']
+        if migration_state_description is None:
+            raise TypeError("Missing 'migration_state_description' argument")
+        if policy_friendly_name is None and 'policyFriendlyName' in kwargs:
+            policy_friendly_name = kwargs['policyFriendlyName']
+        if policy_friendly_name is None:
+            raise TypeError("Missing 'policy_friendly_name' argument")
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if recovery_services_provider_id is None and 'recoveryServicesProviderId' in kwargs:
+            recovery_services_provider_id = kwargs['recoveryServicesProviderId']
+        if recovery_services_provider_id is None:
+            raise TypeError("Missing 'recovery_services_provider_id' argument")
+        if replication_status is None and 'replicationStatus' in kwargs:
+            replication_status = kwargs['replicationStatus']
+        if replication_status is None:
+            raise TypeError("Missing 'replication_status' argument")
+        if test_migrate_state is None and 'testMigrateState' in kwargs:
+            test_migrate_state = kwargs['testMigrateState']
+        if test_migrate_state is None:
+            raise TypeError("Missing 'test_migrate_state' argument")
+        if test_migrate_state_description is None and 'testMigrateStateDescription' in kwargs:
+            test_migrate_state_description = kwargs['testMigrateStateDescription']
+        if test_migrate_state_description is None:
+            raise TypeError("Missing 'test_migrate_state_description' argument")
+        if provider_specific_details is None and 'providerSpecificDetails' in kwargs:
+            provider_specific_details = kwargs['providerSpecificDetails']
+
+        _setter("allowed_operations", allowed_operations)
+        _setter("critical_job_history", critical_job_history)
+        _setter("current_job", current_job)
+        _setter("event_correlation_id", event_correlation_id)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("last_migration_status", last_migration_status)
+        _setter("last_migration_time", last_migration_time)
+        _setter("last_test_migration_status", last_test_migration_status)
+        _setter("last_test_migration_time", last_test_migration_time)
+        _setter("machine_name", machine_name)
+        _setter("migration_state", migration_state)
+        _setter("migration_state_description", migration_state_description)
+        _setter("policy_friendly_name", policy_friendly_name)
+        _setter("policy_id", policy_id)
+        _setter("recovery_services_provider_id", recovery_services_provider_id)
+        _setter("replication_status", replication_status)
+        _setter("test_migrate_state", test_migrate_state)
+        _setter("test_migrate_state_description", test_migrate_state_description)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -14244,12 +19070,31 @@ class MobilityServiceUpdateResponse(dict):
         :param str reboot_status: The reboot status of the update - whether it is required or not.
         :param str version: The version of the latest update.
         """
+        MobilityServiceUpdateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            reboot_status=reboot_status,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: Optional[str] = None,
+             reboot_status: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if reboot_status is None and 'rebootStatus' in kwargs:
+            reboot_status = kwargs['rebootStatus']
+
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if reboot_status is not None:
-            pulumi.set(__self__, "reboot_status", reboot_status)
+            _setter("reboot_status", reboot_status)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="osType")
@@ -14308,10 +19153,27 @@ class MonitoringSettingsResponse(dict):
         :param 'AzureMonitorAlertSettingsResponse' azure_monitor_alert_settings: Settings for Azure Monitor based alerts
         :param 'ClassicAlertSettingsResponse' classic_alert_settings: Settings for classic alerts
         """
+        MonitoringSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_monitor_alert_settings=azure_monitor_alert_settings,
+            classic_alert_settings=classic_alert_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_monitor_alert_settings: Optional['outputs.AzureMonitorAlertSettingsResponse'] = None,
+             classic_alert_settings: Optional['outputs.ClassicAlertSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_monitor_alert_settings is None and 'azureMonitorAlertSettings' in kwargs:
+            azure_monitor_alert_settings = kwargs['azureMonitorAlertSettings']
+        if classic_alert_settings is None and 'classicAlertSettings' in kwargs:
+            classic_alert_settings = kwargs['classicAlertSettings']
+
         if azure_monitor_alert_settings is not None:
-            pulumi.set(__self__, "azure_monitor_alert_settings", azure_monitor_alert_settings)
+            _setter("azure_monitor_alert_settings", azure_monitor_alert_settings)
         if classic_alert_settings is not None:
-            pulumi.set(__self__, "classic_alert_settings", classic_alert_settings)
+            _setter("classic_alert_settings", classic_alert_settings)
 
     @property
     @pulumi.getter(name="azureMonitorAlertSettings")
@@ -14388,24 +19250,67 @@ class NetworkMappingPropertiesResponse(dict):
         :param str recovery_network_id: The recovery network id for network mapping.
         :param str state: The pairing state for network mapping.
         """
+        NetworkMappingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_specific_settings=fabric_specific_settings,
+            primary_fabric_friendly_name=primary_fabric_friendly_name,
+            primary_network_friendly_name=primary_network_friendly_name,
+            primary_network_id=primary_network_id,
+            recovery_fabric_arm_id=recovery_fabric_arm_id,
+            recovery_fabric_friendly_name=recovery_fabric_friendly_name,
+            recovery_network_friendly_name=recovery_network_friendly_name,
+            recovery_network_id=recovery_network_id,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_specific_settings: Optional[Any] = None,
+             primary_fabric_friendly_name: Optional[str] = None,
+             primary_network_friendly_name: Optional[str] = None,
+             primary_network_id: Optional[str] = None,
+             recovery_fabric_arm_id: Optional[str] = None,
+             recovery_fabric_friendly_name: Optional[str] = None,
+             recovery_network_friendly_name: Optional[str] = None,
+             recovery_network_id: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fabric_specific_settings is None and 'fabricSpecificSettings' in kwargs:
+            fabric_specific_settings = kwargs['fabricSpecificSettings']
+        if primary_fabric_friendly_name is None and 'primaryFabricFriendlyName' in kwargs:
+            primary_fabric_friendly_name = kwargs['primaryFabricFriendlyName']
+        if primary_network_friendly_name is None and 'primaryNetworkFriendlyName' in kwargs:
+            primary_network_friendly_name = kwargs['primaryNetworkFriendlyName']
+        if primary_network_id is None and 'primaryNetworkId' in kwargs:
+            primary_network_id = kwargs['primaryNetworkId']
+        if recovery_fabric_arm_id is None and 'recoveryFabricArmId' in kwargs:
+            recovery_fabric_arm_id = kwargs['recoveryFabricArmId']
+        if recovery_fabric_friendly_name is None and 'recoveryFabricFriendlyName' in kwargs:
+            recovery_fabric_friendly_name = kwargs['recoveryFabricFriendlyName']
+        if recovery_network_friendly_name is None and 'recoveryNetworkFriendlyName' in kwargs:
+            recovery_network_friendly_name = kwargs['recoveryNetworkFriendlyName']
+        if recovery_network_id is None and 'recoveryNetworkId' in kwargs:
+            recovery_network_id = kwargs['recoveryNetworkId']
+
         if fabric_specific_settings is not None:
-            pulumi.set(__self__, "fabric_specific_settings", fabric_specific_settings)
+            _setter("fabric_specific_settings", fabric_specific_settings)
         if primary_fabric_friendly_name is not None:
-            pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
+            _setter("primary_fabric_friendly_name", primary_fabric_friendly_name)
         if primary_network_friendly_name is not None:
-            pulumi.set(__self__, "primary_network_friendly_name", primary_network_friendly_name)
+            _setter("primary_network_friendly_name", primary_network_friendly_name)
         if primary_network_id is not None:
-            pulumi.set(__self__, "primary_network_id", primary_network_id)
+            _setter("primary_network_id", primary_network_id)
         if recovery_fabric_arm_id is not None:
-            pulumi.set(__self__, "recovery_fabric_arm_id", recovery_fabric_arm_id)
+            _setter("recovery_fabric_arm_id", recovery_fabric_arm_id)
         if recovery_fabric_friendly_name is not None:
-            pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
+            _setter("recovery_fabric_friendly_name", recovery_fabric_friendly_name)
         if recovery_network_friendly_name is not None:
-            pulumi.set(__self__, "recovery_network_friendly_name", recovery_network_friendly_name)
+            _setter("recovery_network_friendly_name", recovery_network_friendly_name)
         if recovery_network_id is not None:
-            pulumi.set(__self__, "recovery_network_id", recovery_network_id)
+            _setter("recovery_network_id", recovery_network_id)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="fabricSpecificSettings")
@@ -14528,18 +19433,51 @@ class OSDetailsResponse(dict):
         :param str os_type: VM Disk details.
         :param str product_type: Product type.
         """
+        OSDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            o_s_major_version=o_s_major_version,
+            o_s_minor_version=o_s_minor_version,
+            o_s_version=o_s_version,
+            os_edition=os_edition,
+            os_type=os_type,
+            product_type=product_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             o_s_major_version: Optional[str] = None,
+             o_s_minor_version: Optional[str] = None,
+             o_s_version: Optional[str] = None,
+             os_edition: Optional[str] = None,
+             os_type: Optional[str] = None,
+             product_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if o_s_major_version is None and 'oSMajorVersion' in kwargs:
+            o_s_major_version = kwargs['oSMajorVersion']
+        if o_s_minor_version is None and 'oSMinorVersion' in kwargs:
+            o_s_minor_version = kwargs['oSMinorVersion']
+        if o_s_version is None and 'oSVersion' in kwargs:
+            o_s_version = kwargs['oSVersion']
+        if os_edition is None and 'osEdition' in kwargs:
+            os_edition = kwargs['osEdition']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if product_type is None and 'productType' in kwargs:
+            product_type = kwargs['productType']
+
         if o_s_major_version is not None:
-            pulumi.set(__self__, "o_s_major_version", o_s_major_version)
+            _setter("o_s_major_version", o_s_major_version)
         if o_s_minor_version is not None:
-            pulumi.set(__self__, "o_s_minor_version", o_s_minor_version)
+            _setter("o_s_minor_version", o_s_minor_version)
         if o_s_version is not None:
-            pulumi.set(__self__, "o_s_version", o_s_version)
+            _setter("o_s_version", o_s_version)
         if os_edition is not None:
-            pulumi.set(__self__, "os_edition", os_edition)
+            _setter("os_edition", os_edition)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if product_type is not None:
-            pulumi.set(__self__, "product_type", product_type)
+            _setter("product_type", product_type)
 
     @property
     @pulumi.getter(name="oSMajorVersion")
@@ -14626,12 +19564,33 @@ class OSDiskDetailsResponse(dict):
         :param str os_vhd_id: The id of the disk containing the OS.
         :param str vhd_name: The OS disk VHD name.
         """
+        OSDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            os_vhd_id=os_vhd_id,
+            vhd_name=vhd_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: Optional[str] = None,
+             os_vhd_id: Optional[str] = None,
+             vhd_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_vhd_id is None and 'osVhdId' in kwargs:
+            os_vhd_id = kwargs['osVhdId']
+        if vhd_name is None and 'vhdName' in kwargs:
+            vhd_name = kwargs['vhdName']
+
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if os_vhd_id is not None:
-            pulumi.set(__self__, "os_vhd_id", os_vhd_id)
+            _setter("os_vhd_id", os_vhd_id)
         if vhd_name is not None:
-            pulumi.set(__self__, "vhd_name", vhd_name)
+            _setter("vhd_name", vhd_name)
 
     @property
     @pulumi.getter(name="osType")
@@ -14690,8 +19649,29 @@ class OSUpgradeSupportedVersionsResponse(dict):
         :param str supported_source_os_version: The source OS version name.
         :param Sequence[str] supported_target_os_versions: The target OS version names.
         """
-        pulumi.set(__self__, "supported_source_os_version", supported_source_os_version)
-        pulumi.set(__self__, "supported_target_os_versions", supported_target_os_versions)
+        OSUpgradeSupportedVersionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            supported_source_os_version=supported_source_os_version,
+            supported_target_os_versions=supported_target_os_versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             supported_source_os_version: Optional[str] = None,
+             supported_target_os_versions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if supported_source_os_version is None and 'supportedSourceOsVersion' in kwargs:
+            supported_source_os_version = kwargs['supportedSourceOsVersion']
+        if supported_source_os_version is None:
+            raise TypeError("Missing 'supported_source_os_version' argument")
+        if supported_target_os_versions is None and 'supportedTargetOsVersions' in kwargs:
+            supported_target_os_versions = kwargs['supportedTargetOsVersions']
+        if supported_target_os_versions is None:
+            raise TypeError("Missing 'supported_target_os_versions' argument")
+
+        _setter("supported_source_os_version", supported_source_os_version)
+        _setter("supported_target_os_versions", supported_target_os_versions)
 
     @property
     @pulumi.getter(name="supportedSourceOsVersion")
@@ -14742,10 +19722,27 @@ class PolicyPropertiesResponse(dict):
         :param str friendly_name: The FriendlyName.
         :param Union['A2APolicyDetailsResponse', 'HyperVReplicaAzurePolicyDetailsResponse', 'HyperVReplicaBasePolicyDetailsResponse', 'HyperVReplicaBluePolicyDetailsResponse', 'HyperVReplicaPolicyDetailsResponse', 'InMageAzureV2PolicyDetailsResponse', 'InMageBasePolicyDetailsResponse', 'InMagePolicyDetailsResponse', 'InMageRcmFailbackPolicyDetailsResponse', 'InMageRcmPolicyDetailsResponse', 'VmwareCbtPolicyDetailsResponse'] provider_specific_details: The ReplicationChannelSetting.
         """
+        PolicyPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            friendly_name=friendly_name,
+            provider_specific_details=provider_specific_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             friendly_name: Optional[str] = None,
+             provider_specific_details: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if provider_specific_details is None and 'providerSpecificDetails' in kwargs:
+            provider_specific_details = kwargs['providerSpecificDetails']
+
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -14783,11 +19780,40 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
         :param 'VaultPrivateEndpointConnectionResponse' properties: Private Endpoint Connection Response Properties.
         :param str type: The type, which will be of the format, Microsoft.RecoveryServices/vaults/privateEndpointConnections
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionVaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            name=name,
+            properties=properties,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             properties: Optional['outputs.VaultPrivateEndpointConnectionResponse'] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("location", location)
+        _setter("name", name)
+        _setter("properties", properties)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -14841,7 +19867,20 @@ class PrivateEndpointResponse(dict):
         The Private Endpoint network resource that is linked to the Private Endpoint connection.
         :param str id: Gets or sets id.
         """
-        pulumi.set(__self__, "id", id)
+        PrivateEndpointResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -14982,35 +20021,208 @@ class ProcessServerDetailsResponse(dict):
         :param float used_space_in_bytes: The used disk space.
         :param str version: The version.
         """
-        pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
-        pulumi.set(__self__, "available_space_in_bytes", available_space_in_bytes)
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "disk_usage_status", disk_usage_status)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "free_space_percentage", free_space_percentage)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "historic_health", historic_health)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "memory_usage_percentage", memory_usage_percentage)
-        pulumi.set(__self__, "memory_usage_status", memory_usage_status)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "processor_usage_percentage", processor_usage_percentage)
-        pulumi.set(__self__, "processor_usage_status", processor_usage_status)
-        pulumi.set(__self__, "protected_item_count", protected_item_count)
-        pulumi.set(__self__, "system_load", system_load)
-        pulumi.set(__self__, "system_load_status", system_load_status)
-        pulumi.set(__self__, "throughput_in_bytes", throughput_in_bytes)
-        pulumi.set(__self__, "throughput_status", throughput_status)
-        pulumi.set(__self__, "throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
-        pulumi.set(__self__, "total_memory_in_bytes", total_memory_in_bytes)
-        pulumi.set(__self__, "total_space_in_bytes", total_space_in_bytes)
-        pulumi.set(__self__, "used_memory_in_bytes", used_memory_in_bytes)
-        pulumi.set(__self__, "used_space_in_bytes", used_space_in_bytes)
-        pulumi.set(__self__, "version", version)
+        ProcessServerDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_memory_in_bytes=available_memory_in_bytes,
+            available_space_in_bytes=available_space_in_bytes,
+            bios_id=bios_id,
+            disk_usage_status=disk_usage_status,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            free_space_percentage=free_space_percentage,
+            health=health,
+            health_errors=health_errors,
+            historic_health=historic_health,
+            id=id,
+            ip_addresses=ip_addresses,
+            last_heartbeat_utc=last_heartbeat_utc,
+            memory_usage_percentage=memory_usage_percentage,
+            memory_usage_status=memory_usage_status,
+            name=name,
+            processor_usage_percentage=processor_usage_percentage,
+            processor_usage_status=processor_usage_status,
+            protected_item_count=protected_item_count,
+            system_load=system_load,
+            system_load_status=system_load_status,
+            throughput_in_bytes=throughput_in_bytes,
+            throughput_status=throughput_status,
+            throughput_upload_pending_data_in_bytes=throughput_upload_pending_data_in_bytes,
+            total_memory_in_bytes=total_memory_in_bytes,
+            total_space_in_bytes=total_space_in_bytes,
+            used_memory_in_bytes=used_memory_in_bytes,
+            used_space_in_bytes=used_space_in_bytes,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_memory_in_bytes: Optional[float] = None,
+             available_space_in_bytes: Optional[float] = None,
+             bios_id: Optional[str] = None,
+             disk_usage_status: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             free_space_percentage: Optional[float] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             historic_health: Optional[str] = None,
+             id: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             memory_usage_percentage: Optional[float] = None,
+             memory_usage_status: Optional[str] = None,
+             name: Optional[str] = None,
+             processor_usage_percentage: Optional[float] = None,
+             processor_usage_status: Optional[str] = None,
+             protected_item_count: Optional[int] = None,
+             system_load: Optional[float] = None,
+             system_load_status: Optional[str] = None,
+             throughput_in_bytes: Optional[float] = None,
+             throughput_status: Optional[str] = None,
+             throughput_upload_pending_data_in_bytes: Optional[float] = None,
+             total_memory_in_bytes: Optional[float] = None,
+             total_space_in_bytes: Optional[float] = None,
+             used_memory_in_bytes: Optional[float] = None,
+             used_space_in_bytes: Optional[float] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if available_memory_in_bytes is None and 'availableMemoryInBytes' in kwargs:
+            available_memory_in_bytes = kwargs['availableMemoryInBytes']
+        if available_memory_in_bytes is None:
+            raise TypeError("Missing 'available_memory_in_bytes' argument")
+        if available_space_in_bytes is None and 'availableSpaceInBytes' in kwargs:
+            available_space_in_bytes = kwargs['availableSpaceInBytes']
+        if available_space_in_bytes is None:
+            raise TypeError("Missing 'available_space_in_bytes' argument")
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if disk_usage_status is None and 'diskUsageStatus' in kwargs:
+            disk_usage_status = kwargs['diskUsageStatus']
+        if disk_usage_status is None:
+            raise TypeError("Missing 'disk_usage_status' argument")
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if fabric_object_id is None:
+            raise TypeError("Missing 'fabric_object_id' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if free_space_percentage is None and 'freeSpacePercentage' in kwargs:
+            free_space_percentage = kwargs['freeSpacePercentage']
+        if free_space_percentage is None:
+            raise TypeError("Missing 'free_space_percentage' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if historic_health is None and 'historicHealth' in kwargs:
+            historic_health = kwargs['historicHealth']
+        if historic_health is None:
+            raise TypeError("Missing 'historic_health' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ip_addresses is None and 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+        if ip_addresses is None:
+            raise TypeError("Missing 'ip_addresses' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if memory_usage_percentage is None and 'memoryUsagePercentage' in kwargs:
+            memory_usage_percentage = kwargs['memoryUsagePercentage']
+        if memory_usage_percentage is None:
+            raise TypeError("Missing 'memory_usage_percentage' argument")
+        if memory_usage_status is None and 'memoryUsageStatus' in kwargs:
+            memory_usage_status = kwargs['memoryUsageStatus']
+        if memory_usage_status is None:
+            raise TypeError("Missing 'memory_usage_status' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if processor_usage_percentage is None and 'processorUsagePercentage' in kwargs:
+            processor_usage_percentage = kwargs['processorUsagePercentage']
+        if processor_usage_percentage is None:
+            raise TypeError("Missing 'processor_usage_percentage' argument")
+        if processor_usage_status is None and 'processorUsageStatus' in kwargs:
+            processor_usage_status = kwargs['processorUsageStatus']
+        if processor_usage_status is None:
+            raise TypeError("Missing 'processor_usage_status' argument")
+        if protected_item_count is None and 'protectedItemCount' in kwargs:
+            protected_item_count = kwargs['protectedItemCount']
+        if protected_item_count is None:
+            raise TypeError("Missing 'protected_item_count' argument")
+        if system_load is None and 'systemLoad' in kwargs:
+            system_load = kwargs['systemLoad']
+        if system_load is None:
+            raise TypeError("Missing 'system_load' argument")
+        if system_load_status is None and 'systemLoadStatus' in kwargs:
+            system_load_status = kwargs['systemLoadStatus']
+        if system_load_status is None:
+            raise TypeError("Missing 'system_load_status' argument")
+        if throughput_in_bytes is None and 'throughputInBytes' in kwargs:
+            throughput_in_bytes = kwargs['throughputInBytes']
+        if throughput_in_bytes is None:
+            raise TypeError("Missing 'throughput_in_bytes' argument")
+        if throughput_status is None and 'throughputStatus' in kwargs:
+            throughput_status = kwargs['throughputStatus']
+        if throughput_status is None:
+            raise TypeError("Missing 'throughput_status' argument")
+        if throughput_upload_pending_data_in_bytes is None and 'throughputUploadPendingDataInBytes' in kwargs:
+            throughput_upload_pending_data_in_bytes = kwargs['throughputUploadPendingDataInBytes']
+        if throughput_upload_pending_data_in_bytes is None:
+            raise TypeError("Missing 'throughput_upload_pending_data_in_bytes' argument")
+        if total_memory_in_bytes is None and 'totalMemoryInBytes' in kwargs:
+            total_memory_in_bytes = kwargs['totalMemoryInBytes']
+        if total_memory_in_bytes is None:
+            raise TypeError("Missing 'total_memory_in_bytes' argument")
+        if total_space_in_bytes is None and 'totalSpaceInBytes' in kwargs:
+            total_space_in_bytes = kwargs['totalSpaceInBytes']
+        if total_space_in_bytes is None:
+            raise TypeError("Missing 'total_space_in_bytes' argument")
+        if used_memory_in_bytes is None and 'usedMemoryInBytes' in kwargs:
+            used_memory_in_bytes = kwargs['usedMemoryInBytes']
+        if used_memory_in_bytes is None:
+            raise TypeError("Missing 'used_memory_in_bytes' argument")
+        if used_space_in_bytes is None and 'usedSpaceInBytes' in kwargs:
+            used_space_in_bytes = kwargs['usedSpaceInBytes']
+        if used_space_in_bytes is None:
+            raise TypeError("Missing 'used_space_in_bytes' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("available_memory_in_bytes", available_memory_in_bytes)
+        _setter("available_space_in_bytes", available_space_in_bytes)
+        _setter("bios_id", bios_id)
+        _setter("disk_usage_status", disk_usage_status)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("free_space_percentage", free_space_percentage)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("historic_health", historic_health)
+        _setter("id", id)
+        _setter("ip_addresses", ip_addresses)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("memory_usage_percentage", memory_usage_percentage)
+        _setter("memory_usage_status", memory_usage_status)
+        _setter("name", name)
+        _setter("processor_usage_percentage", processor_usage_percentage)
+        _setter("processor_usage_status", processor_usage_status)
+        _setter("protected_item_count", protected_item_count)
+        _setter("system_load", system_load)
+        _setter("system_load_status", system_load_status)
+        _setter("throughput_in_bytes", throughput_in_bytes)
+        _setter("throughput_status", throughput_status)
+        _setter("throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
+        _setter("total_memory_in_bytes", total_memory_in_bytes)
+        _setter("total_space_in_bytes", total_space_in_bytes)
+        _setter("used_memory_in_bytes", used_memory_in_bytes)
+        _setter("used_space_in_bytes", used_space_in_bytes)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="availableMemoryInBytes")
@@ -15409,70 +20621,235 @@ class ProcessServerResponse(dict):
         :param float total_space_in_bytes: The total space.
         :param str version_status: Version status.
         """
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "mars_communication_status", mars_communication_status)
-        pulumi.set(__self__, "mars_registration_status", mars_registration_status)
-        pulumi.set(__self__, "ps_stats_refresh_time", ps_stats_refresh_time)
-        pulumi.set(__self__, "throughput_in_bytes", throughput_in_bytes)
-        pulumi.set(__self__, "throughput_in_m_bps", throughput_in_m_bps)
-        pulumi.set(__self__, "throughput_status", throughput_status)
-        pulumi.set(__self__, "throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
+        ProcessServerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health=health,
+            mars_communication_status=mars_communication_status,
+            mars_registration_status=mars_registration_status,
+            ps_stats_refresh_time=ps_stats_refresh_time,
+            throughput_in_bytes=throughput_in_bytes,
+            throughput_in_m_bps=throughput_in_m_bps,
+            throughput_status=throughput_status,
+            throughput_upload_pending_data_in_bytes=throughput_upload_pending_data_in_bytes,
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            agent_version_details=agent_version_details,
+            available_memory_in_bytes=available_memory_in_bytes,
+            available_space_in_bytes=available_space_in_bytes,
+            cpu_load=cpu_load,
+            cpu_load_status=cpu_load_status,
+            friendly_name=friendly_name,
+            health_errors=health_errors,
+            host_id=host_id,
+            id=id,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            machine_count=machine_count,
+            memory_usage_status=memory_usage_status,
+            mobility_service_updates=mobility_service_updates,
+            os_type=os_type,
+            os_version=os_version,
+            ps_service_status=ps_service_status,
+            replication_pair_count=replication_pair_count,
+            space_usage_status=space_usage_status,
+            ssl_cert_expiry_date=ssl_cert_expiry_date,
+            ssl_cert_expiry_remaining_days=ssl_cert_expiry_remaining_days,
+            system_load=system_load,
+            system_load_status=system_load_status,
+            total_memory_in_bytes=total_memory_in_bytes,
+            total_space_in_bytes=total_space_in_bytes,
+            version_status=version_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health: Optional[str] = None,
+             mars_communication_status: Optional[str] = None,
+             mars_registration_status: Optional[str] = None,
+             ps_stats_refresh_time: Optional[str] = None,
+             throughput_in_bytes: Optional[float] = None,
+             throughput_in_m_bps: Optional[float] = None,
+             throughput_status: Optional[str] = None,
+             throughput_upload_pending_data_in_bytes: Optional[float] = None,
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             available_memory_in_bytes: Optional[float] = None,
+             available_space_in_bytes: Optional[float] = None,
+             cpu_load: Optional[str] = None,
+             cpu_load_status: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             host_id: Optional[str] = None,
+             id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             machine_count: Optional[str] = None,
+             memory_usage_status: Optional[str] = None,
+             mobility_service_updates: Optional[Sequence['outputs.MobilityServiceUpdateResponse']] = None,
+             os_type: Optional[str] = None,
+             os_version: Optional[str] = None,
+             ps_service_status: Optional[str] = None,
+             replication_pair_count: Optional[str] = None,
+             space_usage_status: Optional[str] = None,
+             ssl_cert_expiry_date: Optional[str] = None,
+             ssl_cert_expiry_remaining_days: Optional[int] = None,
+             system_load: Optional[str] = None,
+             system_load_status: Optional[str] = None,
+             total_memory_in_bytes: Optional[float] = None,
+             total_space_in_bytes: Optional[float] = None,
+             version_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if mars_communication_status is None and 'marsCommunicationStatus' in kwargs:
+            mars_communication_status = kwargs['marsCommunicationStatus']
+        if mars_communication_status is None:
+            raise TypeError("Missing 'mars_communication_status' argument")
+        if mars_registration_status is None and 'marsRegistrationStatus' in kwargs:
+            mars_registration_status = kwargs['marsRegistrationStatus']
+        if mars_registration_status is None:
+            raise TypeError("Missing 'mars_registration_status' argument")
+        if ps_stats_refresh_time is None and 'psStatsRefreshTime' in kwargs:
+            ps_stats_refresh_time = kwargs['psStatsRefreshTime']
+        if ps_stats_refresh_time is None:
+            raise TypeError("Missing 'ps_stats_refresh_time' argument")
+        if throughput_in_bytes is None and 'throughputInBytes' in kwargs:
+            throughput_in_bytes = kwargs['throughputInBytes']
+        if throughput_in_bytes is None:
+            raise TypeError("Missing 'throughput_in_bytes' argument")
+        if throughput_in_m_bps is None and 'throughputInMBps' in kwargs:
+            throughput_in_m_bps = kwargs['throughputInMBps']
+        if throughput_in_m_bps is None:
+            raise TypeError("Missing 'throughput_in_m_bps' argument")
+        if throughput_status is None and 'throughputStatus' in kwargs:
+            throughput_status = kwargs['throughputStatus']
+        if throughput_status is None:
+            raise TypeError("Missing 'throughput_status' argument")
+        if throughput_upload_pending_data_in_bytes is None and 'throughputUploadPendingDataInBytes' in kwargs:
+            throughput_upload_pending_data_in_bytes = kwargs['throughputUploadPendingDataInBytes']
+        if throughput_upload_pending_data_in_bytes is None:
+            raise TypeError("Missing 'throughput_upload_pending_data_in_bytes' argument")
+        if agent_expiry_date is None and 'agentExpiryDate' in kwargs:
+            agent_expiry_date = kwargs['agentExpiryDate']
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if agent_version_details is None and 'agentVersionDetails' in kwargs:
+            agent_version_details = kwargs['agentVersionDetails']
+        if available_memory_in_bytes is None and 'availableMemoryInBytes' in kwargs:
+            available_memory_in_bytes = kwargs['availableMemoryInBytes']
+        if available_space_in_bytes is None and 'availableSpaceInBytes' in kwargs:
+            available_space_in_bytes = kwargs['availableSpaceInBytes']
+        if cpu_load is None and 'cpuLoad' in kwargs:
+            cpu_load = kwargs['cpuLoad']
+        if cpu_load_status is None and 'cpuLoadStatus' in kwargs:
+            cpu_load_status = kwargs['cpuLoadStatus']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if host_id is None and 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if last_heartbeat is None and 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if machine_count is None and 'machineCount' in kwargs:
+            machine_count = kwargs['machineCount']
+        if memory_usage_status is None and 'memoryUsageStatus' in kwargs:
+            memory_usage_status = kwargs['memoryUsageStatus']
+        if mobility_service_updates is None and 'mobilityServiceUpdates' in kwargs:
+            mobility_service_updates = kwargs['mobilityServiceUpdates']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+        if ps_service_status is None and 'psServiceStatus' in kwargs:
+            ps_service_status = kwargs['psServiceStatus']
+        if replication_pair_count is None and 'replicationPairCount' in kwargs:
+            replication_pair_count = kwargs['replicationPairCount']
+        if space_usage_status is None and 'spaceUsageStatus' in kwargs:
+            space_usage_status = kwargs['spaceUsageStatus']
+        if ssl_cert_expiry_date is None and 'sslCertExpiryDate' in kwargs:
+            ssl_cert_expiry_date = kwargs['sslCertExpiryDate']
+        if ssl_cert_expiry_remaining_days is None and 'sslCertExpiryRemainingDays' in kwargs:
+            ssl_cert_expiry_remaining_days = kwargs['sslCertExpiryRemainingDays']
+        if system_load is None and 'systemLoad' in kwargs:
+            system_load = kwargs['systemLoad']
+        if system_load_status is None and 'systemLoadStatus' in kwargs:
+            system_load_status = kwargs['systemLoadStatus']
+        if total_memory_in_bytes is None and 'totalMemoryInBytes' in kwargs:
+            total_memory_in_bytes = kwargs['totalMemoryInBytes']
+        if total_space_in_bytes is None and 'totalSpaceInBytes' in kwargs:
+            total_space_in_bytes = kwargs['totalSpaceInBytes']
+        if version_status is None and 'versionStatus' in kwargs:
+            version_status = kwargs['versionStatus']
+
+        _setter("health", health)
+        _setter("mars_communication_status", mars_communication_status)
+        _setter("mars_registration_status", mars_registration_status)
+        _setter("ps_stats_refresh_time", ps_stats_refresh_time)
+        _setter("throughput_in_bytes", throughput_in_bytes)
+        _setter("throughput_in_m_bps", throughput_in_m_bps)
+        _setter("throughput_status", throughput_status)
+        _setter("throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if agent_version_details is not None:
-            pulumi.set(__self__, "agent_version_details", agent_version_details)
+            _setter("agent_version_details", agent_version_details)
         if available_memory_in_bytes is not None:
-            pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
+            _setter("available_memory_in_bytes", available_memory_in_bytes)
         if available_space_in_bytes is not None:
-            pulumi.set(__self__, "available_space_in_bytes", available_space_in_bytes)
+            _setter("available_space_in_bytes", available_space_in_bytes)
         if cpu_load is not None:
-            pulumi.set(__self__, "cpu_load", cpu_load)
+            _setter("cpu_load", cpu_load)
         if cpu_load_status is not None:
-            pulumi.set(__self__, "cpu_load_status", cpu_load_status)
+            _setter("cpu_load_status", cpu_load_status)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if host_id is not None:
-            pulumi.set(__self__, "host_id", host_id)
+            _setter("host_id", host_id)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if machine_count is not None:
-            pulumi.set(__self__, "machine_count", machine_count)
+            _setter("machine_count", machine_count)
         if memory_usage_status is not None:
-            pulumi.set(__self__, "memory_usage_status", memory_usage_status)
+            _setter("memory_usage_status", memory_usage_status)
         if mobility_service_updates is not None:
-            pulumi.set(__self__, "mobility_service_updates", mobility_service_updates)
+            _setter("mobility_service_updates", mobility_service_updates)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
         if ps_service_status is not None:
-            pulumi.set(__self__, "ps_service_status", ps_service_status)
+            _setter("ps_service_status", ps_service_status)
         if replication_pair_count is not None:
-            pulumi.set(__self__, "replication_pair_count", replication_pair_count)
+            _setter("replication_pair_count", replication_pair_count)
         if space_usage_status is not None:
-            pulumi.set(__self__, "space_usage_status", space_usage_status)
+            _setter("space_usage_status", space_usage_status)
         if ssl_cert_expiry_date is not None:
-            pulumi.set(__self__, "ssl_cert_expiry_date", ssl_cert_expiry_date)
+            _setter("ssl_cert_expiry_date", ssl_cert_expiry_date)
         if ssl_cert_expiry_remaining_days is not None:
-            pulumi.set(__self__, "ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
+            _setter("ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
         if system_load is not None:
-            pulumi.set(__self__, "system_load", system_load)
+            _setter("system_load", system_load)
         if system_load_status is not None:
-            pulumi.set(__self__, "system_load_status", system_load_status)
+            _setter("system_load_status", system_load_status)
         if total_memory_in_bytes is not None:
-            pulumi.set(__self__, "total_memory_in_bytes", total_memory_in_bytes)
+            _setter("total_memory_in_bytes", total_memory_in_bytes)
         if total_space_in_bytes is not None:
-            pulumi.set(__self__, "total_space_in_bytes", total_space_in_bytes)
+            _setter("total_space_in_bytes", total_space_in_bytes)
         if version_status is not None:
-            pulumi.set(__self__, "version_status", version_status)
+            _setter("version_status", version_status)
 
     @property
     @pulumi.getter
@@ -15827,28 +21204,77 @@ class ProtectionContainerMappingPropertiesResponse(dict):
         :param str target_protection_container_friendly_name: Friendly name of paired container.
         :param str target_protection_container_id: Paired protection container ARM ID.
         """
+        ProtectionContainerMappingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            health=health,
+            health_error_details=health_error_details,
+            policy_friendly_name=policy_friendly_name,
+            policy_id=policy_id,
+            provider_specific_details=provider_specific_details,
+            source_fabric_friendly_name=source_fabric_friendly_name,
+            source_protection_container_friendly_name=source_protection_container_friendly_name,
+            state=state,
+            target_fabric_friendly_name=target_fabric_friendly_name,
+            target_protection_container_friendly_name=target_protection_container_friendly_name,
+            target_protection_container_id=target_protection_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             health: Optional[str] = None,
+             health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             policy_friendly_name: Optional[str] = None,
+             policy_id: Optional[str] = None,
+             provider_specific_details: Optional[Any] = None,
+             source_fabric_friendly_name: Optional[str] = None,
+             source_protection_container_friendly_name: Optional[str] = None,
+             state: Optional[str] = None,
+             target_fabric_friendly_name: Optional[str] = None,
+             target_protection_container_friendly_name: Optional[str] = None,
+             target_protection_container_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_error_details is None and 'healthErrorDetails' in kwargs:
+            health_error_details = kwargs['healthErrorDetails']
+        if policy_friendly_name is None and 'policyFriendlyName' in kwargs:
+            policy_friendly_name = kwargs['policyFriendlyName']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if provider_specific_details is None and 'providerSpecificDetails' in kwargs:
+            provider_specific_details = kwargs['providerSpecificDetails']
+        if source_fabric_friendly_name is None and 'sourceFabricFriendlyName' in kwargs:
+            source_fabric_friendly_name = kwargs['sourceFabricFriendlyName']
+        if source_protection_container_friendly_name is None and 'sourceProtectionContainerFriendlyName' in kwargs:
+            source_protection_container_friendly_name = kwargs['sourceProtectionContainerFriendlyName']
+        if target_fabric_friendly_name is None and 'targetFabricFriendlyName' in kwargs:
+            target_fabric_friendly_name = kwargs['targetFabricFriendlyName']
+        if target_protection_container_friendly_name is None and 'targetProtectionContainerFriendlyName' in kwargs:
+            target_protection_container_friendly_name = kwargs['targetProtectionContainerFriendlyName']
+        if target_protection_container_id is None and 'targetProtectionContainerId' in kwargs:
+            target_protection_container_id = kwargs['targetProtectionContainerId']
+
         if health is not None:
-            pulumi.set(__self__, "health", health)
+            _setter("health", health)
         if health_error_details is not None:
-            pulumi.set(__self__, "health_error_details", health_error_details)
+            _setter("health_error_details", health_error_details)
         if policy_friendly_name is not None:
-            pulumi.set(__self__, "policy_friendly_name", policy_friendly_name)
+            _setter("policy_friendly_name", policy_friendly_name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
         if source_fabric_friendly_name is not None:
-            pulumi.set(__self__, "source_fabric_friendly_name", source_fabric_friendly_name)
+            _setter("source_fabric_friendly_name", source_fabric_friendly_name)
         if source_protection_container_friendly_name is not None:
-            pulumi.set(__self__, "source_protection_container_friendly_name", source_protection_container_friendly_name)
+            _setter("source_protection_container_friendly_name", source_protection_container_friendly_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if target_fabric_friendly_name is not None:
-            pulumi.set(__self__, "target_fabric_friendly_name", target_fabric_friendly_name)
+            _setter("target_fabric_friendly_name", target_fabric_friendly_name)
         if target_protection_container_friendly_name is not None:
-            pulumi.set(__self__, "target_protection_container_friendly_name", target_protection_container_friendly_name)
+            _setter("target_protection_container_friendly_name", target_protection_container_friendly_name)
         if target_protection_container_id is not None:
-            pulumi.set(__self__, "target_protection_container_id", target_protection_container_id)
+            _setter("target_protection_container_id", target_protection_container_id)
 
     @property
     @pulumi.getter
@@ -15989,15 +21415,68 @@ class PushInstallerDetailsResponse(dict):
         :param str name: The push installer name.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        PushInstallerDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             id: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if fabric_object_id is None:
+            raise TypeError("Missing 'fabric_object_id' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("bios_id", bios_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -16126,16 +21605,75 @@ class RcmProxyDetailsResponse(dict):
         :param str name: The RCM proxy name.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "client_authentication_type", client_authentication_type)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        RcmProxyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            client_authentication_type=client_authentication_type,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: Optional[str] = None,
+             client_authentication_type: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             id: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if client_authentication_type is None and 'clientAuthenticationType' in kwargs:
+            client_authentication_type = kwargs['clientAuthenticationType']
+        if client_authentication_type is None:
+            raise TypeError("Missing 'client_authentication_type' argument")
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if fabric_object_id is None:
+            raise TypeError("Missing 'fabric_object_id' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("bios_id", bios_id)
+        _setter("client_authentication_type", client_authentication_type)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -16263,15 +21801,46 @@ class RecoveryPlanA2ADetailsResponse(dict):
         :param 'ExtendedLocationResponse' recovery_extended_location: The recovery extended location.
         :param str recovery_zone: The recovery zone.
         """
-        pulumi.set(__self__, "instance_type", 'A2A')
+        RecoveryPlanA2ADetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            primary_extended_location=primary_extended_location,
+            primary_zone=primary_zone,
+            recovery_extended_location=recovery_extended_location,
+            recovery_zone=recovery_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             primary_zone: Optional[str] = None,
+             recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+             recovery_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if primary_extended_location is None and 'primaryExtendedLocation' in kwargs:
+            primary_extended_location = kwargs['primaryExtendedLocation']
+        if primary_zone is None and 'primaryZone' in kwargs:
+            primary_zone = kwargs['primaryZone']
+        if recovery_extended_location is None and 'recoveryExtendedLocation' in kwargs:
+            recovery_extended_location = kwargs['recoveryExtendedLocation']
+        if recovery_zone is None and 'recoveryZone' in kwargs:
+            recovery_zone = kwargs['recoveryZone']
+
+        _setter("instance_type", 'A2A')
         if primary_extended_location is not None:
-            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+            _setter("primary_extended_location", primary_extended_location)
         if primary_zone is not None:
-            pulumi.set(__self__, "primary_zone", primary_zone)
+            _setter("primary_zone", primary_zone)
         if recovery_extended_location is not None:
-            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+            _setter("recovery_extended_location", recovery_extended_location)
         if recovery_zone is not None:
-            pulumi.set(__self__, "recovery_zone", recovery_zone)
+            _setter("recovery_zone", recovery_zone)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -16355,10 +21924,43 @@ class RecoveryPlanActionResponse(dict):
         :param Sequence[str] failover_directions: The list of failover directions.
         :param Sequence[str] failover_types: The list of failover types.
         """
-        pulumi.set(__self__, "action_name", action_name)
-        pulumi.set(__self__, "custom_details", custom_details)
-        pulumi.set(__self__, "failover_directions", failover_directions)
-        pulumi.set(__self__, "failover_types", failover_types)
+        RecoveryPlanActionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_name=action_name,
+            custom_details=custom_details,
+            failover_directions=failover_directions,
+            failover_types=failover_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_name: Optional[str] = None,
+             custom_details: Optional[Any] = None,
+             failover_directions: Optional[Sequence[str]] = None,
+             failover_types: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_name is None and 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+        if action_name is None:
+            raise TypeError("Missing 'action_name' argument")
+        if custom_details is None and 'customDetails' in kwargs:
+            custom_details = kwargs['customDetails']
+        if custom_details is None:
+            raise TypeError("Missing 'custom_details' argument")
+        if failover_directions is None and 'failoverDirections' in kwargs:
+            failover_directions = kwargs['failoverDirections']
+        if failover_directions is None:
+            raise TypeError("Missing 'failover_directions' argument")
+        if failover_types is None and 'failoverTypes' in kwargs:
+            failover_types = kwargs['failoverTypes']
+        if failover_types is None:
+            raise TypeError("Missing 'failover_types' argument")
+
+        _setter("action_name", action_name)
+        _setter("custom_details", custom_details)
+        _setter("failover_directions", failover_directions)
+        _setter("failover_types", failover_types)
 
     @property
     @pulumi.getter(name="actionName")
@@ -16432,12 +22034,39 @@ class RecoveryPlanAutomationRunbookActionDetailsResponse(dict):
         :param str runbook_id: The runbook ARM Id.
         :param str timeout: The runbook timeout.
         """
-        pulumi.set(__self__, "fabric_location", fabric_location)
-        pulumi.set(__self__, "instance_type", 'AutomationRunbookActionDetails')
+        RecoveryPlanAutomationRunbookActionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_location=fabric_location,
+            instance_type=instance_type,
+            runbook_id=runbook_id,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_location: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             runbook_id: Optional[str] = None,
+             timeout: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fabric_location is None and 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if fabric_location is None:
+            raise TypeError("Missing 'fabric_location' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if runbook_id is None and 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+
+        _setter("fabric_location", fabric_location)
+        _setter("instance_type", 'AutomationRunbookActionDetails')
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="fabricLocation")
@@ -16513,13 +22142,40 @@ class RecoveryPlanGroupResponse(dict):
         :param Sequence['RecoveryPlanProtectedItemResponse'] replication_protected_items: The list of protected items.
         :param Sequence['RecoveryPlanActionResponse'] start_group_actions: The start group actions.
         """
-        pulumi.set(__self__, "group_type", group_type)
+        RecoveryPlanGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_type=group_type,
+            end_group_actions=end_group_actions,
+            replication_protected_items=replication_protected_items,
+            start_group_actions=start_group_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_type: Optional[str] = None,
+             end_group_actions: Optional[Sequence['outputs.RecoveryPlanActionResponse']] = None,
+             replication_protected_items: Optional[Sequence['outputs.RecoveryPlanProtectedItemResponse']] = None,
+             start_group_actions: Optional[Sequence['outputs.RecoveryPlanActionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_type is None and 'groupType' in kwargs:
+            group_type = kwargs['groupType']
+        if group_type is None:
+            raise TypeError("Missing 'group_type' argument")
+        if end_group_actions is None and 'endGroupActions' in kwargs:
+            end_group_actions = kwargs['endGroupActions']
+        if replication_protected_items is None and 'replicationProtectedItems' in kwargs:
+            replication_protected_items = kwargs['replicationProtectedItems']
+        if start_group_actions is None and 'startGroupActions' in kwargs:
+            start_group_actions = kwargs['startGroupActions']
+
+        _setter("group_type", group_type)
         if end_group_actions is not None:
-            pulumi.set(__self__, "end_group_actions", end_group_actions)
+            _setter("end_group_actions", end_group_actions)
         if replication_protected_items is not None:
-            pulumi.set(__self__, "replication_protected_items", replication_protected_items)
+            _setter("replication_protected_items", replication_protected_items)
         if start_group_actions is not None:
-            pulumi.set(__self__, "start_group_actions", start_group_actions)
+            _setter("start_group_actions", start_group_actions)
 
     @property
     @pulumi.getter(name="groupType")
@@ -16585,9 +22241,26 @@ class RecoveryPlanManualActionDetailsResponse(dict):
                Expected value is 'ManualActionDetails'.
         :param str description: The manual action description.
         """
-        pulumi.set(__self__, "instance_type", 'ManualActionDetails')
+        RecoveryPlanManualActionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+
+        _setter("instance_type", 'ManualActionDetails')
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -16693,38 +22366,109 @@ class RecoveryPlanPropertiesResponse(dict):
         :param str recovery_fabric_id: The recovery fabric Id.
         :param Sequence[str] replication_providers: The list of replication providers.
         """
+        RecoveryPlanPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_operations=allowed_operations,
+            current_scenario=current_scenario,
+            current_scenario_status=current_scenario_status,
+            current_scenario_status_description=current_scenario_status_description,
+            failover_deployment_model=failover_deployment_model,
+            friendly_name=friendly_name,
+            groups=groups,
+            last_planned_failover_time=last_planned_failover_time,
+            last_test_failover_time=last_test_failover_time,
+            last_unplanned_failover_time=last_unplanned_failover_time,
+            primary_fabric_friendly_name=primary_fabric_friendly_name,
+            primary_fabric_id=primary_fabric_id,
+            provider_specific_details=provider_specific_details,
+            recovery_fabric_friendly_name=recovery_fabric_friendly_name,
+            recovery_fabric_id=recovery_fabric_id,
+            replication_providers=replication_providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_operations: Optional[Sequence[str]] = None,
+             current_scenario: Optional['outputs.CurrentScenarioDetailsResponse'] = None,
+             current_scenario_status: Optional[str] = None,
+             current_scenario_status_description: Optional[str] = None,
+             failover_deployment_model: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             groups: Optional[Sequence['outputs.RecoveryPlanGroupResponse']] = None,
+             last_planned_failover_time: Optional[str] = None,
+             last_test_failover_time: Optional[str] = None,
+             last_unplanned_failover_time: Optional[str] = None,
+             primary_fabric_friendly_name: Optional[str] = None,
+             primary_fabric_id: Optional[str] = None,
+             provider_specific_details: Optional[Sequence['outputs.RecoveryPlanA2ADetailsResponse']] = None,
+             recovery_fabric_friendly_name: Optional[str] = None,
+             recovery_fabric_id: Optional[str] = None,
+             replication_providers: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_operations is None and 'allowedOperations' in kwargs:
+            allowed_operations = kwargs['allowedOperations']
+        if current_scenario is None and 'currentScenario' in kwargs:
+            current_scenario = kwargs['currentScenario']
+        if current_scenario_status is None and 'currentScenarioStatus' in kwargs:
+            current_scenario_status = kwargs['currentScenarioStatus']
+        if current_scenario_status_description is None and 'currentScenarioStatusDescription' in kwargs:
+            current_scenario_status_description = kwargs['currentScenarioStatusDescription']
+        if failover_deployment_model is None and 'failoverDeploymentModel' in kwargs:
+            failover_deployment_model = kwargs['failoverDeploymentModel']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if last_planned_failover_time is None and 'lastPlannedFailoverTime' in kwargs:
+            last_planned_failover_time = kwargs['lastPlannedFailoverTime']
+        if last_test_failover_time is None and 'lastTestFailoverTime' in kwargs:
+            last_test_failover_time = kwargs['lastTestFailoverTime']
+        if last_unplanned_failover_time is None and 'lastUnplannedFailoverTime' in kwargs:
+            last_unplanned_failover_time = kwargs['lastUnplannedFailoverTime']
+        if primary_fabric_friendly_name is None and 'primaryFabricFriendlyName' in kwargs:
+            primary_fabric_friendly_name = kwargs['primaryFabricFriendlyName']
+        if primary_fabric_id is None and 'primaryFabricId' in kwargs:
+            primary_fabric_id = kwargs['primaryFabricId']
+        if provider_specific_details is None and 'providerSpecificDetails' in kwargs:
+            provider_specific_details = kwargs['providerSpecificDetails']
+        if recovery_fabric_friendly_name is None and 'recoveryFabricFriendlyName' in kwargs:
+            recovery_fabric_friendly_name = kwargs['recoveryFabricFriendlyName']
+        if recovery_fabric_id is None and 'recoveryFabricId' in kwargs:
+            recovery_fabric_id = kwargs['recoveryFabricId']
+        if replication_providers is None and 'replicationProviders' in kwargs:
+            replication_providers = kwargs['replicationProviders']
+
         if allowed_operations is not None:
-            pulumi.set(__self__, "allowed_operations", allowed_operations)
+            _setter("allowed_operations", allowed_operations)
         if current_scenario is not None:
-            pulumi.set(__self__, "current_scenario", current_scenario)
+            _setter("current_scenario", current_scenario)
         if current_scenario_status is not None:
-            pulumi.set(__self__, "current_scenario_status", current_scenario_status)
+            _setter("current_scenario_status", current_scenario_status)
         if current_scenario_status_description is not None:
-            pulumi.set(__self__, "current_scenario_status_description", current_scenario_status_description)
+            _setter("current_scenario_status_description", current_scenario_status_description)
         if failover_deployment_model is not None:
-            pulumi.set(__self__, "failover_deployment_model", failover_deployment_model)
+            _setter("failover_deployment_model", failover_deployment_model)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if groups is not None:
-            pulumi.set(__self__, "groups", groups)
+            _setter("groups", groups)
         if last_planned_failover_time is not None:
-            pulumi.set(__self__, "last_planned_failover_time", last_planned_failover_time)
+            _setter("last_planned_failover_time", last_planned_failover_time)
         if last_test_failover_time is not None:
-            pulumi.set(__self__, "last_test_failover_time", last_test_failover_time)
+            _setter("last_test_failover_time", last_test_failover_time)
         if last_unplanned_failover_time is not None:
-            pulumi.set(__self__, "last_unplanned_failover_time", last_unplanned_failover_time)
+            _setter("last_unplanned_failover_time", last_unplanned_failover_time)
         if primary_fabric_friendly_name is not None:
-            pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
+            _setter("primary_fabric_friendly_name", primary_fabric_friendly_name)
         if primary_fabric_id is not None:
-            pulumi.set(__self__, "primary_fabric_id", primary_fabric_id)
+            _setter("primary_fabric_id", primary_fabric_id)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
         if recovery_fabric_friendly_name is not None:
-            pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
+            _setter("recovery_fabric_friendly_name", recovery_fabric_friendly_name)
         if recovery_fabric_id is not None:
-            pulumi.set(__self__, "recovery_fabric_id", recovery_fabric_id)
+            _setter("recovery_fabric_id", recovery_fabric_id)
         if replication_providers is not None:
-            pulumi.set(__self__, "replication_providers", replication_providers)
+            _setter("replication_providers", replication_providers)
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -16885,10 +22629,25 @@ class RecoveryPlanProtectedItemResponse(dict):
         :param str id: The ARM Id of the recovery plan protected item.
         :param str virtual_machine_id: The virtual machine Id.
         """
+        RecoveryPlanProtectedItemResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            virtual_machine_id=virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             virtual_machine_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+            _setter("virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -16944,11 +22703,38 @@ class RecoveryPlanScriptActionDetailsResponse(dict):
         :param str path: The script path.
         :param str timeout: The script timeout.
         """
-        pulumi.set(__self__, "fabric_location", fabric_location)
-        pulumi.set(__self__, "instance_type", 'ScriptActionDetails')
-        pulumi.set(__self__, "path", path)
+        RecoveryPlanScriptActionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_location=fabric_location,
+            instance_type=instance_type,
+            path=path,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_location: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             path: Optional[str] = None,
+             timeout: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fabric_location is None and 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if fabric_location is None:
+            raise TypeError("Missing 'fabric_location' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+
+        _setter("fabric_location", fabric_location)
+        _setter("instance_type", 'ScriptActionDetails')
+        _setter("path", path)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="fabricLocation")
@@ -17088,46 +22874,135 @@ class RecoveryServicesProviderPropertiesResponse(dict):
         :param 'IdentityProviderDetailsResponse' resource_access_identity_details: The resource access identity details.
         :param str server_version: The fabric provider.
         """
+        RecoveryServicesProviderPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_scenarios=allowed_scenarios,
+            authentication_identity_details=authentication_identity_details,
+            bios_id=bios_id,
+            connection_status=connection_status,
+            data_plane_authentication_identity_details=data_plane_authentication_identity_details,
+            dra_identifier=dra_identifier,
+            fabric_friendly_name=fabric_friendly_name,
+            fabric_type=fabric_type,
+            friendly_name=friendly_name,
+            health_error_details=health_error_details,
+            last_heart_beat=last_heart_beat,
+            machine_id=machine_id,
+            machine_name=machine_name,
+            protected_item_count=protected_item_count,
+            provider_version=provider_version,
+            provider_version_details=provider_version_details,
+            provider_version_expiry_date=provider_version_expiry_date,
+            provider_version_state=provider_version_state,
+            resource_access_identity_details=resource_access_identity_details,
+            server_version=server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_scenarios: Optional[Sequence[str]] = None,
+             authentication_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+             bios_id: Optional[str] = None,
+             connection_status: Optional[str] = None,
+             data_plane_authentication_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+             dra_identifier: Optional[str] = None,
+             fabric_friendly_name: Optional[str] = None,
+             fabric_type: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             last_heart_beat: Optional[str] = None,
+             machine_id: Optional[str] = None,
+             machine_name: Optional[str] = None,
+             protected_item_count: Optional[int] = None,
+             provider_version: Optional[str] = None,
+             provider_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             provider_version_expiry_date: Optional[str] = None,
+             provider_version_state: Optional[str] = None,
+             resource_access_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+             server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_scenarios is None and 'allowedScenarios' in kwargs:
+            allowed_scenarios = kwargs['allowedScenarios']
+        if authentication_identity_details is None and 'authenticationIdentityDetails' in kwargs:
+            authentication_identity_details = kwargs['authenticationIdentityDetails']
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if connection_status is None and 'connectionStatus' in kwargs:
+            connection_status = kwargs['connectionStatus']
+        if data_plane_authentication_identity_details is None and 'dataPlaneAuthenticationIdentityDetails' in kwargs:
+            data_plane_authentication_identity_details = kwargs['dataPlaneAuthenticationIdentityDetails']
+        if dra_identifier is None and 'draIdentifier' in kwargs:
+            dra_identifier = kwargs['draIdentifier']
+        if fabric_friendly_name is None and 'fabricFriendlyName' in kwargs:
+            fabric_friendly_name = kwargs['fabricFriendlyName']
+        if fabric_type is None and 'fabricType' in kwargs:
+            fabric_type = kwargs['fabricType']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if health_error_details is None and 'healthErrorDetails' in kwargs:
+            health_error_details = kwargs['healthErrorDetails']
+        if last_heart_beat is None and 'lastHeartBeat' in kwargs:
+            last_heart_beat = kwargs['lastHeartBeat']
+        if machine_id is None and 'machineId' in kwargs:
+            machine_id = kwargs['machineId']
+        if machine_name is None and 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+        if protected_item_count is None and 'protectedItemCount' in kwargs:
+            protected_item_count = kwargs['protectedItemCount']
+        if provider_version is None and 'providerVersion' in kwargs:
+            provider_version = kwargs['providerVersion']
+        if provider_version_details is None and 'providerVersionDetails' in kwargs:
+            provider_version_details = kwargs['providerVersionDetails']
+        if provider_version_expiry_date is None and 'providerVersionExpiryDate' in kwargs:
+            provider_version_expiry_date = kwargs['providerVersionExpiryDate']
+        if provider_version_state is None and 'providerVersionState' in kwargs:
+            provider_version_state = kwargs['providerVersionState']
+        if resource_access_identity_details is None and 'resourceAccessIdentityDetails' in kwargs:
+            resource_access_identity_details = kwargs['resourceAccessIdentityDetails']
+        if server_version is None and 'serverVersion' in kwargs:
+            server_version = kwargs['serverVersion']
+
         if allowed_scenarios is not None:
-            pulumi.set(__self__, "allowed_scenarios", allowed_scenarios)
+            _setter("allowed_scenarios", allowed_scenarios)
         if authentication_identity_details is not None:
-            pulumi.set(__self__, "authentication_identity_details", authentication_identity_details)
+            _setter("authentication_identity_details", authentication_identity_details)
         if bios_id is not None:
-            pulumi.set(__self__, "bios_id", bios_id)
+            _setter("bios_id", bios_id)
         if connection_status is not None:
-            pulumi.set(__self__, "connection_status", connection_status)
+            _setter("connection_status", connection_status)
         if data_plane_authentication_identity_details is not None:
-            pulumi.set(__self__, "data_plane_authentication_identity_details", data_plane_authentication_identity_details)
+            _setter("data_plane_authentication_identity_details", data_plane_authentication_identity_details)
         if dra_identifier is not None:
-            pulumi.set(__self__, "dra_identifier", dra_identifier)
+            _setter("dra_identifier", dra_identifier)
         if fabric_friendly_name is not None:
-            pulumi.set(__self__, "fabric_friendly_name", fabric_friendly_name)
+            _setter("fabric_friendly_name", fabric_friendly_name)
         if fabric_type is not None:
-            pulumi.set(__self__, "fabric_type", fabric_type)
+            _setter("fabric_type", fabric_type)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_error_details is not None:
-            pulumi.set(__self__, "health_error_details", health_error_details)
+            _setter("health_error_details", health_error_details)
         if last_heart_beat is not None:
-            pulumi.set(__self__, "last_heart_beat", last_heart_beat)
+            _setter("last_heart_beat", last_heart_beat)
         if machine_id is not None:
-            pulumi.set(__self__, "machine_id", machine_id)
+            _setter("machine_id", machine_id)
         if machine_name is not None:
-            pulumi.set(__self__, "machine_name", machine_name)
+            _setter("machine_name", machine_name)
         if protected_item_count is not None:
-            pulumi.set(__self__, "protected_item_count", protected_item_count)
+            _setter("protected_item_count", protected_item_count)
         if provider_version is not None:
-            pulumi.set(__self__, "provider_version", provider_version)
+            _setter("provider_version", provider_version)
         if provider_version_details is not None:
-            pulumi.set(__self__, "provider_version_details", provider_version_details)
+            _setter("provider_version_details", provider_version_details)
         if provider_version_expiry_date is not None:
-            pulumi.set(__self__, "provider_version_expiry_date", provider_version_expiry_date)
+            _setter("provider_version_expiry_date", provider_version_expiry_date)
         if provider_version_state is not None:
-            pulumi.set(__self__, "provider_version_state", provider_version_state)
+            _setter("provider_version_state", provider_version_state)
         if resource_access_identity_details is not None:
-            pulumi.set(__self__, "resource_access_identity_details", resource_access_identity_details)
+            _setter("resource_access_identity_details", resource_access_identity_details)
         if server_version is not None:
-            pulumi.set(__self__, "server_version", server_version)
+            _setter("server_version", server_version)
 
     @property
     @pulumi.getter(name="allowedScenarios")
@@ -17340,15 +23215,68 @@ class ReplicationAgentDetailsResponse(dict):
         :param str name: The replication agent name.
         :param str version: The version.
         """
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
+        ReplicationAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bios_id=bios_id,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bios_id: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             id: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             name: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if fabric_object_id is None:
+            raise TypeError("Missing 'fabric_object_id' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("bios_id", bios_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="biosId")
@@ -17567,66 +23495,195 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         :param str test_failover_state: The Test failover state.
         :param str test_failover_state_description: The Test failover state description.
         """
+        ReplicationProtectedItemPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_location=active_location,
+            allowed_operations=allowed_operations,
+            current_scenario=current_scenario,
+            event_correlation_id=event_correlation_id,
+            failover_health=failover_health,
+            failover_recovery_point_id=failover_recovery_point_id,
+            friendly_name=friendly_name,
+            health_errors=health_errors,
+            last_successful_failover_time=last_successful_failover_time,
+            last_successful_test_failover_time=last_successful_test_failover_time,
+            policy_friendly_name=policy_friendly_name,
+            policy_id=policy_id,
+            primary_fabric_friendly_name=primary_fabric_friendly_name,
+            primary_fabric_provider=primary_fabric_provider,
+            primary_protection_container_friendly_name=primary_protection_container_friendly_name,
+            protectable_item_id=protectable_item_id,
+            protected_item_type=protected_item_type,
+            protection_state=protection_state,
+            protection_state_description=protection_state_description,
+            provider_specific_details=provider_specific_details,
+            recovery_container_id=recovery_container_id,
+            recovery_fabric_friendly_name=recovery_fabric_friendly_name,
+            recovery_fabric_id=recovery_fabric_id,
+            recovery_protection_container_friendly_name=recovery_protection_container_friendly_name,
+            recovery_services_provider_id=recovery_services_provider_id,
+            replication_health=replication_health,
+            switch_provider_state=switch_provider_state,
+            switch_provider_state_description=switch_provider_state_description,
+            test_failover_state=test_failover_state,
+            test_failover_state_description=test_failover_state_description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_location: Optional[str] = None,
+             allowed_operations: Optional[Sequence[str]] = None,
+             current_scenario: Optional['outputs.CurrentScenarioDetailsResponse'] = None,
+             event_correlation_id: Optional[str] = None,
+             failover_health: Optional[str] = None,
+             failover_recovery_point_id: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             last_successful_failover_time: Optional[str] = None,
+             last_successful_test_failover_time: Optional[str] = None,
+             policy_friendly_name: Optional[str] = None,
+             policy_id: Optional[str] = None,
+             primary_fabric_friendly_name: Optional[str] = None,
+             primary_fabric_provider: Optional[str] = None,
+             primary_protection_container_friendly_name: Optional[str] = None,
+             protectable_item_id: Optional[str] = None,
+             protected_item_type: Optional[str] = None,
+             protection_state: Optional[str] = None,
+             protection_state_description: Optional[str] = None,
+             provider_specific_details: Optional[Any] = None,
+             recovery_container_id: Optional[str] = None,
+             recovery_fabric_friendly_name: Optional[str] = None,
+             recovery_fabric_id: Optional[str] = None,
+             recovery_protection_container_friendly_name: Optional[str] = None,
+             recovery_services_provider_id: Optional[str] = None,
+             replication_health: Optional[str] = None,
+             switch_provider_state: Optional[str] = None,
+             switch_provider_state_description: Optional[str] = None,
+             test_failover_state: Optional[str] = None,
+             test_failover_state_description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_location is None and 'activeLocation' in kwargs:
+            active_location = kwargs['activeLocation']
+        if allowed_operations is None and 'allowedOperations' in kwargs:
+            allowed_operations = kwargs['allowedOperations']
+        if current_scenario is None and 'currentScenario' in kwargs:
+            current_scenario = kwargs['currentScenario']
+        if event_correlation_id is None and 'eventCorrelationId' in kwargs:
+            event_correlation_id = kwargs['eventCorrelationId']
+        if failover_health is None and 'failoverHealth' in kwargs:
+            failover_health = kwargs['failoverHealth']
+        if failover_recovery_point_id is None and 'failoverRecoveryPointId' in kwargs:
+            failover_recovery_point_id = kwargs['failoverRecoveryPointId']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if last_successful_failover_time is None and 'lastSuccessfulFailoverTime' in kwargs:
+            last_successful_failover_time = kwargs['lastSuccessfulFailoverTime']
+        if last_successful_test_failover_time is None and 'lastSuccessfulTestFailoverTime' in kwargs:
+            last_successful_test_failover_time = kwargs['lastSuccessfulTestFailoverTime']
+        if policy_friendly_name is None and 'policyFriendlyName' in kwargs:
+            policy_friendly_name = kwargs['policyFriendlyName']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if primary_fabric_friendly_name is None and 'primaryFabricFriendlyName' in kwargs:
+            primary_fabric_friendly_name = kwargs['primaryFabricFriendlyName']
+        if primary_fabric_provider is None and 'primaryFabricProvider' in kwargs:
+            primary_fabric_provider = kwargs['primaryFabricProvider']
+        if primary_protection_container_friendly_name is None and 'primaryProtectionContainerFriendlyName' in kwargs:
+            primary_protection_container_friendly_name = kwargs['primaryProtectionContainerFriendlyName']
+        if protectable_item_id is None and 'protectableItemId' in kwargs:
+            protectable_item_id = kwargs['protectableItemId']
+        if protected_item_type is None and 'protectedItemType' in kwargs:
+            protected_item_type = kwargs['protectedItemType']
+        if protection_state is None and 'protectionState' in kwargs:
+            protection_state = kwargs['protectionState']
+        if protection_state_description is None and 'protectionStateDescription' in kwargs:
+            protection_state_description = kwargs['protectionStateDescription']
+        if provider_specific_details is None and 'providerSpecificDetails' in kwargs:
+            provider_specific_details = kwargs['providerSpecificDetails']
+        if recovery_container_id is None and 'recoveryContainerId' in kwargs:
+            recovery_container_id = kwargs['recoveryContainerId']
+        if recovery_fabric_friendly_name is None and 'recoveryFabricFriendlyName' in kwargs:
+            recovery_fabric_friendly_name = kwargs['recoveryFabricFriendlyName']
+        if recovery_fabric_id is None and 'recoveryFabricId' in kwargs:
+            recovery_fabric_id = kwargs['recoveryFabricId']
+        if recovery_protection_container_friendly_name is None and 'recoveryProtectionContainerFriendlyName' in kwargs:
+            recovery_protection_container_friendly_name = kwargs['recoveryProtectionContainerFriendlyName']
+        if recovery_services_provider_id is None and 'recoveryServicesProviderId' in kwargs:
+            recovery_services_provider_id = kwargs['recoveryServicesProviderId']
+        if replication_health is None and 'replicationHealth' in kwargs:
+            replication_health = kwargs['replicationHealth']
+        if switch_provider_state is None and 'switchProviderState' in kwargs:
+            switch_provider_state = kwargs['switchProviderState']
+        if switch_provider_state_description is None and 'switchProviderStateDescription' in kwargs:
+            switch_provider_state_description = kwargs['switchProviderStateDescription']
+        if test_failover_state is None and 'testFailoverState' in kwargs:
+            test_failover_state = kwargs['testFailoverState']
+        if test_failover_state_description is None and 'testFailoverStateDescription' in kwargs:
+            test_failover_state_description = kwargs['testFailoverStateDescription']
+
         if active_location is not None:
-            pulumi.set(__self__, "active_location", active_location)
+            _setter("active_location", active_location)
         if allowed_operations is not None:
-            pulumi.set(__self__, "allowed_operations", allowed_operations)
+            _setter("allowed_operations", allowed_operations)
         if current_scenario is not None:
-            pulumi.set(__self__, "current_scenario", current_scenario)
+            _setter("current_scenario", current_scenario)
         if event_correlation_id is not None:
-            pulumi.set(__self__, "event_correlation_id", event_correlation_id)
+            _setter("event_correlation_id", event_correlation_id)
         if failover_health is not None:
-            pulumi.set(__self__, "failover_health", failover_health)
+            _setter("failover_health", failover_health)
         if failover_recovery_point_id is not None:
-            pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
+            _setter("failover_recovery_point_id", failover_recovery_point_id)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if last_successful_failover_time is not None:
-            pulumi.set(__self__, "last_successful_failover_time", last_successful_failover_time)
+            _setter("last_successful_failover_time", last_successful_failover_time)
         if last_successful_test_failover_time is not None:
-            pulumi.set(__self__, "last_successful_test_failover_time", last_successful_test_failover_time)
+            _setter("last_successful_test_failover_time", last_successful_test_failover_time)
         if policy_friendly_name is not None:
-            pulumi.set(__self__, "policy_friendly_name", policy_friendly_name)
+            _setter("policy_friendly_name", policy_friendly_name)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if primary_fabric_friendly_name is not None:
-            pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
+            _setter("primary_fabric_friendly_name", primary_fabric_friendly_name)
         if primary_fabric_provider is not None:
-            pulumi.set(__self__, "primary_fabric_provider", primary_fabric_provider)
+            _setter("primary_fabric_provider", primary_fabric_provider)
         if primary_protection_container_friendly_name is not None:
-            pulumi.set(__self__, "primary_protection_container_friendly_name", primary_protection_container_friendly_name)
+            _setter("primary_protection_container_friendly_name", primary_protection_container_friendly_name)
         if protectable_item_id is not None:
-            pulumi.set(__self__, "protectable_item_id", protectable_item_id)
+            _setter("protectable_item_id", protectable_item_id)
         if protected_item_type is not None:
-            pulumi.set(__self__, "protected_item_type", protected_item_type)
+            _setter("protected_item_type", protected_item_type)
         if protection_state is not None:
-            pulumi.set(__self__, "protection_state", protection_state)
+            _setter("protection_state", protection_state)
         if protection_state_description is not None:
-            pulumi.set(__self__, "protection_state_description", protection_state_description)
+            _setter("protection_state_description", protection_state_description)
         if provider_specific_details is not None:
-            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
+            _setter("provider_specific_details", provider_specific_details)
         if recovery_container_id is not None:
-            pulumi.set(__self__, "recovery_container_id", recovery_container_id)
+            _setter("recovery_container_id", recovery_container_id)
         if recovery_fabric_friendly_name is not None:
-            pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
+            _setter("recovery_fabric_friendly_name", recovery_fabric_friendly_name)
         if recovery_fabric_id is not None:
-            pulumi.set(__self__, "recovery_fabric_id", recovery_fabric_id)
+            _setter("recovery_fabric_id", recovery_fabric_id)
         if recovery_protection_container_friendly_name is not None:
-            pulumi.set(__self__, "recovery_protection_container_friendly_name", recovery_protection_container_friendly_name)
+            _setter("recovery_protection_container_friendly_name", recovery_protection_container_friendly_name)
         if recovery_services_provider_id is not None:
-            pulumi.set(__self__, "recovery_services_provider_id", recovery_services_provider_id)
+            _setter("recovery_services_provider_id", recovery_services_provider_id)
         if replication_health is not None:
-            pulumi.set(__self__, "replication_health", replication_health)
+            _setter("replication_health", replication_health)
         if switch_provider_state is not None:
-            pulumi.set(__self__, "switch_provider_state", switch_provider_state)
+            _setter("switch_provider_state", switch_provider_state)
         if switch_provider_state_description is not None:
-            pulumi.set(__self__, "switch_provider_state_description", switch_provider_state_description)
+            _setter("switch_provider_state_description", switch_provider_state_description)
         if test_failover_state is not None:
-            pulumi.set(__self__, "test_failover_state", test_failover_state)
+            _setter("test_failover_state", test_failover_state)
         if test_failover_state_description is not None:
-            pulumi.set(__self__, "test_failover_state_description", test_failover_state_description)
+            _setter("test_failover_state_description", test_failover_state_description)
 
     @property
     @pulumi.getter(name="activeLocation")
@@ -17935,19 +23992,96 @@ class ReprotectAgentDetailsResponse(dict):
         :param str vcenter_id: The Vcenter Id.
         :param str version: The version.
         """
-        pulumi.set(__self__, "accessible_datastores", accessible_datastores)
-        pulumi.set(__self__, "bios_id", bios_id)
-        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "health", health)
-        pulumi.set(__self__, "health_errors", health_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_discovery_in_utc", last_discovery_in_utc)
-        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protected_item_count", protected_item_count)
-        pulumi.set(__self__, "vcenter_id", vcenter_id)
-        pulumi.set(__self__, "version", version)
+        ReprotectAgentDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accessible_datastores=accessible_datastores,
+            bios_id=bios_id,
+            fabric_object_id=fabric_object_id,
+            fqdn=fqdn,
+            health=health,
+            health_errors=health_errors,
+            id=id,
+            last_discovery_in_utc=last_discovery_in_utc,
+            last_heartbeat_utc=last_heartbeat_utc,
+            name=name,
+            protected_item_count=protected_item_count,
+            vcenter_id=vcenter_id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accessible_datastores: Optional[Sequence[str]] = None,
+             bios_id: Optional[str] = None,
+             fabric_object_id: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             health: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             id: Optional[str] = None,
+             last_discovery_in_utc: Optional[str] = None,
+             last_heartbeat_utc: Optional[str] = None,
+             name: Optional[str] = None,
+             protected_item_count: Optional[int] = None,
+             vcenter_id: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accessible_datastores is None and 'accessibleDatastores' in kwargs:
+            accessible_datastores = kwargs['accessibleDatastores']
+        if accessible_datastores is None:
+            raise TypeError("Missing 'accessible_datastores' argument")
+        if bios_id is None and 'biosId' in kwargs:
+            bios_id = kwargs['biosId']
+        if bios_id is None:
+            raise TypeError("Missing 'bios_id' argument")
+        if fabric_object_id is None and 'fabricObjectId' in kwargs:
+            fabric_object_id = kwargs['fabricObjectId']
+        if fabric_object_id is None:
+            raise TypeError("Missing 'fabric_object_id' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if health is None:
+            raise TypeError("Missing 'health' argument")
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if health_errors is None:
+            raise TypeError("Missing 'health_errors' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_discovery_in_utc is None and 'lastDiscoveryInUtc' in kwargs:
+            last_discovery_in_utc = kwargs['lastDiscoveryInUtc']
+        if last_discovery_in_utc is None:
+            raise TypeError("Missing 'last_discovery_in_utc' argument")
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if last_heartbeat_utc is None:
+            raise TypeError("Missing 'last_heartbeat_utc' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protected_item_count is None and 'protectedItemCount' in kwargs:
+            protected_item_count = kwargs['protectedItemCount']
+        if protected_item_count is None:
+            raise TypeError("Missing 'protected_item_count' argument")
+        if vcenter_id is None and 'vcenterId' in kwargs:
+            vcenter_id = kwargs['vcenterId']
+        if vcenter_id is None:
+            raise TypeError("Missing 'vcenter_id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("accessible_datastores", accessible_datastores)
+        _setter("bios_id", bios_id)
+        _setter("fabric_object_id", fabric_object_id)
+        _setter("fqdn", fqdn)
+        _setter("health", health)
+        _setter("health_errors", health_errors)
+        _setter("id", id)
+        _setter("last_discovery_in_utc", last_discovery_in_utc)
+        _setter("last_heartbeat_utc", last_heartbeat_utc)
+        _setter("name", name)
+        _setter("protected_item_count", protected_item_count)
+        _setter("vcenter_id", vcenter_id)
+        _setter("version", version)
 
     @property
     @pulumi.getter(name="accessibleDatastores")
@@ -18082,8 +24216,21 @@ class RestoreSettingsResponse(dict):
         Restore Settings  of the vault
         :param 'CrossSubscriptionRestoreSettingsResponse' cross_subscription_restore_settings: Settings for CrossSubscriptionRestore
         """
+        RestoreSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_subscription_restore_settings=cross_subscription_restore_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_subscription_restore_settings: Optional['outputs.CrossSubscriptionRestoreSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cross_subscription_restore_settings is None and 'crossSubscriptionRestoreSettings' in kwargs:
+            cross_subscription_restore_settings = kwargs['crossSubscriptionRestoreSettings']
+
         if cross_subscription_restore_settings is not None:
-            pulumi.set(__self__, "cross_subscription_restore_settings", cross_subscription_restore_settings)
+            _setter("cross_subscription_restore_settings", cross_subscription_restore_settings)
 
     @property
     @pulumi.getter(name="crossSubscriptionRestoreSettings")
@@ -18134,14 +24281,39 @@ class RetentionVolumeResponse(dict):
         :param int threshold_percentage: The threshold percentage.
         :param str volume_name: The volume name.
         """
+        RetentionVolumeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            free_space_in_bytes=free_space_in_bytes,
+            threshold_percentage=threshold_percentage,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: Optional[float] = None,
+             free_space_in_bytes: Optional[float] = None,
+             threshold_percentage: Optional[int] = None,
+             volume_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_in_bytes is None and 'capacityInBytes' in kwargs:
+            capacity_in_bytes = kwargs['capacityInBytes']
+        if free_space_in_bytes is None and 'freeSpaceInBytes' in kwargs:
+            free_space_in_bytes = kwargs['freeSpaceInBytes']
+        if threshold_percentage is None and 'thresholdPercentage' in kwargs:
+            threshold_percentage = kwargs['thresholdPercentage']
+        if volume_name is None and 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+
         if capacity_in_bytes is not None:
-            pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
+            _setter("capacity_in_bytes", capacity_in_bytes)
         if free_space_in_bytes is not None:
-            pulumi.set(__self__, "free_space_in_bytes", free_space_in_bytes)
+            _setter("free_space_in_bytes", free_space_in_bytes)
         if threshold_percentage is not None:
-            pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+            _setter("threshold_percentage", threshold_percentage)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -18208,10 +24380,27 @@ class RunAsAccountResponse(dict):
         :param str account_id: The CS RunAs account Id.
         :param str account_name: The CS RunAs account name.
         """
+        RunAsAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_id=account_id,
+            account_name=account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_id: Optional[str] = None,
+             account_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
 
     @property
     @pulumi.getter(name="accountId")
@@ -18266,11 +24455,34 @@ class SecuritySettingsResponse(dict):
         :param 'ImmutabilitySettingsResponse' immutability_settings: Immutability Settings of a vault
         :param 'SoftDeleteSettingsResponse' soft_delete_settings: Soft delete Settings of a vault
         """
-        pulumi.set(__self__, "multi_user_authorization", multi_user_authorization)
+        SecuritySettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            multi_user_authorization=multi_user_authorization,
+            immutability_settings=immutability_settings,
+            soft_delete_settings=soft_delete_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             multi_user_authorization: Optional[str] = None,
+             immutability_settings: Optional['outputs.ImmutabilitySettingsResponse'] = None,
+             soft_delete_settings: Optional['outputs.SoftDeleteSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if multi_user_authorization is None and 'multiUserAuthorization' in kwargs:
+            multi_user_authorization = kwargs['multiUserAuthorization']
+        if multi_user_authorization is None:
+            raise TypeError("Missing 'multi_user_authorization' argument")
+        if immutability_settings is None and 'immutabilitySettings' in kwargs:
+            immutability_settings = kwargs['immutabilitySettings']
+        if soft_delete_settings is None and 'softDeleteSettings' in kwargs:
+            soft_delete_settings = kwargs['softDeleteSettings']
+
+        _setter("multi_user_authorization", multi_user_authorization)
         if immutability_settings is not None:
-            pulumi.set(__self__, "immutability_settings", immutability_settings)
+            _setter("immutability_settings", immutability_settings)
         if soft_delete_settings is not None:
-            pulumi.set(__self__, "soft_delete_settings", soft_delete_settings)
+            _setter("soft_delete_settings", soft_delete_settings)
 
     @property
     @pulumi.getter(name="multiUserAuthorization")
@@ -18316,15 +24528,36 @@ class SkuResponse(dict):
         :param str size: The sku size
         :param str tier: The Sku tier.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             capacity: Optional[str] = None,
+             family: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -18398,10 +24631,27 @@ class SoftDeleteSettingsResponse(dict):
         Soft delete Settings of vault
         :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         """
+        SoftDeleteSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            soft_delete_retention_period_in_days=soft_delete_retention_period_in_days,
+            soft_delete_state=soft_delete_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             soft_delete_retention_period_in_days: Optional[int] = None,
+             soft_delete_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if soft_delete_retention_period_in_days is None and 'softDeleteRetentionPeriodInDays' in kwargs:
+            soft_delete_retention_period_in_days = kwargs['softDeleteRetentionPeriodInDays']
+        if soft_delete_state is None and 'softDeleteState' in kwargs:
+            soft_delete_state = kwargs['softDeleteState']
+
         if soft_delete_retention_period_in_days is not None:
-            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
+            _setter("soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if soft_delete_state is not None:
-            pulumi.set(__self__, "soft_delete_state", soft_delete_state)
+            _setter("soft_delete_state", soft_delete_state)
 
     @property
     @pulumi.getter(name="softDeleteRetentionPeriodInDays")
@@ -18445,8 +24695,21 @@ class StorageClassificationMappingPropertiesResponse(dict):
         Storage mapping properties.
         :param str target_storage_classification_id: Target storage object Id.
         """
+        StorageClassificationMappingPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_storage_classification_id=target_storage_classification_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_storage_classification_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_storage_classification_id is None and 'targetStorageClassificationId' in kwargs:
+            target_storage_classification_id = kwargs['targetStorageClassificationId']
+
         if target_storage_classification_id is not None:
-            pulumi.set(__self__, "target_storage_classification_id", target_storage_classification_id)
+            _setter("target_storage_classification_id", target_storage_classification_id)
 
     @property
     @pulumi.getter(name="targetStorageClassificationId")
@@ -18505,18 +24768,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -18623,15 +24919,74 @@ class UpgradeDetailsResponse(dict):
         :param str trigger_type: The way the vault upgrade was triggered.
         :param str upgraded_resource_id: Resource ID of the upgraded vault.
         """
-        pulumi.set(__self__, "end_time_utc", end_time_utc)
-        pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "operation_id", operation_id)
-        pulumi.set(__self__, "previous_resource_id", previous_resource_id)
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "trigger_type", trigger_type)
-        pulumi.set(__self__, "upgraded_resource_id", upgraded_resource_id)
+        UpgradeDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time_utc=end_time_utc,
+            last_updated_time_utc=last_updated_time_utc,
+            message=message,
+            operation_id=operation_id,
+            previous_resource_id=previous_resource_id,
+            start_time_utc=start_time_utc,
+            status=status,
+            trigger_type=trigger_type,
+            upgraded_resource_id=upgraded_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time_utc: Optional[str] = None,
+             last_updated_time_utc: Optional[str] = None,
+             message: Optional[str] = None,
+             operation_id: Optional[str] = None,
+             previous_resource_id: Optional[str] = None,
+             start_time_utc: Optional[str] = None,
+             status: Optional[str] = None,
+             trigger_type: Optional[str] = None,
+             upgraded_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time_utc is None and 'endTimeUtc' in kwargs:
+            end_time_utc = kwargs['endTimeUtc']
+        if end_time_utc is None:
+            raise TypeError("Missing 'end_time_utc' argument")
+        if last_updated_time_utc is None and 'lastUpdatedTimeUtc' in kwargs:
+            last_updated_time_utc = kwargs['lastUpdatedTimeUtc']
+        if last_updated_time_utc is None:
+            raise TypeError("Missing 'last_updated_time_utc' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if operation_id is None and 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if operation_id is None:
+            raise TypeError("Missing 'operation_id' argument")
+        if previous_resource_id is None and 'previousResourceId' in kwargs:
+            previous_resource_id = kwargs['previousResourceId']
+        if previous_resource_id is None:
+            raise TypeError("Missing 'previous_resource_id' argument")
+        if start_time_utc is None and 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+        if start_time_utc is None:
+            raise TypeError("Missing 'start_time_utc' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if trigger_type is None and 'triggerType' in kwargs:
+            trigger_type = kwargs['triggerType']
+        if trigger_type is None:
+            raise TypeError("Missing 'trigger_type' argument")
+        if upgraded_resource_id is None and 'upgradedResourceId' in kwargs:
+            upgraded_resource_id = kwargs['upgradedResourceId']
+        if upgraded_resource_id is None:
+            raise TypeError("Missing 'upgraded_resource_id' argument")
+
+        _setter("end_time_utc", end_time_utc)
+        _setter("last_updated_time_utc", last_updated_time_utc)
+        _setter("message", message)
+        _setter("operation_id", operation_id)
+        _setter("previous_resource_id", previous_resource_id)
+        _setter("start_time_utc", start_time_utc)
+        _setter("status", status)
+        _setter("trigger_type", trigger_type)
+        _setter("upgraded_resource_id", upgraded_resource_id)
 
     @property
     @pulumi.getter(name="endTimeUtc")
@@ -18738,8 +25093,29 @@ class UserIdentityResponse(dict):
         :param str client_id: The client ID of the user-assigned identity.
         :param str principal_id: The principal ID of the user-assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -18824,28 +25200,79 @@ class VCenterPropertiesResponse(dict):
         :param str process_server_id: The process server Id.
         :param str run_as_account_id: The account Id which has privileges to discover the vCenter.
         """
+        VCenterPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            discovery_status=discovery_status,
+            fabric_arm_resource_name=fabric_arm_resource_name,
+            friendly_name=friendly_name,
+            health_errors=health_errors,
+            infrastructure_id=infrastructure_id,
+            internal_id=internal_id,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            port=port,
+            process_server_id=process_server_id,
+            run_as_account_id=run_as_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             discovery_status: Optional[str] = None,
+             fabric_arm_resource_name: Optional[str] = None,
+             friendly_name: Optional[str] = None,
+             health_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
+             infrastructure_id: Optional[str] = None,
+             internal_id: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             port: Optional[str] = None,
+             process_server_id: Optional[str] = None,
+             run_as_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if discovery_status is None and 'discoveryStatus' in kwargs:
+            discovery_status = kwargs['discoveryStatus']
+        if fabric_arm_resource_name is None and 'fabricArmResourceName' in kwargs:
+            fabric_arm_resource_name = kwargs['fabricArmResourceName']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if health_errors is None and 'healthErrors' in kwargs:
+            health_errors = kwargs['healthErrors']
+        if infrastructure_id is None and 'infrastructureId' in kwargs:
+            infrastructure_id = kwargs['infrastructureId']
+        if internal_id is None and 'internalId' in kwargs:
+            internal_id = kwargs['internalId']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if last_heartbeat is None and 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if process_server_id is None and 'processServerId' in kwargs:
+            process_server_id = kwargs['processServerId']
+        if run_as_account_id is None and 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+
         if discovery_status is not None:
-            pulumi.set(__self__, "discovery_status", discovery_status)
+            _setter("discovery_status", discovery_status)
         if fabric_arm_resource_name is not None:
-            pulumi.set(__self__, "fabric_arm_resource_name", fabric_arm_resource_name)
+            _setter("fabric_arm_resource_name", fabric_arm_resource_name)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if health_errors is not None:
-            pulumi.set(__self__, "health_errors", health_errors)
+            _setter("health_errors", health_errors)
         if infrastructure_id is not None:
-            pulumi.set(__self__, "infrastructure_id", infrastructure_id)
+            _setter("infrastructure_id", infrastructure_id)
         if internal_id is not None:
-            pulumi.set(__self__, "internal_id", internal_id)
+            _setter("internal_id", internal_id)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if process_server_id is not None:
-            pulumi.set(__self__, "process_server_id", process_server_id)
+            _setter("process_server_id", process_server_id)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
 
     @property
     @pulumi.getter(name="discoveryStatus")
@@ -19036,48 +25463,133 @@ class VMNicDetailsResponse(dict):
         :param str tfo_vm_network_id: The network to be used by NIC during test failover.
         :param str v_m_network_name: VM network name.
         """
+        VMNicDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_accelerated_networking_on_recovery=enable_accelerated_networking_on_recovery,
+            enable_accelerated_networking_on_tfo=enable_accelerated_networking_on_tfo,
+            ip_configs=ip_configs,
+            nic_id=nic_id,
+            recovery_network_security_group_id=recovery_network_security_group_id,
+            recovery_nic_name=recovery_nic_name,
+            recovery_nic_resource_group_name=recovery_nic_resource_group_name,
+            recovery_vm_network_id=recovery_vm_network_id,
+            replica_nic_id=replica_nic_id,
+            reuse_existing_nic=reuse_existing_nic,
+            selection_type=selection_type,
+            source_nic_arm_id=source_nic_arm_id,
+            target_nic_name=target_nic_name,
+            tfo_network_security_group_id=tfo_network_security_group_id,
+            tfo_recovery_nic_name=tfo_recovery_nic_name,
+            tfo_recovery_nic_resource_group_name=tfo_recovery_nic_resource_group_name,
+            tfo_reuse_existing_nic=tfo_reuse_existing_nic,
+            tfo_vm_network_id=tfo_vm_network_id,
+            v_m_network_name=v_m_network_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_accelerated_networking_on_recovery: Optional[bool] = None,
+             enable_accelerated_networking_on_tfo: Optional[bool] = None,
+             ip_configs: Optional[Sequence['outputs.IPConfigDetailsResponse']] = None,
+             nic_id: Optional[str] = None,
+             recovery_network_security_group_id: Optional[str] = None,
+             recovery_nic_name: Optional[str] = None,
+             recovery_nic_resource_group_name: Optional[str] = None,
+             recovery_vm_network_id: Optional[str] = None,
+             replica_nic_id: Optional[str] = None,
+             reuse_existing_nic: Optional[bool] = None,
+             selection_type: Optional[str] = None,
+             source_nic_arm_id: Optional[str] = None,
+             target_nic_name: Optional[str] = None,
+             tfo_network_security_group_id: Optional[str] = None,
+             tfo_recovery_nic_name: Optional[str] = None,
+             tfo_recovery_nic_resource_group_name: Optional[str] = None,
+             tfo_reuse_existing_nic: Optional[bool] = None,
+             tfo_vm_network_id: Optional[str] = None,
+             v_m_network_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_accelerated_networking_on_recovery is None and 'enableAcceleratedNetworkingOnRecovery' in kwargs:
+            enable_accelerated_networking_on_recovery = kwargs['enableAcceleratedNetworkingOnRecovery']
+        if enable_accelerated_networking_on_tfo is None and 'enableAcceleratedNetworkingOnTfo' in kwargs:
+            enable_accelerated_networking_on_tfo = kwargs['enableAcceleratedNetworkingOnTfo']
+        if ip_configs is None and 'ipConfigs' in kwargs:
+            ip_configs = kwargs['ipConfigs']
+        if nic_id is None and 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if recovery_network_security_group_id is None and 'recoveryNetworkSecurityGroupId' in kwargs:
+            recovery_network_security_group_id = kwargs['recoveryNetworkSecurityGroupId']
+        if recovery_nic_name is None and 'recoveryNicName' in kwargs:
+            recovery_nic_name = kwargs['recoveryNicName']
+        if recovery_nic_resource_group_name is None and 'recoveryNicResourceGroupName' in kwargs:
+            recovery_nic_resource_group_name = kwargs['recoveryNicResourceGroupName']
+        if recovery_vm_network_id is None and 'recoveryVMNetworkId' in kwargs:
+            recovery_vm_network_id = kwargs['recoveryVMNetworkId']
+        if replica_nic_id is None and 'replicaNicId' in kwargs:
+            replica_nic_id = kwargs['replicaNicId']
+        if reuse_existing_nic is None and 'reuseExistingNic' in kwargs:
+            reuse_existing_nic = kwargs['reuseExistingNic']
+        if selection_type is None and 'selectionType' in kwargs:
+            selection_type = kwargs['selectionType']
+        if source_nic_arm_id is None and 'sourceNicArmId' in kwargs:
+            source_nic_arm_id = kwargs['sourceNicArmId']
+        if target_nic_name is None and 'targetNicName' in kwargs:
+            target_nic_name = kwargs['targetNicName']
+        if tfo_network_security_group_id is None and 'tfoNetworkSecurityGroupId' in kwargs:
+            tfo_network_security_group_id = kwargs['tfoNetworkSecurityGroupId']
+        if tfo_recovery_nic_name is None and 'tfoRecoveryNicName' in kwargs:
+            tfo_recovery_nic_name = kwargs['tfoRecoveryNicName']
+        if tfo_recovery_nic_resource_group_name is None and 'tfoRecoveryNicResourceGroupName' in kwargs:
+            tfo_recovery_nic_resource_group_name = kwargs['tfoRecoveryNicResourceGroupName']
+        if tfo_reuse_existing_nic is None and 'tfoReuseExistingNic' in kwargs:
+            tfo_reuse_existing_nic = kwargs['tfoReuseExistingNic']
+        if tfo_vm_network_id is None and 'tfoVMNetworkId' in kwargs:
+            tfo_vm_network_id = kwargs['tfoVMNetworkId']
+        if v_m_network_name is None and 'vMNetworkName' in kwargs:
+            v_m_network_name = kwargs['vMNetworkName']
+
         if enable_accelerated_networking_on_recovery is not None:
-            pulumi.set(__self__, "enable_accelerated_networking_on_recovery", enable_accelerated_networking_on_recovery)
+            _setter("enable_accelerated_networking_on_recovery", enable_accelerated_networking_on_recovery)
         if enable_accelerated_networking_on_tfo is not None:
-            pulumi.set(__self__, "enable_accelerated_networking_on_tfo", enable_accelerated_networking_on_tfo)
+            _setter("enable_accelerated_networking_on_tfo", enable_accelerated_networking_on_tfo)
         if ip_configs is not None:
-            pulumi.set(__self__, "ip_configs", ip_configs)
+            _setter("ip_configs", ip_configs)
         if nic_id is not None:
-            pulumi.set(__self__, "nic_id", nic_id)
+            _setter("nic_id", nic_id)
         if recovery_network_security_group_id is not None:
-            pulumi.set(__self__, "recovery_network_security_group_id", recovery_network_security_group_id)
+            _setter("recovery_network_security_group_id", recovery_network_security_group_id)
         if recovery_nic_name is not None:
-            pulumi.set(__self__, "recovery_nic_name", recovery_nic_name)
+            _setter("recovery_nic_name", recovery_nic_name)
         if recovery_nic_resource_group_name is not None:
-            pulumi.set(__self__, "recovery_nic_resource_group_name", recovery_nic_resource_group_name)
+            _setter("recovery_nic_resource_group_name", recovery_nic_resource_group_name)
         if recovery_vm_network_id is not None:
-            pulumi.set(__self__, "recovery_vm_network_id", recovery_vm_network_id)
+            _setter("recovery_vm_network_id", recovery_vm_network_id)
         if replica_nic_id is not None:
-            pulumi.set(__self__, "replica_nic_id", replica_nic_id)
+            _setter("replica_nic_id", replica_nic_id)
         if reuse_existing_nic is None:
             reuse_existing_nic = False
         if reuse_existing_nic is not None:
-            pulumi.set(__self__, "reuse_existing_nic", reuse_existing_nic)
+            _setter("reuse_existing_nic", reuse_existing_nic)
         if selection_type is not None:
-            pulumi.set(__self__, "selection_type", selection_type)
+            _setter("selection_type", selection_type)
         if source_nic_arm_id is not None:
-            pulumi.set(__self__, "source_nic_arm_id", source_nic_arm_id)
+            _setter("source_nic_arm_id", source_nic_arm_id)
         if target_nic_name is not None:
-            pulumi.set(__self__, "target_nic_name", target_nic_name)
+            _setter("target_nic_name", target_nic_name)
         if tfo_network_security_group_id is not None:
-            pulumi.set(__self__, "tfo_network_security_group_id", tfo_network_security_group_id)
+            _setter("tfo_network_security_group_id", tfo_network_security_group_id)
         if tfo_recovery_nic_name is not None:
-            pulumi.set(__self__, "tfo_recovery_nic_name", tfo_recovery_nic_name)
+            _setter("tfo_recovery_nic_name", tfo_recovery_nic_name)
         if tfo_recovery_nic_resource_group_name is not None:
-            pulumi.set(__self__, "tfo_recovery_nic_resource_group_name", tfo_recovery_nic_resource_group_name)
+            _setter("tfo_recovery_nic_resource_group_name", tfo_recovery_nic_resource_group_name)
         if tfo_reuse_existing_nic is None:
             tfo_reuse_existing_nic = False
         if tfo_reuse_existing_nic is not None:
-            pulumi.set(__self__, "tfo_reuse_existing_nic", tfo_reuse_existing_nic)
+            _setter("tfo_reuse_existing_nic", tfo_reuse_existing_nic)
         if tfo_vm_network_id is not None:
-            pulumi.set(__self__, "tfo_vm_network_id", tfo_vm_network_id)
+            _setter("tfo_vm_network_id", tfo_vm_network_id)
         if v_m_network_name is not None:
-            pulumi.set(__self__, "v_m_network_name", v_m_network_name)
+            _setter("v_m_network_name", v_m_network_name)
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworkingOnRecovery")
@@ -19453,76 +25965,337 @@ class VMwareCbtMigrationDetailsResponse(dict):
         :param str test_network_id: The test network Id.
         :param Sequence['VMwareCbtNicDetailsResponse'] vm_nics: The network details.
         """
-        pulumi.set(__self__, "appliance_monitoring_details", appliance_monitoring_details)
-        pulumi.set(__self__, "data_mover_run_as_account_id", data_mover_run_as_account_id)
-        pulumi.set(__self__, "delta_sync_progress_percentage", delta_sync_progress_percentage)
-        pulumi.set(__self__, "delta_sync_retry_count", delta_sync_retry_count)
-        pulumi.set(__self__, "firmware_type", firmware_type)
-        pulumi.set(__self__, "gateway_operation_details", gateway_operation_details)
-        pulumi.set(__self__, "initial_seeding_progress_percentage", initial_seeding_progress_percentage)
-        pulumi.set(__self__, "initial_seeding_retry_count", initial_seeding_retry_count)
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
-        pulumi.set(__self__, "is_check_sum_resync_cycle", is_check_sum_resync_cycle)
-        pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
-        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
-        pulumi.set(__self__, "migration_progress_percentage", migration_progress_percentage)
-        pulumi.set(__self__, "migration_recovery_point_id", migration_recovery_point_id)
-        pulumi.set(__self__, "operation_name", operation_name)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "resume_progress_percentage", resume_progress_percentage)
-        pulumi.set(__self__, "resume_retry_count", resume_retry_count)
-        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
-        pulumi.set(__self__, "resync_required", resync_required)
-        pulumi.set(__self__, "resync_retry_count", resync_retry_count)
-        pulumi.set(__self__, "resync_state", resync_state)
-        pulumi.set(__self__, "snapshot_run_as_account_id", snapshot_run_as_account_id)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "target_generation", target_generation)
-        pulumi.set(__self__, "target_location", target_location)
-        pulumi.set(__self__, "vmware_machine_id", vmware_machine_id)
+        VMwareCbtMigrationDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appliance_monitoring_details=appliance_monitoring_details,
+            data_mover_run_as_account_id=data_mover_run_as_account_id,
+            delta_sync_progress_percentage=delta_sync_progress_percentage,
+            delta_sync_retry_count=delta_sync_retry_count,
+            firmware_type=firmware_type,
+            gateway_operation_details=gateway_operation_details,
+            initial_seeding_progress_percentage=initial_seeding_progress_percentage,
+            initial_seeding_retry_count=initial_seeding_retry_count,
+            instance_type=instance_type,
+            is_check_sum_resync_cycle=is_check_sum_resync_cycle,
+            last_recovery_point_id=last_recovery_point_id,
+            last_recovery_point_received=last_recovery_point_received,
+            migration_progress_percentage=migration_progress_percentage,
+            migration_recovery_point_id=migration_recovery_point_id,
+            operation_name=operation_name,
+            os_name=os_name,
+            os_type=os_type,
+            resume_progress_percentage=resume_progress_percentage,
+            resume_retry_count=resume_retry_count,
+            resync_progress_percentage=resync_progress_percentage,
+            resync_required=resync_required,
+            resync_retry_count=resync_retry_count,
+            resync_state=resync_state,
+            snapshot_run_as_account_id=snapshot_run_as_account_id,
+            storage_account_id=storage_account_id,
+            target_generation=target_generation,
+            target_location=target_location,
+            vmware_machine_id=vmware_machine_id,
+            confidential_vm_key_vault_id=confidential_vm_key_vault_id,
+            license_type=license_type,
+            perform_auto_resync=perform_auto_resync,
+            protected_disks=protected_disks,
+            seed_disk_tags=seed_disk_tags,
+            sql_server_license_type=sql_server_license_type,
+            supported_os_versions=supported_os_versions,
+            target_availability_set_id=target_availability_set_id,
+            target_availability_zone=target_availability_zone,
+            target_boot_diagnostics_storage_account_id=target_boot_diagnostics_storage_account_id,
+            target_disk_tags=target_disk_tags,
+            target_network_id=target_network_id,
+            target_nic_tags=target_nic_tags,
+            target_proximity_placement_group_id=target_proximity_placement_group_id,
+            target_resource_group_id=target_resource_group_id,
+            target_vm_name=target_vm_name,
+            target_vm_security_profile=target_vm_security_profile,
+            target_vm_size=target_vm_size,
+            target_vm_tags=target_vm_tags,
+            test_network_id=test_network_id,
+            vm_nics=vm_nics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appliance_monitoring_details: Optional['outputs.ApplianceMonitoringDetailsResponse'] = None,
+             data_mover_run_as_account_id: Optional[str] = None,
+             delta_sync_progress_percentage: Optional[int] = None,
+             delta_sync_retry_count: Optional[float] = None,
+             firmware_type: Optional[str] = None,
+             gateway_operation_details: Optional['outputs.GatewayOperationDetailsResponse'] = None,
+             initial_seeding_progress_percentage: Optional[int] = None,
+             initial_seeding_retry_count: Optional[float] = None,
+             instance_type: Optional[str] = None,
+             is_check_sum_resync_cycle: Optional[str] = None,
+             last_recovery_point_id: Optional[str] = None,
+             last_recovery_point_received: Optional[str] = None,
+             migration_progress_percentage: Optional[int] = None,
+             migration_recovery_point_id: Optional[str] = None,
+             operation_name: Optional[str] = None,
+             os_name: Optional[str] = None,
+             os_type: Optional[str] = None,
+             resume_progress_percentage: Optional[int] = None,
+             resume_retry_count: Optional[float] = None,
+             resync_progress_percentage: Optional[int] = None,
+             resync_required: Optional[str] = None,
+             resync_retry_count: Optional[float] = None,
+             resync_state: Optional[str] = None,
+             snapshot_run_as_account_id: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             target_generation: Optional[str] = None,
+             target_location: Optional[str] = None,
+             vmware_machine_id: Optional[str] = None,
+             confidential_vm_key_vault_id: Optional[str] = None,
+             license_type: Optional[str] = None,
+             perform_auto_resync: Optional[str] = None,
+             protected_disks: Optional[Sequence['outputs.VMwareCbtProtectedDiskDetailsResponse']] = None,
+             seed_disk_tags: Optional[Mapping[str, str]] = None,
+             sql_server_license_type: Optional[str] = None,
+             supported_os_versions: Optional[Sequence[str]] = None,
+             target_availability_set_id: Optional[str] = None,
+             target_availability_zone: Optional[str] = None,
+             target_boot_diagnostics_storage_account_id: Optional[str] = None,
+             target_disk_tags: Optional[Mapping[str, str]] = None,
+             target_network_id: Optional[str] = None,
+             target_nic_tags: Optional[Mapping[str, str]] = None,
+             target_proximity_placement_group_id: Optional[str] = None,
+             target_resource_group_id: Optional[str] = None,
+             target_vm_name: Optional[str] = None,
+             target_vm_security_profile: Optional['outputs.VMwareCbtSecurityProfilePropertiesResponse'] = None,
+             target_vm_size: Optional[str] = None,
+             target_vm_tags: Optional[Mapping[str, str]] = None,
+             test_network_id: Optional[str] = None,
+             vm_nics: Optional[Sequence['outputs.VMwareCbtNicDetailsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if appliance_monitoring_details is None and 'applianceMonitoringDetails' in kwargs:
+            appliance_monitoring_details = kwargs['applianceMonitoringDetails']
+        if appliance_monitoring_details is None:
+            raise TypeError("Missing 'appliance_monitoring_details' argument")
+        if data_mover_run_as_account_id is None and 'dataMoverRunAsAccountId' in kwargs:
+            data_mover_run_as_account_id = kwargs['dataMoverRunAsAccountId']
+        if data_mover_run_as_account_id is None:
+            raise TypeError("Missing 'data_mover_run_as_account_id' argument")
+        if delta_sync_progress_percentage is None and 'deltaSyncProgressPercentage' in kwargs:
+            delta_sync_progress_percentage = kwargs['deltaSyncProgressPercentage']
+        if delta_sync_progress_percentage is None:
+            raise TypeError("Missing 'delta_sync_progress_percentage' argument")
+        if delta_sync_retry_count is None and 'deltaSyncRetryCount' in kwargs:
+            delta_sync_retry_count = kwargs['deltaSyncRetryCount']
+        if delta_sync_retry_count is None:
+            raise TypeError("Missing 'delta_sync_retry_count' argument")
+        if firmware_type is None and 'firmwareType' in kwargs:
+            firmware_type = kwargs['firmwareType']
+        if firmware_type is None:
+            raise TypeError("Missing 'firmware_type' argument")
+        if gateway_operation_details is None and 'gatewayOperationDetails' in kwargs:
+            gateway_operation_details = kwargs['gatewayOperationDetails']
+        if gateway_operation_details is None:
+            raise TypeError("Missing 'gateway_operation_details' argument")
+        if initial_seeding_progress_percentage is None and 'initialSeedingProgressPercentage' in kwargs:
+            initial_seeding_progress_percentage = kwargs['initialSeedingProgressPercentage']
+        if initial_seeding_progress_percentage is None:
+            raise TypeError("Missing 'initial_seeding_progress_percentage' argument")
+        if initial_seeding_retry_count is None and 'initialSeedingRetryCount' in kwargs:
+            initial_seeding_retry_count = kwargs['initialSeedingRetryCount']
+        if initial_seeding_retry_count is None:
+            raise TypeError("Missing 'initial_seeding_retry_count' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if is_check_sum_resync_cycle is None and 'isCheckSumResyncCycle' in kwargs:
+            is_check_sum_resync_cycle = kwargs['isCheckSumResyncCycle']
+        if is_check_sum_resync_cycle is None:
+            raise TypeError("Missing 'is_check_sum_resync_cycle' argument")
+        if last_recovery_point_id is None and 'lastRecoveryPointId' in kwargs:
+            last_recovery_point_id = kwargs['lastRecoveryPointId']
+        if last_recovery_point_id is None:
+            raise TypeError("Missing 'last_recovery_point_id' argument")
+        if last_recovery_point_received is None and 'lastRecoveryPointReceived' in kwargs:
+            last_recovery_point_received = kwargs['lastRecoveryPointReceived']
+        if last_recovery_point_received is None:
+            raise TypeError("Missing 'last_recovery_point_received' argument")
+        if migration_progress_percentage is None and 'migrationProgressPercentage' in kwargs:
+            migration_progress_percentage = kwargs['migrationProgressPercentage']
+        if migration_progress_percentage is None:
+            raise TypeError("Missing 'migration_progress_percentage' argument")
+        if migration_recovery_point_id is None and 'migrationRecoveryPointId' in kwargs:
+            migration_recovery_point_id = kwargs['migrationRecoveryPointId']
+        if migration_recovery_point_id is None:
+            raise TypeError("Missing 'migration_recovery_point_id' argument")
+        if operation_name is None and 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if operation_name is None:
+            raise TypeError("Missing 'operation_name' argument")
+        if os_name is None and 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if os_name is None:
+            raise TypeError("Missing 'os_name' argument")
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if resume_progress_percentage is None and 'resumeProgressPercentage' in kwargs:
+            resume_progress_percentage = kwargs['resumeProgressPercentage']
+        if resume_progress_percentage is None:
+            raise TypeError("Missing 'resume_progress_percentage' argument")
+        if resume_retry_count is None and 'resumeRetryCount' in kwargs:
+            resume_retry_count = kwargs['resumeRetryCount']
+        if resume_retry_count is None:
+            raise TypeError("Missing 'resume_retry_count' argument")
+        if resync_progress_percentage is None and 'resyncProgressPercentage' in kwargs:
+            resync_progress_percentage = kwargs['resyncProgressPercentage']
+        if resync_progress_percentage is None:
+            raise TypeError("Missing 'resync_progress_percentage' argument")
+        if resync_required is None and 'resyncRequired' in kwargs:
+            resync_required = kwargs['resyncRequired']
+        if resync_required is None:
+            raise TypeError("Missing 'resync_required' argument")
+        if resync_retry_count is None and 'resyncRetryCount' in kwargs:
+            resync_retry_count = kwargs['resyncRetryCount']
+        if resync_retry_count is None:
+            raise TypeError("Missing 'resync_retry_count' argument")
+        if resync_state is None and 'resyncState' in kwargs:
+            resync_state = kwargs['resyncState']
+        if resync_state is None:
+            raise TypeError("Missing 'resync_state' argument")
+        if snapshot_run_as_account_id is None and 'snapshotRunAsAccountId' in kwargs:
+            snapshot_run_as_account_id = kwargs['snapshotRunAsAccountId']
+        if snapshot_run_as_account_id is None:
+            raise TypeError("Missing 'snapshot_run_as_account_id' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if target_generation is None and 'targetGeneration' in kwargs:
+            target_generation = kwargs['targetGeneration']
+        if target_generation is None:
+            raise TypeError("Missing 'target_generation' argument")
+        if target_location is None and 'targetLocation' in kwargs:
+            target_location = kwargs['targetLocation']
+        if target_location is None:
+            raise TypeError("Missing 'target_location' argument")
+        if vmware_machine_id is None and 'vmwareMachineId' in kwargs:
+            vmware_machine_id = kwargs['vmwareMachineId']
+        if vmware_machine_id is None:
+            raise TypeError("Missing 'vmware_machine_id' argument")
+        if confidential_vm_key_vault_id is None and 'confidentialVmKeyVaultId' in kwargs:
+            confidential_vm_key_vault_id = kwargs['confidentialVmKeyVaultId']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if perform_auto_resync is None and 'performAutoResync' in kwargs:
+            perform_auto_resync = kwargs['performAutoResync']
+        if protected_disks is None and 'protectedDisks' in kwargs:
+            protected_disks = kwargs['protectedDisks']
+        if seed_disk_tags is None and 'seedDiskTags' in kwargs:
+            seed_disk_tags = kwargs['seedDiskTags']
+        if sql_server_license_type is None and 'sqlServerLicenseType' in kwargs:
+            sql_server_license_type = kwargs['sqlServerLicenseType']
+        if supported_os_versions is None and 'supportedOSVersions' in kwargs:
+            supported_os_versions = kwargs['supportedOSVersions']
+        if target_availability_set_id is None and 'targetAvailabilitySetId' in kwargs:
+            target_availability_set_id = kwargs['targetAvailabilitySetId']
+        if target_availability_zone is None and 'targetAvailabilityZone' in kwargs:
+            target_availability_zone = kwargs['targetAvailabilityZone']
+        if target_boot_diagnostics_storage_account_id is None and 'targetBootDiagnosticsStorageAccountId' in kwargs:
+            target_boot_diagnostics_storage_account_id = kwargs['targetBootDiagnosticsStorageAccountId']
+        if target_disk_tags is None and 'targetDiskTags' in kwargs:
+            target_disk_tags = kwargs['targetDiskTags']
+        if target_network_id is None and 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if target_nic_tags is None and 'targetNicTags' in kwargs:
+            target_nic_tags = kwargs['targetNicTags']
+        if target_proximity_placement_group_id is None and 'targetProximityPlacementGroupId' in kwargs:
+            target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
+        if target_resource_group_id is None and 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if target_vm_name is None and 'targetVmName' in kwargs:
+            target_vm_name = kwargs['targetVmName']
+        if target_vm_security_profile is None and 'targetVmSecurityProfile' in kwargs:
+            target_vm_security_profile = kwargs['targetVmSecurityProfile']
+        if target_vm_size is None and 'targetVmSize' in kwargs:
+            target_vm_size = kwargs['targetVmSize']
+        if target_vm_tags is None and 'targetVmTags' in kwargs:
+            target_vm_tags = kwargs['targetVmTags']
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if vm_nics is None and 'vmNics' in kwargs:
+            vm_nics = kwargs['vmNics']
+
+        _setter("appliance_monitoring_details", appliance_monitoring_details)
+        _setter("data_mover_run_as_account_id", data_mover_run_as_account_id)
+        _setter("delta_sync_progress_percentage", delta_sync_progress_percentage)
+        _setter("delta_sync_retry_count", delta_sync_retry_count)
+        _setter("firmware_type", firmware_type)
+        _setter("gateway_operation_details", gateway_operation_details)
+        _setter("initial_seeding_progress_percentage", initial_seeding_progress_percentage)
+        _setter("initial_seeding_retry_count", initial_seeding_retry_count)
+        _setter("instance_type", 'VMwareCbt')
+        _setter("is_check_sum_resync_cycle", is_check_sum_resync_cycle)
+        _setter("last_recovery_point_id", last_recovery_point_id)
+        _setter("last_recovery_point_received", last_recovery_point_received)
+        _setter("migration_progress_percentage", migration_progress_percentage)
+        _setter("migration_recovery_point_id", migration_recovery_point_id)
+        _setter("operation_name", operation_name)
+        _setter("os_name", os_name)
+        _setter("os_type", os_type)
+        _setter("resume_progress_percentage", resume_progress_percentage)
+        _setter("resume_retry_count", resume_retry_count)
+        _setter("resync_progress_percentage", resync_progress_percentage)
+        _setter("resync_required", resync_required)
+        _setter("resync_retry_count", resync_retry_count)
+        _setter("resync_state", resync_state)
+        _setter("snapshot_run_as_account_id", snapshot_run_as_account_id)
+        _setter("storage_account_id", storage_account_id)
+        _setter("target_generation", target_generation)
+        _setter("target_location", target_location)
+        _setter("vmware_machine_id", vmware_machine_id)
         if confidential_vm_key_vault_id is not None:
-            pulumi.set(__self__, "confidential_vm_key_vault_id", confidential_vm_key_vault_id)
+            _setter("confidential_vm_key_vault_id", confidential_vm_key_vault_id)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if perform_auto_resync is not None:
-            pulumi.set(__self__, "perform_auto_resync", perform_auto_resync)
+            _setter("perform_auto_resync", perform_auto_resync)
         if protected_disks is not None:
-            pulumi.set(__self__, "protected_disks", protected_disks)
+            _setter("protected_disks", protected_disks)
         if seed_disk_tags is not None:
-            pulumi.set(__self__, "seed_disk_tags", seed_disk_tags)
+            _setter("seed_disk_tags", seed_disk_tags)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if supported_os_versions is not None:
-            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
+            _setter("supported_os_versions", supported_os_versions)
         if target_availability_set_id is not None:
-            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+            _setter("target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
-            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+            _setter("target_availability_zone", target_availability_zone)
         if target_boot_diagnostics_storage_account_id is not None:
-            pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+            _setter("target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
         if target_disk_tags is not None:
-            pulumi.set(__self__, "target_disk_tags", target_disk_tags)
+            _setter("target_disk_tags", target_disk_tags)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
         if target_nic_tags is not None:
-            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+            _setter("target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
-            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+            _setter("target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_resource_group_id is not None:
-            pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+            _setter("target_resource_group_id", target_resource_group_id)
         if target_vm_name is not None:
-            pulumi.set(__self__, "target_vm_name", target_vm_name)
+            _setter("target_vm_name", target_vm_name)
         if target_vm_security_profile is not None:
-            pulumi.set(__self__, "target_vm_security_profile", target_vm_security_profile)
+            _setter("target_vm_security_profile", target_vm_security_profile)
         if target_vm_size is not None:
-            pulumi.set(__self__, "target_vm_size", target_vm_size)
+            _setter("target_vm_size", target_vm_size)
         if target_vm_tags is not None:
-            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+            _setter("target_vm_tags", target_vm_tags)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
         if vm_nics is not None:
-            pulumi.set(__self__, "vm_nics", vm_nics)
+            _setter("vm_nics", vm_nics)
 
     @property
     @pulumi.getter(name="applianceMonitoringDetails")
@@ -19998,30 +26771,103 @@ class VMwareCbtNicDetailsResponse(dict):
         :param str test_network_id: Source network Id.
         :param str test_subnet_name: Test subnet name.
         """
-        pulumi.set(__self__, "nic_id", nic_id)
-        pulumi.set(__self__, "source_ip_address", source_ip_address)
-        pulumi.set(__self__, "source_ip_address_type", source_ip_address_type)
-        pulumi.set(__self__, "source_network_id", source_network_id)
+        VMwareCbtNicDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nic_id=nic_id,
+            source_ip_address=source_ip_address,
+            source_ip_address_type=source_ip_address_type,
+            source_network_id=source_network_id,
+            is_primary_nic=is_primary_nic,
+            is_selected_for_migration=is_selected_for_migration,
+            target_ip_address=target_ip_address,
+            target_ip_address_type=target_ip_address_type,
+            target_nic_name=target_nic_name,
+            target_subnet_name=target_subnet_name,
+            test_ip_address=test_ip_address,
+            test_ip_address_type=test_ip_address_type,
+            test_network_id=test_network_id,
+            test_subnet_name=test_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nic_id: Optional[str] = None,
+             source_ip_address: Optional[str] = None,
+             source_ip_address_type: Optional[str] = None,
+             source_network_id: Optional[str] = None,
+             is_primary_nic: Optional[str] = None,
+             is_selected_for_migration: Optional[str] = None,
+             target_ip_address: Optional[str] = None,
+             target_ip_address_type: Optional[str] = None,
+             target_nic_name: Optional[str] = None,
+             target_subnet_name: Optional[str] = None,
+             test_ip_address: Optional[str] = None,
+             test_ip_address_type: Optional[str] = None,
+             test_network_id: Optional[str] = None,
+             test_subnet_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nic_id is None and 'nicId' in kwargs:
+            nic_id = kwargs['nicId']
+        if nic_id is None:
+            raise TypeError("Missing 'nic_id' argument")
+        if source_ip_address is None and 'sourceIPAddress' in kwargs:
+            source_ip_address = kwargs['sourceIPAddress']
+        if source_ip_address is None:
+            raise TypeError("Missing 'source_ip_address' argument")
+        if source_ip_address_type is None and 'sourceIPAddressType' in kwargs:
+            source_ip_address_type = kwargs['sourceIPAddressType']
+        if source_ip_address_type is None:
+            raise TypeError("Missing 'source_ip_address_type' argument")
+        if source_network_id is None and 'sourceNetworkId' in kwargs:
+            source_network_id = kwargs['sourceNetworkId']
+        if source_network_id is None:
+            raise TypeError("Missing 'source_network_id' argument")
+        if is_primary_nic is None and 'isPrimaryNic' in kwargs:
+            is_primary_nic = kwargs['isPrimaryNic']
+        if is_selected_for_migration is None and 'isSelectedForMigration' in kwargs:
+            is_selected_for_migration = kwargs['isSelectedForMigration']
+        if target_ip_address is None and 'targetIPAddress' in kwargs:
+            target_ip_address = kwargs['targetIPAddress']
+        if target_ip_address_type is None and 'targetIPAddressType' in kwargs:
+            target_ip_address_type = kwargs['targetIPAddressType']
+        if target_nic_name is None and 'targetNicName' in kwargs:
+            target_nic_name = kwargs['targetNicName']
+        if target_subnet_name is None and 'targetSubnetName' in kwargs:
+            target_subnet_name = kwargs['targetSubnetName']
+        if test_ip_address is None and 'testIPAddress' in kwargs:
+            test_ip_address = kwargs['testIPAddress']
+        if test_ip_address_type is None and 'testIPAddressType' in kwargs:
+            test_ip_address_type = kwargs['testIPAddressType']
+        if test_network_id is None and 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if test_subnet_name is None and 'testSubnetName' in kwargs:
+            test_subnet_name = kwargs['testSubnetName']
+
+        _setter("nic_id", nic_id)
+        _setter("source_ip_address", source_ip_address)
+        _setter("source_ip_address_type", source_ip_address_type)
+        _setter("source_network_id", source_network_id)
         if is_primary_nic is not None:
-            pulumi.set(__self__, "is_primary_nic", is_primary_nic)
+            _setter("is_primary_nic", is_primary_nic)
         if is_selected_for_migration is not None:
-            pulumi.set(__self__, "is_selected_for_migration", is_selected_for_migration)
+            _setter("is_selected_for_migration", is_selected_for_migration)
         if target_ip_address is not None:
-            pulumi.set(__self__, "target_ip_address", target_ip_address)
+            _setter("target_ip_address", target_ip_address)
         if target_ip_address_type is not None:
-            pulumi.set(__self__, "target_ip_address_type", target_ip_address_type)
+            _setter("target_ip_address_type", target_ip_address_type)
         if target_nic_name is not None:
-            pulumi.set(__self__, "target_nic_name", target_nic_name)
+            _setter("target_nic_name", target_nic_name)
         if target_subnet_name is not None:
-            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+            _setter("target_subnet_name", target_subnet_name)
         if test_ip_address is not None:
-            pulumi.set(__self__, "test_ip_address", test_ip_address)
+            _setter("test_ip_address", test_ip_address)
         if test_ip_address_type is not None:
-            pulumi.set(__self__, "test_ip_address_type", test_ip_address_type)
+            _setter("test_ip_address_type", test_ip_address_type)
         if test_network_id is not None:
-            pulumi.set(__self__, "test_network_id", test_network_id)
+            _setter("test_network_id", test_network_id)
         if test_subnet_name is not None:
-            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+            _setter("test_subnet_name", test_subnet_name)
 
     @property
     @pulumi.getter(name="nicId")
@@ -20220,23 +27066,118 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
         :param str disk_type: The disk type.
         :param str target_disk_name: The name for the target managed disk.
         """
-        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
-        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "disk_path", disk_path)
-        pulumi.set(__self__, "gateway_operation_details", gateway_operation_details)
-        pulumi.set(__self__, "is_os_disk", is_os_disk)
-        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
-        pulumi.set(__self__, "log_storage_account_sas_secret_name", log_storage_account_sas_secret_name)
-        pulumi.set(__self__, "seed_blob_uri", seed_blob_uri)
-        pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
-        pulumi.set(__self__, "target_blob_uri", target_blob_uri)
-        pulumi.set(__self__, "target_managed_disk_id", target_managed_disk_id)
+        VMwareCbtProtectedDiskDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_in_bytes=capacity_in_bytes,
+            disk_encryption_set_id=disk_encryption_set_id,
+            disk_id=disk_id,
+            disk_name=disk_name,
+            disk_path=disk_path,
+            gateway_operation_details=gateway_operation_details,
+            is_os_disk=is_os_disk,
+            log_storage_account_id=log_storage_account_id,
+            log_storage_account_sas_secret_name=log_storage_account_sas_secret_name,
+            seed_blob_uri=seed_blob_uri,
+            seed_managed_disk_id=seed_managed_disk_id,
+            target_blob_uri=target_blob_uri,
+            target_managed_disk_id=target_managed_disk_id,
+            disk_type=disk_type,
+            target_disk_name=target_disk_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_in_bytes: Optional[float] = None,
+             disk_encryption_set_id: Optional[str] = None,
+             disk_id: Optional[str] = None,
+             disk_name: Optional[str] = None,
+             disk_path: Optional[str] = None,
+             gateway_operation_details: Optional['outputs.GatewayOperationDetailsResponse'] = None,
+             is_os_disk: Optional[str] = None,
+             log_storage_account_id: Optional[str] = None,
+             log_storage_account_sas_secret_name: Optional[str] = None,
+             seed_blob_uri: Optional[str] = None,
+             seed_managed_disk_id: Optional[str] = None,
+             target_blob_uri: Optional[str] = None,
+             target_managed_disk_id: Optional[str] = None,
+             disk_type: Optional[str] = None,
+             target_disk_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_in_bytes is None and 'capacityInBytes' in kwargs:
+            capacity_in_bytes = kwargs['capacityInBytes']
+        if capacity_in_bytes is None:
+            raise TypeError("Missing 'capacity_in_bytes' argument")
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if disk_encryption_set_id is None:
+            raise TypeError("Missing 'disk_encryption_set_id' argument")
+        if disk_id is None and 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if disk_id is None:
+            raise TypeError("Missing 'disk_id' argument")
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+        if disk_name is None:
+            raise TypeError("Missing 'disk_name' argument")
+        if disk_path is None and 'diskPath' in kwargs:
+            disk_path = kwargs['diskPath']
+        if disk_path is None:
+            raise TypeError("Missing 'disk_path' argument")
+        if gateway_operation_details is None and 'gatewayOperationDetails' in kwargs:
+            gateway_operation_details = kwargs['gatewayOperationDetails']
+        if gateway_operation_details is None:
+            raise TypeError("Missing 'gateway_operation_details' argument")
+        if is_os_disk is None and 'isOSDisk' in kwargs:
+            is_os_disk = kwargs['isOSDisk']
+        if is_os_disk is None:
+            raise TypeError("Missing 'is_os_disk' argument")
+        if log_storage_account_id is None and 'logStorageAccountId' in kwargs:
+            log_storage_account_id = kwargs['logStorageAccountId']
+        if log_storage_account_id is None:
+            raise TypeError("Missing 'log_storage_account_id' argument")
+        if log_storage_account_sas_secret_name is None and 'logStorageAccountSasSecretName' in kwargs:
+            log_storage_account_sas_secret_name = kwargs['logStorageAccountSasSecretName']
+        if log_storage_account_sas_secret_name is None:
+            raise TypeError("Missing 'log_storage_account_sas_secret_name' argument")
+        if seed_blob_uri is None and 'seedBlobUri' in kwargs:
+            seed_blob_uri = kwargs['seedBlobUri']
+        if seed_blob_uri is None:
+            raise TypeError("Missing 'seed_blob_uri' argument")
+        if seed_managed_disk_id is None and 'seedManagedDiskId' in kwargs:
+            seed_managed_disk_id = kwargs['seedManagedDiskId']
+        if seed_managed_disk_id is None:
+            raise TypeError("Missing 'seed_managed_disk_id' argument")
+        if target_blob_uri is None and 'targetBlobUri' in kwargs:
+            target_blob_uri = kwargs['targetBlobUri']
+        if target_blob_uri is None:
+            raise TypeError("Missing 'target_blob_uri' argument")
+        if target_managed_disk_id is None and 'targetManagedDiskId' in kwargs:
+            target_managed_disk_id = kwargs['targetManagedDiskId']
+        if target_managed_disk_id is None:
+            raise TypeError("Missing 'target_managed_disk_id' argument")
+        if disk_type is None and 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if target_disk_name is None and 'targetDiskName' in kwargs:
+            target_disk_name = kwargs['targetDiskName']
+
+        _setter("capacity_in_bytes", capacity_in_bytes)
+        _setter("disk_encryption_set_id", disk_encryption_set_id)
+        _setter("disk_id", disk_id)
+        _setter("disk_name", disk_name)
+        _setter("disk_path", disk_path)
+        _setter("gateway_operation_details", gateway_operation_details)
+        _setter("is_os_disk", is_os_disk)
+        _setter("log_storage_account_id", log_storage_account_id)
+        _setter("log_storage_account_sas_secret_name", log_storage_account_sas_secret_name)
+        _setter("seed_blob_uri", seed_blob_uri)
+        _setter("seed_managed_disk_id", seed_managed_disk_id)
+        _setter("target_blob_uri", target_blob_uri)
+        _setter("target_managed_disk_id", target_managed_disk_id)
         if disk_type is not None:
-            pulumi.set(__self__, "disk_type", disk_type)
+            _setter("disk_type", disk_type)
         if target_disk_name is not None:
-            pulumi.set(__self__, "target_disk_name", target_disk_name)
+            _setter("target_disk_name", target_disk_name)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -20420,16 +27361,77 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
         :param str target_location: The target location.
         :param Sequence[str] excluded_skus: The SKUs to be excluded.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "role_size_to_nic_count_map", role_size_to_nic_count_map)
-        pulumi.set(__self__, "service_bus_connection_string_secret_name", service_bus_connection_string_secret_name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "storage_account_sas_secret_name", storage_account_sas_secret_name)
-        pulumi.set(__self__, "target_location", target_location)
+        VMwareCbtProtectionContainerMappingDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            key_vault_id=key_vault_id,
+            key_vault_uri=key_vault_uri,
+            role_size_to_nic_count_map=role_size_to_nic_count_map,
+            service_bus_connection_string_secret_name=service_bus_connection_string_secret_name,
+            storage_account_id=storage_account_id,
+            storage_account_sas_secret_name=storage_account_sas_secret_name,
+            target_location=target_location,
+            excluded_skus=excluded_skus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             role_size_to_nic_count_map: Optional[Mapping[str, int]] = None,
+             service_bus_connection_string_secret_name: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             storage_account_sas_secret_name: Optional[str] = None,
+             target_location: Optional[str] = None,
+             excluded_skus: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_vault_uri is None:
+            raise TypeError("Missing 'key_vault_uri' argument")
+        if role_size_to_nic_count_map is None and 'roleSizeToNicCountMap' in kwargs:
+            role_size_to_nic_count_map = kwargs['roleSizeToNicCountMap']
+        if role_size_to_nic_count_map is None:
+            raise TypeError("Missing 'role_size_to_nic_count_map' argument")
+        if service_bus_connection_string_secret_name is None and 'serviceBusConnectionStringSecretName' in kwargs:
+            service_bus_connection_string_secret_name = kwargs['serviceBusConnectionStringSecretName']
+        if service_bus_connection_string_secret_name is None:
+            raise TypeError("Missing 'service_bus_connection_string_secret_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_account_sas_secret_name is None and 'storageAccountSasSecretName' in kwargs:
+            storage_account_sas_secret_name = kwargs['storageAccountSasSecretName']
+        if storage_account_sas_secret_name is None:
+            raise TypeError("Missing 'storage_account_sas_secret_name' argument")
+        if target_location is None and 'targetLocation' in kwargs:
+            target_location = kwargs['targetLocation']
+        if target_location is None:
+            raise TypeError("Missing 'target_location' argument")
+        if excluded_skus is None and 'excludedSkus' in kwargs:
+            excluded_skus = kwargs['excludedSkus']
+
+        _setter("instance_type", 'VMwareCbt')
+        _setter("key_vault_id", key_vault_id)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("role_size_to_nic_count_map", role_size_to_nic_count_map)
+        _setter("service_bus_connection_string_secret_name", service_bus_connection_string_secret_name)
+        _setter("storage_account_id", storage_account_id)
+        _setter("storage_account_sas_secret_name", storage_account_sas_secret_name)
+        _setter("target_location", target_location)
         if excluded_skus is not None:
-            pulumi.set(__self__, "excluded_skus", excluded_skus)
+            _setter("excluded_skus", excluded_skus)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -20549,16 +27551,45 @@ class VMwareCbtSecurityProfilePropertiesResponse(dict):
         :param str is_target_vm_tpm_enabled: A value indicating whether trusted platform module to be enabled.
         :param str target_vm_security_type: The target VM security type.
         """
+        VMwareCbtSecurityProfilePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_target_vm_confidential_encryption_enabled=is_target_vm_confidential_encryption_enabled,
+            is_target_vm_integrity_monitoring_enabled=is_target_vm_integrity_monitoring_enabled,
+            is_target_vm_secure_boot_enabled=is_target_vm_secure_boot_enabled,
+            is_target_vm_tpm_enabled=is_target_vm_tpm_enabled,
+            target_vm_security_type=target_vm_security_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_target_vm_confidential_encryption_enabled: Optional[str] = None,
+             is_target_vm_integrity_monitoring_enabled: Optional[str] = None,
+             is_target_vm_secure_boot_enabled: Optional[str] = None,
+             is_target_vm_tpm_enabled: Optional[str] = None,
+             target_vm_security_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_target_vm_confidential_encryption_enabled is None and 'isTargetVmConfidentialEncryptionEnabled' in kwargs:
+            is_target_vm_confidential_encryption_enabled = kwargs['isTargetVmConfidentialEncryptionEnabled']
+        if is_target_vm_integrity_monitoring_enabled is None and 'isTargetVmIntegrityMonitoringEnabled' in kwargs:
+            is_target_vm_integrity_monitoring_enabled = kwargs['isTargetVmIntegrityMonitoringEnabled']
+        if is_target_vm_secure_boot_enabled is None and 'isTargetVmSecureBootEnabled' in kwargs:
+            is_target_vm_secure_boot_enabled = kwargs['isTargetVmSecureBootEnabled']
+        if is_target_vm_tpm_enabled is None and 'isTargetVmTpmEnabled' in kwargs:
+            is_target_vm_tpm_enabled = kwargs['isTargetVmTpmEnabled']
+        if target_vm_security_type is None and 'targetVmSecurityType' in kwargs:
+            target_vm_security_type = kwargs['targetVmSecurityType']
+
         if is_target_vm_confidential_encryption_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_confidential_encryption_enabled", is_target_vm_confidential_encryption_enabled)
+            _setter("is_target_vm_confidential_encryption_enabled", is_target_vm_confidential_encryption_enabled)
         if is_target_vm_integrity_monitoring_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_integrity_monitoring_enabled", is_target_vm_integrity_monitoring_enabled)
+            _setter("is_target_vm_integrity_monitoring_enabled", is_target_vm_integrity_monitoring_enabled)
         if is_target_vm_secure_boot_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_secure_boot_enabled", is_target_vm_secure_boot_enabled)
+            _setter("is_target_vm_secure_boot_enabled", is_target_vm_secure_boot_enabled)
         if is_target_vm_tpm_enabled is not None:
-            pulumi.set(__self__, "is_target_vm_tpm_enabled", is_target_vm_tpm_enabled)
+            _setter("is_target_vm_tpm_enabled", is_target_vm_tpm_enabled)
         if target_vm_security_type is not None:
-            pulumi.set(__self__, "target_vm_security_type", target_vm_security_type)
+            _setter("target_vm_security_type", target_vm_security_type)
 
     @property
     @pulumi.getter(name="isTargetVmConfidentialEncryptionEnabled")
@@ -20762,73 +27793,220 @@ class VMwareDetailsResponse(dict):
         :param str web_load: The web load.
         :param str web_load_status: The web load status.
         """
-        pulumi.set(__self__, "instance_type", 'VMware')
+        VMwareDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            agent_count=agent_count,
+            agent_expiry_date=agent_expiry_date,
+            agent_version=agent_version,
+            agent_version_details=agent_version_details,
+            available_memory_in_bytes=available_memory_in_bytes,
+            available_space_in_bytes=available_space_in_bytes,
+            cpu_load=cpu_load,
+            cpu_load_status=cpu_load_status,
+            cs_service_status=cs_service_status,
+            database_server_load=database_server_load,
+            database_server_load_status=database_server_load_status,
+            host_name=host_name,
+            ip_address=ip_address,
+            last_heartbeat=last_heartbeat,
+            master_target_servers=master_target_servers,
+            memory_usage_status=memory_usage_status,
+            process_server_count=process_server_count,
+            process_servers=process_servers,
+            protected_servers=protected_servers,
+            ps_template_version=ps_template_version,
+            replication_pair_count=replication_pair_count,
+            run_as_accounts=run_as_accounts,
+            space_usage_status=space_usage_status,
+            ssl_cert_expiry_date=ssl_cert_expiry_date,
+            ssl_cert_expiry_remaining_days=ssl_cert_expiry_remaining_days,
+            switch_provider_blocking_error_details=switch_provider_blocking_error_details,
+            system_load=system_load,
+            system_load_status=system_load_status,
+            total_memory_in_bytes=total_memory_in_bytes,
+            total_space_in_bytes=total_space_in_bytes,
+            version_status=version_status,
+            web_load=web_load,
+            web_load_status=web_load_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             agent_count: Optional[str] = None,
+             agent_expiry_date: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             agent_version_details: Optional['outputs.VersionDetailsResponse'] = None,
+             available_memory_in_bytes: Optional[float] = None,
+             available_space_in_bytes: Optional[float] = None,
+             cpu_load: Optional[str] = None,
+             cpu_load_status: Optional[str] = None,
+             cs_service_status: Optional[str] = None,
+             database_server_load: Optional[str] = None,
+             database_server_load_status: Optional[str] = None,
+             host_name: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             last_heartbeat: Optional[str] = None,
+             master_target_servers: Optional[Sequence['outputs.MasterTargetServerResponse']] = None,
+             memory_usage_status: Optional[str] = None,
+             process_server_count: Optional[str] = None,
+             process_servers: Optional[Sequence['outputs.ProcessServerResponse']] = None,
+             protected_servers: Optional[str] = None,
+             ps_template_version: Optional[str] = None,
+             replication_pair_count: Optional[str] = None,
+             run_as_accounts: Optional[Sequence['outputs.RunAsAccountResponse']] = None,
+             space_usage_status: Optional[str] = None,
+             ssl_cert_expiry_date: Optional[str] = None,
+             ssl_cert_expiry_remaining_days: Optional[int] = None,
+             switch_provider_blocking_error_details: Optional[Sequence['outputs.InMageFabricSwitchProviderBlockingErrorDetailsResponse']] = None,
+             system_load: Optional[str] = None,
+             system_load_status: Optional[str] = None,
+             total_memory_in_bytes: Optional[float] = None,
+             total_space_in_bytes: Optional[float] = None,
+             version_status: Optional[str] = None,
+             web_load: Optional[str] = None,
+             web_load_status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if agent_count is None and 'agentCount' in kwargs:
+            agent_count = kwargs['agentCount']
+        if agent_expiry_date is None and 'agentExpiryDate' in kwargs:
+            agent_expiry_date = kwargs['agentExpiryDate']
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if agent_version_details is None and 'agentVersionDetails' in kwargs:
+            agent_version_details = kwargs['agentVersionDetails']
+        if available_memory_in_bytes is None and 'availableMemoryInBytes' in kwargs:
+            available_memory_in_bytes = kwargs['availableMemoryInBytes']
+        if available_space_in_bytes is None and 'availableSpaceInBytes' in kwargs:
+            available_space_in_bytes = kwargs['availableSpaceInBytes']
+        if cpu_load is None and 'cpuLoad' in kwargs:
+            cpu_load = kwargs['cpuLoad']
+        if cpu_load_status is None and 'cpuLoadStatus' in kwargs:
+            cpu_load_status = kwargs['cpuLoadStatus']
+        if cs_service_status is None and 'csServiceStatus' in kwargs:
+            cs_service_status = kwargs['csServiceStatus']
+        if database_server_load is None and 'databaseServerLoad' in kwargs:
+            database_server_load = kwargs['databaseServerLoad']
+        if database_server_load_status is None and 'databaseServerLoadStatus' in kwargs:
+            database_server_load_status = kwargs['databaseServerLoadStatus']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if last_heartbeat is None and 'lastHeartbeat' in kwargs:
+            last_heartbeat = kwargs['lastHeartbeat']
+        if master_target_servers is None and 'masterTargetServers' in kwargs:
+            master_target_servers = kwargs['masterTargetServers']
+        if memory_usage_status is None and 'memoryUsageStatus' in kwargs:
+            memory_usage_status = kwargs['memoryUsageStatus']
+        if process_server_count is None and 'processServerCount' in kwargs:
+            process_server_count = kwargs['processServerCount']
+        if process_servers is None and 'processServers' in kwargs:
+            process_servers = kwargs['processServers']
+        if protected_servers is None and 'protectedServers' in kwargs:
+            protected_servers = kwargs['protectedServers']
+        if ps_template_version is None and 'psTemplateVersion' in kwargs:
+            ps_template_version = kwargs['psTemplateVersion']
+        if replication_pair_count is None and 'replicationPairCount' in kwargs:
+            replication_pair_count = kwargs['replicationPairCount']
+        if run_as_accounts is None and 'runAsAccounts' in kwargs:
+            run_as_accounts = kwargs['runAsAccounts']
+        if space_usage_status is None and 'spaceUsageStatus' in kwargs:
+            space_usage_status = kwargs['spaceUsageStatus']
+        if ssl_cert_expiry_date is None and 'sslCertExpiryDate' in kwargs:
+            ssl_cert_expiry_date = kwargs['sslCertExpiryDate']
+        if ssl_cert_expiry_remaining_days is None and 'sslCertExpiryRemainingDays' in kwargs:
+            ssl_cert_expiry_remaining_days = kwargs['sslCertExpiryRemainingDays']
+        if switch_provider_blocking_error_details is None and 'switchProviderBlockingErrorDetails' in kwargs:
+            switch_provider_blocking_error_details = kwargs['switchProviderBlockingErrorDetails']
+        if system_load is None and 'systemLoad' in kwargs:
+            system_load = kwargs['systemLoad']
+        if system_load_status is None and 'systemLoadStatus' in kwargs:
+            system_load_status = kwargs['systemLoadStatus']
+        if total_memory_in_bytes is None and 'totalMemoryInBytes' in kwargs:
+            total_memory_in_bytes = kwargs['totalMemoryInBytes']
+        if total_space_in_bytes is None and 'totalSpaceInBytes' in kwargs:
+            total_space_in_bytes = kwargs['totalSpaceInBytes']
+        if version_status is None and 'versionStatus' in kwargs:
+            version_status = kwargs['versionStatus']
+        if web_load is None and 'webLoad' in kwargs:
+            web_load = kwargs['webLoad']
+        if web_load_status is None and 'webLoadStatus' in kwargs:
+            web_load_status = kwargs['webLoadStatus']
+
+        _setter("instance_type", 'VMware')
         if agent_count is not None:
-            pulumi.set(__self__, "agent_count", agent_count)
+            _setter("agent_count", agent_count)
         if agent_expiry_date is not None:
-            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
+            _setter("agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if agent_version_details is not None:
-            pulumi.set(__self__, "agent_version_details", agent_version_details)
+            _setter("agent_version_details", agent_version_details)
         if available_memory_in_bytes is not None:
-            pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
+            _setter("available_memory_in_bytes", available_memory_in_bytes)
         if available_space_in_bytes is not None:
-            pulumi.set(__self__, "available_space_in_bytes", available_space_in_bytes)
+            _setter("available_space_in_bytes", available_space_in_bytes)
         if cpu_load is not None:
-            pulumi.set(__self__, "cpu_load", cpu_load)
+            _setter("cpu_load", cpu_load)
         if cpu_load_status is not None:
-            pulumi.set(__self__, "cpu_load_status", cpu_load_status)
+            _setter("cpu_load_status", cpu_load_status)
         if cs_service_status is not None:
-            pulumi.set(__self__, "cs_service_status", cs_service_status)
+            _setter("cs_service_status", cs_service_status)
         if database_server_load is not None:
-            pulumi.set(__self__, "database_server_load", database_server_load)
+            _setter("database_server_load", database_server_load)
         if database_server_load_status is not None:
-            pulumi.set(__self__, "database_server_load_status", database_server_load_status)
+            _setter("database_server_load_status", database_server_load_status)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if last_heartbeat is not None:
-            pulumi.set(__self__, "last_heartbeat", last_heartbeat)
+            _setter("last_heartbeat", last_heartbeat)
         if master_target_servers is not None:
-            pulumi.set(__self__, "master_target_servers", master_target_servers)
+            _setter("master_target_servers", master_target_servers)
         if memory_usage_status is not None:
-            pulumi.set(__self__, "memory_usage_status", memory_usage_status)
+            _setter("memory_usage_status", memory_usage_status)
         if process_server_count is not None:
-            pulumi.set(__self__, "process_server_count", process_server_count)
+            _setter("process_server_count", process_server_count)
         if process_servers is not None:
-            pulumi.set(__self__, "process_servers", process_servers)
+            _setter("process_servers", process_servers)
         if protected_servers is not None:
-            pulumi.set(__self__, "protected_servers", protected_servers)
+            _setter("protected_servers", protected_servers)
         if ps_template_version is not None:
-            pulumi.set(__self__, "ps_template_version", ps_template_version)
+            _setter("ps_template_version", ps_template_version)
         if replication_pair_count is not None:
-            pulumi.set(__self__, "replication_pair_count", replication_pair_count)
+            _setter("replication_pair_count", replication_pair_count)
         if run_as_accounts is not None:
-            pulumi.set(__self__, "run_as_accounts", run_as_accounts)
+            _setter("run_as_accounts", run_as_accounts)
         if space_usage_status is not None:
-            pulumi.set(__self__, "space_usage_status", space_usage_status)
+            _setter("space_usage_status", space_usage_status)
         if ssl_cert_expiry_date is not None:
-            pulumi.set(__self__, "ssl_cert_expiry_date", ssl_cert_expiry_date)
+            _setter("ssl_cert_expiry_date", ssl_cert_expiry_date)
         if ssl_cert_expiry_remaining_days is not None:
-            pulumi.set(__self__, "ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
+            _setter("ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
         if switch_provider_blocking_error_details is not None:
-            pulumi.set(__self__, "switch_provider_blocking_error_details", switch_provider_blocking_error_details)
+            _setter("switch_provider_blocking_error_details", switch_provider_blocking_error_details)
         if system_load is not None:
-            pulumi.set(__self__, "system_load", system_load)
+            _setter("system_load", system_load)
         if system_load_status is not None:
-            pulumi.set(__self__, "system_load_status", system_load_status)
+            _setter("system_load_status", system_load_status)
         if total_memory_in_bytes is not None:
-            pulumi.set(__self__, "total_memory_in_bytes", total_memory_in_bytes)
+            _setter("total_memory_in_bytes", total_memory_in_bytes)
         if total_space_in_bytes is not None:
-            pulumi.set(__self__, "total_space_in_bytes", total_space_in_bytes)
+            _setter("total_space_in_bytes", total_space_in_bytes)
         if version_status is not None:
-            pulumi.set(__self__, "version_status", version_status)
+            _setter("version_status", version_status)
         if web_load is not None:
-            pulumi.set(__self__, "web_load", web_load)
+            _setter("web_load", web_load)
         if web_load_status is not None:
-            pulumi.set(__self__, "web_load_status", web_load_status)
+            _setter("web_load_status", web_load_status)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -21161,14 +28339,71 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
         :param str service_resource_id: The service resource Id.
         :param str vmware_site_id: The ARM Id of the VMware site.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareV2')
-        pulumi.set(__self__, "migration_solution_id", migration_solution_id)
-        pulumi.set(__self__, "physical_site_id", physical_site_id)
-        pulumi.set(__self__, "process_servers", process_servers)
-        pulumi.set(__self__, "service_container_id", service_container_id)
-        pulumi.set(__self__, "service_endpoint", service_endpoint)
-        pulumi.set(__self__, "service_resource_id", service_resource_id)
-        pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        VMwareV2FabricSpecificDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            migration_solution_id=migration_solution_id,
+            physical_site_id=physical_site_id,
+            process_servers=process_servers,
+            service_container_id=service_container_id,
+            service_endpoint=service_endpoint,
+            service_resource_id=service_resource_id,
+            vmware_site_id=vmware_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             migration_solution_id: Optional[str] = None,
+             physical_site_id: Optional[str] = None,
+             process_servers: Optional[Sequence['outputs.ProcessServerDetailsResponse']] = None,
+             service_container_id: Optional[str] = None,
+             service_endpoint: Optional[str] = None,
+             service_resource_id: Optional[str] = None,
+             vmware_site_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if migration_solution_id is None and 'migrationSolutionId' in kwargs:
+            migration_solution_id = kwargs['migrationSolutionId']
+        if migration_solution_id is None:
+            raise TypeError("Missing 'migration_solution_id' argument")
+        if physical_site_id is None and 'physicalSiteId' in kwargs:
+            physical_site_id = kwargs['physicalSiteId']
+        if physical_site_id is None:
+            raise TypeError("Missing 'physical_site_id' argument")
+        if process_servers is None and 'processServers' in kwargs:
+            process_servers = kwargs['processServers']
+        if process_servers is None:
+            raise TypeError("Missing 'process_servers' argument")
+        if service_container_id is None and 'serviceContainerId' in kwargs:
+            service_container_id = kwargs['serviceContainerId']
+        if service_container_id is None:
+            raise TypeError("Missing 'service_container_id' argument")
+        if service_endpoint is None and 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if service_endpoint is None:
+            raise TypeError("Missing 'service_endpoint' argument")
+        if service_resource_id is None and 'serviceResourceId' in kwargs:
+            service_resource_id = kwargs['serviceResourceId']
+        if service_resource_id is None:
+            raise TypeError("Missing 'service_resource_id' argument")
+        if vmware_site_id is None and 'vmwareSiteId' in kwargs:
+            vmware_site_id = kwargs['vmwareSiteId']
+        if vmware_site_id is None:
+            raise TypeError("Missing 'vmware_site_id' argument")
+
+        _setter("instance_type", 'VMwareV2')
+        _setter("migration_solution_id", migration_solution_id)
+        _setter("physical_site_id", physical_site_id)
+        _setter("process_servers", process_servers)
+        _setter("service_container_id", service_container_id)
+        _setter("service_endpoint", service_endpoint)
+        _setter("service_resource_id", service_resource_id)
+        _setter("vmware_site_id", vmware_site_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -21276,11 +28511,42 @@ class VaultPrivateEndpointConnectionResponse(dict):
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
         :param Sequence[str] group_ids: Group Ids for the Private Endpoint
         """
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        VaultPrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            private_link_service_connection_state=private_link_service_connection_state,
+            provisioning_state=provisioning_state,
+            group_ids=group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+             private_link_service_connection_state: Optional['outputs.VaultPrivateLinkServiceConnectionStateResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             group_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_endpoint is None:
+            raise TypeError("Missing 'private_endpoint' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+
+        _setter("private_endpoint", private_endpoint)
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
+        _setter("provisioning_state", provisioning_state)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -21347,9 +28613,32 @@ class VaultPrivateLinkServiceConnectionStateResponse(dict):
         :param str description: Gets or sets description.
         :param str status: Gets or sets the status.
         """
-        pulumi.set(__self__, "actions_required", actions_required)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        VaultPrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+        if actions_required is None:
+            raise TypeError("Missing 'actions_required' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("actions_required", actions_required)
+        _setter("description", description)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -21458,29 +28747,110 @@ class VaultPropertiesResponse(dict):
         :param 'SecuritySettingsResponse' security_settings: Security Settings of the vault
         :param 'UpgradeDetailsResponse' upgrade_details: Details for upgrading vault.
         """
-        pulumi.set(__self__, "backup_storage_version", backup_storage_version)
-        pulumi.set(__self__, "move_state", move_state)
-        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        pulumi.set(__self__, "private_endpoint_state_for_backup", private_endpoint_state_for_backup)
-        pulumi.set(__self__, "private_endpoint_state_for_site_recovery", private_endpoint_state_for_site_recovery)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "secure_score", secure_score)
+        VaultPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_storage_version=backup_storage_version,
+            move_state=move_state,
+            private_endpoint_connections=private_endpoint_connections,
+            private_endpoint_state_for_backup=private_endpoint_state_for_backup,
+            private_endpoint_state_for_site_recovery=private_endpoint_state_for_site_recovery,
+            provisioning_state=provisioning_state,
+            secure_score=secure_score,
+            encryption=encryption,
+            monitoring_settings=monitoring_settings,
+            move_details=move_details,
+            public_network_access=public_network_access,
+            redundancy_settings=redundancy_settings,
+            restore_settings=restore_settings,
+            security_settings=security_settings,
+            upgrade_details=upgrade_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_storage_version: Optional[str] = None,
+             move_state: Optional[str] = None,
+             private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionVaultPropertiesResponse']] = None,
+             private_endpoint_state_for_backup: Optional[str] = None,
+             private_endpoint_state_for_site_recovery: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             secure_score: Optional[str] = None,
+             encryption: Optional['outputs.VaultPropertiesResponseEncryption'] = None,
+             monitoring_settings: Optional['outputs.MonitoringSettingsResponse'] = None,
+             move_details: Optional['outputs.VaultPropertiesResponseMoveDetails'] = None,
+             public_network_access: Optional[str] = None,
+             redundancy_settings: Optional['outputs.VaultPropertiesResponseRedundancySettings'] = None,
+             restore_settings: Optional['outputs.RestoreSettingsResponse'] = None,
+             security_settings: Optional['outputs.SecuritySettingsResponse'] = None,
+             upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_storage_version is None and 'backupStorageVersion' in kwargs:
+            backup_storage_version = kwargs['backupStorageVersion']
+        if backup_storage_version is None:
+            raise TypeError("Missing 'backup_storage_version' argument")
+        if move_state is None and 'moveState' in kwargs:
+            move_state = kwargs['moveState']
+        if move_state is None:
+            raise TypeError("Missing 'move_state' argument")
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if private_endpoint_connections is None:
+            raise TypeError("Missing 'private_endpoint_connections' argument")
+        if private_endpoint_state_for_backup is None and 'privateEndpointStateForBackup' in kwargs:
+            private_endpoint_state_for_backup = kwargs['privateEndpointStateForBackup']
+        if private_endpoint_state_for_backup is None:
+            raise TypeError("Missing 'private_endpoint_state_for_backup' argument")
+        if private_endpoint_state_for_site_recovery is None and 'privateEndpointStateForSiteRecovery' in kwargs:
+            private_endpoint_state_for_site_recovery = kwargs['privateEndpointStateForSiteRecovery']
+        if private_endpoint_state_for_site_recovery is None:
+            raise TypeError("Missing 'private_endpoint_state_for_site_recovery' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if secure_score is None and 'secureScore' in kwargs:
+            secure_score = kwargs['secureScore']
+        if secure_score is None:
+            raise TypeError("Missing 'secure_score' argument")
+        if monitoring_settings is None and 'monitoringSettings' in kwargs:
+            monitoring_settings = kwargs['monitoringSettings']
+        if move_details is None and 'moveDetails' in kwargs:
+            move_details = kwargs['moveDetails']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if redundancy_settings is None and 'redundancySettings' in kwargs:
+            redundancy_settings = kwargs['redundancySettings']
+        if restore_settings is None and 'restoreSettings' in kwargs:
+            restore_settings = kwargs['restoreSettings']
+        if security_settings is None and 'securitySettings' in kwargs:
+            security_settings = kwargs['securitySettings']
+        if upgrade_details is None and 'upgradeDetails' in kwargs:
+            upgrade_details = kwargs['upgradeDetails']
+
+        _setter("backup_storage_version", backup_storage_version)
+        _setter("move_state", move_state)
+        _setter("private_endpoint_connections", private_endpoint_connections)
+        _setter("private_endpoint_state_for_backup", private_endpoint_state_for_backup)
+        _setter("private_endpoint_state_for_site_recovery", private_endpoint_state_for_site_recovery)
+        _setter("provisioning_state", provisioning_state)
+        _setter("secure_score", secure_score)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if monitoring_settings is not None:
-            pulumi.set(__self__, "monitoring_settings", monitoring_settings)
+            _setter("monitoring_settings", monitoring_settings)
         if move_details is not None:
-            pulumi.set(__self__, "move_details", move_details)
+            _setter("move_details", move_details)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if redundancy_settings is not None:
-            pulumi.set(__self__, "redundancy_settings", redundancy_settings)
+            _setter("redundancy_settings", redundancy_settings)
         if restore_settings is not None:
-            pulumi.set(__self__, "restore_settings", restore_settings)
+            _setter("restore_settings", restore_settings)
         if security_settings is not None:
-            pulumi.set(__self__, "security_settings", security_settings)
+            _setter("security_settings", security_settings)
         if upgrade_details is not None:
-            pulumi.set(__self__, "upgrade_details", upgrade_details)
+            _setter("upgrade_details", upgrade_details)
 
     @property
     @pulumi.getter(name="backupStorageVersion")
@@ -21639,12 +29009,33 @@ class VaultPropertiesResponseEncryption(dict):
         :param 'CmkKekIdentityResponse' kek_identity: The details of the identity used for CMK
         :param 'CmkKeyVaultPropertiesResponse' key_vault_properties: The properties of the Key Vault which hosts CMK
         """
+        VaultPropertiesResponseEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            infrastructure_encryption=infrastructure_encryption,
+            kek_identity=kek_identity,
+            key_vault_properties=key_vault_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             infrastructure_encryption: Optional[str] = None,
+             kek_identity: Optional['outputs.CmkKekIdentityResponse'] = None,
+             key_vault_properties: Optional['outputs.CmkKeyVaultPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if infrastructure_encryption is None and 'infrastructureEncryption' in kwargs:
+            infrastructure_encryption = kwargs['infrastructureEncryption']
+        if kek_identity is None and 'kekIdentity' in kwargs:
+            kek_identity = kwargs['kekIdentity']
+        if key_vault_properties is None and 'keyVaultProperties' in kwargs:
+            key_vault_properties = kwargs['keyVaultProperties']
+
         if infrastructure_encryption is not None:
-            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
+            _setter("infrastructure_encryption", infrastructure_encryption)
         if kek_identity is not None:
-            pulumi.set(__self__, "kek_identity", kek_identity)
+            _setter("kek_identity", kek_identity)
         if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+            _setter("key_vault_properties", key_vault_properties)
 
     @property
     @pulumi.getter(name="infrastructureEncryption")
@@ -21715,11 +29106,50 @@ class VaultPropertiesResponseMoveDetails(dict):
         :param str start_time_utc: Start Time of the Resource Move Operation
         :param str target_resource_id: Target Resource of the Resource Move Operation
         """
-        pulumi.set(__self__, "completion_time_utc", completion_time_utc)
-        pulumi.set(__self__, "operation_id", operation_id)
-        pulumi.set(__self__, "source_resource_id", source_resource_id)
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        VaultPropertiesResponseMoveDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            completion_time_utc=completion_time_utc,
+            operation_id=operation_id,
+            source_resource_id=source_resource_id,
+            start_time_utc=start_time_utc,
+            target_resource_id=target_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             completion_time_utc: Optional[str] = None,
+             operation_id: Optional[str] = None,
+             source_resource_id: Optional[str] = None,
+             start_time_utc: Optional[str] = None,
+             target_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if completion_time_utc is None and 'completionTimeUtc' in kwargs:
+            completion_time_utc = kwargs['completionTimeUtc']
+        if completion_time_utc is None:
+            raise TypeError("Missing 'completion_time_utc' argument")
+        if operation_id is None and 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if operation_id is None:
+            raise TypeError("Missing 'operation_id' argument")
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if source_resource_id is None:
+            raise TypeError("Missing 'source_resource_id' argument")
+        if start_time_utc is None and 'startTimeUtc' in kwargs:
+            start_time_utc = kwargs['startTimeUtc']
+        if start_time_utc is None:
+            raise TypeError("Missing 'start_time_utc' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+
+        _setter("completion_time_utc", completion_time_utc)
+        _setter("operation_id", operation_id)
+        _setter("source_resource_id", source_resource_id)
+        _setter("start_time_utc", start_time_utc)
+        _setter("target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter(name="completionTimeUtc")
@@ -21794,8 +29224,29 @@ class VaultPropertiesResponseRedundancySettings(dict):
         :param str cross_region_restore: Flag to show if Cross Region Restore is enabled on the Vault or not
         :param str standard_tier_storage_redundancy: The storage redundancy setting of a vault
         """
-        pulumi.set(__self__, "cross_region_restore", cross_region_restore)
-        pulumi.set(__self__, "standard_tier_storage_redundancy", standard_tier_storage_redundancy)
+        VaultPropertiesResponseRedundancySettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_region_restore=cross_region_restore,
+            standard_tier_storage_redundancy=standard_tier_storage_redundancy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_region_restore: Optional[str] = None,
+             standard_tier_storage_redundancy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cross_region_restore is None and 'crossRegionRestore' in kwargs:
+            cross_region_restore = kwargs['crossRegionRestore']
+        if cross_region_restore is None:
+            raise TypeError("Missing 'cross_region_restore' argument")
+        if standard_tier_storage_redundancy is None and 'standardTierStorageRedundancy' in kwargs:
+            standard_tier_storage_redundancy = kwargs['standardTierStorageRedundancy']
+        if standard_tier_storage_redundancy is None:
+            raise TypeError("Missing 'standard_tier_storage_redundancy' argument")
+
+        _setter("cross_region_restore", cross_region_restore)
+        _setter("standard_tier_storage_redundancy", standard_tier_storage_redundancy)
 
     @property
     @pulumi.getter(name="crossRegionRestore")
@@ -21846,12 +29297,29 @@ class VersionDetailsResponse(dict):
         :param str status: A value indicating whether security update required.
         :param str version: The agent version.
         """
+        VersionDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expiry_date=expiry_date,
+            status=status,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expiry_date: Optional[str] = None,
+             status: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expiry_date is None and 'expiryDate' in kwargs:
+            expiry_date = kwargs['expiryDate']
+
         if expiry_date is not None:
-            pulumi.set(__self__, "expiry_date", expiry_date)
+            _setter("expiry_date", expiry_date)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="expiryDate")
@@ -21907,7 +29375,22 @@ class VmmDetailsResponse(dict):
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMM'.
         """
-        pulumi.set(__self__, "instance_type", 'VMM')
+        VmmDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+
+        _setter("instance_type", 'VMM')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -21948,7 +29431,22 @@ class VmmToAzureNetworkMappingSettingsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'VmmToAzure'.
         """
-        pulumi.set(__self__, "instance_type", 'VmmToAzure')
+        VmmToAzureNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+
+        _setter("instance_type", 'VmmToAzure')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -21989,7 +29487,22 @@ class VmmToVmmNetworkMappingSettingsResponse(dict):
         :param str instance_type: Gets the Instance type.
                Expected value is 'VmmToVmm'.
         """
-        pulumi.set(__self__, "instance_type", 'VmmToVmm')
+        VmmToVmmNetworkMappingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+
+        _setter("instance_type", 'VmmToVmm')
 
     @property
     @pulumi.getter(name="instanceType")
@@ -22042,13 +29555,40 @@ class VmwareCbtPolicyDetailsResponse(dict):
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param int recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareCbt')
+        VmwareCbtPolicyDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            app_consistent_frequency_in_minutes=app_consistent_frequency_in_minutes,
+            crash_consistent_frequency_in_minutes=crash_consistent_frequency_in_minutes,
+            recovery_point_history_in_minutes=recovery_point_history_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[str] = None,
+             app_consistent_frequency_in_minutes: Optional[int] = None,
+             crash_consistent_frequency_in_minutes: Optional[int] = None,
+             recovery_point_history_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if app_consistent_frequency_in_minutes is None and 'appConsistentFrequencyInMinutes' in kwargs:
+            app_consistent_frequency_in_minutes = kwargs['appConsistentFrequencyInMinutes']
+        if crash_consistent_frequency_in_minutes is None and 'crashConsistentFrequencyInMinutes' in kwargs:
+            crash_consistent_frequency_in_minutes = kwargs['crashConsistentFrequencyInMinutes']
+        if recovery_point_history_in_minutes is None and 'recoveryPointHistoryInMinutes' in kwargs:
+            recovery_point_history_in_minutes = kwargs['recoveryPointHistoryInMinutes']
+
+        _setter("instance_type", 'VMwareCbt')
         if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+            _setter("app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
         if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+            _setter("crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
         if recovery_point_history_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
+            _setter("recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")

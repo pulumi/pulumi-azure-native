@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -30,13 +30,56 @@ class CapabilityArgs:
         :param pulumi.Input[str] target_name: String that represents a Target resource name.
         :param pulumi.Input[str] capability_name: String that represents a Capability resource name.
         """
-        pulumi.set(__self__, "parent_provider_namespace", parent_provider_namespace)
-        pulumi.set(__self__, "parent_resource_name", parent_resource_name)
-        pulumi.set(__self__, "parent_resource_type", parent_resource_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_name", target_name)
+        CapabilityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parent_provider_namespace=parent_provider_namespace,
+            parent_resource_name=parent_resource_name,
+            parent_resource_type=parent_resource_type,
+            resource_group_name=resource_group_name,
+            target_name=target_name,
+            capability_name=capability_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parent_provider_namespace: Optional[pulumi.Input[str]] = None,
+             parent_resource_name: Optional[pulumi.Input[str]] = None,
+             parent_resource_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
+             capability_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_provider_namespace is None and 'parentProviderNamespace' in kwargs:
+            parent_provider_namespace = kwargs['parentProviderNamespace']
+        if parent_provider_namespace is None:
+            raise TypeError("Missing 'parent_provider_namespace' argument")
+        if parent_resource_name is None and 'parentResourceName' in kwargs:
+            parent_resource_name = kwargs['parentResourceName']
+        if parent_resource_name is None:
+            raise TypeError("Missing 'parent_resource_name' argument")
+        if parent_resource_type is None and 'parentResourceType' in kwargs:
+            parent_resource_type = kwargs['parentResourceType']
+        if parent_resource_type is None:
+            raise TypeError("Missing 'parent_resource_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_name is None and 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if target_name is None:
+            raise TypeError("Missing 'target_name' argument")
+        if capability_name is None and 'capabilityName' in kwargs:
+            capability_name = kwargs['capabilityName']
+
+        _setter("parent_provider_namespace", parent_provider_namespace)
+        _setter("parent_resource_name", parent_resource_name)
+        _setter("parent_resource_type", parent_resource_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_name", target_name)
         if capability_name is not None:
-            pulumi.set(__self__, "capability_name", capability_name)
+            _setter("capability_name", capability_name)
 
     @property
     @pulumi.getter(name="parentProviderNamespace")
@@ -154,6 +197,10 @@ class Capability(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CapabilityArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

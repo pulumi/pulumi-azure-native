@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,31 +52,112 @@ class SourceControlArgs:
         :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] source_control_id: Source control Id
         """
-        pulumi.set(__self__, "content_types", content_types)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "repo_type", repo_type)
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SourceControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_types=content_types,
+            display_name=display_name,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            repo_type=repo_type,
+            repository=repository,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            description=description,
+            id=id,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+            source_control_id=source_control_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+             repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
+             repository: Optional[pulumi.Input['RepositoryArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             last_modified_at: Optional[pulumi.Input[str]] = None,
+             last_modified_by: Optional[pulumi.Input[str]] = None,
+             last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
+             source_control_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_types is None and 'contentTypes' in kwargs:
+            content_types = kwargs['contentTypes']
+        if content_types is None:
+            raise TypeError("Missing 'content_types' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if operational_insights_resource_provider is None and 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if operational_insights_resource_provider is None:
+            raise TypeError("Missing 'operational_insights_resource_provider' argument")
+        if repo_type is None and 'repoType' in kwargs:
+            repo_type = kwargs['repoType']
+        if repo_type is None:
+            raise TypeError("Missing 'repo_type' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+        if source_control_id is None and 'sourceControlId' in kwargs:
+            source_control_id = kwargs['sourceControlId']
+
+        _setter("content_types", content_types)
+        _setter("display_name", display_name)
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("repo_type", repo_type)
+        _setter("repository", repository)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
         if source_control_id is not None:
-            pulumi.set(__self__, "source_control_id", source_control_id)
+            _setter("source_control_id", source_control_id)
 
     @property
     @pulumi.getter(name="contentTypes")
@@ -334,6 +415,10 @@ class SourceControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -384,6 +469,7 @@ class SourceControl(pulumi.CustomResource):
             if repo_type is None and not opts.urn:
                 raise TypeError("Missing required property 'repo_type'")
             __props__.__dict__["repo_type"] = repo_type
+            repository = _utilities.configure(repository, RepositoryArgs, True)
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository

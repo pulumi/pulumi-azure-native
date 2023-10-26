@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,12 +28,33 @@ class AadProfileArgs:
         :param pulumi.Input[bool] enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
         :param pulumi.Input[str] tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
         """
+        AadProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_group_object_ids=admin_group_object_ids,
+            enable_azure_rbac=enable_azure_rbac,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_azure_rbac: Optional[pulumi.Input[bool]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_group_object_ids is None and 'adminGroupObjectIDs' in kwargs:
+            admin_group_object_ids = kwargs['adminGroupObjectIDs']
+        if enable_azure_rbac is None and 'enableAzureRBAC' in kwargs:
+            enable_azure_rbac = kwargs['enableAzureRBAC']
+        if tenant_id is None and 'tenantID' in kwargs:
+            tenant_id = kwargs['tenantID']
+
         if admin_group_object_ids is not None:
-            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+            _setter("admin_group_object_ids", admin_group_object_ids)
         if enable_azure_rbac is not None:
-            pulumi.set(__self__, "enable_azure_rbac", enable_azure_rbac)
+            _setter("enable_azure_rbac", enable_azure_rbac)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="adminGroupObjectIDs")
@@ -82,12 +103,29 @@ class ArcAgentProfileArgs:
         :param pulumi.Input[Union[str, 'AutoUpgradeOptions']] agent_auto_upgrade: Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
         :param pulumi.Input[str] desired_agent_version: Version of the Arc agents to be installed on the cluster resource
         """
+        ArcAgentProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_auto_upgrade=agent_auto_upgrade,
+            desired_agent_version=desired_agent_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_auto_upgrade: Optional[pulumi.Input[Union[str, 'AutoUpgradeOptions']]] = None,
+             desired_agent_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_auto_upgrade is None and 'agentAutoUpgrade' in kwargs:
+            agent_auto_upgrade = kwargs['agentAutoUpgrade']
+        if desired_agent_version is None and 'desiredAgentVersion' in kwargs:
+            desired_agent_version = kwargs['desiredAgentVersion']
+
         if agent_auto_upgrade is None:
             agent_auto_upgrade = 'Enabled'
         if agent_auto_upgrade is not None:
-            pulumi.set(__self__, "agent_auto_upgrade", agent_auto_upgrade)
+            _setter("agent_auto_upgrade", agent_auto_upgrade)
         if desired_agent_version is not None:
-            pulumi.set(__self__, "desired_agent_version", desired_agent_version)
+            _setter("desired_agent_version", desired_agent_version)
 
     @property
     @pulumi.getter(name="agentAutoUpgrade")
@@ -122,9 +160,20 @@ class ConnectedClusterIdentityArgs:
         Identity for the connected cluster.
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
         """
+        ConnectedClusterIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is None:
             type = 'SystemAssigned'
-        pulumi.set(__self__, "type", type)
+        _setter("type", type)
 
     @property
     @pulumi.getter

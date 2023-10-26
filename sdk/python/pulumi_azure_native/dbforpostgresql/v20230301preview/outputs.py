@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -65,16 +65,37 @@ class AuthConfigResponse(dict):
         :param str password_auth: If Enabled, Password authentication is enabled.
         :param str tenant_id: Tenant id of the server.
         """
+        AuthConfigResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directory_auth=active_directory_auth,
+            password_auth=password_auth,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directory_auth: Optional[str] = None,
+             password_auth: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_directory_auth is None and 'activeDirectoryAuth' in kwargs:
+            active_directory_auth = kwargs['activeDirectoryAuth']
+        if password_auth is None and 'passwordAuth' in kwargs:
+            password_auth = kwargs['passwordAuth']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if active_directory_auth is not None:
-            pulumi.set(__self__, "active_directory_auth", active_directory_auth)
+            _setter("active_directory_auth", active_directory_auth)
         if password_auth is None:
             password_auth = 'Enabled'
         if password_auth is not None:
-            pulumi.set(__self__, "password_auth", password_auth)
+            _setter("password_auth", password_auth)
         if tenant_id is None:
             tenant_id = ''
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="activeDirectoryAuth")
@@ -137,15 +158,38 @@ class BackupResponse(dict):
         :param int backup_retention_days: Backup retention days for the server.
         :param str geo_redundant_backup: A value indicating whether Geo-Redundant backup is enabled on the server.
         """
-        pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
+        BackupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            earliest_restore_date=earliest_restore_date,
+            backup_retention_days=backup_retention_days,
+            geo_redundant_backup=geo_redundant_backup,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             earliest_restore_date: Optional[str] = None,
+             backup_retention_days: Optional[int] = None,
+             geo_redundant_backup: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if earliest_restore_date is None and 'earliestRestoreDate' in kwargs:
+            earliest_restore_date = kwargs['earliestRestoreDate']
+        if earliest_restore_date is None:
+            raise TypeError("Missing 'earliest_restore_date' argument")
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if geo_redundant_backup is None and 'geoRedundantBackup' in kwargs:
+            geo_redundant_backup = kwargs['geoRedundantBackup']
+
+        _setter("earliest_restore_date", earliest_restore_date)
         if backup_retention_days is None:
             backup_retention_days = 7
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if geo_redundant_backup is None:
             geo_redundant_backup = 'Disabled'
         if geo_redundant_backup is not None:
-            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
+            _setter("geo_redundant_backup", geo_redundant_backup)
 
     @property
     @pulumi.getter(name="earliestRestoreDate")
@@ -222,20 +266,55 @@ class DataEncryptionResponse(dict):
         :param str primary_user_assigned_identity_id: Resource Id for the User assigned identity to be used for data encryption of the primary server.
         :param str type: Data encryption type to depict if it is System Managed vs Azure Key vault.
         """
+        DataEncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            geo_backup_encryption_key_status=geo_backup_encryption_key_status,
+            geo_backup_key_uri=geo_backup_key_uri,
+            geo_backup_user_assigned_identity_id=geo_backup_user_assigned_identity_id,
+            primary_encryption_key_status=primary_encryption_key_status,
+            primary_key_uri=primary_key_uri,
+            primary_user_assigned_identity_id=primary_user_assigned_identity_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             geo_backup_encryption_key_status: Optional[str] = None,
+             geo_backup_key_uri: Optional[str] = None,
+             geo_backup_user_assigned_identity_id: Optional[str] = None,
+             primary_encryption_key_status: Optional[str] = None,
+             primary_key_uri: Optional[str] = None,
+             primary_user_assigned_identity_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if geo_backup_encryption_key_status is None and 'geoBackupEncryptionKeyStatus' in kwargs:
+            geo_backup_encryption_key_status = kwargs['geoBackupEncryptionKeyStatus']
+        if geo_backup_key_uri is None and 'geoBackupKeyURI' in kwargs:
+            geo_backup_key_uri = kwargs['geoBackupKeyURI']
+        if geo_backup_user_assigned_identity_id is None and 'geoBackupUserAssignedIdentityId' in kwargs:
+            geo_backup_user_assigned_identity_id = kwargs['geoBackupUserAssignedIdentityId']
+        if primary_encryption_key_status is None and 'primaryEncryptionKeyStatus' in kwargs:
+            primary_encryption_key_status = kwargs['primaryEncryptionKeyStatus']
+        if primary_key_uri is None and 'primaryKeyURI' in kwargs:
+            primary_key_uri = kwargs['primaryKeyURI']
+        if primary_user_assigned_identity_id is None and 'primaryUserAssignedIdentityId' in kwargs:
+            primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
+
         if geo_backup_encryption_key_status is not None:
-            pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
+            _setter("geo_backup_encryption_key_status", geo_backup_encryption_key_status)
         if geo_backup_key_uri is not None:
-            pulumi.set(__self__, "geo_backup_key_uri", geo_backup_key_uri)
+            _setter("geo_backup_key_uri", geo_backup_key_uri)
         if geo_backup_user_assigned_identity_id is not None:
-            pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
+            _setter("geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
         if primary_encryption_key_status is not None:
-            pulumi.set(__self__, "primary_encryption_key_status", primary_encryption_key_status)
+            _setter("primary_encryption_key_status", primary_encryption_key_status)
         if primary_key_uri is not None:
-            pulumi.set(__self__, "primary_key_uri", primary_key_uri)
+            _setter("primary_key_uri", primary_key_uri)
         if primary_user_assigned_identity_id is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+            _setter("primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="geoBackupEncryptionKeyStatus")
@@ -328,13 +407,34 @@ class DbServerMetadataResponse(dict):
         :param int storage_mb: Storage size in MB for database server
         :param str version: Version for database engine
         """
-        pulumi.set(__self__, "location", location)
+        DbServerMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            sku=sku,
+            storage_mb=storage_mb,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             sku: Optional['outputs.ServerSkuResponse'] = None,
+             storage_mb: Optional[int] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if storage_mb is None and 'storageMb' in kwargs:
+            storage_mb = kwargs['storageMb']
+
+        _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -401,15 +501,34 @@ class HighAvailabilityResponse(dict):
         :param str mode: The HA mode for the server.
         :param str standby_availability_zone: availability zone information of the standby.
         """
-        pulumi.set(__self__, "state", state)
+        HighAvailabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+            mode=mode,
+            standby_availability_zone=standby_availability_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             mode: Optional[str] = None,
+             standby_availability_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if standby_availability_zone is None and 'standbyAvailabilityZone' in kwargs:
+            standby_availability_zone = kwargs['standbyAvailabilityZone']
+
+        _setter("state", state)
         if mode is None:
             mode = 'Disabled'
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if standby_availability_zone is None:
             standby_availability_zone = ''
         if standby_availability_zone is not None:
-            pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+            _setter("standby_availability_zone", standby_availability_zone)
 
     @property
     @pulumi.getter
@@ -476,22 +595,47 @@ class MaintenanceWindowResponse(dict):
         :param int start_hour: start hour for maintenance window
         :param int start_minute: start minute for maintenance window
         """
+        MaintenanceWindowResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_window=custom_window,
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_window: Optional[str] = None,
+             day_of_week: Optional[int] = None,
+             start_hour: Optional[int] = None,
+             start_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_window is None and 'customWindow' in kwargs:
+            custom_window = kwargs['customWindow']
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if start_hour is None and 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if start_minute is None and 'startMinute' in kwargs:
+            start_minute = kwargs['startMinute']
+
         if custom_window is None:
             custom_window = 'Disabled'
         if custom_window is not None:
-            pulumi.set(__self__, "custom_window", custom_window)
+            _setter("custom_window", custom_window)
         if day_of_week is None:
             day_of_week = 0
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if start_hour is None:
             start_hour = 0
         if start_hour is not None:
-            pulumi.set(__self__, "start_hour", start_hour)
+            _setter("start_hour", start_hour)
         if start_minute is None:
             start_minute = 0
         if start_minute is not None:
-            pulumi.set(__self__, "start_minute", start_minute)
+            _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="customWindow")
@@ -558,9 +702,32 @@ class MigrationStatusResponse(dict):
         :param str error: Error message, if any, for the migration state
         :param str state: State of migration
         """
-        pulumi.set(__self__, "current_sub_state_details", current_sub_state_details)
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "state", state)
+        MigrationStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_sub_state_details=current_sub_state_details,
+            error=error,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_sub_state_details: Optional['outputs.MigrationSubStateDetailsResponse'] = None,
+             error: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_sub_state_details is None and 'currentSubStateDetails' in kwargs:
+            current_sub_state_details = kwargs['currentSubStateDetails']
+        if current_sub_state_details is None:
+            raise TypeError("Missing 'current_sub_state_details' argument")
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("current_sub_state_details", current_sub_state_details)
+        _setter("error", error)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="currentSubStateDetails")
@@ -615,7 +782,22 @@ class MigrationSubStateDetailsResponse(dict):
         Migration sub state details.
         :param str current_sub_state: Migration sub state.
         """
-        pulumi.set(__self__, "current_sub_state", current_sub_state)
+        MigrationSubStateDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_sub_state=current_sub_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_sub_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_sub_state is None and 'currentSubState' in kwargs:
+            current_sub_state = kwargs['currentSubState']
+        if current_sub_state is None:
+            raise TypeError("Missing 'current_sub_state' argument")
+
+        _setter("current_sub_state", current_sub_state)
 
     @property
     @pulumi.getter(name="currentSubState")
@@ -662,11 +844,34 @@ class NetworkResponse(dict):
         :param str delegated_subnet_resource_id: Delegated subnet arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         :param str private_dns_zone_arm_resource_id: Private dns zone arm resource id. This is required to be passed during create, in case we want the server to be VNET injected, i.e. Private access server. During update, pass this only if we want to update the value for Private DNS zone.
         """
-        pulumi.set(__self__, "public_network_access", public_network_access)
+        NetworkResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_network_access=public_network_access,
+            delegated_subnet_resource_id=delegated_subnet_resource_id,
+            private_dns_zone_arm_resource_id=private_dns_zone_arm_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_network_access: Optional[str] = None,
+             delegated_subnet_resource_id: Optional[str] = None,
+             private_dns_zone_arm_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if public_network_access is None:
+            raise TypeError("Missing 'public_network_access' argument")
+        if delegated_subnet_resource_id is None and 'delegatedSubnetResourceId' in kwargs:
+            delegated_subnet_resource_id = kwargs['delegatedSubnetResourceId']
+        if private_dns_zone_arm_resource_id is None and 'privateDnsZoneArmResourceId' in kwargs:
+            private_dns_zone_arm_resource_id = kwargs['privateDnsZoneArmResourceId']
+
+        _setter("public_network_access", public_network_access)
         if delegated_subnet_resource_id is not None:
-            pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
+            _setter("delegated_subnet_resource_id", delegated_subnet_resource_id)
         if private_dns_zone_arm_resource_id is not None:
-            pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
+            _setter("private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
@@ -706,8 +911,25 @@ class ServerSkuResponse(dict):
         :param str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         :param str tier: The tier of the particular SKU, e.g. Burstable.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        ServerSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -739,8 +961,25 @@ class SkuResponse(dict):
         :param str name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
         :param str tier: The tier of the particular SKU, e.g. Burstable.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -795,13 +1034,36 @@ class StorageResponse(dict):
         :param int storage_size_gb: Max storage allowed for a server.
         :param str tier: Name of storage tier for IOPS.
         """
-        pulumi.set(__self__, "iops", iops)
+        StorageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iops=iops,
+            auto_grow=auto_grow,
+            storage_size_gb=storage_size_gb,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iops: Optional[int] = None,
+             auto_grow: Optional[str] = None,
+             storage_size_gb: Optional[int] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iops is None:
+            raise TypeError("Missing 'iops' argument")
+        if auto_grow is None and 'autoGrow' in kwargs:
+            auto_grow = kwargs['autoGrow']
+        if storage_size_gb is None and 'storageSizeGB' in kwargs:
+            storage_size_gb = kwargs['storageSizeGB']
+
+        _setter("iops", iops)
         if auto_grow is not None:
-            pulumi.set(__self__, "auto_grow", auto_grow)
+            _setter("auto_grow", auto_grow)
         if storage_size_gb is not None:
-            pulumi.set(__self__, "storage_size_gb", storage_size_gb)
+            _setter("storage_size_gb", storage_size_gb)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -884,18 +1146,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -980,10 +1275,33 @@ class UserAssignedIdentityResponse(dict):
         :param str type: the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: represents user assigned identities map.
         """
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="tenantId")
@@ -1042,10 +1360,27 @@ class UserIdentityResponse(dict):
         :param str client_id: the client identifier of the Service Principal which this identity represents.
         :param str principal_id: the object identifier of the Service Principal which this identity represents.
         """
+        UserIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")

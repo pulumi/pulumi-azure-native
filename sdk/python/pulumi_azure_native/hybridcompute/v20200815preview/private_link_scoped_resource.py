@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['PrivateLinkScopedResourceArgs', 'PrivateLinkScopedResource']
@@ -25,12 +25,39 @@ class PrivateLinkScopedResourceArgs:
         :param pulumi.Input[str] linked_resource_id: The resource id of the scoped Azure monitor resource.
         :param pulumi.Input[str] name: The name of the scoped resource object.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope_name", scope_name)
+        PrivateLinkScopedResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            scope_name=scope_name,
+            linked_resource_id=linked_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_name: Optional[pulumi.Input[str]] = None,
+             linked_resource_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope_name is None and 'scopeName' in kwargs:
+            scope_name = kwargs['scopeName']
+        if scope_name is None:
+            raise TypeError("Missing 'scope_name' argument")
+        if linked_resource_id is None and 'linkedResourceId' in kwargs:
+            linked_resource_id = kwargs['linkedResourceId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope_name", scope_name)
         if linked_resource_id is not None:
-            pulumi.set(__self__, "linked_resource_id", linked_resource_id)
+            _setter("linked_resource_id", linked_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -120,6 +147,10 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkScopedResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

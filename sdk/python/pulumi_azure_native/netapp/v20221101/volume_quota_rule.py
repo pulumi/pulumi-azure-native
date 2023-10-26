@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,22 +39,75 @@ class VolumeQuotaRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] volume_quota_rule_name: The name of volume quota rule
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_name", volume_name)
+        VolumeQuotaRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            pool_name=pool_name,
+            resource_group_name=resource_group_name,
+            volume_name=volume_name,
+            location=location,
+            quota_size_in_ki_bs=quota_size_in_ki_bs,
+            quota_target=quota_target,
+            quota_type=quota_type,
+            tags=tags,
+            volume_quota_rule_name=volume_quota_rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             volume_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             quota_size_in_ki_bs: Optional[pulumi.Input[float]] = None,
+             quota_target: Optional[pulumi.Input[str]] = None,
+             quota_type: Optional[pulumi.Input[Union[str, 'Type']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             volume_quota_rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if pool_name is None and 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if pool_name is None:
+            raise TypeError("Missing 'pool_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if volume_name is None and 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+        if volume_name is None:
+            raise TypeError("Missing 'volume_name' argument")
+        if quota_size_in_ki_bs is None and 'quotaSizeInKiBs' in kwargs:
+            quota_size_in_ki_bs = kwargs['quotaSizeInKiBs']
+        if quota_target is None and 'quotaTarget' in kwargs:
+            quota_target = kwargs['quotaTarget']
+        if quota_type is None and 'quotaType' in kwargs:
+            quota_type = kwargs['quotaType']
+        if volume_quota_rule_name is None and 'volumeQuotaRuleName' in kwargs:
+            volume_quota_rule_name = kwargs['volumeQuotaRuleName']
+
+        _setter("account_name", account_name)
+        _setter("pool_name", pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("volume_name", volume_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if quota_size_in_ki_bs is not None:
-            pulumi.set(__self__, "quota_size_in_ki_bs", quota_size_in_ki_bs)
+            _setter("quota_size_in_ki_bs", quota_size_in_ki_bs)
         if quota_target is not None:
-            pulumi.set(__self__, "quota_target", quota_target)
+            _setter("quota_target", quota_target)
         if quota_type is not None:
-            pulumi.set(__self__, "quota_type", quota_type)
+            _setter("quota_type", quota_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_quota_rule_name is not None:
-            pulumi.set(__self__, "volume_quota_rule_name", volume_quota_rule_name)
+            _setter("volume_quota_rule_name", volume_quota_rule_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -228,6 +281,10 @@ class VolumeQuotaRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeQuotaRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

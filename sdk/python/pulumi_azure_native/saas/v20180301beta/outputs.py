@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -52,12 +52,33 @@ class SaasPropertiesResponseTerm(dict):
         :param str start_date: The start date of the current term
         :param str term_unit: The unit indicating Monthly / Yearly
         """
+        SaasPropertiesResponseTerm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_date=end_date,
+            start_date=start_date,
+            term_unit=term_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_date: Optional[str] = None,
+             start_date: Optional[str] = None,
+             term_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if term_unit is None and 'termUnit' in kwargs:
+            term_unit = kwargs['termUnit']
+
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if term_unit is not None:
-            pulumi.set(__self__, "term_unit", term_unit)
+            _setter("term_unit", term_unit)
 
     @property
     @pulumi.getter(name="endDate")
@@ -168,39 +189,110 @@ class SaasResourceResponseProperties(dict):
         :param 'SaasPropertiesResponseTerm' term: The current Term object.
         :param str term_id: The current Term id.
         """
-        pulumi.set(__self__, "created", created)
+        SaasResourceResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            auto_renew=auto_renew,
+            is_free_trial=is_free_trial,
+            last_modified=last_modified,
+            offer_id=offer_id,
+            payment_channel_metadata=payment_channel_metadata,
+            payment_channel_type=payment_channel_type,
+            publisher_id=publisher_id,
+            publisher_test_environment=publisher_test_environment,
+            quantity=quantity,
+            saas_resource_name=saas_resource_name,
+            saas_session_id=saas_session_id,
+            saas_subscription_id=saas_subscription_id,
+            sku_id=sku_id,
+            status=status,
+            term=term,
+            term_id=term_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[str] = None,
+             auto_renew: Optional[bool] = None,
+             is_free_trial: Optional[bool] = None,
+             last_modified: Optional[str] = None,
+             offer_id: Optional[str] = None,
+             payment_channel_metadata: Optional[Mapping[str, str]] = None,
+             payment_channel_type: Optional[str] = None,
+             publisher_id: Optional[str] = None,
+             publisher_test_environment: Optional[str] = None,
+             quantity: Optional[float] = None,
+             saas_resource_name: Optional[str] = None,
+             saas_session_id: Optional[str] = None,
+             saas_subscription_id: Optional[str] = None,
+             sku_id: Optional[str] = None,
+             status: Optional[str] = None,
+             term: Optional['outputs.SaasPropertiesResponseTerm'] = None,
+             term_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created is None:
+            raise TypeError("Missing 'created' argument")
+        if auto_renew is None and 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if is_free_trial is None and 'isFreeTrial' in kwargs:
+            is_free_trial = kwargs['isFreeTrial']
+        if last_modified is None and 'lastModified' in kwargs:
+            last_modified = kwargs['lastModified']
+        if offer_id is None and 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+        if payment_channel_metadata is None and 'paymentChannelMetadata' in kwargs:
+            payment_channel_metadata = kwargs['paymentChannelMetadata']
+        if payment_channel_type is None and 'paymentChannelType' in kwargs:
+            payment_channel_type = kwargs['paymentChannelType']
+        if publisher_id is None and 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if publisher_test_environment is None and 'publisherTestEnvironment' in kwargs:
+            publisher_test_environment = kwargs['publisherTestEnvironment']
+        if saas_resource_name is None and 'saasResourceName' in kwargs:
+            saas_resource_name = kwargs['saasResourceName']
+        if saas_session_id is None and 'saasSessionId' in kwargs:
+            saas_session_id = kwargs['saasSessionId']
+        if saas_subscription_id is None and 'saasSubscriptionId' in kwargs:
+            saas_subscription_id = kwargs['saasSubscriptionId']
+        if sku_id is None and 'skuId' in kwargs:
+            sku_id = kwargs['skuId']
+        if term_id is None and 'termId' in kwargs:
+            term_id = kwargs['termId']
+
+        _setter("created", created)
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if is_free_trial is not None:
-            pulumi.set(__self__, "is_free_trial", is_free_trial)
+            _setter("is_free_trial", is_free_trial)
         if last_modified is not None:
-            pulumi.set(__self__, "last_modified", last_modified)
+            _setter("last_modified", last_modified)
         if offer_id is not None:
-            pulumi.set(__self__, "offer_id", offer_id)
+            _setter("offer_id", offer_id)
         if payment_channel_metadata is not None:
-            pulumi.set(__self__, "payment_channel_metadata", payment_channel_metadata)
+            _setter("payment_channel_metadata", payment_channel_metadata)
         if payment_channel_type is not None:
-            pulumi.set(__self__, "payment_channel_type", payment_channel_type)
+            _setter("payment_channel_type", payment_channel_type)
         if publisher_id is not None:
-            pulumi.set(__self__, "publisher_id", publisher_id)
+            _setter("publisher_id", publisher_id)
         if publisher_test_environment is not None:
-            pulumi.set(__self__, "publisher_test_environment", publisher_test_environment)
+            _setter("publisher_test_environment", publisher_test_environment)
         if quantity is not None:
-            pulumi.set(__self__, "quantity", quantity)
+            _setter("quantity", quantity)
         if saas_resource_name is not None:
-            pulumi.set(__self__, "saas_resource_name", saas_resource_name)
+            _setter("saas_resource_name", saas_resource_name)
         if saas_session_id is not None:
-            pulumi.set(__self__, "saas_session_id", saas_session_id)
+            _setter("saas_session_id", saas_session_id)
         if saas_subscription_id is not None:
-            pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
+            _setter("saas_subscription_id", saas_subscription_id)
         if sku_id is not None:
-            pulumi.set(__self__, "sku_id", sku_id)
+            _setter("sku_id", sku_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if term is not None:
-            pulumi.set(__self__, "term", term)
+            _setter("term", term)
         if term_id is not None:
-            pulumi.set(__self__, "term_id", term_id)
+            _setter("term_id", term_id)
 
     @property
     @pulumi.getter

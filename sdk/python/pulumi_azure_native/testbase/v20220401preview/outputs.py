@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -49,34 +49,95 @@ class BillingHubExecutionUsageDetailResponse(dict):
                  update_type: Optional[str] = None,
                  used_billable_hours: Optional[float] = None,
                  used_free_hours: Optional[float] = None):
+        BillingHubExecutionUsageDetailResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            application_version=application_version,
+            billed_charges=billed_charges,
+            end_time_stamp=end_time_stamp,
+            execution_request_id=execution_request_id,
+            meter_id=meter_id,
+            os_build=os_build,
+            release=release,
+            sku=sku,
+            start_time_stamp=start_time_stamp,
+            test_type=test_type,
+            update_type=update_type,
+            used_billable_hours=used_billable_hours,
+            used_free_hours=used_free_hours,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: Optional[str] = None,
+             application_version: Optional[str] = None,
+             billed_charges: Optional[float] = None,
+             end_time_stamp: Optional[str] = None,
+             execution_request_id: Optional[str] = None,
+             meter_id: Optional[str] = None,
+             os_build: Optional[str] = None,
+             release: Optional[str] = None,
+             sku: Optional[str] = None,
+             start_time_stamp: Optional[str] = None,
+             test_type: Optional[str] = None,
+             update_type: Optional[str] = None,
+             used_billable_hours: Optional[float] = None,
+             used_free_hours: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_version is None and 'applicationVersion' in kwargs:
+            application_version = kwargs['applicationVersion']
+        if billed_charges is None and 'billedCharges' in kwargs:
+            billed_charges = kwargs['billedCharges']
+        if end_time_stamp is None and 'endTimeStamp' in kwargs:
+            end_time_stamp = kwargs['endTimeStamp']
+        if execution_request_id is None and 'executionRequestId' in kwargs:
+            execution_request_id = kwargs['executionRequestId']
+        if meter_id is None and 'meterId' in kwargs:
+            meter_id = kwargs['meterId']
+        if os_build is None and 'osBuild' in kwargs:
+            os_build = kwargs['osBuild']
+        if start_time_stamp is None and 'startTimeStamp' in kwargs:
+            start_time_stamp = kwargs['startTimeStamp']
+        if test_type is None and 'testType' in kwargs:
+            test_type = kwargs['testType']
+        if update_type is None and 'updateType' in kwargs:
+            update_type = kwargs['updateType']
+        if used_billable_hours is None and 'usedBillableHours' in kwargs:
+            used_billable_hours = kwargs['usedBillableHours']
+        if used_free_hours is None and 'usedFreeHours' in kwargs:
+            used_free_hours = kwargs['usedFreeHours']
+
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if application_version is not None:
-            pulumi.set(__self__, "application_version", application_version)
+            _setter("application_version", application_version)
         if billed_charges is not None:
-            pulumi.set(__self__, "billed_charges", billed_charges)
+            _setter("billed_charges", billed_charges)
         if end_time_stamp is not None:
-            pulumi.set(__self__, "end_time_stamp", end_time_stamp)
+            _setter("end_time_stamp", end_time_stamp)
         if execution_request_id is not None:
-            pulumi.set(__self__, "execution_request_id", execution_request_id)
+            _setter("execution_request_id", execution_request_id)
         if meter_id is not None:
-            pulumi.set(__self__, "meter_id", meter_id)
+            _setter("meter_id", meter_id)
         if os_build is not None:
-            pulumi.set(__self__, "os_build", os_build)
+            _setter("os_build", os_build)
         if release is not None:
-            pulumi.set(__self__, "release", release)
+            _setter("release", release)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if start_time_stamp is not None:
-            pulumi.set(__self__, "start_time_stamp", start_time_stamp)
+            _setter("start_time_stamp", start_time_stamp)
         if test_type is not None:
-            pulumi.set(__self__, "test_type", test_type)
+            _setter("test_type", test_type)
         if update_type is not None:
-            pulumi.set(__self__, "update_type", update_type)
+            _setter("update_type", update_type)
         if used_billable_hours is not None:
-            pulumi.set(__self__, "used_billable_hours", used_billable_hours)
+            _setter("used_billable_hours", used_billable_hours)
         if used_free_hours is not None:
-            pulumi.set(__self__, "used_free_hours", used_free_hours)
+            _setter("used_free_hours", used_free_hours)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -156,14 +217,39 @@ class BillingHubFreeHourIncrementEntryResponse(dict):
                  expiration_time_stamp: Optional[str] = None,
                  incremental_free_hours: Optional[float] = None,
                  remaining_free_hours: Optional[float] = None):
+        BillingHubFreeHourIncrementEntryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            create_time_stamp=create_time_stamp,
+            expiration_time_stamp=expiration_time_stamp,
+            incremental_free_hours=incremental_free_hours,
+            remaining_free_hours=remaining_free_hours,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             create_time_stamp: Optional[str] = None,
+             expiration_time_stamp: Optional[str] = None,
+             incremental_free_hours: Optional[float] = None,
+             remaining_free_hours: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_time_stamp is None and 'createTimeStamp' in kwargs:
+            create_time_stamp = kwargs['createTimeStamp']
+        if expiration_time_stamp is None and 'expirationTimeStamp' in kwargs:
+            expiration_time_stamp = kwargs['expirationTimeStamp']
+        if incremental_free_hours is None and 'incrementalFreeHours' in kwargs:
+            incremental_free_hours = kwargs['incrementalFreeHours']
+        if remaining_free_hours is None and 'remainingFreeHours' in kwargs:
+            remaining_free_hours = kwargs['remainingFreeHours']
+
         if create_time_stamp is not None:
-            pulumi.set(__self__, "create_time_stamp", create_time_stamp)
+            _setter("create_time_stamp", create_time_stamp)
         if expiration_time_stamp is not None:
-            pulumi.set(__self__, "expiration_time_stamp", expiration_time_stamp)
+            _setter("expiration_time_stamp", expiration_time_stamp)
         if incremental_free_hours is not None:
-            pulumi.set(__self__, "incremental_free_hours", incremental_free_hours)
+            _setter("incremental_free_hours", incremental_free_hours)
         if remaining_free_hours is not None:
-            pulumi.set(__self__, "remaining_free_hours", remaining_free_hours)
+            _setter("remaining_free_hours", remaining_free_hours)
 
     @property
     @pulumi.getter(name="createTimeStamp")
@@ -193,12 +279,41 @@ class BillingHubGetUsageRequestResponse(dict):
                  start_time_stamp: str,
                  page_index: Optional[int] = None,
                  page_size: Optional[int] = None):
-        pulumi.set(__self__, "end_time_stamp", end_time_stamp)
-        pulumi.set(__self__, "start_time_stamp", start_time_stamp)
+        BillingHubGetUsageRequestResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time_stamp=end_time_stamp,
+            start_time_stamp=start_time_stamp,
+            page_index=page_index,
+            page_size=page_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time_stamp: Optional[str] = None,
+             start_time_stamp: Optional[str] = None,
+             page_index: Optional[int] = None,
+             page_size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time_stamp is None and 'endTimeStamp' in kwargs:
+            end_time_stamp = kwargs['endTimeStamp']
+        if end_time_stamp is None:
+            raise TypeError("Missing 'end_time_stamp' argument")
+        if start_time_stamp is None and 'startTimeStamp' in kwargs:
+            start_time_stamp = kwargs['startTimeStamp']
+        if start_time_stamp is None:
+            raise TypeError("Missing 'start_time_stamp' argument")
+        if page_index is None and 'pageIndex' in kwargs:
+            page_index = kwargs['pageIndex']
+        if page_size is None and 'pageSize' in kwargs:
+            page_size = kwargs['pageSize']
+
+        _setter("end_time_stamp", end_time_stamp)
+        _setter("start_time_stamp", start_time_stamp)
         if page_index is not None:
-            pulumi.set(__self__, "page_index", page_index)
+            _setter("page_index", page_index)
         if page_size is not None:
-            pulumi.set(__self__, "page_size", page_size)
+            _setter("page_size", page_size)
 
     @property
     @pulumi.getter(name="endTimeStamp")
@@ -231,20 +346,57 @@ class BillingHubPackageUsageResponse(dict):
                  total_used_billable_hours: Optional[float] = None,
                  total_used_free_hours: Optional[float] = None,
                  usage_entries_grouped_by_update_type: Optional[Sequence['outputs.BillingHubUsageGroupedByUpdateTypeResponse']] = None):
+        BillingHubPackageUsageResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            application_version=application_version,
+            azure_resource_uri=azure_resource_uri,
+            total_charges=total_charges,
+            total_used_billable_hours=total_used_billable_hours,
+            total_used_free_hours=total_used_free_hours,
+            usage_entries_grouped_by_update_type=usage_entries_grouped_by_update_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: Optional[str] = None,
+             application_version: Optional[str] = None,
+             azure_resource_uri: Optional[str] = None,
+             total_charges: Optional[float] = None,
+             total_used_billable_hours: Optional[float] = None,
+             total_used_free_hours: Optional[float] = None,
+             usage_entries_grouped_by_update_type: Optional[Sequence['outputs.BillingHubUsageGroupedByUpdateTypeResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_version is None and 'applicationVersion' in kwargs:
+            application_version = kwargs['applicationVersion']
+        if azure_resource_uri is None and 'azureResourceUri' in kwargs:
+            azure_resource_uri = kwargs['azureResourceUri']
+        if total_charges is None and 'totalCharges' in kwargs:
+            total_charges = kwargs['totalCharges']
+        if total_used_billable_hours is None and 'totalUsedBillableHours' in kwargs:
+            total_used_billable_hours = kwargs['totalUsedBillableHours']
+        if total_used_free_hours is None and 'totalUsedFreeHours' in kwargs:
+            total_used_free_hours = kwargs['totalUsedFreeHours']
+        if usage_entries_grouped_by_update_type is None and 'usageEntriesGroupedByUpdateType' in kwargs:
+            usage_entries_grouped_by_update_type = kwargs['usageEntriesGroupedByUpdateType']
+
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if application_version is not None:
-            pulumi.set(__self__, "application_version", application_version)
+            _setter("application_version", application_version)
         if azure_resource_uri is not None:
-            pulumi.set(__self__, "azure_resource_uri", azure_resource_uri)
+            _setter("azure_resource_uri", azure_resource_uri)
         if total_charges is not None:
-            pulumi.set(__self__, "total_charges", total_charges)
+            _setter("total_charges", total_charges)
         if total_used_billable_hours is not None:
-            pulumi.set(__self__, "total_used_billable_hours", total_used_billable_hours)
+            _setter("total_used_billable_hours", total_used_billable_hours)
         if total_used_free_hours is not None:
-            pulumi.set(__self__, "total_used_free_hours", total_used_free_hours)
+            _setter("total_used_free_hours", total_used_free_hours)
         if usage_entries_grouped_by_update_type is not None:
-            pulumi.set(__self__, "usage_entries_grouped_by_update_type", usage_entries_grouped_by_update_type)
+            _setter("usage_entries_grouped_by_update_type", usage_entries_grouped_by_update_type)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -296,28 +448,79 @@ class BillingHubUsageGroupResponse(dict):
                  total_charges: Optional[float] = None,
                  total_used_billable_hours: Optional[float] = None,
                  total_used_free_hours: Optional[float] = None):
+        BillingHubUsageGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            execution_usage_details=execution_usage_details,
+            os_build=os_build,
+            product_family=product_family,
+            release=release,
+            release_build_date=release_build_date,
+            release_build_number=release_build_number,
+            release_build_revision=release_build_revision,
+            test_type=test_type,
+            total_charges=total_charges,
+            total_used_billable_hours=total_used_billable_hours,
+            total_used_free_hours=total_used_free_hours,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             execution_usage_details: Optional[Sequence['outputs.BillingHubExecutionUsageDetailResponse']] = None,
+             os_build: Optional[str] = None,
+             product_family: Optional[str] = None,
+             release: Optional[str] = None,
+             release_build_date: Optional[str] = None,
+             release_build_number: Optional[float] = None,
+             release_build_revision: Optional[float] = None,
+             test_type: Optional[str] = None,
+             total_charges: Optional[float] = None,
+             total_used_billable_hours: Optional[float] = None,
+             total_used_free_hours: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execution_usage_details is None and 'executionUsageDetails' in kwargs:
+            execution_usage_details = kwargs['executionUsageDetails']
+        if os_build is None and 'osBuild' in kwargs:
+            os_build = kwargs['osBuild']
+        if product_family is None and 'productFamily' in kwargs:
+            product_family = kwargs['productFamily']
+        if release_build_date is None and 'releaseBuildDate' in kwargs:
+            release_build_date = kwargs['releaseBuildDate']
+        if release_build_number is None and 'releaseBuildNumber' in kwargs:
+            release_build_number = kwargs['releaseBuildNumber']
+        if release_build_revision is None and 'releaseBuildRevision' in kwargs:
+            release_build_revision = kwargs['releaseBuildRevision']
+        if test_type is None and 'testType' in kwargs:
+            test_type = kwargs['testType']
+        if total_charges is None and 'totalCharges' in kwargs:
+            total_charges = kwargs['totalCharges']
+        if total_used_billable_hours is None and 'totalUsedBillableHours' in kwargs:
+            total_used_billable_hours = kwargs['totalUsedBillableHours']
+        if total_used_free_hours is None and 'totalUsedFreeHours' in kwargs:
+            total_used_free_hours = kwargs['totalUsedFreeHours']
+
         if execution_usage_details is not None:
-            pulumi.set(__self__, "execution_usage_details", execution_usage_details)
+            _setter("execution_usage_details", execution_usage_details)
         if os_build is not None:
-            pulumi.set(__self__, "os_build", os_build)
+            _setter("os_build", os_build)
         if product_family is not None:
-            pulumi.set(__self__, "product_family", product_family)
+            _setter("product_family", product_family)
         if release is not None:
-            pulumi.set(__self__, "release", release)
+            _setter("release", release)
         if release_build_date is not None:
-            pulumi.set(__self__, "release_build_date", release_build_date)
+            _setter("release_build_date", release_build_date)
         if release_build_number is not None:
-            pulumi.set(__self__, "release_build_number", release_build_number)
+            _setter("release_build_number", release_build_number)
         if release_build_revision is not None:
-            pulumi.set(__self__, "release_build_revision", release_build_revision)
+            _setter("release_build_revision", release_build_revision)
         if test_type is not None:
-            pulumi.set(__self__, "test_type", test_type)
+            _setter("test_type", test_type)
         if total_charges is not None:
-            pulumi.set(__self__, "total_charges", total_charges)
+            _setter("total_charges", total_charges)
         if total_used_billable_hours is not None:
-            pulumi.set(__self__, "total_used_billable_hours", total_used_billable_hours)
+            _setter("total_used_billable_hours", total_used_billable_hours)
         if total_used_free_hours is not None:
-            pulumi.set(__self__, "total_used_free_hours", total_used_free_hours)
+            _setter("total_used_free_hours", total_used_free_hours)
 
     @property
     @pulumi.getter(name="executionUsageDetails")
@@ -383,16 +586,45 @@ class BillingHubUsageGroupedByUpdateTypeResponse(dict):
                  total_used_free_hours: Optional[float] = None,
                  update_type: Optional[str] = None,
                  usage_groups: Optional[Sequence['outputs.BillingHubUsageGroupResponse']] = None):
+        BillingHubUsageGroupedByUpdateTypeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            total_charges=total_charges,
+            total_used_billable_hours=total_used_billable_hours,
+            total_used_free_hours=total_used_free_hours,
+            update_type=update_type,
+            usage_groups=usage_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             total_charges: Optional[float] = None,
+             total_used_billable_hours: Optional[float] = None,
+             total_used_free_hours: Optional[float] = None,
+             update_type: Optional[str] = None,
+             usage_groups: Optional[Sequence['outputs.BillingHubUsageGroupResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if total_charges is None and 'totalCharges' in kwargs:
+            total_charges = kwargs['totalCharges']
+        if total_used_billable_hours is None and 'totalUsedBillableHours' in kwargs:
+            total_used_billable_hours = kwargs['totalUsedBillableHours']
+        if total_used_free_hours is None and 'totalUsedFreeHours' in kwargs:
+            total_used_free_hours = kwargs['totalUsedFreeHours']
+        if update_type is None and 'updateType' in kwargs:
+            update_type = kwargs['updateType']
+        if usage_groups is None and 'usageGroups' in kwargs:
+            usage_groups = kwargs['usageGroups']
+
         if total_charges is not None:
-            pulumi.set(__self__, "total_charges", total_charges)
+            _setter("total_charges", total_charges)
         if total_used_billable_hours is not None:
-            pulumi.set(__self__, "total_used_billable_hours", total_used_billable_hours)
+            _setter("total_used_billable_hours", total_used_billable_hours)
         if total_used_free_hours is not None:
-            pulumi.set(__self__, "total_used_free_hours", total_used_free_hours)
+            _setter("total_used_free_hours", total_used_free_hours)
         if update_type is not None:
-            pulumi.set(__self__, "update_type", update_type)
+            _setter("update_type", update_type)
         if usage_groups is not None:
-            pulumi.set(__self__, "usage_groups", usage_groups)
+            _setter("usage_groups", usage_groups)
 
     @property
     @pulumi.getter(name="totalCharges")
@@ -478,22 +710,73 @@ class CommandResponse(dict):
         :param bool run_as_interactive: Specifies whether to run the command in interactive mode.
         :param bool run_elevated: Specifies whether to run the command as administrator.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "name", name)
+        CommandResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            content=content,
+            content_type=content_type,
+            name=name,
+            always_run=always_run,
+            apply_update_before=apply_update_before,
+            max_run_time=max_run_time,
+            restart_after=restart_after,
+            run_as_interactive=run_as_interactive,
+            run_elevated=run_elevated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[str] = None,
+             content: Optional[str] = None,
+             content_type: Optional[str] = None,
+             name: Optional[str] = None,
+             always_run: Optional[bool] = None,
+             apply_update_before: Optional[bool] = None,
+             max_run_time: Optional[int] = None,
+             restart_after: Optional[bool] = None,
+             run_as_interactive: Optional[bool] = None,
+             run_elevated: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if always_run is None and 'alwaysRun' in kwargs:
+            always_run = kwargs['alwaysRun']
+        if apply_update_before is None and 'applyUpdateBefore' in kwargs:
+            apply_update_before = kwargs['applyUpdateBefore']
+        if max_run_time is None and 'maxRunTime' in kwargs:
+            max_run_time = kwargs['maxRunTime']
+        if restart_after is None and 'restartAfter' in kwargs:
+            restart_after = kwargs['restartAfter']
+        if run_as_interactive is None and 'runAsInteractive' in kwargs:
+            run_as_interactive = kwargs['runAsInteractive']
+        if run_elevated is None and 'runElevated' in kwargs:
+            run_elevated = kwargs['runElevated']
+
+        _setter("action", action)
+        _setter("content", content)
+        _setter("content_type", content_type)
+        _setter("name", name)
         if always_run is not None:
-            pulumi.set(__self__, "always_run", always_run)
+            _setter("always_run", always_run)
         if apply_update_before is not None:
-            pulumi.set(__self__, "apply_update_before", apply_update_before)
+            _setter("apply_update_before", apply_update_before)
         if max_run_time is not None:
-            pulumi.set(__self__, "max_run_time", max_run_time)
+            _setter("max_run_time", max_run_time)
         if restart_after is not None:
-            pulumi.set(__self__, "restart_after", restart_after)
+            _setter("restart_after", restart_after)
         if run_as_interactive is not None:
-            pulumi.set(__self__, "run_as_interactive", run_as_interactive)
+            _setter("run_as_interactive", run_as_interactive)
         if run_elevated is not None:
-            pulumi.set(__self__, "run_elevated", run_elevated)
+            _setter("run_elevated", run_elevated)
 
     @property
     @pulumi.getter
@@ -604,8 +887,21 @@ class DistributionGroupListReceiverValueResponse(dict):
         The user object receiver value.
         :param Sequence[str] distribution_groups: The list of distribution groups.
         """
+        DistributionGroupListReceiverValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distribution_groups=distribution_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distribution_groups: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if distribution_groups is None and 'distributionGroups' in kwargs:
+            distribution_groups = kwargs['distributionGroups']
+
         if distribution_groups is not None:
-            pulumi.set(__self__, "distribution_groups", distribution_groups)
+            _setter("distribution_groups", distribution_groups)
 
     @property
     @pulumi.getter(name="distributionGroups")
@@ -648,10 +944,27 @@ class NotificationEventReceiverResponse(dict):
         :param str receiver_type: The type of the notification event receiver.
         :param 'NotificationReceiverValueResponse' receiver_value: The notification event receiver value.
         """
+        NotificationEventReceiverResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receiver_type=receiver_type,
+            receiver_value=receiver_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receiver_type: Optional[str] = None,
+             receiver_value: Optional['outputs.NotificationReceiverValueResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if receiver_type is None and 'receiverType' in kwargs:
+            receiver_type = kwargs['receiverType']
+        if receiver_value is None and 'receiverValue' in kwargs:
+            receiver_value = kwargs['receiverValue']
+
         if receiver_type is not None:
-            pulumi.set(__self__, "receiver_type", receiver_type)
+            _setter("receiver_type", receiver_type)
         if receiver_value is not None:
-            pulumi.set(__self__, "receiver_value", receiver_value)
+            _setter("receiver_value", receiver_value)
 
     @property
     @pulumi.getter(name="receiverType")
@@ -706,12 +1019,33 @@ class NotificationReceiverValueResponse(dict):
         :param 'SubscriptionReceiverValueResponse' subscription_receiver_value: The user object receiver value.
         :param 'UserObjectReceiverValueResponse' user_object_receiver_value: The user object receiver value.
         """
+        NotificationReceiverValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distribution_group_list_receiver_value=distribution_group_list_receiver_value,
+            subscription_receiver_value=subscription_receiver_value,
+            user_object_receiver_value=user_object_receiver_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distribution_group_list_receiver_value: Optional['outputs.DistributionGroupListReceiverValueResponse'] = None,
+             subscription_receiver_value: Optional['outputs.SubscriptionReceiverValueResponse'] = None,
+             user_object_receiver_value: Optional['outputs.UserObjectReceiverValueResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if distribution_group_list_receiver_value is None and 'distributionGroupListReceiverValue' in kwargs:
+            distribution_group_list_receiver_value = kwargs['distributionGroupListReceiverValue']
+        if subscription_receiver_value is None and 'subscriptionReceiverValue' in kwargs:
+            subscription_receiver_value = kwargs['subscriptionReceiverValue']
+        if user_object_receiver_value is None and 'userObjectReceiverValue' in kwargs:
+            user_object_receiver_value = kwargs['userObjectReceiverValue']
+
         if distribution_group_list_receiver_value is not None:
-            pulumi.set(__self__, "distribution_group_list_receiver_value", distribution_group_list_receiver_value)
+            _setter("distribution_group_list_receiver_value", distribution_group_list_receiver_value)
         if subscription_receiver_value is not None:
-            pulumi.set(__self__, "subscription_receiver_value", subscription_receiver_value)
+            _setter("subscription_receiver_value", subscription_receiver_value)
         if user_object_receiver_value is not None:
-            pulumi.set(__self__, "user_object_receiver_value", user_object_receiver_value)
+            _setter("user_object_receiver_value", user_object_receiver_value)
 
     @property
     @pulumi.getter(name="distributionGroupListReceiverValue")
@@ -772,9 +1106,34 @@ class PackageValidationResultResponse(dict):
         :param bool is_valid: Indicates whether the package passed the validation.
         :param str validation_name: Validation name.
         """
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "is_valid", is_valid)
-        pulumi.set(__self__, "validation_name", validation_name)
+        PackageValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            errors=errors,
+            is_valid=is_valid,
+            validation_name=validation_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             errors: Optional[Sequence[str]] = None,
+             is_valid: Optional[bool] = None,
+             validation_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if is_valid is None and 'isValid' in kwargs:
+            is_valid = kwargs['isValid']
+        if is_valid is None:
+            raise TypeError("Missing 'is_valid' argument")
+        if validation_name is None and 'validationName' in kwargs:
+            validation_name = kwargs['validationName']
+        if validation_name is None:
+            raise TypeError("Missing 'validation_name' argument")
+
+        _setter("errors", errors)
+        _setter("is_valid", is_valid)
+        _setter("validation_name", validation_name)
 
     @property
     @pulumi.getter
@@ -835,12 +1194,31 @@ class SubscriptionReceiverValueResponse(dict):
         :param str subscription_id: The subscription id of the notification receiver.
         :param str subscription_name: The subscription name of the notification receiver.
         """
+        SubscriptionReceiverValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role=role,
+            subscription_id=subscription_id,
+            subscription_name=subscription_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             subscription_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_name is None and 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if subscription_name is not None:
-            pulumi.set(__self__, "subscription_name", subscription_name)
+            _setter("subscription_name", subscription_name)
 
     @property
     @pulumi.getter
@@ -915,18 +1293,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1013,10 +1424,35 @@ class TargetOSInfoResponse(dict):
         :param Sequence[str] target_oss: Specifies the target OSs to be tested.
         :param Sequence[str] baseline_oss: Specifies the baseline OSs to be tested.
         """
-        pulumi.set(__self__, "os_update_type", os_update_type)
-        pulumi.set(__self__, "target_oss", target_oss)
+        TargetOSInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_update_type=os_update_type,
+            target_oss=target_oss,
+            baseline_oss=baseline_oss,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_update_type: Optional[str] = None,
+             target_oss: Optional[Sequence[str]] = None,
+             baseline_oss: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if os_update_type is None and 'osUpdateType' in kwargs:
+            os_update_type = kwargs['osUpdateType']
+        if os_update_type is None:
+            raise TypeError("Missing 'os_update_type' argument")
+        if target_oss is None and 'targetOSs' in kwargs:
+            target_oss = kwargs['targetOSs']
+        if target_oss is None:
+            raise TypeError("Missing 'target_oss' argument")
+        if baseline_oss is None and 'baselineOSs' in kwargs:
+            baseline_oss = kwargs['baselineOSs']
+
+        _setter("os_update_type", os_update_type)
+        _setter("target_oss", target_oss)
         if baseline_oss is not None:
-            pulumi.set(__self__, "baseline_oss", baseline_oss)
+            _setter("baseline_oss", baseline_oss)
 
     @property
     @pulumi.getter(name="osUpdateType")
@@ -1056,8 +1492,25 @@ class TestBaseAccountSKUCapabilityResponse(dict):
         :param str name: An invariant to describe the feature, such as 'SLA'.
         :param str value: An invariant if the feature is measured by quantity, such as 99.9%.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        TestBaseAccountSKUCapabilityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1112,13 +1565,40 @@ class TestBaseAccountSKUResponse(dict):
         :param Sequence[str] locations: The locations that the SKU is available.
         :param str resource_type: The type of resource the SKU applies to.
         """
-        pulumi.set(__self__, "capabilities", capabilities)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        TestBaseAccountSKUResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capabilities=capabilities,
+            name=name,
+            tier=tier,
+            locations=locations,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capabilities: Optional[Sequence['outputs.TestBaseAccountSKUCapabilityResponse']] = None,
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             locations: Optional[Sequence[str]] = None,
+             resource_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capabilities is None:
+            raise TypeError("Missing 'capabilities' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("capabilities", capabilities)
+        _setter("name", name)
+        _setter("tier", tier)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter
@@ -1203,12 +1683,47 @@ class TestResponse(dict):
         :param str validation_run_status: The status of the validation run of the package.
         :param bool is_active: Indicates if this test is active.It doesn't schedule test for not active Test.
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "test_type", test_type)
-        pulumi.set(__self__, "validation_result_id", validation_result_id)
-        pulumi.set(__self__, "validation_run_status", validation_run_status)
+        TestResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            test_type=test_type,
+            validation_result_id=validation_result_id,
+            validation_run_status=validation_run_status,
+            is_active=is_active,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence['outputs.CommandResponse']] = None,
+             test_type: Optional[str] = None,
+             validation_result_id: Optional[str] = None,
+             validation_run_status: Optional[str] = None,
+             is_active: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if test_type is None and 'testType' in kwargs:
+            test_type = kwargs['testType']
+        if test_type is None:
+            raise TypeError("Missing 'test_type' argument")
+        if validation_result_id is None and 'validationResultId' in kwargs:
+            validation_result_id = kwargs['validationResultId']
+        if validation_result_id is None:
+            raise TypeError("Missing 'validation_result_id' argument")
+        if validation_run_status is None and 'validationRunStatus' in kwargs:
+            validation_run_status = kwargs['validationRunStatus']
+        if validation_run_status is None:
+            raise TypeError("Missing 'validation_run_status' argument")
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+
+        _setter("commands", commands)
+        _setter("test_type", test_type)
+        _setter("validation_result_id", validation_result_id)
+        _setter("validation_run_status", validation_run_status)
         if is_active is not None:
-            pulumi.set(__self__, "is_active", is_active)
+            _setter("is_active", is_active)
 
     @property
     @pulumi.getter
@@ -1279,8 +1794,21 @@ class UserObjectReceiverValueResponse(dict):
         The user object receiver value.
         :param Sequence[str] user_object_ids: user object ids.
         """
+        UserObjectReceiverValueResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_object_ids=user_object_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_object_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_object_ids is None and 'userObjectIds' in kwargs:
+            user_object_ids = kwargs['userObjectIds']
+
         if user_object_ids is not None:
-            pulumi.set(__self__, "user_object_ids", user_object_ids)
+            _setter("user_object_ids", user_object_ids)
 
     @property
     @pulumi.getter(name="userObjectIds")

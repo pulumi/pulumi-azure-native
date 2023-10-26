@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,12 +32,33 @@ class AzureHybridBenefitPropertiesArgs:
         :param pulumi.Input[Union[str, 'HybridLicenseType']] sql_server_license_type: SQL Server license type. Maximize savings by using Azure Hybrid Benefit for SQL Server with license you already own
         :param pulumi.Input[Union[str, 'HybridLicenseType']] windows_server_license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
         """
+        AzureHybridBenefitPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scom_license_type=scom_license_type,
+            sql_server_license_type=sql_server_license_type,
+            windows_server_license_type=windows_server_license_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scom_license_type: Optional[pulumi.Input[Union[str, 'HybridLicenseType']]] = None,
+             sql_server_license_type: Optional[pulumi.Input[Union[str, 'HybridLicenseType']]] = None,
+             windows_server_license_type: Optional[pulumi.Input[Union[str, 'HybridLicenseType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scom_license_type is None and 'scomLicenseType' in kwargs:
+            scom_license_type = kwargs['scomLicenseType']
+        if sql_server_license_type is None and 'sqlServerLicenseType' in kwargs:
+            sql_server_license_type = kwargs['sqlServerLicenseType']
+        if windows_server_license_type is None and 'windowsServerLicenseType' in kwargs:
+            windows_server_license_type = kwargs['windowsServerLicenseType']
+
         if scom_license_type is not None:
-            pulumi.set(__self__, "scom_license_type", scom_license_type)
+            _setter("scom_license_type", scom_license_type)
         if sql_server_license_type is not None:
-            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+            _setter("sql_server_license_type", sql_server_license_type)
         if windows_server_license_type is not None:
-            pulumi.set(__self__, "windows_server_license_type", windows_server_license_type)
+            _setter("windows_server_license_type", windows_server_license_type)
 
     @property
     @pulumi.getter(name="scomLicenseType")
@@ -84,8 +105,21 @@ class DatabaseInstancePropertiesArgs:
         The properties of database instance
         :param pulumi.Input[str] database_instance_id: Resource Id of existing database instance
         """
+        DatabaseInstancePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_instance_id=database_instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_instance_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_instance_id is None and 'databaseInstanceId' in kwargs:
+            database_instance_id = kwargs['databaseInstanceId']
+
         if database_instance_id is not None:
-            pulumi.set(__self__, "database_instance_id", database_instance_id)
+            _setter("database_instance_id", database_instance_id)
 
     @property
     @pulumi.getter(name="databaseInstanceId")
@@ -112,14 +146,35 @@ class DomainControllerPropertiesArgs:
         :param pulumi.Input[str] domain_name: Fully qualified domain name
         :param pulumi.Input[str] ou_path: Organizational Unit path in which the SCOM servers will be present
         """
+        DomainControllerPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_server=dns_server,
+            domain_name=domain_name,
+            ou_path=ou_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_server: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             ou_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_server is None and 'dnsServer' in kwargs:
+            dns_server = kwargs['dnsServer']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if ou_path is None and 'ouPath' in kwargs:
+            ou_path = kwargs['ouPath']
+
         if dns_server is not None:
-            pulumi.set(__self__, "dns_server", dns_server)
+            _setter("dns_server", dns_server)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if ou_path is None:
             ou_path = ''
         if ou_path is not None:
-            pulumi.set(__self__, "ou_path", ou_path)
+            _setter("ou_path", ou_path)
 
     @property
     @pulumi.getter(name="dnsServer")
@@ -170,12 +225,33 @@ class DomainUserCredentialsArgs:
         :param pulumi.Input[str] password_secret: Domain Password secret 
         :param pulumi.Input[str] user_name_secret: Domain user name secret 
         """
+        DomainUserCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_url=key_vault_url,
+            password_secret=password_secret,
+            user_name_secret=user_name_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_url: Optional[pulumi.Input[str]] = None,
+             password_secret: Optional[pulumi.Input[str]] = None,
+             user_name_secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_vault_url is None and 'keyVaultUrl' in kwargs:
+            key_vault_url = kwargs['keyVaultUrl']
+        if password_secret is None and 'passwordSecret' in kwargs:
+            password_secret = kwargs['passwordSecret']
+        if user_name_secret is None and 'userNameSecret' in kwargs:
+            user_name_secret = kwargs['userNameSecret']
+
         if key_vault_url is not None:
-            pulumi.set(__self__, "key_vault_url", key_vault_url)
+            _setter("key_vault_url", key_vault_url)
         if password_secret is not None:
-            pulumi.set(__self__, "password_secret", password_secret)
+            _setter("password_secret", password_secret)
         if user_name_secret is not None:
-            pulumi.set(__self__, "user_name_secret", user_name_secret)
+            _setter("user_name_secret", user_name_secret)
 
     @property
     @pulumi.getter(name="keyVaultUrl")
@@ -228,14 +304,39 @@ class GmsaDetailsArgs:
         :param pulumi.Input[str] load_balancer_ip: Frontend IP configuration for Load Balancer, which should be an available IP in customer VNet
         :param pulumi.Input[str] management_server_group_name: OnPrem AD Computer Group where we will join VMs for ease of management
         """
+        GmsaDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_name=dns_name,
+            gmsa_account=gmsa_account,
+            load_balancer_ip=load_balancer_ip,
+            management_server_group_name=management_server_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_name: Optional[pulumi.Input[str]] = None,
+             gmsa_account: Optional[pulumi.Input[str]] = None,
+             load_balancer_ip: Optional[pulumi.Input[str]] = None,
+             management_server_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if gmsa_account is None and 'gmsaAccount' in kwargs:
+            gmsa_account = kwargs['gmsaAccount']
+        if load_balancer_ip is None and 'loadBalancerIP' in kwargs:
+            load_balancer_ip = kwargs['loadBalancerIP']
+        if management_server_group_name is None and 'managementServerGroupName' in kwargs:
+            management_server_group_name = kwargs['managementServerGroupName']
+
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if gmsa_account is not None:
-            pulumi.set(__self__, "gmsa_account", gmsa_account)
+            _setter("gmsa_account", gmsa_account)
         if load_balancer_ip is not None:
-            pulumi.set(__self__, "load_balancer_ip", load_balancer_ip)
+            _setter("load_balancer_ip", load_balancer_ip)
         if management_server_group_name is not None:
-            pulumi.set(__self__, "management_server_group_name", management_server_group_name)
+            _setter("management_server_group_name", management_server_group_name)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -296,10 +397,25 @@ class ManagedIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: The identity type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
+        ManagedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -344,18 +460,51 @@ class MonitoringInstancePropertiesArgs:
         :param pulumi.Input['GmsaDetailsArgs'] gmsa_details: Gmsa Details for load balancer and vmss
         :param pulumi.Input[str] v_net_subnet_id: Virtual Network subnet id on which Aquila instance will be provisioned
         """
+        MonitoringInstancePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_hybrid_benefit=azure_hybrid_benefit,
+            database_instance=database_instance,
+            domain_controller=domain_controller,
+            domain_user_credentials=domain_user_credentials,
+            gmsa_details=gmsa_details,
+            v_net_subnet_id=v_net_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_hybrid_benefit: Optional[pulumi.Input['AzureHybridBenefitPropertiesArgs']] = None,
+             database_instance: Optional[pulumi.Input['DatabaseInstancePropertiesArgs']] = None,
+             domain_controller: Optional[pulumi.Input['DomainControllerPropertiesArgs']] = None,
+             domain_user_credentials: Optional[pulumi.Input['DomainUserCredentialsArgs']] = None,
+             gmsa_details: Optional[pulumi.Input['GmsaDetailsArgs']] = None,
+             v_net_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_hybrid_benefit is None and 'azureHybridBenefit' in kwargs:
+            azure_hybrid_benefit = kwargs['azureHybridBenefit']
+        if database_instance is None and 'databaseInstance' in kwargs:
+            database_instance = kwargs['databaseInstance']
+        if domain_controller is None and 'domainController' in kwargs:
+            domain_controller = kwargs['domainController']
+        if domain_user_credentials is None and 'domainUserCredentials' in kwargs:
+            domain_user_credentials = kwargs['domainUserCredentials']
+        if gmsa_details is None and 'gmsaDetails' in kwargs:
+            gmsa_details = kwargs['gmsaDetails']
+        if v_net_subnet_id is None and 'vNetSubnetId' in kwargs:
+            v_net_subnet_id = kwargs['vNetSubnetId']
+
         if azure_hybrid_benefit is not None:
-            pulumi.set(__self__, "azure_hybrid_benefit", azure_hybrid_benefit)
+            _setter("azure_hybrid_benefit", azure_hybrid_benefit)
         if database_instance is not None:
-            pulumi.set(__self__, "database_instance", database_instance)
+            _setter("database_instance", database_instance)
         if domain_controller is not None:
-            pulumi.set(__self__, "domain_controller", domain_controller)
+            _setter("domain_controller", domain_controller)
         if domain_user_credentials is not None:
-            pulumi.set(__self__, "domain_user_credentials", domain_user_credentials)
+            _setter("domain_user_credentials", domain_user_credentials)
         if gmsa_details is not None:
-            pulumi.set(__self__, "gmsa_details", gmsa_details)
+            _setter("gmsa_details", gmsa_details)
         if v_net_subnet_id is not None:
-            pulumi.set(__self__, "v_net_subnet_id", v_net_subnet_id)
+            _setter("v_net_subnet_id", v_net_subnet_id)
 
     @property
     @pulumi.getter(name="azureHybridBenefit")

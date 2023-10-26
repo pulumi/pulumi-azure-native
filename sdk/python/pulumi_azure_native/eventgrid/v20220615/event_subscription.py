@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,29 +46,76 @@ class EventSubscriptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of user defined labels.
         :param pulumi.Input['RetryPolicyArgs'] retry_policy: The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         """
-        pulumi.set(__self__, "scope", scope)
+        EventSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            dead_letter_destination=dead_letter_destination,
+            dead_letter_with_resource_identity=dead_letter_with_resource_identity,
+            delivery_with_resource_identity=delivery_with_resource_identity,
+            destination=destination,
+            event_delivery_schema=event_delivery_schema,
+            event_subscription_name=event_subscription_name,
+            expiration_time_utc=expiration_time_utc,
+            filter=filter,
+            labels=labels,
+            retry_policy=retry_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: Optional[pulumi.Input[str]] = None,
+             dead_letter_destination: Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']] = None,
+             dead_letter_with_resource_identity: Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']] = None,
+             delivery_with_resource_identity: Optional[pulumi.Input['DeliveryWithResourceIdentityArgs']] = None,
+             destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
+             event_delivery_schema: Optional[pulumi.Input[Union[str, 'EventDeliverySchema']]] = None,
+             event_subscription_name: Optional[pulumi.Input[str]] = None,
+             expiration_time_utc: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['EventSubscriptionFilterArgs']] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if dead_letter_destination is None and 'deadLetterDestination' in kwargs:
+            dead_letter_destination = kwargs['deadLetterDestination']
+        if dead_letter_with_resource_identity is None and 'deadLetterWithResourceIdentity' in kwargs:
+            dead_letter_with_resource_identity = kwargs['deadLetterWithResourceIdentity']
+        if delivery_with_resource_identity is None and 'deliveryWithResourceIdentity' in kwargs:
+            delivery_with_resource_identity = kwargs['deliveryWithResourceIdentity']
+        if event_delivery_schema is None and 'eventDeliverySchema' in kwargs:
+            event_delivery_schema = kwargs['eventDeliverySchema']
+        if event_subscription_name is None and 'eventSubscriptionName' in kwargs:
+            event_subscription_name = kwargs['eventSubscriptionName']
+        if expiration_time_utc is None and 'expirationTimeUtc' in kwargs:
+            expiration_time_utc = kwargs['expirationTimeUtc']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+
+        _setter("scope", scope)
         if dead_letter_destination is not None:
-            pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
+            _setter("dead_letter_destination", dead_letter_destination)
         if dead_letter_with_resource_identity is not None:
-            pulumi.set(__self__, "dead_letter_with_resource_identity", dead_letter_with_resource_identity)
+            _setter("dead_letter_with_resource_identity", dead_letter_with_resource_identity)
         if delivery_with_resource_identity is not None:
-            pulumi.set(__self__, "delivery_with_resource_identity", delivery_with_resource_identity)
+            _setter("delivery_with_resource_identity", delivery_with_resource_identity)
         if destination is not None:
-            pulumi.set(__self__, "destination", destination)
+            _setter("destination", destination)
         if event_delivery_schema is None:
             event_delivery_schema = 'EventGridSchema'
         if event_delivery_schema is not None:
-            pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
+            _setter("event_delivery_schema", event_delivery_schema)
         if event_subscription_name is not None:
-            pulumi.set(__self__, "event_subscription_name", event_subscription_name)
+            _setter("event_subscription_name", event_subscription_name)
         if expiration_time_utc is not None:
-            pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
+            _setter("expiration_time_utc", expiration_time_utc)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
 
     @property
     @pulumi.getter
@@ -264,6 +311,10 @@ class EventSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -289,8 +340,11 @@ class EventSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventSubscriptionArgs.__new__(EventSubscriptionArgs)
 
+            dead_letter_destination = _utilities.configure(dead_letter_destination, StorageBlobDeadLetterDestinationArgs, True)
             __props__.__dict__["dead_letter_destination"] = dead_letter_destination
+            dead_letter_with_resource_identity = _utilities.configure(dead_letter_with_resource_identity, DeadLetterWithResourceIdentityArgs, True)
             __props__.__dict__["dead_letter_with_resource_identity"] = dead_letter_with_resource_identity
+            delivery_with_resource_identity = _utilities.configure(delivery_with_resource_identity, DeliveryWithResourceIdentityArgs, True)
             __props__.__dict__["delivery_with_resource_identity"] = delivery_with_resource_identity
             __props__.__dict__["destination"] = destination
             if event_delivery_schema is None:
@@ -298,8 +352,10 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
             __props__.__dict__["event_subscription_name"] = event_subscription_name
             __props__.__dict__["expiration_time_utc"] = expiration_time_utc
+            filter = _utilities.configure(filter, EventSubscriptionFilterArgs, True)
             __props__.__dict__["filter"] = filter
             __props__.__dict__["labels"] = labels
+            retry_policy = _utilities.configure(retry_policy, RetryPolicyArgs, True)
             __props__.__dict__["retry_policy"] = retry_policy
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

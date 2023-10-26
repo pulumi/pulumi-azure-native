@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,65 @@ class ClientArgs:
         :param pulumi.Input[str] description: Description for the Client resource.
         :param pulumi.Input[Union[str, 'ClientState']] state: Indicates if the client is enabled or not. Default value is Enabled.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ClientArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            attributes=attributes,
+            authentication=authentication,
+            authentication_name=authentication_name,
+            client_certificate_authentication=client_certificate_authentication,
+            client_name=client_name,
+            description=description,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[Any] = None,
+             authentication: Optional[pulumi.Input['ClientAuthenticationArgs']] = None,
+             authentication_name: Optional[pulumi.Input[str]] = None,
+             client_certificate_authentication: Optional[pulumi.Input['ClientCertificateAuthenticationArgs']] = None,
+             client_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'ClientState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authentication_name is None and 'authenticationName' in kwargs:
+            authentication_name = kwargs['authenticationName']
+        if client_certificate_authentication is None and 'clientCertificateAuthentication' in kwargs:
+            client_certificate_authentication = kwargs['clientCertificateAuthentication']
+        if client_name is None and 'clientName' in kwargs:
+            client_name = kwargs['clientName']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if authentication_name is not None:
-            pulumi.set(__self__, "authentication_name", authentication_name)
+            _setter("authentication_name", authentication_name)
         if client_certificate_authentication is not None:
-            pulumi.set(__self__, "client_certificate_authentication", client_certificate_authentication)
+            _setter("client_certificate_authentication", client_certificate_authentication)
         if client_name is not None:
-            pulumi.set(__self__, "client_name", client_name)
+            _setter("client_name", client_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if state is None:
             state = 'Enabled'
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -223,6 +264,10 @@ class Client(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClientArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -247,8 +292,10 @@ class Client(pulumi.CustomResource):
             __props__ = ClientArgs.__new__(ClientArgs)
 
             __props__.__dict__["attributes"] = attributes
+            authentication = _utilities.configure(authentication, ClientAuthenticationArgs, True)
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["authentication_name"] = authentication_name
+            client_certificate_authentication = _utilities.configure(client_certificate_authentication, ClientCertificateAuthenticationArgs, True)
             __props__.__dict__["client_certificate_authentication"] = client_certificate_authentication
             __props__.__dict__["client_name"] = client_name
             __props__.__dict__["description"] = description

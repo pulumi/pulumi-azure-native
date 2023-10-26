@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,22 +44,89 @@ class BareMetalMachineKeySetArgs:
         :param pulumi.Input[str] os_group_name: The name of the group that users will be assigned to on the operating system of the machines.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "azure_group_id", azure_group_id)
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "expiration", expiration)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "jump_hosts_allowed", jump_hosts_allowed)
-        pulumi.set(__self__, "privilege_level", privilege_level)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_list", user_list)
+        BareMetalMachineKeySetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_group_id=azure_group_id,
+            cluster_name=cluster_name,
+            expiration=expiration,
+            extended_location=extended_location,
+            jump_hosts_allowed=jump_hosts_allowed,
+            privilege_level=privilege_level,
+            resource_group_name=resource_group_name,
+            user_list=user_list,
+            bare_metal_machine_key_set_name=bare_metal_machine_key_set_name,
+            location=location,
+            os_group_name=os_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_group_id: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             jump_hosts_allowed: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             privilege_level: Optional[pulumi.Input[Union[str, 'BareMetalMachineKeySetPrivilegeLevel']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user_list: Optional[pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]]] = None,
+             bare_metal_machine_key_set_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             os_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_group_id is None and 'azureGroupId' in kwargs:
+            azure_group_id = kwargs['azureGroupId']
+        if azure_group_id is None:
+            raise TypeError("Missing 'azure_group_id' argument")
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if expiration is None:
+            raise TypeError("Missing 'expiration' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if extended_location is None:
+            raise TypeError("Missing 'extended_location' argument")
+        if jump_hosts_allowed is None and 'jumpHostsAllowed' in kwargs:
+            jump_hosts_allowed = kwargs['jumpHostsAllowed']
+        if jump_hosts_allowed is None:
+            raise TypeError("Missing 'jump_hosts_allowed' argument")
+        if privilege_level is None and 'privilegeLevel' in kwargs:
+            privilege_level = kwargs['privilegeLevel']
+        if privilege_level is None:
+            raise TypeError("Missing 'privilege_level' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user_list is None and 'userList' in kwargs:
+            user_list = kwargs['userList']
+        if user_list is None:
+            raise TypeError("Missing 'user_list' argument")
+        if bare_metal_machine_key_set_name is None and 'bareMetalMachineKeySetName' in kwargs:
+            bare_metal_machine_key_set_name = kwargs['bareMetalMachineKeySetName']
+        if os_group_name is None and 'osGroupName' in kwargs:
+            os_group_name = kwargs['osGroupName']
+
+        _setter("azure_group_id", azure_group_id)
+        _setter("cluster_name", cluster_name)
+        _setter("expiration", expiration)
+        _setter("extended_location", extended_location)
+        _setter("jump_hosts_allowed", jump_hosts_allowed)
+        _setter("privilege_level", privilege_level)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_list", user_list)
         if bare_metal_machine_key_set_name is not None:
-            pulumi.set(__self__, "bare_metal_machine_key_set_name", bare_metal_machine_key_set_name)
+            _setter("bare_metal_machine_key_set_name", bare_metal_machine_key_set_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if os_group_name is not None:
-            pulumi.set(__self__, "os_group_name", os_group_name)
+            _setter("os_group_name", os_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="azureGroupId")
@@ -259,6 +326,10 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BareMetalMachineKeySetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,6 +366,7 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
             if expiration is None and not opts.urn:
                 raise TypeError("Missing required property 'expiration'")
             __props__.__dict__["expiration"] = expiration
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -29,10 +29,23 @@ class PrivilegeResponse(dict):
         :param Sequence[str] actions: An array of actions that are allowed.
         :param 'PrivilegeResponseResource' resource: An Azure Cosmos DB Mongo DB Resource.
         """
+        PrivilegeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            resource=resource,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence[str]] = None,
+             resource: Optional['outputs.PrivilegeResponseResource'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+            _setter("resource", resource)
 
     @property
     @pulumi.getter
@@ -64,10 +77,23 @@ class PrivilegeResponseResource(dict):
         :param str collection: The collection name the role is applied.
         :param str db: The database name the role is applied.
         """
+        PrivilegeResponseResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collection=collection,
+            db=db,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collection: Optional[str] = None,
+             db: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if collection is not None:
-            pulumi.set(__self__, "collection", collection)
+            _setter("collection", collection)
         if db is not None:
-            pulumi.set(__self__, "db", db)
+            _setter("db", db)
 
     @property
     @pulumi.getter
@@ -99,10 +125,23 @@ class RoleResponse(dict):
         :param str db: The database name the role is applied.
         :param str role: The role name.
         """
+        RoleResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            db=db,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             db: Optional[str] = None,
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if db is not None:
-            pulumi.set(__self__, "db", db)
+            _setter("db", db)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -52,12 +52,41 @@ class AzureFileVolumeArgs:
         :param pulumi.Input[bool] read_only: The flag indicating whether the Azure File shared mounted as a volume is read-only.
         :param pulumi.Input[str] storage_account_key: The storage account access key used to access the Azure File share.
         """
-        pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        AzureFileVolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            share_name=share_name,
+            storage_account_name=storage_account_name,
+            read_only=read_only,
+            storage_account_key=storage_account_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             share_name: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if read_only is None and 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+
+        _setter("share_name", share_name)
+        _setter("storage_account_name", storage_account_name)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
 
     @property
     @pulumi.getter(name="shareName")
@@ -116,8 +145,19 @@ class ContainerExecArgs:
         The container execution command, for liveness or readiness probe
         :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The commands to execute within the container.
         """
+        ContainerExecArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command=command,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if command is not None:
-            pulumi.set(__self__, "command", command)
+            _setter("command", command)
 
     @property
     @pulumi.getter
@@ -140,8 +180,21 @@ class ContainerGroupDiagnosticsArgs:
         Container group diagnostic information.
         :param pulumi.Input['LogAnalyticsArgs'] log_analytics: Container group log analytics information.
         """
+        ContainerGroupDiagnosticsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics=log_analytics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics: Optional[pulumi.Input['LogAnalyticsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_analytics is None and 'logAnalytics' in kwargs:
+            log_analytics = kwargs['logAnalytics']
+
         if log_analytics is not None:
-            pulumi.set(__self__, "log_analytics", log_analytics)
+            _setter("log_analytics", log_analytics)
 
     @property
     @pulumi.getter(name="logAnalytics")
@@ -166,10 +219,25 @@ class ContainerGroupIdentityArgs:
         :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        ContainerGroupIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -206,9 +274,24 @@ class ContainerGroupSubnetIdArgs:
         :param pulumi.Input[str] id: Resource ID of virtual network and subnet.
         :param pulumi.Input[str] name: Friendly name for the subnet.
         """
-        pulumi.set(__self__, "id", id)
+        ContainerGroupSubnetIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -249,13 +332,34 @@ class ContainerHttpGetArgs:
         :param pulumi.Input[str] path: The path to probe.
         :param pulumi.Input[Union[str, 'Scheme']] scheme: The scheme.
         """
-        pulumi.set(__self__, "port", port)
+        ContainerHttpGetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            http_headers=http_headers,
+            path=path,
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             scheme: Optional[pulumi.Input[Union[str, 'Scheme']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if http_headers is None and 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
+        _setter("port", port)
         if http_headers is not None:
-            pulumi.set(__self__, "http_headers", http_headers)
+            _setter("http_headers", http_headers)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
+            _setter("scheme", scheme)
 
     @property
     @pulumi.getter
@@ -316,9 +420,24 @@ class ContainerPortArgs:
         :param pulumi.Input[int] port: The port number exposed within the container group.
         :param pulumi.Input[Union[str, 'ContainerNetworkProtocol']] protocol: The protocol associated with the port.
         """
-        pulumi.set(__self__, "port", port)
+        ContainerPortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
+        _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -365,20 +484,57 @@ class ContainerProbeArgs:
         :param pulumi.Input[int] success_threshold: The success threshold.
         :param pulumi.Input[int] timeout_seconds: The timeout seconds.
         """
+        ContainerProbeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exec_=exec_,
+            failure_threshold=failure_threshold,
+            http_get=http_get,
+            initial_delay_seconds=initial_delay_seconds,
+            period_seconds=period_seconds,
+            success_threshold=success_threshold,
+            timeout_seconds=timeout_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exec_: Optional[pulumi.Input['ContainerExecArgs']] = None,
+             failure_threshold: Optional[pulumi.Input[int]] = None,
+             http_get: Optional[pulumi.Input['ContainerHttpGetArgs']] = None,
+             initial_delay_seconds: Optional[pulumi.Input[int]] = None,
+             period_seconds: Optional[pulumi.Input[int]] = None,
+             success_threshold: Optional[pulumi.Input[int]] = None,
+             timeout_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exec_ is None and 'exec' in kwargs:
+            exec_ = kwargs['exec']
+        if failure_threshold is None and 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if http_get is None and 'httpGet' in kwargs:
+            http_get = kwargs['httpGet']
+        if initial_delay_seconds is None and 'initialDelaySeconds' in kwargs:
+            initial_delay_seconds = kwargs['initialDelaySeconds']
+        if period_seconds is None and 'periodSeconds' in kwargs:
+            period_seconds = kwargs['periodSeconds']
+        if success_threshold is None and 'successThreshold' in kwargs:
+            success_threshold = kwargs['successThreshold']
+        if timeout_seconds is None and 'timeoutSeconds' in kwargs:
+            timeout_seconds = kwargs['timeoutSeconds']
+
         if exec_ is not None:
-            pulumi.set(__self__, "exec_", exec_)
+            _setter("exec_", exec_)
         if failure_threshold is not None:
-            pulumi.set(__self__, "failure_threshold", failure_threshold)
+            _setter("failure_threshold", failure_threshold)
         if http_get is not None:
-            pulumi.set(__self__, "http_get", http_get)
+            _setter("http_get", http_get)
         if initial_delay_seconds is not None:
-            pulumi.set(__self__, "initial_delay_seconds", initial_delay_seconds)
+            _setter("initial_delay_seconds", initial_delay_seconds)
         if period_seconds is not None:
-            pulumi.set(__self__, "period_seconds", period_seconds)
+            _setter("period_seconds", period_seconds)
         if success_threshold is not None:
-            pulumi.set(__self__, "success_threshold", success_threshold)
+            _setter("success_threshold", success_threshold)
         if timeout_seconds is not None:
-            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+            _setter("timeout_seconds", timeout_seconds)
 
     @property
     @pulumi.getter(name="exec")
@@ -489,21 +645,62 @@ class ContainerArgs:
         :param pulumi.Input['ContainerProbeArgs'] readiness_probe: The readiness probe.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
         """
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resources", resources)
+        ContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image=image,
+            name=name,
+            resources=resources,
+            command=command,
+            environment_variables=environment_variables,
+            liveness_probe=liveness_probe,
+            ports=ports,
+            readiness_probe=readiness_probe,
+            volume_mounts=volume_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+             liveness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
+             ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
+             readiness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
+             volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resources is None:
+            raise TypeError("Missing 'resources' argument")
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if liveness_probe is None and 'livenessProbe' in kwargs:
+            liveness_probe = kwargs['livenessProbe']
+        if readiness_probe is None and 'readinessProbe' in kwargs:
+            readiness_probe = kwargs['readinessProbe']
+        if volume_mounts is None and 'volumeMounts' in kwargs:
+            volume_mounts = kwargs['volumeMounts']
+
+        _setter("image", image)
+        _setter("name", name)
+        _setter("resources", resources)
         if command is not None:
-            pulumi.set(__self__, "command", command)
+            _setter("command", command)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if liveness_probe is not None:
-            pulumi.set(__self__, "liveness_probe", liveness_probe)
+            _setter("liveness_probe", liveness_probe)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
         if readiness_probe is not None:
-            pulumi.set(__self__, "readiness_probe", readiness_probe)
+            _setter("readiness_probe", readiness_probe)
         if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
+            _setter("volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter
@@ -626,11 +823,32 @@ class DnsConfigurationArgs:
         :param pulumi.Input[str] options: The DNS options for the container group.
         :param pulumi.Input[str] search_domains: The DNS search domains for hostname lookup in the container group.
         """
-        pulumi.set(__self__, "name_servers", name_servers)
+        DnsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name_servers=name_servers,
+            options=options,
+            search_domains=search_domains,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             options: Optional[pulumi.Input[str]] = None,
+             search_domains: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_servers is None and 'nameServers' in kwargs:
+            name_servers = kwargs['nameServers']
+        if name_servers is None:
+            raise TypeError("Missing 'name_servers' argument")
+        if search_domains is None and 'searchDomains' in kwargs:
+            search_domains = kwargs['searchDomains']
+
+        _setter("name_servers", name_servers)
         if options is not None:
-            pulumi.set(__self__, "options", options)
+            _setter("options", options)
         if search_domains is not None:
-            pulumi.set(__self__, "search_domains", search_domains)
+            _setter("search_domains", search_domains)
 
     @property
     @pulumi.getter(name="nameServers")
@@ -681,9 +899,36 @@ class EncryptionPropertiesArgs:
         :param pulumi.Input[str] key_version: The encryption key version.
         :param pulumi.Input[str] vault_base_url: The keyvault base url.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_version", key_version)
-        pulumi.set(__self__, "vault_base_url", vault_base_url)
+        EncryptionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_version=key_version,
+            vault_base_url=vault_base_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             vault_base_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if key_version is None:
+            raise TypeError("Missing 'key_version' argument")
+        if vault_base_url is None and 'vaultBaseUrl' in kwargs:
+            vault_base_url = kwargs['vaultBaseUrl']
+        if vault_base_url is None:
+            raise TypeError("Missing 'vault_base_url' argument")
+
+        _setter("key_name", key_name)
+        _setter("key_version", key_version)
+        _setter("vault_base_url", vault_base_url)
 
     @property
     @pulumi.getter(name="keyName")
@@ -734,11 +979,30 @@ class EnvironmentVariableArgs:
         :param pulumi.Input[str] secure_value: The value of the secure environment variable.
         :param pulumi.Input[str] value: The value of the environment variable.
         """
-        pulumi.set(__self__, "name", name)
+        EnvironmentVariableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secure_value=secure_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             secure_value: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secure_value is None and 'secureValue' in kwargs:
+            secure_value = kwargs['secureValue']
+
+        _setter("name", name)
         if secure_value is not None:
-            pulumi.set(__self__, "secure_value", secure_value)
+            _setter("secure_value", secure_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -789,11 +1053,28 @@ class GitRepoVolumeArgs:
         :param pulumi.Input[str] directory: Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
         :param pulumi.Input[str] revision: Commit hash for the specified revision.
         """
-        pulumi.set(__self__, "repository", repository)
+        GitRepoVolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository=repository,
+            directory=directory,
+            revision=revision,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository: Optional[pulumi.Input[str]] = None,
+             directory: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
+        _setter("repository", repository)
         if directory is not None:
-            pulumi.set(__self__, "directory", directory)
+            _setter("directory", directory)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
 
     @property
     @pulumi.getter
@@ -842,8 +1123,25 @@ class GpuResourceArgs:
         :param pulumi.Input[int] count: The count of the GPU resource.
         :param pulumi.Input[Union[str, 'GpuSku']] sku: The SKU of the GPU resource.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "sku", sku)
+        GpuResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            sku=sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             sku: Optional[pulumi.Input[Union[str, 'GpuSku']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+
+        _setter("count", count)
+        _setter("sku", sku)
 
     @property
     @pulumi.getter
@@ -880,10 +1178,23 @@ class HttpHeaderArgs:
         :param pulumi.Input[str] name: The header name.
         :param pulumi.Input[str] value: The header value.
         """
+        HttpHeaderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -926,14 +1237,39 @@ class ImageRegistryCredentialArgs:
         :param pulumi.Input[str] identity_url: The identity URL for the private registry.
         :param pulumi.Input[str] password: The password for the private registry.
         """
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        ImageRegistryCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server=server,
+            username=username,
+            identity=identity,
+            identity_url=identity_url,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input[str]] = None,
+             identity_url: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if identity_url is None and 'identityUrl' in kwargs:
+            identity_url = kwargs['identityUrl']
+
+        _setter("server", server)
+        _setter("username", username)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if identity_url is not None:
-            pulumi.set(__self__, "identity_url", identity_url)
+            _setter("identity_url", identity_url)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter
@@ -1012,15 +1348,40 @@ class InitContainerDefinitionArgs:
         :param pulumi.Input[str] image: The image of the init container.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the init container.
         """
-        pulumi.set(__self__, "name", name)
+        InitContainerDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            command=command,
+            environment_variables=environment_variables,
+            image=image,
+            volume_mounts=volume_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if volume_mounts is None and 'volumeMounts' in kwargs:
+            volume_mounts = kwargs['volumeMounts']
+
+        _setter("name", name)
         if command is not None:
-            pulumi.set(__self__, "command", command)
+            _setter("command", command)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
+            _setter("volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter
@@ -1097,12 +1458,35 @@ class IpAddressArgs:
         :param pulumi.Input[str] dns_name_label: The Dns name label for the IP.
         :param pulumi.Input[str] ip: The IP exposed to the public internet.
         """
-        pulumi.set(__self__, "ports", ports)
-        pulumi.set(__self__, "type", type)
+        IpAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ports=ports,
+            type=type,
+            dns_name_label=dns_name_label,
+            ip=ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ports: Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ContainerGroupIpAddressType']]] = None,
+             dns_name_label: Optional[pulumi.Input[str]] = None,
+             ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ports is None:
+            raise TypeError("Missing 'ports' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if dns_name_label is None and 'dnsNameLabel' in kwargs:
+            dns_name_label = kwargs['dnsNameLabel']
+
+        _setter("ports", ports)
+        _setter("type", type)
         if dns_name_label is not None:
-            pulumi.set(__self__, "dns_name_label", dns_name_label)
+            _setter("dns_name_label", dns_name_label)
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
 
     @property
     @pulumi.getter
@@ -1169,14 +1553,45 @@ class LogAnalyticsArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata for log analytics.
         :param pulumi.Input[str] workspace_resource_id: The workspace resource id for log analytics
         """
-        pulumi.set(__self__, "workspace_id", workspace_id)
-        pulumi.set(__self__, "workspace_key", workspace_key)
+        LogAnalyticsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            workspace_id=workspace_id,
+            workspace_key=workspace_key,
+            log_type=log_type,
+            metadata=metadata,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             workspace_key: Optional[pulumi.Input[str]] = None,
+             log_type: Optional[pulumi.Input[Union[str, 'LogAnalyticsLogType']]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if workspace_key is None and 'workspaceKey' in kwargs:
+            workspace_key = kwargs['workspaceKey']
+        if workspace_key is None:
+            raise TypeError("Missing 'workspace_key' argument")
+        if log_type is None and 'logType' in kwargs:
+            log_type = kwargs['logType']
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
+        _setter("workspace_id", workspace_id)
+        _setter("workspace_key", workspace_key)
         if log_type is not None:
-            pulumi.set(__self__, "log_type", log_type)
+            _setter("log_type", log_type)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -1249,9 +1664,24 @@ class PortArgs:
         :param pulumi.Input[int] port: The port number.
         :param pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']] protocol: The protocol associated with the port.
         """
-        pulumi.set(__self__, "port", port)
+        PortArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             protocol: Optional[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
+        _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -1290,12 +1720,29 @@ class ResourceLimitsArgs:
         :param pulumi.Input['GpuResourceArgs'] gpu: The GPU limit of this container instance.
         :param pulumi.Input[float] memory_in_gb: The memory limit in GB of this container instance.
         """
+        ResourceLimitsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            gpu=gpu,
+            memory_in_gb=memory_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[pulumi.Input[float]] = None,
+             gpu: Optional[pulumi.Input['GpuResourceArgs']] = None,
+             memory_in_gb: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if memory_in_gb is None and 'memoryInGB' in kwargs:
+            memory_in_gb = kwargs['memoryInGB']
+
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if gpu is not None:
-            pulumi.set(__self__, "gpu", gpu)
+            _setter("gpu", gpu)
         if memory_in_gb is not None:
-            pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+            _setter("memory_in_gb", memory_in_gb)
 
     @property
     @pulumi.getter
@@ -1346,10 +1793,31 @@ class ResourceRequestsArgs:
         :param pulumi.Input[float] memory_in_gb: The memory request in GB of this container instance.
         :param pulumi.Input['GpuResourceArgs'] gpu: The GPU request of this container instance.
         """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "memory_in_gb", memory_in_gb)
+        ResourceRequestsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory_in_gb=memory_in_gb,
+            gpu=gpu,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[pulumi.Input[float]] = None,
+             memory_in_gb: Optional[pulumi.Input[float]] = None,
+             gpu: Optional[pulumi.Input['GpuResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu is None:
+            raise TypeError("Missing 'cpu' argument")
+        if memory_in_gb is None and 'memoryInGB' in kwargs:
+            memory_in_gb = kwargs['memoryInGB']
+        if memory_in_gb is None:
+            raise TypeError("Missing 'memory_in_gb' argument")
+
+        _setter("cpu", cpu)
+        _setter("memory_in_gb", memory_in_gb)
         if gpu is not None:
-            pulumi.set(__self__, "gpu", gpu)
+            _setter("gpu", gpu)
 
     @property
     @pulumi.getter
@@ -1398,9 +1866,24 @@ class ResourceRequirementsArgs:
         :param pulumi.Input['ResourceRequestsArgs'] requests: The resource requests of this container instance.
         :param pulumi.Input['ResourceLimitsArgs'] limits: The resource limits of this container instance.
         """
-        pulumi.set(__self__, "requests", requests)
+        ResourceRequirementsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            requests=requests,
+            limits=limits,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             requests: Optional[pulumi.Input['ResourceRequestsArgs']] = None,
+             limits: Optional[pulumi.Input['ResourceLimitsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if requests is None:
+            raise TypeError("Missing 'requests' argument")
+
+        _setter("requests", requests)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
 
     @property
     @pulumi.getter
@@ -1439,10 +1922,33 @@ class VolumeMountArgs:
         :param pulumi.Input[str] name: The name of the volume mount.
         :param pulumi.Input[bool] read_only: The flag indicating whether the volume mount is read-only.
         """
-        pulumi.set(__self__, "mount_path", mount_path)
-        pulumi.set(__self__, "name", name)
+        VolumeMountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_path=mount_path,
+            name=name,
+            read_only=read_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_path: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             read_only: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mount_path is None and 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if mount_path is None:
+            raise TypeError("Missing 'mount_path' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if read_only is None and 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+
+        _setter("mount_path", mount_path)
+        _setter("name", name)
         if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
+            _setter("read_only", read_only)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -1497,15 +2003,42 @@ class VolumeArgs:
         :param pulumi.Input['GitRepoVolumeArgs'] git_repo: The git repo volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: The secret volume.
         """
-        pulumi.set(__self__, "name", name)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            azure_file=azure_file,
+            empty_dir=empty_dir,
+            git_repo=git_repo,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             azure_file: Optional[pulumi.Input['AzureFileVolumeArgs']] = None,
+             empty_dir: Optional[Any] = None,
+             git_repo: Optional[pulumi.Input['GitRepoVolumeArgs']] = None,
+             secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if azure_file is None and 'azureFile' in kwargs:
+            azure_file = kwargs['azureFile']
+        if empty_dir is None and 'emptyDir' in kwargs:
+            empty_dir = kwargs['emptyDir']
+        if git_repo is None and 'gitRepo' in kwargs:
+            git_repo = kwargs['gitRepo']
+
+        _setter("name", name)
         if azure_file is not None:
-            pulumi.set(__self__, "azure_file", azure_file)
+            _setter("azure_file", azure_file)
         if empty_dir is not None:
-            pulumi.set(__self__, "empty_dir", empty_dir)
+            _setter("empty_dir", empty_dir)
         if git_repo is not None:
-            pulumi.set(__self__, "git_repo", git_repo)
+            _setter("git_repo", git_repo)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter

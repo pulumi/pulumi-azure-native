@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['BlobContainerImmutabilityPolicyArgs', 'BlobContainerImmutabilityPolicy']
@@ -31,17 +31,60 @@ class BlobContainerImmutabilityPolicyArgs:
         :param pulumi.Input[int] immutability_period_since_creation_in_days: The immutability period for the blobs in the container since the policy creation, in days.
         :param pulumi.Input[str] immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BlobContainerImmutabilityPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            container_name=container_name,
+            resource_group_name=resource_group_name,
+            allow_protected_append_writes=allow_protected_append_writes,
+            allow_protected_append_writes_all=allow_protected_append_writes_all,
+            immutability_period_since_creation_in_days=immutability_period_since_creation_in_days,
+            immutability_policy_name=immutability_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             allow_protected_append_writes: Optional[pulumi.Input[bool]] = None,
+             allow_protected_append_writes_all: Optional[pulumi.Input[bool]] = None,
+             immutability_period_since_creation_in_days: Optional[pulumi.Input[int]] = None,
+             immutability_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if allow_protected_append_writes is None and 'allowProtectedAppendWrites' in kwargs:
+            allow_protected_append_writes = kwargs['allowProtectedAppendWrites']
+        if allow_protected_append_writes_all is None and 'allowProtectedAppendWritesAll' in kwargs:
+            allow_protected_append_writes_all = kwargs['allowProtectedAppendWritesAll']
+        if immutability_period_since_creation_in_days is None and 'immutabilityPeriodSinceCreationInDays' in kwargs:
+            immutability_period_since_creation_in_days = kwargs['immutabilityPeriodSinceCreationInDays']
+        if immutability_policy_name is None and 'immutabilityPolicyName' in kwargs:
+            immutability_policy_name = kwargs['immutabilityPolicyName']
+
+        _setter("account_name", account_name)
+        _setter("container_name", container_name)
+        _setter("resource_group_name", resource_group_name)
         if allow_protected_append_writes is not None:
-            pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
+            _setter("allow_protected_append_writes", allow_protected_append_writes)
         if allow_protected_append_writes_all is not None:
-            pulumi.set(__self__, "allow_protected_append_writes_all", allow_protected_append_writes_all)
+            _setter("allow_protected_append_writes_all", allow_protected_append_writes_all)
         if immutability_period_since_creation_in_days is not None:
-            pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
+            _setter("immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
         if immutability_policy_name is not None:
-            pulumi.set(__self__, "immutability_policy_name", immutability_policy_name)
+            _setter("immutability_policy_name", immutability_policy_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -173,6 +216,10 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BlobContainerImmutabilityPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

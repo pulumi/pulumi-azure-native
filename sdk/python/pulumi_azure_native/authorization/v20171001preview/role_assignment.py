@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
@@ -27,15 +27,44 @@ class RoleAssignmentArgs:
         :param pulumi.Input[str] role_assignment_name: A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
         """
-        pulumi.set(__self__, "scope", scope)
+        RoleAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            can_delegate=can_delegate,
+            principal_id=principal_id,
+            role_assignment_name=role_assignment_name,
+            role_definition_id=role_definition_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: Optional[pulumi.Input[str]] = None,
+             can_delegate: Optional[pulumi.Input[bool]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             role_assignment_name: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if can_delegate is None and 'canDelegate' in kwargs:
+            can_delegate = kwargs['canDelegate']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if role_assignment_name is None and 'roleAssignmentName' in kwargs:
+            role_assignment_name = kwargs['roleAssignmentName']
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
+        _setter("scope", scope)
         if can_delegate is not None:
-            pulumi.set(__self__, "can_delegate", can_delegate)
+            _setter("can_delegate", can_delegate)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if role_assignment_name is not None:
-            pulumi.set(__self__, "role_assignment_name", role_assignment_name)
+            _setter("role_assignment_name", role_assignment_name)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
 
     @property
     @pulumi.getter
@@ -139,6 +168,10 @@ class RoleAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

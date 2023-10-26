@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,20 +36,59 @@ class FrontendsInterfaceArgs:
         :param pulumi.Input['FrontendPropertiesIPAddressArgs'] public_ip_address: Frontend Public IP Address (Optional).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
+        FrontendsInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            traffic_controller_name=traffic_controller_name,
+            frontend_name=frontend_name,
+            ip_address_version=ip_address_version,
+            location=location,
+            mode=mode,
+            public_ip_address=public_ip_address,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             traffic_controller_name: Optional[pulumi.Input[str]] = None,
+             frontend_name: Optional[pulumi.Input[str]] = None,
+             ip_address_version: Optional[pulumi.Input['FrontendIPAddressVersion']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input['FrontendMode']] = None,
+             public_ip_address: Optional[pulumi.Input['FrontendPropertiesIPAddressArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if traffic_controller_name is None and 'trafficControllerName' in kwargs:
+            traffic_controller_name = kwargs['trafficControllerName']
+        if traffic_controller_name is None:
+            raise TypeError("Missing 'traffic_controller_name' argument")
+        if frontend_name is None and 'frontendName' in kwargs:
+            frontend_name = kwargs['frontendName']
+        if ip_address_version is None and 'ipAddressVersion' in kwargs:
+            ip_address_version = kwargs['ipAddressVersion']
+        if public_ip_address is None and 'publicIPAddress' in kwargs:
+            public_ip_address = kwargs['publicIPAddress']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("traffic_controller_name", traffic_controller_name)
         if frontend_name is not None:
-            pulumi.set(__self__, "frontend_name", frontend_name)
+            _setter("frontend_name", frontend_name)
         if ip_address_version is not None:
-            pulumi.set(__self__, "ip_address_version", ip_address_version)
+            _setter("ip_address_version", ip_address_version)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -195,6 +234,10 @@ class FrontendsInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrontendsInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -221,6 +264,7 @@ class FrontendsInterface(pulumi.CustomResource):
             __props__.__dict__["ip_address_version"] = ip_address_version
             __props__.__dict__["location"] = location
             __props__.__dict__["mode"] = mode
+            public_ip_address = _utilities.configure(public_ip_address, FrontendPropertiesIPAddressArgs, True)
             __props__.__dict__["public_ip_address"] = public_ip_address
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

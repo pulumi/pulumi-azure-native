@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,44 @@ class DataPoolArgs:
         :param pulumi.Input[str] data_pool_name: The name of the Data Pool
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "locations", locations)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DataPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            locations=locations,
+            resource_group_name=resource_group_name,
+            data_pool_name=data_pool_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input['DataPoolLocationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             data_pool_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if locations is None:
+            raise TypeError("Missing 'locations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if data_pool_name is None and 'dataPoolName' in kwargs:
+            data_pool_name = kwargs['dataPoolName']
+
+        _setter("account_name", account_name)
+        _setter("locations", locations)
+        _setter("resource_group_name", resource_group_name)
         if data_pool_name is not None:
-            pulumi.set(__self__, "data_pool_name", data_pool_name)
+            _setter("data_pool_name", data_pool_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -142,6 +173,10 @@ class DataPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

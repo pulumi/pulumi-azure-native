@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -24,10 +24,35 @@ class DiagnosticsPackageArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] diagnostics_package_name: The name of the diagnostics package.
         """
-        pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DiagnosticsPackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            packet_core_control_plane_name=packet_core_control_plane_name,
+            resource_group_name=resource_group_name,
+            diagnostics_package_name=diagnostics_package_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             diagnostics_package_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if packet_core_control_plane_name is None and 'packetCoreControlPlaneName' in kwargs:
+            packet_core_control_plane_name = kwargs['packetCoreControlPlaneName']
+        if packet_core_control_plane_name is None:
+            raise TypeError("Missing 'packet_core_control_plane_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if diagnostics_package_name is None and 'diagnosticsPackageName' in kwargs:
+            diagnostics_package_name = kwargs['diagnosticsPackageName']
+
+        _setter("packet_core_control_plane_name", packet_core_control_plane_name)
+        _setter("resource_group_name", resource_group_name)
         if diagnostics_package_name is not None:
-            pulumi.set(__self__, "diagnostics_package_name", diagnostics_package_name)
+            _setter("diagnostics_package_name", diagnostics_package_name)
 
     @property
     @pulumi.getter(name="packetCoreControlPlaneName")
@@ -109,6 +134,10 @@ class DiagnosticsPackage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiagnosticsPackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

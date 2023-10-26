@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,37 @@ class ManagedEnvironmentsStorageArgs:
         :param pulumi.Input[str] name: Name of the storage.
         :param pulumi.Input['ManagedEnvironmentStoragePropertiesArgs'] properties: Storage properties
         """
-        pulumi.set(__self__, "env_name", env_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedEnvironmentsStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            env_name=env_name,
+            resource_group_name=resource_group_name,
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             env_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ManagedEnvironmentStoragePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if env_name is None and 'envName' in kwargs:
+            env_name = kwargs['envName']
+        if env_name is None:
+            raise TypeError("Missing 'env_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("env_name", env_name)
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="envName")
@@ -123,6 +148,10 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedEnvironmentsStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -145,6 +174,7 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'env_name'")
             __props__.__dict__["env_name"] = env_name
             __props__.__dict__["name"] = name
+            properties = _utilities.configure(properties, ManagedEnvironmentStoragePropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,71 @@ class LoadBalancerBackendAddressPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
         :param pulumi.Input['SubResourceArgs'] virtual_network: A reference to a virtual network.
         """
-        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LoadBalancerBackendAddressPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_name=load_balancer_name,
+            resource_group_name=resource_group_name,
+            backend_address_pool_name=backend_address_pool_name,
+            drain_period_in_seconds=drain_period_in_seconds,
+            id=id,
+            load_balancer_backend_addresses=load_balancer_backend_addresses,
+            location=location,
+            name=name,
+            tunnel_interfaces=tunnel_interfaces,
+            virtual_network=virtual_network,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             backend_address_pool_name: Optional[pulumi.Input[str]] = None,
+             drain_period_in_seconds: Optional[pulumi.Input[int]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]] = None,
+             virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if load_balancer_name is None:
+            raise TypeError("Missing 'load_balancer_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if backend_address_pool_name is None and 'backendAddressPoolName' in kwargs:
+            backend_address_pool_name = kwargs['backendAddressPoolName']
+        if drain_period_in_seconds is None and 'drainPeriodInSeconds' in kwargs:
+            drain_period_in_seconds = kwargs['drainPeriodInSeconds']
+        if load_balancer_backend_addresses is None and 'loadBalancerBackendAddresses' in kwargs:
+            load_balancer_backend_addresses = kwargs['loadBalancerBackendAddresses']
+        if tunnel_interfaces is None and 'tunnelInterfaces' in kwargs:
+            tunnel_interfaces = kwargs['tunnelInterfaces']
+        if virtual_network is None and 'virtualNetwork' in kwargs:
+            virtual_network = kwargs['virtualNetwork']
+
+        _setter("load_balancer_name", load_balancer_name)
+        _setter("resource_group_name", resource_group_name)
         if backend_address_pool_name is not None:
-            pulumi.set(__self__, "backend_address_pool_name", backend_address_pool_name)
+            _setter("backend_address_pool_name", backend_address_pool_name)
         if drain_period_in_seconds is not None:
-            pulumi.set(__self__, "drain_period_in_seconds", drain_period_in_seconds)
+            _setter("drain_period_in_seconds", drain_period_in_seconds)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if load_balancer_backend_addresses is not None:
-            pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
+            _setter("load_balancer_backend_addresses", load_balancer_backend_addresses)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tunnel_interfaces is not None:
-            pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
+            _setter("tunnel_interfaces", tunnel_interfaces)
         if virtual_network is not None:
-            pulumi.set(__self__, "virtual_network", virtual_network)
+            _setter("virtual_network", virtual_network)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -237,6 +284,10 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerBackendAddressPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -274,6 +325,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tunnel_interfaces"] = tunnel_interfaces
+            virtual_network = _utilities.configure(virtual_network, SubResourceArgs, True)
             __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["backend_ip_configurations"] = None
             __props__.__dict__["etag"] = None

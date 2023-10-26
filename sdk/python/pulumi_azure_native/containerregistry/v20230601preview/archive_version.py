@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,12 +28,49 @@ class ArchiveVersionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] archive_version_name: The name of the archive version resource.
         """
-        pulumi.set(__self__, "archive_name", archive_name)
-        pulumi.set(__self__, "package_type", package_type)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ArchiveVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_name=archive_name,
+            package_type=package_type,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            archive_version_name=archive_version_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_name: Optional[pulumi.Input[str]] = None,
+             package_type: Optional[pulumi.Input[str]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             archive_version_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if archive_name is None and 'archiveName' in kwargs:
+            archive_name = kwargs['archiveName']
+        if archive_name is None:
+            raise TypeError("Missing 'archive_name' argument")
+        if package_type is None and 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if package_type is None:
+            raise TypeError("Missing 'package_type' argument")
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if archive_version_name is None and 'archiveVersionName' in kwargs:
+            archive_version_name = kwargs['archiveVersionName']
+
+        _setter("archive_name", archive_name)
+        _setter("package_type", package_type)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if archive_version_name is not None:
-            pulumi.set(__self__, "archive_version_name", archive_version_name)
+            _setter("archive_version_name", archive_version_name)
 
     @property
     @pulumi.getter(name="archiveName")
@@ -137,6 +174,10 @@ class ArchiveVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ArchiveVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

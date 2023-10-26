@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,23 +38,60 @@ class DataCollectionEndpointArgs:
         :param pulumi.Input['DataCollectionEndpointNetworkAclsArgs'] network_acls: Network access control rules for the endpoints.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DataCollectionEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            data_collection_endpoint_name=data_collection_endpoint_name,
+            description=description,
+            identity=identity,
+            immutable_id=immutable_id,
+            kind=kind,
+            location=location,
+            network_acls=network_acls,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             data_collection_endpoint_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['DataCollectionEndpointResourceIdentityArgs']] = None,
+             immutable_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[Union[str, 'KnownDataCollectionEndpointResourceKind']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_acls: Optional[pulumi.Input['DataCollectionEndpointNetworkAclsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if data_collection_endpoint_name is None and 'dataCollectionEndpointName' in kwargs:
+            data_collection_endpoint_name = kwargs['dataCollectionEndpointName']
+        if immutable_id is None and 'immutableId' in kwargs:
+            immutable_id = kwargs['immutableId']
+        if network_acls is None and 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+
+        _setter("resource_group_name", resource_group_name)
         if data_collection_endpoint_name is not None:
-            pulumi.set(__self__, "data_collection_endpoint_name", data_collection_endpoint_name)
+            _setter("data_collection_endpoint_name", data_collection_endpoint_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if immutable_id is not None:
-            pulumi.set(__self__, "immutable_id", immutable_id)
+            _setter("immutable_id", immutable_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -214,6 +251,10 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataCollectionEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -239,10 +280,12 @@ class DataCollectionEndpoint(pulumi.CustomResource):
 
             __props__.__dict__["data_collection_endpoint_name"] = data_collection_endpoint_name
             __props__.__dict__["description"] = description
+            identity = _utilities.configure(identity, DataCollectionEndpointResourceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["immutable_id"] = immutable_id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
+            network_acls = _utilities.configure(network_acls, DataCollectionEndpointNetworkAclsArgs, True)
             __props__.__dict__["network_acls"] = network_acls
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

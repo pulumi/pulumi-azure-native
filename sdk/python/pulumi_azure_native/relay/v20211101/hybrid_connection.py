@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,14 +28,47 @@ class HybridConnectionArgs:
         :param pulumi.Input[bool] requires_client_authorization: Returns true if client authorization is needed for this hybrid connection; otherwise, false.
         :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HybridConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            hybrid_connection_name=hybrid_connection_name,
+            requires_client_authorization=requires_client_authorization,
+            user_metadata=user_metadata,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             hybrid_connection_name: Optional[pulumi.Input[str]] = None,
+             requires_client_authorization: Optional[pulumi.Input[bool]] = None,
+             user_metadata: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if hybrid_connection_name is None and 'hybridConnectionName' in kwargs:
+            hybrid_connection_name = kwargs['hybridConnectionName']
+        if requires_client_authorization is None and 'requiresClientAuthorization' in kwargs:
+            requires_client_authorization = kwargs['requiresClientAuthorization']
+        if user_metadata is None and 'userMetadata' in kwargs:
+            user_metadata = kwargs['userMetadata']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if hybrid_connection_name is not None:
-            pulumi.set(__self__, "hybrid_connection_name", hybrid_connection_name)
+            _setter("hybrid_connection_name", hybrid_connection_name)
         if requires_client_authorization is not None:
-            pulumi.set(__self__, "requires_client_authorization", requires_client_authorization)
+            _setter("requires_client_authorization", requires_client_authorization)
         if user_metadata is not None:
-            pulumi.set(__self__, "user_metadata", user_metadata)
+            _setter("user_metadata", user_metadata)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -139,6 +172,10 @@ class HybridConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HybridConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

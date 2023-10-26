@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -75,59 +75,170 @@ class VirtualNetworkGatewayInitArgs:
         :param pulumi.Input[Union[str, 'VpnGatewayGeneration']] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         :param pulumi.Input[Union[str, 'VpnType']] vpn_type: The type of this virtual network gateway.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualNetworkGatewayInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            active_active=active_active,
+            admin_state=admin_state,
+            allow_remote_vnet_traffic=allow_remote_vnet_traffic,
+            allow_virtual_wan_traffic=allow_virtual_wan_traffic,
+            bgp_settings=bgp_settings,
+            custom_routes=custom_routes,
+            disable_ip_sec_replay_protection=disable_ip_sec_replay_protection,
+            enable_bgp=enable_bgp,
+            enable_bgp_route_translation_for_nat=enable_bgp_route_translation_for_nat,
+            enable_dns_forwarding=enable_dns_forwarding,
+            enable_private_ip_address=enable_private_ip_address,
+            extended_location=extended_location,
+            gateway_default_site=gateway_default_site,
+            gateway_type=gateway_type,
+            id=id,
+            ip_configurations=ip_configurations,
+            location=location,
+            nat_rules=nat_rules,
+            sku=sku,
+            tags=tags,
+            v_net_extended_location_resource_id=v_net_extended_location_resource_id,
+            virtual_network_gateway_name=virtual_network_gateway_name,
+            virtual_network_gateway_policy_groups=virtual_network_gateway_policy_groups,
+            vpn_client_configuration=vpn_client_configuration,
+            vpn_gateway_generation=vpn_gateway_generation,
+            vpn_type=vpn_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             active_active: Optional[pulumi.Input[bool]] = None,
+             admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
+             allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
+             allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
+             bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
+             custom_routes: Optional[pulumi.Input['AddressSpaceArgs']] = None,
+             disable_ip_sec_replay_protection: Optional[pulumi.Input[bool]] = None,
+             enable_bgp: Optional[pulumi.Input[bool]] = None,
+             enable_bgp_route_translation_for_nat: Optional[pulumi.Input[bool]] = None,
+             enable_dns_forwarding: Optional[pulumi.Input[bool]] = None,
+             enable_private_ip_address: Optional[pulumi.Input[bool]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             gateway_default_site: Optional[pulumi.Input['SubResourceArgs']] = None,
+             gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleArgs']]]] = None,
+             sku: Optional[pulumi.Input['VirtualNetworkGatewaySkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
+             virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_gateway_policy_groups: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgs']]]] = None,
+             vpn_client_configuration: Optional[pulumi.Input['VpnClientConfigurationArgs']] = None,
+             vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
+             vpn_type: Optional[pulumi.Input[Union[str, 'VpnType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if active_active is None and 'activeActive' in kwargs:
+            active_active = kwargs['activeActive']
+        if admin_state is None and 'adminState' in kwargs:
+            admin_state = kwargs['adminState']
+        if allow_remote_vnet_traffic is None and 'allowRemoteVnetTraffic' in kwargs:
+            allow_remote_vnet_traffic = kwargs['allowRemoteVnetTraffic']
+        if allow_virtual_wan_traffic is None and 'allowVirtualWanTraffic' in kwargs:
+            allow_virtual_wan_traffic = kwargs['allowVirtualWanTraffic']
+        if bgp_settings is None and 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if custom_routes is None and 'customRoutes' in kwargs:
+            custom_routes = kwargs['customRoutes']
+        if disable_ip_sec_replay_protection is None and 'disableIPSecReplayProtection' in kwargs:
+            disable_ip_sec_replay_protection = kwargs['disableIPSecReplayProtection']
+        if enable_bgp is None and 'enableBgp' in kwargs:
+            enable_bgp = kwargs['enableBgp']
+        if enable_bgp_route_translation_for_nat is None and 'enableBgpRouteTranslationForNat' in kwargs:
+            enable_bgp_route_translation_for_nat = kwargs['enableBgpRouteTranslationForNat']
+        if enable_dns_forwarding is None and 'enableDnsForwarding' in kwargs:
+            enable_dns_forwarding = kwargs['enableDnsForwarding']
+        if enable_private_ip_address is None and 'enablePrivateIpAddress' in kwargs:
+            enable_private_ip_address = kwargs['enablePrivateIpAddress']
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if gateway_default_site is None and 'gatewayDefaultSite' in kwargs:
+            gateway_default_site = kwargs['gatewayDefaultSite']
+        if gateway_type is None and 'gatewayType' in kwargs:
+            gateway_type = kwargs['gatewayType']
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if nat_rules is None and 'natRules' in kwargs:
+            nat_rules = kwargs['natRules']
+        if v_net_extended_location_resource_id is None and 'vNetExtendedLocationResourceId' in kwargs:
+            v_net_extended_location_resource_id = kwargs['vNetExtendedLocationResourceId']
+        if virtual_network_gateway_name is None and 'virtualNetworkGatewayName' in kwargs:
+            virtual_network_gateway_name = kwargs['virtualNetworkGatewayName']
+        if virtual_network_gateway_policy_groups is None and 'virtualNetworkGatewayPolicyGroups' in kwargs:
+            virtual_network_gateway_policy_groups = kwargs['virtualNetworkGatewayPolicyGroups']
+        if vpn_client_configuration is None and 'vpnClientConfiguration' in kwargs:
+            vpn_client_configuration = kwargs['vpnClientConfiguration']
+        if vpn_gateway_generation is None and 'vpnGatewayGeneration' in kwargs:
+            vpn_gateway_generation = kwargs['vpnGatewayGeneration']
+        if vpn_type is None and 'vpnType' in kwargs:
+            vpn_type = kwargs['vpnType']
+
+        _setter("resource_group_name", resource_group_name)
         if active_active is not None:
-            pulumi.set(__self__, "active_active", active_active)
+            _setter("active_active", active_active)
         if admin_state is not None:
-            pulumi.set(__self__, "admin_state", admin_state)
+            _setter("admin_state", admin_state)
         if allow_remote_vnet_traffic is not None:
-            pulumi.set(__self__, "allow_remote_vnet_traffic", allow_remote_vnet_traffic)
+            _setter("allow_remote_vnet_traffic", allow_remote_vnet_traffic)
         if allow_virtual_wan_traffic is not None:
-            pulumi.set(__self__, "allow_virtual_wan_traffic", allow_virtual_wan_traffic)
+            _setter("allow_virtual_wan_traffic", allow_virtual_wan_traffic)
         if bgp_settings is not None:
-            pulumi.set(__self__, "bgp_settings", bgp_settings)
+            _setter("bgp_settings", bgp_settings)
         if custom_routes is not None:
-            pulumi.set(__self__, "custom_routes", custom_routes)
+            _setter("custom_routes", custom_routes)
         if disable_ip_sec_replay_protection is not None:
-            pulumi.set(__self__, "disable_ip_sec_replay_protection", disable_ip_sec_replay_protection)
+            _setter("disable_ip_sec_replay_protection", disable_ip_sec_replay_protection)
         if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
+            _setter("enable_bgp", enable_bgp)
         if enable_bgp_route_translation_for_nat is not None:
-            pulumi.set(__self__, "enable_bgp_route_translation_for_nat", enable_bgp_route_translation_for_nat)
+            _setter("enable_bgp_route_translation_for_nat", enable_bgp_route_translation_for_nat)
         if enable_dns_forwarding is not None:
-            pulumi.set(__self__, "enable_dns_forwarding", enable_dns_forwarding)
+            _setter("enable_dns_forwarding", enable_dns_forwarding)
         if enable_private_ip_address is not None:
-            pulumi.set(__self__, "enable_private_ip_address", enable_private_ip_address)
+            _setter("enable_private_ip_address", enable_private_ip_address)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if gateway_default_site is not None:
-            pulumi.set(__self__, "gateway_default_site", gateway_default_site)
+            _setter("gateway_default_site", gateway_default_site)
         if gateway_type is not None:
-            pulumi.set(__self__, "gateway_type", gateway_type)
+            _setter("gateway_type", gateway_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if nat_rules is not None:
-            pulumi.set(__self__, "nat_rules", nat_rules)
+            _setter("nat_rules", nat_rules)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if v_net_extended_location_resource_id is not None:
-            pulumi.set(__self__, "v_net_extended_location_resource_id", v_net_extended_location_resource_id)
+            _setter("v_net_extended_location_resource_id", v_net_extended_location_resource_id)
         if virtual_network_gateway_name is not None:
-            pulumi.set(__self__, "virtual_network_gateway_name", virtual_network_gateway_name)
+            _setter("virtual_network_gateway_name", virtual_network_gateway_name)
         if virtual_network_gateway_policy_groups is not None:
-            pulumi.set(__self__, "virtual_network_gateway_policy_groups", virtual_network_gateway_policy_groups)
+            _setter("virtual_network_gateway_policy_groups", virtual_network_gateway_policy_groups)
         if vpn_client_configuration is not None:
-            pulumi.set(__self__, "vpn_client_configuration", vpn_client_configuration)
+            _setter("vpn_client_configuration", vpn_client_configuration)
         if vpn_gateway_generation is not None:
-            pulumi.set(__self__, "vpn_gateway_generation", vpn_gateway_generation)
+            _setter("vpn_gateway_generation", vpn_gateway_generation)
         if vpn_type is not None:
-            pulumi.set(__self__, "vpn_type", vpn_type)
+            _setter("vpn_type", vpn_type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -547,6 +658,10 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkGatewayInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -592,14 +707,18 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["admin_state"] = admin_state
             __props__.__dict__["allow_remote_vnet_traffic"] = allow_remote_vnet_traffic
             __props__.__dict__["allow_virtual_wan_traffic"] = allow_virtual_wan_traffic
+            bgp_settings = _utilities.configure(bgp_settings, BgpSettingsArgs, True)
             __props__.__dict__["bgp_settings"] = bgp_settings
+            custom_routes = _utilities.configure(custom_routes, AddressSpaceArgs, True)
             __props__.__dict__["custom_routes"] = custom_routes
             __props__.__dict__["disable_ip_sec_replay_protection"] = disable_ip_sec_replay_protection
             __props__.__dict__["enable_bgp"] = enable_bgp
             __props__.__dict__["enable_bgp_route_translation_for_nat"] = enable_bgp_route_translation_for_nat
             __props__.__dict__["enable_dns_forwarding"] = enable_dns_forwarding
             __props__.__dict__["enable_private_ip_address"] = enable_private_ip_address
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
+            gateway_default_site = _utilities.configure(gateway_default_site, SubResourceArgs, True)
             __props__.__dict__["gateway_default_site"] = gateway_default_site
             __props__.__dict__["gateway_type"] = gateway_type
             __props__.__dict__["id"] = id
@@ -609,11 +728,13 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, VirtualNetworkGatewaySkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_net_extended_location_resource_id"] = v_net_extended_location_resource_id
             __props__.__dict__["virtual_network_gateway_name"] = virtual_network_gateway_name
             __props__.__dict__["virtual_network_gateway_policy_groups"] = virtual_network_gateway_policy_groups
+            vpn_client_configuration = _utilities.configure(vpn_client_configuration, VpnClientConfigurationArgs, True)
             __props__.__dict__["vpn_client_configuration"] = vpn_client_configuration
             __props__.__dict__["vpn_gateway_generation"] = vpn_gateway_generation
             __props__.__dict__["vpn_type"] = vpn_type

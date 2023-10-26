@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -35,12 +35,27 @@ class FilteringTagArgs:
         :param pulumi.Input[str] name: The name (also known as the key) of the tag.
         :param pulumi.Input[str] value: The value of the tag.
         """
+        FilteringTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'TagAction']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -83,8 +98,19 @@ class FilteringTagArgs:
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None):
+        IdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -110,14 +136,39 @@ class LogRulesArgs:
         :param pulumi.Input[bool] send_activity_logs: Flag specifying if activity logs from Azure resources should be sent for the Monitor resource.
         :param pulumi.Input[bool] send_subscription_logs: Flag specifying if subscription logs should be sent for the Monitor resource.
         """
+        LogRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            send_aad_logs=send_aad_logs,
+            send_activity_logs=send_activity_logs,
+            send_subscription_logs=send_subscription_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+             send_aad_logs: Optional[pulumi.Input[bool]] = None,
+             send_activity_logs: Optional[pulumi.Input[bool]] = None,
+             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filtering_tags is None and 'filteringTags' in kwargs:
+            filtering_tags = kwargs['filteringTags']
+        if send_aad_logs is None and 'sendAadLogs' in kwargs:
+            send_aad_logs = kwargs['sendAadLogs']
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
         if send_aad_logs is not None:
-            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+            _setter("send_aad_logs", send_aad_logs)
         if send_activity_logs is not None:
-            pulumi.set(__self__, "send_activity_logs", send_activity_logs)
+            _setter("send_activity_logs", send_activity_logs)
         if send_subscription_logs is not None:
-            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+            _setter("send_subscription_logs", send_subscription_logs)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -179,12 +230,33 @@ class LogzOrganizationPropertiesArgs:
         :param pulumi.Input[str] enterprise_app_id: The Id of the Enterprise App used for Single sign on.
         :param pulumi.Input[str] single_sign_on_url: The login URL specific to this Logz Organization.
         """
+        LogzOrganizationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            company_name=company_name,
+            enterprise_app_id=enterprise_app_id,
+            single_sign_on_url=single_sign_on_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             company_name: Optional[pulumi.Input[str]] = None,
+             enterprise_app_id: Optional[pulumi.Input[str]] = None,
+             single_sign_on_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if company_name is None and 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if enterprise_app_id is None and 'enterpriseAppId' in kwargs:
+            enterprise_app_id = kwargs['enterpriseAppId']
+        if single_sign_on_url is None and 'singleSignOnUrl' in kwargs:
+            single_sign_on_url = kwargs['singleSignOnUrl']
+
         if company_name is not None:
-            pulumi.set(__self__, "company_name", company_name)
+            _setter("company_name", company_name)
         if enterprise_app_id is not None:
-            pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
+            _setter("enterprise_app_id", enterprise_app_id)
         if single_sign_on_url is not None:
-            pulumi.set(__self__, "single_sign_on_url", single_sign_on_url)
+            _setter("single_sign_on_url", single_sign_on_url)
 
     @property
     @pulumi.getter(name="companyName")
@@ -233,10 +305,27 @@ class MetricRulesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]] filtering_tags: List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         :param pulumi.Input[str] subscription_id: Subscription Id for which filtering tags are applicable
         """
+        MetricRulesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filtering_tags=filtering_tags,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filtering_tags is None and 'filteringTags' in kwargs:
+            filtering_tags = kwargs['filteringTags']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if filtering_tags is not None:
-            pulumi.set(__self__, "filtering_tags", filtering_tags)
+            _setter("filtering_tags", filtering_tags)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="filteringTags")
@@ -272,10 +361,27 @@ class MetricsTagRulesPropertiesArgs:
         Definition of the properties for a TagRules resource.
         :param pulumi.Input[bool] send_metrics: Flag specifying if metrics from Azure resources should be sent for the Monitor resource.
         """
+        MetricsTagRulesPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            metric_rules=metric_rules,
+            send_metrics=send_metrics,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             metric_rules: Optional[pulumi.Input[Sequence[pulumi.Input['MetricRulesArgs']]]] = None,
+             send_metrics: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_rules is None and 'metricRules' in kwargs:
+            metric_rules = kwargs['metricRules']
+        if send_metrics is None and 'sendMetrics' in kwargs:
+            send_metrics = kwargs['sendMetrics']
+
         if metric_rules is not None:
-            pulumi.set(__self__, "metric_rules", metric_rules)
+            _setter("metric_rules", metric_rules)
         if send_metrics is not None:
-            pulumi.set(__self__, "send_metrics", send_metrics)
+            _setter("send_metrics", send_metrics)
 
     @property
     @pulumi.getter(name="metricRules")
@@ -312,16 +418,45 @@ class MonitorPropertiesArgs:
         :param pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']] marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         """
+        MonitorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logz_organization_properties=logz_organization_properties,
+            marketplace_subscription_status=marketplace_subscription_status,
+            monitoring_status=monitoring_status,
+            plan_data=plan_data,
+            user_info=user_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logz_organization_properties: Optional[pulumi.Input['LogzOrganizationPropertiesArgs']] = None,
+             marketplace_subscription_status: Optional[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]] = None,
+             monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
+             plan_data: Optional[pulumi.Input['PlanDataArgs']] = None,
+             user_info: Optional[pulumi.Input['UserInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logz_organization_properties is None and 'logzOrganizationProperties' in kwargs:
+            logz_organization_properties = kwargs['logzOrganizationProperties']
+        if marketplace_subscription_status is None and 'marketplaceSubscriptionStatus' in kwargs:
+            marketplace_subscription_status = kwargs['marketplaceSubscriptionStatus']
+        if monitoring_status is None and 'monitoringStatus' in kwargs:
+            monitoring_status = kwargs['monitoringStatus']
+        if plan_data is None and 'planData' in kwargs:
+            plan_data = kwargs['planData']
+        if user_info is None and 'userInfo' in kwargs:
+            user_info = kwargs['userInfo']
+
         if logz_organization_properties is not None:
-            pulumi.set(__self__, "logz_organization_properties", logz_organization_properties)
+            _setter("logz_organization_properties", logz_organization_properties)
         if marketplace_subscription_status is not None:
-            pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
+            _setter("marketplace_subscription_status", marketplace_subscription_status)
         if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
+            _setter("monitoring_status", monitoring_status)
         if plan_data is not None:
-            pulumi.set(__self__, "plan_data", plan_data)
+            _setter("plan_data", plan_data)
         if user_info is not None:
-            pulumi.set(__self__, "user_info", user_info)
+            _setter("user_info", user_info)
 
     @property
     @pulumi.getter(name="logzOrganizationProperties")
@@ -383,8 +518,21 @@ class MonitoringTagRulesPropertiesArgs:
         Definition of the properties for a TagRules resource.
         :param pulumi.Input['LogRulesArgs'] log_rules: Set of rules for sending logs for the Monitor resource.
         """
+        MonitoringTagRulesPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_rules=log_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_rules: Optional[pulumi.Input['LogRulesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_rules is None and 'logRules' in kwargs:
+            log_rules = kwargs['logRules']
+
         if log_rules is not None:
-            pulumi.set(__self__, "log_rules", log_rules)
+            _setter("log_rules", log_rules)
 
     @property
     @pulumi.getter(name="logRules")
@@ -412,14 +560,39 @@ class PlanDataArgs:
         :param pulumi.Input[str] plan_details: plan id as published by Logz
         :param pulumi.Input[str] usage_type: different usage type like PAYG/COMMITTED. this could be enum
         """
+        PlanDataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_cycle=billing_cycle,
+            effective_date=effective_date,
+            plan_details=plan_details,
+            usage_type=usage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_cycle: Optional[pulumi.Input[str]] = None,
+             effective_date: Optional[pulumi.Input[str]] = None,
+             plan_details: Optional[pulumi.Input[str]] = None,
+             usage_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_cycle is None and 'billingCycle' in kwargs:
+            billing_cycle = kwargs['billingCycle']
+        if effective_date is None and 'effectiveDate' in kwargs:
+            effective_date = kwargs['effectiveDate']
+        if plan_details is None and 'planDetails' in kwargs:
+            plan_details = kwargs['planDetails']
+        if usage_type is None and 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+
         if billing_cycle is not None:
-            pulumi.set(__self__, "billing_cycle", billing_cycle)
+            _setter("billing_cycle", billing_cycle)
         if effective_date is not None:
-            pulumi.set(__self__, "effective_date", effective_date)
+            _setter("effective_date", effective_date)
         if plan_details is not None:
-            pulumi.set(__self__, "plan_details", plan_details)
+            _setter("plan_details", plan_details)
         if usage_type is not None:
-            pulumi.set(__self__, "usage_type", usage_type)
+            _setter("usage_type", usage_type)
 
     @property
     @pulumi.getter(name="billingCycle")
@@ -483,14 +656,39 @@ class UserInfoArgs:
         :param pulumi.Input[str] last_name: Last Name of the user
         :param pulumi.Input[str] phone_number: Phone number of the user used by Logz for contacting them if needed
         """
+        UserInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         if email_address is not None:
-            pulumi.set(__self__, "email_address", email_address)
+            _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="emailAddress")

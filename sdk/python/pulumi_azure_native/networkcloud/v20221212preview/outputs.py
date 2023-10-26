@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,8 +40,25 @@ class AdministrativeCredentialsResponse(dict):
         :param str password: The password of the administrator of the device used during initialization.
         :param str username: The username of the administrator of the device used during initialization.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        AdministrativeCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -113,16 +130,69 @@ class BareMetalMachineConfigurationDataResponse(dict):
         :param str machine_name: The user-provided name for the bare metal machine created from this specification.
                If not provided, the machine name will be generated programmatically.
         """
-        pulumi.set(__self__, "bmc_connection_string", bmc_connection_string)
-        pulumi.set(__self__, "bmc_credentials", bmc_credentials)
-        pulumi.set(__self__, "bmc_mac_address", bmc_mac_address)
-        pulumi.set(__self__, "boot_mac_address", boot_mac_address)
-        pulumi.set(__self__, "rack_slot", rack_slot)
-        pulumi.set(__self__, "serial_number", serial_number)
+        BareMetalMachineConfigurationDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bmc_connection_string=bmc_connection_string,
+            bmc_credentials=bmc_credentials,
+            bmc_mac_address=bmc_mac_address,
+            boot_mac_address=boot_mac_address,
+            rack_slot=rack_slot,
+            serial_number=serial_number,
+            machine_details=machine_details,
+            machine_name=machine_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bmc_connection_string: Optional[str] = None,
+             bmc_credentials: Optional['outputs.AdministrativeCredentialsResponse'] = None,
+             bmc_mac_address: Optional[str] = None,
+             boot_mac_address: Optional[str] = None,
+             rack_slot: Optional[float] = None,
+             serial_number: Optional[str] = None,
+             machine_details: Optional[str] = None,
+             machine_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bmc_connection_string is None and 'bmcConnectionString' in kwargs:
+            bmc_connection_string = kwargs['bmcConnectionString']
+        if bmc_connection_string is None:
+            raise TypeError("Missing 'bmc_connection_string' argument")
+        if bmc_credentials is None and 'bmcCredentials' in kwargs:
+            bmc_credentials = kwargs['bmcCredentials']
+        if bmc_credentials is None:
+            raise TypeError("Missing 'bmc_credentials' argument")
+        if bmc_mac_address is None and 'bmcMacAddress' in kwargs:
+            bmc_mac_address = kwargs['bmcMacAddress']
+        if bmc_mac_address is None:
+            raise TypeError("Missing 'bmc_mac_address' argument")
+        if boot_mac_address is None and 'bootMacAddress' in kwargs:
+            boot_mac_address = kwargs['bootMacAddress']
+        if boot_mac_address is None:
+            raise TypeError("Missing 'boot_mac_address' argument")
+        if rack_slot is None and 'rackSlot' in kwargs:
+            rack_slot = kwargs['rackSlot']
+        if rack_slot is None:
+            raise TypeError("Missing 'rack_slot' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if machine_details is None and 'machineDetails' in kwargs:
+            machine_details = kwargs['machineDetails']
+        if machine_name is None and 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+
+        _setter("bmc_connection_string", bmc_connection_string)
+        _setter("bmc_credentials", bmc_credentials)
+        _setter("bmc_mac_address", bmc_mac_address)
+        _setter("boot_mac_address", boot_mac_address)
+        _setter("rack_slot", rack_slot)
+        _setter("serial_number", serial_number)
         if machine_details is not None:
-            pulumi.set(__self__, "machine_details", machine_details)
+            _setter("machine_details", machine_details)
         if machine_name is not None:
-            pulumi.set(__self__, "machine_name", machine_name)
+            _setter("machine_name", machine_name)
 
     @property
     @pulumi.getter(name="bmcConnectionString")
@@ -218,8 +288,29 @@ class BgpPeerResponse(dict):
         :param float as_number: The ASN (Autonomous System Number) of the BGP peer.
         :param str peer_ip: The IPv4 or IPv6 address to peer with the associated CNI Network. The IP version type will drive a peering with the same version type from the Default CNI Network. For example, IPv4 to IPv4 or IPv6 to IPv6.
         """
-        pulumi.set(__self__, "as_number", as_number)
-        pulumi.set(__self__, "peer_ip", peer_ip)
+        BgpPeerResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            as_number=as_number,
+            peer_ip=peer_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             as_number: Optional[float] = None,
+             peer_ip: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if as_number is None and 'asNumber' in kwargs:
+            as_number = kwargs['asNumber']
+        if as_number is None:
+            raise TypeError("Missing 'as_number' argument")
+        if peer_ip is None and 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+        if peer_ip is None:
+            raise TypeError("Missing 'peer_ip' argument")
+
+        _setter("as_number", as_number)
+        _setter("peer_ip", peer_ip)
 
     @property
     @pulumi.getter(name="asNumber")
@@ -282,12 +373,57 @@ class ClusterAvailableUpgradeVersionResponse(dict):
         :param str target_cluster_version: The target version this cluster will be upgraded to.
         :param str workload_impact: The indicator of whether the workload will be impacted during the upgrade.
         """
-        pulumi.set(__self__, "control_impact", control_impact)
-        pulumi.set(__self__, "expected_duration", expected_duration)
-        pulumi.set(__self__, "impact_description", impact_description)
-        pulumi.set(__self__, "support_expiry_date", support_expiry_date)
-        pulumi.set(__self__, "target_cluster_version", target_cluster_version)
-        pulumi.set(__self__, "workload_impact", workload_impact)
+        ClusterAvailableUpgradeVersionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            control_impact=control_impact,
+            expected_duration=expected_duration,
+            impact_description=impact_description,
+            support_expiry_date=support_expiry_date,
+            target_cluster_version=target_cluster_version,
+            workload_impact=workload_impact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             control_impact: Optional[str] = None,
+             expected_duration: Optional[str] = None,
+             impact_description: Optional[str] = None,
+             support_expiry_date: Optional[str] = None,
+             target_cluster_version: Optional[str] = None,
+             workload_impact: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if control_impact is None and 'controlImpact' in kwargs:
+            control_impact = kwargs['controlImpact']
+        if control_impact is None:
+            raise TypeError("Missing 'control_impact' argument")
+        if expected_duration is None and 'expectedDuration' in kwargs:
+            expected_duration = kwargs['expectedDuration']
+        if expected_duration is None:
+            raise TypeError("Missing 'expected_duration' argument")
+        if impact_description is None and 'impactDescription' in kwargs:
+            impact_description = kwargs['impactDescription']
+        if impact_description is None:
+            raise TypeError("Missing 'impact_description' argument")
+        if support_expiry_date is None and 'supportExpiryDate' in kwargs:
+            support_expiry_date = kwargs['supportExpiryDate']
+        if support_expiry_date is None:
+            raise TypeError("Missing 'support_expiry_date' argument")
+        if target_cluster_version is None and 'targetClusterVersion' in kwargs:
+            target_cluster_version = kwargs['targetClusterVersion']
+        if target_cluster_version is None:
+            raise TypeError("Missing 'target_cluster_version' argument")
+        if workload_impact is None and 'workloadImpact' in kwargs:
+            workload_impact = kwargs['workloadImpact']
+        if workload_impact is None:
+            raise TypeError("Missing 'workload_impact' argument")
+
+        _setter("control_impact", control_impact)
+        _setter("expected_duration", expected_duration)
+        _setter("impact_description", impact_description)
+        _setter("support_expiry_date", support_expiry_date)
+        _setter("target_cluster_version", target_cluster_version)
+        _setter("workload_impact", workload_impact)
 
     @property
     @pulumi.getter(name="controlImpact")
@@ -390,22 +526,63 @@ class ClusterCapacityResponse(dict):
         :param float total_host_storage_gb: The total machine or host-based storage in GB supported by this cluster for workload use.
         :param float total_memory_gb: The total memory supported by this cluster for workload use.
         """
+        ClusterCapacityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            available_appliance_storage_gb=available_appliance_storage_gb,
+            available_core_count=available_core_count,
+            available_host_storage_gb=available_host_storage_gb,
+            available_memory_gb=available_memory_gb,
+            total_appliance_storage_gb=total_appliance_storage_gb,
+            total_core_count=total_core_count,
+            total_host_storage_gb=total_host_storage_gb,
+            total_memory_gb=total_memory_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             available_appliance_storage_gb: Optional[float] = None,
+             available_core_count: Optional[float] = None,
+             available_host_storage_gb: Optional[float] = None,
+             available_memory_gb: Optional[float] = None,
+             total_appliance_storage_gb: Optional[float] = None,
+             total_core_count: Optional[float] = None,
+             total_host_storage_gb: Optional[float] = None,
+             total_memory_gb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if available_appliance_storage_gb is None and 'availableApplianceStorageGB' in kwargs:
+            available_appliance_storage_gb = kwargs['availableApplianceStorageGB']
+        if available_core_count is None and 'availableCoreCount' in kwargs:
+            available_core_count = kwargs['availableCoreCount']
+        if available_host_storage_gb is None and 'availableHostStorageGB' in kwargs:
+            available_host_storage_gb = kwargs['availableHostStorageGB']
+        if available_memory_gb is None and 'availableMemoryGB' in kwargs:
+            available_memory_gb = kwargs['availableMemoryGB']
+        if total_appliance_storage_gb is None and 'totalApplianceStorageGB' in kwargs:
+            total_appliance_storage_gb = kwargs['totalApplianceStorageGB']
+        if total_core_count is None and 'totalCoreCount' in kwargs:
+            total_core_count = kwargs['totalCoreCount']
+        if total_host_storage_gb is None and 'totalHostStorageGB' in kwargs:
+            total_host_storage_gb = kwargs['totalHostStorageGB']
+        if total_memory_gb is None and 'totalMemoryGB' in kwargs:
+            total_memory_gb = kwargs['totalMemoryGB']
+
         if available_appliance_storage_gb is not None:
-            pulumi.set(__self__, "available_appliance_storage_gb", available_appliance_storage_gb)
+            _setter("available_appliance_storage_gb", available_appliance_storage_gb)
         if available_core_count is not None:
-            pulumi.set(__self__, "available_core_count", available_core_count)
+            _setter("available_core_count", available_core_count)
         if available_host_storage_gb is not None:
-            pulumi.set(__self__, "available_host_storage_gb", available_host_storage_gb)
+            _setter("available_host_storage_gb", available_host_storage_gb)
         if available_memory_gb is not None:
-            pulumi.set(__self__, "available_memory_gb", available_memory_gb)
+            _setter("available_memory_gb", available_memory_gb)
         if total_appliance_storage_gb is not None:
-            pulumi.set(__self__, "total_appliance_storage_gb", total_appliance_storage_gb)
+            _setter("total_appliance_storage_gb", total_appliance_storage_gb)
         if total_core_count is not None:
-            pulumi.set(__self__, "total_core_count", total_core_count)
+            _setter("total_core_count", total_core_count)
         if total_host_storage_gb is not None:
-            pulumi.set(__self__, "total_host_storage_gb", total_host_storage_gb)
+            _setter("total_host_storage_gb", total_host_storage_gb)
         if total_memory_gb is not None:
-            pulumi.set(__self__, "total_memory_gb", total_memory_gb)
+            _setter("total_memory_gb", total_memory_gb)
 
     @property
     @pulumi.getter(name="availableApplianceStorageGB")
@@ -510,14 +687,39 @@ class CniBgpConfigurationResponse(dict):
         :param Sequence[str] service_load_balancer_prefixes: The subnet blocks in CIDR format for Kubernetes load balancers. Load balancer IPs will only be advertised if they
                are within one of these blocks.
         """
+        CniBgpConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bgp_peers=bgp_peers,
+            community_advertisements=community_advertisements,
+            service_external_prefixes=service_external_prefixes,
+            service_load_balancer_prefixes=service_load_balancer_prefixes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bgp_peers: Optional[Sequence['outputs.BgpPeerResponse']] = None,
+             community_advertisements: Optional[Sequence['outputs.CommunityAdvertisementResponse']] = None,
+             service_external_prefixes: Optional[Sequence[str]] = None,
+             service_load_balancer_prefixes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bgp_peers is None and 'bgpPeers' in kwargs:
+            bgp_peers = kwargs['bgpPeers']
+        if community_advertisements is None and 'communityAdvertisements' in kwargs:
+            community_advertisements = kwargs['communityAdvertisements']
+        if service_external_prefixes is None and 'serviceExternalPrefixes' in kwargs:
+            service_external_prefixes = kwargs['serviceExternalPrefixes']
+        if service_load_balancer_prefixes is None and 'serviceLoadBalancerPrefixes' in kwargs:
+            service_load_balancer_prefixes = kwargs['serviceLoadBalancerPrefixes']
+
         if bgp_peers is not None:
-            pulumi.set(__self__, "bgp_peers", bgp_peers)
+            _setter("bgp_peers", bgp_peers)
         if community_advertisements is not None:
-            pulumi.set(__self__, "community_advertisements", community_advertisements)
+            _setter("community_advertisements", community_advertisements)
         if service_external_prefixes is not None:
-            pulumi.set(__self__, "service_external_prefixes", service_external_prefixes)
+            _setter("service_external_prefixes", service_external_prefixes)
         if service_load_balancer_prefixes is not None:
-            pulumi.set(__self__, "service_load_balancer_prefixes", service_load_balancer_prefixes)
+            _setter("service_load_balancer_prefixes", service_load_balancer_prefixes)
 
     @property
     @pulumi.getter(name="bgpPeers")
@@ -580,8 +782,27 @@ class CommunityAdvertisementResponse(dict):
         :param Sequence[str] communities: The list of community strings to announce with this prefix.
         :param str subnet_prefix: The subnet in CIDR format for which properties should be advertised.
         """
-        pulumi.set(__self__, "communities", communities)
-        pulumi.set(__self__, "subnet_prefix", subnet_prefix)
+        CommunityAdvertisementResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            communities=communities,
+            subnet_prefix=subnet_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             communities: Optional[Sequence[str]] = None,
+             subnet_prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if communities is None:
+            raise TypeError("Missing 'communities' argument")
+        if subnet_prefix is None and 'subnetPrefix' in kwargs:
+            subnet_prefix = kwargs['subnetPrefix']
+        if subnet_prefix is None:
+            raise TypeError("Missing 'subnet_prefix' argument")
+
+        _setter("communities", communities)
+        _setter("subnet_prefix", subnet_prefix)
 
     @property
     @pulumi.getter
@@ -609,8 +830,25 @@ class ExtendedLocationResponse(dict):
         :param str name: The resource ID of the extended location on which the resource will be created.
         :param str type: The extended location type, for example, CustomLocation.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ExtendedLocationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -638,10 +876,23 @@ class ManagedResourceGroupConfigurationResponse(dict):
         :param str location: The location of the managed resource group. If not specified, the location of the parent resource is chosen.
         :param str name: The name for the managed resource group. If not specified, the unique name is automatically generated.
         """
+        ManagedResourceGroupConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -729,17 +980,60 @@ class NetworkAttachmentResponse(dict):
                If the user doesn’t specify this value, the default interface name of the network resource will be used.
                For a CloudServicesNetwork resource, this name will be ignored.
         """
-        pulumi.set(__self__, "attached_network_id", attached_network_id)
-        pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
-        pulumi.set(__self__, "mac_address", mac_address)
+        NetworkAttachmentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_network_id=attached_network_id,
+            ip_allocation_method=ip_allocation_method,
+            mac_address=mac_address,
+            default_gateway=default_gateway,
+            ipv4_address=ipv4_address,
+            ipv6_address=ipv6_address,
+            network_attachment_name=network_attachment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_network_id: Optional[str] = None,
+             ip_allocation_method: Optional[str] = None,
+             mac_address: Optional[str] = None,
+             default_gateway: Optional[str] = None,
+             ipv4_address: Optional[str] = None,
+             ipv6_address: Optional[str] = None,
+             network_attachment_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attached_network_id is None and 'attachedNetworkId' in kwargs:
+            attached_network_id = kwargs['attachedNetworkId']
+        if attached_network_id is None:
+            raise TypeError("Missing 'attached_network_id' argument")
+        if ip_allocation_method is None and 'ipAllocationMethod' in kwargs:
+            ip_allocation_method = kwargs['ipAllocationMethod']
+        if ip_allocation_method is None:
+            raise TypeError("Missing 'ip_allocation_method' argument")
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if mac_address is None:
+            raise TypeError("Missing 'mac_address' argument")
+        if default_gateway is None and 'defaultGateway' in kwargs:
+            default_gateway = kwargs['defaultGateway']
+        if ipv4_address is None and 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+        if ipv6_address is None and 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+        if network_attachment_name is None and 'networkAttachmentName' in kwargs:
+            network_attachment_name = kwargs['networkAttachmentName']
+
+        _setter("attached_network_id", attached_network_id)
+        _setter("ip_allocation_method", ip_allocation_method)
+        _setter("mac_address", mac_address)
         if default_gateway is not None:
-            pulumi.set(__self__, "default_gateway", default_gateway)
+            _setter("default_gateway", default_gateway)
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
         if ipv6_address is not None:
-            pulumi.set(__self__, "ipv6_address", ipv6_address)
+            _setter("ipv6_address", ipv6_address)
         if network_attachment_name is not None:
-            pulumi.set(__self__, "network_attachment_name", network_attachment_name)
+            _setter("network_attachment_name", network_attachment_name)
 
     @property
     @pulumi.getter(name="attachedNetworkId")
@@ -873,15 +1167,76 @@ class NodeConfigurationResponse(dict):
         :param float vm_count: The number of virtual machines that use this configuration.
         :param str vm_size: The name of the VM size supplied during the creation of the cluster.
         """
-        pulumi.set(__self__, "agent_pool_id", agent_pool_id)
-        pulumi.set(__self__, "agent_pool_name", agent_pool_name)
-        pulumi.set(__self__, "cpu_cores", cpu_cores)
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "memory_size_gb", memory_size_gb)
-        pulumi.set(__self__, "node_pool_name", node_pool_name)
-        pulumi.set(__self__, "nodes", nodes)
-        pulumi.set(__self__, "vm_count", vm_count)
-        pulumi.set(__self__, "vm_size", vm_size)
+        NodeConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_pool_id=agent_pool_id,
+            agent_pool_name=agent_pool_name,
+            cpu_cores=cpu_cores,
+            disk_size_gb=disk_size_gb,
+            memory_size_gb=memory_size_gb,
+            node_pool_name=node_pool_name,
+            nodes=nodes,
+            vm_count=vm_count,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_pool_id: Optional[str] = None,
+             agent_pool_name: Optional[str] = None,
+             cpu_cores: Optional[float] = None,
+             disk_size_gb: Optional[float] = None,
+             memory_size_gb: Optional[float] = None,
+             node_pool_name: Optional[str] = None,
+             nodes: Optional[Sequence['outputs.NodeResponse']] = None,
+             vm_count: Optional[float] = None,
+             vm_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_pool_id is None and 'agentPoolId' in kwargs:
+            agent_pool_id = kwargs['agentPoolId']
+        if agent_pool_id is None:
+            raise TypeError("Missing 'agent_pool_id' argument")
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if agent_pool_name is None:
+            raise TypeError("Missing 'agent_pool_name' argument")
+        if cpu_cores is None and 'cpuCores' in kwargs:
+            cpu_cores = kwargs['cpuCores']
+        if cpu_cores is None:
+            raise TypeError("Missing 'cpu_cores' argument")
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+        if disk_size_gb is None:
+            raise TypeError("Missing 'disk_size_gb' argument")
+        if memory_size_gb is None and 'memorySizeGB' in kwargs:
+            memory_size_gb = kwargs['memorySizeGB']
+        if memory_size_gb is None:
+            raise TypeError("Missing 'memory_size_gb' argument")
+        if node_pool_name is None and 'nodePoolName' in kwargs:
+            node_pool_name = kwargs['nodePoolName']
+        if node_pool_name is None:
+            raise TypeError("Missing 'node_pool_name' argument")
+        if nodes is None:
+            raise TypeError("Missing 'nodes' argument")
+        if vm_count is None and 'vmCount' in kwargs:
+            vm_count = kwargs['vmCount']
+        if vm_count is None:
+            raise TypeError("Missing 'vm_count' argument")
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+
+        _setter("agent_pool_id", agent_pool_id)
+        _setter("agent_pool_name", agent_pool_name)
+        _setter("cpu_cores", cpu_cores)
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("memory_size_gb", memory_size_gb)
+        _setter("node_pool_name", node_pool_name)
+        _setter("nodes", nodes)
+        _setter("vm_count", vm_count)
+        _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="agentPoolId")
@@ -996,11 +1351,50 @@ class NodeResponse(dict):
         :param str node_name: The name of this node, as realized in the Hybrid AKS cluster.
         :param str power_state: The power state (On | Off) of the node.
         """
-        pulumi.set(__self__, "bare_metal_machine_id", bare_metal_machine_id)
-        pulumi.set(__self__, "image_id", image_id)
-        pulumi.set(__self__, "network_attachments", network_attachments)
-        pulumi.set(__self__, "node_name", node_name)
-        pulumi.set(__self__, "power_state", power_state)
+        NodeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bare_metal_machine_id=bare_metal_machine_id,
+            image_id=image_id,
+            network_attachments=network_attachments,
+            node_name=node_name,
+            power_state=power_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bare_metal_machine_id: Optional[str] = None,
+             image_id: Optional[str] = None,
+             network_attachments: Optional[Sequence['outputs.NetworkAttachmentResponse']] = None,
+             node_name: Optional[str] = None,
+             power_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bare_metal_machine_id is None and 'bareMetalMachineId' in kwargs:
+            bare_metal_machine_id = kwargs['bareMetalMachineId']
+        if bare_metal_machine_id is None:
+            raise TypeError("Missing 'bare_metal_machine_id' argument")
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if image_id is None:
+            raise TypeError("Missing 'image_id' argument")
+        if network_attachments is None and 'networkAttachments' in kwargs:
+            network_attachments = kwargs['networkAttachments']
+        if network_attachments is None:
+            raise TypeError("Missing 'network_attachments' argument")
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+        if node_name is None:
+            raise TypeError("Missing 'node_name' argument")
+        if power_state is None and 'powerState' in kwargs:
+            power_state = kwargs['powerState']
+        if power_state is None:
+            raise TypeError("Missing 'power_state' argument")
+
+        _setter("bare_metal_machine_id", bare_metal_machine_id)
+        _setter("image_id", image_id)
+        _setter("network_attachments", network_attachments)
+        _setter("node_name", node_name)
+        _setter("power_state", power_state)
 
     @property
     @pulumi.getter(name="bareMetalMachineId")
@@ -1091,17 +1485,60 @@ class RackDefinitionResponse(dict):
         :param str rack_location: The free-form description of the rack's location.
         :param Sequence['StorageApplianceConfigurationDataResponse'] storage_appliance_configuration_data: The list of storage appliance configuration data for this rack.
         """
-        pulumi.set(__self__, "network_rack_id", network_rack_id)
-        pulumi.set(__self__, "rack_serial_number", rack_serial_number)
-        pulumi.set(__self__, "rack_sku_id", rack_sku_id)
+        RackDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_rack_id=network_rack_id,
+            rack_serial_number=rack_serial_number,
+            rack_sku_id=rack_sku_id,
+            availability_zone=availability_zone,
+            bare_metal_machine_configuration_data=bare_metal_machine_configuration_data,
+            rack_location=rack_location,
+            storage_appliance_configuration_data=storage_appliance_configuration_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_rack_id: Optional[str] = None,
+             rack_serial_number: Optional[str] = None,
+             rack_sku_id: Optional[str] = None,
+             availability_zone: Optional[str] = None,
+             bare_metal_machine_configuration_data: Optional[Sequence['outputs.BareMetalMachineConfigurationDataResponse']] = None,
+             rack_location: Optional[str] = None,
+             storage_appliance_configuration_data: Optional[Sequence['outputs.StorageApplianceConfigurationDataResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_rack_id is None and 'networkRackId' in kwargs:
+            network_rack_id = kwargs['networkRackId']
+        if network_rack_id is None:
+            raise TypeError("Missing 'network_rack_id' argument")
+        if rack_serial_number is None and 'rackSerialNumber' in kwargs:
+            rack_serial_number = kwargs['rackSerialNumber']
+        if rack_serial_number is None:
+            raise TypeError("Missing 'rack_serial_number' argument")
+        if rack_sku_id is None and 'rackSkuId' in kwargs:
+            rack_sku_id = kwargs['rackSkuId']
+        if rack_sku_id is None:
+            raise TypeError("Missing 'rack_sku_id' argument")
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if bare_metal_machine_configuration_data is None and 'bareMetalMachineConfigurationData' in kwargs:
+            bare_metal_machine_configuration_data = kwargs['bareMetalMachineConfigurationData']
+        if rack_location is None and 'rackLocation' in kwargs:
+            rack_location = kwargs['rackLocation']
+        if storage_appliance_configuration_data is None and 'storageApplianceConfigurationData' in kwargs:
+            storage_appliance_configuration_data = kwargs['storageApplianceConfigurationData']
+
+        _setter("network_rack_id", network_rack_id)
+        _setter("rack_serial_number", rack_serial_number)
+        _setter("rack_sku_id", rack_sku_id)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if bare_metal_machine_configuration_data is not None:
-            pulumi.set(__self__, "bare_metal_machine_configuration_data", bare_metal_machine_configuration_data)
+            _setter("bare_metal_machine_configuration_data", bare_metal_machine_configuration_data)
         if rack_location is not None:
-            pulumi.set(__self__, "rack_location", rack_location)
+            _setter("rack_location", rack_location)
         if storage_appliance_configuration_data is not None:
-            pulumi.set(__self__, "storage_appliance_configuration_data", storage_appliance_configuration_data)
+            _setter("storage_appliance_configuration_data", storage_appliance_configuration_data)
 
     @property
     @pulumi.getter(name="networkRackId")
@@ -1194,10 +1631,41 @@ class ServicePrincipalInformationResponse(dict):
         :param str principal_id: The principal ID, also known as the object ID, of the service principal.
         :param str tenant_id: The tenant ID, also known as the directory ID, of the tenant in which the service principal is created.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ServicePrincipalInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            password=password,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[str] = None,
+             password: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("application_id", application_id)
+        _setter("password", password)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -1268,11 +1736,42 @@ class StorageApplianceConfigurationDataResponse(dict):
         :param str serial_number: The serial number of the appliance.
         :param str storage_appliance_name: The user-provided name for the storage appliance that will be created from this specification.
         """
-        pulumi.set(__self__, "admin_credentials", admin_credentials)
-        pulumi.set(__self__, "rack_slot", rack_slot)
-        pulumi.set(__self__, "serial_number", serial_number)
+        StorageApplianceConfigurationDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_credentials=admin_credentials,
+            rack_slot=rack_slot,
+            serial_number=serial_number,
+            storage_appliance_name=storage_appliance_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_credentials: Optional['outputs.AdministrativeCredentialsResponse'] = None,
+             rack_slot: Optional[float] = None,
+             serial_number: Optional[str] = None,
+             storage_appliance_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_credentials is None and 'adminCredentials' in kwargs:
+            admin_credentials = kwargs['adminCredentials']
+        if admin_credentials is None:
+            raise TypeError("Missing 'admin_credentials' argument")
+        if rack_slot is None and 'rackSlot' in kwargs:
+            rack_slot = kwargs['rackSlot']
+        if rack_slot is None:
+            raise TypeError("Missing 'rack_slot' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if storage_appliance_name is None and 'storageApplianceName' in kwargs:
+            storage_appliance_name = kwargs['storageApplianceName']
+
+        _setter("admin_credentials", admin_credentials)
+        _setter("rack_slot", rack_slot)
+        _setter("serial_number", serial_number)
         if storage_appliance_name is not None:
-            pulumi.set(__self__, "storage_appliance_name", storage_appliance_name)
+            _setter("storage_appliance_name", storage_appliance_name)
 
     @property
     @pulumi.getter(name="adminCredentials")
@@ -1355,18 +1854,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -1428,9 +1960,30 @@ class ValidationThresholdResponse(dict):
         :param str type: Selection of how the threshold should be evaluated.
         :param float value: The numeric threshold value.
         """
-        pulumi.set(__self__, "grouping", grouping)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        ValidationThresholdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            grouping=grouping,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             grouping: Optional[str] = None,
+             type: Optional[str] = None,
+             value: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if grouping is None:
+            raise TypeError("Missing 'grouping' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("grouping", grouping)
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter

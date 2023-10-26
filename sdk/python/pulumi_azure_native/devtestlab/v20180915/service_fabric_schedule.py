@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -50,34 +50,103 @@ class ServiceFabricScheduleArgs:
         :param pulumi.Input[str] time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         :param pulumi.Input['WeekDetailsArgs'] weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_fabric_name", service_fabric_name)
-        pulumi.set(__self__, "user_name", user_name)
+        ServiceFabricScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            service_fabric_name=service_fabric_name,
+            user_name=user_name,
+            daily_recurrence=daily_recurrence,
+            hourly_recurrence=hourly_recurrence,
+            location=location,
+            name=name,
+            notification_settings=notification_settings,
+            status=status,
+            tags=tags,
+            target_resource_id=target_resource_id,
+            task_type=task_type,
+            time_zone_id=time_zone_id,
+            weekly_recurrence=weekly_recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_fabric_name: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             daily_recurrence: Optional[pulumi.Input['DayDetailsArgs']] = None,
+             hourly_recurrence: Optional[pulumi.Input['HourDetailsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_settings: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             time_zone_id: Optional[pulumi.Input[str]] = None,
+             weekly_recurrence: Optional[pulumi.Input['WeekDetailsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lab_name is None and 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_fabric_name is None and 'serviceFabricName' in kwargs:
+            service_fabric_name = kwargs['serviceFabricName']
+        if service_fabric_name is None:
+            raise TypeError("Missing 'service_fabric_name' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+        if daily_recurrence is None and 'dailyRecurrence' in kwargs:
+            daily_recurrence = kwargs['dailyRecurrence']
+        if hourly_recurrence is None and 'hourlyRecurrence' in kwargs:
+            hourly_recurrence = kwargs['hourlyRecurrence']
+        if notification_settings is None and 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if time_zone_id is None and 'timeZoneId' in kwargs:
+            time_zone_id = kwargs['timeZoneId']
+        if weekly_recurrence is None and 'weeklyRecurrence' in kwargs:
+            weekly_recurrence = kwargs['weeklyRecurrence']
+
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_fabric_name", service_fabric_name)
+        _setter("user_name", user_name)
         if daily_recurrence is not None:
-            pulumi.set(__self__, "daily_recurrence", daily_recurrence)
+            _setter("daily_recurrence", daily_recurrence)
         if hourly_recurrence is not None:
-            pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
+            _setter("hourly_recurrence", hourly_recurrence)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_settings is not None:
-            pulumi.set(__self__, "notification_settings", notification_settings)
+            _setter("notification_settings", notification_settings)
         if status is None:
             status = 'Disabled'
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if task_type is not None:
-            pulumi.set(__self__, "task_type", task_type)
+            _setter("task_type", task_type)
         if time_zone_id is not None:
-            pulumi.set(__self__, "time_zone_id", time_zone_id)
+            _setter("time_zone_id", time_zone_id)
         if weekly_recurrence is not None:
-            pulumi.set(__self__, "weekly_recurrence", weekly_recurrence)
+            _setter("weekly_recurrence", weekly_recurrence)
 
     @property
     @pulumi.getter(name="labName")
@@ -321,6 +390,10 @@ class ServiceFabricSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceFabricScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -350,13 +423,16 @@ class ServiceFabricSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceFabricScheduleArgs.__new__(ServiceFabricScheduleArgs)
 
+            daily_recurrence = _utilities.configure(daily_recurrence, DayDetailsArgs, True)
             __props__.__dict__["daily_recurrence"] = daily_recurrence
+            hourly_recurrence = _utilities.configure(hourly_recurrence, HourDetailsArgs, True)
             __props__.__dict__["hourly_recurrence"] = hourly_recurrence
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            notification_settings = _utilities.configure(notification_settings, NotificationSettingsArgs, True)
             __props__.__dict__["notification_settings"] = notification_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -374,6 +450,7 @@ class ServiceFabricSchedule(pulumi.CustomResource):
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
+            weekly_recurrence = _utilities.configure(weekly_recurrence, WeekDetailsArgs, True)
             __props__.__dict__["weekly_recurrence"] = weekly_recurrence
             __props__.__dict__["created_date"] = None
             __props__.__dict__["provisioning_state"] = None

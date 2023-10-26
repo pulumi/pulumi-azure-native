@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,39 @@ class MoveResourceArgs:
         :param pulumi.Input[str] move_resource_name: The Move Resource Name.
         :param pulumi.Input['MoveResourcePropertiesArgs'] properties: Defines the move resource properties.
         """
-        pulumi.set(__self__, "move_collection_name", move_collection_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MoveResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            move_collection_name=move_collection_name,
+            resource_group_name=resource_group_name,
+            move_resource_name=move_resource_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             move_collection_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             move_resource_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['MoveResourcePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if move_collection_name is None and 'moveCollectionName' in kwargs:
+            move_collection_name = kwargs['moveCollectionName']
+        if move_collection_name is None:
+            raise TypeError("Missing 'move_collection_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if move_resource_name is None and 'moveResourceName' in kwargs:
+            move_resource_name = kwargs['moveResourceName']
+
+        _setter("move_collection_name", move_collection_name)
+        _setter("resource_group_name", resource_group_name)
         if move_resource_name is not None:
-            pulumi.set(__self__, "move_resource_name", move_resource_name)
+            _setter("move_resource_name", move_resource_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="moveCollectionName")
@@ -129,6 +156,10 @@ class MoveResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MoveResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -151,6 +182,7 @@ class MoveResource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'move_collection_name'")
             __props__.__dict__["move_collection_name"] = move_collection_name
             __props__.__dict__["move_resource_name"] = move_resource_name
+            properties = _utilities.configure(properties, MoveResourcePropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

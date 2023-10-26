@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,17 +36,68 @@ class InstanceFailoverGroupArgs:
         :param pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs'] read_only_endpoint: Read-only endpoint of the failover group instance.
         :param pulumi.Input[Union[str, 'SecondaryInstanceType']] secondary_type: Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
         """
-        pulumi.set(__self__, "location_name", location_name)
-        pulumi.set(__self__, "managed_instance_pairs", managed_instance_pairs)
-        pulumi.set(__self__, "partner_regions", partner_regions)
-        pulumi.set(__self__, "read_write_endpoint", read_write_endpoint)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        InstanceFailoverGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location_name=location_name,
+            managed_instance_pairs=managed_instance_pairs,
+            partner_regions=partner_regions,
+            read_write_endpoint=read_write_endpoint,
+            resource_group_name=resource_group_name,
+            failover_group_name=failover_group_name,
+            read_only_endpoint=read_only_endpoint,
+            secondary_type=secondary_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location_name: Optional[pulumi.Input[str]] = None,
+             managed_instance_pairs: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedInstancePairInfoArgs']]]] = None,
+             partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerRegionInfoArgs']]]] = None,
+             read_write_endpoint: Optional[pulumi.Input['InstanceFailoverGroupReadWriteEndpointArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             failover_group_name: Optional[pulumi.Input[str]] = None,
+             read_only_endpoint: Optional[pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs']] = None,
+             secondary_type: Optional[pulumi.Input[Union[str, 'SecondaryInstanceType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location_name is None and 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+        if location_name is None:
+            raise TypeError("Missing 'location_name' argument")
+        if managed_instance_pairs is None and 'managedInstancePairs' in kwargs:
+            managed_instance_pairs = kwargs['managedInstancePairs']
+        if managed_instance_pairs is None:
+            raise TypeError("Missing 'managed_instance_pairs' argument")
+        if partner_regions is None and 'partnerRegions' in kwargs:
+            partner_regions = kwargs['partnerRegions']
+        if partner_regions is None:
+            raise TypeError("Missing 'partner_regions' argument")
+        if read_write_endpoint is None and 'readWriteEndpoint' in kwargs:
+            read_write_endpoint = kwargs['readWriteEndpoint']
+        if read_write_endpoint is None:
+            raise TypeError("Missing 'read_write_endpoint' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if failover_group_name is None and 'failoverGroupName' in kwargs:
+            failover_group_name = kwargs['failoverGroupName']
+        if read_only_endpoint is None and 'readOnlyEndpoint' in kwargs:
+            read_only_endpoint = kwargs['readOnlyEndpoint']
+        if secondary_type is None and 'secondaryType' in kwargs:
+            secondary_type = kwargs['secondaryType']
+
+        _setter("location_name", location_name)
+        _setter("managed_instance_pairs", managed_instance_pairs)
+        _setter("partner_regions", partner_regions)
+        _setter("read_write_endpoint", read_write_endpoint)
+        _setter("resource_group_name", resource_group_name)
         if failover_group_name is not None:
-            pulumi.set(__self__, "failover_group_name", failover_group_name)
+            _setter("failover_group_name", failover_group_name)
         if read_only_endpoint is not None:
-            pulumi.set(__self__, "read_only_endpoint", read_only_endpoint)
+            _setter("read_only_endpoint", read_only_endpoint)
         if secondary_type is not None:
-            pulumi.set(__self__, "secondary_type", secondary_type)
+            _setter("secondary_type", secondary_type)
 
     @property
     @pulumi.getter(name="locationName")
@@ -192,6 +243,10 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InstanceFailoverGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -224,7 +279,9 @@ class InstanceFailoverGroup(pulumi.CustomResource):
             if partner_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_regions'")
             __props__.__dict__["partner_regions"] = partner_regions
+            read_only_endpoint = _utilities.configure(read_only_endpoint, InstanceFailoverGroupReadOnlyEndpointArgs, True)
             __props__.__dict__["read_only_endpoint"] = read_only_endpoint
+            read_write_endpoint = _utilities.configure(read_write_endpoint, InstanceFailoverGroupReadWriteEndpointArgs, True)
             if read_write_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint'")
             __props__.__dict__["read_write_endpoint"] = read_write_endpoint

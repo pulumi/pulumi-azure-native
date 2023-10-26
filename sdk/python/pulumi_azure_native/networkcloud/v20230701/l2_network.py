@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,64 @@ class L2NetworkArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "l2_isolation_domain_id", l2_isolation_domain_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        L2NetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extended_location=extended_location,
+            l2_isolation_domain_id=l2_isolation_domain_id,
+            resource_group_name=resource_group_name,
+            hybrid_aks_plugin_type=hybrid_aks_plugin_type,
+            interface_name=interface_name,
+            l2_network_name=l2_network_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             l2_isolation_domain_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
+             interface_name: Optional[pulumi.Input[str]] = None,
+             l2_network_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if extended_location is None:
+            raise TypeError("Missing 'extended_location' argument")
+        if l2_isolation_domain_id is None and 'l2IsolationDomainId' in kwargs:
+            l2_isolation_domain_id = kwargs['l2IsolationDomainId']
+        if l2_isolation_domain_id is None:
+            raise TypeError("Missing 'l2_isolation_domain_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if hybrid_aks_plugin_type is None and 'hybridAksPluginType' in kwargs:
+            hybrid_aks_plugin_type = kwargs['hybridAksPluginType']
+        if interface_name is None and 'interfaceName' in kwargs:
+            interface_name = kwargs['interfaceName']
+        if l2_network_name is None and 'l2NetworkName' in kwargs:
+            l2_network_name = kwargs['l2NetworkName']
+
+        _setter("extended_location", extended_location)
+        _setter("l2_isolation_domain_id", l2_isolation_domain_id)
+        _setter("resource_group_name", resource_group_name)
         if hybrid_aks_plugin_type is None:
             hybrid_aks_plugin_type = 'SRIOV'
         if hybrid_aks_plugin_type is not None:
-            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
+            _setter("hybrid_aks_plugin_type", hybrid_aks_plugin_type)
         if interface_name is not None:
-            pulumi.set(__self__, "interface_name", interface_name)
+            _setter("interface_name", interface_name)
         if l2_network_name is not None:
-            pulumi.set(__self__, "l2_network_name", l2_network_name)
+            _setter("l2_network_name", l2_network_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -194,6 +237,10 @@ class L2Network(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            L2NetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -216,6 +263,7 @@ class L2Network(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = L2NetworkArgs.__new__(L2NetworkArgs)
 
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

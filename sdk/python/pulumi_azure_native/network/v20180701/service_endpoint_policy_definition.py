@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ServiceEndpointPolicyDefinitionInitArgs', 'ServiceEndpointPolicyDefinition']
@@ -35,22 +35,63 @@ class ServiceEndpointPolicyDefinitionInitArgs:
         :param pulumi.Input[str] service_endpoint_policy_definition_name: The name of the service endpoint policy definition name.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_resources: A list of service resources.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_endpoint_policy_name", service_endpoint_policy_name)
+        ServiceEndpointPolicyDefinitionInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_endpoint_policy_name=service_endpoint_policy_name,
+            description=description,
+            id=id,
+            name=name,
+            provisioning_state=provisioning_state,
+            service=service,
+            service_endpoint_policy_definition_name=service_endpoint_policy_definition_name,
+            service_resources=service_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             service_endpoint_policy_definition_name: Optional[pulumi.Input[str]] = None,
+             service_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_endpoint_policy_name is None and 'serviceEndpointPolicyName' in kwargs:
+            service_endpoint_policy_name = kwargs['serviceEndpointPolicyName']
+        if service_endpoint_policy_name is None:
+            raise TypeError("Missing 'service_endpoint_policy_name' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if service_endpoint_policy_definition_name is None and 'serviceEndpointPolicyDefinitionName' in kwargs:
+            service_endpoint_policy_definition_name = kwargs['serviceEndpointPolicyDefinitionName']
+        if service_resources is None and 'serviceResources' in kwargs:
+            service_resources = kwargs['serviceResources']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_endpoint_policy_name", service_endpoint_policy_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if service is not None:
-            pulumi.set(__self__, "service", service)
+            _setter("service", service)
         if service_endpoint_policy_definition_name is not None:
-            pulumi.set(__self__, "service_endpoint_policy_definition_name", service_endpoint_policy_definition_name)
+            _setter("service_endpoint_policy_definition_name", service_endpoint_policy_definition_name)
         if service_resources is not None:
-            pulumi.set(__self__, "service_resources", service_resources)
+            _setter("service_resources", service_resources)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -210,6 +251,10 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointPolicyDefinitionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

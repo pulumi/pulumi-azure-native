@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['NetworkWatcherArgs', 'NetworkWatcher']
@@ -29,17 +29,46 @@ class NetworkWatcherArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] running_operation_ids: List of running operation GUIDs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkWatcherArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            id=id,
+            location=location,
+            network_watcher_name=network_watcher_name,
+            running_operation_ids=running_operation_ids,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_watcher_name: Optional[pulumi.Input[str]] = None,
+             running_operation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if network_watcher_name is None and 'networkWatcherName' in kwargs:
+            network_watcher_name = kwargs['networkWatcherName']
+        if running_operation_ids is None and 'runningOperationIds' in kwargs:
+            running_operation_ids = kwargs['runningOperationIds']
+
+        _setter("resource_group_name", resource_group_name)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_watcher_name is not None:
-            pulumi.set(__self__, "network_watcher_name", network_watcher_name)
+            _setter("network_watcher_name", network_watcher_name)
         if running_operation_ids is not None:
-            pulumi.set(__self__, "running_operation_ids", running_operation_ids)
+            _setter("running_operation_ids", running_operation_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -157,6 +186,10 @@ class NetworkWatcher(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkWatcherArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

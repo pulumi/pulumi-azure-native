@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['AuthorizationArgs', 'Authorization']
@@ -25,12 +25,41 @@ class AuthorizationArgs:
         :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
         :param pulumi.Input[str] express_route_id: The ID of the ExpressRoute Circuit
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            authorization_name=authorization_name,
+            express_route_id=express_route_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             authorization_name: Optional[pulumi.Input[str]] = None,
+             express_route_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_cloud_name is None and 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if private_cloud_name is None:
+            raise TypeError("Missing 'private_cloud_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authorization_name is None and 'authorizationName' in kwargs:
+            authorization_name = kwargs['authorizationName']
+        if express_route_id is None and 'expressRouteId' in kwargs:
+            express_route_id = kwargs['expressRouteId']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if authorization_name is not None:
-            pulumi.set(__self__, "authorization_name", authorization_name)
+            _setter("authorization_name", authorization_name)
         if express_route_id is not None:
-            pulumi.set(__self__, "express_route_id", express_route_id)
+            _setter("express_route_id", express_route_id)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -120,6 +149,10 @@ class Authorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

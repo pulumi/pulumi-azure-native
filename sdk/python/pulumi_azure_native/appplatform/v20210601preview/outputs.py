@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -73,17 +73,80 @@ class CertificatePropertiesResponse(dict):
         :param str vault_uri: The vault uri of user key vault.
         :param str cert_version: The certificate version of key vault.
         """
-        pulumi.set(__self__, "activate_date", activate_date)
-        pulumi.set(__self__, "dns_names", dns_names)
-        pulumi.set(__self__, "expiration_date", expiration_date)
-        pulumi.set(__self__, "issued_date", issued_date)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "key_vault_cert_name", key_vault_cert_name)
-        pulumi.set(__self__, "subject_name", subject_name)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "vault_uri", vault_uri)
+        CertificatePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activate_date=activate_date,
+            dns_names=dns_names,
+            expiration_date=expiration_date,
+            issued_date=issued_date,
+            issuer=issuer,
+            key_vault_cert_name=key_vault_cert_name,
+            subject_name=subject_name,
+            thumbprint=thumbprint,
+            vault_uri=vault_uri,
+            cert_version=cert_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activate_date: Optional[str] = None,
+             dns_names: Optional[Sequence[str]] = None,
+             expiration_date: Optional[str] = None,
+             issued_date: Optional[str] = None,
+             issuer: Optional[str] = None,
+             key_vault_cert_name: Optional[str] = None,
+             subject_name: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             vault_uri: Optional[str] = None,
+             cert_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activate_date is None and 'activateDate' in kwargs:
+            activate_date = kwargs['activateDate']
+        if activate_date is None:
+            raise TypeError("Missing 'activate_date' argument")
+        if dns_names is None and 'dnsNames' in kwargs:
+            dns_names = kwargs['dnsNames']
+        if dns_names is None:
+            raise TypeError("Missing 'dns_names' argument")
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if expiration_date is None:
+            raise TypeError("Missing 'expiration_date' argument")
+        if issued_date is None and 'issuedDate' in kwargs:
+            issued_date = kwargs['issuedDate']
+        if issued_date is None:
+            raise TypeError("Missing 'issued_date' argument")
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if key_vault_cert_name is None and 'keyVaultCertName' in kwargs:
+            key_vault_cert_name = kwargs['keyVaultCertName']
+        if key_vault_cert_name is None:
+            raise TypeError("Missing 'key_vault_cert_name' argument")
+        if subject_name is None and 'subjectName' in kwargs:
+            subject_name = kwargs['subjectName']
+        if subject_name is None:
+            raise TypeError("Missing 'subject_name' argument")
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+        if vault_uri is None and 'vaultUri' in kwargs:
+            vault_uri = kwargs['vaultUri']
+        if vault_uri is None:
+            raise TypeError("Missing 'vault_uri' argument")
+        if cert_version is None and 'certVersion' in kwargs:
+            cert_version = kwargs['certVersion']
+
+        _setter("activate_date", activate_date)
+        _setter("dns_names", dns_names)
+        _setter("expiration_date", expiration_date)
+        _setter("issued_date", issued_date)
+        _setter("issuer", issuer)
+        _setter("key_vault_cert_name", key_vault_cert_name)
+        _setter("subject_name", subject_name)
+        _setter("thumbprint", thumbprint)
+        _setter("vault_uri", vault_uri)
         if cert_version is not None:
-            pulumi.set(__self__, "cert_version", cert_version)
+            _setter("cert_version", cert_version)
 
     @property
     @pulumi.getter(name="activateDate")

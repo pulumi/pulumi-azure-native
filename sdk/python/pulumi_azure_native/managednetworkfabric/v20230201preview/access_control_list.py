@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,52 @@ class AccessControlListArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "conditions", conditions)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccessControlListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_family=address_family,
+            conditions=conditions,
+            resource_group_name=resource_group_name,
+            access_control_list_name=access_control_list_name,
+            annotation=annotation,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_family: Optional[pulumi.Input[Union[str, 'AddressFamily']]] = None,
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessControlListConditionPropertiesArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             access_control_list_name: Optional[pulumi.Input[str]] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address_family is None and 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if address_family is None:
+            raise TypeError("Missing 'address_family' argument")
+        if conditions is None:
+            raise TypeError("Missing 'conditions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_control_list_name is None and 'accessControlListName' in kwargs:
+            access_control_list_name = kwargs['accessControlListName']
+
+        _setter("address_family", address_family)
+        _setter("conditions", conditions)
+        _setter("resource_group_name", resource_group_name)
         if access_control_list_name is not None:
-            pulumi.set(__self__, "access_control_list_name", access_control_list_name)
+            _setter("access_control_list_name", access_control_list_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -176,6 +211,10 @@ class AccessControlList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessControlListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

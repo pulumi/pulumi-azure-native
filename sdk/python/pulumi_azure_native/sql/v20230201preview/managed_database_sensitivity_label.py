@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -42,26 +42,97 @@ class ManagedDatabaseSensitivityLabelArgs:
         :param pulumi.Input[str] label_name: The label name.
         :param pulumi.Input[str] sensitivity_label_source: The source of the sensitivity label.
         """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "table_name", table_name)
+        ManagedDatabaseSensitivityLabelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_name=column_name,
+            database_name=database_name,
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            schema_name=schema_name,
+            table_name=table_name,
+            client_classification_source=client_classification_source,
+            information_type=information_type,
+            information_type_id=information_type_id,
+            label_id=label_id,
+            label_name=label_name,
+            rank=rank,
+            sensitivity_label_source=sensitivity_label_source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             managed_instance_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             client_classification_source: Optional[pulumi.Input[Union[str, 'ClientClassificationSource']]] = None,
+             information_type: Optional[pulumi.Input[str]] = None,
+             information_type_id: Optional[pulumi.Input[str]] = None,
+             label_id: Optional[pulumi.Input[str]] = None,
+             label_name: Optional[pulumi.Input[str]] = None,
+             rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
+             sensitivity_label_source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_name is None and 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if managed_instance_name is None:
+            raise TypeError("Missing 'managed_instance_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if schema_name is None:
+            raise TypeError("Missing 'schema_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if client_classification_source is None and 'clientClassificationSource' in kwargs:
+            client_classification_source = kwargs['clientClassificationSource']
+        if information_type is None and 'informationType' in kwargs:
+            information_type = kwargs['informationType']
+        if information_type_id is None and 'informationTypeId' in kwargs:
+            information_type_id = kwargs['informationTypeId']
+        if label_id is None and 'labelId' in kwargs:
+            label_id = kwargs['labelId']
+        if label_name is None and 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+        if sensitivity_label_source is None and 'sensitivityLabelSource' in kwargs:
+            sensitivity_label_source = kwargs['sensitivityLabelSource']
+
+        _setter("column_name", column_name)
+        _setter("database_name", database_name)
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("schema_name", schema_name)
+        _setter("table_name", table_name)
         if client_classification_source is not None:
-            pulumi.set(__self__, "client_classification_source", client_classification_source)
+            _setter("client_classification_source", client_classification_source)
         if information_type is not None:
-            pulumi.set(__self__, "information_type", information_type)
+            _setter("information_type", information_type)
         if information_type_id is not None:
-            pulumi.set(__self__, "information_type_id", information_type_id)
+            _setter("information_type_id", information_type_id)
         if label_id is not None:
-            pulumi.set(__self__, "label_id", label_id)
+            _setter("label_id", label_id)
         if label_name is not None:
-            pulumi.set(__self__, "label_name", label_name)
+            _setter("label_name", label_name)
         if rank is not None:
-            pulumi.set(__self__, "rank", rank)
+            _setter("rank", rank)
         if sensitivity_label_source is not None:
-            pulumi.set(__self__, "sensitivity_label_source", sensitivity_label_source)
+            _setter("sensitivity_label_source", sensitivity_label_source)
 
     @property
     @pulumi.getter(name="columnName")
@@ -269,6 +340,10 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedDatabaseSensitivityLabelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,21 +39,72 @@ class SavedSearchArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TagArgs']]] tags: The tags attached to the saved search.
         :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SavedSearchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            display_name=display_name,
+            query=query,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            function_alias=function_alias,
+            function_parameters=function_parameters,
+            saved_search_id=saved_search_id,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             function_alias: Optional[pulumi.Input[str]] = None,
+             function_parameters: Optional[pulumi.Input[str]] = None,
+             saved_search_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]] = None,
+             version: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if query is None:
+            raise TypeError("Missing 'query' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if function_alias is None and 'functionAlias' in kwargs:
+            function_alias = kwargs['functionAlias']
+        if function_parameters is None and 'functionParameters' in kwargs:
+            function_parameters = kwargs['functionParameters']
+        if saved_search_id is None and 'savedSearchId' in kwargs:
+            saved_search_id = kwargs['savedSearchId']
+
+        _setter("category", category)
+        _setter("display_name", display_name)
+        _setter("query", query)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if function_alias is not None:
-            pulumi.set(__self__, "function_alias", function_alias)
+            _setter("function_alias", function_alias)
         if function_parameters is not None:
-            pulumi.set(__self__, "function_parameters", function_parameters)
+            _setter("function_parameters", function_parameters)
         if saved_search_id is not None:
-            pulumi.set(__self__, "saved_search_id", saved_search_id)
+            _setter("saved_search_id", saved_search_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -227,6 +278,10 @@ class SavedSearch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SavedSearchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

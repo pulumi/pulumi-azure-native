@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,61 @@ class DeploymentArgs:
         :param pulumi.Input[str] deployment_id: Deployment ID
         :param pulumi.Input[str] deployment_name: Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
         """
-        pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "device_group_name", device_group_name)
-        pulumi.set(__self__, "product_name", product_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_name=catalog_name,
+            device_group_name=device_group_name,
+            product_name=product_name,
+            resource_group_name=resource_group_name,
+            deployed_images=deployed_images,
+            deployment_id=deployment_id,
+            deployment_name=deployment_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_name: Optional[pulumi.Input[str]] = None,
+             device_group_name: Optional[pulumi.Input[str]] = None,
+             product_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             deployed_images: Optional[pulumi.Input[Sequence[pulumi.Input['ImageArgs']]]] = None,
+             deployment_id: Optional[pulumi.Input[str]] = None,
+             deployment_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_name is None and 'catalogName' in kwargs:
+            catalog_name = kwargs['catalogName']
+        if catalog_name is None:
+            raise TypeError("Missing 'catalog_name' argument")
+        if device_group_name is None and 'deviceGroupName' in kwargs:
+            device_group_name = kwargs['deviceGroupName']
+        if device_group_name is None:
+            raise TypeError("Missing 'device_group_name' argument")
+        if product_name is None and 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if product_name is None:
+            raise TypeError("Missing 'product_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if deployed_images is None and 'deployedImages' in kwargs:
+            deployed_images = kwargs['deployedImages']
+        if deployment_id is None and 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if deployment_name is None and 'deploymentName' in kwargs:
+            deployment_name = kwargs['deploymentName']
+
+        _setter("catalog_name", catalog_name)
+        _setter("device_group_name", device_group_name)
+        _setter("product_name", product_name)
+        _setter("resource_group_name", resource_group_name)
         if deployed_images is not None:
-            pulumi.set(__self__, "deployed_images", deployed_images)
+            _setter("deployed_images", deployed_images)
         if deployment_id is not None:
-            pulumi.set(__self__, "deployment_id", deployment_id)
+            _setter("deployment_id", deployment_id)
         if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
+            _setter("deployment_name", deployment_name)
 
     @property
     @pulumi.getter(name="catalogName")
@@ -175,6 +220,10 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

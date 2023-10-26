@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,20 +34,65 @@ class DistributedAvailabilityGroupArgs:
         :param pulumi.Input[str] source_endpoint: The source endpoint
         :param pulumi.Input[str] target_database: The name of the target database
         """
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DistributedAvailabilityGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            distributed_availability_group_name=distributed_availability_group_name,
+            primary_availability_group_name=primary_availability_group_name,
+            replication_mode=replication_mode,
+            secondary_availability_group_name=secondary_availability_group_name,
+            source_endpoint=source_endpoint,
+            target_database=target_database,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             distributed_availability_group_name: Optional[pulumi.Input[str]] = None,
+             primary_availability_group_name: Optional[pulumi.Input[str]] = None,
+             replication_mode: Optional[pulumi.Input[Union[str, 'ReplicationMode']]] = None,
+             secondary_availability_group_name: Optional[pulumi.Input[str]] = None,
+             source_endpoint: Optional[pulumi.Input[str]] = None,
+             target_database: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if managed_instance_name is None and 'managedInstanceName' in kwargs:
+            managed_instance_name = kwargs['managedInstanceName']
+        if managed_instance_name is None:
+            raise TypeError("Missing 'managed_instance_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if distributed_availability_group_name is None and 'distributedAvailabilityGroupName' in kwargs:
+            distributed_availability_group_name = kwargs['distributedAvailabilityGroupName']
+        if primary_availability_group_name is None and 'primaryAvailabilityGroupName' in kwargs:
+            primary_availability_group_name = kwargs['primaryAvailabilityGroupName']
+        if replication_mode is None and 'replicationMode' in kwargs:
+            replication_mode = kwargs['replicationMode']
+        if secondary_availability_group_name is None and 'secondaryAvailabilityGroupName' in kwargs:
+            secondary_availability_group_name = kwargs['secondaryAvailabilityGroupName']
+        if source_endpoint is None and 'sourceEndpoint' in kwargs:
+            source_endpoint = kwargs['sourceEndpoint']
+        if target_database is None and 'targetDatabase' in kwargs:
+            target_database = kwargs['targetDatabase']
+
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
         if distributed_availability_group_name is not None:
-            pulumi.set(__self__, "distributed_availability_group_name", distributed_availability_group_name)
+            _setter("distributed_availability_group_name", distributed_availability_group_name)
         if primary_availability_group_name is not None:
-            pulumi.set(__self__, "primary_availability_group_name", primary_availability_group_name)
+            _setter("primary_availability_group_name", primary_availability_group_name)
         if replication_mode is not None:
-            pulumi.set(__self__, "replication_mode", replication_mode)
+            _setter("replication_mode", replication_mode)
         if secondary_availability_group_name is not None:
-            pulumi.set(__self__, "secondary_availability_group_name", secondary_availability_group_name)
+            _setter("secondary_availability_group_name", secondary_availability_group_name)
         if source_endpoint is not None:
-            pulumi.set(__self__, "source_endpoint", source_endpoint)
+            _setter("source_endpoint", source_endpoint)
         if target_database is not None:
-            pulumi.set(__self__, "target_database", target_database)
+            _setter("target_database", target_database)
 
     @property
     @pulumi.getter(name="managedInstanceName")
@@ -199,6 +244,10 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DistributedAvailabilityGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

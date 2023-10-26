@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -28,11 +28,40 @@ class ManagementPolicyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] management_policy_name: The name of the Storage Account Management Policy. It should always be 'default'
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagementPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            policy=policy,
+            resource_group_name=resource_group_name,
+            management_policy_name=management_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input['ManagementPolicySchemaArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             management_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if management_policy_name is None and 'managementPolicyName' in kwargs:
+            management_policy_name = kwargs['managementPolicyName']
+
+        _setter("account_name", account_name)
+        _setter("policy", policy)
+        _setter("resource_group_name", resource_group_name)
         if management_policy_name is not None:
-            pulumi.set(__self__, "management_policy_name", management_policy_name)
+            _setter("management_policy_name", management_policy_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -122,6 +151,10 @@ class ManagementPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagementPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,6 +177,7 @@ class ManagementPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["management_policy_name"] = management_policy_name
+            policy = _utilities.configure(policy, ManagementPolicySchemaArgs, True)
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy

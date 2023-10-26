@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,39 @@ class WorkloadNetworkDhcpArgs:
         :param pulumi.Input[str] dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name
         :param pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']] properties: DHCP properties.
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadNetworkDhcpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            dhcp_id=dhcp_id,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             dhcp_id: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_cloud_name is None and 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if private_cloud_name is None:
+            raise TypeError("Missing 'private_cloud_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dhcp_id is None and 'dhcpId' in kwargs:
+            dhcp_id = kwargs['dhcpId']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if dhcp_id is not None:
-            pulumi.set(__self__, "dhcp_id", dhcp_id)
+            _setter("dhcp_id", dhcp_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -128,6 +155,10 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadNetworkDhcpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

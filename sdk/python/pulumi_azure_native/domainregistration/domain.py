@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -51,34 +51,109 @@ class DomainArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['DnsType'] target_dns_type: Target DNS type (would be used for migration)
         """
-        pulumi.set(__self__, "consent", consent)
-        pulumi.set(__self__, "contact_admin", contact_admin)
-        pulumi.set(__self__, "contact_billing", contact_billing)
-        pulumi.set(__self__, "contact_registrant", contact_registrant)
-        pulumi.set(__self__, "contact_tech", contact_tech)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consent=consent,
+            contact_admin=contact_admin,
+            contact_billing=contact_billing,
+            contact_registrant=contact_registrant,
+            contact_tech=contact_tech,
+            resource_group_name=resource_group_name,
+            auth_code=auth_code,
+            auto_renew=auto_renew,
+            dns_type=dns_type,
+            dns_zone_id=dns_zone_id,
+            domain_name=domain_name,
+            kind=kind,
+            location=location,
+            privacy=privacy,
+            tags=tags,
+            target_dns_type=target_dns_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consent: Optional[pulumi.Input['DomainPurchaseConsentArgs']] = None,
+             contact_admin: Optional[pulumi.Input['ContactArgs']] = None,
+             contact_billing: Optional[pulumi.Input['ContactArgs']] = None,
+             contact_registrant: Optional[pulumi.Input['ContactArgs']] = None,
+             contact_tech: Optional[pulumi.Input['ContactArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auth_code: Optional[pulumi.Input[str]] = None,
+             auto_renew: Optional[pulumi.Input[bool]] = None,
+             dns_type: Optional[pulumi.Input['DnsType']] = None,
+             dns_zone_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             privacy: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_dns_type: Optional[pulumi.Input['DnsType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consent is None:
+            raise TypeError("Missing 'consent' argument")
+        if contact_admin is None and 'contactAdmin' in kwargs:
+            contact_admin = kwargs['contactAdmin']
+        if contact_admin is None:
+            raise TypeError("Missing 'contact_admin' argument")
+        if contact_billing is None and 'contactBilling' in kwargs:
+            contact_billing = kwargs['contactBilling']
+        if contact_billing is None:
+            raise TypeError("Missing 'contact_billing' argument")
+        if contact_registrant is None and 'contactRegistrant' in kwargs:
+            contact_registrant = kwargs['contactRegistrant']
+        if contact_registrant is None:
+            raise TypeError("Missing 'contact_registrant' argument")
+        if contact_tech is None and 'contactTech' in kwargs:
+            contact_tech = kwargs['contactTech']
+        if contact_tech is None:
+            raise TypeError("Missing 'contact_tech' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auth_code is None and 'authCode' in kwargs:
+            auth_code = kwargs['authCode']
+        if auto_renew is None and 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if dns_type is None and 'dnsType' in kwargs:
+            dns_type = kwargs['dnsType']
+        if dns_zone_id is None and 'dnsZoneId' in kwargs:
+            dns_zone_id = kwargs['dnsZoneId']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if target_dns_type is None and 'targetDnsType' in kwargs:
+            target_dns_type = kwargs['targetDnsType']
+
+        _setter("consent", consent)
+        _setter("contact_admin", contact_admin)
+        _setter("contact_billing", contact_billing)
+        _setter("contact_registrant", contact_registrant)
+        _setter("contact_tech", contact_tech)
+        _setter("resource_group_name", resource_group_name)
         if auth_code is not None:
-            pulumi.set(__self__, "auth_code", auth_code)
+            _setter("auth_code", auth_code)
         if auto_renew is None:
             auto_renew = True
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if dns_type is not None:
-            pulumi.set(__self__, "dns_type", dns_type)
+            _setter("dns_type", dns_type)
         if dns_zone_id is not None:
-            pulumi.set(__self__, "dns_zone_id", dns_zone_id)
+            _setter("dns_zone_id", dns_zone_id)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if privacy is not None:
-            pulumi.set(__self__, "privacy", privacy)
+            _setter("privacy", privacy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_dns_type is not None:
-            pulumi.set(__self__, "target_dns_type", target_dns_type)
+            _setter("target_dns_type", target_dns_type)
 
     @property
     @pulumi.getter
@@ -338,6 +413,10 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -372,18 +451,23 @@ class Domain(pulumi.CustomResource):
             if auto_renew is None:
                 auto_renew = True
             __props__.__dict__["auto_renew"] = auto_renew
+            consent = _utilities.configure(consent, DomainPurchaseConsentArgs, True)
             if consent is None and not opts.urn:
                 raise TypeError("Missing required property 'consent'")
             __props__.__dict__["consent"] = consent
+            contact_admin = _utilities.configure(contact_admin, ContactArgs, True)
             if contact_admin is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_admin'")
             __props__.__dict__["contact_admin"] = contact_admin
+            contact_billing = _utilities.configure(contact_billing, ContactArgs, True)
             if contact_billing is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_billing'")
             __props__.__dict__["contact_billing"] = contact_billing
+            contact_registrant = _utilities.configure(contact_registrant, ContactArgs, True)
             if contact_registrant is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_registrant'")
             __props__.__dict__["contact_registrant"] = contact_registrant
+            contact_tech = _utilities.configure(contact_tech, ContactArgs, True)
             if contact_tech is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_tech'")
             __props__.__dict__["contact_tech"] = contact_tech

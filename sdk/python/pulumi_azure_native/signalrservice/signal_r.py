@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -67,47 +67,110 @@ class SignalRArgs:
         :param pulumi.Input['SignalRTlsSettingsArgs'] tls: TLS settings for the resource
         :param pulumi.Input['ServerlessUpstreamSettingsArgs'] upstream: The settings for the Upstream when the service is in server-less mode.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SignalRArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            cors=cors,
+            disable_aad_auth=disable_aad_auth,
+            disable_local_auth=disable_local_auth,
+            features=features,
+            identity=identity,
+            kind=kind,
+            live_trace_configuration=live_trace_configuration,
+            location=location,
+            network_acls=network_acls,
+            public_network_access=public_network_access,
+            resource_log_configuration=resource_log_configuration,
+            resource_name=resource_name,
+            serverless=serverless,
+            sku=sku,
+            tags=tags,
+            tls=tls,
+            upstream=upstream,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             cors: Optional[pulumi.Input['SignalRCorsSettingsArgs']] = None,
+             disable_aad_auth: Optional[pulumi.Input[bool]] = None,
+             disable_local_auth: Optional[pulumi.Input[bool]] = None,
+             features: Optional[pulumi.Input[Sequence[pulumi.Input['SignalRFeatureArgs']]]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[Union[str, 'ServiceKind']]] = None,
+             live_trace_configuration: Optional[pulumi.Input['LiveTraceConfigurationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_acls: Optional[pulumi.Input['SignalRNetworkACLsArgs']] = None,
+             public_network_access: Optional[pulumi.Input[str]] = None,
+             resource_log_configuration: Optional[pulumi.Input['ResourceLogConfigurationArgs']] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             serverless: Optional[pulumi.Input['ServerlessSettingsArgs']] = None,
+             sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls: Optional[pulumi.Input['SignalRTlsSettingsArgs']] = None,
+             upstream: Optional[pulumi.Input['ServerlessUpstreamSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if disable_aad_auth is None and 'disableAadAuth' in kwargs:
+            disable_aad_auth = kwargs['disableAadAuth']
+        if disable_local_auth is None and 'disableLocalAuth' in kwargs:
+            disable_local_auth = kwargs['disableLocalAuth']
+        if live_trace_configuration is None and 'liveTraceConfiguration' in kwargs:
+            live_trace_configuration = kwargs['liveTraceConfiguration']
+        if network_acls is None and 'networkACLs' in kwargs:
+            network_acls = kwargs['networkACLs']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if resource_log_configuration is None and 'resourceLogConfiguration' in kwargs:
+            resource_log_configuration = kwargs['resourceLogConfiguration']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
+        _setter("resource_group_name", resource_group_name)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if disable_aad_auth is None:
             disable_aad_auth = False
         if disable_aad_auth is not None:
-            pulumi.set(__self__, "disable_aad_auth", disable_aad_auth)
+            _setter("disable_aad_auth", disable_aad_auth)
         if disable_local_auth is None:
             disable_local_auth = False
         if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+            _setter("disable_local_auth", disable_local_auth)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if live_trace_configuration is not None:
-            pulumi.set(__self__, "live_trace_configuration", live_trace_configuration)
+            _setter("live_trace_configuration", live_trace_configuration)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
+            _setter("network_acls", network_acls)
         if public_network_access is None:
             public_network_access = 'Enabled'
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if resource_log_configuration is not None:
-            pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
+            _setter("resource_log_configuration", resource_log_configuration)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if serverless is not None:
-            pulumi.set(__self__, "serverless", serverless)
+            _setter("serverless", serverless)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
         if upstream is not None:
-            pulumi.set(__self__, "upstream", upstream)
+            _setter("upstream", upstream)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -421,6 +484,10 @@ class SignalR(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SignalRArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -453,6 +520,7 @@ class SignalR(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SignalRArgs.__new__(SignalRArgs)
 
+            cors = _utilities.configure(cors, SignalRCorsSettingsArgs, True)
             __props__.__dict__["cors"] = cors
             if disable_aad_auth is None:
                 disable_aad_auth = False
@@ -461,10 +529,13 @@ class SignalR(pulumi.CustomResource):
                 disable_local_auth = False
             __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["features"] = features
+            identity = _utilities.configure(identity, ManagedIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
+            live_trace_configuration = _utilities.configure(live_trace_configuration, LiveTraceConfigurationArgs, True)
             __props__.__dict__["live_trace_configuration"] = live_trace_configuration
             __props__.__dict__["location"] = location
+            network_acls = _utilities.configure(network_acls, SignalRNetworkACLsArgs, True)
             __props__.__dict__["network_acls"] = network_acls
             if public_network_access is None:
                 public_network_access = 'Enabled'
@@ -472,12 +543,17 @@ class SignalR(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            resource_log_configuration = _utilities.configure(resource_log_configuration, ResourceLogConfigurationArgs, True)
             __props__.__dict__["resource_log_configuration"] = resource_log_configuration
             __props__.__dict__["resource_name"] = resource_name_
+            serverless = _utilities.configure(serverless, ServerlessSettingsArgs, True)
             __props__.__dict__["serverless"] = serverless
+            sku = _utilities.configure(sku, ResourceSkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            tls = _utilities.configure(tls, SignalRTlsSettingsArgs, True)
             __props__.__dict__["tls"] = tls
+            upstream = _utilities.configure(upstream, ServerlessUpstreamSettingsArgs, True)
             __props__.__dict__["upstream"] = upstream
             __props__.__dict__["external_ip"] = None
             __props__.__dict__["host_name"] = None

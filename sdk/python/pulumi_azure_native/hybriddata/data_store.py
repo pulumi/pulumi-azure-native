@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,65 @@ class DataStoreArgs:
         :param Any extended_properties: A generic json used differently by each data source type.
         :param pulumi.Input[str] repository_id: Arm Id for the manager resource to which the data source is associated. This is optional.
         """
-        pulumi.set(__self__, "data_manager_name", data_manager_name)
-        pulumi.set(__self__, "data_store_type_id", data_store_type_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "state", state)
+        DataStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_manager_name=data_manager_name,
+            data_store_type_id=data_store_type_id,
+            resource_group_name=resource_group_name,
+            state=state,
+            customer_secrets=customer_secrets,
+            data_store_name=data_store_name,
+            extended_properties=extended_properties,
+            repository_id=repository_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_manager_name: Optional[pulumi.Input[str]] = None,
+             data_store_type_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input['State']] = None,
+             customer_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerSecretArgs']]]] = None,
+             data_store_name: Optional[pulumi.Input[str]] = None,
+             extended_properties: Optional[Any] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_manager_name is None and 'dataManagerName' in kwargs:
+            data_manager_name = kwargs['dataManagerName']
+        if data_manager_name is None:
+            raise TypeError("Missing 'data_manager_name' argument")
+        if data_store_type_id is None and 'dataStoreTypeId' in kwargs:
+            data_store_type_id = kwargs['dataStoreTypeId']
+        if data_store_type_id is None:
+            raise TypeError("Missing 'data_store_type_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if customer_secrets is None and 'customerSecrets' in kwargs:
+            customer_secrets = kwargs['customerSecrets']
+        if data_store_name is None and 'dataStoreName' in kwargs:
+            data_store_name = kwargs['dataStoreName']
+        if extended_properties is None and 'extendedProperties' in kwargs:
+            extended_properties = kwargs['extendedProperties']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+
+        _setter("data_manager_name", data_manager_name)
+        _setter("data_store_type_id", data_store_type_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("state", state)
         if customer_secrets is not None:
-            pulumi.set(__self__, "customer_secrets", customer_secrets)
+            _setter("customer_secrets", customer_secrets)
         if data_store_name is not None:
-            pulumi.set(__self__, "data_store_name", data_store_name)
+            _setter("data_store_name", data_store_name)
         if extended_properties is not None:
-            pulumi.set(__self__, "extended_properties", extended_properties)
+            _setter("extended_properties", extended_properties)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
 
     @property
     @pulumi.getter(name="dataManagerName")
@@ -195,6 +242,10 @@ class DataStore(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataStoreArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

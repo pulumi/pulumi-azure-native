@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,14 +30,45 @@ class ProviderInstanceArgs:
         :param pulumi.Input[str] provider_instance_name: Name of the provider instance.
         :param pulumi.Input[Union['DB2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOSProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']] provider_settings: Defines the provider specific properties.
         """
-        pulumi.set(__self__, "monitor_name", monitor_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProviderInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitor_name=monitor_name,
+            resource_group_name=resource_group_name,
+            identity=identity,
+            provider_instance_name=provider_instance_name,
+            provider_settings=provider_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitor_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['UserAssignedServiceIdentityArgs']] = None,
+             provider_instance_name: Optional[pulumi.Input[str]] = None,
+             provider_settings: Optional[pulumi.Input[Union['DB2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOSProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if monitor_name is None and 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if monitor_name is None:
+            raise TypeError("Missing 'monitor_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if provider_instance_name is None and 'providerInstanceName' in kwargs:
+            provider_instance_name = kwargs['providerInstanceName']
+        if provider_settings is None and 'providerSettings' in kwargs:
+            provider_settings = kwargs['providerSettings']
+
+        _setter("monitor_name", monitor_name)
+        _setter("resource_group_name", resource_group_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if provider_instance_name is not None:
-            pulumi.set(__self__, "provider_instance_name", provider_instance_name)
+            _setter("provider_instance_name", provider_instance_name)
         if provider_settings is not None:
-            pulumi.set(__self__, "provider_settings", provider_settings)
+            _setter("provider_settings", provider_settings)
 
     @property
     @pulumi.getter(name="monitorName")
@@ -143,6 +174,10 @@ class ProviderInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,6 +197,7 @@ class ProviderInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProviderInstanceArgs.__new__(ProviderInstanceArgs)
 
+            identity = _utilities.configure(identity, UserAssignedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")

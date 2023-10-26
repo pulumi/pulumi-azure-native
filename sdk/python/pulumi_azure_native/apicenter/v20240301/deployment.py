@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,26 +43,83 @@ class DeploymentArgs:
         :param pulumi.Input[Union[str, 'DeploymentState']] state: State of API deployment.
         :param pulumi.Input[str] title: API deployment title
         """
-        pulumi.set(__self__, "api_name", api_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        DeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_name=api_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            workspace_name=workspace_name,
+            custom_properties=custom_properties,
+            definition_id=definition_id,
+            deployment_name=deployment_name,
+            description=description,
+            environment_id=environment_id,
+            server=server,
+            state=state,
+            title=title,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             custom_properties: Optional[Any] = None,
+             definition_id: Optional[pulumi.Input[str]] = None,
+             deployment_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input['DeploymentServerArgs']] = None,
+             state: Optional[pulumi.Input[Union[str, 'DeploymentState']]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_name is None and 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if api_name is None:
+            raise TypeError("Missing 'api_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if definition_id is None and 'definitionId' in kwargs:
+            definition_id = kwargs['definitionId']
+        if deployment_name is None and 'deploymentName' in kwargs:
+            deployment_name = kwargs['deploymentName']
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+
+        _setter("api_name", api_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("workspace_name", workspace_name)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if definition_id is not None:
-            pulumi.set(__self__, "definition_id", definition_id)
+            _setter("definition_id", definition_id)
         if deployment_name is not None:
-            pulumi.set(__self__, "deployment_name", deployment_name)
+            _setter("deployment_name", deployment_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
 
     @property
     @pulumi.getter(name="apiName")
@@ -260,6 +317,10 @@ class Deployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -297,6 +358,7 @@ class Deployment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            server = _utilities.configure(server, DeploymentServerArgs, True)
             __props__.__dict__["server"] = server
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -75,60 +75,177 @@ class HostPoolArgs:
         :param pulumi.Input[bool] validation_environment: Is validation environment.
         :param pulumi.Input[str] vm_template: VM template for sessionhosts configuration within hostpool.
         """
-        pulumi.set(__self__, "host_pool_type", host_pool_type)
-        pulumi.set(__self__, "load_balancer_type", load_balancer_type)
-        pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HostPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_pool_type=host_pool_type,
+            load_balancer_type=load_balancer_type,
+            preferred_app_group_type=preferred_app_group_type,
+            resource_group_name=resource_group_name,
+            agent_update=agent_update,
+            custom_rdp_property=custom_rdp_property,
+            description=description,
+            friendly_name=friendly_name,
+            host_pool_name=host_pool_name,
+            identity=identity,
+            kind=kind,
+            location=location,
+            managed_by=managed_by,
+            max_session_limit=max_session_limit,
+            migration_request=migration_request,
+            personal_desktop_assignment_type=personal_desktop_assignment_type,
+            plan=plan,
+            public_network_access=public_network_access,
+            registration_info=registration_info,
+            ring=ring,
+            sku=sku,
+            sso_client_id=sso_client_id,
+            sso_client_secret_key_vault_path=sso_client_secret_key_vault_path,
+            sso_secret_type=sso_secret_type,
+            ssoadfs_authority=ssoadfs_authority,
+            start_vm_on_connect=start_vm_on_connect,
+            tags=tags,
+            validation_environment=validation_environment,
+            vm_template=vm_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
+             load_balancer_type: Optional[pulumi.Input[Union[str, 'LoadBalancerType']]] = None,
+             preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             agent_update: Optional[pulumi.Input['AgentUpdatePropertiesArgs']] = None,
+             custom_rdp_property: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             host_pool_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             max_session_limit: Optional[pulumi.Input[int]] = None,
+             migration_request: Optional[pulumi.Input['MigrationRequestPropertiesArgs']] = None,
+             personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
+             plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]] = None,
+             registration_info: Optional[pulumi.Input['RegistrationInfoArgs']] = None,
+             ring: Optional[pulumi.Input[int]] = None,
+             sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
+             sso_client_id: Optional[pulumi.Input[str]] = None,
+             sso_client_secret_key_vault_path: Optional[pulumi.Input[str]] = None,
+             sso_secret_type: Optional[pulumi.Input[Union[str, 'SSOSecretType']]] = None,
+             ssoadfs_authority: Optional[pulumi.Input[str]] = None,
+             start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validation_environment: Optional[pulumi.Input[bool]] = None,
+             vm_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host_pool_type is None and 'hostPoolType' in kwargs:
+            host_pool_type = kwargs['hostPoolType']
+        if host_pool_type is None:
+            raise TypeError("Missing 'host_pool_type' argument")
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if load_balancer_type is None:
+            raise TypeError("Missing 'load_balancer_type' argument")
+        if preferred_app_group_type is None and 'preferredAppGroupType' in kwargs:
+            preferred_app_group_type = kwargs['preferredAppGroupType']
+        if preferred_app_group_type is None:
+            raise TypeError("Missing 'preferred_app_group_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if agent_update is None and 'agentUpdate' in kwargs:
+            agent_update = kwargs['agentUpdate']
+        if custom_rdp_property is None and 'customRdpProperty' in kwargs:
+            custom_rdp_property = kwargs['customRdpProperty']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if host_pool_name is None and 'hostPoolName' in kwargs:
+            host_pool_name = kwargs['hostPoolName']
+        if managed_by is None and 'managedBy' in kwargs:
+            managed_by = kwargs['managedBy']
+        if max_session_limit is None and 'maxSessionLimit' in kwargs:
+            max_session_limit = kwargs['maxSessionLimit']
+        if migration_request is None and 'migrationRequest' in kwargs:
+            migration_request = kwargs['migrationRequest']
+        if personal_desktop_assignment_type is None and 'personalDesktopAssignmentType' in kwargs:
+            personal_desktop_assignment_type = kwargs['personalDesktopAssignmentType']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if registration_info is None and 'registrationInfo' in kwargs:
+            registration_info = kwargs['registrationInfo']
+        if sso_client_id is None and 'ssoClientId' in kwargs:
+            sso_client_id = kwargs['ssoClientId']
+        if sso_client_secret_key_vault_path is None and 'ssoClientSecretKeyVaultPath' in kwargs:
+            sso_client_secret_key_vault_path = kwargs['ssoClientSecretKeyVaultPath']
+        if sso_secret_type is None and 'ssoSecretType' in kwargs:
+            sso_secret_type = kwargs['ssoSecretType']
+        if ssoadfs_authority is None and 'ssoadfsAuthority' in kwargs:
+            ssoadfs_authority = kwargs['ssoadfsAuthority']
+        if start_vm_on_connect is None and 'startVMOnConnect' in kwargs:
+            start_vm_on_connect = kwargs['startVMOnConnect']
+        if validation_environment is None and 'validationEnvironment' in kwargs:
+            validation_environment = kwargs['validationEnvironment']
+        if vm_template is None and 'vmTemplate' in kwargs:
+            vm_template = kwargs['vmTemplate']
+
+        _setter("host_pool_type", host_pool_type)
+        _setter("load_balancer_type", load_balancer_type)
+        _setter("preferred_app_group_type", preferred_app_group_type)
+        _setter("resource_group_name", resource_group_name)
         if agent_update is not None:
-            pulumi.set(__self__, "agent_update", agent_update)
+            _setter("agent_update", agent_update)
         if custom_rdp_property is not None:
-            pulumi.set(__self__, "custom_rdp_property", custom_rdp_property)
+            _setter("custom_rdp_property", custom_rdp_property)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if host_pool_name is not None:
-            pulumi.set(__self__, "host_pool_name", host_pool_name)
+            _setter("host_pool_name", host_pool_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if max_session_limit is not None:
-            pulumi.set(__self__, "max_session_limit", max_session_limit)
+            _setter("max_session_limit", max_session_limit)
         if migration_request is not None:
-            pulumi.set(__self__, "migration_request", migration_request)
+            _setter("migration_request", migration_request)
         if personal_desktop_assignment_type is not None:
-            pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
+            _setter("personal_desktop_assignment_type", personal_desktop_assignment_type)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if registration_info is not None:
-            pulumi.set(__self__, "registration_info", registration_info)
+            _setter("registration_info", registration_info)
         if ring is not None:
-            pulumi.set(__self__, "ring", ring)
+            _setter("ring", ring)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if sso_client_id is not None:
-            pulumi.set(__self__, "sso_client_id", sso_client_id)
+            _setter("sso_client_id", sso_client_id)
         if sso_client_secret_key_vault_path is not None:
-            pulumi.set(__self__, "sso_client_secret_key_vault_path", sso_client_secret_key_vault_path)
+            _setter("sso_client_secret_key_vault_path", sso_client_secret_key_vault_path)
         if sso_secret_type is not None:
-            pulumi.set(__self__, "sso_secret_type", sso_secret_type)
+            _setter("sso_secret_type", sso_secret_type)
         if ssoadfs_authority is not None:
-            pulumi.set(__self__, "ssoadfs_authority", ssoadfs_authority)
+            _setter("ssoadfs_authority", ssoadfs_authority)
         if start_vm_on_connect is not None:
-            pulumi.set(__self__, "start_vm_on_connect", start_vm_on_connect)
+            _setter("start_vm_on_connect", start_vm_on_connect)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validation_environment is not None:
-            pulumi.set(__self__, "validation_environment", validation_environment)
+            _setter("validation_environment", validation_environment)
         if vm_template is not None:
-            pulumi.set(__self__, "vm_template", vm_template)
+            _setter("vm_template", vm_template)
 
     @property
     @pulumi.getter(name="hostPoolType")
@@ -556,6 +673,10 @@ class HostPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HostPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -599,6 +720,7 @@ class HostPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HostPoolArgs.__new__(HostPoolArgs)
 
+            agent_update = _utilities.configure(agent_update, AgentUpdatePropertiesArgs, True)
             __props__.__dict__["agent_update"] = agent_update
             __props__.__dict__["custom_rdp_property"] = custom_rdp_property
             __props__.__dict__["description"] = description
@@ -607,6 +729,7 @@ class HostPool(pulumi.CustomResource):
             if host_pool_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_type'")
             __props__.__dict__["host_pool_type"] = host_pool_type
+            identity = _utilities.configure(identity, ResourceModelWithAllowedPropertySetIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             if load_balancer_type is None and not opts.urn:
@@ -615,18 +738,22 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
             __props__.__dict__["max_session_limit"] = max_session_limit
+            migration_request = _utilities.configure(migration_request, MigrationRequestPropertiesArgs, True)
             __props__.__dict__["migration_request"] = migration_request
             __props__.__dict__["personal_desktop_assignment_type"] = personal_desktop_assignment_type
+            plan = _utilities.configure(plan, ResourceModelWithAllowedPropertySetPlanArgs, True)
             __props__.__dict__["plan"] = plan
             if preferred_app_group_type is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_app_group_type'")
             __props__.__dict__["preferred_app_group_type"] = preferred_app_group_type
             __props__.__dict__["public_network_access"] = public_network_access
+            registration_info = _utilities.configure(registration_info, RegistrationInfoArgs, True)
             __props__.__dict__["registration_info"] = registration_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["ring"] = ring
+            sku = _utilities.configure(sku, ResourceModelWithAllowedPropertySetSkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["sso_client_id"] = sso_client_id
             __props__.__dict__["sso_client_secret_key_vault_path"] = sso_client_secret_key_vault_path

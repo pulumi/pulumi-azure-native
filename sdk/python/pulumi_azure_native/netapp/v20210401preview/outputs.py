@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -49,12 +49,33 @@ class VolumeBackupsResponse(dict):
         :param bool policy_enabled: Policy enabled
         :param str volume_name: Volume name
         """
+        VolumeBackupsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backups_count=backups_count,
+            policy_enabled=policy_enabled,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backups_count: Optional[int] = None,
+             policy_enabled: Optional[bool] = None,
+             volume_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backups_count is None and 'backupsCount' in kwargs:
+            backups_count = kwargs['backupsCount']
+        if policy_enabled is None and 'policyEnabled' in kwargs:
+            policy_enabled = kwargs['policyEnabled']
+        if volume_name is None and 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+
         if backups_count is not None:
-            pulumi.set(__self__, "backups_count", backups_count)
+            _setter("backups_count", backups_count)
         if policy_enabled is not None:
-            pulumi.set(__self__, "policy_enabled", policy_enabled)
+            _setter("policy_enabled", policy_enabled)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="backupsCount")

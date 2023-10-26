@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,11 +26,32 @@ class DefaultRolloutArgs:
         :param pulumi.Input['DefaultRolloutPropertiesArgs'] properties: Properties of the rollout.
         :param pulumi.Input[str] rollout_name: The rollout name.
         """
-        pulumi.set(__self__, "provider_namespace", provider_namespace)
+        DefaultRolloutArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_namespace=provider_namespace,
+            properties=properties,
+            rollout_name=rollout_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_namespace: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['DefaultRolloutPropertiesArgs']] = None,
+             rollout_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provider_namespace is None and 'providerNamespace' in kwargs:
+            provider_namespace = kwargs['providerNamespace']
+        if provider_namespace is None:
+            raise TypeError("Missing 'provider_namespace' argument")
+        if rollout_name is None and 'rolloutName' in kwargs:
+            rollout_name = kwargs['rolloutName']
+
+        _setter("provider_namespace", provider_namespace)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if rollout_name is not None:
-            pulumi.set(__self__, "rollout_name", rollout_name)
+            _setter("rollout_name", rollout_name)
 
     @property
     @pulumi.getter(name="providerNamespace")
@@ -108,6 +129,10 @@ class DefaultRollout(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefaultRolloutArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -125,6 +150,7 @@ class DefaultRollout(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DefaultRolloutArgs.__new__(DefaultRolloutArgs)
 
+            properties = _utilities.configure(properties, DefaultRolloutPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")

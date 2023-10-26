@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['LinkedStorageAccountArgs', 'LinkedStorageAccount']
@@ -25,12 +25,41 @@ class LinkedStorageAccountArgs:
         :param pulumi.Input[str] data_source_type: Linked storage accounts type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: Linked storage accounts resources ids.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        LinkedStorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            data_source_type=data_source_type,
+            storage_account_ids=storage_account_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             data_source_type: Optional[pulumi.Input[str]] = None,
+             storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if data_source_type is None and 'dataSourceType' in kwargs:
+            data_source_type = kwargs['dataSourceType']
+        if storage_account_ids is None and 'storageAccountIds' in kwargs:
+            storage_account_ids = kwargs['storageAccountIds']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if data_source_type is not None:
-            pulumi.set(__self__, "data_source_type", data_source_type)
+            _setter("data_source_type", data_source_type)
         if storage_account_ids is not None:
-            pulumi.set(__self__, "storage_account_ids", storage_account_ids)
+            _setter("storage_account_ids", storage_account_ids)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -120,6 +149,10 @@ class LinkedStorageAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedStorageAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

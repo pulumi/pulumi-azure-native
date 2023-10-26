@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,32 +47,99 @@ class MSIXPackageArgs:
         :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
         :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
         """
-        pulumi.set(__self__, "host_pool_name", host_pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        MSIXPackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_pool_name=host_pool_name,
+            resource_group_name=resource_group_name,
+            display_name=display_name,
+            image_path=image_path,
+            is_active=is_active,
+            is_regular_registration=is_regular_registration,
+            last_updated=last_updated,
+            msix_package_full_name=msix_package_full_name,
+            package_applications=package_applications,
+            package_dependencies=package_dependencies,
+            package_family_name=package_family_name,
+            package_name=package_name,
+            package_relative_path=package_relative_path,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_pool_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             image_path: Optional[pulumi.Input[str]] = None,
+             is_active: Optional[pulumi.Input[bool]] = None,
+             is_regular_registration: Optional[pulumi.Input[bool]] = None,
+             last_updated: Optional[pulumi.Input[str]] = None,
+             msix_package_full_name: Optional[pulumi.Input[str]] = None,
+             package_applications: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]] = None,
+             package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]] = None,
+             package_family_name: Optional[pulumi.Input[str]] = None,
+             package_name: Optional[pulumi.Input[str]] = None,
+             package_relative_path: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host_pool_name is None and 'hostPoolName' in kwargs:
+            host_pool_name = kwargs['hostPoolName']
+        if host_pool_name is None:
+            raise TypeError("Missing 'host_pool_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if image_path is None and 'imagePath' in kwargs:
+            image_path = kwargs['imagePath']
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if is_regular_registration is None and 'isRegularRegistration' in kwargs:
+            is_regular_registration = kwargs['isRegularRegistration']
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if msix_package_full_name is None and 'msixPackageFullName' in kwargs:
+            msix_package_full_name = kwargs['msixPackageFullName']
+        if package_applications is None and 'packageApplications' in kwargs:
+            package_applications = kwargs['packageApplications']
+        if package_dependencies is None and 'packageDependencies' in kwargs:
+            package_dependencies = kwargs['packageDependencies']
+        if package_family_name is None and 'packageFamilyName' in kwargs:
+            package_family_name = kwargs['packageFamilyName']
+        if package_name is None and 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+        if package_relative_path is None and 'packageRelativePath' in kwargs:
+            package_relative_path = kwargs['packageRelativePath']
+
+        _setter("host_pool_name", host_pool_name)
+        _setter("resource_group_name", resource_group_name)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if image_path is not None:
-            pulumi.set(__self__, "image_path", image_path)
+            _setter("image_path", image_path)
         if is_active is not None:
-            pulumi.set(__self__, "is_active", is_active)
+            _setter("is_active", is_active)
         if is_regular_registration is not None:
-            pulumi.set(__self__, "is_regular_registration", is_regular_registration)
+            _setter("is_regular_registration", is_regular_registration)
         if last_updated is not None:
-            pulumi.set(__self__, "last_updated", last_updated)
+            _setter("last_updated", last_updated)
         if msix_package_full_name is not None:
-            pulumi.set(__self__, "msix_package_full_name", msix_package_full_name)
+            _setter("msix_package_full_name", msix_package_full_name)
         if package_applications is not None:
-            pulumi.set(__self__, "package_applications", package_applications)
+            _setter("package_applications", package_applications)
         if package_dependencies is not None:
-            pulumi.set(__self__, "package_dependencies", package_dependencies)
+            _setter("package_dependencies", package_dependencies)
         if package_family_name is not None:
-            pulumi.set(__self__, "package_family_name", package_family_name)
+            _setter("package_family_name", package_family_name)
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if package_relative_path is not None:
-            pulumi.set(__self__, "package_relative_path", package_relative_path)
+            _setter("package_relative_path", package_relative_path)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="hostPoolName")
@@ -308,6 +375,10 @@ class MSIXPackage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MSIXPackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

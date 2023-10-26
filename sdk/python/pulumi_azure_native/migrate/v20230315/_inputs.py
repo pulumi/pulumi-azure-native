@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,14 +35,35 @@ class CollectorAgentPropertiesBaseArgs:
         :param pulumi.Input['CollectorAgentSpnPropertiesBaseArgs'] spn_details: Gets or sets the SPN details.
         :param pulumi.Input[str] version: Gets the collector agent version.
         """
+        CollectorAgentPropertiesBaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            last_heartbeat_utc=last_heartbeat_utc,
+            spn_details=spn_details,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             last_heartbeat_utc: Optional[pulumi.Input[str]] = None,
+             spn_details: Optional[pulumi.Input['CollectorAgentSpnPropertiesBaseArgs']] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last_heartbeat_utc is None and 'lastHeartbeatUtc' in kwargs:
+            last_heartbeat_utc = kwargs['lastHeartbeatUtc']
+        if spn_details is None and 'spnDetails' in kwargs:
+            spn_details = kwargs['spnDetails']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if last_heartbeat_utc is not None:
-            pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+            _setter("last_heartbeat_utc", last_heartbeat_utc)
         if spn_details is not None:
-            pulumi.set(__self__, "spn_details", spn_details)
+            _setter("spn_details", spn_details)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -109,16 +130,41 @@ class CollectorAgentSpnPropertiesBaseArgs:
         :param pulumi.Input[str] object_id: Gets the object id of the AAD application.
         :param pulumi.Input[str] tenant_id: Gets the tenant id of the AAD application.
         """
+        CollectorAgentSpnPropertiesBaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            audience=audience,
+            authority=authority,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             audience: Optional[pulumi.Input[str]] = None,
+             authority: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if authority is not None:
-            pulumi.set(__self__, "authority", authority)
+            _setter("authority", authority)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -191,10 +237,27 @@ class EntityUptimeArgs:
         :param pulumi.Input[int] days_per_month: Gets the days per month.
         :param pulumi.Input[int] hours_per_day: Gets the hours per day.
         """
+        EntityUptimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_per_month=days_per_month,
+            hours_per_day=hours_per_day,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_per_month: Optional[pulumi.Input[int]] = None,
+             hours_per_day: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_per_month is None and 'daysPerMonth' in kwargs:
+            days_per_month = kwargs['daysPerMonth']
+        if hours_per_day is None and 'hoursPerDay' in kwargs:
+            hours_per_day = kwargs['hoursPerDay']
+
         if days_per_month is not None:
-            pulumi.set(__self__, "days_per_month", days_per_month)
+            _setter("days_per_month", days_per_month)
         if hours_per_day is not None:
-            pulumi.set(__self__, "hours_per_day", hours_per_day)
+            _setter("hours_per_day", hours_per_day)
 
     @property
     @pulumi.getter(name="daysPerMonth")
@@ -233,12 +296,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -291,14 +371,39 @@ class SqlDbSettingsArgs:
         :param pulumi.Input[Union[str, 'AzureSqlPurchaseModel']] azure_sql_purchase_model: Gets or sets the azure SQL purchase model.
         :param pulumi.Input[Union[str, 'AzureSqlServiceTier']] azure_sql_service_tier: Gets or sets the azure SQL service tier.
         """
+        SqlDbSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_sql_compute_tier=azure_sql_compute_tier,
+            azure_sql_data_base_type=azure_sql_data_base_type,
+            azure_sql_purchase_model=azure_sql_purchase_model,
+            azure_sql_service_tier=azure_sql_service_tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_sql_compute_tier: Optional[pulumi.Input[Union[str, 'ComputeTier']]] = None,
+             azure_sql_data_base_type: Optional[pulumi.Input[Union[str, 'AzureSqlDataBaseType']]] = None,
+             azure_sql_purchase_model: Optional[pulumi.Input[Union[str, 'AzureSqlPurchaseModel']]] = None,
+             azure_sql_service_tier: Optional[pulumi.Input[Union[str, 'AzureSqlServiceTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_sql_compute_tier is None and 'azureSqlComputeTier' in kwargs:
+            azure_sql_compute_tier = kwargs['azureSqlComputeTier']
+        if azure_sql_data_base_type is None and 'azureSqlDataBaseType' in kwargs:
+            azure_sql_data_base_type = kwargs['azureSqlDataBaseType']
+        if azure_sql_purchase_model is None and 'azureSqlPurchaseModel' in kwargs:
+            azure_sql_purchase_model = kwargs['azureSqlPurchaseModel']
+        if azure_sql_service_tier is None and 'azureSqlServiceTier' in kwargs:
+            azure_sql_service_tier = kwargs['azureSqlServiceTier']
+
         if azure_sql_compute_tier is not None:
-            pulumi.set(__self__, "azure_sql_compute_tier", azure_sql_compute_tier)
+            _setter("azure_sql_compute_tier", azure_sql_compute_tier)
         if azure_sql_data_base_type is not None:
-            pulumi.set(__self__, "azure_sql_data_base_type", azure_sql_data_base_type)
+            _setter("azure_sql_data_base_type", azure_sql_data_base_type)
         if azure_sql_purchase_model is not None:
-            pulumi.set(__self__, "azure_sql_purchase_model", azure_sql_purchase_model)
+            _setter("azure_sql_purchase_model", azure_sql_purchase_model)
         if azure_sql_service_tier is not None:
-            pulumi.set(__self__, "azure_sql_service_tier", azure_sql_service_tier)
+            _setter("azure_sql_service_tier", azure_sql_service_tier)
 
     @property
     @pulumi.getter(name="azureSqlComputeTier")
@@ -359,10 +464,27 @@ class SqlMiSettingsArgs:
         :param pulumi.Input[Union[str, 'AzureSqlInstanceType']] azure_sql_instance_type: Gets or sets the azure PAAS SQL instance type.
         :param pulumi.Input[Union[str, 'AzureSqlServiceTier']] azure_sql_service_tier: Gets or sets the azure SQL service tier.
         """
+        SqlMiSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_sql_instance_type=azure_sql_instance_type,
+            azure_sql_service_tier=azure_sql_service_tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_sql_instance_type: Optional[pulumi.Input[Union[str, 'AzureSqlInstanceType']]] = None,
+             azure_sql_service_tier: Optional[pulumi.Input[Union[str, 'AzureSqlServiceTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_sql_instance_type is None and 'azureSqlInstanceType' in kwargs:
+            azure_sql_instance_type = kwargs['azureSqlInstanceType']
+        if azure_sql_service_tier is None and 'azureSqlServiceTier' in kwargs:
+            azure_sql_service_tier = kwargs['azureSqlServiceTier']
+
         if azure_sql_instance_type is not None:
-            pulumi.set(__self__, "azure_sql_instance_type", azure_sql_instance_type)
+            _setter("azure_sql_instance_type", azure_sql_instance_type)
         if azure_sql_service_tier is not None:
-            pulumi.set(__self__, "azure_sql_service_tier", azure_sql_service_tier)
+            _setter("azure_sql_service_tier", azure_sql_service_tier)
 
     @property
     @pulumi.getter(name="azureSqlInstanceType")
@@ -398,8 +520,21 @@ class SqlVmSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]] instance_series: Gets or sets the Azure VM families (calling instance series to keep it
                consistent with other targets).
         """
+        SqlVmSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_series=instance_series,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_series: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AzureVmFamily']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_series is None and 'instanceSeries' in kwargs:
+            instance_series = kwargs['instanceSeries']
+
         if instance_series is not None:
-            pulumi.set(__self__, "instance_series", instance_series)
+            _setter("instance_series", instance_series)
 
     @property
     @pulumi.getter(name="instanceSeries")
@@ -425,10 +560,27 @@ class VmUptimeArgs:
         :param pulumi.Input[int] days_per_month: Number of days in a month for VM uptime.
         :param pulumi.Input[int] hours_per_day: Number of hours per day for VM uptime.
         """
+        VmUptimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_per_month=days_per_month,
+            hours_per_day=hours_per_day,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_per_month: Optional[pulumi.Input[int]] = None,
+             hours_per_day: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_per_month is None and 'daysPerMonth' in kwargs:
+            days_per_month = kwargs['daysPerMonth']
+        if hours_per_day is None and 'hoursPerDay' in kwargs:
+            hours_per_day = kwargs['hoursPerDay']
+
         if days_per_month is not None:
-            pulumi.set(__self__, "days_per_month", days_per_month)
+            _setter("days_per_month", days_per_month)
         if hours_per_day is not None:
-            pulumi.set(__self__, "hours_per_day", hours_per_day)
+            _setter("hours_per_day", hours_per_day)
 
     @property
     @pulumi.getter(name="daysPerMonth")

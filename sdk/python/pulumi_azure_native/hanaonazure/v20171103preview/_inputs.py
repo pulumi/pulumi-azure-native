@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -28,10 +28,25 @@ class DiskArgs:
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes.
         :param pulumi.Input[str] name: The disk name.
         """
+        DiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_size_gb=disk_size_gb,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_size_gb: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_size_gb is None and 'diskSizeGB' in kwargs:
+            disk_size_gb = kwargs['diskSizeGB']
+
         if disk_size_gb is not None:
-            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+            _setter("disk_size_gb", disk_size_gb)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="diskSizeGB")
@@ -66,8 +81,21 @@ class IpAddressArgs:
         Specifies the IP address of the network interface.
         :param pulumi.Input[str] ip_address: Specifies the IP address of the network interface.
         """
+        IpAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address=ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -90,8 +118,21 @@ class NetworkProfileArgs:
         Specifies the network settings for the HANA instance disks.
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]] network_interfaces: Specifies the network interfaces for the HANA instance.
         """
+        NetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interfaces=network_interfaces,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
 
     @property
     @pulumi.getter(name="networkInterfaces")
@@ -116,10 +157,27 @@ class OSProfileArgs:
         :param pulumi.Input[str] computer_name: Specifies the host OS name of the HANA instance.
         :param pulumi.Input[str] ssh_public_key: Specifies the SSH public key used to access the operating system.
         """
+        OSProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            computer_name=computer_name,
+            ssh_public_key=ssh_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             computer_name: Optional[pulumi.Input[str]] = None,
+             ssh_public_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if computer_name is None and 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if ssh_public_key is None and 'sshPublicKey' in kwargs:
+            ssh_public_key = kwargs['sshPublicKey']
+
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if ssh_public_key is not None:
-            pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+            _setter("ssh_public_key", ssh_public_key)
 
     @property
     @pulumi.getter(name="computerName")
@@ -160,14 +218,31 @@ class SAPSystemIDArgs:
         :param pulumi.Input[str] uid: User ID of the HANA database user.
         :param pulumi.Input[str] username: Name of the HANA database user.
         """
+        SAPSystemIDArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gid=gid,
+            sid=sid,
+            uid=uid,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gid: Optional[pulumi.Input[str]] = None,
+             sid: Optional[pulumi.Input[str]] = None,
+             uid: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if gid is not None:
-            pulumi.set(__self__, "gid", gid)
+            _setter("gid", gid)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -228,10 +303,27 @@ class StorageProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SAPSystemIDArgs']]] hana_sids: Specifies information related to SAP system IDs for the hana instance.
         :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] os_disks: Specifies information about the operating system disk used by the hana instance.
         """
+        StorageProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hana_sids=hana_sids,
+            os_disks=os_disks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hana_sids: Optional[pulumi.Input[Sequence[pulumi.Input['SAPSystemIDArgs']]]] = None,
+             os_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DiskArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hana_sids is None and 'hanaSids' in kwargs:
+            hana_sids = kwargs['hanaSids']
+        if os_disks is None and 'osDisks' in kwargs:
+            os_disks = kwargs['osDisks']
+
         if hana_sids is not None:
-            pulumi.set(__self__, "hana_sids", hana_sids)
+            _setter("hana_sids", hana_sids)
         if os_disks is not None:
-            pulumi.set(__self__, "os_disks", os_disks)
+            _setter("os_disks", os_disks)
 
     @property
     @pulumi.getter(name="hanaSids")

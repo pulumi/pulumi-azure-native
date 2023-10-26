@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,53 @@ class VideoArgs:
         :param pulumi.Input[str] title: Optional video title provided by the user. Value can be up to 256 characters long.
         :param pulumi.Input[str] video_name: The Video name.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VideoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            archival=archival,
+            description=description,
+            media_info=media_info,
+            title=title,
+            video_name=video_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             archival: Optional[pulumi.Input['VideoArchivalArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             media_info: Optional[pulumi.Input['VideoMediaInfoArgs']] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             video_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if media_info is None and 'mediaInfo' in kwargs:
+            media_info = kwargs['mediaInfo']
+        if video_name is None and 'videoName' in kwargs:
+            video_name = kwargs['videoName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if archival is not None:
-            pulumi.set(__self__, "archival", archival)
+            _setter("archival", archival)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if media_info is not None:
-            pulumi.set(__self__, "media_info", media_info)
+            _setter("media_info", media_info)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if video_name is not None:
-            pulumi.set(__self__, "video_name", video_name)
+            _setter("video_name", video_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -182,6 +217,10 @@ class Video(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VideoArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -206,8 +245,10 @@ class Video(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            archival = _utilities.configure(archival, VideoArchivalArgs, True)
             __props__.__dict__["archival"] = archival
             __props__.__dict__["description"] = description
+            media_info = _utilities.configure(media_info, VideoMediaInfoArgs, True)
             __props__.__dict__["media_info"] = media_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

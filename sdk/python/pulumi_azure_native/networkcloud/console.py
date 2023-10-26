@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,19 +38,66 @@ class ConsoleArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
-        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+        ConsoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            extended_location=extended_location,
+            resource_group_name=resource_group_name,
+            ssh_public_key=ssh_public_key,
+            virtual_machine_name=virtual_machine_name,
+            console_name=console_name,
+            expiration=expiration,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[Union[str, 'ConsoleEnabled']]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ssh_public_key: Optional[pulumi.Input['SshPublicKeyArgs']] = None,
+             virtual_machine_name: Optional[pulumi.Input[str]] = None,
+             console_name: Optional[pulumi.Input[str]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if extended_location is None:
+            raise TypeError("Missing 'extended_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ssh_public_key is None and 'sshPublicKey' in kwargs:
+            ssh_public_key = kwargs['sshPublicKey']
+        if ssh_public_key is None:
+            raise TypeError("Missing 'ssh_public_key' argument")
+        if virtual_machine_name is None and 'virtualMachineName' in kwargs:
+            virtual_machine_name = kwargs['virtualMachineName']
+        if virtual_machine_name is None:
+            raise TypeError("Missing 'virtual_machine_name' argument")
+        if console_name is None and 'consoleName' in kwargs:
+            console_name = kwargs['consoleName']
+
+        _setter("enabled", enabled)
+        _setter("extended_location", extended_location)
+        _setter("resource_group_name", resource_group_name)
+        _setter("ssh_public_key", ssh_public_key)
+        _setter("virtual_machine_name", virtual_machine_name)
         if console_name is not None:
-            pulumi.set(__self__, "console_name", console_name)
+            _setter("console_name", console_name)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -214,6 +261,10 @@ class Console(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConsoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,6 +293,7 @@ class Console(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enabled'")
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["expiration"] = expiration
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
@@ -249,6 +301,7 @@ class Console(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            ssh_public_key = _utilities.configure(ssh_public_key, SshPublicKeyArgs, True)
             if ssh_public_key is None and not opts.urn:
                 raise TypeError("Missing required property 'ssh_public_key'")
             __props__.__dict__["ssh_public_key"] = ssh_public_key

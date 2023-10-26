@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -26,12 +26,41 @@ class CustomerSubscriptionArgs:
         :param pulumi.Input[str] customer_subscription_name: Name of the product.
         :param pulumi.Input[str] tenant_id: Tenant Id.
         """
-        pulumi.set(__self__, "registration_name", registration_name)
-        pulumi.set(__self__, "resource_group", resource_group)
+        CustomerSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registration_name=registration_name,
+            resource_group=resource_group,
+            customer_subscription_name=customer_subscription_name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registration_name: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             customer_subscription_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registration_name is None and 'registrationName' in kwargs:
+            registration_name = kwargs['registrationName']
+        if registration_name is None:
+            raise TypeError("Missing 'registration_name' argument")
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if customer_subscription_name is None and 'customerSubscriptionName' in kwargs:
+            customer_subscription_name = kwargs['customerSubscriptionName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("registration_name", registration_name)
+        _setter("resource_group", resource_group)
         if customer_subscription_name is not None:
-            pulumi.set(__self__, "customer_subscription_name", customer_subscription_name)
+            _setter("customer_subscription_name", customer_subscription_name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="registrationName")
@@ -121,6 +150,10 @@ class CustomerSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomerSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

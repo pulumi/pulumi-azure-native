@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,28 +44,77 @@ class WorkspaceArgs:
         :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
-        pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_resource_group_id=managed_resource_group_id,
+            resource_group_name=resource_group_name,
+            authorizations=authorizations,
+            encryption=encryption,
+            location=location,
+            parameters=parameters,
+            public_network_access=public_network_access,
+            required_nsg_rules=required_nsg_rules,
+            sku=sku,
+            tags=tags,
+            ui_definition_uri=ui_definition_uri,
+            workspace_name=workspace_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_resource_group_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]] = None,
+             encryption: Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+             required_nsg_rules: Optional[pulumi.Input[Union[str, 'RequiredNsgRules']]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ui_definition_uri: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if managed_resource_group_id is None and 'managedResourceGroupId' in kwargs:
+            managed_resource_group_id = kwargs['managedResourceGroupId']
+        if managed_resource_group_id is None:
+            raise TypeError("Missing 'managed_resource_group_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if required_nsg_rules is None and 'requiredNsgRules' in kwargs:
+            required_nsg_rules = kwargs['requiredNsgRules']
+        if ui_definition_uri is None and 'uiDefinitionUri' in kwargs:
+            ui_definition_uri = kwargs['uiDefinitionUri']
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
+        _setter("managed_resource_group_id", managed_resource_group_id)
+        _setter("resource_group_name", resource_group_name)
         if authorizations is not None:
-            pulumi.set(__self__, "authorizations", authorizations)
+            _setter("authorizations", authorizations)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if required_nsg_rules is not None:
-            pulumi.set(__self__, "required_nsg_rules", required_nsg_rules)
+            _setter("required_nsg_rules", required_nsg_rules)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ui_definition_uri is not None:
-            pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
+            _setter("ui_definition_uri", ui_definition_uri)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="managedResourceGroupId")
@@ -269,6 +318,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -296,17 +349,20 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["authorizations"] = authorizations
+            encryption = _utilities.configure(encryption, WorkspacePropertiesEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["location"] = location
             if managed_resource_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_resource_group_id'")
             __props__.__dict__["managed_resource_group_id"] = managed_resource_group_id
+            parameters = _utilities.configure(parameters, WorkspaceCustomParametersArgs, True)
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["required_nsg_rules"] = required_nsg_rules
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ui_definition_uri"] = ui_definition_uri

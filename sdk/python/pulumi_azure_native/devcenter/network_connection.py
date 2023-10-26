@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -41,25 +41,80 @@ class NetworkConnectionArgs:
         :param pulumi.Input[str] organization_unit: Active Directory domain Organization Unit (OU)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "domain_join_type", domain_join_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        NetworkConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_join_type=domain_join_type,
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            domain_name=domain_name,
+            domain_password=domain_password,
+            domain_username=domain_username,
+            location=location,
+            network_connection_name=network_connection_name,
+            networking_resource_group_name=networking_resource_group_name,
+            organization_unit=organization_unit,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_join_type: Optional[pulumi.Input[Union[str, 'DomainJoinType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_password: Optional[pulumi.Input[str]] = None,
+             domain_username: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_connection_name: Optional[pulumi.Input[str]] = None,
+             networking_resource_group_name: Optional[pulumi.Input[str]] = None,
+             organization_unit: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_join_type is None and 'domainJoinType' in kwargs:
+            domain_join_type = kwargs['domainJoinType']
+        if domain_join_type is None:
+            raise TypeError("Missing 'domain_join_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_password is None and 'domainPassword' in kwargs:
+            domain_password = kwargs['domainPassword']
+        if domain_username is None and 'domainUsername' in kwargs:
+            domain_username = kwargs['domainUsername']
+        if network_connection_name is None and 'networkConnectionName' in kwargs:
+            network_connection_name = kwargs['networkConnectionName']
+        if networking_resource_group_name is None and 'networkingResourceGroupName' in kwargs:
+            networking_resource_group_name = kwargs['networkingResourceGroupName']
+        if organization_unit is None and 'organizationUnit' in kwargs:
+            organization_unit = kwargs['organizationUnit']
+
+        _setter("domain_join_type", domain_join_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subnet_id", subnet_id)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if domain_password is not None:
-            pulumi.set(__self__, "domain_password", domain_password)
+            _setter("domain_password", domain_password)
         if domain_username is not None:
-            pulumi.set(__self__, "domain_username", domain_username)
+            _setter("domain_username", domain_username)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_connection_name is not None:
-            pulumi.set(__self__, "network_connection_name", network_connection_name)
+            _setter("network_connection_name", network_connection_name)
         if networking_resource_group_name is not None:
-            pulumi.set(__self__, "networking_resource_group_name", networking_resource_group_name)
+            _setter("networking_resource_group_name", networking_resource_group_name)
         if organization_unit is not None:
-            pulumi.set(__self__, "organization_unit", organization_unit)
+            _setter("organization_unit", organization_unit)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="domainJoinType")
@@ -253,6 +308,10 @@ class NetworkConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

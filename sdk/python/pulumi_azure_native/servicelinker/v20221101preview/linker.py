@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,74 @@ class LinkerArgs:
         :param pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']] target_service: The target service properties
         :param pulumi.Input['VNetSolutionArgs'] v_net_solution: The VNet solution.
         """
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        LinkerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_uri=resource_uri,
+            auth_info=auth_info,
+            client_type=client_type,
+            configuration_info=configuration_info,
+            linker_name=linker_name,
+            public_network_solution=public_network_solution,
+            scope=scope,
+            secret_store=secret_store,
+            target_service=target_service,
+            v_net_solution=v_net_solution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_uri: Optional[pulumi.Input[str]] = None,
+             auth_info: Optional[pulumi.Input[Union['AccessKeyInfoBaseArgs', 'SecretAuthInfoArgs', 'ServicePrincipalCertificateAuthInfoArgs', 'ServicePrincipalSecretAuthInfoArgs', 'SystemAssignedIdentityAuthInfoArgs', 'UserAccountAuthInfoArgs', 'UserAssignedIdentityAuthInfoArgs']]] = None,
+             client_type: Optional[pulumi.Input[Union[str, 'ClientType']]] = None,
+             configuration_info: Optional[pulumi.Input['ConfigurationInfoArgs']] = None,
+             linker_name: Optional[pulumi.Input[str]] = None,
+             public_network_solution: Optional[pulumi.Input['PublicNetworkSolutionArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             secret_store: Optional[pulumi.Input['SecretStoreArgs']] = None,
+             target_service: Optional[pulumi.Input[Union['AzureResourceArgs', 'ConfluentBootstrapServerArgs', 'ConfluentSchemaRegistryArgs', 'SelfHostedServerArgs']]] = None,
+             v_net_solution: Optional[pulumi.Input['VNetSolutionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_uri is None and 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+        if resource_uri is None:
+            raise TypeError("Missing 'resource_uri' argument")
+        if auth_info is None and 'authInfo' in kwargs:
+            auth_info = kwargs['authInfo']
+        if client_type is None and 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if configuration_info is None and 'configurationInfo' in kwargs:
+            configuration_info = kwargs['configurationInfo']
+        if linker_name is None and 'linkerName' in kwargs:
+            linker_name = kwargs['linkerName']
+        if public_network_solution is None and 'publicNetworkSolution' in kwargs:
+            public_network_solution = kwargs['publicNetworkSolution']
+        if secret_store is None and 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if target_service is None and 'targetService' in kwargs:
+            target_service = kwargs['targetService']
+        if v_net_solution is None and 'vNetSolution' in kwargs:
+            v_net_solution = kwargs['vNetSolution']
+
+        _setter("resource_uri", resource_uri)
         if auth_info is not None:
-            pulumi.set(__self__, "auth_info", auth_info)
+            _setter("auth_info", auth_info)
         if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
+            _setter("client_type", client_type)
         if configuration_info is not None:
-            pulumi.set(__self__, "configuration_info", configuration_info)
+            _setter("configuration_info", configuration_info)
         if linker_name is not None:
-            pulumi.set(__self__, "linker_name", linker_name)
+            _setter("linker_name", linker_name)
         if public_network_solution is not None:
-            pulumi.set(__self__, "public_network_solution", public_network_solution)
+            _setter("public_network_solution", public_network_solution)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
         if target_service is not None:
-            pulumi.set(__self__, "target_service", target_service)
+            _setter("target_service", target_service)
         if v_net_solution is not None:
-            pulumi.set(__self__, "v_net_solution", v_net_solution)
+            _setter("v_net_solution", v_net_solution)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -232,6 +281,10 @@ class Linker(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,15 +311,19 @@ class Linker(pulumi.CustomResource):
 
             __props__.__dict__["auth_info"] = auth_info
             __props__.__dict__["client_type"] = client_type
+            configuration_info = _utilities.configure(configuration_info, ConfigurationInfoArgs, True)
             __props__.__dict__["configuration_info"] = configuration_info
             __props__.__dict__["linker_name"] = linker_name
+            public_network_solution = _utilities.configure(public_network_solution, PublicNetworkSolutionArgs, True)
             __props__.__dict__["public_network_solution"] = public_network_solution
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
             __props__.__dict__["scope"] = scope
+            secret_store = _utilities.configure(secret_store, SecretStoreArgs, True)
             __props__.__dict__["secret_store"] = secret_store
             __props__.__dict__["target_service"] = target_service
+            v_net_solution = _utilities.configure(v_net_solution, VNetSolutionArgs, True)
             __props__.__dict__["v_net_solution"] = v_net_solution
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None

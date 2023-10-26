@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,13 +30,44 @@ class BandwidthSettingArgs:
         :param pulumi.Input[str] bandwidth_setting_name: The bandwidth setting name.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         """
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schedules", schedules)
+        BandwidthSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            manager_name=manager_name,
+            resource_group_name=resource_group_name,
+            schedules=schedules,
+            bandwidth_setting_name=bandwidth_setting_name,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             manager_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BandwidthScheduleArgs']]]] = None,
+             bandwidth_setting_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input['Kind']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if manager_name is None and 'managerName' in kwargs:
+            manager_name = kwargs['managerName']
+        if manager_name is None:
+            raise TypeError("Missing 'manager_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if bandwidth_setting_name is None and 'bandwidthSettingName' in kwargs:
+            bandwidth_setting_name = kwargs['bandwidthSettingName']
+
+        _setter("manager_name", manager_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("schedules", schedules)
         if bandwidth_setting_name is not None:
-            pulumi.set(__self__, "bandwidth_setting_name", bandwidth_setting_name)
+            _setter("bandwidth_setting_name", bandwidth_setting_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="managerName")
@@ -140,6 +171,10 @@ class BandwidthSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BandwidthSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

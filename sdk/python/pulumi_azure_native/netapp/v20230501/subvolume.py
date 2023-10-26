@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -34,18 +34,63 @@ class SubvolumeArgs:
         :param pulumi.Input[float] size: Truncate subvolume to the provided size in bytes
         :param pulumi.Input[str] subvolume_name: The name of the subvolume.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_name", volume_name)
+        SubvolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            pool_name=pool_name,
+            resource_group_name=resource_group_name,
+            volume_name=volume_name,
+            parent_path=parent_path,
+            path=path,
+            size=size,
+            subvolume_name=subvolume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             volume_name: Optional[pulumi.Input[str]] = None,
+             parent_path: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[float]] = None,
+             subvolume_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if pool_name is None and 'poolName' in kwargs:
+            pool_name = kwargs['poolName']
+        if pool_name is None:
+            raise TypeError("Missing 'pool_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if volume_name is None and 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+        if volume_name is None:
+            raise TypeError("Missing 'volume_name' argument")
+        if parent_path is None and 'parentPath' in kwargs:
+            parent_path = kwargs['parentPath']
+        if subvolume_name is None and 'subvolumeName' in kwargs:
+            subvolume_name = kwargs['subvolumeName']
+
+        _setter("account_name", account_name)
+        _setter("pool_name", pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("volume_name", volume_name)
         if parent_path is not None:
-            pulumi.set(__self__, "parent_path", parent_path)
+            _setter("parent_path", parent_path)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if subvolume_name is not None:
-            pulumi.set(__self__, "subvolume_name", subvolume_name)
+            _setter("subvolume_name", subvolume_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -191,6 +236,10 @@ class Subvolume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubvolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

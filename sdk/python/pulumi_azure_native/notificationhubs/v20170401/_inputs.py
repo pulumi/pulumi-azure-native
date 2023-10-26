@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,12 +33,33 @@ class AdmCredentialArgs:
         :param pulumi.Input[str] client_id: The client identifier.
         :param pulumi.Input[str] client_secret: The credential secret access key.
         """
+        AdmCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_token_url=auth_token_url,
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_token_url: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_token_url is None and 'authTokenUrl' in kwargs:
+            auth_token_url = kwargs['authTokenUrl']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         if auth_token_url is not None:
-            pulumi.set(__self__, "auth_token_url", auth_token_url)
+            _setter("auth_token_url", auth_token_url)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
 
     @property
     @pulumi.getter(name="authTokenUrl")
@@ -99,22 +120,57 @@ class ApnsCredentialArgs:
         :param pulumi.Input[str] thumbprint: The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
         :param pulumi.Input[str] token: Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
         """
+        ApnsCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apns_certificate=apns_certificate,
+            app_id=app_id,
+            app_name=app_name,
+            certificate_key=certificate_key,
+            endpoint=endpoint,
+            key_id=key_id,
+            thumbprint=thumbprint,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apns_certificate: Optional[pulumi.Input[str]] = None,
+             app_id: Optional[pulumi.Input[str]] = None,
+             app_name: Optional[pulumi.Input[str]] = None,
+             certificate_key: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apns_certificate is None and 'apnsCertificate' in kwargs:
+            apns_certificate = kwargs['apnsCertificate']
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_name is None and 'appName' in kwargs:
+            app_name = kwargs['appName']
+        if certificate_key is None and 'certificateKey' in kwargs:
+            certificate_key = kwargs['certificateKey']
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+
         if apns_certificate is not None:
-            pulumi.set(__self__, "apns_certificate", apns_certificate)
+            _setter("apns_certificate", apns_certificate)
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if app_name is not None:
-            pulumi.set(__self__, "app_name", app_name)
+            _setter("app_name", app_name)
         if certificate_key is not None:
-            pulumi.set(__self__, "certificate_key", certificate_key)
+            _setter("certificate_key", certificate_key)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if key_id is not None:
-            pulumi.set(__self__, "key_id", key_id)
+            _setter("key_id", key_id)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
 
     @property
     @pulumi.getter(name="apnsCertificate")
@@ -225,12 +281,33 @@ class BaiduCredentialArgs:
         :param pulumi.Input[str] baidu_end_point: Baidu Endpoint.
         :param pulumi.Input[str] baidu_secret_key: Baidu Secret Key
         """
+        BaiduCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            baidu_api_key=baidu_api_key,
+            baidu_end_point=baidu_end_point,
+            baidu_secret_key=baidu_secret_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             baidu_api_key: Optional[pulumi.Input[str]] = None,
+             baidu_end_point: Optional[pulumi.Input[str]] = None,
+             baidu_secret_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if baidu_api_key is None and 'baiduApiKey' in kwargs:
+            baidu_api_key = kwargs['baiduApiKey']
+        if baidu_end_point is None and 'baiduEndPoint' in kwargs:
+            baidu_end_point = kwargs['baiduEndPoint']
+        if baidu_secret_key is None and 'baiduSecretKey' in kwargs:
+            baidu_secret_key = kwargs['baiduSecretKey']
+
         if baidu_api_key is not None:
-            pulumi.set(__self__, "baidu_api_key", baidu_api_key)
+            _setter("baidu_api_key", baidu_api_key)
         if baidu_end_point is not None:
-            pulumi.set(__self__, "baidu_end_point", baidu_end_point)
+            _setter("baidu_end_point", baidu_end_point)
         if baidu_secret_key is not None:
-            pulumi.set(__self__, "baidu_secret_key", baidu_secret_key)
+            _setter("baidu_secret_key", baidu_secret_key)
 
     @property
     @pulumi.getter(name="baiduApiKey")
@@ -279,10 +356,27 @@ class GcmCredentialArgs:
         :param pulumi.Input[str] gcm_endpoint: The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
         :param pulumi.Input[str] google_api_key: The Google API key.
         """
+        GcmCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gcm_endpoint=gcm_endpoint,
+            google_api_key=google_api_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gcm_endpoint: Optional[pulumi.Input[str]] = None,
+             google_api_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gcm_endpoint is None and 'gcmEndpoint' in kwargs:
+            gcm_endpoint = kwargs['gcmEndpoint']
+        if google_api_key is None and 'googleApiKey' in kwargs:
+            google_api_key = kwargs['googleApiKey']
+
         if gcm_endpoint is not None:
-            pulumi.set(__self__, "gcm_endpoint", gcm_endpoint)
+            _setter("gcm_endpoint", gcm_endpoint)
         if google_api_key is not None:
-            pulumi.set(__self__, "google_api_key", google_api_key)
+            _setter("google_api_key", google_api_key)
 
     @property
     @pulumi.getter(name="gcmEndpoint")
@@ -321,12 +415,31 @@ class MpnsCredentialArgs:
         :param pulumi.Input[str] mpns_certificate: The MPNS certificate.
         :param pulumi.Input[str] thumbprint: The MPNS certificate Thumbprint
         """
+        MpnsCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_key=certificate_key,
+            mpns_certificate=mpns_certificate,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_key: Optional[pulumi.Input[str]] = None,
+             mpns_certificate: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_key is None and 'certificateKey' in kwargs:
+            certificate_key = kwargs['certificateKey']
+        if mpns_certificate is None and 'mpnsCertificate' in kwargs:
+            mpns_certificate = kwargs['mpnsCertificate']
+
         if certificate_key is not None:
-            pulumi.set(__self__, "certificate_key", certificate_key)
+            _setter("certificate_key", certificate_key)
         if mpns_certificate is not None:
-            pulumi.set(__self__, "mpns_certificate", mpns_certificate)
+            _setter("mpns_certificate", mpns_certificate)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="certificateKey")
@@ -373,8 +486,19 @@ class SharedAccessAuthorizationRulePropertiesArgs:
         SharedAccessAuthorizationRule properties.
         :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         """
+        SharedAccessAuthorizationRulePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rights=rights,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if rights is not None:
-            pulumi.set(__self__, "rights", rights)
+            _setter("rights", rights)
 
     @property
     @pulumi.getter
@@ -405,15 +529,36 @@ class SkuArgs:
         :param pulumi.Input[str] size: The Sku size
         :param pulumi.Input[str] tier: The tier of particular sku
         """
-        pulumi.set(__self__, "name", name)
+        SkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            family=family,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -488,12 +633,33 @@ class WnsCredentialArgs:
         :param pulumi.Input[str] secret_key: The secret key.
         :param pulumi.Input[str] windows_live_endpoint: The Windows Live endpoint.
         """
+        WnsCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            package_sid=package_sid,
+            secret_key=secret_key,
+            windows_live_endpoint=windows_live_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             package_sid: Optional[pulumi.Input[str]] = None,
+             secret_key: Optional[pulumi.Input[str]] = None,
+             windows_live_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if package_sid is None and 'packageSid' in kwargs:
+            package_sid = kwargs['packageSid']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if windows_live_endpoint is None and 'windowsLiveEndpoint' in kwargs:
+            windows_live_endpoint = kwargs['windowsLiveEndpoint']
+
         if package_sid is not None:
-            pulumi.set(__self__, "package_sid", package_sid)
+            _setter("package_sid", package_sid)
         if secret_key is not None:
-            pulumi.set(__self__, "secret_key", secret_key)
+            _setter("secret_key", secret_key)
         if windows_live_endpoint is not None:
-            pulumi.set(__self__, "windows_live_endpoint", windows_live_endpoint)
+            _setter("windows_live_endpoint", windows_live_endpoint)
 
     @property
     @pulumi.getter(name="packageSid")

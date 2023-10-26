@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,65 @@ class SpacecraftArgs:
         :param pulumi.Input[str] tle_line1: Line 1 of the two-line element set (TLE).
         :param pulumi.Input[str] tle_line2: Line 2 of the two-line element set (TLE).
         """
-        pulumi.set(__self__, "norad_id", norad_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SpacecraftArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            norad_id=norad_id,
+            resource_group_name=resource_group_name,
+            links=links,
+            location=location,
+            spacecraft_name=spacecraft_name,
+            tags=tags,
+            title_line=title_line,
+            tle_line1=tle_line1,
+            tle_line2=tle_line2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             norad_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             spacecraft_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             title_line: Optional[pulumi.Input[str]] = None,
+             tle_line1: Optional[pulumi.Input[str]] = None,
+             tle_line2: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if norad_id is None and 'noradId' in kwargs:
+            norad_id = kwargs['noradId']
+        if norad_id is None:
+            raise TypeError("Missing 'norad_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if spacecraft_name is None and 'spacecraftName' in kwargs:
+            spacecraft_name = kwargs['spacecraftName']
+        if title_line is None and 'titleLine' in kwargs:
+            title_line = kwargs['titleLine']
+        if tle_line1 is None and 'tleLine1' in kwargs:
+            tle_line1 = kwargs['tleLine1']
+        if tle_line2 is None and 'tleLine2' in kwargs:
+            tle_line2 = kwargs['tleLine2']
+
+        _setter("norad_id", norad_id)
+        _setter("resource_group_name", resource_group_name)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if spacecraft_name is not None:
-            pulumi.set(__self__, "spacecraft_name", spacecraft_name)
+            _setter("spacecraft_name", spacecraft_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if title_line is not None:
-            pulumi.set(__self__, "title_line", title_line)
+            _setter("title_line", title_line)
         if tle_line1 is not None:
-            pulumi.set(__self__, "tle_line1", tle_line1)
+            _setter("tle_line1", tle_line1)
         if tle_line2 is not None:
-            pulumi.set(__self__, "tle_line2", tle_line2)
+            _setter("tle_line2", tle_line2)
 
     @property
     @pulumi.getter(name="noradId")
@@ -213,6 +256,10 @@ class Spacecraft(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpacecraftArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

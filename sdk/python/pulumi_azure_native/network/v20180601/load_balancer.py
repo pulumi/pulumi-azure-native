@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -51,35 +51,96 @@ class LoadBalancerArgs:
         :param pulumi.Input['LoadBalancerSkuArgs'] sku: The load balancer SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LoadBalancerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            backend_address_pools=backend_address_pools,
+            frontend_ip_configurations=frontend_ip_configurations,
+            id=id,
+            inbound_nat_pools=inbound_nat_pools,
+            inbound_nat_rules=inbound_nat_rules,
+            load_balancer_name=load_balancer_name,
+            load_balancing_rules=load_balancing_rules,
+            location=location,
+            outbound_nat_rules=outbound_nat_rules,
+            probes=probes,
+            provisioning_state=provisioning_state,
+            resource_guid=resource_guid,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]] = None,
+             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatPoolArgs']]]] = None,
+             inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNatRuleArgs']]]] = None,
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
+             load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             outbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['OutboundNatRuleArgs']]]] = None,
+             probes: Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             resource_guid: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['LoadBalancerSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if backend_address_pools is None and 'backendAddressPools' in kwargs:
+            backend_address_pools = kwargs['backendAddressPools']
+        if frontend_ip_configurations is None and 'frontendIPConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIPConfigurations']
+        if inbound_nat_pools is None and 'inboundNatPools' in kwargs:
+            inbound_nat_pools = kwargs['inboundNatPools']
+        if inbound_nat_rules is None and 'inboundNatRules' in kwargs:
+            inbound_nat_rules = kwargs['inboundNatRules']
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if load_balancing_rules is None and 'loadBalancingRules' in kwargs:
+            load_balancing_rules = kwargs['loadBalancingRules']
+        if outbound_nat_rules is None and 'outboundNatRules' in kwargs:
+            outbound_nat_rules = kwargs['outboundNatRules']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if resource_guid is None and 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+
+        _setter("resource_group_name", resource_group_name)
         if backend_address_pools is not None:
-            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+            _setter("backend_address_pools", backend_address_pools)
         if frontend_ip_configurations is not None:
-            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+            _setter("frontend_ip_configurations", frontend_ip_configurations)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if inbound_nat_pools is not None:
-            pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
+            _setter("inbound_nat_pools", inbound_nat_pools)
         if inbound_nat_rules is not None:
-            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+            _setter("inbound_nat_rules", inbound_nat_rules)
         if load_balancer_name is not None:
-            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+            _setter("load_balancer_name", load_balancer_name)
         if load_balancing_rules is not None:
-            pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+            _setter("load_balancing_rules", load_balancing_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if outbound_nat_rules is not None:
-            pulumi.set(__self__, "outbound_nat_rules", outbound_nat_rules)
+            _setter("outbound_nat_rules", outbound_nat_rules)
         if probes is not None:
-            pulumi.set(__self__, "probes", probes)
+            _setter("probes", probes)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if resource_guid is not None:
-            pulumi.set(__self__, "resource_guid", resource_guid)
+            _setter("resource_guid", resource_guid)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -325,6 +386,10 @@ class LoadBalancer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoadBalancerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -369,6 +434,7 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_guid"] = resource_guid
+            sku = _utilities.configure(sku, LoadBalancerSkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None

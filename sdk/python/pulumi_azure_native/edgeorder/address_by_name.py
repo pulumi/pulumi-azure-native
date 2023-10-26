@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,16 +32,49 @@ class AddressByNameArgs:
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping details for the address
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "contact_details", contact_details)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AddressByNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contact_details=contact_details,
+            resource_group_name=resource_group_name,
+            address_name=address_name,
+            location=location,
+            shipping_address=shipping_address,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contact_details: Optional[pulumi.Input['ContactDetailsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             address_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             shipping_address: Optional[pulumi.Input['ShippingAddressArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_details is None and 'contactDetails' in kwargs:
+            contact_details = kwargs['contactDetails']
+        if contact_details is None:
+            raise TypeError("Missing 'contact_details' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if address_name is None and 'addressName' in kwargs:
+            address_name = kwargs['addressName']
+        if shipping_address is None and 'shippingAddress' in kwargs:
+            shipping_address = kwargs['shippingAddress']
+
+        _setter("contact_details", contact_details)
+        _setter("resource_group_name", resource_group_name)
         if address_name is not None:
-            pulumi.set(__self__, "address_name", address_name)
+            _setter("address_name", address_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if shipping_address is not None:
-            pulumi.set(__self__, "shipping_address", shipping_address)
+            _setter("shipping_address", shipping_address)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -161,6 +194,10 @@ class AddressByName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AddressByNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -182,6 +219,7 @@ class AddressByName(pulumi.CustomResource):
             __props__ = AddressByNameArgs.__new__(AddressByNameArgs)
 
             __props__.__dict__["address_name"] = address_name
+            contact_details = _utilities.configure(contact_details, ContactDetailsArgs, True)
             if contact_details is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_details'")
             __props__.__dict__["contact_details"] = contact_details
@@ -189,6 +227,7 @@ class AddressByName(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            shipping_address = _utilities.configure(shipping_address, ShippingAddressArgs, True)
             __props__.__dict__["shipping_address"] = shipping_address
             __props__.__dict__["tags"] = tags
             __props__.__dict__["address_validation_status"] = None

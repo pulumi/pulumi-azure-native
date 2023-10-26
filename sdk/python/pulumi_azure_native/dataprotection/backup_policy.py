@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,12 +28,39 @@ class BackupPolicyInitArgs:
         :param pulumi.Input[str] backup_policy_name: Name of the policy
         :param pulumi.Input['BackupPolicyArgs'] properties: BaseBackupPolicyResource properties
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vault_name", vault_name)
+        BackupPolicyInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            vault_name=vault_name,
+            backup_policy_name=backup_policy_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             backup_policy_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['BackupPolicyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vault_name is None and 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+        if vault_name is None:
+            raise TypeError("Missing 'vault_name' argument")
+        if backup_policy_name is None and 'backupPolicyName' in kwargs:
+            backup_policy_name = kwargs['backupPolicyName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("vault_name", vault_name)
         if backup_policy_name is not None:
-            pulumi.set(__self__, "backup_policy_name", backup_policy_name)
+            _setter("backup_policy_name", backup_policy_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -129,6 +156,10 @@ class BackupPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupPolicyInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -148,6 +179,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__ = BackupPolicyInitArgs.__new__(BackupPolicyInitArgs)
 
             __props__.__dict__["backup_policy_name"] = backup_policy_name
+            properties = _utilities.configure(properties, BackupPolicyArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

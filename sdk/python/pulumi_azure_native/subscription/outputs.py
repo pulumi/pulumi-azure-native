@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -86,27 +86,86 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
         :param Mapping[str, str] tags: Tags for the subscription
         :param str workload: The workload type of the subscription. It can be either Production or DevTest.
         """
-        pulumi.set(__self__, "accept_ownership_state", accept_ownership_state)
-        pulumi.set(__self__, "accept_ownership_url", accept_ownership_url)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        SubscriptionAliasResponsePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_ownership_state=accept_ownership_state,
+            accept_ownership_url=accept_ownership_url,
+            subscription_id=subscription_id,
+            billing_scope=billing_scope,
+            created_time=created_time,
+            display_name=display_name,
+            management_group_id=management_group_id,
+            provisioning_state=provisioning_state,
+            reseller_id=reseller_id,
+            subscription_owner_id=subscription_owner_id,
+            tags=tags,
+            workload=workload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_ownership_state: Optional[str] = None,
+             accept_ownership_url: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             billing_scope: Optional[str] = None,
+             created_time: Optional[str] = None,
+             display_name: Optional[str] = None,
+             management_group_id: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             reseller_id: Optional[str] = None,
+             subscription_owner_id: Optional[str] = None,
+             tags: Optional[Mapping[str, str]] = None,
+             workload: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accept_ownership_state is None and 'acceptOwnershipState' in kwargs:
+            accept_ownership_state = kwargs['acceptOwnershipState']
+        if accept_ownership_state is None:
+            raise TypeError("Missing 'accept_ownership_state' argument")
+        if accept_ownership_url is None and 'acceptOwnershipUrl' in kwargs:
+            accept_ownership_url = kwargs['acceptOwnershipUrl']
+        if accept_ownership_url is None:
+            raise TypeError("Missing 'accept_ownership_url' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if billing_scope is None and 'billingScope' in kwargs:
+            billing_scope = kwargs['billingScope']
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if reseller_id is None and 'resellerId' in kwargs:
+            reseller_id = kwargs['resellerId']
+        if subscription_owner_id is None and 'subscriptionOwnerId' in kwargs:
+            subscription_owner_id = kwargs['subscriptionOwnerId']
+
+        _setter("accept_ownership_state", accept_ownership_state)
+        _setter("accept_ownership_url", accept_ownership_url)
+        _setter("subscription_id", subscription_id)
         if billing_scope is not None:
-            pulumi.set(__self__, "billing_scope", billing_scope)
+            _setter("billing_scope", billing_scope)
         if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
+            _setter("created_time", created_time)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if reseller_id is not None:
-            pulumi.set(__self__, "reseller_id", reseller_id)
+            _setter("reseller_id", reseller_id)
         if subscription_owner_id is not None:
-            pulumi.set(__self__, "subscription_owner_id", subscription_owner_id)
+            _setter("subscription_owner_id", subscription_owner_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workload is not None:
-            pulumi.set(__self__, "workload", workload)
+            _setter("workload", workload)
 
     @property
     @pulumi.getter(name="acceptOwnershipState")
@@ -256,18 +315,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

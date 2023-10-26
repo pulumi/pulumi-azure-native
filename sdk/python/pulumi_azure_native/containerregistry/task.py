@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -52,40 +52,99 @@ class TaskArgs:
         :param pulumi.Input[int] timeout: Run timeout in seconds.
         :param pulumi.Input['TriggerPropertiesArgs'] trigger: The properties that describe all triggers for the task.
         """
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            agent_configuration=agent_configuration,
+            agent_pool_name=agent_pool_name,
+            credentials=credentials,
+            identity=identity,
+            is_system_task=is_system_task,
+            location=location,
+            log_template=log_template,
+            platform=platform,
+            status=status,
+            step=step,
+            tags=tags,
+            task_name=task_name,
+            timeout=timeout,
+            trigger=trigger,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             agent_configuration: Optional[pulumi.Input['AgentPropertiesArgs']] = None,
+             agent_pool_name: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+             is_system_task: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_template: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input['PlatformPropertiesArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'TaskStatus']]] = None,
+             step: Optional[pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             task_name: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             trigger: Optional[pulumi.Input['TriggerPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if agent_configuration is None and 'agentConfiguration' in kwargs:
+            agent_configuration = kwargs['agentConfiguration']
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if is_system_task is None and 'isSystemTask' in kwargs:
+            is_system_task = kwargs['isSystemTask']
+        if log_template is None and 'logTemplate' in kwargs:
+            log_template = kwargs['logTemplate']
+        if task_name is None and 'taskName' in kwargs:
+            task_name = kwargs['taskName']
+
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if agent_configuration is not None:
-            pulumi.set(__self__, "agent_configuration", agent_configuration)
+            _setter("agent_configuration", agent_configuration)
         if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+            _setter("agent_pool_name", agent_pool_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if is_system_task is None:
             is_system_task = False
         if is_system_task is not None:
-            pulumi.set(__self__, "is_system_task", is_system_task)
+            _setter("is_system_task", is_system_task)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_template is not None:
-            pulumi.set(__self__, "log_template", log_template)
+            _setter("log_template", log_template)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if step is not None:
-            pulumi.set(__self__, "step", step)
+            _setter("step", step)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if task_name is not None:
-            pulumi.set(__self__, "task_name", task_name)
+            _setter("task_name", task_name)
         if timeout is None:
             timeout = 3600
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if trigger is not None:
-            pulumi.set(__self__, "trigger", trigger)
+            _setter("trigger", trigger)
 
     @property
     @pulumi.getter(name="registryName")
@@ -351,6 +410,10 @@ class Task(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -381,15 +444,19 @@ class Task(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TaskArgs.__new__(TaskArgs)
 
+            agent_configuration = _utilities.configure(agent_configuration, AgentPropertiesArgs, True)
             __props__.__dict__["agent_configuration"] = agent_configuration
             __props__.__dict__["agent_pool_name"] = agent_pool_name
+            credentials = _utilities.configure(credentials, CredentialsArgs, True)
             __props__.__dict__["credentials"] = credentials
+            identity = _utilities.configure(identity, IdentityPropertiesArgs, True)
             __props__.__dict__["identity"] = identity
             if is_system_task is None:
                 is_system_task = False
             __props__.__dict__["is_system_task"] = is_system_task
             __props__.__dict__["location"] = location
             __props__.__dict__["log_template"] = log_template
+            platform = _utilities.configure(platform, PlatformPropertiesArgs, True)
             __props__.__dict__["platform"] = platform
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
@@ -404,6 +471,7 @@ class Task(pulumi.CustomResource):
             if timeout is None:
                 timeout = 3600
             __props__.__dict__["timeout"] = timeout
+            trigger = _utilities.configure(trigger, TriggerPropertiesArgs, True)
             __props__.__dict__["trigger"] = trigger
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["name"] = None

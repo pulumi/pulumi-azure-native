@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,7 +34,20 @@ class AttachedDataNetworkResourceIdResponse(dict):
         Reference to an Attached Data Network resource.
         :param str id: Attached Data Network resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        AttachedDataNetworkResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -56,7 +69,20 @@ class CustomLocationResourceIdResponse(dict):
         Reference to an Azure ARC custom location resource.
         :param str id: Azure ARC custom location resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        CustomLocationResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -105,13 +131,38 @@ class InterfacePropertiesResponse(dict):
         :param str ipv4_gateway: The default IPv4 gateway (router).
         :param str ipv4_subnet: The IPv4 subnet.
         """
-        pulumi.set(__self__, "name", name)
+        InterfacePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            ipv4_address=ipv4_address,
+            ipv4_gateway=ipv4_gateway,
+            ipv4_subnet=ipv4_subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             ipv4_address: Optional[str] = None,
+             ipv4_gateway: Optional[str] = None,
+             ipv4_subnet: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if ipv4_address is None and 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+        if ipv4_gateway is None and 'ipv4Gateway' in kwargs:
+            ipv4_gateway = kwargs['ipv4Gateway']
+        if ipv4_subnet is None and 'ipv4Subnet' in kwargs:
+            ipv4_subnet = kwargs['ipv4Subnet']
+
+        _setter("name", name)
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
         if ipv4_gateway is not None:
-            pulumi.set(__self__, "ipv4_gateway", ipv4_gateway)
+            _setter("ipv4_gateway", ipv4_gateway)
         if ipv4_subnet is not None:
-            pulumi.set(__self__, "ipv4_subnet", ipv4_subnet)
+            _setter("ipv4_subnet", ipv4_subnet)
 
     @property
     @pulumi.getter
@@ -157,7 +208,20 @@ class MobileNetworkResourceIdResponse(dict):
         Reference to a Mobile Network resource.
         :param str id: Mobile Network resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        MobileNetworkResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -179,7 +243,20 @@ class SimPolicyResourceIdResponse(dict):
         Reference to a SIM Policy resource.
         :param str id: SIM Policy resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        SimPolicyResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -224,12 +301,31 @@ class SimStaticIpPropertiesResponse(dict):
         :param 'SliceResourceIdResponse' slice: The network slice on which the static IP address will be used. The combination of attachedDataNetwork and slice defines the network scope of the IP address.
         :param 'SimStaticIpPropertiesResponseStaticIp' static_ip: The static IP configuration for the sim to use at the defined network scope.
         """
+        SimStaticIpPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_data_network=attached_data_network,
+            slice=slice,
+            static_ip=static_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_data_network: Optional['outputs.AttachedDataNetworkResourceIdResponse'] = None,
+             slice: Optional['outputs.SliceResourceIdResponse'] = None,
+             static_ip: Optional['outputs.SimStaticIpPropertiesResponseStaticIp'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attached_data_network is None and 'attachedDataNetwork' in kwargs:
+            attached_data_network = kwargs['attachedDataNetwork']
+        if static_ip is None and 'staticIp' in kwargs:
+            static_ip = kwargs['staticIp']
+
         if attached_data_network is not None:
-            pulumi.set(__self__, "attached_data_network", attached_data_network)
+            _setter("attached_data_network", attached_data_network)
         if slice is not None:
-            pulumi.set(__self__, "slice", slice)
+            _setter("slice", slice)
         if static_ip is not None:
-            pulumi.set(__self__, "static_ip", static_ip)
+            _setter("static_ip", static_ip)
 
     @property
     @pulumi.getter(name="attachedDataNetwork")
@@ -284,8 +380,21 @@ class SimStaticIpPropertiesResponseStaticIp(dict):
         The static IP configuration for the sim to use at the defined network scope.
         :param str ipv4_address: The IPv4 address assigned to the sim at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attachedDataNetwork.
         """
+        SimStaticIpPropertiesResponseStaticIp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4_address=ipv4_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv4_address is None and 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
 
     @property
     @pulumi.getter(name="ipv4Address")
@@ -307,7 +416,20 @@ class SliceResourceIdResponse(dict):
         Reference to a Slice resource.
         :param str id: Slice resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        SliceResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -366,18 +488,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

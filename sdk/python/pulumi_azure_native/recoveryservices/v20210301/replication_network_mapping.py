@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,53 @@ class ReplicationNetworkMappingArgs:
         :param pulumi.Input[str] network_mapping_name: Network mapping name.
         :param pulumi.Input['CreateNetworkMappingInputPropertiesArgs'] properties: Input properties for creating network mapping.
         """
-        pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "network_name", network_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        ReplicationNetworkMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_name=fabric_name,
+            network_name=network_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            network_mapping_name=network_mapping_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_name: Optional[pulumi.Input[str]] = None,
+             network_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             network_mapping_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fabric_name is None and 'fabricName' in kwargs:
+            fabric_name = kwargs['fabricName']
+        if fabric_name is None:
+            raise TypeError("Missing 'fabric_name' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if network_mapping_name is None and 'networkMappingName' in kwargs:
+            network_mapping_name = kwargs['networkMappingName']
+
+        _setter("fabric_name", fabric_name)
+        _setter("network_name", network_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if network_mapping_name is not None:
-            pulumi.set(__self__, "network_mapping_name", network_mapping_name)
+            _setter("network_mapping_name", network_mapping_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -156,6 +195,10 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationNetworkMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -183,6 +226,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
             if network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_name'")
             __props__.__dict__["network_name"] = network_name
+            properties = _utilities.configure(properties, CreateNetworkMappingInputPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

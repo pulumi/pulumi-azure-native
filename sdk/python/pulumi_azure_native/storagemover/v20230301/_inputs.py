@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -29,11 +29,40 @@ class AzureStorageBlobContainerEndpointPropertiesArgs:
         :param pulumi.Input[str] storage_account_resource_id: The Azure Resource ID of the storage account that is the target destination.
         :param pulumi.Input[str] description: A description for the Endpoint.
         """
-        pulumi.set(__self__, "blob_container_name", blob_container_name)
-        pulumi.set(__self__, "endpoint_type", 'AzureStorageBlobContainer')
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        AzureStorageBlobContainerEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_container_name=blob_container_name,
+            endpoint_type=endpoint_type,
+            storage_account_resource_id=storage_account_resource_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_container_name: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blob_container_name is None and 'blobContainerName' in kwargs:
+            blob_container_name = kwargs['blobContainerName']
+        if blob_container_name is None:
+            raise TypeError("Missing 'blob_container_name' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if storage_account_resource_id is None and 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+        if storage_account_resource_id is None:
+            raise TypeError("Missing 'storage_account_resource_id' argument")
+
+        _setter("blob_container_name", blob_container_name)
+        _setter("endpoint_type", 'AzureStorageBlobContainer')
+        _setter("storage_account_resource_id", storage_account_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="blobContainerName")
@@ -101,13 +130,42 @@ class NfsMountEndpointPropertiesArgs:
         :param pulumi.Input[str] description: A description for the Endpoint.
         :param pulumi.Input[Union[str, 'NfsVersion']] nfs_version: The NFS protocol version.
         """
-        pulumi.set(__self__, "endpoint_type", 'NfsMount')
-        pulumi.set(__self__, "export", export)
-        pulumi.set(__self__, "host", host)
+        NfsMountEndpointPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            export=export,
+            host=host,
+            description=description,
+            nfs_version=nfs_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             export: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             nfs_version: Optional[pulumi.Input[Union[str, 'NfsVersion']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if export is None:
+            raise TypeError("Missing 'export' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if nfs_version is None and 'nfsVersion' in kwargs:
+            nfs_version = kwargs['nfsVersion']
+
+        _setter("endpoint_type", 'NfsMount')
+        _setter("export", export)
+        _setter("host", host)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if nfs_version is not None:
-            pulumi.set(__self__, "nfs_version", nfs_version)
+            _setter("nfs_version", nfs_version)
 
     @property
     @pulumi.getter(name="endpointType")

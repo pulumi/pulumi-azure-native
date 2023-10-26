@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,8 +26,21 @@ class GatewayDetailsArgs:
         The gateway details.
         :param pulumi.Input[str] gateway_resource_id: Gateway resource to be associated with the server.
         """
+        GatewayDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_resource_id=gateway_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_resource_id is None and 'gatewayResourceId' in kwargs:
+            gateway_resource_id = kwargs['gatewayResourceId']
+
         if gateway_resource_id is not None:
-            pulumi.set(__self__, "gateway_resource_id", gateway_resource_id)
+            _setter("gateway_resource_id", gateway_resource_id)
 
     @property
     @pulumi.getter(name="gatewayResourceId")
@@ -54,12 +67,33 @@ class IPv4FirewallRuleArgs:
         :param pulumi.Input[str] range_end: The end range of IPv4.
         :param pulumi.Input[str] range_start: The start range of IPv4.
         """
+        IPv4FirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            firewall_rule_name=firewall_rule_name,
+            range_end=range_end,
+            range_start=range_start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             firewall_rule_name: Optional[pulumi.Input[str]] = None,
+             range_end: Optional[pulumi.Input[str]] = None,
+             range_start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_rule_name is None and 'firewallRuleName' in kwargs:
+            firewall_rule_name = kwargs['firewallRuleName']
+        if range_end is None and 'rangeEnd' in kwargs:
+            range_end = kwargs['rangeEnd']
+        if range_start is None and 'rangeStart' in kwargs:
+            range_start = kwargs['rangeStart']
+
         if firewall_rule_name is not None:
-            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
+            _setter("firewall_rule_name", firewall_rule_name)
         if range_end is not None:
-            pulumi.set(__self__, "range_end", range_end)
+            _setter("range_end", range_end)
         if range_start is not None:
-            pulumi.set(__self__, "range_start", range_start)
+            _setter("range_start", range_start)
 
     @property
     @pulumi.getter(name="firewallRuleName")
@@ -108,10 +142,27 @@ class IPv4FirewallSettingsArgs:
         :param pulumi.Input[bool] enable_power_bi_service: The indicator of enabling PBI service.
         :param pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]] firewall_rules: An array of firewall rules.
         """
+        IPv4FirewallSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_power_bi_service=enable_power_bi_service,
+            firewall_rules=firewall_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
+             firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPv4FirewallRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_power_bi_service is None and 'enablePowerBIService' in kwargs:
+            enable_power_bi_service = kwargs['enablePowerBIService']
+        if firewall_rules is None and 'firewallRules' in kwargs:
+            firewall_rules = kwargs['firewallRules']
+
         if enable_power_bi_service is not None:
-            pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
+            _setter("enable_power_bi_service", enable_power_bi_service)
         if firewall_rules is not None:
-            pulumi.set(__self__, "firewall_rules", firewall_rules)
+            _setter("firewall_rules", firewall_rules)
 
     @property
     @pulumi.getter(name="enablePowerBIService")
@@ -150,13 +201,30 @@ class ResourceSkuArgs:
         :param pulumi.Input[int] capacity: The number of instances in the read only query pool.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
         """
-        pulumi.set(__self__, "name", name)
+        ResourceSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is None:
             capacity = 1
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -203,8 +271,19 @@ class ServerAdministratorsArgs:
         An array of administrator user identities.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: An array of administrator user identities.
         """
+        ServerAdministratorsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            members=members,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
 
     @property
     @pulumi.getter

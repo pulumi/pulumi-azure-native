@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,41 +56,108 @@ class NamespaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] updated_at: The time the namespace was updated.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            created_at=created_at,
+            critical=critical,
+            data_center=data_center,
+            enabled=enabled,
+            location=location,
+            name=name,
+            namespace_name=namespace_name,
+            namespace_type=namespace_type,
+            provisioning_state=provisioning_state,
+            region=region,
+            scale_unit=scale_unit,
+            service_bus_endpoint=service_bus_endpoint,
+            sku=sku,
+            status=status,
+            subscription_id=subscription_id,
+            tags=tags,
+            updated_at=updated_at,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             created_at: Optional[pulumi.Input[str]] = None,
+             critical: Optional[pulumi.Input[bool]] = None,
+             data_center: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             namespace_type: Optional[pulumi.Input['NamespaceType']] = None,
+             provisioning_state: Optional[pulumi.Input[str]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             scale_unit: Optional[pulumi.Input[str]] = None,
+             service_bus_endpoint: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             updated_at: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if data_center is None and 'dataCenter' in kwargs:
+            data_center = kwargs['dataCenter']
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_type is None and 'namespaceType' in kwargs:
+            namespace_type = kwargs['namespaceType']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if scale_unit is None and 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+        if service_bus_endpoint is None and 'serviceBusEndpoint' in kwargs:
+            service_bus_endpoint = kwargs['serviceBusEndpoint']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+
+        _setter("resource_group_name", resource_group_name)
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if critical is not None:
-            pulumi.set(__self__, "critical", critical)
+            _setter("critical", critical)
         if data_center is not None:
-            pulumi.set(__self__, "data_center", data_center)
+            _setter("data_center", data_center)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if namespace_type is not None:
-            pulumi.set(__self__, "namespace_type", namespace_type)
+            _setter("namespace_type", namespace_type)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
+            _setter("scale_unit", scale_unit)
         if service_bus_endpoint is not None:
-            pulumi.set(__self__, "service_bus_endpoint", service_bus_endpoint)
+            _setter("service_bus_endpoint", service_bus_endpoint)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
+            _setter("updated_at", updated_at)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -376,6 +443,10 @@ class Namespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -423,6 +494,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scale_unit"] = scale_unit
             __props__.__dict__["service_bus_endpoint"] = service_bus_endpoint
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["status"] = status
             __props__.__dict__["subscription_id"] = subscription_id

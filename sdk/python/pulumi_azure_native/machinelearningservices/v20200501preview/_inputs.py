@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -28,10 +28,27 @@ class DatasetCreateRequestDataPathArgs:
         :param pulumi.Input[str] datastore_name: The datastore name.
         :param pulumi.Input[str] relative_path: Path within the datastore.
         """
+        DatasetCreateRequestDataPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_name=datastore_name,
+            relative_path=relative_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             relative_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datastore_name is None and 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if relative_path is None and 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if relative_path is not None:
-            pulumi.set(__self__, "relative_path", relative_path)
+            _setter("relative_path", relative_path)
 
     @property
     @pulumi.getter(name="datastoreName")
@@ -75,22 +92,51 @@ class DatasetCreateRequestParametersArgs:
         :param pulumi.Input[str] separator: The separator used to split columns for 'delimited_files' sourceType.
         :param pulumi.Input[Union[str, 'SourceType']] source_type: Data source type.
         """
+        DatasetCreateRequestParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            include_path=include_path,
+            partition_format=partition_format,
+            path=path,
+            query=query,
+            separator=separator,
+            source_type=source_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: Optional[pulumi.Input[Union[str, 'Header']]] = None,
+             include_path: Optional[pulumi.Input[bool]] = None,
+             partition_format: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input['DatasetCreateRequestPathArgs']] = None,
+             query: Optional[pulumi.Input['DatasetCreateRequestQueryArgs']] = None,
+             separator: Optional[pulumi.Input[str]] = None,
+             source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if include_path is None and 'includePath' in kwargs:
+            include_path = kwargs['includePath']
+        if partition_format is None and 'partitionFormat' in kwargs:
+            partition_format = kwargs['partitionFormat']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if include_path is None:
             include_path = False
         if include_path is not None:
-            pulumi.set(__self__, "include_path", include_path)
+            _setter("include_path", include_path)
         if partition_format is not None:
-            pulumi.set(__self__, "partition_format", partition_format)
+            _setter("partition_format", partition_format)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if separator is not None:
-            pulumi.set(__self__, "separator", separator)
+            _setter("separator", separator)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
 
     @property
     @pulumi.getter
@@ -179,10 +225,27 @@ class DatasetCreateRequestPathArgs:
         """
         :param pulumi.Input[str] http_url: The Http URL.
         """
+        DatasetCreateRequestPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_path=data_path,
+            http_url=http_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_path: Optional[pulumi.Input['DatasetCreateRequestDataPathArgs']] = None,
+             http_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_path is None and 'dataPath' in kwargs:
+            data_path = kwargs['dataPath']
+        if http_url is None and 'httpUrl' in kwargs:
+            http_url = kwargs['httpUrl']
+
         if data_path is not None:
-            pulumi.set(__self__, "data_path", data_path)
+            _setter("data_path", data_path)
         if http_url is not None:
-            pulumi.set(__self__, "http_url", http_url)
+            _setter("http_url", http_url)
 
     @property
     @pulumi.getter(name="dataPath")
@@ -215,10 +278,25 @@ class DatasetCreateRequestQueryArgs:
         :param pulumi.Input[str] datastore_name: The SQL/PostgreSQL/MySQL datastore name.
         :param pulumi.Input[str] query: SQL Quey.
         """
+        DatasetCreateRequestQueryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datastore_name=datastore_name,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datastore_name: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datastore_name is None and 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+
         if datastore_name is not None:
-            pulumi.set(__self__, "datastore_name", datastore_name)
+            _setter("datastore_name", datastore_name)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
 
     @property
     @pulumi.getter(name="datastoreName")
@@ -256,12 +334,27 @@ class DatasetCreateRequestRegistrationArgs:
         :param pulumi.Input[str] name: The name of the dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags associated with the dataset.
         """
+        DatasetCreateRequestRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -309,10 +402,27 @@ class DatasetCreateRequestTimeSeriesArgs:
         :param pulumi.Input[str] coarse_grain_timestamp: Column name to be used as CoarseGrainTimestamp. Can only be used if 'fineGrainTimestamp' is specified and cannot be same as 'fineGrainTimestamp'.
         :param pulumi.Input[str] fine_grain_timestamp:  Column name to be used as FineGrainTimestamp
         """
+        DatasetCreateRequestTimeSeriesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            coarse_grain_timestamp=coarse_grain_timestamp,
+            fine_grain_timestamp=fine_grain_timestamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             coarse_grain_timestamp: Optional[pulumi.Input[str]] = None,
+             fine_grain_timestamp: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if coarse_grain_timestamp is None and 'coarseGrainTimestamp' in kwargs:
+            coarse_grain_timestamp = kwargs['coarseGrainTimestamp']
+        if fine_grain_timestamp is None and 'fineGrainTimestamp' in kwargs:
+            fine_grain_timestamp = kwargs['fineGrainTimestamp']
+
         if coarse_grain_timestamp is not None:
-            pulumi.set(__self__, "coarse_grain_timestamp", coarse_grain_timestamp)
+            _setter("coarse_grain_timestamp", coarse_grain_timestamp)
         if fine_grain_timestamp is not None:
-            pulumi.set(__self__, "fine_grain_timestamp", fine_grain_timestamp)
+            _setter("fine_grain_timestamp", fine_grain_timestamp)
 
     @property
     @pulumi.getter(name="coarseGrainTimestamp")

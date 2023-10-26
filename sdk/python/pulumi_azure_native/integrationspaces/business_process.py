@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,23 +39,74 @@ class BusinessProcessArgs:
         :param pulumi.Input[str] table_name: The table name of the business process.
         :param pulumi.Input[str] tracking_data_store_reference_name: The tracking data store reference name.
         """
-        pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "space_name", space_name)
+        BusinessProcessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_name=application_name,
+            resource_group_name=resource_group_name,
+            space_name=space_name,
+            business_process_mapping=business_process_mapping,
+            business_process_name=business_process_name,
+            business_process_stages=business_process_stages,
+            description=description,
+            identifier=identifier,
+            table_name=table_name,
+            tracking_data_store_reference_name=tracking_data_store_reference_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             space_name: Optional[pulumi.Input[str]] = None,
+             business_process_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input['BusinessProcessMappingItemArgs']]]] = None,
+             business_process_name: Optional[pulumi.Input[str]] = None,
+             business_process_stages: Optional[pulumi.Input[Mapping[str, pulumi.Input['BusinessProcessStageArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input['BusinessProcessIdentifierArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             tracking_data_store_reference_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if space_name is None and 'spaceName' in kwargs:
+            space_name = kwargs['spaceName']
+        if space_name is None:
+            raise TypeError("Missing 'space_name' argument")
+        if business_process_mapping is None and 'businessProcessMapping' in kwargs:
+            business_process_mapping = kwargs['businessProcessMapping']
+        if business_process_name is None and 'businessProcessName' in kwargs:
+            business_process_name = kwargs['businessProcessName']
+        if business_process_stages is None and 'businessProcessStages' in kwargs:
+            business_process_stages = kwargs['businessProcessStages']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if tracking_data_store_reference_name is None and 'trackingDataStoreReferenceName' in kwargs:
+            tracking_data_store_reference_name = kwargs['trackingDataStoreReferenceName']
+
+        _setter("application_name", application_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("space_name", space_name)
         if business_process_mapping is not None:
-            pulumi.set(__self__, "business_process_mapping", business_process_mapping)
+            _setter("business_process_mapping", business_process_mapping)
         if business_process_name is not None:
-            pulumi.set(__self__, "business_process_name", business_process_name)
+            _setter("business_process_name", business_process_name)
         if business_process_stages is not None:
-            pulumi.set(__self__, "business_process_stages", business_process_stages)
+            _setter("business_process_stages", business_process_stages)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
         if tracking_data_store_reference_name is not None:
-            pulumi.set(__self__, "tracking_data_store_reference_name", tracking_data_store_reference_name)
+            _setter("tracking_data_store_reference_name", tracking_data_store_reference_name)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -231,6 +282,10 @@ class BusinessProcess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BusinessProcessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -262,6 +317,7 @@ class BusinessProcess(pulumi.CustomResource):
             __props__.__dict__["business_process_name"] = business_process_name
             __props__.__dict__["business_process_stages"] = business_process_stages
             __props__.__dict__["description"] = description
+            identifier = _utilities.configure(identifier, BusinessProcessIdentifierArgs, True)
             __props__.__dict__["identifier"] = identifier
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

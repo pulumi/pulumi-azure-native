@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,8 +43,25 @@ class AssignmentResponse(dict):
         :param str id: Resource id for the assigned resource
         :param 'AssignmentStatusResponse' status: Indicates if the assignment is in a usable state
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "status", status)
+        AssignmentResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             status: Optional['outputs.AssignmentStatusResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
+        _setter("id", id)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -76,9 +93,24 @@ class AssignmentStatusResponse(dict):
         :param str state: State of the assignment resource
         :param str message: Reason for the status
         """
-        pulumi.set(__self__, "state", state)
+        AssignmentStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("state", state)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -133,13 +165,36 @@ class AzureDiskResponse(dict):
         :param 'EncryptionResponse' encryption: Encryption specifies the encryption configuration for the Azure Disk pool
         :param str sku_name: Sku name
         """
-        pulumi.set(__self__, "resource_group", resource_group)
+        AzureDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group=resource_group,
+            disks=disks,
+            encryption=encryption,
+            sku_name=sku_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group: Optional[str] = None,
+             disks: Optional[Sequence['outputs.DiskResponse']] = None,
+             encryption: Optional['outputs.EncryptionResponse'] = None,
+             sku_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
+        _setter("resource_group", resource_group)
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -187,8 +242,25 @@ class DiskResponse(dict):
         :param str id: ID is the disk identifier visible to the OS. It is typically the WWN or disk ID in formats such as eui.e8238fa6bf530001001b448b45263379 or 0x5002cf6cbc5dd460
         :param str reference: Reference is the location of the disk in an external system.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "reference", reference)
+        DiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            reference=reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             reference: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if reference is None:
+            raise TypeError("Missing 'reference' argument")
+
+        _setter("id", id)
+        _setter("reference", reference)
 
     @property
     @pulumi.getter
@@ -241,11 +313,32 @@ class ElasticSanResponse(dict):
         :param 'EncryptionResponse' encryption: Encryption specifies the encryption configuration for the Azure Disk pool
         :param str sku_name: Sku name
         """
-        pulumi.set(__self__, "resource_group", resource_group)
+        ElasticSanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group=resource_group,
+            encryption=encryption,
+            sku_name=sku_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group: Optional[str] = None,
+             encryption: Optional['outputs.EncryptionResponse'] = None,
+             sku_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if resource_group is None:
+            raise TypeError("Missing 'resource_group' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
+        _setter("resource_group", resource_group)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -308,9 +401,36 @@ class ElasticSanVolumePropertiesResponse(dict):
         :param str target_portal_hostname: iSCSI Target Portal Host Name
         :param int target_portal_port: iSCSI Target Portal Port
         """
-        pulumi.set(__self__, "target_iqn", target_iqn)
-        pulumi.set(__self__, "target_portal_hostname", target_portal_hostname)
-        pulumi.set(__self__, "target_portal_port", target_portal_port)
+        ElasticSanVolumePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_iqn=target_iqn,
+            target_portal_hostname=target_portal_hostname,
+            target_portal_port=target_portal_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_iqn: Optional[str] = None,
+             target_portal_hostname: Optional[str] = None,
+             target_portal_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_iqn is None and 'targetIqn' in kwargs:
+            target_iqn = kwargs['targetIqn']
+        if target_iqn is None:
+            raise TypeError("Missing 'target_iqn' argument")
+        if target_portal_hostname is None and 'targetPortalHostname' in kwargs:
+            target_portal_hostname = kwargs['targetPortalHostname']
+        if target_portal_hostname is None:
+            raise TypeError("Missing 'target_portal_hostname' argument")
+        if target_portal_port is None and 'targetPortalPort' in kwargs:
+            target_portal_port = kwargs['targetPortalPort']
+        if target_portal_port is None:
+            raise TypeError("Missing 'target_portal_port' argument")
+
+        _setter("target_iqn", target_iqn)
+        _setter("target_portal_hostname", target_portal_hostname)
+        _setter("target_portal_port", target_portal_port)
 
     @property
     @pulumi.getter(name="targetIqn")
@@ -371,10 +491,33 @@ class EncryptionResponse(dict):
         :param str key_vault_uri: The URI of the key vault.
         :param 'ManagedServiceIdentityResponse' identity: The managed service identities assigned to this resource.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        EncryptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_vault_uri is None:
+            raise TypeError("Missing 'key_vault_uri' argument")
+
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter(name="keyName")
@@ -414,12 +557,25 @@ class EphemeralDiskResponse(dict):
         :param Sequence['DiskResponse'] disks: Only required if individual disk selection is desired. Path to disk, e.g. <nodename>:/dev/sda or WWN. Supports specifying multiple disks (same syntax as tags).
         :param float replicas: The number of data copies. Default 3.
         """
+        EphemeralDiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disks=disks,
+            replicas=replicas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disks: Optional[Sequence['outputs.DiskResponse']] = None,
+             replicas: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if disks is not None:
-            pulumi.set(__self__, "disks", disks)
+            _setter("disks", disks)
         if replicas is None:
             replicas = 3
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
 
     @property
     @pulumi.getter
@@ -476,11 +632,40 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -551,12 +736,33 @@ class PoolTypeResponse(dict):
         :param 'ElasticSanResponse' elastic_san: Elastic San Pool Properties
         :param 'EphemeralDiskResponse' ephemeral_disk: Ephemeral Pool Properties
         """
+        PoolTypeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_disk=azure_disk,
+            elastic_san=elastic_san,
+            ephemeral_disk=ephemeral_disk,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_disk: Optional['outputs.AzureDiskResponse'] = None,
+             elastic_san: Optional['outputs.ElasticSanResponse'] = None,
+             ephemeral_disk: Optional['outputs.EphemeralDiskResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_disk is None and 'azureDisk' in kwargs:
+            azure_disk = kwargs['azureDisk']
+        if elastic_san is None and 'elasticSan' in kwargs:
+            elastic_san = kwargs['elasticSan']
+        if ephemeral_disk is None and 'ephemeralDisk' in kwargs:
+            ephemeral_disk = kwargs['ephemeralDisk']
+
         if azure_disk is not None:
-            pulumi.set(__self__, "azure_disk", azure_disk)
+            _setter("azure_disk", azure_disk)
         if elastic_san is not None:
-            pulumi.set(__self__, "elastic_san", elastic_san)
+            _setter("elastic_san", elastic_san)
         if ephemeral_disk is not None:
-            pulumi.set(__self__, "ephemeral_disk", ephemeral_disk)
+            _setter("ephemeral_disk", ephemeral_disk)
 
     @property
     @pulumi.getter(name="azureDisk")
@@ -594,10 +800,21 @@ class RequestsResponse(dict):
         Requests for capacity for the pool.
         :param float storage: Requested capacity of the pool in GiB.
         """
+        RequestsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage=storage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if storage is None:
             storage = 1024
         if storage is not None:
-            pulumi.set(__self__, "storage", storage)
+            _setter("storage", storage)
 
     @property
     @pulumi.getter
@@ -621,9 +838,24 @@ class ResourceOperationalStatusResponse(dict):
         :param str state: state of the resource
         :param str message: Reason for state.
         """
-        pulumi.set(__self__, "state", state)
+        ResourceOperationalStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            state=state,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             state: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("state", state)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -653,8 +885,19 @@ class ResourcesResponse(dict):
         Resource Requests for the pool.
         :param 'RequestsResponse' requests: Requests for capacity for the pool.
         """
+        ResourcesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            requests=requests,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             requests: Optional['outputs.RequestsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
 
     @property
     @pulumi.getter
@@ -713,18 +956,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -807,8 +1083,29 @@ class UserAssignedIdentityResponse(dict):
         :param str client_id: The client ID of the assigned identity.
         :param str principal_id: The principal ID of the assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        UserAssignedIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -855,7 +1152,22 @@ class VolumeTypeResponse(dict):
         Properties of the volume
         :param 'ElasticSanVolumePropertiesResponse' elastic_san: Properties of the ElasticSAN iSCSI target
         """
-        pulumi.set(__self__, "elastic_san", elastic_san)
+        VolumeTypeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elastic_san=elastic_san,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elastic_san: Optional['outputs.ElasticSanVolumePropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if elastic_san is None and 'elasticSan' in kwargs:
+            elastic_san = kwargs['elasticSan']
+        if elastic_san is None:
+            raise TypeError("Missing 'elastic_san' argument")
+
+        _setter("elastic_san", elastic_san)
 
     @property
     @pulumi.getter(name="elasticSan")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,43 @@ class DnsForwardingRulesetArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dns_resolver_outbound_endpoints", dns_resolver_outbound_endpoints)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DnsForwardingRulesetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_resolver_outbound_endpoints=dns_resolver_outbound_endpoints,
+            resource_group_name=resource_group_name,
+            dns_forwarding_ruleset_name=dns_forwarding_ruleset_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_resolver_outbound_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             dns_forwarding_ruleset_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_resolver_outbound_endpoints is None and 'dnsResolverOutboundEndpoints' in kwargs:
+            dns_resolver_outbound_endpoints = kwargs['dnsResolverOutboundEndpoints']
+        if dns_resolver_outbound_endpoints is None:
+            raise TypeError("Missing 'dns_resolver_outbound_endpoints' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dns_forwarding_ruleset_name is None and 'dnsForwardingRulesetName' in kwargs:
+            dns_forwarding_ruleset_name = kwargs['dnsForwardingRulesetName']
+
+        _setter("dns_resolver_outbound_endpoints", dns_resolver_outbound_endpoints)
+        _setter("resource_group_name", resource_group_name)
         if dns_forwarding_ruleset_name is not None:
-            pulumi.set(__self__, "dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
+            _setter("dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dnsResolverOutboundEndpoints")
@@ -146,6 +175,10 @@ class DnsForwardingRuleset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DnsForwardingRulesetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

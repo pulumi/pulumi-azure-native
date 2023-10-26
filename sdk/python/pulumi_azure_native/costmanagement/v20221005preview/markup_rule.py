@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,19 +37,68 @@ class MarkupRuleArgs:
         :param pulumi.Input[str] end_date: Ending date of the markup rule.
         :param pulumi.Input[str] name: Markup rule name.
         """
-        pulumi.set(__self__, "billing_account_id", billing_account_id)
-        pulumi.set(__self__, "billing_profile_id", billing_profile_id)
-        pulumi.set(__self__, "customer_details", customer_details)
-        pulumi.set(__self__, "percentage", percentage)
-        pulumi.set(__self__, "start_date", start_date)
+        MarkupRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_account_id=billing_account_id,
+            billing_profile_id=billing_profile_id,
+            customer_details=customer_details,
+            percentage=percentage,
+            start_date=start_date,
+            description=description,
+            e_tag=e_tag,
+            end_date=end_date,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_account_id: Optional[pulumi.Input[str]] = None,
+             billing_profile_id: Optional[pulumi.Input[str]] = None,
+             customer_details: Optional[pulumi.Input['CustomerMetadataArgs']] = None,
+             percentage: Optional[pulumi.Input[float]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_account_id is None and 'billingAccountId' in kwargs:
+            billing_account_id = kwargs['billingAccountId']
+        if billing_account_id is None:
+            raise TypeError("Missing 'billing_account_id' argument")
+        if billing_profile_id is None and 'billingProfileId' in kwargs:
+            billing_profile_id = kwargs['billingProfileId']
+        if billing_profile_id is None:
+            raise TypeError("Missing 'billing_profile_id' argument")
+        if customer_details is None and 'customerDetails' in kwargs:
+            customer_details = kwargs['customerDetails']
+        if customer_details is None:
+            raise TypeError("Missing 'customer_details' argument")
+        if percentage is None:
+            raise TypeError("Missing 'percentage' argument")
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+
+        _setter("billing_account_id", billing_account_id)
+        _setter("billing_profile_id", billing_profile_id)
+        _setter("customer_details", customer_details)
+        _setter("percentage", percentage)
+        _setter("start_date", start_date)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="billingAccountId")
@@ -209,6 +258,10 @@ class MarkupRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MarkupRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -238,6 +291,7 @@ class MarkupRule(pulumi.CustomResource):
             if billing_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_profile_id'")
             __props__.__dict__["billing_profile_id"] = billing_profile_id
+            customer_details = _utilities.configure(customer_details, CustomerMetadataArgs, True)
             if customer_details is None and not opts.urn:
                 raise TypeError("Missing required property 'customer_details'")
             __props__.__dict__["customer_details"] = customer_details

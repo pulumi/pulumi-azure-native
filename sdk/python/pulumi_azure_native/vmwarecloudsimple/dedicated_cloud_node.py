@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,21 +41,78 @@ class DedicatedCloudNodeArgs:
         :param pulumi.Input['SkuArgs'] sku: Dedicated Cloud Nodes SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Dedicated Cloud Nodes tags
         """
-        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "nodes_count", nodes_count)
-        pulumi.set(__self__, "placement_group_id", placement_group_id)
-        pulumi.set(__self__, "purchase_id", purchase_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DedicatedCloudNodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zone_id=availability_zone_id,
+            id=id,
+            name=name,
+            nodes_count=nodes_count,
+            placement_group_id=placement_group_id,
+            purchase_id=purchase_id,
+            resource_group_name=resource_group_name,
+            dedicated_cloud_node_name=dedicated_cloud_node_name,
+            location=location,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zone_id: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nodes_count: Optional[pulumi.Input[int]] = None,
+             placement_group_id: Optional[pulumi.Input[str]] = None,
+             purchase_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             dedicated_cloud_node_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone_id is None and 'availabilityZoneId' in kwargs:
+            availability_zone_id = kwargs['availabilityZoneId']
+        if availability_zone_id is None:
+            raise TypeError("Missing 'availability_zone_id' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if nodes_count is None and 'nodesCount' in kwargs:
+            nodes_count = kwargs['nodesCount']
+        if nodes_count is None:
+            raise TypeError("Missing 'nodes_count' argument")
+        if placement_group_id is None and 'placementGroupId' in kwargs:
+            placement_group_id = kwargs['placementGroupId']
+        if placement_group_id is None:
+            raise TypeError("Missing 'placement_group_id' argument")
+        if purchase_id is None and 'purchaseId' in kwargs:
+            purchase_id = kwargs['purchaseId']
+        if purchase_id is None:
+            raise TypeError("Missing 'purchase_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if dedicated_cloud_node_name is None and 'dedicatedCloudNodeName' in kwargs:
+            dedicated_cloud_node_name = kwargs['dedicatedCloudNodeName']
+
+        _setter("availability_zone_id", availability_zone_id)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("nodes_count", nodes_count)
+        _setter("placement_group_id", placement_group_id)
+        _setter("purchase_id", purchase_id)
+        _setter("resource_group_name", resource_group_name)
         if dedicated_cloud_node_name is not None:
-            pulumi.set(__self__, "dedicated_cloud_node_name", dedicated_cloud_node_name)
+            _setter("dedicated_cloud_node_name", dedicated_cloud_node_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="availabilityZoneId")
@@ -245,6 +302,10 @@ class DedicatedCloudNode(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedCloudNodeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -293,6 +354,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["availability_zone_name"] = None

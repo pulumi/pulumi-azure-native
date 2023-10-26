@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -52,11 +52,34 @@ class AppServiceCertificateResponse(dict):
         :param str key_vault_id: Key Vault resource Id.
         :param str key_vault_secret_name: Key Vault secret name.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AppServiceCertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            key_vault_id=key_vault_id,
+            key_vault_secret_name=key_vault_secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             key_vault_secret_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_secret_name is None and 'keyVaultSecretName' in kwargs:
+            key_vault_secret_name = kwargs['keyVaultSecretName']
+
+        _setter("provisioning_state", provisioning_state)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_secret_name is not None:
-            pulumi.set(__self__, "key_vault_secret_name", key_vault_secret_name)
+            _setter("key_vault_secret_name", key_vault_secret_name)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -135,15 +158,70 @@ class CertificateDetailsResponse(dict):
         :param str thumbprint: Certificate Thumbprint.
         :param int version: Certificate Version.
         """
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "not_after", not_after)
-        pulumi.set(__self__, "not_before", not_before)
-        pulumi.set(__self__, "raw_data", raw_data)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "signature_algorithm", signature_algorithm)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "version", version)
+        CertificateDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer=issuer,
+            not_after=not_after,
+            not_before=not_before,
+            raw_data=raw_data,
+            serial_number=serial_number,
+            signature_algorithm=signature_algorithm,
+            subject=subject,
+            thumbprint=thumbprint,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer: Optional[str] = None,
+             not_after: Optional[str] = None,
+             not_before: Optional[str] = None,
+             raw_data: Optional[str] = None,
+             serial_number: Optional[str] = None,
+             signature_algorithm: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             version: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if not_after is None and 'notAfter' in kwargs:
+            not_after = kwargs['notAfter']
+        if not_after is None:
+            raise TypeError("Missing 'not_after' argument")
+        if not_before is None and 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+        if not_before is None:
+            raise TypeError("Missing 'not_before' argument")
+        if raw_data is None and 'rawData' in kwargs:
+            raw_data = kwargs['rawData']
+        if raw_data is None:
+            raise TypeError("Missing 'raw_data' argument")
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if serial_number is None:
+            raise TypeError("Missing 'serial_number' argument")
+        if signature_algorithm is None and 'signatureAlgorithm' in kwargs:
+            signature_algorithm = kwargs['signatureAlgorithm']
+        if signature_algorithm is None:
+            raise TypeError("Missing 'signature_algorithm' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("issuer", issuer)
+        _setter("not_after", not_after)
+        _setter("not_before", not_before)
+        _setter("raw_data", raw_data)
+        _setter("serial_number", serial_number)
+        _setter("signature_algorithm", signature_algorithm)
+        _setter("subject", subject)
+        _setter("thumbprint", thumbprint)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -266,18 +344,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

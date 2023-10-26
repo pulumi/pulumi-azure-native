@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -29,10 +29,27 @@ class DatabasePropertiesGeoReplicationArgs:
         :param pulumi.Input[str] group_nickname: Name for the group of linked database resources
         :param pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]] linked_databases: List of database resources to link with this database
         """
+        DatabasePropertiesGeoReplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_nickname=group_nickname,
+            linked_databases=linked_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_nickname: Optional[pulumi.Input[str]] = None,
+             linked_databases: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_nickname is None and 'groupNickname' in kwargs:
+            group_nickname = kwargs['groupNickname']
+        if linked_databases is None and 'linkedDatabases' in kwargs:
+            linked_databases = kwargs['linkedDatabases']
+
         if group_nickname is not None:
-            pulumi.set(__self__, "group_nickname", group_nickname)
+            _setter("group_nickname", group_nickname)
         if linked_databases is not None:
-            pulumi.set(__self__, "linked_databases", linked_databases)
+            _setter("linked_databases", linked_databases)
 
     @property
     @pulumi.getter(name="groupNickname")
@@ -69,9 +86,24 @@ class EnterpriseSkuArgs:
         :param pulumi.Input[Union[str, 'SkuName']] name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
         :param pulumi.Input[int] capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
         """
-        pulumi.set(__self__, "name", name)
+        EnterpriseSkuArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            capacity=capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
 
     @property
     @pulumi.getter
@@ -106,8 +138,19 @@ class LinkedDatabaseArgs:
         Specifies details of a linked database resource.
         :param pulumi.Input[str] id: Resource ID of a database resource to link with this database.
         """
+        LinkedDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -132,9 +175,24 @@ class ModuleArgs:
         :param pulumi.Input[str] name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
         :param pulumi.Input[str] args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
-        pulumi.set(__self__, "name", name)
+        ModuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            args=args,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             args: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
 
     @property
     @pulumi.getter
@@ -175,14 +233,39 @@ class PersistenceArgs:
         :param pulumi.Input[bool] rdb_enabled: Sets whether RDB is enabled.
         :param pulumi.Input[Union[str, 'RdbFrequency']] rdb_frequency: Sets the frequency at which a snapshot of the database is created.
         """
+        PersistenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aof_enabled=aof_enabled,
+            aof_frequency=aof_frequency,
+            rdb_enabled=rdb_enabled,
+            rdb_frequency=rdb_frequency,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aof_enabled: Optional[pulumi.Input[bool]] = None,
+             aof_frequency: Optional[pulumi.Input[Union[str, 'AofFrequency']]] = None,
+             rdb_enabled: Optional[pulumi.Input[bool]] = None,
+             rdb_frequency: Optional[pulumi.Input[Union[str, 'RdbFrequency']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aof_enabled is None and 'aofEnabled' in kwargs:
+            aof_enabled = kwargs['aofEnabled']
+        if aof_frequency is None and 'aofFrequency' in kwargs:
+            aof_frequency = kwargs['aofFrequency']
+        if rdb_enabled is None and 'rdbEnabled' in kwargs:
+            rdb_enabled = kwargs['rdbEnabled']
+        if rdb_frequency is None and 'rdbFrequency' in kwargs:
+            rdb_frequency = kwargs['rdbFrequency']
+
         if aof_enabled is not None:
-            pulumi.set(__self__, "aof_enabled", aof_enabled)
+            _setter("aof_enabled", aof_enabled)
         if aof_frequency is not None:
-            pulumi.set(__self__, "aof_frequency", aof_frequency)
+            _setter("aof_frequency", aof_frequency)
         if rdb_enabled is not None:
-            pulumi.set(__self__, "rdb_enabled", rdb_enabled)
+            _setter("rdb_enabled", rdb_enabled)
         if rdb_frequency is not None:
-            pulumi.set(__self__, "rdb_frequency", rdb_frequency)
+            _setter("rdb_frequency", rdb_frequency)
 
     @property
     @pulumi.getter(name="aofEnabled")
@@ -245,12 +328,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")

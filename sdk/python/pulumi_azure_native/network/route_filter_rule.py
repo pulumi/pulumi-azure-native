@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -36,19 +36,64 @@ class RouteFilterRuleInitArgs:
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] rule_name: The name of the route filter rule.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "communities", communities)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "route_filter_name", route_filter_name)
-        pulumi.set(__self__, "route_filter_rule_type", route_filter_rule_type)
+        RouteFilterRuleInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            communities=communities,
+            resource_group_name=resource_group_name,
+            route_filter_name=route_filter_name,
+            route_filter_rule_type=route_filter_rule_type,
+            id=id,
+            location=location,
+            name=name,
+            rule_name=rule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: Optional[pulumi.Input[Union[str, 'Access']]] = None,
+             communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             route_filter_name: Optional[pulumi.Input[str]] = None,
+             route_filter_rule_type: Optional[pulumi.Input[Union[str, 'RouteFilterRuleType']]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access is None:
+            raise TypeError("Missing 'access' argument")
+        if communities is None:
+            raise TypeError("Missing 'communities' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if route_filter_name is None and 'routeFilterName' in kwargs:
+            route_filter_name = kwargs['routeFilterName']
+        if route_filter_name is None:
+            raise TypeError("Missing 'route_filter_name' argument")
+        if route_filter_rule_type is None and 'routeFilterRuleType' in kwargs:
+            route_filter_rule_type = kwargs['routeFilterRuleType']
+        if route_filter_rule_type is None:
+            raise TypeError("Missing 'route_filter_rule_type' argument")
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
+        _setter("access", access)
+        _setter("communities", communities)
+        _setter("resource_group_name", resource_group_name)
+        _setter("route_filter_name", route_filter_name)
+        _setter("route_filter_rule_type", route_filter_rule_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_name is not None:
-            pulumi.set(__self__, "rule_name", rule_name)
+            _setter("rule_name", rule_name)
 
     @property
     @pulumi.getter
@@ -214,6 +259,10 @@ class RouteFilterRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteFilterRuleInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

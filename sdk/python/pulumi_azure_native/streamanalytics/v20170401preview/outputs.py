@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -89,14 +89,37 @@ class AggregateFunctionPropertiesResponse(dict):
         :param Union['AzureMachineLearningServiceFunctionBindingResponse', 'AzureMachineLearningStudioFunctionBindingResponse', 'CSharpFunctionBindingResponse', 'JavaScriptFunctionBindingResponse'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
         :param 'FunctionOutputResponse' output: Describes the output of a function.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "type", 'Aggregate')
+        AggregateFunctionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            type=type,
+            binding=binding,
+            inputs=inputs,
+            output=output,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[str] = None,
+             type: Optional[str] = None,
+             binding: Optional[Any] = None,
+             inputs: Optional[Sequence['outputs.FunctionInputResponse']] = None,
+             output: Optional['outputs.FunctionOutputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if etag is None:
+            raise TypeError("Missing 'etag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("etag", etag)
+        _setter("type", 'Aggregate')
         if binding is not None:
-            pulumi.set(__self__, "binding", binding)
+            _setter("binding", binding)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if output is not None:
-            pulumi.set(__self__, "output", output)
+            _setter("output", output)
 
     @property
     @pulumi.getter
@@ -149,7 +172,20 @@ class AvroSerializationResponse(dict):
         :param str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Avro'.
         """
-        pulumi.set(__self__, "type", 'Avro')
+        AvroSerializationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Avro')
 
     @property
     @pulumi.getter
@@ -224,25 +260,74 @@ class AzureDataLakeStoreOutputDataSourceResponse(dict):
         :param str token_user_display_name: The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         :param str token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         """
-        pulumi.set(__self__, "type", 'Microsoft.DataLake/Accounts')
+        AzureDataLakeStoreOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            account_name=account_name,
+            authentication_mode=authentication_mode,
+            date_format=date_format,
+            file_path_prefix=file_path_prefix,
+            refresh_token=refresh_token,
+            tenant_id=tenant_id,
+            time_format=time_format,
+            token_user_display_name=token_user_display_name,
+            token_user_principal_name=token_user_principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             account_name: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             date_format: Optional[str] = None,
+             file_path_prefix: Optional[str] = None,
+             refresh_token: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             time_format: Optional[str] = None,
+             token_user_display_name: Optional[str] = None,
+             token_user_principal_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if date_format is None and 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if file_path_prefix is None and 'filePathPrefix' in kwargs:
+            file_path_prefix = kwargs['filePathPrefix']
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if time_format is None and 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+        if token_user_display_name is None and 'tokenUserDisplayName' in kwargs:
+            token_user_display_name = kwargs['tokenUserDisplayName']
+        if token_user_principal_name is None and 'tokenUserPrincipalName' in kwargs:
+            token_user_principal_name = kwargs['tokenUserPrincipalName']
+
+        _setter("type", 'Microsoft.DataLake/Accounts')
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if file_path_prefix is not None:
-            pulumi.set(__self__, "file_path_prefix", file_path_prefix)
+            _setter("file_path_prefix", file_path_prefix)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
         if token_user_display_name is not None:
-            pulumi.set(__self__, "token_user_display_name", token_user_display_name)
+            _setter("token_user_display_name", token_user_display_name)
         if token_user_principal_name is not None:
-            pulumi.set(__self__, "token_user_principal_name", token_user_principal_name)
+            _setter("token_user_principal_name", token_user_principal_name)
 
     @property
     @pulumi.getter
@@ -373,17 +458,50 @@ class AzureFunctionOutputDataSourceResponse(dict):
         :param float max_batch_count: A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
         :param float max_batch_size: A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
         """
-        pulumi.set(__self__, "type", 'Microsoft.AzureFunction')
+        AzureFunctionOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            api_key=api_key,
+            function_app_name=function_app_name,
+            function_name=function_name,
+            max_batch_count=max_batch_count,
+            max_batch_size=max_batch_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             api_key: Optional[str] = None,
+             function_app_name: Optional[str] = None,
+             function_name: Optional[str] = None,
+             max_batch_count: Optional[float] = None,
+             max_batch_size: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if function_app_name is None and 'functionAppName' in kwargs:
+            function_app_name = kwargs['functionAppName']
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if max_batch_count is None and 'maxBatchCount' in kwargs:
+            max_batch_count = kwargs['maxBatchCount']
+        if max_batch_size is None and 'maxBatchSize' in kwargs:
+            max_batch_size = kwargs['maxBatchSize']
+
+        _setter("type", 'Microsoft.AzureFunction')
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if function_app_name is not None:
-            pulumi.set(__self__, "function_app_name", function_app_name)
+            _setter("function_app_name", function_app_name)
         if function_name is not None:
-            pulumi.set(__self__, "function_name", function_name)
+            _setter("function_name", function_name)
         if max_batch_count is not None:
-            pulumi.set(__self__, "max_batch_count", max_batch_count)
+            _setter("max_batch_count", max_batch_count)
         if max_batch_size is not None:
-            pulumi.set(__self__, "max_batch_size", max_batch_size)
+            _setter("max_batch_size", max_batch_size)
 
     @property
     @pulumi.getter
@@ -480,19 +598,50 @@ class AzureMachineLearningServiceFunctionBindingResponse(dict):
         :param int number_of_parallel_requests: The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
         :param Sequence['AzureMachineLearningServiceOutputColumnResponse'] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         """
-        pulumi.set(__self__, "type", 'Microsoft.MachineLearningServices')
+        AzureMachineLearningServiceFunctionBindingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            api_key=api_key,
+            batch_size=batch_size,
+            endpoint=endpoint,
+            inputs=inputs,
+            number_of_parallel_requests=number_of_parallel_requests,
+            outputs=outputs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             api_key: Optional[str] = None,
+             batch_size: Optional[int] = None,
+             endpoint: Optional[str] = None,
+             inputs: Optional[Sequence['outputs.AzureMachineLearningServiceInputColumnResponse']] = None,
+             number_of_parallel_requests: Optional[int] = None,
+             outputs: Optional[Sequence['outputs.AzureMachineLearningServiceOutputColumnResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if number_of_parallel_requests is None and 'numberOfParallelRequests' in kwargs:
+            number_of_parallel_requests = kwargs['numberOfParallelRequests']
+
+        _setter("type", 'Microsoft.MachineLearningServices')
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if number_of_parallel_requests is not None:
-            pulumi.set(__self__, "number_of_parallel_requests", number_of_parallel_requests)
+            _setter("number_of_parallel_requests", number_of_parallel_requests)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
 
     @property
     @pulumi.getter
@@ -586,12 +735,31 @@ class AzureMachineLearningServiceInputColumnResponse(dict):
         :param int map_to: The zero based index of the function parameter this input maps to.
         :param str name: The name of the input column.
         """
+        AzureMachineLearningServiceInputColumnResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            map_to=map_to,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[str] = None,
+             map_to: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if map_to is None and 'mapTo' in kwargs:
+            map_to = kwargs['mapTo']
+
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if map_to is not None:
-            pulumi.set(__self__, "map_to", map_to)
+            _setter("map_to", map_to)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -652,12 +820,31 @@ class AzureMachineLearningServiceOutputColumnResponse(dict):
         :param int map_to: The zero based index of the function parameter this input maps to.
         :param str name: The name of the output column.
         """
+        AzureMachineLearningServiceOutputColumnResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            map_to=map_to,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[str] = None,
+             map_to: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if map_to is None and 'mapTo' in kwargs:
+            map_to = kwargs['mapTo']
+
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if map_to is not None:
-            pulumi.set(__self__, "map_to", map_to)
+            _setter("map_to", map_to)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -725,17 +912,44 @@ class AzureMachineLearningStudioFunctionBindingResponse(dict):
         :param 'AzureMachineLearningStudioInputsResponse' inputs: The inputs for the Azure Machine Learning Studio endpoint.
         :param Sequence['AzureMachineLearningStudioOutputColumnResponse'] outputs: A list of outputs from the Azure Machine Learning Studio endpoint execution.
         """
-        pulumi.set(__self__, "type", 'Microsoft.MachineLearning/WebService')
+        AzureMachineLearningStudioFunctionBindingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            api_key=api_key,
+            batch_size=batch_size,
+            endpoint=endpoint,
+            inputs=inputs,
+            outputs=outputs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             api_key: Optional[str] = None,
+             batch_size: Optional[int] = None,
+             endpoint: Optional[str] = None,
+             inputs: Optional['outputs.AzureMachineLearningStudioInputsResponse'] = None,
+             outputs: Optional[Sequence['outputs.AzureMachineLearningStudioOutputColumnResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+
+        _setter("type", 'Microsoft.MachineLearning/WebService')
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if outputs is not None:
-            pulumi.set(__self__, "outputs", outputs)
+            _setter("outputs", outputs)
 
     @property
     @pulumi.getter
@@ -821,12 +1035,31 @@ class AzureMachineLearningStudioInputColumnResponse(dict):
         :param int map_to: The zero based index of the function parameter this input maps to.
         :param str name: The name of the input column.
         """
+        AzureMachineLearningStudioInputColumnResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            map_to=map_to,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[str] = None,
+             map_to: Optional[int] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if map_to is None and 'mapTo' in kwargs:
+            map_to = kwargs['mapTo']
+
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if map_to is not None:
-            pulumi.set(__self__, "map_to", map_to)
+            _setter("map_to", map_to)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -883,10 +1116,25 @@ class AzureMachineLearningStudioInputsResponse(dict):
         :param Sequence['AzureMachineLearningStudioInputColumnResponse'] column_names: A list of input columns for the Azure Machine Learning Studio endpoint.
         :param str name: The name of the input. This is the name provided while authoring the endpoint.
         """
+        AzureMachineLearningStudioInputsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            column_names=column_names,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             column_names: Optional[Sequence['outputs.AzureMachineLearningStudioInputColumnResponse']] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_names is None and 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+
         if column_names is not None:
-            pulumi.set(__self__, "column_names", column_names)
+            _setter("column_names", column_names)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="columnNames")
@@ -935,10 +1183,25 @@ class AzureMachineLearningStudioOutputColumnResponse(dict):
         :param str data_type: The (Azure Machine Learning supported) data type of the output column. A list of valid  Azure Machine Learning data types are described at https://msdn.microsoft.com/en-us/library/azure/dn905923.aspx .
         :param str name: The name of the output column.
         """
+        AzureMachineLearningStudioOutputColumnResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataType")
@@ -1006,23 +1269,58 @@ class AzureSqlDatabaseOutputDataSourceResponse(dict):
         :param str table: The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param str user: The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Sql/Server/Database')
+        AzureSqlDatabaseOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            database=database,
+            max_batch_count=max_batch_count,
+            max_writer_count=max_writer_count,
+            password=password,
+            server=server,
+            table=table,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             database: Optional[str] = None,
+             max_batch_count: Optional[float] = None,
+             max_writer_count: Optional[float] = None,
+             password: Optional[str] = None,
+             server: Optional[str] = None,
+             table: Optional[str] = None,
+             user: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if max_batch_count is None and 'maxBatchCount' in kwargs:
+            max_batch_count = kwargs['maxBatchCount']
+        if max_writer_count is None and 'maxWriterCount' in kwargs:
+            max_writer_count = kwargs['maxWriterCount']
+
+        _setter("type", 'Microsoft.Sql/Server/Database')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if max_batch_count is not None:
-            pulumi.set(__self__, "max_batch_count", max_batch_count)
+            _setter("max_batch_count", max_batch_count)
         if max_writer_count is not None:
-            pulumi.set(__self__, "max_writer_count", max_writer_count)
+            _setter("max_writer_count", max_writer_count)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -1148,24 +1446,59 @@ class AzureSqlReferenceInputDataSourcePropertiesResponse(dict):
         :param str table: This element is associated with the datasource element. The name of the table in the Azure SQL database..
         :param str user: This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
         """
+        AzureSqlReferenceInputDataSourcePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            delta_snapshot_query=delta_snapshot_query,
+            full_snapshot_query=full_snapshot_query,
+            password=password,
+            refresh_rate=refresh_rate,
+            refresh_type=refresh_type,
+            server=server,
+            table=table,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[str] = None,
+             delta_snapshot_query: Optional[str] = None,
+             full_snapshot_query: Optional[str] = None,
+             password: Optional[str] = None,
+             refresh_rate: Optional[str] = None,
+             refresh_type: Optional[str] = None,
+             server: Optional[str] = None,
+             table: Optional[str] = None,
+             user: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delta_snapshot_query is None and 'deltaSnapshotQuery' in kwargs:
+            delta_snapshot_query = kwargs['deltaSnapshotQuery']
+        if full_snapshot_query is None and 'fullSnapshotQuery' in kwargs:
+            full_snapshot_query = kwargs['fullSnapshotQuery']
+        if refresh_rate is None and 'refreshRate' in kwargs:
+            refresh_rate = kwargs['refreshRate']
+        if refresh_type is None and 'refreshType' in kwargs:
+            refresh_type = kwargs['refreshType']
+
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if delta_snapshot_query is not None:
-            pulumi.set(__self__, "delta_snapshot_query", delta_snapshot_query)
+            _setter("delta_snapshot_query", delta_snapshot_query)
         if full_snapshot_query is not None:
-            pulumi.set(__self__, "full_snapshot_query", full_snapshot_query)
+            _setter("full_snapshot_query", full_snapshot_query)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if refresh_rate is not None:
-            pulumi.set(__self__, "refresh_rate", refresh_rate)
+            _setter("refresh_rate", refresh_rate)
         if refresh_type is not None:
-            pulumi.set(__self__, "refresh_type", refresh_type)
+            _setter("refresh_type", refresh_type)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -1254,9 +1587,24 @@ class AzureSqlReferenceInputDataSourceResponse(dict):
                Expected value is 'Microsoft.Sql/Server/Database'.
         :param 'AzureSqlReferenceInputDataSourcePropertiesResponse' properties: Describes Azure SQL database reference input data source properties.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Sql/Server/Database')
+        AzureSqlReferenceInputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             properties: Optional['outputs.AzureSqlReferenceInputDataSourcePropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Microsoft.Sql/Server/Database')
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -1298,17 +1646,40 @@ class AzureSynapseOutputDataSourceResponse(dict):
         :param str table: The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param str user: The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Sql/Server/DataWarehouse')
+        AzureSynapseOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            database=database,
+            password=password,
+            server=server,
+            table=table,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             database: Optional[str] = None,
+             password: Optional[str] = None,
+             server: Optional[str] = None,
+             table: Optional[str] = None,
+             user: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Microsoft.Sql/Server/DataWarehouse')
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -1413,21 +1784,60 @@ class AzureTableOutputDataSourceResponse(dict):
         :param str row_key: This element indicates the name of a column from the SELECT statement in the query that will be used as the row key for the Azure Table. Required on PUT (CreateOrReplace) requests.
         :param str table: The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Storage/Table')
+        AzureTableOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            account_key=account_key,
+            account_name=account_name,
+            batch_size=batch_size,
+            columns_to_remove=columns_to_remove,
+            partition_key=partition_key,
+            row_key=row_key,
+            table=table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             account_key: Optional[str] = None,
+             account_name: Optional[str] = None,
+             batch_size: Optional[int] = None,
+             columns_to_remove: Optional[Sequence[str]] = None,
+             partition_key: Optional[str] = None,
+             row_key: Optional[str] = None,
+             table: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if account_key is None and 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if columns_to_remove is None and 'columnsToRemove' in kwargs:
+            columns_to_remove = kwargs['columnsToRemove']
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if row_key is None and 'rowKey' in kwargs:
+            row_key = kwargs['rowKey']
+
+        _setter("type", 'Microsoft.Storage/Table')
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if columns_to_remove is not None:
-            pulumi.set(__self__, "columns_to_remove", columns_to_remove)
+            _setter("columns_to_remove", columns_to_remove)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if row_key is not None:
-            pulumi.set(__self__, "row_key", row_key)
+            _setter("row_key", row_key)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
 
     @property
     @pulumi.getter
@@ -1544,19 +1954,54 @@ class BlobOutputDataSourceResponse(dict):
         :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
+        BlobOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            container=container,
+            date_format=date_format,
+            path_pattern=path_pattern,
+            storage_accounts=storage_accounts,
+            time_format=time_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             container: Optional[str] = None,
+             date_format: Optional[str] = None,
+             path_pattern: Optional[str] = None,
+             storage_accounts: Optional[Sequence['outputs.StorageAccountResponse']] = None,
+             time_format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if date_format is None and 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if path_pattern is None and 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if storage_accounts is None and 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if time_format is None and 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+
+        _setter("type", 'Microsoft.Storage/Blob')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if container is not None:
-            pulumi.set(__self__, "container", container)
+            _setter("container", container)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if path_pattern is not None:
-            pulumi.set(__self__, "path_pattern", path_pattern)
+            _setter("path_pattern", path_pattern)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
 
     @property
     @pulumi.getter
@@ -1665,19 +2110,54 @@ class BlobReferenceInputDataSourceResponse(dict):
         :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
+        BlobReferenceInputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            container=container,
+            date_format=date_format,
+            path_pattern=path_pattern,
+            storage_accounts=storage_accounts,
+            time_format=time_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             container: Optional[str] = None,
+             date_format: Optional[str] = None,
+             path_pattern: Optional[str] = None,
+             storage_accounts: Optional[Sequence['outputs.StorageAccountResponse']] = None,
+             time_format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if date_format is None and 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if path_pattern is None and 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if storage_accounts is None and 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if time_format is None and 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+
+        _setter("type", 'Microsoft.Storage/Blob')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if container is not None:
-            pulumi.set(__self__, "container", container)
+            _setter("container", container)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if path_pattern is not None:
-            pulumi.set(__self__, "path_pattern", path_pattern)
+            _setter("path_pattern", path_pattern)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
 
     @property
     @pulumi.getter
@@ -1790,21 +2270,60 @@ class BlobStreamInputDataSourceResponse(dict):
         :param Sequence['StorageAccountResponse'] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
+        BlobStreamInputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            container=container,
+            date_format=date_format,
+            path_pattern=path_pattern,
+            source_partition_count=source_partition_count,
+            storage_accounts=storage_accounts,
+            time_format=time_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             container: Optional[str] = None,
+             date_format: Optional[str] = None,
+             path_pattern: Optional[str] = None,
+             source_partition_count: Optional[int] = None,
+             storage_accounts: Optional[Sequence['outputs.StorageAccountResponse']] = None,
+             time_format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if date_format is None and 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if path_pattern is None and 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if source_partition_count is None and 'sourcePartitionCount' in kwargs:
+            source_partition_count = kwargs['sourcePartitionCount']
+        if storage_accounts is None and 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if time_format is None and 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+
+        _setter("type", 'Microsoft.Storage/Blob')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if container is not None:
-            pulumi.set(__self__, "container", container)
+            _setter("container", container)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if path_pattern is not None:
-            pulumi.set(__self__, "path_pattern", path_pattern)
+            _setter("path_pattern", path_pattern)
         if source_partition_count is not None:
-            pulumi.set(__self__, "source_partition_count", source_partition_count)
+            _setter("source_partition_count", source_partition_count)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
 
     @property
     @pulumi.getter
@@ -1911,15 +2430,40 @@ class CSharpFunctionBindingResponse(dict):
         :param str method: The Csharp code containing a single function definition.
         :param str script: The Csharp code containing a single function definition.
         """
-        pulumi.set(__self__, "type", 'Microsoft.StreamAnalytics/CLRUdf')
+        CSharpFunctionBindingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            class_=class_,
+            dll_path=dll_path,
+            method=method,
+            script=script,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             class_: Optional[str] = None,
+             dll_path: Optional[str] = None,
+             method: Optional[str] = None,
+             script: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if class_ is None and 'class' in kwargs:
+            class_ = kwargs['class']
+        if dll_path is None and 'dllPath' in kwargs:
+            dll_path = kwargs['dllPath']
+
+        _setter("type", 'Microsoft.StreamAnalytics/CLRUdf')
         if class_ is not None:
-            pulumi.set(__self__, "class_", class_)
+            _setter("class_", class_)
         if dll_path is not None:
-            pulumi.set(__self__, "dll_path", dll_path)
+            _setter("dll_path", dll_path)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if script is not None:
-            pulumi.set(__self__, "script", script)
+            _setter("script", script)
 
     @property
     @pulumi.getter
@@ -1974,8 +2518,19 @@ class ClusterInfoResponse(dict):
         The properties associated with a Stream Analytics cluster.
         :param str id: The resource id of cluster.
         """
+        ClusterInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1996,7 +2551,20 @@ class CompressionResponse(dict):
         """
         Describes how input data is compressed
         """
-        pulumi.set(__self__, "type", type)
+        CompressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2037,11 +2605,30 @@ class CsvSerializationResponse(dict):
         :param str encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         :param str field_delimiter: Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Csv')
+        CsvSerializationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", 'Csv')
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
 
     @property
     @pulumi.getter
@@ -2104,11 +2691,32 @@ class CustomClrSerializationResponse(dict):
         :param str serialization_class_name: The serialization class name.
         :param str serialization_dll_path: The serialization library path.
         """
-        pulumi.set(__self__, "type", 'CustomClr')
+        CustomClrSerializationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            serialization_class_name=serialization_class_name,
+            serialization_dll_path=serialization_dll_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             serialization_class_name: Optional[str] = None,
+             serialization_dll_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if serialization_class_name is None and 'serializationClassName' in kwargs:
+            serialization_class_name = kwargs['serializationClassName']
+        if serialization_dll_path is None and 'serializationDllPath' in kwargs:
+            serialization_dll_path = kwargs['serializationDllPath']
+
+        _setter("type", 'CustomClr')
         if serialization_class_name is not None:
-            pulumi.set(__self__, "serialization_class_name", serialization_class_name)
+            _setter("serialization_class_name", serialization_class_name)
         if serialization_dll_path is not None:
-            pulumi.set(__self__, "serialization_dll_path", serialization_dll_path)
+            _setter("serialization_dll_path", serialization_dll_path)
 
     @property
     @pulumi.getter
@@ -2171,10 +2779,33 @@ class DeltaSerializationResponse(dict):
                Expected value is 'Delta'.
         :param Sequence[str] partition_columns: Specifies the names of the columns for which the Delta Lake table will be partitioned. We are only supporting 1 partition column, but keeping it as an array for extensibility.
         """
-        pulumi.set(__self__, "delta_table_path", delta_table_path)
-        pulumi.set(__self__, "type", 'Delta')
+        DeltaSerializationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delta_table_path=delta_table_path,
+            type=type,
+            partition_columns=partition_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delta_table_path: Optional[str] = None,
+             type: Optional[str] = None,
+             partition_columns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delta_table_path is None and 'deltaTablePath' in kwargs:
+            delta_table_path = kwargs['deltaTablePath']
+        if delta_table_path is None:
+            raise TypeError("Missing 'delta_table_path' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if partition_columns is None and 'partitionColumns' in kwargs:
+            partition_columns = kwargs['partitionColumns']
+
+        _setter("delta_table_path", delta_table_path)
+        _setter("type", 'Delta')
         if partition_columns is not None:
-            pulumi.set(__self__, "partition_columns", partition_columns)
+            _setter("partition_columns", partition_columns)
 
     @property
     @pulumi.getter(name="deltaTablePath")
@@ -2217,9 +2848,30 @@ class DiagnosticConditionResponse(dict):
         :param str message: The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
         :param str since: The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "since", since)
+        DiagnosticConditionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+            since=since,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             since: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if since is None:
+            raise TypeError("Missing 'since' argument")
+
+        _setter("code", code)
+        _setter("message", message)
+        _setter("since", since)
 
     @property
     @pulumi.getter
@@ -2257,7 +2909,20 @@ class DiagnosticsResponse(dict):
         Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
         :param Sequence['DiagnosticConditionResponse'] conditions: A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
         """
-        pulumi.set(__self__, "conditions", conditions)
+        DiagnosticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            conditions=conditions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             conditions: Optional[Sequence['outputs.DiagnosticConditionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conditions is None:
+            raise TypeError("Missing 'conditions' argument")
+
+        _setter("conditions", conditions)
 
     @property
     @pulumi.getter
@@ -2317,19 +2982,54 @@ class DocumentDbOutputDataSourceResponse(dict):
         :param str document_id: The name of the field in output events used to specify the primary key which insert or update operations are based on.
         :param str partition_key: The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Storage/DocumentDB')
+        DocumentDbOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            account_id=account_id,
+            account_key=account_key,
+            collection_name_pattern=collection_name_pattern,
+            database=database,
+            document_id=document_id,
+            partition_key=partition_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             account_id: Optional[str] = None,
+             account_key: Optional[str] = None,
+             collection_name_pattern: Optional[str] = None,
+             database: Optional[str] = None,
+             document_id: Optional[str] = None,
+             partition_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_key is None and 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if collection_name_pattern is None and 'collectionNamePattern' in kwargs:
+            collection_name_pattern = kwargs['collectionNamePattern']
+        if document_id is None and 'documentId' in kwargs:
+            document_id = kwargs['documentId']
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+
+        _setter("type", 'Microsoft.Storage/DocumentDB')
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if collection_name_pattern is not None:
-            pulumi.set(__self__, "collection_name_pattern", collection_name_pattern)
+            _setter("collection_name_pattern", collection_name_pattern)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if document_id is not None:
-            pulumi.set(__self__, "document_id", document_id)
+            _setter("document_id", document_id)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
 
     @property
     @pulumi.getter
@@ -2443,21 +3143,62 @@ class EventHubOutputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.ServiceBus/EventHub')
+        EventHubOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            event_hub_name=event_hub_name,
+            partition_key=partition_key,
+            property_columns=property_columns,
+            service_bus_namespace=service_bus_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             event_hub_name: Optional[str] = None,
+             partition_key: Optional[str] = None,
+             property_columns: Optional[Sequence[str]] = None,
+             service_bus_namespace: Optional[str] = None,
+             shared_access_policy_key: Optional[str] = None,
+             shared_access_policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if event_hub_name is None and 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if property_columns is None and 'propertyColumns' in kwargs:
+            property_columns = kwargs['propertyColumns']
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+
+        _setter("type", 'Microsoft.ServiceBus/EventHub')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
+            _setter("event_hub_name", event_hub_name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if property_columns is not None:
-            pulumi.set(__self__, "property_columns", property_columns)
+            _setter("property_columns", property_columns)
         if service_bus_namespace is not None:
-            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+            _setter("service_bus_namespace", service_bus_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
 
     @property
     @pulumi.getter
@@ -2573,19 +3314,56 @@ class EventHubStreamInputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.ServiceBus/EventHub')
+        EventHubStreamInputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            consumer_group_name=consumer_group_name,
+            event_hub_name=event_hub_name,
+            service_bus_namespace=service_bus_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             consumer_group_name: Optional[str] = None,
+             event_hub_name: Optional[str] = None,
+             service_bus_namespace: Optional[str] = None,
+             shared_access_policy_key: Optional[str] = None,
+             shared_access_policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if consumer_group_name is None and 'consumerGroupName' in kwargs:
+            consumer_group_name = kwargs['consumerGroupName']
+        if event_hub_name is None and 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+
+        _setter("type", 'Microsoft.ServiceBus/EventHub')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if consumer_group_name is not None:
-            pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+            _setter("consumer_group_name", consumer_group_name)
         if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
+            _setter("event_hub_name", event_hub_name)
         if service_bus_namespace is not None:
-            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+            _setter("service_bus_namespace", service_bus_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
 
     @property
     @pulumi.getter
@@ -2699,21 +3477,62 @@ class EventHubV2OutputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.EventHub/EventHub')
+        EventHubV2OutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            event_hub_name=event_hub_name,
+            partition_key=partition_key,
+            property_columns=property_columns,
+            service_bus_namespace=service_bus_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             event_hub_name: Optional[str] = None,
+             partition_key: Optional[str] = None,
+             property_columns: Optional[Sequence[str]] = None,
+             service_bus_namespace: Optional[str] = None,
+             shared_access_policy_key: Optional[str] = None,
+             shared_access_policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if event_hub_name is None and 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if property_columns is None and 'propertyColumns' in kwargs:
+            property_columns = kwargs['propertyColumns']
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+
+        _setter("type", 'Microsoft.EventHub/EventHub')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
+            _setter("event_hub_name", event_hub_name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if property_columns is not None:
-            pulumi.set(__self__, "property_columns", property_columns)
+            _setter("property_columns", property_columns)
         if service_bus_namespace is not None:
-            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+            _setter("service_bus_namespace", service_bus_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
 
     @property
     @pulumi.getter
@@ -2829,19 +3648,56 @@ class EventHubV2StreamInputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.EventHub/EventHub')
+        EventHubV2StreamInputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            consumer_group_name=consumer_group_name,
+            event_hub_name=event_hub_name,
+            service_bus_namespace=service_bus_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             consumer_group_name: Optional[str] = None,
+             event_hub_name: Optional[str] = None,
+             service_bus_namespace: Optional[str] = None,
+             shared_access_policy_key: Optional[str] = None,
+             shared_access_policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if consumer_group_name is None and 'consumerGroupName' in kwargs:
+            consumer_group_name = kwargs['consumerGroupName']
+        if event_hub_name is None and 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+
+        _setter("type", 'Microsoft.EventHub/EventHub')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if consumer_group_name is not None:
-            pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+            _setter("consumer_group_name", consumer_group_name)
         if event_hub_name is not None:
-            pulumi.set(__self__, "event_hub_name", event_hub_name)
+            _setter("event_hub_name", event_hub_name)
         if service_bus_namespace is not None:
-            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+            _setter("service_bus_namespace", service_bus_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
 
     @property
     @pulumi.getter
@@ -2931,12 +3787,29 @@ class ExternalResponse(dict):
         The storage account where the custom code artifacts are located.
         :param 'StorageAccountResponse' storage_account: The properties that are associated with an Azure Storage account
         """
+        ExternalResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            path=path,
+            storage_account=storage_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: Optional[str] = None,
+             path: Optional[str] = None,
+             storage_account: Optional['outputs.StorageAccountResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_account is None and 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+
         if container is not None:
-            pulumi.set(__self__, "container", container)
+            _setter("container", container)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if storage_account is not None:
-            pulumi.set(__self__, "storage_account", storage_account)
+            _setter("storage_account", storage_account)
 
     @property
     @pulumi.getter
@@ -2989,10 +3862,27 @@ class FunctionInputResponse(dict):
         :param str data_type: The (Azure Stream Analytics supported) data type of the function input parameter. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
         :param bool is_configuration_parameter: A flag indicating if the parameter is a configuration parameter. True if this input parameter is expected to be a constant. Default is false.
         """
+        FunctionInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+            is_configuration_parameter=is_configuration_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[str] = None,
+             is_configuration_parameter: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if is_configuration_parameter is None and 'isConfigurationParameter' in kwargs:
+            is_configuration_parameter = kwargs['isConfigurationParameter']
+
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
         if is_configuration_parameter is not None:
-            pulumi.set(__self__, "is_configuration_parameter", is_configuration_parameter)
+            _setter("is_configuration_parameter", is_configuration_parameter)
 
     @property
     @pulumi.getter(name="dataType")
@@ -3039,8 +3929,21 @@ class FunctionOutputResponse(dict):
         Describes the output of a function.
         :param str data_type: The (Azure Stream Analytics supported) data type of the function output. A list of valid Azure Stream Analytics data types are described at https://msdn.microsoft.com/en-us/library/azure/dn835065.aspx
         """
+        FunctionOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_type=data_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+
         if data_type is not None:
-            pulumi.set(__self__, "data_type", data_type)
+            _setter("data_type", data_type)
 
     @property
     @pulumi.getter(name="dataType")
@@ -3068,12 +3971,33 @@ class FunctionResponse(dict):
         :param str name: Resource name
         :param Union['AggregateFunctionPropertiesResponse', 'ScalarFunctionPropertiesResponse'] properties: The properties that are associated with a function.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        FunctionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             name: Optional[str] = None,
+             properties: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -3139,12 +4063,31 @@ class IdentityResponse(dict):
         """
         Describes how identity is verified
         """
+        IdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -3179,12 +4122,33 @@ class InputResponse(dict):
         :param str name: Resource name
         :param Union['ReferenceInputPropertiesResponse', 'StreamInputPropertiesResponse'] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        InputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            type=type,
+            name=name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             name: Optional[str] = None,
+             properties: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("id", id)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -3264,17 +4228,48 @@ class IoTHubStreamInputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the IoT Hub. This policy must contain at least the Service connect permission. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.Devices/IotHubs')
+        IoTHubStreamInputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            consumer_group_name=consumer_group_name,
+            endpoint=endpoint,
+            iot_hub_namespace=iot_hub_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             consumer_group_name: Optional[str] = None,
+             endpoint: Optional[str] = None,
+             iot_hub_namespace: Optional[str] = None,
+             shared_access_policy_key: Optional[str] = None,
+             shared_access_policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if consumer_group_name is None and 'consumerGroupName' in kwargs:
+            consumer_group_name = kwargs['consumerGroupName']
+        if iot_hub_namespace is None and 'iotHubNamespace' in kwargs:
+            iot_hub_namespace = kwargs['iotHubNamespace']
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+
+        _setter("type", 'Microsoft.Devices/IotHubs')
         if consumer_group_name is not None:
-            pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+            _setter("consumer_group_name", consumer_group_name)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if iot_hub_namespace is not None:
-            pulumi.set(__self__, "iot_hub_namespace", iot_hub_namespace)
+            _setter("iot_hub_namespace", iot_hub_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
 
     @property
     @pulumi.getter
@@ -3340,9 +4335,24 @@ class JavaScriptFunctionBindingResponse(dict):
                Expected value is 'Microsoft.StreamAnalytics/JavascriptUdf'.
         :param str script: The JavaScript code containing a single function definition. For example: 'function (x, y) { return x + y; }'
         """
-        pulumi.set(__self__, "type", 'Microsoft.StreamAnalytics/JavascriptUdf')
+        JavaScriptFunctionBindingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            script=script,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             script: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Microsoft.StreamAnalytics/JavascriptUdf')
         if script is not None:
-            pulumi.set(__self__, "script", script)
+            _setter("script", script)
 
     @property
     @pulumi.getter
@@ -3398,12 +4408,33 @@ class JobStorageAccountResponse(dict):
         :param str account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param str authentication_mode: Authentication Mode.
         """
+        JobStorageAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_key=account_key,
+            account_name=account_name,
+            authentication_mode=authentication_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_key: Optional[str] = None,
+             account_name: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_key is None and 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -3446,11 +4477,28 @@ class JsonSerializationResponse(dict):
         :param str encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         :param str format: This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
         """
-        pulumi.set(__self__, "type", 'Json')
+        JsonSerializationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Json')
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter
@@ -3523,20 +4571,59 @@ class OutputResponse(dict):
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'DeltaSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param int size_window: The size window to constrain a Stream Analytics output to.
         """
-        pulumi.set(__self__, "diagnostics", diagnostics)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        OutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostics=diagnostics,
+            etag=etag,
+            id=id,
+            type=type,
+            datasource=datasource,
+            name=name,
+            serialization=serialization,
+            size_window=size_window,
+            time_window=time_window,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostics: Optional['outputs.DiagnosticsResponse'] = None,
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             datasource: Optional[Any] = None,
+             name: Optional[str] = None,
+             serialization: Optional[Any] = None,
+             size_window: Optional[int] = None,
+             time_window: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if diagnostics is None:
+            raise TypeError("Missing 'diagnostics' argument")
+        if etag is None:
+            raise TypeError("Missing 'etag' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if size_window is None and 'sizeWindow' in kwargs:
+            size_window = kwargs['sizeWindow']
+        if time_window is None and 'timeWindow' in kwargs:
+            time_window = kwargs['timeWindow']
+
+        _setter("diagnostics", diagnostics)
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("type", type)
         if datasource is not None:
-            pulumi.set(__self__, "datasource", datasource)
+            _setter("datasource", datasource)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
         if size_window is not None:
-            pulumi.set(__self__, "size_window", size_window)
+            _setter("size_window", size_window)
         if time_window is not None:
-            pulumi.set(__self__, "time_window", time_window)
+            _setter("time_window", time_window)
 
     @property
     @pulumi.getter
@@ -3620,7 +4707,20 @@ class ParquetSerializationResponse(dict):
         :param str type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Parquet'.
         """
-        pulumi.set(__self__, "type", 'Parquet')
+        ParquetSerializationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", 'Parquet')
 
     @property
     @pulumi.getter
@@ -3687,23 +4787,64 @@ class PowerBIOutputDataSourceResponse(dict):
         :param str token_user_display_name: The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         :param str token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         """
-        pulumi.set(__self__, "type", 'PowerBI')
+        PowerBIOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            dataset=dataset,
+            group_id=group_id,
+            group_name=group_name,
+            refresh_token=refresh_token,
+            table=table,
+            token_user_display_name=token_user_display_name,
+            token_user_principal_name=token_user_principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             dataset: Optional[str] = None,
+             group_id: Optional[str] = None,
+             group_name: Optional[str] = None,
+             refresh_token: Optional[str] = None,
+             table: Optional[str] = None,
+             token_user_display_name: Optional[str] = None,
+             token_user_principal_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+        if token_user_display_name is None and 'tokenUserDisplayName' in kwargs:
+            token_user_display_name = kwargs['tokenUserDisplayName']
+        if token_user_principal_name is None and 'tokenUserPrincipalName' in kwargs:
+            token_user_principal_name = kwargs['tokenUserPrincipalName']
+
+        _setter("type", 'PowerBI')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
+            _setter("group_id", group_id)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if token_user_display_name is not None:
-            pulumi.set(__self__, "token_user_display_name", token_user_display_name)
+            _setter("token_user_display_name", token_user_display_name)
         if token_user_principal_name is not None:
-            pulumi.set(__self__, "token_user_principal_name", token_user_principal_name)
+            _setter("token_user_principal_name", token_user_principal_name)
 
     @property
     @pulumi.getter
@@ -3810,9 +4951,26 @@ class RawOutputDatasourceResponse(dict):
                Expected value is 'Raw'.
         :param str payload_uri: The SAS URL to a blob where the output should be written. If this property is not set, output data will be written into a temporary storage, and a SAS URL to that temporary storage will be included in the result.
         """
-        pulumi.set(__self__, "type", 'Raw')
+        RawOutputDatasourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            payload_uri=payload_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             payload_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if payload_uri is None and 'payloadUri' in kwargs:
+            payload_uri = kwargs['payloadUri']
+
+        _setter("type", 'Raw')
         if payload_uri is not None:
-            pulumi.set(__self__, "payload_uri", payload_uri)
+            _setter("payload_uri", payload_uri)
 
     @property
     @pulumi.getter
@@ -3865,11 +5023,30 @@ class RawReferenceInputDataSourceResponse(dict):
         :param str payload: The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
         :param str payload_uri: The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
         """
-        pulumi.set(__self__, "type", 'Raw')
+        RawReferenceInputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            payload=payload,
+            payload_uri=payload_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             payload: Optional[str] = None,
+             payload_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if payload_uri is None and 'payloadUri' in kwargs:
+            payload_uri = kwargs['payloadUri']
+
+        _setter("type", 'Raw')
         if payload is not None:
-            pulumi.set(__self__, "payload", payload)
+            _setter("payload", payload)
         if payload_uri is not None:
-            pulumi.set(__self__, "payload_uri", payload_uri)
+            _setter("payload_uri", payload_uri)
 
     @property
     @pulumi.getter
@@ -3930,11 +5107,30 @@ class RawStreamInputDataSourceResponse(dict):
         :param str payload: The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. 
         :param str payload_uri: The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both.
         """
-        pulumi.set(__self__, "type", 'Raw')
+        RawStreamInputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            payload=payload,
+            payload_uri=payload_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             payload: Optional[str] = None,
+             payload_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if payload_uri is None and 'payloadUri' in kwargs:
+            payload_uri = kwargs['payloadUri']
+
+        _setter("type", 'Raw')
         if payload is not None:
-            pulumi.set(__self__, "payload", payload)
+            _setter("payload", payload)
         if payload_uri is not None:
-            pulumi.set(__self__, "payload_uri", payload_uri)
+            _setter("payload_uri", payload_uri)
 
     @property
     @pulumi.getter
@@ -4003,17 +5199,48 @@ class ReferenceInputPropertiesResponse(dict):
         :param str partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'DeltaSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "diagnostics", diagnostics)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "type", 'Reference')
+        ReferenceInputPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostics=diagnostics,
+            etag=etag,
+            type=type,
+            compression=compression,
+            datasource=datasource,
+            partition_key=partition_key,
+            serialization=serialization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostics: Optional['outputs.DiagnosticsResponse'] = None,
+             etag: Optional[str] = None,
+             type: Optional[str] = None,
+             compression: Optional['outputs.CompressionResponse'] = None,
+             datasource: Optional[Any] = None,
+             partition_key: Optional[str] = None,
+             serialization: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if diagnostics is None:
+            raise TypeError("Missing 'diagnostics' argument")
+        if etag is None:
+            raise TypeError("Missing 'etag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+
+        _setter("diagnostics", diagnostics)
+        _setter("etag", etag)
+        _setter("type", 'Reference')
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if datasource is not None:
-            pulumi.set(__self__, "datasource", datasource)
+            _setter("datasource", datasource)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
 
     @property
     @pulumi.getter
@@ -4092,14 +5319,37 @@ class ScalarFunctionPropertiesResponse(dict):
         :param Union['AzureMachineLearningServiceFunctionBindingResponse', 'AzureMachineLearningStudioFunctionBindingResponse', 'CSharpFunctionBindingResponse', 'JavaScriptFunctionBindingResponse'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
         :param 'FunctionOutputResponse' output: Describes the output of a function.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "type", 'Scalar')
+        ScalarFunctionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            type=type,
+            binding=binding,
+            inputs=inputs,
+            output=output,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[str] = None,
+             type: Optional[str] = None,
+             binding: Optional[Any] = None,
+             inputs: Optional[Sequence['outputs.FunctionInputResponse']] = None,
+             output: Optional['outputs.FunctionOutputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if etag is None:
+            raise TypeError("Missing 'etag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("etag", etag)
+        _setter("type", 'Scalar')
         if binding is not None:
-            pulumi.set(__self__, "binding", binding)
+            _setter("binding", binding)
         if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
+            _setter("inputs", inputs)
         if output is not None:
-            pulumi.set(__self__, "output", output)
+            _setter("output", output)
 
     @property
     @pulumi.getter
@@ -4194,21 +5444,62 @@ class ServiceBusQueueOutputDataSourceResponse(dict):
         :param str shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.ServiceBus/Queue')
+        ServiceBusQueueOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            property_columns=property_columns,
+            queue_name=queue_name,
+            service_bus_namespace=service_bus_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+            system_property_columns=system_property_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             property_columns: Optional[Sequence[str]] = None,
+             queue_name: Optional[str] = None,
+             service_bus_namespace: Optional[str] = None,
+             shared_access_policy_key: Optional[str] = None,
+             shared_access_policy_name: Optional[str] = None,
+             system_property_columns: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if property_columns is None and 'propertyColumns' in kwargs:
+            property_columns = kwargs['propertyColumns']
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if system_property_columns is None and 'systemPropertyColumns' in kwargs:
+            system_property_columns = kwargs['systemPropertyColumns']
+
+        _setter("type", 'Microsoft.ServiceBus/Queue')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if property_columns is not None:
-            pulumi.set(__self__, "property_columns", property_columns)
+            _setter("property_columns", property_columns)
         if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
+            _setter("queue_name", queue_name)
         if service_bus_namespace is not None:
-            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+            _setter("service_bus_namespace", service_bus_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
         if system_property_columns is not None:
-            pulumi.set(__self__, "system_property_columns", system_property_columns)
+            _setter("system_property_columns", system_property_columns)
 
     @property
     @pulumi.getter
@@ -4327,21 +5618,62 @@ class ServiceBusTopicOutputDataSourceResponse(dict):
         :param str shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param str topic_name: The name of the Service Bus Topic. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "type", 'Microsoft.ServiceBus/Topic')
+        ServiceBusTopicOutputDataSourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            authentication_mode=authentication_mode,
+            property_columns=property_columns,
+            service_bus_namespace=service_bus_namespace,
+            shared_access_policy_key=shared_access_policy_key,
+            shared_access_policy_name=shared_access_policy_name,
+            system_property_columns=system_property_columns,
+            topic_name=topic_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             property_columns: Optional[Sequence[str]] = None,
+             service_bus_namespace: Optional[str] = None,
+             shared_access_policy_key: Optional[str] = None,
+             shared_access_policy_name: Optional[str] = None,
+             system_property_columns: Optional[Mapping[str, str]] = None,
+             topic_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if property_columns is None and 'propertyColumns' in kwargs:
+            property_columns = kwargs['propertyColumns']
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if shared_access_policy_key is None and 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if shared_access_policy_name is None and 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if system_property_columns is None and 'systemPropertyColumns' in kwargs:
+            system_property_columns = kwargs['systemPropertyColumns']
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+
+        _setter("type", 'Microsoft.ServiceBus/Topic')
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if property_columns is not None:
-            pulumi.set(__self__, "property_columns", property_columns)
+            _setter("property_columns", property_columns)
         if service_bus_namespace is not None:
-            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+            _setter("service_bus_namespace", service_bus_namespace)
         if shared_access_policy_key is not None:
-            pulumi.set(__self__, "shared_access_policy_key", shared_access_policy_key)
+            _setter("shared_access_policy_key", shared_access_policy_key)
         if shared_access_policy_name is not None:
-            pulumi.set(__self__, "shared_access_policy_name", shared_access_policy_name)
+            _setter("shared_access_policy_name", shared_access_policy_name)
         if system_property_columns is not None:
-            pulumi.set(__self__, "system_property_columns", system_property_columns)
+            _setter("system_property_columns", system_property_columns)
         if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
+            _setter("topic_name", topic_name)
 
     @property
     @pulumi.getter
@@ -4438,10 +5770,27 @@ class StorageAccountResponse(dict):
         :param str account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param str account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         """
+        StorageAccountResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_key=account_key,
+            account_name=account_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_key: Optional[str] = None,
+             account_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_key is None and 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -4501,17 +5850,48 @@ class StreamInputPropertiesResponse(dict):
         :param str partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'CustomClrSerializationResponse', 'DeltaSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "diagnostics", diagnostics)
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "type", 'Stream')
+        StreamInputPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            diagnostics=diagnostics,
+            etag=etag,
+            type=type,
+            compression=compression,
+            datasource=datasource,
+            partition_key=partition_key,
+            serialization=serialization,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             diagnostics: Optional['outputs.DiagnosticsResponse'] = None,
+             etag: Optional[str] = None,
+             type: Optional[str] = None,
+             compression: Optional['outputs.CompressionResponse'] = None,
+             datasource: Optional[Any] = None,
+             partition_key: Optional[str] = None,
+             serialization: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if diagnostics is None:
+            raise TypeError("Missing 'diagnostics' argument")
+        if etag is None:
+            raise TypeError("Missing 'etag' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+
+        _setter("diagnostics", diagnostics)
+        _setter("etag", etag)
+        _setter("type", 'Stream')
         if compression is not None:
-            pulumi.set(__self__, "compression", compression)
+            _setter("compression", compression)
         if datasource is not None:
-            pulumi.set(__self__, "datasource", datasource)
+            _setter("datasource", datasource)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
 
     @property
     @pulumi.getter
@@ -4582,8 +5962,19 @@ class StreamingJobSkuResponse(dict):
         The properties that are associated with a SKU.
         :param str name: The name of the SKU. Required on PUT (CreateOrReplace) requests.
         """
+        StreamingJobSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -4632,15 +6023,44 @@ class TransformationResponse(dict):
         :param str query: Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
         :param int streaming_units: Specifies the number of streaming units that the streaming job uses.
         """
-        pulumi.set(__self__, "etag", etag)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "type", type)
+        TransformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            etag=etag,
+            id=id,
+            type=type,
+            name=name,
+            query=query,
+            streaming_units=streaming_units,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             etag: Optional[str] = None,
+             id: Optional[str] = None,
+             type: Optional[str] = None,
+             name: Optional[str] = None,
+             query: Optional[str] = None,
+             streaming_units: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if etag is None:
+            raise TypeError("Missing 'etag' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if streaming_units is None and 'streamingUnits' in kwargs:
+            streaming_units = kwargs['streamingUnits']
+
+        _setter("etag", etag)
+        _setter("id", id)
+        _setter("type", type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if streaming_units is not None:
-            pulumi.set(__self__, "streaming_units", streaming_units)
+            _setter("streaming_units", streaming_units)
 
     @property
     @pulumi.getter

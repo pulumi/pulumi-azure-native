@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -42,28 +42,83 @@ class WebAppHostNameBindingArgs:
         :param pulumi.Input['SslState'] ssl_state: SSL type
         :param pulumi.Input[str] thumbprint: SSL certificate thumbprint
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppHostNameBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            azure_resource_name=azure_resource_name,
+            azure_resource_type=azure_resource_type,
+            custom_host_name_dns_record_type=custom_host_name_dns_record_type,
+            domain_id=domain_id,
+            host_name=host_name,
+            host_name_type=host_name_type,
+            kind=kind,
+            site_name=site_name,
+            ssl_state=ssl_state,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             azure_resource_name: Optional[pulumi.Input[str]] = None,
+             azure_resource_type: Optional[pulumi.Input['AzureResourceType']] = None,
+             custom_host_name_dns_record_type: Optional[pulumi.Input['CustomHostNameDnsRecordType']] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             host_name_type: Optional[pulumi.Input['HostNameType']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             site_name: Optional[pulumi.Input[str]] = None,
+             ssl_state: Optional[pulumi.Input['SslState']] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if azure_resource_name is None and 'azureResourceName' in kwargs:
+            azure_resource_name = kwargs['azureResourceName']
+        if azure_resource_type is None and 'azureResourceType' in kwargs:
+            azure_resource_type = kwargs['azureResourceType']
+        if custom_host_name_dns_record_type is None and 'customHostNameDnsRecordType' in kwargs:
+            custom_host_name_dns_record_type = kwargs['customHostNameDnsRecordType']
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if host_name_type is None and 'hostNameType' in kwargs:
+            host_name_type = kwargs['hostNameType']
+        if site_name is None and 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+        if ssl_state is None and 'sslState' in kwargs:
+            ssl_state = kwargs['sslState']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if azure_resource_name is not None:
-            pulumi.set(__self__, "azure_resource_name", azure_resource_name)
+            _setter("azure_resource_name", azure_resource_name)
         if azure_resource_type is not None:
-            pulumi.set(__self__, "azure_resource_type", azure_resource_type)
+            _setter("azure_resource_type", azure_resource_type)
         if custom_host_name_dns_record_type is not None:
-            pulumi.set(__self__, "custom_host_name_dns_record_type", custom_host_name_dns_record_type)
+            _setter("custom_host_name_dns_record_type", custom_host_name_dns_record_type)
         if domain_id is not None:
-            pulumi.set(__self__, "domain_id", domain_id)
+            _setter("domain_id", domain_id)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if host_name_type is not None:
-            pulumi.set(__self__, "host_name_type", host_name_type)
+            _setter("host_name_type", host_name_type)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if site_name is not None:
-            pulumi.set(__self__, "site_name", site_name)
+            _setter("site_name", site_name)
         if ssl_state is not None:
-            pulumi.set(__self__, "ssl_state", ssl_state)
+            _setter("ssl_state", ssl_state)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter
@@ -271,6 +326,10 @@ class WebAppHostNameBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppHostNameBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

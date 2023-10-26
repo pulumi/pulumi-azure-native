@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,10 +35,35 @@ class DiagnosticStoragePropertiesArgs:
         :param pulumi.Input[str] resource_id: ResourceId of the diagnostic storage account
         :param pulumi.Input[str] connection_string: ConnectionString of the diagnostic storage account
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "resource_id", resource_id)
+        DiagnosticStoragePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            resource_id=resource_id,
+            connection_string=connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
+        _setter("authentication_type", authentication_type)
+        _setter("resource_id", resource_id)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -87,10 +112,27 @@ class EncryptionArgs:
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input[str] user_assigned_identity: The full resourceId of the user assigned identity to be used for key vault access. Identity has to be also assigned to the Account
         """
+        EncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_key_uri=key_vault_key_uri,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_key_uri: Optional[pulumi.Input[str]] = None,
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_vault_key_uri is None and 'keyVaultKeyUri' in kwargs:
+            key_vault_key_uri = kwargs['keyVaultKeyUri']
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         if key_vault_key_uri is not None:
-            pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
+            _setter("key_vault_key_uri", key_vault_key_uri)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter(name="keyVaultKeyUri")
@@ -129,12 +171,33 @@ class GroupConnectivityInformationArgs:
         :param pulumi.Input[str] private_link_service_arm_region: PrivateLinkService ARM region.
         :param pulumi.Input[str] redirect_map_id: Redirect map ID.
         """
+        GroupConnectivityInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            customer_visible_fqdns=customer_visible_fqdns,
+            private_link_service_arm_region=private_link_service_arm_region,
+            redirect_map_id=redirect_map_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             customer_visible_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_link_service_arm_region: Optional[pulumi.Input[str]] = None,
+             redirect_map_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_visible_fqdns is None and 'customerVisibleFqdns' in kwargs:
+            customer_visible_fqdns = kwargs['customerVisibleFqdns']
+        if private_link_service_arm_region is None and 'privateLinkServiceArmRegion' in kwargs:
+            private_link_service_arm_region = kwargs['privateLinkServiceArmRegion']
+        if redirect_map_id is None and 'redirectMapId' in kwargs:
+            redirect_map_id = kwargs['redirectMapId']
+
         if customer_visible_fqdns is not None:
-            pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
+            _setter("customer_visible_fqdns", customer_visible_fqdns)
         if private_link_service_arm_region is not None:
-            pulumi.set(__self__, "private_link_service_arm_region", private_link_service_arm_region)
+            _setter("private_link_service_arm_region", private_link_service_arm_region)
         if redirect_map_id is not None:
-            pulumi.set(__self__, "redirect_map_id", redirect_map_id)
+            _setter("redirect_map_id", redirect_map_id)
 
     @property
     @pulumi.getter(name="customerVisibleFqdns")
@@ -181,7 +244,22 @@ class IotHubSettingsArgs:
         Device Update account integration with IoT Hub settings.
         :param pulumi.Input[str] resource_id: IoTHub resource ID
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        IotHubSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+
+        _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -206,9 +284,26 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -245,9 +340,28 @@ class PrivateEndpointConnectionArgs:
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: Array of group IDs.
         """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_link_service_connection_state=private_link_service_connection_state,
+            group_ids=group_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+        if private_link_service_connection_state is None:
+            raise TypeError("Missing 'private_link_service_connection_state' argument")
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+
+        _setter("private_link_service_connection_state", private_link_service_connection_state)
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -286,12 +400,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -342,12 +473,31 @@ class PrivateLinkServiceConnectionArgs:
         :param pulumi.Input[str] name: Private link service connection name.
         :param pulumi.Input[str] request_message: Request message.
         """
+        PrivateLinkServiceConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            name=name,
+            request_message=request_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if request_message is None and 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -398,12 +548,31 @@ class PrivateLinkServiceProxyArgs:
         :param pulumi.Input[str] id: NRP resource ID.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] remote_private_link_service_connection_state: Remote private link service connection state
         """
+        PrivateLinkServiceProxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_connectivity_information=group_connectivity_information,
+            id=id,
+            remote_private_link_service_connection_state=remote_private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_connectivity_information: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConnectivityInformationArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             remote_private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_connectivity_information is None and 'groupConnectivityInformation' in kwargs:
+            group_connectivity_information = kwargs['groupConnectivityInformation']
+        if remote_private_link_service_connection_state is None and 'remotePrivateLinkServiceConnectionState' in kwargs:
+            remote_private_link_service_connection_state = kwargs['remotePrivateLinkServiceConnectionState']
+
         if group_connectivity_information is not None:
-            pulumi.set(__self__, "group_connectivity_information", group_connectivity_information)
+            _setter("group_connectivity_information", group_connectivity_information)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if remote_private_link_service_connection_state is not None:
-            pulumi.set(__self__, "remote_private_link_service_connection_state", remote_private_link_service_connection_state)
+            _setter("remote_private_link_service_connection_state", remote_private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="groupConnectivityInformation")
@@ -464,22 +633,59 @@ class RemotePrivateEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]] private_link_service_proxies: List of private link service proxies.
         :param pulumi.Input[str] vnet_traffic_tag: Virtual network traffic tag.
         """
+        RemotePrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            immutable_resource_id=immutable_resource_id,
+            immutable_subscription_id=immutable_subscription_id,
+            location=location,
+            manual_private_link_service_connections=manual_private_link_service_connections,
+            private_link_service_connections=private_link_service_connections,
+            private_link_service_proxies=private_link_service_proxies,
+            vnet_traffic_tag=vnet_traffic_tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             immutable_resource_id: Optional[pulumi.Input[str]] = None,
+             immutable_subscription_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+             private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+             private_link_service_proxies: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]] = None,
+             vnet_traffic_tag: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if immutable_resource_id is None and 'immutableResourceId' in kwargs:
+            immutable_resource_id = kwargs['immutableResourceId']
+        if immutable_subscription_id is None and 'immutableSubscriptionId' in kwargs:
+            immutable_subscription_id = kwargs['immutableSubscriptionId']
+        if manual_private_link_service_connections is None and 'manualPrivateLinkServiceConnections' in kwargs:
+            manual_private_link_service_connections = kwargs['manualPrivateLinkServiceConnections']
+        if private_link_service_connections is None and 'privateLinkServiceConnections' in kwargs:
+            private_link_service_connections = kwargs['privateLinkServiceConnections']
+        if private_link_service_proxies is None and 'privateLinkServiceProxies' in kwargs:
+            private_link_service_proxies = kwargs['privateLinkServiceProxies']
+        if vnet_traffic_tag is None and 'vnetTrafficTag' in kwargs:
+            vnet_traffic_tag = kwargs['vnetTrafficTag']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if immutable_resource_id is not None:
-            pulumi.set(__self__, "immutable_resource_id", immutable_resource_id)
+            _setter("immutable_resource_id", immutable_resource_id)
         if immutable_subscription_id is not None:
-            pulumi.set(__self__, "immutable_subscription_id", immutable_subscription_id)
+            _setter("immutable_subscription_id", immutable_subscription_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if manual_private_link_service_connections is not None:
-            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+            _setter("manual_private_link_service_connections", manual_private_link_service_connections)
         if private_link_service_connections is not None:
-            pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+            _setter("private_link_service_connections", private_link_service_connections)
         if private_link_service_proxies is not None:
-            pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
+            _setter("private_link_service_proxies", private_link_service_proxies)
         if vnet_traffic_tag is not None:
-            pulumi.set(__self__, "vnet_traffic_tag", vnet_traffic_tag)
+            _setter("vnet_traffic_tag", vnet_traffic_tag)
 
     @property
     @pulumi.getter

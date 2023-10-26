@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,34 +48,97 @@ class L3NetworkArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "extended_location", extended_location)
-        pulumi.set(__self__, "l3_isolation_domain_id", l3_isolation_domain_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vlan", vlan)
+        L3NetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extended_location=extended_location,
+            l3_isolation_domain_id=l3_isolation_domain_id,
+            resource_group_name=resource_group_name,
+            vlan=vlan,
+            hybrid_aks_ipam_enabled=hybrid_aks_ipam_enabled,
+            hybrid_aks_plugin_type=hybrid_aks_plugin_type,
+            interface_name=interface_name,
+            ip_allocation_type=ip_allocation_type,
+            ipv4_connected_prefix=ipv4_connected_prefix,
+            ipv6_connected_prefix=ipv6_connected_prefix,
+            l3_network_name=l3_network_name,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             l3_isolation_domain_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vlan: Optional[pulumi.Input[float]] = None,
+             hybrid_aks_ipam_enabled: Optional[pulumi.Input[Union[str, 'HybridAksIpamEnabled']]] = None,
+             hybrid_aks_plugin_type: Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]] = None,
+             interface_name: Optional[pulumi.Input[str]] = None,
+             ip_allocation_type: Optional[pulumi.Input[Union[str, 'IpAllocationType']]] = None,
+             ipv4_connected_prefix: Optional[pulumi.Input[str]] = None,
+             ipv6_connected_prefix: Optional[pulumi.Input[str]] = None,
+             l3_network_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if extended_location is None:
+            raise TypeError("Missing 'extended_location' argument")
+        if l3_isolation_domain_id is None and 'l3IsolationDomainId' in kwargs:
+            l3_isolation_domain_id = kwargs['l3IsolationDomainId']
+        if l3_isolation_domain_id is None:
+            raise TypeError("Missing 'l3_isolation_domain_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vlan is None:
+            raise TypeError("Missing 'vlan' argument")
+        if hybrid_aks_ipam_enabled is None and 'hybridAksIpamEnabled' in kwargs:
+            hybrid_aks_ipam_enabled = kwargs['hybridAksIpamEnabled']
+        if hybrid_aks_plugin_type is None and 'hybridAksPluginType' in kwargs:
+            hybrid_aks_plugin_type = kwargs['hybridAksPluginType']
+        if interface_name is None and 'interfaceName' in kwargs:
+            interface_name = kwargs['interfaceName']
+        if ip_allocation_type is None and 'ipAllocationType' in kwargs:
+            ip_allocation_type = kwargs['ipAllocationType']
+        if ipv4_connected_prefix is None and 'ipv4ConnectedPrefix' in kwargs:
+            ipv4_connected_prefix = kwargs['ipv4ConnectedPrefix']
+        if ipv6_connected_prefix is None and 'ipv6ConnectedPrefix' in kwargs:
+            ipv6_connected_prefix = kwargs['ipv6ConnectedPrefix']
+        if l3_network_name is None and 'l3NetworkName' in kwargs:
+            l3_network_name = kwargs['l3NetworkName']
+
+        _setter("extended_location", extended_location)
+        _setter("l3_isolation_domain_id", l3_isolation_domain_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vlan", vlan)
         if hybrid_aks_ipam_enabled is None:
             hybrid_aks_ipam_enabled = 'True'
         if hybrid_aks_ipam_enabled is not None:
-            pulumi.set(__self__, "hybrid_aks_ipam_enabled", hybrid_aks_ipam_enabled)
+            _setter("hybrid_aks_ipam_enabled", hybrid_aks_ipam_enabled)
         if hybrid_aks_plugin_type is None:
             hybrid_aks_plugin_type = 'SRIOV'
         if hybrid_aks_plugin_type is not None:
-            pulumi.set(__self__, "hybrid_aks_plugin_type", hybrid_aks_plugin_type)
+            _setter("hybrid_aks_plugin_type", hybrid_aks_plugin_type)
         if interface_name is not None:
-            pulumi.set(__self__, "interface_name", interface_name)
+            _setter("interface_name", interface_name)
         if ip_allocation_type is None:
             ip_allocation_type = 'DualStack'
         if ip_allocation_type is not None:
-            pulumi.set(__self__, "ip_allocation_type", ip_allocation_type)
+            _setter("ip_allocation_type", ip_allocation_type)
         if ipv4_connected_prefix is not None:
-            pulumi.set(__self__, "ipv4_connected_prefix", ipv4_connected_prefix)
+            _setter("ipv4_connected_prefix", ipv4_connected_prefix)
         if ipv6_connected_prefix is not None:
-            pulumi.set(__self__, "ipv6_connected_prefix", ipv6_connected_prefix)
+            _setter("ipv6_connected_prefix", ipv6_connected_prefix)
         if l3_network_name is not None:
-            pulumi.set(__self__, "l3_network_name", l3_network_name)
+            _setter("l3_network_name", l3_network_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -293,6 +356,10 @@ class L3Network(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            L3NetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -320,6 +387,7 @@ class L3Network(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = L3NetworkArgs.__new__(L3NetworkArgs)
 
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location

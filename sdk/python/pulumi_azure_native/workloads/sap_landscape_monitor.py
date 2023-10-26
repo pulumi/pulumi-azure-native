@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,12 +27,39 @@ class SapLandscapeMonitorArgs:
         :param pulumi.Input['SapLandscapeMonitorPropertiesGroupingArgs'] grouping: Gets or sets the SID groupings by landscape and Environment.
         :param pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]] top_metrics_thresholds: Gets or sets the list Top Metric Thresholds for SAP Landscape Monitor Dashboard
         """
-        pulumi.set(__self__, "monitor_name", monitor_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SapLandscapeMonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitor_name=monitor_name,
+            resource_group_name=resource_group_name,
+            grouping=grouping,
+            top_metrics_thresholds=top_metrics_thresholds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitor_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             grouping: Optional[pulumi.Input['SapLandscapeMonitorPropertiesGroupingArgs']] = None,
+             top_metrics_thresholds: Optional[pulumi.Input[Sequence[pulumi.Input['SapLandscapeMonitorMetricThresholdsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if monitor_name is None and 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if monitor_name is None:
+            raise TypeError("Missing 'monitor_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if top_metrics_thresholds is None and 'topMetricsThresholds' in kwargs:
+            top_metrics_thresholds = kwargs['topMetricsThresholds']
+
+        _setter("monitor_name", monitor_name)
+        _setter("resource_group_name", resource_group_name)
         if grouping is not None:
-            pulumi.set(__self__, "grouping", grouping)
+            _setter("grouping", grouping)
         if top_metrics_thresholds is not None:
-            pulumi.set(__self__, "top_metrics_thresholds", top_metrics_thresholds)
+            _setter("top_metrics_thresholds", top_metrics_thresholds)
 
     @property
     @pulumi.getter(name="monitorName")
@@ -124,6 +151,10 @@ class SapLandscapeMonitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SapLandscapeMonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -142,6 +173,7 @@ class SapLandscapeMonitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SapLandscapeMonitorArgs.__new__(SapLandscapeMonitorArgs)
 
+            grouping = _utilities.configure(grouping, SapLandscapeMonitorPropertiesGroupingArgs, True)
             __props__.__dict__["grouping"] = grouping
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")

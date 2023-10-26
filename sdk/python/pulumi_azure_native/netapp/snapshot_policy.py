@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,24 +39,71 @@ class SnapshotPolicyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['WeeklyScheduleArgs'] weekly_schedule: Schedule for weekly snapshots
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SnapshotPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            daily_schedule=daily_schedule,
+            enabled=enabled,
+            hourly_schedule=hourly_schedule,
+            location=location,
+            monthly_schedule=monthly_schedule,
+            snapshot_policy_name=snapshot_policy_name,
+            tags=tags,
+            weekly_schedule=weekly_schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             daily_schedule: Optional[pulumi.Input['DailyScheduleArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             hourly_schedule: Optional[pulumi.Input['HourlyScheduleArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             monthly_schedule: Optional[pulumi.Input['MonthlyScheduleArgs']] = None,
+             snapshot_policy_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             weekly_schedule: Optional[pulumi.Input['WeeklyScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if daily_schedule is None and 'dailySchedule' in kwargs:
+            daily_schedule = kwargs['dailySchedule']
+        if hourly_schedule is None and 'hourlySchedule' in kwargs:
+            hourly_schedule = kwargs['hourlySchedule']
+        if monthly_schedule is None and 'monthlySchedule' in kwargs:
+            monthly_schedule = kwargs['monthlySchedule']
+        if snapshot_policy_name is None and 'snapshotPolicyName' in kwargs:
+            snapshot_policy_name = kwargs['snapshotPolicyName']
+        if weekly_schedule is None and 'weeklySchedule' in kwargs:
+            weekly_schedule = kwargs['weeklySchedule']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if daily_schedule is not None:
-            pulumi.set(__self__, "daily_schedule", daily_schedule)
+            _setter("daily_schedule", daily_schedule)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if hourly_schedule is not None:
-            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+            _setter("hourly_schedule", hourly_schedule)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if monthly_schedule is not None:
-            pulumi.set(__self__, "monthly_schedule", monthly_schedule)
+            _setter("monthly_schedule", monthly_schedule)
         if snapshot_policy_name is not None:
-            pulumi.set(__self__, "snapshot_policy_name", snapshot_policy_name)
+            _setter("snapshot_policy_name", snapshot_policy_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if weekly_schedule is not None:
-            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+            _setter("weekly_schedule", weekly_schedule)
 
     @property
     @pulumi.getter(name="accountName")
@@ -236,6 +283,10 @@ class SnapshotPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnapshotPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -263,16 +314,20 @@ class SnapshotPolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            daily_schedule = _utilities.configure(daily_schedule, DailyScheduleArgs, True)
             __props__.__dict__["daily_schedule"] = daily_schedule
             __props__.__dict__["enabled"] = enabled
+            hourly_schedule = _utilities.configure(hourly_schedule, HourlyScheduleArgs, True)
             __props__.__dict__["hourly_schedule"] = hourly_schedule
             __props__.__dict__["location"] = location
+            monthly_schedule = _utilities.configure(monthly_schedule, MonthlyScheduleArgs, True)
             __props__.__dict__["monthly_schedule"] = monthly_schedule
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["snapshot_policy_name"] = snapshot_policy_name
             __props__.__dict__["tags"] = tags
+            weekly_schedule = _utilities.configure(weekly_schedule, WeeklyScheduleArgs, True)
             __props__.__dict__["weekly_schedule"] = weekly_schedule
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None

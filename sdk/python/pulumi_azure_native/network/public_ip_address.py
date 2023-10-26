@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -62,47 +62,132 @@ class PublicIPAddressInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PublicIPAddressInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            ddos_settings=ddos_settings,
+            delete_option=delete_option,
+            dns_settings=dns_settings,
+            extended_location=extended_location,
+            id=id,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            ip_address=ip_address,
+            ip_tags=ip_tags,
+            linked_public_ip_address=linked_public_ip_address,
+            location=location,
+            migration_phase=migration_phase,
+            nat_gateway=nat_gateway,
+            public_ip_address_version=public_ip_address_version,
+            public_ip_allocation_method=public_ip_allocation_method,
+            public_ip_prefix=public_ip_prefix,
+            public_ip_address_name=public_ip_address_name,
+            service_public_ip_address=service_public_ip_address,
+            sku=sku,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ddos_settings: Optional[pulumi.Input['DdosSettingsArgs']] = None,
+             delete_option: Optional[pulumi.Input[Union[str, 'DeleteOptions']]] = None,
+             dns_settings: Optional[pulumi.Input['PublicIPAddressDnsSettingsArgs']] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+             linked_public_ip_address: Optional[pulumi.Input['PublicIPAddressArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             migration_phase: Optional[pulumi.Input[Union[str, 'PublicIPAddressMigrationPhase']]] = None,
+             nat_gateway: Optional[pulumi.Input['NatGatewayArgs']] = None,
+             public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+             public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
+             public_ip_prefix: Optional[pulumi.Input['SubResourceArgs']] = None,
+             public_ip_address_name: Optional[pulumi.Input[str]] = None,
+             service_public_ip_address: Optional[pulumi.Input['PublicIPAddressArgs']] = None,
+             sku: Optional[pulumi.Input['PublicIPAddressSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ddos_settings is None and 'ddosSettings' in kwargs:
+            ddos_settings = kwargs['ddosSettings']
+        if delete_option is None and 'deleteOption' in kwargs:
+            delete_option = kwargs['deleteOption']
+        if dns_settings is None and 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if idle_timeout_in_minutes is None and 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_tags is None and 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if linked_public_ip_address is None and 'linkedPublicIPAddress' in kwargs:
+            linked_public_ip_address = kwargs['linkedPublicIPAddress']
+        if migration_phase is None and 'migrationPhase' in kwargs:
+            migration_phase = kwargs['migrationPhase']
+        if nat_gateway is None and 'natGateway' in kwargs:
+            nat_gateway = kwargs['natGateway']
+        if public_ip_address_version is None and 'publicIPAddressVersion' in kwargs:
+            public_ip_address_version = kwargs['publicIPAddressVersion']
+        if public_ip_allocation_method is None and 'publicIPAllocationMethod' in kwargs:
+            public_ip_allocation_method = kwargs['publicIPAllocationMethod']
+        if public_ip_prefix is None and 'publicIPPrefix' in kwargs:
+            public_ip_prefix = kwargs['publicIPPrefix']
+        if public_ip_address_name is None and 'publicIpAddressName' in kwargs:
+            public_ip_address_name = kwargs['publicIpAddressName']
+        if service_public_ip_address is None and 'servicePublicIPAddress' in kwargs:
+            service_public_ip_address = kwargs['servicePublicIPAddress']
+
+        _setter("resource_group_name", resource_group_name)
         if ddos_settings is not None:
-            pulumi.set(__self__, "ddos_settings", ddos_settings)
+            _setter("ddos_settings", ddos_settings)
         if delete_option is not None:
-            pulumi.set(__self__, "delete_option", delete_option)
+            _setter("delete_option", delete_option)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if ip_tags is not None:
-            pulumi.set(__self__, "ip_tags", ip_tags)
+            _setter("ip_tags", ip_tags)
         if linked_public_ip_address is not None:
-            pulumi.set(__self__, "linked_public_ip_address", linked_public_ip_address)
+            _setter("linked_public_ip_address", linked_public_ip_address)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if migration_phase is not None:
-            pulumi.set(__self__, "migration_phase", migration_phase)
+            _setter("migration_phase", migration_phase)
         if nat_gateway is not None:
-            pulumi.set(__self__, "nat_gateway", nat_gateway)
+            _setter("nat_gateway", nat_gateway)
         if public_ip_address_version is not None:
-            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+            _setter("public_ip_address_version", public_ip_address_version)
         if public_ip_allocation_method is not None:
-            pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
+            _setter("public_ip_allocation_method", public_ip_allocation_method)
         if public_ip_prefix is not None:
-            pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
+            _setter("public_ip_prefix", public_ip_prefix)
         if public_ip_address_name is not None:
-            pulumi.set(__self__, "public_ip_address_name", public_ip_address_name)
+            _setter("public_ip_address_name", public_ip_address_name)
         if service_public_ip_address is not None:
-            pulumi.set(__self__, "service_public_ip_address", service_public_ip_address)
+            _setter("service_public_ip_address", service_public_ip_address)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -436,6 +521,10 @@ class PublicIPAddress(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PublicIPAddressInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -471,26 +560,34 @@ class PublicIPAddress(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicIPAddressInitArgs.__new__(PublicIPAddressInitArgs)
 
+            ddos_settings = _utilities.configure(ddos_settings, DdosSettingsArgs, True)
             __props__.__dict__["ddos_settings"] = ddos_settings
             __props__.__dict__["delete_option"] = delete_option
+            dns_settings = _utilities.configure(dns_settings, PublicIPAddressDnsSettingsArgs, True)
             __props__.__dict__["dns_settings"] = dns_settings
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["id"] = id
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             __props__.__dict__["ip_address"] = ip_address
             __props__.__dict__["ip_tags"] = ip_tags
+            linked_public_ip_address = _utilities.configure(linked_public_ip_address, PublicIPAddressArgs, True)
             __props__.__dict__["linked_public_ip_address"] = linked_public_ip_address
             __props__.__dict__["location"] = location
             __props__.__dict__["migration_phase"] = migration_phase
+            nat_gateway = _utilities.configure(nat_gateway, NatGatewayArgs, True)
             __props__.__dict__["nat_gateway"] = nat_gateway
             __props__.__dict__["public_ip_address_version"] = public_ip_address_version
             __props__.__dict__["public_ip_allocation_method"] = public_ip_allocation_method
+            public_ip_prefix = _utilities.configure(public_ip_prefix, SubResourceArgs, True)
             __props__.__dict__["public_ip_prefix"] = public_ip_prefix
             __props__.__dict__["public_ip_address_name"] = public_ip_address_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            service_public_ip_address = _utilities.configure(service_public_ip_address, PublicIPAddressArgs, True)
             __props__.__dict__["service_public_ip_address"] = service_public_ip_address
+            sku = _utilities.configure(sku, PublicIPAddressSkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones

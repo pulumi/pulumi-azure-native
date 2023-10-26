@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -52,25 +52,126 @@ class AssessmentArgs:
         :param pulumi.Input[str] assessment_name: Unique name of an assessment within a project.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         """
-        pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
-        pulumi.set(__self__, "azure_location", azure_location)
-        pulumi.set(__self__, "azure_offer_code", azure_offer_code)
-        pulumi.set(__self__, "azure_pricing_tier", azure_pricing_tier)
-        pulumi.set(__self__, "azure_storage_redundancy", azure_storage_redundancy)
-        pulumi.set(__self__, "currency", currency)
-        pulumi.set(__self__, "discount_percentage", discount_percentage)
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "percentile", percentile)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scaling_factor", scaling_factor)
-        pulumi.set(__self__, "sizing_criterion", sizing_criterion)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "time_range", time_range)
+        AssessmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_hybrid_use_benefit=azure_hybrid_use_benefit,
+            azure_location=azure_location,
+            azure_offer_code=azure_offer_code,
+            azure_pricing_tier=azure_pricing_tier,
+            azure_storage_redundancy=azure_storage_redundancy,
+            currency=currency,
+            discount_percentage=discount_percentage,
+            group_name=group_name,
+            percentile=percentile,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            scaling_factor=scaling_factor,
+            sizing_criterion=sizing_criterion,
+            stage=stage,
+            time_range=time_range,
+            assessment_name=assessment_name,
+            e_tag=e_tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
+             azure_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
+             azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+             azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
+             azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
+             currency: Optional[pulumi.Input[Union[str, 'Currency']]] = None,
+             discount_percentage: Optional[pulumi.Input[float]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scaling_factor: Optional[pulumi.Input[float]] = None,
+             sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
+             stage: Optional[pulumi.Input[Union[str, 'AssessmentStage']]] = None,
+             time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
+             assessment_name: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_hybrid_use_benefit is None and 'azureHybridUseBenefit' in kwargs:
+            azure_hybrid_use_benefit = kwargs['azureHybridUseBenefit']
+        if azure_hybrid_use_benefit is None:
+            raise TypeError("Missing 'azure_hybrid_use_benefit' argument")
+        if azure_location is None and 'azureLocation' in kwargs:
+            azure_location = kwargs['azureLocation']
+        if azure_location is None:
+            raise TypeError("Missing 'azure_location' argument")
+        if azure_offer_code is None and 'azureOfferCode' in kwargs:
+            azure_offer_code = kwargs['azureOfferCode']
+        if azure_offer_code is None:
+            raise TypeError("Missing 'azure_offer_code' argument")
+        if azure_pricing_tier is None and 'azurePricingTier' in kwargs:
+            azure_pricing_tier = kwargs['azurePricingTier']
+        if azure_pricing_tier is None:
+            raise TypeError("Missing 'azure_pricing_tier' argument")
+        if azure_storage_redundancy is None and 'azureStorageRedundancy' in kwargs:
+            azure_storage_redundancy = kwargs['azureStorageRedundancy']
+        if azure_storage_redundancy is None:
+            raise TypeError("Missing 'azure_storage_redundancy' argument")
+        if currency is None:
+            raise TypeError("Missing 'currency' argument")
+        if discount_percentage is None and 'discountPercentage' in kwargs:
+            discount_percentage = kwargs['discountPercentage']
+        if discount_percentage is None:
+            raise TypeError("Missing 'discount_percentage' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if percentile is None:
+            raise TypeError("Missing 'percentile' argument")
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scaling_factor is None and 'scalingFactor' in kwargs:
+            scaling_factor = kwargs['scalingFactor']
+        if scaling_factor is None:
+            raise TypeError("Missing 'scaling_factor' argument")
+        if sizing_criterion is None and 'sizingCriterion' in kwargs:
+            sizing_criterion = kwargs['sizingCriterion']
+        if sizing_criterion is None:
+            raise TypeError("Missing 'sizing_criterion' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if time_range is None and 'timeRange' in kwargs:
+            time_range = kwargs['timeRange']
+        if time_range is None:
+            raise TypeError("Missing 'time_range' argument")
+        if assessment_name is None and 'assessmentName' in kwargs:
+            assessment_name = kwargs['assessmentName']
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+
+        _setter("azure_hybrid_use_benefit", azure_hybrid_use_benefit)
+        _setter("azure_location", azure_location)
+        _setter("azure_offer_code", azure_offer_code)
+        _setter("azure_pricing_tier", azure_pricing_tier)
+        _setter("azure_storage_redundancy", azure_storage_redundancy)
+        _setter("currency", currency)
+        _setter("discount_percentage", discount_percentage)
+        _setter("group_name", group_name)
+        _setter("percentile", percentile)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scaling_factor", scaling_factor)
+        _setter("sizing_criterion", sizing_criterion)
+        _setter("stage", stage)
+        _setter("time_range", time_range)
         if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
+            _setter("assessment_name", assessment_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
 
     @property
     @pulumi.getter(name="azureHybridUseBenefit")
@@ -342,6 +443,10 @@ class Assessment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

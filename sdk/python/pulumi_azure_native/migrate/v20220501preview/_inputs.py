@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -69,14 +69,39 @@ class ACRPropertiesArgs:
         :param pulumi.Input[str] subscription_id: Gets or sets the subscription id of the resource.
         :param pulumi.Input[str] tenant_id: Gets or sets the tenant id.
         """
+        ACRPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_name=registry_name,
+            resource_group=resource_group,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if registry_name is not None:
-            pulumi.set(__self__, "registry_name", registry_name)
+            _setter("registry_name", registry_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="registryName")
@@ -141,14 +166,39 @@ class AKSDeploymentPropertiesArgs:
         :param pulumi.Input[str] subscription_id: Gets or sets the subscription id of the resource.
         :param pulumi.Input[str] tenant_id: Gets or sets the tenant id.
         """
+        AKSDeploymentPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aks_cluster_name=aks_cluster_name,
+            resource_group=resource_group,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aks_cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aks_cluster_name is None and 'aksClusterName' in kwargs:
+            aks_cluster_name = kwargs['aksClusterName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if aks_cluster_name is not None:
-            pulumi.set(__self__, "aks_cluster_name", aks_cluster_name)
+            _setter("aks_cluster_name", aks_cluster_name)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aksClusterName")
@@ -211,12 +261,33 @@ class AKSDeploymentSpecificationArgs:
         :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: Gets or sets the load balancer type.
         :param pulumi.Input[str] replica_count: Gets or sets the replica count to be created in AKS.
         """
+        AKSDeploymentSpecificationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kubernetes_objects_yaml=kubernetes_objects_yaml,
+            load_balancer_type=load_balancer_type,
+            replica_count=replica_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kubernetes_objects_yaml: Optional[pulumi.Input[str]] = None,
+             load_balancer_type: Optional[pulumi.Input[Union[str, 'LoadBalancerType']]] = None,
+             replica_count: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kubernetes_objects_yaml is None and 'kubernetesObjectsYaml' in kwargs:
+            kubernetes_objects_yaml = kwargs['kubernetesObjectsYaml']
+        if load_balancer_type is None and 'loadBalancerType' in kwargs:
+            load_balancer_type = kwargs['loadBalancerType']
+        if replica_count is None and 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+
         if kubernetes_objects_yaml is not None:
-            pulumi.set(__self__, "kubernetes_objects_yaml", kubernetes_objects_yaml)
+            _setter("kubernetes_objects_yaml", kubernetes_objects_yaml)
         if load_balancer_type is not None:
-            pulumi.set(__self__, "load_balancer_type", load_balancer_type)
+            _setter("load_balancer_type", load_balancer_type)
         if replica_count is not None:
-            pulumi.set(__self__, "replica_count", replica_count)
+            _setter("replica_count", replica_count)
 
     @property
     @pulumi.getter(name="kubernetesObjectsYaml")
@@ -266,9 +337,28 @@ class ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgs:
                Expected value is 'ApacheTomcatAKSWorkloadDeploymentModelCustomProperties'.
         :param pulumi.Input['ApacheTomcatAKSWorkloadDeploymentArgs'] apache_tomcat_aks_workload_deployment_properties: ApacheTomcat web application.
         """
-        pulumi.set(__self__, "instance_type", 'ApacheTomcatAKSWorkloadDeploymentModelCustomProperties')
+        ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            apache_tomcat_aks_workload_deployment_properties=apache_tomcat_aks_workload_deployment_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             apache_tomcat_aks_workload_deployment_properties: Optional[pulumi.Input['ApacheTomcatAKSWorkloadDeploymentArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if apache_tomcat_aks_workload_deployment_properties is None and 'apacheTomcatAksWorkloadDeploymentProperties' in kwargs:
+            apache_tomcat_aks_workload_deployment_properties = kwargs['apacheTomcatAksWorkloadDeploymentProperties']
+
+        _setter("instance_type", 'ApacheTomcatAKSWorkloadDeploymentModelCustomProperties')
         if apache_tomcat_aks_workload_deployment_properties is not None:
-            pulumi.set(__self__, "apache_tomcat_aks_workload_deployment_properties", apache_tomcat_aks_workload_deployment_properties)
+            _setter("apache_tomcat_aks_workload_deployment_properties", apache_tomcat_aks_workload_deployment_properties)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -328,32 +418,83 @@ class ApacheTomcatAKSWorkloadDeploymentArgs:
         :param pulumi.Input['ResourceRequirementsArgs'] requests: Resource Requirements.
         :param pulumi.Input[str] target_platform_identity: Gets or sets the target platform managed identity.
         """
+        ApacheTomcatAKSWorkloadDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_artifact_properties=automation_artifact_properties,
+            bindings=bindings,
+            build_container_images=build_container_images,
+            cluster_properties=cluster_properties,
+            configurations=configurations,
+            container_image_properties=container_image_properties,
+            deployment_name_prefix=deployment_name_prefix,
+            deployment_spec=deployment_spec,
+            directories=directories,
+            limits=limits,
+            monitoring_properties=monitoring_properties,
+            requests=requests,
+            target_platform_identity=target_platform_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_artifact_properties: Optional[pulumi.Input['AutomationArtifactArgs']] = None,
+             bindings: Optional[pulumi.Input[Sequence[pulumi.Input['BindingArgs']]]] = None,
+             build_container_images: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerImagePropertiesArgs']]]] = None,
+             cluster_properties: Optional[pulumi.Input['AKSDeploymentPropertiesArgs']] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationConfigurationArgs']]]] = None,
+             container_image_properties: Optional[pulumi.Input['ContainerImagePropertiesArgs']] = None,
+             deployment_name_prefix: Optional[pulumi.Input[str]] = None,
+             deployment_spec: Optional[pulumi.Input['AKSDeploymentSpecificationArgs']] = None,
+             directories: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationDirectoryArgs']]]] = None,
+             limits: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             monitoring_properties: Optional[pulumi.Input['AppInsightMonitoringPropertiesArgs']] = None,
+             requests: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             target_platform_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if automation_artifact_properties is None and 'automationArtifactProperties' in kwargs:
+            automation_artifact_properties = kwargs['automationArtifactProperties']
+        if build_container_images is None and 'buildContainerImages' in kwargs:
+            build_container_images = kwargs['buildContainerImages']
+        if cluster_properties is None and 'clusterProperties' in kwargs:
+            cluster_properties = kwargs['clusterProperties']
+        if container_image_properties is None and 'containerImageProperties' in kwargs:
+            container_image_properties = kwargs['containerImageProperties']
+        if deployment_name_prefix is None and 'deploymentNamePrefix' in kwargs:
+            deployment_name_prefix = kwargs['deploymentNamePrefix']
+        if deployment_spec is None and 'deploymentSpec' in kwargs:
+            deployment_spec = kwargs['deploymentSpec']
+        if monitoring_properties is None and 'monitoringProperties' in kwargs:
+            monitoring_properties = kwargs['monitoringProperties']
+        if target_platform_identity is None and 'targetPlatformIdentity' in kwargs:
+            target_platform_identity = kwargs['targetPlatformIdentity']
+
         if automation_artifact_properties is not None:
-            pulumi.set(__self__, "automation_artifact_properties", automation_artifact_properties)
+            _setter("automation_artifact_properties", automation_artifact_properties)
         if bindings is not None:
-            pulumi.set(__self__, "bindings", bindings)
+            _setter("bindings", bindings)
         if build_container_images is not None:
-            pulumi.set(__self__, "build_container_images", build_container_images)
+            _setter("build_container_images", build_container_images)
         if cluster_properties is not None:
-            pulumi.set(__self__, "cluster_properties", cluster_properties)
+            _setter("cluster_properties", cluster_properties)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if container_image_properties is not None:
-            pulumi.set(__self__, "container_image_properties", container_image_properties)
+            _setter("container_image_properties", container_image_properties)
         if deployment_name_prefix is not None:
-            pulumi.set(__self__, "deployment_name_prefix", deployment_name_prefix)
+            _setter("deployment_name_prefix", deployment_name_prefix)
         if deployment_spec is not None:
-            pulumi.set(__self__, "deployment_spec", deployment_spec)
+            _setter("deployment_spec", deployment_spec)
         if directories is not None:
-            pulumi.set(__self__, "directories", directories)
+            _setter("directories", directories)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if monitoring_properties is not None:
-            pulumi.set(__self__, "monitoring_properties", monitoring_properties)
+            _setter("monitoring_properties", monitoring_properties)
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
         if target_platform_identity is not None:
-            pulumi.set(__self__, "target_platform_identity", target_platform_identity)
+            _setter("target_platform_identity", target_platform_identity)
 
     @property
     @pulumi.getter(name="automationArtifactProperties")
@@ -546,34 +687,87 @@ class ApacheTomcatWebApplicationArgs:
         :param pulumi.Input[str] web_server_id: Gets or sets the web server id.
         :param pulumi.Input[str] web_server_name: Gets or sets the web server name.
         """
+        ApacheTomcatWebApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            application_name=application_name,
+            application_scratch_path=application_scratch_path,
+            bindings=bindings,
+            configurations=configurations,
+            directories=directories,
+            discovered_frameworks=discovered_frameworks,
+            display_name=display_name,
+            limits=limits,
+            path=path,
+            primary_framework=primary_framework,
+            requests=requests,
+            web_server_id=web_server_id,
+            web_server_name=web_server_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             application_name: Optional[pulumi.Input[str]] = None,
+             application_scratch_path: Optional[pulumi.Input[str]] = None,
+             bindings: Optional[pulumi.Input[Sequence[pulumi.Input['BindingArgs']]]] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationConfigurationArgs']]]] = None,
+             directories: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationDirectoryArgs']]]] = None,
+             discovered_frameworks: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFrameworkArgs']]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             limits: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             path: Optional[pulumi.Input['DirectoryPathArgs']] = None,
+             primary_framework: Optional[pulumi.Input['WebApplicationFrameworkArgs']] = None,
+             requests: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             web_server_id: Optional[pulumi.Input[str]] = None,
+             web_server_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_scratch_path is None and 'applicationScratchPath' in kwargs:
+            application_scratch_path = kwargs['applicationScratchPath']
+        if discovered_frameworks is None and 'discoveredFrameworks' in kwargs:
+            discovered_frameworks = kwargs['discoveredFrameworks']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if primary_framework is None and 'primaryFramework' in kwargs:
+            primary_framework = kwargs['primaryFramework']
+        if web_server_id is None and 'webServerId' in kwargs:
+            web_server_id = kwargs['webServerId']
+        if web_server_name is None and 'webServerName' in kwargs:
+            web_server_name = kwargs['webServerName']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if application_scratch_path is not None:
-            pulumi.set(__self__, "application_scratch_path", application_scratch_path)
+            _setter("application_scratch_path", application_scratch_path)
         if bindings is not None:
-            pulumi.set(__self__, "bindings", bindings)
+            _setter("bindings", bindings)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if directories is not None:
-            pulumi.set(__self__, "directories", directories)
+            _setter("directories", directories)
         if discovered_frameworks is not None:
-            pulumi.set(__self__, "discovered_frameworks", discovered_frameworks)
+            _setter("discovered_frameworks", discovered_frameworks)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if primary_framework is not None:
-            pulumi.set(__self__, "primary_framework", primary_framework)
+            _setter("primary_framework", primary_framework)
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
         if web_server_id is not None:
-            pulumi.set(__self__, "web_server_id", web_server_id)
+            _setter("web_server_id", web_server_id)
         if web_server_name is not None:
-            pulumi.set(__self__, "web_server_name", web_server_name)
+            _setter("web_server_name", web_server_name)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -759,13 +953,40 @@ class ApacheTomcatWorkloadInstanceModelCustomPropertiesArgs:
         :param pulumi.Input[str] web_app_arm_id: Gets or sets the Web application ARM id.
         :param pulumi.Input[str] web_app_site_name: Gets or sets the Web application site name.
         """
-        pulumi.set(__self__, "instance_type", 'ApacheTomcatWorkloadInstanceModelCustomProperties')
+        ApacheTomcatWorkloadInstanceModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            apache_tomcat_web_application=apache_tomcat_web_application,
+            web_app_arm_id=web_app_arm_id,
+            web_app_site_name=web_app_site_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             apache_tomcat_web_application: Optional[pulumi.Input['ApacheTomcatWebApplicationArgs']] = None,
+             web_app_arm_id: Optional[pulumi.Input[str]] = None,
+             web_app_site_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if apache_tomcat_web_application is None and 'apacheTomcatWebApplication' in kwargs:
+            apache_tomcat_web_application = kwargs['apacheTomcatWebApplication']
+        if web_app_arm_id is None and 'webAppArmId' in kwargs:
+            web_app_arm_id = kwargs['webAppArmId']
+        if web_app_site_name is None and 'webAppSiteName' in kwargs:
+            web_app_site_name = kwargs['webAppSiteName']
+
+        _setter("instance_type", 'ApacheTomcatWorkloadInstanceModelCustomProperties')
         if apache_tomcat_web_application is not None:
-            pulumi.set(__self__, "apache_tomcat_web_application", apache_tomcat_web_application)
+            _setter("apache_tomcat_web_application", apache_tomcat_web_application)
         if web_app_arm_id is not None:
-            pulumi.set(__self__, "web_app_arm_id", web_app_arm_id)
+            _setter("web_app_arm_id", web_app_arm_id)
         if web_app_site_name is not None:
-            pulumi.set(__self__, "web_app_site_name", web_app_site_name)
+            _setter("web_app_site_name", web_app_site_name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -834,18 +1055,49 @@ class AppInsightMonitoringPropertiesArgs:
         :param pulumi.Input[str] resource_group: Gets or sets the resource group of the resource.
         :param pulumi.Input[str] subscription_id: Gets or sets the subscription id of the resource.
         """
+        AppInsightMonitoringPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_insights_name=app_insights_name,
+            is_enabled=is_enabled,
+            region=region,
+            resource_group=resource_group,
+            secret_store_details=secret_store_details,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_insights_name: Optional[pulumi.Input[str]] = None,
+             is_enabled: Optional[pulumi.Input[bool]] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             secret_store_details: Optional[pulumi.Input['SecretStoreDetailsArgs']] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_insights_name is None and 'appInsightsName' in kwargs:
+            app_insights_name = kwargs['appInsightsName']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if secret_store_details is None and 'secretStoreDetails' in kwargs:
+            secret_store_details = kwargs['secretStoreDetails']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if app_insights_name is not None:
-            pulumi.set(__self__, "app_insights_name", app_insights_name)
+            _setter("app_insights_name", app_insights_name)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if secret_store_details is not None:
-            pulumi.set(__self__, "secret_store_details", secret_store_details)
+            _setter("secret_store_details", secret_store_details)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="appInsightsName")
@@ -930,12 +1182,29 @@ class AutomationArtifactArgs:
                the container file system.
         :param pulumi.Input[Union[str, 'AutomationArtifactStatus']] status: Gets or sets the status of automation artifacts.
         """
+        AutomationArtifactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            artifacts=artifacts,
+            azure_file_share_profile=azure_file_share_profile,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             artifacts: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             azure_file_share_profile: Optional[pulumi.Input['AzureFileShareHydrationProfileArgs']] = None,
+             status: Optional[pulumi.Input[Union[str, 'AutomationArtifactStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_file_share_profile is None and 'azureFileShareProfile' in kwargs:
+            azure_file_share_profile = kwargs['azureFileShareProfile']
+
         if artifacts is not None:
-            pulumi.set(__self__, "artifacts", artifacts)
+            _setter("artifacts", artifacts)
         if azure_file_share_profile is not None:
-            pulumi.set(__self__, "azure_file_share_profile", azure_file_share_profile)
+            _setter("azure_file_share_profile", azure_file_share_profile)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -992,16 +1261,45 @@ class AzureFileShareHydrationProfileArgs:
         :param pulumi.Input[str] azure_file_share_storage_account: Gets or sets the name of the azure file share storage account.
         :param pulumi.Input[str] azure_file_share_subscription_id: Gets or sets the subscription id of the azure file share.
         """
+        AzureFileShareHydrationProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_file_share_dir_path=azure_file_share_dir_path,
+            azure_file_share_name=azure_file_share_name,
+            azure_file_share_resource_group=azure_file_share_resource_group,
+            azure_file_share_storage_account=azure_file_share_storage_account,
+            azure_file_share_subscription_id=azure_file_share_subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_file_share_dir_path: Optional[pulumi.Input[str]] = None,
+             azure_file_share_name: Optional[pulumi.Input[str]] = None,
+             azure_file_share_resource_group: Optional[pulumi.Input[str]] = None,
+             azure_file_share_storage_account: Optional[pulumi.Input[str]] = None,
+             azure_file_share_subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_file_share_dir_path is None and 'azureFileShareDirPath' in kwargs:
+            azure_file_share_dir_path = kwargs['azureFileShareDirPath']
+        if azure_file_share_name is None and 'azureFileShareName' in kwargs:
+            azure_file_share_name = kwargs['azureFileShareName']
+        if azure_file_share_resource_group is None and 'azureFileShareResourceGroup' in kwargs:
+            azure_file_share_resource_group = kwargs['azureFileShareResourceGroup']
+        if azure_file_share_storage_account is None and 'azureFileShareStorageAccount' in kwargs:
+            azure_file_share_storage_account = kwargs['azureFileShareStorageAccount']
+        if azure_file_share_subscription_id is None and 'azureFileShareSubscriptionId' in kwargs:
+            azure_file_share_subscription_id = kwargs['azureFileShareSubscriptionId']
+
         if azure_file_share_dir_path is not None:
-            pulumi.set(__self__, "azure_file_share_dir_path", azure_file_share_dir_path)
+            _setter("azure_file_share_dir_path", azure_file_share_dir_path)
         if azure_file_share_name is not None:
-            pulumi.set(__self__, "azure_file_share_name", azure_file_share_name)
+            _setter("azure_file_share_name", azure_file_share_name)
         if azure_file_share_resource_group is not None:
-            pulumi.set(__self__, "azure_file_share_resource_group", azure_file_share_resource_group)
+            _setter("azure_file_share_resource_group", azure_file_share_resource_group)
         if azure_file_share_storage_account is not None:
-            pulumi.set(__self__, "azure_file_share_storage_account", azure_file_share_storage_account)
+            _setter("azure_file_share_storage_account", azure_file_share_storage_account)
         if azure_file_share_subscription_id is not None:
-            pulumi.set(__self__, "azure_file_share_subscription_id", azure_file_share_subscription_id)
+            _setter("azure_file_share_subscription_id", azure_file_share_subscription_id)
 
     @property
     @pulumi.getter(name="azureFileShareDirPath")
@@ -1082,18 +1380,45 @@ class BindingArgs:
         :param pulumi.Input['PortMappingArgs'] port_mapping: WebApplication port mapping.
         :param pulumi.Input[str] protocol: Gets or sets the protocol.
         """
+        BindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert=cert,
+            host_name=host_name,
+            ip_address=ip_address,
+            port=port,
+            port_mapping=port_mapping,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert: Optional[pulumi.Input['CertArgs']] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             port_mapping: Optional[pulumi.Input['PortMappingArgs']] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if port_mapping is None and 'portMapping' in kwargs:
+            port_mapping = kwargs['portMapping']
+
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if port_mapping is not None:
-            pulumi.set(__self__, "port_mapping", port_mapping)
+            _setter("port_mapping", port_mapping)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -1182,14 +1507,39 @@ class CertArgs:
         :param pulumi.Input[bool] cert_provided: Gets or sets a value indicating whether certificate is provided or not.
         :param pulumi.Input[Union[str, 'SecretStoreType']] secret_store: Gets or sets the type of secret store for the certificate.
         """
+        CertArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cert_data=cert_data,
+            cert_needed=cert_needed,
+            cert_provided=cert_provided,
+            secret_store=secret_store,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cert_data: Optional[pulumi.Input[str]] = None,
+             cert_needed: Optional[pulumi.Input[bool]] = None,
+             cert_provided: Optional[pulumi.Input[bool]] = None,
+             secret_store: Optional[pulumi.Input[Union[str, 'SecretStoreType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cert_data is None and 'certData' in kwargs:
+            cert_data = kwargs['certData']
+        if cert_needed is None and 'certNeeded' in kwargs:
+            cert_needed = kwargs['certNeeded']
+        if cert_provided is None and 'certProvided' in kwargs:
+            cert_provided = kwargs['certProvided']
+        if secret_store is None and 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+
         if cert_data is not None:
-            pulumi.set(__self__, "cert_data", cert_data)
+            _setter("cert_data", cert_data)
         if cert_needed is not None:
-            pulumi.set(__self__, "cert_needed", cert_needed)
+            _setter("cert_needed", cert_needed)
         if cert_provided is not None:
-            pulumi.set(__self__, "cert_provided", cert_provided)
+            _setter("cert_provided", cert_provided)
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
 
     @property
     @pulumi.getter(name="certData")
@@ -1258,18 +1608,49 @@ class ContainerImagePropertiesArgs:
         :param pulumi.Input[str] run_id: Gets or sets the RunId.
         :param pulumi.Input[str] run_status: Gets or sets the RunStatus.
         """
+        ContainerImagePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dockerfile=dockerfile,
+            image_name=image_name,
+            image_tag=image_tag,
+            registry_properties=registry_properties,
+            run_id=run_id,
+            run_status=run_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dockerfile: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             image_tag: Optional[pulumi.Input[str]] = None,
+             registry_properties: Optional[pulumi.Input['ACRPropertiesArgs']] = None,
+             run_id: Optional[pulumi.Input[str]] = None,
+             run_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if image_tag is None and 'imageTag' in kwargs:
+            image_tag = kwargs['imageTag']
+        if registry_properties is None and 'registryProperties' in kwargs:
+            registry_properties = kwargs['registryProperties']
+        if run_id is None and 'runId' in kwargs:
+            run_id = kwargs['runId']
+        if run_status is None and 'runStatus' in kwargs:
+            run_status = kwargs['runStatus']
+
         if dockerfile is not None:
-            pulumi.set(__self__, "dockerfile", dockerfile)
+            _setter("dockerfile", dockerfile)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if image_tag is not None:
-            pulumi.set(__self__, "image_tag", image_tag)
+            _setter("image_tag", image_tag)
         if registry_properties is not None:
-            pulumi.set(__self__, "registry_properties", registry_properties)
+            _setter("registry_properties", registry_properties)
         if run_id is not None:
-            pulumi.set(__self__, "run_id", run_id)
+            _setter("run_id", run_id)
         if run_status is not None:
-            pulumi.set(__self__, "run_status", run_status)
+            _setter("run_status", run_status)
 
     @property
     @pulumi.getter
@@ -1354,10 +1735,23 @@ class DirectoryPathArgs:
         :param pulumi.Input[str] physical: Gets or sets the physical path of the directory on the web server.
         :param pulumi.Input[str] virtual: Gets or sets the virtual path for the directory.
         """
+        DirectoryPathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            physical=physical,
+            virtual=virtual,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             physical: Optional[pulumi.Input[str]] = None,
+             virtual: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if physical is not None:
-            pulumi.set(__self__, "physical", physical)
+            _setter("physical", physical)
         if virtual is not None:
-            pulumi.set(__self__, "virtual", virtual)
+            _setter("virtual", virtual)
 
     @property
     @pulumi.getter
@@ -1407,24 +1801,69 @@ class GmsaAuthenticationPropertiesArgs:
         :param pulumi.Input[str] gmsa_user_password: Gets or sets the password of the user specified by RestApi.Controllers.V2022_05_01_preview.Models.WorkloadDeployment.Gmsa.GmsaAuthenticationProperties.GmsaUsername.
         :param pulumi.Input[str] gmsa_username: Gets or sets username of the user having authorization to access GMSA on Active Directory.
         """
+        GmsaAuthenticationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ad_domain_controller_dns=ad_domain_controller_dns,
+            ad_domain_fqdn=ad_domain_fqdn,
+            akv_properties=akv_properties,
+            domain_admin_password=domain_admin_password,
+            domain_admin_username=domain_admin_username,
+            domain_controller_address=domain_controller_address,
+            gmsa_account_name=gmsa_account_name,
+            gmsa_user_password=gmsa_user_password,
+            gmsa_username=gmsa_username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ad_domain_controller_dns: Optional[pulumi.Input[str]] = None,
+             ad_domain_fqdn: Optional[pulumi.Input[str]] = None,
+             akv_properties: Optional[pulumi.Input['KeyVaultSecretStorePropertiesArgs']] = None,
+             domain_admin_password: Optional[pulumi.Input[str]] = None,
+             domain_admin_username: Optional[pulumi.Input[str]] = None,
+             domain_controller_address: Optional[pulumi.Input[str]] = None,
+             gmsa_account_name: Optional[pulumi.Input[str]] = None,
+             gmsa_user_password: Optional[pulumi.Input[str]] = None,
+             gmsa_username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_domain_controller_dns is None and 'adDomainControllerDns' in kwargs:
+            ad_domain_controller_dns = kwargs['adDomainControllerDns']
+        if ad_domain_fqdn is None and 'adDomainFqdn' in kwargs:
+            ad_domain_fqdn = kwargs['adDomainFqdn']
+        if akv_properties is None and 'akvProperties' in kwargs:
+            akv_properties = kwargs['akvProperties']
+        if domain_admin_password is None and 'domainAdminPassword' in kwargs:
+            domain_admin_password = kwargs['domainAdminPassword']
+        if domain_admin_username is None and 'domainAdminUsername' in kwargs:
+            domain_admin_username = kwargs['domainAdminUsername']
+        if domain_controller_address is None and 'domainControllerAddress' in kwargs:
+            domain_controller_address = kwargs['domainControllerAddress']
+        if gmsa_account_name is None and 'gmsaAccountName' in kwargs:
+            gmsa_account_name = kwargs['gmsaAccountName']
+        if gmsa_user_password is None and 'gmsaUserPassword' in kwargs:
+            gmsa_user_password = kwargs['gmsaUserPassword']
+        if gmsa_username is None and 'gmsaUsername' in kwargs:
+            gmsa_username = kwargs['gmsaUsername']
+
         if ad_domain_controller_dns is not None:
-            pulumi.set(__self__, "ad_domain_controller_dns", ad_domain_controller_dns)
+            _setter("ad_domain_controller_dns", ad_domain_controller_dns)
         if ad_domain_fqdn is not None:
-            pulumi.set(__self__, "ad_domain_fqdn", ad_domain_fqdn)
+            _setter("ad_domain_fqdn", ad_domain_fqdn)
         if akv_properties is not None:
-            pulumi.set(__self__, "akv_properties", akv_properties)
+            _setter("akv_properties", akv_properties)
         if domain_admin_password is not None:
-            pulumi.set(__self__, "domain_admin_password", domain_admin_password)
+            _setter("domain_admin_password", domain_admin_password)
         if domain_admin_username is not None:
-            pulumi.set(__self__, "domain_admin_username", domain_admin_username)
+            _setter("domain_admin_username", domain_admin_username)
         if domain_controller_address is not None:
-            pulumi.set(__self__, "domain_controller_address", domain_controller_address)
+            _setter("domain_controller_address", domain_controller_address)
         if gmsa_account_name is not None:
-            pulumi.set(__self__, "gmsa_account_name", gmsa_account_name)
+            _setter("gmsa_account_name", gmsa_account_name)
         if gmsa_user_password is not None:
-            pulumi.set(__self__, "gmsa_user_password", gmsa_user_password)
+            _setter("gmsa_user_password", gmsa_user_password)
         if gmsa_username is not None:
-            pulumi.set(__self__, "gmsa_username", gmsa_username)
+            _setter("gmsa_username", gmsa_username)
 
     @property
     @pulumi.getter(name="adDomainControllerDns")
@@ -1543,9 +1982,28 @@ class IISAKSWorkloadDeploymentModelCustomPropertiesArgs:
                Expected value is 'IISAKSWorkloadDeploymentModelCustomProperties'.
         :param pulumi.Input['IISAKSWorkloadDeploymentArgs'] iis_aks_workload_deployment_properties: IIS AKS workload deployment.
         """
-        pulumi.set(__self__, "instance_type", 'IISAKSWorkloadDeploymentModelCustomProperties')
+        IISAKSWorkloadDeploymentModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            iis_aks_workload_deployment_properties=iis_aks_workload_deployment_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             iis_aks_workload_deployment_properties: Optional[pulumi.Input['IISAKSWorkloadDeploymentArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if iis_aks_workload_deployment_properties is None and 'iisAksWorkloadDeploymentProperties' in kwargs:
+            iis_aks_workload_deployment_properties = kwargs['iisAksWorkloadDeploymentProperties']
+
+        _setter("instance_type", 'IISAKSWorkloadDeploymentModelCustomProperties')
         if iis_aks_workload_deployment_properties is not None:
-            pulumi.set(__self__, "iis_aks_workload_deployment_properties", iis_aks_workload_deployment_properties)
+            _setter("iis_aks_workload_deployment_properties", iis_aks_workload_deployment_properties)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1607,34 +2065,89 @@ class IISAKSWorkloadDeploymentArgs:
         :param pulumi.Input['ResourceRequirementsArgs'] requests: Resource Requirements.
         :param pulumi.Input[str] target_platform_identity: Gets or sets the target platform managed identity.
         """
+        IISAKSWorkloadDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_properties=authentication_properties,
+            automation_artifact_properties=automation_artifact_properties,
+            bindings=bindings,
+            build_container_images=build_container_images,
+            cluster_properties=cluster_properties,
+            configurations=configurations,
+            container_image_properties=container_image_properties,
+            deployment_name_prefix=deployment_name_prefix,
+            deployment_spec=deployment_spec,
+            directories=directories,
+            limits=limits,
+            monitoring_properties=monitoring_properties,
+            requests=requests,
+            target_platform_identity=target_platform_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_properties: Optional[pulumi.Input['GmsaAuthenticationPropertiesArgs']] = None,
+             automation_artifact_properties: Optional[pulumi.Input['AutomationArtifactArgs']] = None,
+             bindings: Optional[pulumi.Input[Sequence[pulumi.Input['BindingArgs']]]] = None,
+             build_container_images: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerImagePropertiesArgs']]]] = None,
+             cluster_properties: Optional[pulumi.Input['AKSDeploymentPropertiesArgs']] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationConfigurationArgs']]]] = None,
+             container_image_properties: Optional[pulumi.Input['ContainerImagePropertiesArgs']] = None,
+             deployment_name_prefix: Optional[pulumi.Input[str]] = None,
+             deployment_spec: Optional[pulumi.Input['AKSDeploymentSpecificationArgs']] = None,
+             directories: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationDirectoryArgs']]]] = None,
+             limits: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             monitoring_properties: Optional[pulumi.Input['AppInsightMonitoringPropertiesArgs']] = None,
+             requests: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             target_platform_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_properties is None and 'authenticationProperties' in kwargs:
+            authentication_properties = kwargs['authenticationProperties']
+        if automation_artifact_properties is None and 'automationArtifactProperties' in kwargs:
+            automation_artifact_properties = kwargs['automationArtifactProperties']
+        if build_container_images is None and 'buildContainerImages' in kwargs:
+            build_container_images = kwargs['buildContainerImages']
+        if cluster_properties is None and 'clusterProperties' in kwargs:
+            cluster_properties = kwargs['clusterProperties']
+        if container_image_properties is None and 'containerImageProperties' in kwargs:
+            container_image_properties = kwargs['containerImageProperties']
+        if deployment_name_prefix is None and 'deploymentNamePrefix' in kwargs:
+            deployment_name_prefix = kwargs['deploymentNamePrefix']
+        if deployment_spec is None and 'deploymentSpec' in kwargs:
+            deployment_spec = kwargs['deploymentSpec']
+        if monitoring_properties is None and 'monitoringProperties' in kwargs:
+            monitoring_properties = kwargs['monitoringProperties']
+        if target_platform_identity is None and 'targetPlatformIdentity' in kwargs:
+            target_platform_identity = kwargs['targetPlatformIdentity']
+
         if authentication_properties is not None:
-            pulumi.set(__self__, "authentication_properties", authentication_properties)
+            _setter("authentication_properties", authentication_properties)
         if automation_artifact_properties is not None:
-            pulumi.set(__self__, "automation_artifact_properties", automation_artifact_properties)
+            _setter("automation_artifact_properties", automation_artifact_properties)
         if bindings is not None:
-            pulumi.set(__self__, "bindings", bindings)
+            _setter("bindings", bindings)
         if build_container_images is not None:
-            pulumi.set(__self__, "build_container_images", build_container_images)
+            _setter("build_container_images", build_container_images)
         if cluster_properties is not None:
-            pulumi.set(__self__, "cluster_properties", cluster_properties)
+            _setter("cluster_properties", cluster_properties)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if container_image_properties is not None:
-            pulumi.set(__self__, "container_image_properties", container_image_properties)
+            _setter("container_image_properties", container_image_properties)
         if deployment_name_prefix is not None:
-            pulumi.set(__self__, "deployment_name_prefix", deployment_name_prefix)
+            _setter("deployment_name_prefix", deployment_name_prefix)
         if deployment_spec is not None:
-            pulumi.set(__self__, "deployment_spec", deployment_spec)
+            _setter("deployment_spec", deployment_spec)
         if directories is not None:
-            pulumi.set(__self__, "directories", directories)
+            _setter("directories", directories)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if monitoring_properties is not None:
-            pulumi.set(__self__, "monitoring_properties", monitoring_properties)
+            _setter("monitoring_properties", monitoring_properties)
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
         if target_platform_identity is not None:
-            pulumi.set(__self__, "target_platform_identity", target_platform_identity)
+            _setter("target_platform_identity", target_platform_identity)
 
     @property
     @pulumi.getter(name="authenticationProperties")
@@ -1823,18 +2336,47 @@ class IISApplicationDetailsArgs:
         :param pulumi.Input['DirectoryPathArgs'] path: Second level entity for virtual directories.
         :param pulumi.Input[str] runtime_version: Gets or sets the runtime version.
         """
+        IISApplicationDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_pool_name=application_pool_name,
+            directories=directories,
+            enable32_bit_api_on_win64=enable32_bit_api_on_win64,
+            managed_pipeline_mode=managed_pipeline_mode,
+            path=path,
+            runtime_version=runtime_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_pool_name: Optional[pulumi.Input[str]] = None,
+             directories: Optional[pulumi.Input[Sequence[pulumi.Input['DirectoryPathArgs']]]] = None,
+             enable32_bit_api_on_win64: Optional[pulumi.Input[bool]] = None,
+             managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input['DirectoryPathArgs']] = None,
+             runtime_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_pool_name is None and 'applicationPoolName' in kwargs:
+            application_pool_name = kwargs['applicationPoolName']
+        if enable32_bit_api_on_win64 is None and 'enable32BitApiOnWin64' in kwargs:
+            enable32_bit_api_on_win64 = kwargs['enable32BitApiOnWin64']
+        if managed_pipeline_mode is None and 'managedPipelineMode' in kwargs:
+            managed_pipeline_mode = kwargs['managedPipelineMode']
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         if application_pool_name is not None:
-            pulumi.set(__self__, "application_pool_name", application_pool_name)
+            _setter("application_pool_name", application_pool_name)
         if directories is not None:
-            pulumi.set(__self__, "directories", directories)
+            _setter("directories", directories)
         if enable32_bit_api_on_win64 is not None:
-            pulumi.set(__self__, "enable32_bit_api_on_win64", enable32_bit_api_on_win64)
+            _setter("enable32_bit_api_on_win64", enable32_bit_api_on_win64)
         if managed_pipeline_mode is not None:
-            pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+            _setter("managed_pipeline_mode", managed_pipeline_mode)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if runtime_version is not None:
-            pulumi.set(__self__, "runtime_version", runtime_version)
+            _setter("runtime_version", runtime_version)
 
     @property
     @pulumi.getter(name="applicationPoolName")
@@ -1919,10 +2461,23 @@ class IISVirtualApplicationDetailsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DirectoryPathArgs']]] directories: Gets or sets the list of directories.
         :param pulumi.Input['DirectoryPathArgs'] path: Second level entity for virtual directories.
         """
+        IISVirtualApplicationDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            directories=directories,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             directories: Optional[pulumi.Input[Sequence[pulumi.Input['DirectoryPathArgs']]]] = None,
+             path: Optional[pulumi.Input['DirectoryPathArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if directories is not None:
-            pulumi.set(__self__, "directories", directories)
+            _setter("directories", directories)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1989,40 +2544,103 @@ class IISWebApplicationArgs:
         :param pulumi.Input[str] web_server_id: Gets or sets the web server id.
         :param pulumi.Input[str] web_server_name: Gets or sets the web server name.
         """
+        IISWebApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            application_name=application_name,
+            application_scratch_path=application_scratch_path,
+            applications=applications,
+            bindings=bindings,
+            configurations=configurations,
+            directories=directories,
+            discovered_frameworks=discovered_frameworks,
+            display_name=display_name,
+            iis_web_server=iis_web_server,
+            limits=limits,
+            path=path,
+            primary_framework=primary_framework,
+            requests=requests,
+            virtual_applications=virtual_applications,
+            web_server_id=web_server_id,
+            web_server_name=web_server_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             application_name: Optional[pulumi.Input[str]] = None,
+             application_scratch_path: Optional[pulumi.Input[str]] = None,
+             applications: Optional[pulumi.Input[Sequence[pulumi.Input['IISApplicationDetailsArgs']]]] = None,
+             bindings: Optional[pulumi.Input[Sequence[pulumi.Input['BindingArgs']]]] = None,
+             configurations: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationConfigurationArgs']]]] = None,
+             directories: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationDirectoryArgs']]]] = None,
+             discovered_frameworks: Optional[pulumi.Input[Sequence[pulumi.Input['WebApplicationFrameworkArgs']]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             iis_web_server: Optional[pulumi.Input['IISWebServerArgs']] = None,
+             limits: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             path: Optional[pulumi.Input['DirectoryPathArgs']] = None,
+             primary_framework: Optional[pulumi.Input['WebApplicationFrameworkArgs']] = None,
+             requests: Optional[pulumi.Input['ResourceRequirementsArgs']] = None,
+             virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['IISVirtualApplicationDetailsArgs']]]] = None,
+             web_server_id: Optional[pulumi.Input[str]] = None,
+             web_server_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_scratch_path is None and 'applicationScratchPath' in kwargs:
+            application_scratch_path = kwargs['applicationScratchPath']
+        if discovered_frameworks is None and 'discoveredFrameworks' in kwargs:
+            discovered_frameworks = kwargs['discoveredFrameworks']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if iis_web_server is None and 'iisWebServer' in kwargs:
+            iis_web_server = kwargs['iisWebServer']
+        if primary_framework is None and 'primaryFramework' in kwargs:
+            primary_framework = kwargs['primaryFramework']
+        if virtual_applications is None and 'virtualApplications' in kwargs:
+            virtual_applications = kwargs['virtualApplications']
+        if web_server_id is None and 'webServerId' in kwargs:
+            web_server_id = kwargs['webServerId']
+        if web_server_name is None and 'webServerName' in kwargs:
+            web_server_name = kwargs['webServerName']
+
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if application_name is not None:
-            pulumi.set(__self__, "application_name", application_name)
+            _setter("application_name", application_name)
         if application_scratch_path is not None:
-            pulumi.set(__self__, "application_scratch_path", application_scratch_path)
+            _setter("application_scratch_path", application_scratch_path)
         if applications is not None:
-            pulumi.set(__self__, "applications", applications)
+            _setter("applications", applications)
         if bindings is not None:
-            pulumi.set(__self__, "bindings", bindings)
+            _setter("bindings", bindings)
         if configurations is not None:
-            pulumi.set(__self__, "configurations", configurations)
+            _setter("configurations", configurations)
         if directories is not None:
-            pulumi.set(__self__, "directories", directories)
+            _setter("directories", directories)
         if discovered_frameworks is not None:
-            pulumi.set(__self__, "discovered_frameworks", discovered_frameworks)
+            _setter("discovered_frameworks", discovered_frameworks)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if iis_web_server is not None:
-            pulumi.set(__self__, "iis_web_server", iis_web_server)
+            _setter("iis_web_server", iis_web_server)
         if limits is not None:
-            pulumi.set(__self__, "limits", limits)
+            _setter("limits", limits)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if primary_framework is not None:
-            pulumi.set(__self__, "primary_framework", primary_framework)
+            _setter("primary_framework", primary_framework)
         if requests is not None:
-            pulumi.set(__self__, "requests", requests)
+            _setter("requests", requests)
         if virtual_applications is not None:
-            pulumi.set(__self__, "virtual_applications", virtual_applications)
+            _setter("virtual_applications", virtual_applications)
         if web_server_id is not None:
-            pulumi.set(__self__, "web_server_id", web_server_id)
+            _setter("web_server_id", web_server_id)
         if web_server_name is not None:
-            pulumi.set(__self__, "web_server_name", web_server_name)
+            _setter("web_server_name", web_server_name)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -2256,28 +2874,77 @@ class IISWebServerArgs:
         :param pulumi.Input[str] version: Gets or sets the server version.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] web_applications: Gets or sets the list of web applications.
         """
+        IISWebServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            ip_addresses=ip_addresses,
+            machines=machines,
+            operating_system_details=operating_system_details,
+            root_configuration_location=root_configuration_location,
+            run_as_account_id=run_as_account_id,
+            server_fqdn=server_fqdn,
+            server_id=server_id,
+            server_name=server_name,
+            version=version,
+            web_applications=web_applications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             machines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             operating_system_details: Optional[pulumi.Input['OperatingSystemDetailsArgs']] = None,
+             root_configuration_location: Optional[pulumi.Input[str]] = None,
+             run_as_account_id: Optional[pulumi.Input[str]] = None,
+             server_fqdn: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             web_applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if ip_addresses is None and 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+        if operating_system_details is None and 'operatingSystemDetails' in kwargs:
+            operating_system_details = kwargs['operatingSystemDetails']
+        if root_configuration_location is None and 'rootConfigurationLocation' in kwargs:
+            root_configuration_location = kwargs['rootConfigurationLocation']
+        if run_as_account_id is None and 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+        if server_fqdn is None and 'serverFqdn' in kwargs:
+            server_fqdn = kwargs['serverFqdn']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if web_applications is None and 'webApplications' in kwargs:
+            web_applications = kwargs['webApplications']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
         if machines is not None:
-            pulumi.set(__self__, "machines", machines)
+            _setter("machines", machines)
         if operating_system_details is not None:
-            pulumi.set(__self__, "operating_system_details", operating_system_details)
+            _setter("operating_system_details", operating_system_details)
         if root_configuration_location is not None:
-            pulumi.set(__self__, "root_configuration_location", root_configuration_location)
+            _setter("root_configuration_location", root_configuration_location)
         if run_as_account_id is not None:
-            pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+            _setter("run_as_account_id", run_as_account_id)
         if server_fqdn is not None:
-            pulumi.set(__self__, "server_fqdn", server_fqdn)
+            _setter("server_fqdn", server_fqdn)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if web_applications is not None:
-            pulumi.set(__self__, "web_applications", web_applications)
+            _setter("web_applications", web_applications)
 
     @property
     @pulumi.getter(name="displayName")
@@ -2428,17 +3095,52 @@ class IISWorkloadInstanceModelCustomPropertiesArgs:
         :param pulumi.Input[str] web_app_arm_id: Gets or sets the Web application ARM id.
         :param pulumi.Input[str] web_app_site_name: Gets or sets the Web application site name.
         """
-        pulumi.set(__self__, "instance_type", 'IISWorkloadInstanceModelCustomProperties')
+        IISWorkloadInstanceModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            container_name=container_name,
+            fileshare_name=fileshare_name,
+            iis_web_application=iis_web_application,
+            web_app_arm_id=web_app_arm_id,
+            web_app_site_name=web_app_site_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             container_name: Optional[pulumi.Input[str]] = None,
+             fileshare_name: Optional[pulumi.Input[str]] = None,
+             iis_web_application: Optional[pulumi.Input['IISWebApplicationArgs']] = None,
+             web_app_arm_id: Optional[pulumi.Input[str]] = None,
+             web_app_site_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if fileshare_name is None and 'fileshareName' in kwargs:
+            fileshare_name = kwargs['fileshareName']
+        if iis_web_application is None and 'iisWebApplication' in kwargs:
+            iis_web_application = kwargs['iisWebApplication']
+        if web_app_arm_id is None and 'webAppArmId' in kwargs:
+            web_app_arm_id = kwargs['webAppArmId']
+        if web_app_site_name is None and 'webAppSiteName' in kwargs:
+            web_app_site_name = kwargs['webAppSiteName']
+
+        _setter("instance_type", 'IISWorkloadInstanceModelCustomProperties')
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if fileshare_name is not None:
-            pulumi.set(__self__, "fileshare_name", fileshare_name)
+            _setter("fileshare_name", fileshare_name)
         if iis_web_application is not None:
-            pulumi.set(__self__, "iis_web_application", iis_web_application)
+            _setter("iis_web_application", iis_web_application)
         if web_app_arm_id is not None:
-            pulumi.set(__self__, "web_app_arm_id", web_app_arm_id)
+            _setter("web_app_arm_id", web_app_arm_id)
         if web_app_site_name is not None:
-            pulumi.set(__self__, "web_app_site_name", web_app_site_name)
+            _setter("web_app_site_name", web_app_site_name)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2531,16 +3233,43 @@ class IdentityModelArgs:
         :param pulumi.Input[str] object_id: Gets or sets the object Id of the SPN with which MigrateAgent communicates to service.
         :param pulumi.Input[str] tenant_id: Gets or sets the tenant Id of the SPN with which MigrateAgent communicates to service.
         """
+        IdentityModelArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: Optional[pulumi.Input[str]] = None,
+             application_id: Optional[pulumi.Input[str]] = None,
+             audience: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aad_authority is None and 'aadAuthority' in kwargs:
+            aad_authority = kwargs['aadAuthority']
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if aad_authority is not None:
-            pulumi.set(__self__, "aad_authority", aad_authority)
+            _setter("aad_authority", aad_authority)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")
@@ -2613,18 +3342,51 @@ class KeyVaultSecretStorePropertiesArgs:
                  secret_store_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
+        KeyVaultSecretStorePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            keyvault_name=keyvault_name,
+            managed_identity_properties=managed_identity_properties,
+            resource_group=resource_group,
+            secret_store_id=secret_store_id,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             keyvault_name: Optional[pulumi.Input[str]] = None,
+             managed_identity_properties: Optional[pulumi.Input['ManagedIdentityPropertiesArgs']] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             secret_store_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if keyvault_name is None and 'keyvaultName' in kwargs:
+            keyvault_name = kwargs['keyvaultName']
+        if managed_identity_properties is None and 'managedIdentityProperties' in kwargs:
+            managed_identity_properties = kwargs['managedIdentityProperties']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if secret_store_id is None and 'secretStoreId' in kwargs:
+            secret_store_id = kwargs['secretStoreId']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if keyvault_name is not None:
-            pulumi.set(__self__, "keyvault_name", keyvault_name)
+            _setter("keyvault_name", keyvault_name)
         if managed_identity_properties is not None:
-            pulumi.set(__self__, "managed_identity_properties", managed_identity_properties)
+            _setter("managed_identity_properties", managed_identity_properties)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if secret_store_id is not None:
-            pulumi.set(__self__, "secret_store_id", secret_store_id)
+            _setter("secret_store_id", secret_store_id)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="keyvaultName")
@@ -2690,18 +3452,51 @@ class ManagedIdentityPropertiesArgs:
                  resource_group: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
+        ManagedIdentityPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            managed_identity_name=managed_identity_name,
+            principal_id=principal_id,
+            resource_group=resource_group,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             managed_identity_name: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if managed_identity_name is None and 'managedIdentityName' in kwargs:
+            managed_identity_name = kwargs['managedIdentityName']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if managed_identity_name is not None:
-            pulumi.set(__self__, "managed_identity_name", managed_identity_name)
+            _setter("managed_identity_name", managed_identity_name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2772,14 +3567,39 @@ class MigrateAgentModelPropertiesArgs:
         :param pulumi.Input[str] machine_id: Gets or sets the machine Id where MigrateAgent is running.
         :param pulumi.Input[str] machine_name: Gets or sets the machine name where MigrateAgent is running.
         """
+        MigrateAgentModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_identity=authentication_identity,
+            custom_properties=custom_properties,
+            machine_id=machine_id,
+            machine_name=machine_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_identity: Optional[pulumi.Input['IdentityModelArgs']] = None,
+             custom_properties: Optional[pulumi.Input['VMwareMigrateAgentModelCustomPropertiesArgs']] = None,
+             machine_id: Optional[pulumi.Input[str]] = None,
+             machine_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_identity is None and 'authenticationIdentity' in kwargs:
+            authentication_identity = kwargs['authenticationIdentity']
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if machine_id is None and 'machineId' in kwargs:
+            machine_id = kwargs['machineId']
+        if machine_name is None and 'machineName' in kwargs:
+            machine_name = kwargs['machineName']
+
         if authentication_identity is not None:
-            pulumi.set(__self__, "authentication_identity", authentication_identity)
+            _setter("authentication_identity", authentication_identity)
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if machine_id is not None:
-            pulumi.set(__self__, "machine_id", machine_id)
+            _setter("machine_id", machine_id)
         if machine_name is not None:
-            pulumi.set(__self__, "machine_name", machine_name)
+            _setter("machine_name", machine_name)
 
     @property
     @pulumi.getter(name="authenticationIdentity")
@@ -2842,12 +3662,33 @@ class MigrationConfigurationArgs:
         :param pulumi.Input[str] migration_solution_resource_id: Gets or sets the migration solution resource Id.
         :param pulumi.Input[str] storage_account_resource_id: Gets or sets the storage account resource Id.
         """
+        MigrationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_resource_id=key_vault_resource_id,
+            migration_solution_resource_id=migration_solution_resource_id,
+            storage_account_resource_id=storage_account_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_resource_id: Optional[pulumi.Input[str]] = None,
+             migration_solution_resource_id: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_vault_resource_id is None and 'keyVaultResourceId' in kwargs:
+            key_vault_resource_id = kwargs['keyVaultResourceId']
+        if migration_solution_resource_id is None and 'migrationSolutionResourceId' in kwargs:
+            migration_solution_resource_id = kwargs['migrationSolutionResourceId']
+        if storage_account_resource_id is None and 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+
         if key_vault_resource_id is not None:
-            pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+            _setter("key_vault_resource_id", key_vault_resource_id)
         if migration_solution_resource_id is not None:
-            pulumi.set(__self__, "migration_solution_resource_id", migration_solution_resource_id)
+            _setter("migration_solution_resource_id", migration_solution_resource_id)
         if storage_account_resource_id is not None:
-            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+            _setter("storage_account_resource_id", storage_account_resource_id)
 
     @property
     @pulumi.getter(name="keyVaultResourceId")
@@ -2894,8 +3735,21 @@ class ModernizeProjectModelPropertiesArgs:
         ModernizeProject properties.
         :param pulumi.Input['MigrationConfigurationArgs'] migration_configuration: MigrationConfiguration properties.
         """
+        ModernizeProjectModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migration_configuration=migration_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migration_configuration: Optional[pulumi.Input['MigrationConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_configuration is None and 'migrationConfiguration' in kwargs:
+            migration_configuration = kwargs['migrationConfiguration']
+
         if migration_configuration is not None:
-            pulumi.set(__self__, "migration_configuration", migration_configuration)
+            _setter("migration_configuration", migration_configuration)
 
     @property
     @pulumi.getter(name="migrationConfiguration")
@@ -2917,14 +3771,37 @@ class OperatingSystemDetailsArgs:
                  os_architecture: Optional[pulumi.Input[str]] = None,
                  os_name: Optional[pulumi.Input[str]] = None,
                  os_version: Optional[pulumi.Input[str]] = None):
+        OperatingSystemDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os=os,
+            os_architecture=os_architecture,
+            os_name=os_name,
+            os_version=os_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os: Optional[pulumi.Input[Union[str, 'OperatingSystemType']]] = None,
+             os_architecture: Optional[pulumi.Input[str]] = None,
+             os_name: Optional[pulumi.Input[str]] = None,
+             os_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if os_architecture is None and 'osArchitecture' in kwargs:
+            os_architecture = kwargs['osArchitecture']
+        if os_name is None and 'osName' in kwargs:
+            os_name = kwargs['osName']
+        if os_version is None and 'osVersion' in kwargs:
+            os_version = kwargs['osVersion']
+
         if os is not None:
-            pulumi.set(__self__, "os", os)
+            _setter("os", os)
         if os_architecture is not None:
-            pulumi.set(__self__, "os_architecture", os_architecture)
+            _setter("os_architecture", os_architecture)
         if os_name is not None:
-            pulumi.set(__self__, "os_name", os_name)
+            _setter("os_name", os_name)
         if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
+            _setter("os_version", os_version)
 
     @property
     @pulumi.getter
@@ -2973,10 +3850,27 @@ class PortMappingArgs:
         :param pulumi.Input[int] external_port: Gets or sets the External Port.
         :param pulumi.Input[int] internal_port: Gets or sets the Internal Port.
         """
+        PortMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            external_port=external_port,
+            internal_port=internal_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             external_port: Optional[pulumi.Input[int]] = None,
+             internal_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if external_port is None and 'externalPort' in kwargs:
+            external_port = kwargs['externalPort']
+        if internal_port is None and 'internalPort' in kwargs:
+            internal_port = kwargs['internalPort']
+
         if external_port is not None:
-            pulumi.set(__self__, "external_port", external_port)
+            _setter("external_port", external_port)
         if internal_port is not None:
-            pulumi.set(__self__, "internal_port", internal_port)
+            _setter("internal_port", internal_port)
 
     @property
     @pulumi.getter(name="externalPort")
@@ -3010,14 +3904,37 @@ class ResourceIdentityArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'ResourceIdentityTypes']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
+        ResourceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ResourceIdentityTypes']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -3066,10 +3983,23 @@ class ResourceRequirementsArgs:
         :param pulumi.Input[str] cpu: Gets or sets the Cpu requirement.
         :param pulumi.Input[str] memory: Gets or sets the Memory requirement.
         """
+        ResourceRequirementsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory=memory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[pulumi.Input[str]] = None,
+             memory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
 
     @property
     @pulumi.getter
@@ -3101,10 +4031,27 @@ class SecretStoreDetailsArgs:
     def __init__(__self__, *,
                  secret_store: Optional[pulumi.Input[Union[str, 'SecretStoreType']]] = None,
                  secret_store_properties: Optional[pulumi.Input['SecretStorePropertiesArgs']] = None):
+        SecretStoreDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_store=secret_store,
+            secret_store_properties=secret_store_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_store: Optional[pulumi.Input[Union[str, 'SecretStoreType']]] = None,
+             secret_store_properties: Optional[pulumi.Input['SecretStorePropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_store is None and 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if secret_store_properties is None and 'secretStoreProperties' in kwargs:
+            secret_store_properties = kwargs['secretStoreProperties']
+
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
         if secret_store_properties is not None:
-            pulumi.set(__self__, "secret_store_properties", secret_store_properties)
+            _setter("secret_store_properties", secret_store_properties)
 
     @property
     @pulumi.getter(name="secretStore")
@@ -3129,8 +4076,21 @@ class SecretStoreDetailsArgs:
 class SecretStorePropertiesArgs:
     def __init__(__self__, *,
                  secret_store_id: Optional[pulumi.Input[str]] = None):
+        SecretStorePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_store_id=secret_store_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_store_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_store_id is None and 'secretStoreId' in kwargs:
+            secret_store_id = kwargs['secretStoreId']
+
         if secret_store_id is not None:
-            pulumi.set(__self__, "secret_store_id", secret_store_id)
+            _setter("secret_store_id", secret_store_id)
 
     @property
     @pulumi.getter(name="secretStoreId")
@@ -3168,20 +4128,57 @@ class TargetStorageProfileArgs:
                Applicable when StorageProjectionType is PersistentVolume and on creating a new
                PersistentVolume.
         """
+        TargetStorageProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_file_share_profile=azure_file_share_profile,
+            hydration_storage_provider_type=hydration_storage_provider_type,
+            persistent_volume_id=persistent_volume_id,
+            storage_access_type=storage_access_type,
+            storage_projection_type=storage_projection_type,
+            target_name=target_name,
+            target_size=target_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_file_share_profile: Optional[pulumi.Input['AzureFileShareHydrationProfileArgs']] = None,
+             hydration_storage_provider_type: Optional[pulumi.Input[Union[str, 'TargetHydrationStorageProviderType']]] = None,
+             persistent_volume_id: Optional[pulumi.Input[str]] = None,
+             storage_access_type: Optional[pulumi.Input[Union[str, 'TargetStorageAccessType']]] = None,
+             storage_projection_type: Optional[pulumi.Input[Union[str, 'TargetStorageProjectionType']]] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
+             target_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_file_share_profile is None and 'azureFileShareProfile' in kwargs:
+            azure_file_share_profile = kwargs['azureFileShareProfile']
+        if hydration_storage_provider_type is None and 'hydrationStorageProviderType' in kwargs:
+            hydration_storage_provider_type = kwargs['hydrationStorageProviderType']
+        if persistent_volume_id is None and 'persistentVolumeId' in kwargs:
+            persistent_volume_id = kwargs['persistentVolumeId']
+        if storage_access_type is None and 'storageAccessType' in kwargs:
+            storage_access_type = kwargs['storageAccessType']
+        if storage_projection_type is None and 'storageProjectionType' in kwargs:
+            storage_projection_type = kwargs['storageProjectionType']
+        if target_name is None and 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if target_size is None and 'targetSize' in kwargs:
+            target_size = kwargs['targetSize']
+
         if azure_file_share_profile is not None:
-            pulumi.set(__self__, "azure_file_share_profile", azure_file_share_profile)
+            _setter("azure_file_share_profile", azure_file_share_profile)
         if hydration_storage_provider_type is not None:
-            pulumi.set(__self__, "hydration_storage_provider_type", hydration_storage_provider_type)
+            _setter("hydration_storage_provider_type", hydration_storage_provider_type)
         if persistent_volume_id is not None:
-            pulumi.set(__self__, "persistent_volume_id", persistent_volume_id)
+            _setter("persistent_volume_id", persistent_volume_id)
         if storage_access_type is not None:
-            pulumi.set(__self__, "storage_access_type", storage_access_type)
+            _setter("storage_access_type", storage_access_type)
         if storage_projection_type is not None:
-            pulumi.set(__self__, "storage_projection_type", storage_projection_type)
+            _setter("storage_projection_type", storage_projection_type)
         if target_name is not None:
-            pulumi.set(__self__, "target_name", target_name)
+            _setter("target_name", target_name)
         if target_size is not None:
-            pulumi.set(__self__, "target_size", target_size)
+            _setter("target_size", target_size)
 
     @property
     @pulumi.getter(name="azureFileShareProfile")
@@ -3279,10 +4276,27 @@ class UserAssignedIdentityArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None):
+        UserAssignedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -3316,11 +4330,34 @@ class VMwareMigrateAgentModelCustomPropertiesArgs:
         :param pulumi.Input[str] fabric_friendly_name: Gets or sets the friendly name of the,of the MigrateAgent fabric.
         :param pulumi.Input[str] vmware_site_id: Gets or sets the master Site Id of the Migrate Agent.
         """
-        pulumi.set(__self__, "instance_type", 'VMwareMigrateAgentModelCustomProperties')
+        VMwareMigrateAgentModelCustomPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instance_type=instance_type,
+            fabric_friendly_name=fabric_friendly_name,
+            vmware_site_id=vmware_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             fabric_friendly_name: Optional[pulumi.Input[str]] = None,
+             vmware_site_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if fabric_friendly_name is None and 'fabricFriendlyName' in kwargs:
+            fabric_friendly_name = kwargs['fabricFriendlyName']
+        if vmware_site_id is None and 'vmwareSiteId' in kwargs:
+            vmware_site_id = kwargs['vmwareSiteId']
+
+        _setter("instance_type", 'VMwareMigrateAgentModelCustomProperties')
         if fabric_friendly_name is not None:
-            pulumi.set(__self__, "fabric_friendly_name", fabric_friendly_name)
+            _setter("fabric_friendly_name", fabric_friendly_name)
         if vmware_site_id is not None:
-            pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+            _setter("vmware_site_id", vmware_site_id)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -3385,26 +4422,65 @@ class WebApplicationConfigurationArgs:
         :param pulumi.Input[Union[str, 'ConfigurationType']] type: Gets or sets the configuration type.
         :param pulumi.Input[str] value: Gets or sets the configuration value.
         """
+        WebApplicationConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_path=file_path,
+            identifier=identifier,
+            is_deployment_time_editable=is_deployment_time_editable,
+            local_file_path=local_file_path,
+            name=name,
+            secret_store_details=secret_store_details,
+            section=section,
+            target_file_path=target_file_path,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_path: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input[str]] = None,
+             is_deployment_time_editable: Optional[pulumi.Input[bool]] = None,
+             local_file_path: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             secret_store_details: Optional[pulumi.Input['SecretStoreDetailsArgs']] = None,
+             section: Optional[pulumi.Input[str]] = None,
+             target_file_path: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_path is None and 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if is_deployment_time_editable is None and 'isDeploymentTimeEditable' in kwargs:
+            is_deployment_time_editable = kwargs['isDeploymentTimeEditable']
+        if local_file_path is None and 'localFilePath' in kwargs:
+            local_file_path = kwargs['localFilePath']
+        if secret_store_details is None and 'secretStoreDetails' in kwargs:
+            secret_store_details = kwargs['secretStoreDetails']
+        if target_file_path is None and 'targetFilePath' in kwargs:
+            target_file_path = kwargs['targetFilePath']
+
         if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
+            _setter("file_path", file_path)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if is_deployment_time_editable is not None:
-            pulumi.set(__self__, "is_deployment_time_editable", is_deployment_time_editable)
+            _setter("is_deployment_time_editable", is_deployment_time_editable)
         if local_file_path is not None:
-            pulumi.set(__self__, "local_file_path", local_file_path)
+            _setter("local_file_path", local_file_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_store_details is not None:
-            pulumi.set(__self__, "secret_store_details", secret_store_details)
+            _setter("secret_store_details", secret_store_details)
         if section is not None:
-            pulumi.set(__self__, "section", section)
+            _setter("section", section)
         if target_file_path is not None:
-            pulumi.set(__self__, "target_file_path", target_file_path)
+            _setter("target_file_path", target_file_path)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="filePath")
@@ -3540,14 +4616,39 @@ class WebApplicationDirectoryArgs:
         :param pulumi.Input[str] source_size: Gets or sets the size of the directory on the source machine.
         :param pulumi.Input['TargetStorageProfileArgs'] storage_profile: Storage profile for the directory on the target container.
         """
+        WebApplicationDirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_editable=is_editable,
+            source_paths=source_paths,
+            source_size=source_size,
+            storage_profile=storage_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_editable: Optional[pulumi.Input[bool]] = None,
+             source_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_size: Optional[pulumi.Input[str]] = None,
+             storage_profile: Optional[pulumi.Input['TargetStorageProfileArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_editable is None and 'isEditable' in kwargs:
+            is_editable = kwargs['isEditable']
+        if source_paths is None and 'sourcePaths' in kwargs:
+            source_paths = kwargs['sourcePaths']
+        if source_size is None and 'sourceSize' in kwargs:
+            source_size = kwargs['sourceSize']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+
         if is_editable is not None:
-            pulumi.set(__self__, "is_editable", is_editable)
+            _setter("is_editable", is_editable)
         if source_paths is not None:
-            pulumi.set(__self__, "source_paths", source_paths)
+            _setter("source_paths", source_paths)
         if source_size is not None:
-            pulumi.set(__self__, "source_size", source_size)
+            _setter("source_size", source_size)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
 
     @property
     @pulumi.getter(name="isEditable")
@@ -3610,10 +4711,23 @@ class WebApplicationFrameworkArgs:
         :param pulumi.Input[str] name: Gets or sets Name of the framework.
         :param pulumi.Input[str] version: Gets or sets Version of the framework.
         """
+        WebApplicationFrameworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -3654,14 +4768,39 @@ class WorkloadDeploymentModelPropertiesArgs:
         :param pulumi.Input[Union[str, 'WorkloadDeploymentTarget']] target_platform: Gets or sets the deployment target platform.
         :param pulumi.Input['WorkloadInstanceModelPropertiesArgs'] workload_instance_properties: Workload instance model properties.
         """
+        WorkloadDeploymentModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+            display_name=display_name,
+            target_platform=target_platform,
+            workload_instance_properties=workload_instance_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: Optional[pulumi.Input[Union['ApacheTomcatAKSWorkloadDeploymentModelCustomPropertiesArgs', 'IISAKSWorkloadDeploymentModelCustomPropertiesArgs']]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             target_platform: Optional[pulumi.Input[Union[str, 'WorkloadDeploymentTarget']]] = None,
+             workload_instance_properties: Optional[pulumi.Input['WorkloadInstanceModelPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if target_platform is None and 'targetPlatform' in kwargs:
+            target_platform = kwargs['targetPlatform']
+        if workload_instance_properties is None and 'workloadInstanceProperties' in kwargs:
+            workload_instance_properties = kwargs['workloadInstanceProperties']
+
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if target_platform is not None:
-            pulumi.set(__self__, "target_platform", target_platform)
+            _setter("target_platform", target_platform)
         if workload_instance_properties is not None:
-            pulumi.set(__self__, "workload_instance_properties", workload_instance_properties)
+            _setter("workload_instance_properties", workload_instance_properties)
 
     @property
     @pulumi.getter(name="customProperties")
@@ -3732,20 +4871,55 @@ class WorkloadInstanceModelPropertiesArgs:
         :param pulumi.Input[str] source_name: Gets or sets the source name.
         :param pulumi.Input[str] source_platform: Gets or sets the source platform.
         """
+        WorkloadInstanceModelPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_properties=custom_properties,
+            display_name=display_name,
+            master_site_name=master_site_name,
+            migrate_agent_id=migrate_agent_id,
+            name=name,
+            source_name=source_name,
+            source_platform=source_platform,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_properties: Optional[pulumi.Input[Union['ApacheTomcatWorkloadInstanceModelCustomPropertiesArgs', 'IISWorkloadInstanceModelCustomPropertiesArgs']]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             master_site_name: Optional[pulumi.Input[str]] = None,
+             migrate_agent_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_name: Optional[pulumi.Input[str]] = None,
+             source_platform: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_properties is None and 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if master_site_name is None and 'masterSiteName' in kwargs:
+            master_site_name = kwargs['masterSiteName']
+        if migrate_agent_id is None and 'migrateAgentId' in kwargs:
+            migrate_agent_id = kwargs['migrateAgentId']
+        if source_name is None and 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if source_platform is None and 'sourcePlatform' in kwargs:
+            source_platform = kwargs['sourcePlatform']
+
         if custom_properties is not None:
-            pulumi.set(__self__, "custom_properties", custom_properties)
+            _setter("custom_properties", custom_properties)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if master_site_name is not None:
-            pulumi.set(__self__, "master_site_name", master_site_name)
+            _setter("master_site_name", master_site_name)
         if migrate_agent_id is not None:
-            pulumi.set(__self__, "migrate_agent_id", migrate_agent_id)
+            _setter("migrate_agent_id", migrate_agent_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_name is not None:
-            pulumi.set(__self__, "source_name", source_name)
+            _setter("source_name", source_name)
         if source_platform is not None:
-            pulumi.set(__self__, "source_platform", source_platform)
+            _setter("source_platform", source_platform)
 
     @property
     @pulumi.getter(name="customProperties")

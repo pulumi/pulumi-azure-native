@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -21,8 +21,19 @@ class DataPartitionNamesArgs:
         """
         The list of Energy services resource's Data Partition Names.
         """
+        DataPartitionNamesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -39,10 +50,27 @@ class EnergyServicePropertiesArgs:
     def __init__(__self__, *,
                  auth_app_id: Optional[pulumi.Input[str]] = None,
                  data_partition_names: Optional[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgs']]]] = None):
+        EnergyServicePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_app_id=auth_app_id,
+            data_partition_names=data_partition_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_app_id: Optional[pulumi.Input[str]] = None,
+             data_partition_names: Optional[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_app_id is None and 'authAppId' in kwargs:
+            auth_app_id = kwargs['authAppId']
+        if data_partition_names is None and 'dataPartitionNames' in kwargs:
+            data_partition_names = kwargs['dataPartitionNames']
+
         if auth_app_id is not None:
-            pulumi.set(__self__, "auth_app_id", auth_app_id)
+            _setter("auth_app_id", auth_app_id)
         if data_partition_names is not None:
-            pulumi.set(__self__, "data_partition_names", data_partition_names)
+            _setter("data_partition_names", data_partition_names)
 
     @property
     @pulumi.getter(name="authAppId")

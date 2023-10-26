@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,18 +36,63 @@ class GalleryApplicationVersionArgs:
         :param pulumi.Input['GalleryApplicationVersionSafetyProfileArgs'] safety_profile: The safety profile of the Gallery Application Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "gallery_application_name", gallery_application_name)
-        pulumi.set(__self__, "gallery_name", gallery_name)
-        pulumi.set(__self__, "publishing_profile", publishing_profile)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GalleryApplicationVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gallery_application_name=gallery_application_name,
+            gallery_name=gallery_name,
+            publishing_profile=publishing_profile,
+            resource_group_name=resource_group_name,
+            gallery_application_version_name=gallery_application_version_name,
+            location=location,
+            safety_profile=safety_profile,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gallery_application_name: Optional[pulumi.Input[str]] = None,
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             publishing_profile: Optional[pulumi.Input['GalleryApplicationVersionPublishingProfileArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             gallery_application_version_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             safety_profile: Optional[pulumi.Input['GalleryApplicationVersionSafetyProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gallery_application_name is None and 'galleryApplicationName' in kwargs:
+            gallery_application_name = kwargs['galleryApplicationName']
+        if gallery_application_name is None:
+            raise TypeError("Missing 'gallery_application_name' argument")
+        if gallery_name is None and 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if gallery_name is None:
+            raise TypeError("Missing 'gallery_name' argument")
+        if publishing_profile is None and 'publishingProfile' in kwargs:
+            publishing_profile = kwargs['publishingProfile']
+        if publishing_profile is None:
+            raise TypeError("Missing 'publishing_profile' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if gallery_application_version_name is None and 'galleryApplicationVersionName' in kwargs:
+            gallery_application_version_name = kwargs['galleryApplicationVersionName']
+        if safety_profile is None and 'safetyProfile' in kwargs:
+            safety_profile = kwargs['safetyProfile']
+
+        _setter("gallery_application_name", gallery_application_name)
+        _setter("gallery_name", gallery_name)
+        _setter("publishing_profile", publishing_profile)
+        _setter("resource_group_name", resource_group_name)
         if gallery_application_version_name is not None:
-            pulumi.set(__self__, "gallery_application_version_name", gallery_application_version_name)
+            _setter("gallery_application_version_name", gallery_application_version_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if safety_profile is not None:
-            pulumi.set(__self__, "safety_profile", safety_profile)
+            _setter("safety_profile", safety_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="galleryApplicationName")
@@ -195,6 +240,10 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GalleryApplicationVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -225,12 +274,14 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gallery_name'")
             __props__.__dict__["gallery_name"] = gallery_name
             __props__.__dict__["location"] = location
+            publishing_profile = _utilities.configure(publishing_profile, GalleryApplicationVersionPublishingProfileArgs, True)
             if publishing_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'publishing_profile'")
             __props__.__dict__["publishing_profile"] = publishing_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            safety_profile = _utilities.configure(safety_profile, GalleryApplicationVersionSafetyProfileArgs, True)
             __props__.__dict__["safety_profile"] = safety_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

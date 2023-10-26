@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -66,47 +66,144 @@ class ApiArgs:
         :param pulumi.Input[bool] subscription_required: Specifies whether an API or Product subscription is required for accessing the API.
         :param pulumi.Input['ApiCreateOrUpdatePropertiesWsdlSelectorArgs'] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
         """
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            api_id=api_id,
+            api_revision=api_revision,
+            api_revision_description=api_revision_description,
+            api_type=api_type,
+            api_version=api_version,
+            api_version_description=api_version_description,
+            api_version_set=api_version_set,
+            api_version_set_id=api_version_set_id,
+            authentication_settings=authentication_settings,
+            content_format=content_format,
+            content_value=content_value,
+            description=description,
+            display_name=display_name,
+            protocols=protocols,
+            service_url=service_url,
+            soap_api_type=soap_api_type,
+            subscription_key_parameter_names=subscription_key_parameter_names,
+            subscription_required=subscription_required,
+            wsdl_selector=wsdl_selector,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             api_id: Optional[pulumi.Input[str]] = None,
+             api_revision: Optional[pulumi.Input[str]] = None,
+             api_revision_description: Optional[pulumi.Input[str]] = None,
+             api_type: Optional[pulumi.Input[Union[str, 'ApiType']]] = None,
+             api_version: Optional[pulumi.Input[str]] = None,
+             api_version_description: Optional[pulumi.Input[str]] = None,
+             api_version_set: Optional[pulumi.Input['ApiVersionSetContractDetailsArgs']] = None,
+             api_version_set_id: Optional[pulumi.Input[str]] = None,
+             authentication_settings: Optional[pulumi.Input['AuthenticationSettingsContractArgs']] = None,
+             content_format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
+             content_value: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input['Protocol']]]] = None,
+             service_url: Optional[pulumi.Input[str]] = None,
+             soap_api_type: Optional[pulumi.Input[Union[str, 'SoapApiType']]] = None,
+             subscription_key_parameter_names: Optional[pulumi.Input['SubscriptionKeyParameterNamesContractArgs']] = None,
+             subscription_required: Optional[pulumi.Input[bool]] = None,
+             wsdl_selector: Optional[pulumi.Input['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_revision is None and 'apiRevision' in kwargs:
+            api_revision = kwargs['apiRevision']
+        if api_revision_description is None and 'apiRevisionDescription' in kwargs:
+            api_revision_description = kwargs['apiRevisionDescription']
+        if api_type is None and 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if api_version is None and 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+        if api_version_description is None and 'apiVersionDescription' in kwargs:
+            api_version_description = kwargs['apiVersionDescription']
+        if api_version_set is None and 'apiVersionSet' in kwargs:
+            api_version_set = kwargs['apiVersionSet']
+        if api_version_set_id is None and 'apiVersionSetId' in kwargs:
+            api_version_set_id = kwargs['apiVersionSetId']
+        if authentication_settings is None and 'authenticationSettings' in kwargs:
+            authentication_settings = kwargs['authenticationSettings']
+        if content_format is None and 'contentFormat' in kwargs:
+            content_format = kwargs['contentFormat']
+        if content_value is None and 'contentValue' in kwargs:
+            content_value = kwargs['contentValue']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if service_url is None and 'serviceUrl' in kwargs:
+            service_url = kwargs['serviceUrl']
+        if soap_api_type is None and 'soapApiType' in kwargs:
+            soap_api_type = kwargs['soapApiType']
+        if subscription_key_parameter_names is None and 'subscriptionKeyParameterNames' in kwargs:
+            subscription_key_parameter_names = kwargs['subscriptionKeyParameterNames']
+        if subscription_required is None and 'subscriptionRequired' in kwargs:
+            subscription_required = kwargs['subscriptionRequired']
+        if wsdl_selector is None and 'wsdlSelector' in kwargs:
+            wsdl_selector = kwargs['wsdlSelector']
+
+        _setter("path", path)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if api_revision is not None:
-            pulumi.set(__self__, "api_revision", api_revision)
+            _setter("api_revision", api_revision)
         if api_revision_description is not None:
-            pulumi.set(__self__, "api_revision_description", api_revision_description)
+            _setter("api_revision_description", api_revision_description)
         if api_type is not None:
-            pulumi.set(__self__, "api_type", api_type)
+            _setter("api_type", api_type)
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if api_version_description is not None:
-            pulumi.set(__self__, "api_version_description", api_version_description)
+            _setter("api_version_description", api_version_description)
         if api_version_set is not None:
-            pulumi.set(__self__, "api_version_set", api_version_set)
+            _setter("api_version_set", api_version_set)
         if api_version_set_id is not None:
-            pulumi.set(__self__, "api_version_set_id", api_version_set_id)
+            _setter("api_version_set_id", api_version_set_id)
         if authentication_settings is not None:
-            pulumi.set(__self__, "authentication_settings", authentication_settings)
+            _setter("authentication_settings", authentication_settings)
         if content_format is not None:
-            pulumi.set(__self__, "content_format", content_format)
+            _setter("content_format", content_format)
         if content_value is not None:
-            pulumi.set(__self__, "content_value", content_value)
+            _setter("content_value", content_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if service_url is not None:
-            pulumi.set(__self__, "service_url", service_url)
+            _setter("service_url", service_url)
         if soap_api_type is not None:
-            pulumi.set(__self__, "soap_api_type", soap_api_type)
+            _setter("soap_api_type", soap_api_type)
         if subscription_key_parameter_names is not None:
-            pulumi.set(__self__, "subscription_key_parameter_names", subscription_key_parameter_names)
+            _setter("subscription_key_parameter_names", subscription_key_parameter_names)
         if subscription_required is not None:
-            pulumi.set(__self__, "subscription_required", subscription_required)
+            _setter("subscription_required", subscription_required)
         if wsdl_selector is not None:
-            pulumi.set(__self__, "wsdl_selector", wsdl_selector)
+            _setter("wsdl_selector", wsdl_selector)
 
     @property
     @pulumi.getter
@@ -452,6 +549,10 @@ class Api(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -494,8 +595,10 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["api_type"] = api_type
             __props__.__dict__["api_version"] = api_version
             __props__.__dict__["api_version_description"] = api_version_description
+            api_version_set = _utilities.configure(api_version_set, ApiVersionSetContractDetailsArgs, True)
             __props__.__dict__["api_version_set"] = api_version_set
             __props__.__dict__["api_version_set_id"] = api_version_set_id
+            authentication_settings = _utilities.configure(authentication_settings, AuthenticationSettingsContractArgs, True)
             __props__.__dict__["authentication_settings"] = authentication_settings
             __props__.__dict__["content_format"] = content_format
             __props__.__dict__["content_value"] = content_value
@@ -513,8 +616,10 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["service_url"] = service_url
             __props__.__dict__["soap_api_type"] = soap_api_type
+            subscription_key_parameter_names = _utilities.configure(subscription_key_parameter_names, SubscriptionKeyParameterNamesContractArgs, True)
             __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
             __props__.__dict__["subscription_required"] = subscription_required
+            wsdl_selector = _utilities.configure(wsdl_selector, ApiCreateOrUpdatePropertiesWsdlSelectorArgs, True)
             __props__.__dict__["wsdl_selector"] = wsdl_selector
             __props__.__dict__["is_current"] = None
             __props__.__dict__["is_online"] = None

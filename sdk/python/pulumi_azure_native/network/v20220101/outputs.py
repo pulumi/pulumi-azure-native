@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -53,14 +53,37 @@ class ProtocolCustomSettingsFormatResponse(dict):
         :param str trigger_rate_override: The customized DDoS protection trigger rate.
         :param str trigger_sensitivity_override: The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
         """
+        ProtocolCustomSettingsFormatResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            source_rate_override=source_rate_override,
+            trigger_rate_override=trigger_rate_override,
+            trigger_sensitivity_override=trigger_sensitivity_override,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: Optional[str] = None,
+             source_rate_override: Optional[str] = None,
+             trigger_rate_override: Optional[str] = None,
+             trigger_sensitivity_override: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_rate_override is None and 'sourceRateOverride' in kwargs:
+            source_rate_override = kwargs['sourceRateOverride']
+        if trigger_rate_override is None and 'triggerRateOverride' in kwargs:
+            trigger_rate_override = kwargs['triggerRateOverride']
+        if trigger_sensitivity_override is None and 'triggerSensitivityOverride' in kwargs:
+            trigger_sensitivity_override = kwargs['triggerSensitivityOverride']
+
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if source_rate_override is not None:
-            pulumi.set(__self__, "source_rate_override", source_rate_override)
+            _setter("source_rate_override", source_rate_override)
         if trigger_rate_override is not None:
-            pulumi.set(__self__, "trigger_rate_override", trigger_rate_override)
+            _setter("trigger_rate_override", trigger_rate_override)
         if trigger_sensitivity_override is not None:
-            pulumi.set(__self__, "trigger_sensitivity_override", trigger_sensitivity_override)
+            _setter("trigger_sensitivity_override", trigger_sensitivity_override)
 
     @property
     @pulumi.getter
@@ -106,8 +129,19 @@ class SubResourceResponse(dict):
         Reference to another subresource.
         :param str id: Resource ID.
         """
+        SubResourceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter

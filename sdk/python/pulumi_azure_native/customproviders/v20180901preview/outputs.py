@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -48,10 +48,31 @@ class CustomRPActionRouteDefinitionResponse(dict):
         :param str name: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
         :param str routing_type: The routing types that are supported for action requests.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
+        CustomRPActionRouteDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+            routing_type=routing_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[str] = None,
+             name: Optional[str] = None,
+             routing_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if routing_type is None and 'routingType' in kwargs:
+            routing_type = kwargs['routingType']
+
+        _setter("endpoint", endpoint)
+        _setter("name", name)
         if routing_type is not None:
-            pulumi.set(__self__, "routing_type", routing_type)
+            _setter("routing_type", routing_type)
 
     @property
     @pulumi.getter
@@ -110,10 +131,31 @@ class CustomRPResourceTypeRouteDefinitionResponse(dict):
         :param str name: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
         :param str routing_type: The routing types that are supported for resource requests.
         """
-        pulumi.set(__self__, "endpoint", endpoint)
-        pulumi.set(__self__, "name", name)
+        CustomRPResourceTypeRouteDefinitionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint=endpoint,
+            name=name,
+            routing_type=routing_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint: Optional[str] = None,
+             name: Optional[str] = None,
+             routing_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if routing_type is None and 'routingType' in kwargs:
+            routing_type = kwargs['routingType']
+
+        _setter("endpoint", endpoint)
+        _setter("name", name)
         if routing_type is not None:
-            pulumi.set(__self__, "routing_type", routing_type)
+            _setter("routing_type", routing_type)
 
     @property
     @pulumi.getter
@@ -170,9 +212,26 @@ class CustomRPValidationsResponse(dict):
         :param str specification: A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
         :param str validation_type: The type of validation to run against a matching request.
         """
-        pulumi.set(__self__, "specification", specification)
+        CustomRPValidationsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            specification=specification,
+            validation_type=validation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             specification: Optional[str] = None,
+             validation_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if specification is None:
+            raise TypeError("Missing 'specification' argument")
+        if validation_type is None and 'validationType' in kwargs:
+            validation_type = kwargs['validationType']
+
+        _setter("specification", specification)
         if validation_type is not None:
-            pulumi.set(__self__, "validation_type", validation_type)
+            _setter("validation_type", validation_type)
 
     @property
     @pulumi.getter

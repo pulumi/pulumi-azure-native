@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,13 +29,46 @@ class InventoryItemArgs:
         :param pulumi.Input[str] inventory_item_name: Name of the inventoryItem.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
-        pulumi.set(__self__, "inventory_type", inventory_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vmm_server_name", vmm_server_name)
+        InventoryItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inventory_type=inventory_type,
+            resource_group_name=resource_group_name,
+            vmm_server_name=vmm_server_name,
+            inventory_item_name=inventory_item_name,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inventory_type: Optional[pulumi.Input[Union[str, 'InventoryType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vmm_server_name: Optional[pulumi.Input[str]] = None,
+             inventory_item_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inventory_type is None and 'inventoryType' in kwargs:
+            inventory_type = kwargs['inventoryType']
+        if inventory_type is None:
+            raise TypeError("Missing 'inventory_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vmm_server_name is None and 'vmmServerName' in kwargs:
+            vmm_server_name = kwargs['vmmServerName']
+        if vmm_server_name is None:
+            raise TypeError("Missing 'vmm_server_name' argument")
+        if inventory_item_name is None and 'inventoryItemName' in kwargs:
+            inventory_item_name = kwargs['inventoryItemName']
+
+        _setter("inventory_type", inventory_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vmm_server_name", vmm_server_name)
         if inventory_item_name is not None:
-            pulumi.set(__self__, "inventory_item_name", inventory_item_name)
+            _setter("inventory_item_name", inventory_item_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="inventoryType")
@@ -145,6 +178,10 @@ class InventoryItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InventoryItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

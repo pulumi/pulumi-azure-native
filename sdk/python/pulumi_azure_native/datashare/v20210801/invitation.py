@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -36,19 +36,66 @@ class InvitationArgs:
                Must be specified along TargetActiveDirectoryId. This enables sending
                invitations to specific users or applications in an AD tenant.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_name", share_name)
+        InvitationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            share_name=share_name,
+            expiration_date=expiration_date,
+            invitation_name=invitation_name,
+            target_active_directory_id=target_active_directory_id,
+            target_email=target_email,
+            target_object_id=target_object_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             invitation_name: Optional[pulumi.Input[str]] = None,
+             target_active_directory_id: Optional[pulumi.Input[str]] = None,
+             target_email: Optional[pulumi.Input[str]] = None,
+             target_object_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if invitation_name is None and 'invitationName' in kwargs:
+            invitation_name = kwargs['invitationName']
+        if target_active_directory_id is None and 'targetActiveDirectoryId' in kwargs:
+            target_active_directory_id = kwargs['targetActiveDirectoryId']
+        if target_email is None and 'targetEmail' in kwargs:
+            target_email = kwargs['targetEmail']
+        if target_object_id is None and 'targetObjectId' in kwargs:
+            target_object_id = kwargs['targetObjectId']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("share_name", share_name)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if invitation_name is not None:
-            pulumi.set(__self__, "invitation_name", invitation_name)
+            _setter("invitation_name", invitation_name)
         if target_active_directory_id is not None:
-            pulumi.set(__self__, "target_active_directory_id", target_active_directory_id)
+            _setter("target_active_directory_id", target_active_directory_id)
         if target_email is not None:
-            pulumi.set(__self__, "target_email", target_email)
+            _setter("target_email", target_email)
         if target_object_id is not None:
-            pulumi.set(__self__, "target_object_id", target_object_id)
+            _setter("target_object_id", target_object_id)
 
     @property
     @pulumi.getter(name="accountName")
@@ -198,6 +245,10 @@ class Invitation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InvitationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

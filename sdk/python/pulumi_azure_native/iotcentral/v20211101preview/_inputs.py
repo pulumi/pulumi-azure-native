@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -26,7 +26,20 @@ class AppSkuInfoArgs:
         Information about the SKU of the IoT Central application.
         :param pulumi.Input[Union[str, 'AppSku']] name: The name of the SKU.
         """
-        pulumi.set(__self__, "name", name)
+        AppSkuInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[Union[str, 'AppSku']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -51,10 +64,27 @@ class NetworkRuleSetIpRuleArgs:
         :param pulumi.Input[str] filter_name: The readable name of the IP rule.
         :param pulumi.Input[str] ip_mask: The CIDR block defining the IP range.
         """
+        NetworkRuleSetIpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filter_name=filter_name,
+            ip_mask=ip_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filter_name: Optional[pulumi.Input[str]] = None,
+             ip_mask: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter_name is None and 'filterName' in kwargs:
+            filter_name = kwargs['filterName']
+        if ip_mask is None and 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
         if filter_name is not None:
-            pulumi.set(__self__, "filter_name", filter_name)
+            _setter("filter_name", filter_name)
         if ip_mask is not None:
-            pulumi.set(__self__, "ip_mask", ip_mask)
+            _setter("ip_mask", ip_mask)
 
     @property
     @pulumi.getter(name="filterName")
@@ -95,18 +125,43 @@ class NetworkRuleSetsArgs:
         :param pulumi.Input[Union[str, 'NetworkAction']] default_action: The default network action to apply.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]] ip_rules: List of IP rules.
         """
+        NetworkRuleSetsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_to_devices=apply_to_devices,
+            apply_to_io_t_central=apply_to_io_t_central,
+            default_action=default_action,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_to_devices: Optional[pulumi.Input[bool]] = None,
+             apply_to_io_t_central: Optional[pulumi.Input[bool]] = None,
+             default_action: Optional[pulumi.Input[Union[str, 'NetworkAction']]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apply_to_devices is None and 'applyToDevices' in kwargs:
+            apply_to_devices = kwargs['applyToDevices']
+        if apply_to_io_t_central is None and 'applyToIoTCentral' in kwargs:
+            apply_to_io_t_central = kwargs['applyToIoTCentral']
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+
         if apply_to_devices is None:
             apply_to_devices = False
         if apply_to_devices is not None:
-            pulumi.set(__self__, "apply_to_devices", apply_to_devices)
+            _setter("apply_to_devices", apply_to_devices)
         if apply_to_io_t_central is None:
             apply_to_io_t_central = False
         if apply_to_io_t_central is not None:
-            pulumi.set(__self__, "apply_to_io_t_central", apply_to_io_t_central)
+            _setter("apply_to_io_t_central", apply_to_io_t_central)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="applyToDevices")
@@ -169,12 +224,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -221,7 +293,20 @@ class SystemAssignedServiceIdentityArgs:
         Managed service identity (either system assigned, or none)
         :param pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']] type: Type of managed service identity (either system assigned, or none).
         """
-        pulumi.set(__self__, "type", type)
+        SystemAssignedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter

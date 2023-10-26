@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,21 +43,84 @@ class IoTRoleArgs:
         :param pulumi.Input[str] name: The role name.
         :param pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]] share_mappings: Mount points of shares in role(s).
         """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "host_platform", host_platform)
-        pulumi.set(__self__, "io_t_device_details", io_t_device_details)
-        pulumi.set(__self__, "io_t_edge_device_details", io_t_edge_device_details)
-        pulumi.set(__self__, "kind", 'IOT')
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_status", role_status)
+        IoTRoleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_name=device_name,
+            host_platform=host_platform,
+            io_t_device_details=io_t_device_details,
+            io_t_edge_device_details=io_t_edge_device_details,
+            kind=kind,
+            resource_group_name=resource_group_name,
+            role_status=role_status,
+            compute_resource=compute_resource,
+            io_t_edge_agent_info=io_t_edge_agent_info,
+            name=name,
+            share_mappings=share_mappings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_name: Optional[pulumi.Input[str]] = None,
+             host_platform: Optional[pulumi.Input[Union[str, 'PlatformType']]] = None,
+             io_t_device_details: Optional[pulumi.Input['IoTDeviceInfoArgs']] = None,
+             io_t_edge_device_details: Optional[pulumi.Input['IoTDeviceInfoArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
+             compute_resource: Optional[pulumi.Input['ComputeResourceArgs']] = None,
+             io_t_edge_agent_info: Optional[pulumi.Input['IoTEdgeAgentInfoArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['MountPointMapArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if host_platform is None and 'hostPlatform' in kwargs:
+            host_platform = kwargs['hostPlatform']
+        if host_platform is None:
+            raise TypeError("Missing 'host_platform' argument")
+        if io_t_device_details is None and 'ioTDeviceDetails' in kwargs:
+            io_t_device_details = kwargs['ioTDeviceDetails']
+        if io_t_device_details is None:
+            raise TypeError("Missing 'io_t_device_details' argument")
+        if io_t_edge_device_details is None and 'ioTEdgeDeviceDetails' in kwargs:
+            io_t_edge_device_details = kwargs['ioTEdgeDeviceDetails']
+        if io_t_edge_device_details is None:
+            raise TypeError("Missing 'io_t_edge_device_details' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if role_status is None and 'roleStatus' in kwargs:
+            role_status = kwargs['roleStatus']
+        if role_status is None:
+            raise TypeError("Missing 'role_status' argument")
+        if compute_resource is None and 'computeResource' in kwargs:
+            compute_resource = kwargs['computeResource']
+        if io_t_edge_agent_info is None and 'ioTEdgeAgentInfo' in kwargs:
+            io_t_edge_agent_info = kwargs['ioTEdgeAgentInfo']
+        if share_mappings is None and 'shareMappings' in kwargs:
+            share_mappings = kwargs['shareMappings']
+
+        _setter("device_name", device_name)
+        _setter("host_platform", host_platform)
+        _setter("io_t_device_details", io_t_device_details)
+        _setter("io_t_edge_device_details", io_t_edge_device_details)
+        _setter("kind", 'IOT')
+        _setter("resource_group_name", resource_group_name)
+        _setter("role_status", role_status)
         if compute_resource is not None:
-            pulumi.set(__self__, "compute_resource", compute_resource)
+            _setter("compute_resource", compute_resource)
         if io_t_edge_agent_info is not None:
-            pulumi.set(__self__, "io_t_edge_agent_info", io_t_edge_agent_info)
+            _setter("io_t_edge_agent_info", io_t_edge_agent_info)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if share_mappings is not None:
-            pulumi.set(__self__, "share_mappings", share_mappings)
+            _setter("share_mappings", share_mappings)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -247,6 +310,10 @@ class IoTRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IoTRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -272,6 +339,7 @@ class IoTRole(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IoTRoleArgs.__new__(IoTRoleArgs)
 
+            compute_resource = _utilities.configure(compute_resource, ComputeResourceArgs, True)
             __props__.__dict__["compute_resource"] = compute_resource
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
@@ -279,10 +347,13 @@ class IoTRole(pulumi.CustomResource):
             if host_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'host_platform'")
             __props__.__dict__["host_platform"] = host_platform
+            io_t_device_details = _utilities.configure(io_t_device_details, IoTDeviceInfoArgs, True)
             if io_t_device_details is None and not opts.urn:
                 raise TypeError("Missing required property 'io_t_device_details'")
             __props__.__dict__["io_t_device_details"] = io_t_device_details
+            io_t_edge_agent_info = _utilities.configure(io_t_edge_agent_info, IoTEdgeAgentInfoArgs, True)
             __props__.__dict__["io_t_edge_agent_info"] = io_t_edge_agent_info
+            io_t_edge_device_details = _utilities.configure(io_t_edge_device_details, IoTDeviceInfoArgs, True)
             if io_t_edge_device_details is None and not opts.urn:
                 raise TypeError("Missing required property 'io_t_edge_device_details'")
             __props__.__dict__["io_t_edge_device_details"] = io_t_edge_device_details

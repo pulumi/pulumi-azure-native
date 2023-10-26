@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,30 +46,87 @@ class AppServiceEnvironmentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_whitelisted_ip_ranges: User added list of IP Ranges allowed on ASE db
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network", virtual_network)
+        AppServiceEnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_network=virtual_network,
+            cluster_settings=cluster_settings,
+            dns_suffix=dns_suffix,
+            front_end_scale_factor=front_end_scale_factor,
+            internal_load_balancing_mode=internal_load_balancing_mode,
+            ipssl_address_count=ipssl_address_count,
+            kind=kind,
+            location=location,
+            multi_size=multi_size,
+            name=name,
+            tags=tags,
+            user_whitelisted_ip_ranges=user_whitelisted_ip_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None,
+             cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['NameValuePairArgs']]]] = None,
+             dns_suffix: Optional[pulumi.Input[str]] = None,
+             front_end_scale_factor: Optional[pulumi.Input[int]] = None,
+             internal_load_balancing_mode: Optional[pulumi.Input[Union[str, 'LoadBalancingMode']]] = None,
+             ipssl_address_count: Optional[pulumi.Input[int]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             multi_size: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_whitelisted_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network is None and 'virtualNetwork' in kwargs:
+            virtual_network = kwargs['virtualNetwork']
+        if virtual_network is None:
+            raise TypeError("Missing 'virtual_network' argument")
+        if cluster_settings is None and 'clusterSettings' in kwargs:
+            cluster_settings = kwargs['clusterSettings']
+        if dns_suffix is None and 'dnsSuffix' in kwargs:
+            dns_suffix = kwargs['dnsSuffix']
+        if front_end_scale_factor is None and 'frontEndScaleFactor' in kwargs:
+            front_end_scale_factor = kwargs['frontEndScaleFactor']
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
+            internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
+        if ipssl_address_count is None and 'ipsslAddressCount' in kwargs:
+            ipssl_address_count = kwargs['ipsslAddressCount']
+        if multi_size is None and 'multiSize' in kwargs:
+            multi_size = kwargs['multiSize']
+        if user_whitelisted_ip_ranges is None and 'userWhitelistedIpRanges' in kwargs:
+            user_whitelisted_ip_ranges = kwargs['userWhitelistedIpRanges']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_network", virtual_network)
         if cluster_settings is not None:
-            pulumi.set(__self__, "cluster_settings", cluster_settings)
+            _setter("cluster_settings", cluster_settings)
         if dns_suffix is not None:
-            pulumi.set(__self__, "dns_suffix", dns_suffix)
+            _setter("dns_suffix", dns_suffix)
         if front_end_scale_factor is not None:
-            pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
+            _setter("front_end_scale_factor", front_end_scale_factor)
         if internal_load_balancing_mode is not None:
-            pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
+            _setter("internal_load_balancing_mode", internal_load_balancing_mode)
         if ipssl_address_count is not None:
-            pulumi.set(__self__, "ipssl_address_count", ipssl_address_count)
+            _setter("ipssl_address_count", ipssl_address_count)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if multi_size is not None:
-            pulumi.set(__self__, "multi_size", multi_size)
+            _setter("multi_size", multi_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_whitelisted_ip_ranges is not None:
-            pulumi.set(__self__, "user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
+            _setter("user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -285,6 +342,10 @@ class AppServiceEnvironment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppServiceEnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -326,6 +387,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_whitelisted_ip_ranges"] = user_whitelisted_ip_ranges
+            virtual_network = _utilities.configure(virtual_network, VirtualNetworkProfileArgs, True)
             if virtual_network is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network'")
             __props__.__dict__["virtual_network"] = virtual_network

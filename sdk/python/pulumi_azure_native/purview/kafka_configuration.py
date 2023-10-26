@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -39,28 +39,79 @@ class KafkaConfigurationArgs:
         :param pulumi.Input[Union[str, 'EventStreamingType']] event_streaming_type: The event streaming service type
         :param pulumi.Input[str] kafka_configuration_name: The kafka configuration name.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        KafkaConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            consumer_group=consumer_group,
+            credentials=credentials,
+            event_hub_partition_id=event_hub_partition_id,
+            event_hub_resource_id=event_hub_resource_id,
+            event_hub_type=event_hub_type,
+            event_streaming_state=event_streaming_state,
+            event_streaming_type=event_streaming_type,
+            kafka_configuration_name=kafka_configuration_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             consumer_group: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
+             event_hub_partition_id: Optional[pulumi.Input[str]] = None,
+             event_hub_resource_id: Optional[pulumi.Input[str]] = None,
+             event_hub_type: Optional[pulumi.Input[Union[str, 'EventHubType']]] = None,
+             event_streaming_state: Optional[pulumi.Input[Union[str, 'EventStreamingState']]] = None,
+             event_streaming_type: Optional[pulumi.Input[Union[str, 'EventStreamingType']]] = None,
+             kafka_configuration_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if consumer_group is None and 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+        if event_hub_partition_id is None and 'eventHubPartitionId' in kwargs:
+            event_hub_partition_id = kwargs['eventHubPartitionId']
+        if event_hub_resource_id is None and 'eventHubResourceId' in kwargs:
+            event_hub_resource_id = kwargs['eventHubResourceId']
+        if event_hub_type is None and 'eventHubType' in kwargs:
+            event_hub_type = kwargs['eventHubType']
+        if event_streaming_state is None and 'eventStreamingState' in kwargs:
+            event_streaming_state = kwargs['eventStreamingState']
+        if event_streaming_type is None and 'eventStreamingType' in kwargs:
+            event_streaming_type = kwargs['eventStreamingType']
+        if kafka_configuration_name is None and 'kafkaConfigurationName' in kwargs:
+            kafka_configuration_name = kwargs['kafkaConfigurationName']
+
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if consumer_group is not None:
-            pulumi.set(__self__, "consumer_group", consumer_group)
+            _setter("consumer_group", consumer_group)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if event_hub_partition_id is not None:
-            pulumi.set(__self__, "event_hub_partition_id", event_hub_partition_id)
+            _setter("event_hub_partition_id", event_hub_partition_id)
         if event_hub_resource_id is not None:
-            pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
+            _setter("event_hub_resource_id", event_hub_resource_id)
         if event_hub_type is not None:
-            pulumi.set(__self__, "event_hub_type", event_hub_type)
+            _setter("event_hub_type", event_hub_type)
         if event_streaming_state is None:
             event_streaming_state = 'Enabled'
         if event_streaming_state is not None:
-            pulumi.set(__self__, "event_streaming_state", event_streaming_state)
+            _setter("event_streaming_state", event_streaming_state)
         if event_streaming_type is None:
             event_streaming_type = 'None'
         if event_streaming_type is not None:
-            pulumi.set(__self__, "event_streaming_type", event_streaming_type)
+            _setter("event_streaming_type", event_streaming_type)
         if kafka_configuration_name is not None:
-            pulumi.set(__self__, "kafka_configuration_name", kafka_configuration_name)
+            _setter("kafka_configuration_name", kafka_configuration_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -232,6 +283,10 @@ class KafkaConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KafkaConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -260,6 +315,7 @@ class KafkaConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["consumer_group"] = consumer_group
+            credentials = _utilities.configure(credentials, CredentialsArgs, True)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["event_hub_partition_id"] = event_hub_partition_id
             __props__.__dict__["event_hub_resource_id"] = event_hub_resource_id

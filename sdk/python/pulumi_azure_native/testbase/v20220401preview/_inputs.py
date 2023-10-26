@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -48,22 +48,73 @@ class CommandArgs:
         :param pulumi.Input[bool] run_as_interactive: Specifies whether to run the command in interactive mode.
         :param pulumi.Input[bool] run_elevated: Specifies whether to run the command as administrator.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "name", name)
+        CommandArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            content=content,
+            content_type=content_type,
+            name=name,
+            always_run=always_run,
+            apply_update_before=apply_update_before,
+            max_run_time=max_run_time,
+            restart_after=restart_after,
+            run_as_interactive=run_as_interactive,
+            run_elevated=run_elevated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[Union[str, 'Action']]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[Union[str, 'ContentType']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             always_run: Optional[pulumi.Input[bool]] = None,
+             apply_update_before: Optional[pulumi.Input[bool]] = None,
+             max_run_time: Optional[pulumi.Input[int]] = None,
+             restart_after: Optional[pulumi.Input[bool]] = None,
+             run_as_interactive: Optional[pulumi.Input[bool]] = None,
+             run_elevated: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if always_run is None and 'alwaysRun' in kwargs:
+            always_run = kwargs['alwaysRun']
+        if apply_update_before is None and 'applyUpdateBefore' in kwargs:
+            apply_update_before = kwargs['applyUpdateBefore']
+        if max_run_time is None and 'maxRunTime' in kwargs:
+            max_run_time = kwargs['maxRunTime']
+        if restart_after is None and 'restartAfter' in kwargs:
+            restart_after = kwargs['restartAfter']
+        if run_as_interactive is None and 'runAsInteractive' in kwargs:
+            run_as_interactive = kwargs['runAsInteractive']
+        if run_elevated is None and 'runElevated' in kwargs:
+            run_elevated = kwargs['runElevated']
+
+        _setter("action", action)
+        _setter("content", content)
+        _setter("content_type", content_type)
+        _setter("name", name)
         if always_run is not None:
-            pulumi.set(__self__, "always_run", always_run)
+            _setter("always_run", always_run)
         if apply_update_before is not None:
-            pulumi.set(__self__, "apply_update_before", apply_update_before)
+            _setter("apply_update_before", apply_update_before)
         if max_run_time is not None:
-            pulumi.set(__self__, "max_run_time", max_run_time)
+            _setter("max_run_time", max_run_time)
         if restart_after is not None:
-            pulumi.set(__self__, "restart_after", restart_after)
+            _setter("restart_after", restart_after)
         if run_as_interactive is not None:
-            pulumi.set(__self__, "run_as_interactive", run_as_interactive)
+            _setter("run_as_interactive", run_as_interactive)
         if run_elevated is not None:
-            pulumi.set(__self__, "run_elevated", run_elevated)
+            _setter("run_elevated", run_elevated)
 
     @property
     @pulumi.getter
@@ -194,8 +245,21 @@ class DistributionGroupListReceiverValueArgs:
         The user object receiver value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] distribution_groups: The list of distribution groups.
         """
+        DistributionGroupListReceiverValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distribution_groups=distribution_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distribution_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if distribution_groups is None and 'distributionGroups' in kwargs:
+            distribution_groups = kwargs['distributionGroups']
+
         if distribution_groups is not None:
-            pulumi.set(__self__, "distribution_groups", distribution_groups)
+            _setter("distribution_groups", distribution_groups)
 
     @property
     @pulumi.getter(name="distributionGroups")
@@ -220,10 +284,27 @@ class NotificationEventReceiverArgs:
         :param pulumi.Input[str] receiver_type: The type of the notification event receiver.
         :param pulumi.Input['NotificationReceiverValueArgs'] receiver_value: The notification event receiver value.
         """
+        NotificationEventReceiverArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            receiver_type=receiver_type,
+            receiver_value=receiver_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             receiver_type: Optional[pulumi.Input[str]] = None,
+             receiver_value: Optional[pulumi.Input['NotificationReceiverValueArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if receiver_type is None and 'receiverType' in kwargs:
+            receiver_type = kwargs['receiverType']
+        if receiver_value is None and 'receiverValue' in kwargs:
+            receiver_value = kwargs['receiverValue']
+
         if receiver_type is not None:
-            pulumi.set(__self__, "receiver_type", receiver_type)
+            _setter("receiver_type", receiver_type)
         if receiver_value is not None:
-            pulumi.set(__self__, "receiver_value", receiver_value)
+            _setter("receiver_value", receiver_value)
 
     @property
     @pulumi.getter(name="receiverType")
@@ -262,12 +343,33 @@ class NotificationReceiverValueArgs:
         :param pulumi.Input['SubscriptionReceiverValueArgs'] subscription_receiver_value: The user object receiver value.
         :param pulumi.Input['UserObjectReceiverValueArgs'] user_object_receiver_value: The user object receiver value.
         """
+        NotificationReceiverValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            distribution_group_list_receiver_value=distribution_group_list_receiver_value,
+            subscription_receiver_value=subscription_receiver_value,
+            user_object_receiver_value=user_object_receiver_value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             distribution_group_list_receiver_value: Optional[pulumi.Input['DistributionGroupListReceiverValueArgs']] = None,
+             subscription_receiver_value: Optional[pulumi.Input['SubscriptionReceiverValueArgs']] = None,
+             user_object_receiver_value: Optional[pulumi.Input['UserObjectReceiverValueArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if distribution_group_list_receiver_value is None and 'distributionGroupListReceiverValue' in kwargs:
+            distribution_group_list_receiver_value = kwargs['distributionGroupListReceiverValue']
+        if subscription_receiver_value is None and 'subscriptionReceiverValue' in kwargs:
+            subscription_receiver_value = kwargs['subscriptionReceiverValue']
+        if user_object_receiver_value is None and 'userObjectReceiverValue' in kwargs:
+            user_object_receiver_value = kwargs['userObjectReceiverValue']
+
         if distribution_group_list_receiver_value is not None:
-            pulumi.set(__self__, "distribution_group_list_receiver_value", distribution_group_list_receiver_value)
+            _setter("distribution_group_list_receiver_value", distribution_group_list_receiver_value)
         if subscription_receiver_value is not None:
-            pulumi.set(__self__, "subscription_receiver_value", subscription_receiver_value)
+            _setter("subscription_receiver_value", subscription_receiver_value)
         if user_object_receiver_value is not None:
-            pulumi.set(__self__, "user_object_receiver_value", user_object_receiver_value)
+            _setter("user_object_receiver_value", user_object_receiver_value)
 
     @property
     @pulumi.getter(name="distributionGroupListReceiverValue")
@@ -318,12 +420,31 @@ class SubscriptionReceiverValueArgs:
         :param pulumi.Input[str] subscription_id: The subscription id of the notification receiver.
         :param pulumi.Input[str] subscription_name: The subscription name of the notification receiver.
         """
+        SubscriptionReceiverValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            role=role,
+            subscription_id=subscription_id,
+            subscription_name=subscription_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             role: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             subscription_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_name is None and 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if subscription_name is not None:
-            pulumi.set(__self__, "subscription_name", subscription_name)
+            _setter("subscription_name", subscription_name)
 
     @property
     @pulumi.getter
@@ -374,10 +495,35 @@ class TargetOSInfoArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_oss: Specifies the target OSs to be tested.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] baseline_oss: Specifies the baseline OSs to be tested.
         """
-        pulumi.set(__self__, "os_update_type", os_update_type)
-        pulumi.set(__self__, "target_oss", target_oss)
+        TargetOSInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_update_type=os_update_type,
+            target_oss=target_oss,
+            baseline_oss=baseline_oss,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_update_type: Optional[pulumi.Input[str]] = None,
+             target_oss: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             baseline_oss: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if os_update_type is None and 'osUpdateType' in kwargs:
+            os_update_type = kwargs['osUpdateType']
+        if os_update_type is None:
+            raise TypeError("Missing 'os_update_type' argument")
+        if target_oss is None and 'targetOSs' in kwargs:
+            target_oss = kwargs['targetOSs']
+        if target_oss is None:
+            raise TypeError("Missing 'target_oss' argument")
+        if baseline_oss is None and 'baselineOSs' in kwargs:
+            baseline_oss = kwargs['baselineOSs']
+
+        _setter("os_update_type", os_update_type)
+        _setter("target_oss", target_oss)
         if baseline_oss is not None:
-            pulumi.set(__self__, "baseline_oss", baseline_oss)
+            _setter("baseline_oss", baseline_oss)
 
     @property
     @pulumi.getter(name="osUpdateType")
@@ -430,12 +576,35 @@ class TestBaseAccountSKUArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: The locations that the SKU is available.
         :param pulumi.Input[str] resource_type: The type of resource the SKU applies to.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        TestBaseAccountSKUArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            tier=tier,
+            locations=locations,
+            resource_type=resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input[Union[str, 'Tier']]] = None,
+             locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
+        _setter("name", name)
+        _setter("tier", tier)
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if resource_type is not None:
-            pulumi.set(__self__, "resource_type", resource_type)
+            _setter("resource_type", resource_type)
 
     @property
     @pulumi.getter
@@ -498,10 +667,33 @@ class TestArgs:
         :param pulumi.Input[Union[str, 'TestType']] test_type: The type of the test.
         :param pulumi.Input[bool] is_active: Indicates if this test is active.It doesn't schedule test for not active Test.
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "test_type", test_type)
+        TestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            test_type=test_type,
+            is_active=is_active,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]] = None,
+             test_type: Optional[pulumi.Input[Union[str, 'TestType']]] = None,
+             is_active: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if test_type is None and 'testType' in kwargs:
+            test_type = kwargs['testType']
+        if test_type is None:
+            raise TypeError("Missing 'test_type' argument")
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+
+        _setter("commands", commands)
+        _setter("test_type", test_type)
         if is_active is not None:
-            pulumi.set(__self__, "is_active", is_active)
+            _setter("is_active", is_active)
 
     @property
     @pulumi.getter
@@ -548,8 +740,21 @@ class UserObjectReceiverValueArgs:
         The user object receiver value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_object_ids: user object ids.
         """
+        UserObjectReceiverValueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            user_object_ids=user_object_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             user_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_object_ids is None and 'userObjectIds' in kwargs:
+            user_object_ids = kwargs['userObjectIds']
+
         if user_object_ids is not None:
-            pulumi.set(__self__, "user_object_ids", user_object_ids)
+            _setter("user_object_ids", user_object_ids)
 
     @property
     @pulumi.getter(name="userObjectIds")

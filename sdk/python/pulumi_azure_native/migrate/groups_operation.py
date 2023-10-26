@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,16 +31,53 @@ class GroupsOperationArgs:
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentType']]]] supported_assessment_types: List of assessment types supported on this group.
         """
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GroupsOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            group_name=group_name,
+            group_type=group_type,
+            provisioning_state=provisioning_state,
+            supported_assessment_types=supported_assessment_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             group_type: Optional[pulumi.Input[Union[str, 'GroupType']]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             supported_assessment_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AssessmentType']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_type is None and 'groupType' in kwargs:
+            group_type = kwargs['groupType']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if supported_assessment_types is None and 'supportedAssessmentTypes' in kwargs:
+            supported_assessment_types = kwargs['supportedAssessmentTypes']
+
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if group_name is not None:
-            pulumi.set(__self__, "group_name", group_name)
+            _setter("group_name", group_name)
         if group_type is not None:
-            pulumi.set(__self__, "group_type", group_type)
+            _setter("group_type", group_type)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if supported_assessment_types is not None:
-            pulumi.set(__self__, "supported_assessment_types", supported_assessment_types)
+            _setter("supported_assessment_types", supported_assessment_types)
 
     @property
     @pulumi.getter(name="projectName")
@@ -160,6 +197,10 @@ class GroupsOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupsOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

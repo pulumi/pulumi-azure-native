@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,12 +28,47 @@ class TrustedAccessRoleBindingArgs:
         :param pulumi.Input[str] source_resource_id: The ARM resource ID of source resource that trusted access is configured for.
         :param pulumi.Input[str] trusted_access_role_binding_name: The name of trusted access role binding.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "roles", roles)
-        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        TrustedAccessRoleBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            roles=roles,
+            source_resource_id=source_resource_id,
+            trusted_access_role_binding_name=trusted_access_role_binding_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             source_resource_id: Optional[pulumi.Input[str]] = None,
+             trusted_access_role_binding_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if source_resource_id is None:
+            raise TypeError("Missing 'source_resource_id' argument")
+        if trusted_access_role_binding_name is None and 'trustedAccessRoleBindingName' in kwargs:
+            trusted_access_role_binding_name = kwargs['trustedAccessRoleBindingName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
+        _setter("roles", roles)
+        _setter("source_resource_id", source_resource_id)
         if trusted_access_role_binding_name is not None:
-            pulumi.set(__self__, "trusted_access_role_binding_name", trusted_access_role_binding_name)
+            _setter("trusted_access_role_binding_name", trusted_access_role_binding_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -143,6 +178,10 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrustedAccessRoleBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

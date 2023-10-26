@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,80 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceCappingArgs'] workspace_capping: The daily volume cap for ingestion.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            features=features,
+            force_cmk_for_query=force_cmk_for_query,
+            location=location,
+            provisioning_state=provisioning_state,
+            public_network_access_for_ingestion=public_network_access_for_ingestion,
+            public_network_access_for_query=public_network_access_for_query,
+            retention_in_days=retention_in_days,
+            sku=sku,
+            tags=tags,
+            workspace_capping=workspace_capping,
+            workspace_name=workspace_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             features: Optional[pulumi.Input['WorkspaceFeaturesArgs']] = None,
+             force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
+             public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+             public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sku: Optional[pulumi.Input['WorkspaceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_capping: Optional[pulumi.Input['WorkspaceCappingArgs']] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if force_cmk_for_query is None and 'forceCmkForQuery' in kwargs:
+            force_cmk_for_query = kwargs['forceCmkForQuery']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if public_network_access_for_ingestion is None and 'publicNetworkAccessForIngestion' in kwargs:
+            public_network_access_for_ingestion = kwargs['publicNetworkAccessForIngestion']
+        if public_network_access_for_query is None and 'publicNetworkAccessForQuery' in kwargs:
+            public_network_access_for_query = kwargs['publicNetworkAccessForQuery']
+        if retention_in_days is None and 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if workspace_capping is None and 'workspaceCapping' in kwargs:
+            workspace_capping = kwargs['workspaceCapping']
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
+        _setter("resource_group_name", resource_group_name)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if force_cmk_for_query is not None:
-            pulumi.set(__self__, "force_cmk_for_query", force_cmk_for_query)
+            _setter("force_cmk_for_query", force_cmk_for_query)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if public_network_access_for_ingestion is not None:
-            pulumi.set(__self__, "public_network_access_for_ingestion", public_network_access_for_ingestion)
+            _setter("public_network_access_for_ingestion", public_network_access_for_ingestion)
         if public_network_access_for_query is not None:
-            pulumi.set(__self__, "public_network_access_for_query", public_network_access_for_query)
+            _setter("public_network_access_for_query", public_network_access_for_query)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_capping is not None:
-            pulumi.set(__self__, "workspace_capping", workspace_capping)
+            _setter("workspace_capping", workspace_capping)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -268,6 +319,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -294,6 +349,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            features = _utilities.configure(features, WorkspaceFeaturesArgs, True)
             __props__.__dict__["features"] = features
             __props__.__dict__["force_cmk_for_query"] = force_cmk_for_query
             __props__.__dict__["location"] = location
@@ -304,8 +360,10 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_in_days"] = retention_in_days
+            sku = _utilities.configure(sku, WorkspaceSkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            workspace_capping = _utilities.configure(workspace_capping, WorkspaceCappingArgs, True)
             __props__.__dict__["workspace_capping"] = workspace_capping
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["created_date"] = None

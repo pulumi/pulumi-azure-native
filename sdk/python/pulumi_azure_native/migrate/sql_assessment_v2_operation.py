@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -97,75 +97,230 @@ class SqlAssessmentV2OperationArgs:
         :param pulumi.Input[Union[str, 'TimeRange']] time_range: Time Range for which the historic utilization data should be considered for
                assessment.
         """
-        pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SqlAssessmentV2OperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_name=group_name,
+            project_name=project_name,
+            resource_group_name=resource_group_name,
+            assessment_name=assessment_name,
+            assessment_type=assessment_type,
+            async_commit_mode_intent=async_commit_mode_intent,
+            azure_location=azure_location,
+            azure_offer_code=azure_offer_code,
+            azure_offer_code_for_vm=azure_offer_code_for_vm,
+            azure_security_offering_type=azure_security_offering_type,
+            azure_sql_database_settings=azure_sql_database_settings,
+            azure_sql_managed_instance_settings=azure_sql_managed_instance_settings,
+            azure_sql_vm_settings=azure_sql_vm_settings,
+            confidence_rating_in_percentage=confidence_rating_in_percentage,
+            currency=currency,
+            disaster_recovery_location=disaster_recovery_location,
+            discount_percentage=discount_percentage,
+            ea_subscription_id=ea_subscription_id,
+            enable_hadr_assessment=enable_hadr_assessment,
+            entity_uptime=entity_uptime,
+            environment_type=environment_type,
+            group_type=group_type,
+            is_internet_access_available=is_internet_access_available,
+            multi_subnet_intent=multi_subnet_intent,
+            optimization_logic=optimization_logic,
+            os_license=os_license,
+            percentile=percentile,
+            perf_data_end_time=perf_data_end_time,
+            perf_data_start_time=perf_data_start_time,
+            provisioning_state=provisioning_state,
+            reserved_instance=reserved_instance,
+            reserved_instance_for_vm=reserved_instance_for_vm,
+            scaling_factor=scaling_factor,
+            sizing_criterion=sizing_criterion,
+            sql_server_license=sql_server_license,
+            time_range=time_range,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_name: Optional[pulumi.Input[str]] = None,
+             project_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             assessment_name: Optional[pulumi.Input[str]] = None,
+             assessment_type: Optional[pulumi.Input[Union[str, 'AssessmentType']]] = None,
+             async_commit_mode_intent: Optional[pulumi.Input[Union[str, 'AsyncCommitModeIntent']]] = None,
+             azure_location: Optional[pulumi.Input[str]] = None,
+             azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+             azure_offer_code_for_vm: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+             azure_security_offering_type: Optional[pulumi.Input[Union[str, 'AzureSecurityOfferingType']]] = None,
+             azure_sql_database_settings: Optional[pulumi.Input['SqlDbSettingsArgs']] = None,
+             azure_sql_managed_instance_settings: Optional[pulumi.Input['SqlMiSettingsArgs']] = None,
+             azure_sql_vm_settings: Optional[pulumi.Input['SqlVmSettingsArgs']] = None,
+             confidence_rating_in_percentage: Optional[pulumi.Input[float]] = None,
+             currency: Optional[pulumi.Input[Union[str, 'AzureCurrency']]] = None,
+             disaster_recovery_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
+             discount_percentage: Optional[pulumi.Input[float]] = None,
+             ea_subscription_id: Optional[pulumi.Input[str]] = None,
+             enable_hadr_assessment: Optional[pulumi.Input[bool]] = None,
+             entity_uptime: Optional[pulumi.Input['EntityUptimeArgs']] = None,
+             environment_type: Optional[pulumi.Input[Union[str, 'EnvironmentType']]] = None,
+             group_type: Optional[pulumi.Input[Union[str, 'GroupType']]] = None,
+             is_internet_access_available: Optional[pulumi.Input[bool]] = None,
+             multi_subnet_intent: Optional[pulumi.Input[Union[str, 'MultiSubnetIntent']]] = None,
+             optimization_logic: Optional[pulumi.Input[Union[str, 'OptimizationLogic']]] = None,
+             os_license: Optional[pulumi.Input[Union[str, 'OsLicense']]] = None,
+             percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
+             perf_data_end_time: Optional[pulumi.Input[str]] = None,
+             perf_data_start_time: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             reserved_instance: Optional[pulumi.Input[Union[str, 'AzureReservedInstance']]] = None,
+             reserved_instance_for_vm: Optional[pulumi.Input[Union[str, 'AzureReservedInstance']]] = None,
+             scaling_factor: Optional[pulumi.Input[float]] = None,
+             sizing_criterion: Optional[pulumi.Input[Union[str, 'AssessmentSizingCriterion']]] = None,
+             sql_server_license: Optional[pulumi.Input[Union[str, 'SqlServerLicense']]] = None,
+             time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if assessment_name is None and 'assessmentName' in kwargs:
+            assessment_name = kwargs['assessmentName']
+        if assessment_type is None and 'assessmentType' in kwargs:
+            assessment_type = kwargs['assessmentType']
+        if async_commit_mode_intent is None and 'asyncCommitModeIntent' in kwargs:
+            async_commit_mode_intent = kwargs['asyncCommitModeIntent']
+        if azure_location is None and 'azureLocation' in kwargs:
+            azure_location = kwargs['azureLocation']
+        if azure_offer_code is None and 'azureOfferCode' in kwargs:
+            azure_offer_code = kwargs['azureOfferCode']
+        if azure_offer_code_for_vm is None and 'azureOfferCodeForVm' in kwargs:
+            azure_offer_code_for_vm = kwargs['azureOfferCodeForVm']
+        if azure_security_offering_type is None and 'azureSecurityOfferingType' in kwargs:
+            azure_security_offering_type = kwargs['azureSecurityOfferingType']
+        if azure_sql_database_settings is None and 'azureSqlDatabaseSettings' in kwargs:
+            azure_sql_database_settings = kwargs['azureSqlDatabaseSettings']
+        if azure_sql_managed_instance_settings is None and 'azureSqlManagedInstanceSettings' in kwargs:
+            azure_sql_managed_instance_settings = kwargs['azureSqlManagedInstanceSettings']
+        if azure_sql_vm_settings is None and 'azureSqlVmSettings' in kwargs:
+            azure_sql_vm_settings = kwargs['azureSqlVmSettings']
+        if confidence_rating_in_percentage is None and 'confidenceRatingInPercentage' in kwargs:
+            confidence_rating_in_percentage = kwargs['confidenceRatingInPercentage']
+        if disaster_recovery_location is None and 'disasterRecoveryLocation' in kwargs:
+            disaster_recovery_location = kwargs['disasterRecoveryLocation']
+        if discount_percentage is None and 'discountPercentage' in kwargs:
+            discount_percentage = kwargs['discountPercentage']
+        if ea_subscription_id is None and 'eaSubscriptionId' in kwargs:
+            ea_subscription_id = kwargs['eaSubscriptionId']
+        if enable_hadr_assessment is None and 'enableHadrAssessment' in kwargs:
+            enable_hadr_assessment = kwargs['enableHadrAssessment']
+        if entity_uptime is None and 'entityUptime' in kwargs:
+            entity_uptime = kwargs['entityUptime']
+        if environment_type is None and 'environmentType' in kwargs:
+            environment_type = kwargs['environmentType']
+        if group_type is None and 'groupType' in kwargs:
+            group_type = kwargs['groupType']
+        if is_internet_access_available is None and 'isInternetAccessAvailable' in kwargs:
+            is_internet_access_available = kwargs['isInternetAccessAvailable']
+        if multi_subnet_intent is None and 'multiSubnetIntent' in kwargs:
+            multi_subnet_intent = kwargs['multiSubnetIntent']
+        if optimization_logic is None and 'optimizationLogic' in kwargs:
+            optimization_logic = kwargs['optimizationLogic']
+        if os_license is None and 'osLicense' in kwargs:
+            os_license = kwargs['osLicense']
+        if perf_data_end_time is None and 'perfDataEndTime' in kwargs:
+            perf_data_end_time = kwargs['perfDataEndTime']
+        if perf_data_start_time is None and 'perfDataStartTime' in kwargs:
+            perf_data_start_time = kwargs['perfDataStartTime']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if reserved_instance is None and 'reservedInstance' in kwargs:
+            reserved_instance = kwargs['reservedInstance']
+        if reserved_instance_for_vm is None and 'reservedInstanceForVm' in kwargs:
+            reserved_instance_for_vm = kwargs['reservedInstanceForVm']
+        if scaling_factor is None and 'scalingFactor' in kwargs:
+            scaling_factor = kwargs['scalingFactor']
+        if sizing_criterion is None and 'sizingCriterion' in kwargs:
+            sizing_criterion = kwargs['sizingCriterion']
+        if sql_server_license is None and 'sqlServerLicense' in kwargs:
+            sql_server_license = kwargs['sqlServerLicense']
+        if time_range is None and 'timeRange' in kwargs:
+            time_range = kwargs['timeRange']
+
+        _setter("group_name", group_name)
+        _setter("project_name", project_name)
+        _setter("resource_group_name", resource_group_name)
         if assessment_name is not None:
-            pulumi.set(__self__, "assessment_name", assessment_name)
+            _setter("assessment_name", assessment_name)
         if assessment_type is not None:
-            pulumi.set(__self__, "assessment_type", assessment_type)
+            _setter("assessment_type", assessment_type)
         if async_commit_mode_intent is not None:
-            pulumi.set(__self__, "async_commit_mode_intent", async_commit_mode_intent)
+            _setter("async_commit_mode_intent", async_commit_mode_intent)
         if azure_location is not None:
-            pulumi.set(__self__, "azure_location", azure_location)
+            _setter("azure_location", azure_location)
         if azure_offer_code is not None:
-            pulumi.set(__self__, "azure_offer_code", azure_offer_code)
+            _setter("azure_offer_code", azure_offer_code)
         if azure_offer_code_for_vm is not None:
-            pulumi.set(__self__, "azure_offer_code_for_vm", azure_offer_code_for_vm)
+            _setter("azure_offer_code_for_vm", azure_offer_code_for_vm)
         if azure_security_offering_type is not None:
-            pulumi.set(__self__, "azure_security_offering_type", azure_security_offering_type)
+            _setter("azure_security_offering_type", azure_security_offering_type)
         if azure_sql_database_settings is not None:
-            pulumi.set(__self__, "azure_sql_database_settings", azure_sql_database_settings)
+            _setter("azure_sql_database_settings", azure_sql_database_settings)
         if azure_sql_managed_instance_settings is not None:
-            pulumi.set(__self__, "azure_sql_managed_instance_settings", azure_sql_managed_instance_settings)
+            _setter("azure_sql_managed_instance_settings", azure_sql_managed_instance_settings)
         if azure_sql_vm_settings is not None:
-            pulumi.set(__self__, "azure_sql_vm_settings", azure_sql_vm_settings)
+            _setter("azure_sql_vm_settings", azure_sql_vm_settings)
         if confidence_rating_in_percentage is not None:
-            pulumi.set(__self__, "confidence_rating_in_percentage", confidence_rating_in_percentage)
+            _setter("confidence_rating_in_percentage", confidence_rating_in_percentage)
         if currency is not None:
-            pulumi.set(__self__, "currency", currency)
+            _setter("currency", currency)
         if disaster_recovery_location is not None:
-            pulumi.set(__self__, "disaster_recovery_location", disaster_recovery_location)
+            _setter("disaster_recovery_location", disaster_recovery_location)
         if discount_percentage is not None:
-            pulumi.set(__self__, "discount_percentage", discount_percentage)
+            _setter("discount_percentage", discount_percentage)
         if ea_subscription_id is not None:
-            pulumi.set(__self__, "ea_subscription_id", ea_subscription_id)
+            _setter("ea_subscription_id", ea_subscription_id)
         if enable_hadr_assessment is not None:
-            pulumi.set(__self__, "enable_hadr_assessment", enable_hadr_assessment)
+            _setter("enable_hadr_assessment", enable_hadr_assessment)
         if entity_uptime is not None:
-            pulumi.set(__self__, "entity_uptime", entity_uptime)
+            _setter("entity_uptime", entity_uptime)
         if environment_type is not None:
-            pulumi.set(__self__, "environment_type", environment_type)
+            _setter("environment_type", environment_type)
         if group_type is not None:
-            pulumi.set(__self__, "group_type", group_type)
+            _setter("group_type", group_type)
         if is_internet_access_available is not None:
-            pulumi.set(__self__, "is_internet_access_available", is_internet_access_available)
+            _setter("is_internet_access_available", is_internet_access_available)
         if multi_subnet_intent is not None:
-            pulumi.set(__self__, "multi_subnet_intent", multi_subnet_intent)
+            _setter("multi_subnet_intent", multi_subnet_intent)
         if optimization_logic is not None:
-            pulumi.set(__self__, "optimization_logic", optimization_logic)
+            _setter("optimization_logic", optimization_logic)
         if os_license is not None:
-            pulumi.set(__self__, "os_license", os_license)
+            _setter("os_license", os_license)
         if percentile is not None:
-            pulumi.set(__self__, "percentile", percentile)
+            _setter("percentile", percentile)
         if perf_data_end_time is not None:
-            pulumi.set(__self__, "perf_data_end_time", perf_data_end_time)
+            _setter("perf_data_end_time", perf_data_end_time)
         if perf_data_start_time is not None:
-            pulumi.set(__self__, "perf_data_start_time", perf_data_start_time)
+            _setter("perf_data_start_time", perf_data_start_time)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if reserved_instance is not None:
-            pulumi.set(__self__, "reserved_instance", reserved_instance)
+            _setter("reserved_instance", reserved_instance)
         if reserved_instance_for_vm is not None:
-            pulumi.set(__self__, "reserved_instance_for_vm", reserved_instance_for_vm)
+            _setter("reserved_instance_for_vm", reserved_instance_for_vm)
         if scaling_factor is not None:
-            pulumi.set(__self__, "scaling_factor", scaling_factor)
+            _setter("scaling_factor", scaling_factor)
         if sizing_criterion is not None:
-            pulumi.set(__self__, "sizing_criterion", sizing_criterion)
+            _setter("sizing_criterion", sizing_criterion)
         if sql_server_license is not None:
-            pulumi.set(__self__, "sql_server_license", sql_server_license)
+            _setter("sql_server_license", sql_server_license)
         if time_range is not None:
-            pulumi.set(__self__, "time_range", time_range)
+            _setter("time_range", time_range)
 
     @property
     @pulumi.getter(name="groupName")
@@ -715,6 +870,10 @@ class SqlAssessmentV2Operation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlAssessmentV2OperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -772,8 +931,11 @@ class SqlAssessmentV2Operation(pulumi.CustomResource):
             __props__.__dict__["azure_offer_code"] = azure_offer_code
             __props__.__dict__["azure_offer_code_for_vm"] = azure_offer_code_for_vm
             __props__.__dict__["azure_security_offering_type"] = azure_security_offering_type
+            azure_sql_database_settings = _utilities.configure(azure_sql_database_settings, SqlDbSettingsArgs, True)
             __props__.__dict__["azure_sql_database_settings"] = azure_sql_database_settings
+            azure_sql_managed_instance_settings = _utilities.configure(azure_sql_managed_instance_settings, SqlMiSettingsArgs, True)
             __props__.__dict__["azure_sql_managed_instance_settings"] = azure_sql_managed_instance_settings
+            azure_sql_vm_settings = _utilities.configure(azure_sql_vm_settings, SqlVmSettingsArgs, True)
             __props__.__dict__["azure_sql_vm_settings"] = azure_sql_vm_settings
             __props__.__dict__["confidence_rating_in_percentage"] = confidence_rating_in_percentage
             __props__.__dict__["currency"] = currency
@@ -781,6 +943,7 @@ class SqlAssessmentV2Operation(pulumi.CustomResource):
             __props__.__dict__["discount_percentage"] = discount_percentage
             __props__.__dict__["ea_subscription_id"] = ea_subscription_id
             __props__.__dict__["enable_hadr_assessment"] = enable_hadr_assessment
+            entity_uptime = _utilities.configure(entity_uptime, EntityUptimeArgs, True)
             __props__.__dict__["entity_uptime"] = entity_uptime
             __props__.__dict__["environment_type"] = environment_type
             if group_name is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -26,11 +26,32 @@ class PrivateLinkAssociationArgs:
         :param pulumi.Input[str] pla_id: The ID of the PLA
         :param pulumi.Input['PrivateLinkAssociationPropertiesArgs'] properties: The properties of the PrivateLinkAssociation.
         """
-        pulumi.set(__self__, "group_id", group_id)
+        PrivateLinkAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_id=group_id,
+            pla_id=pla_id,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_id: Optional[pulumi.Input[str]] = None,
+             pla_id: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['PrivateLinkAssociationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if pla_id is None and 'plaId' in kwargs:
+            pla_id = kwargs['plaId']
+
+        _setter("group_id", group_id)
         if pla_id is not None:
-            pulumi.set(__self__, "pla_id", pla_id)
+            _setter("pla_id", pla_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="groupId")
@@ -104,6 +125,10 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -125,6 +150,7 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
             __props__.__dict__["pla_id"] = pla_id
+            properties = _utilities.configure(properties, PrivateLinkAssociationPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None

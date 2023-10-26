@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,46 @@ class Python2PackageArgs:
         :param pulumi.Input[str] package_name: The name of python package.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "content_link", content_link)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        Python2PackageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            content_link=content_link,
+            resource_group_name=resource_group_name,
+            package_name=package_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             content_link: Optional[pulumi.Input['ContentLinkArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             package_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if automation_account_name is None and 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if content_link is None and 'contentLink' in kwargs:
+            content_link = kwargs['contentLink']
+        if content_link is None:
+            raise TypeError("Missing 'content_link' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if package_name is None and 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+
+        _setter("automation_account_name", automation_account_name)
+        _setter("content_link", content_link)
+        _setter("resource_group_name", resource_group_name)
         if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
+            _setter("package_name", package_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -141,6 +174,10 @@ class Python2Package(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            Python2PackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -163,6 +200,7 @@ class Python2Package(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
+            content_link = _utilities.configure(content_link, ContentLinkArgs, True)
             if content_link is None and not opts.urn:
                 raise TypeError("Missing required property 'content_link'")
             __props__.__dict__["content_link"] = content_link

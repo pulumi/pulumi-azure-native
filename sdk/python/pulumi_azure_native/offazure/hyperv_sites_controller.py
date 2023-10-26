@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,23 +40,66 @@ class HypervSitesControllerArgs:
         :param pulumi.Input[str] site_name: Site name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HypervSitesControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            agent_details=agent_details,
+            appliance_name=appliance_name,
+            discovery_solution_id=discovery_solution_id,
+            location=location,
+            provisioning_state=provisioning_state,
+            service_principal_identity_details=service_principal_identity_details,
+            site_name=site_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             agent_details: Optional[pulumi.Input['SiteAgentPropertiesArgs']] = None,
+             appliance_name: Optional[pulumi.Input[str]] = None,
+             discovery_solution_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             service_principal_identity_details: Optional[pulumi.Input['SiteSpnPropertiesArgs']] = None,
+             site_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if agent_details is None and 'agentDetails' in kwargs:
+            agent_details = kwargs['agentDetails']
+        if appliance_name is None and 'applianceName' in kwargs:
+            appliance_name = kwargs['applianceName']
+        if discovery_solution_id is None and 'discoverySolutionId' in kwargs:
+            discovery_solution_id = kwargs['discoverySolutionId']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if service_principal_identity_details is None and 'servicePrincipalIdentityDetails' in kwargs:
+            service_principal_identity_details = kwargs['servicePrincipalIdentityDetails']
+        if site_name is None and 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+
+        _setter("resource_group_name", resource_group_name)
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if appliance_name is not None:
-            pulumi.set(__self__, "appliance_name", appliance_name)
+            _setter("appliance_name", appliance_name)
         if discovery_solution_id is not None:
-            pulumi.set(__self__, "discovery_solution_id", discovery_solution_id)
+            _setter("discovery_solution_id", discovery_solution_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if service_principal_identity_details is not None:
-            pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+            _setter("service_principal_identity_details", service_principal_identity_details)
         if site_name is not None:
-            pulumi.set(__self__, "site_name", site_name)
+            _setter("site_name", site_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -222,6 +265,10 @@ class HypervSitesController(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HypervSitesControllerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -245,6 +292,7 @@ class HypervSitesController(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HypervSitesControllerArgs.__new__(HypervSitesControllerArgs)
 
+            agent_details = _utilities.configure(agent_details, SiteAgentPropertiesArgs, True)
             __props__.__dict__["agent_details"] = agent_details
             __props__.__dict__["appliance_name"] = appliance_name
             __props__.__dict__["discovery_solution_id"] = discovery_solution_id
@@ -253,6 +301,7 @@ class HypervSitesController(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            service_principal_identity_details = _utilities.configure(service_principal_identity_details, SiteSpnPropertiesArgs, True)
             __props__.__dict__["service_principal_identity_details"] = service_principal_identity_details
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["tags"] = tags

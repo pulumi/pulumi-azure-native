@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TrustedIdProviderArgs', 'TrustedIdProvider']
@@ -25,11 +25,42 @@ class TrustedIdProviderArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[str] trusted_id_provider_name: The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "id_provider", id_provider)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TrustedIdProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            id_provider=id_provider,
+            resource_group_name=resource_group_name,
+            trusted_id_provider_name=trusted_id_provider_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             id_provider: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             trusted_id_provider_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if id_provider is None and 'idProvider' in kwargs:
+            id_provider = kwargs['idProvider']
+        if id_provider is None:
+            raise TypeError("Missing 'id_provider' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if trusted_id_provider_name is None and 'trustedIdProviderName' in kwargs:
+            trusted_id_provider_name = kwargs['trustedIdProviderName']
+
+        _setter("account_name", account_name)
+        _setter("id_provider", id_provider)
+        _setter("resource_group_name", resource_group_name)
         if trusted_id_provider_name is not None:
-            pulumi.set(__self__, "trusted_id_provider_name", trusted_id_provider_name)
+            _setter("trusted_id_provider_name", trusted_id_provider_name)
 
     @property
     @pulumi.getter(name="accountName")
@@ -121,6 +152,10 @@ class TrustedIdProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrustedIdProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

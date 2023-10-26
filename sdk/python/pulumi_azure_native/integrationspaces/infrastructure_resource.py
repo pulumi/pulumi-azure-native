@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,12 +28,49 @@ class InfrastructureResourceArgs:
         :param pulumi.Input[str] space_name: The name of the space
         :param pulumi.Input[str] infrastructure_resource_name: The name of the infrastructure resource in the space.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "space_name", space_name)
+        InfrastructureResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_id=resource_id,
+            resource_type=resource_type,
+            space_name=space_name,
+            infrastructure_resource_name=infrastructure_resource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             space_name: Optional[pulumi.Input[str]] = None,
+             infrastructure_resource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if space_name is None and 'spaceName' in kwargs:
+            space_name = kwargs['spaceName']
+        if space_name is None:
+            raise TypeError("Missing 'space_name' argument")
+        if infrastructure_resource_name is None and 'infrastructureResourceName' in kwargs:
+            infrastructure_resource_name = kwargs['infrastructureResourceName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_id", resource_id)
+        _setter("resource_type", resource_type)
+        _setter("space_name", space_name)
         if infrastructure_resource_name is not None:
-            pulumi.set(__self__, "infrastructure_resource_name", infrastructure_resource_name)
+            _setter("infrastructure_resource_name", infrastructure_resource_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -139,6 +176,10 @@ class InfrastructureResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InfrastructureResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

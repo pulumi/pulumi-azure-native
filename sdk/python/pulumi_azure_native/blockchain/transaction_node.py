@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,49 @@ class TransactionNodeArgs:
         :param pulumi.Input[str] password: Sets the transaction node dns endpoint basic auth password.
         :param pulumi.Input[str] transaction_node_name: Transaction node name.
         """
-        pulumi.set(__self__, "blockchain_member_name", blockchain_member_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TransactionNodeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blockchain_member_name=blockchain_member_name,
+            resource_group_name=resource_group_name,
+            firewall_rules=firewall_rules,
+            location=location,
+            password=password,
+            transaction_node_name=transaction_node_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blockchain_member_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             transaction_node_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blockchain_member_name is None and 'blockchainMemberName' in kwargs:
+            blockchain_member_name = kwargs['blockchainMemberName']
+        if blockchain_member_name is None:
+            raise TypeError("Missing 'blockchain_member_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if firewall_rules is None and 'firewallRules' in kwargs:
+            firewall_rules = kwargs['firewallRules']
+        if transaction_node_name is None and 'transactionNodeName' in kwargs:
+            transaction_node_name = kwargs['transactionNodeName']
+
+        _setter("blockchain_member_name", blockchain_member_name)
+        _setter("resource_group_name", resource_group_name)
         if firewall_rules is not None:
-            pulumi.set(__self__, "firewall_rules", firewall_rules)
+            _setter("firewall_rules", firewall_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if transaction_node_name is not None:
-            pulumi.set(__self__, "transaction_node_name", transaction_node_name)
+            _setter("transaction_node_name", transaction_node_name)
 
     @property
     @pulumi.getter(name="blockchainMemberName")
@@ -160,6 +193,10 @@ class TransactionNode(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TransactionNodeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

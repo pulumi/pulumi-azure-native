@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -91,19 +91,96 @@ class HealthErrorDetailsResponse(dict):
         :param str summary_message: Gets the error summary message.
         :param str updated_time_stamp: Gets the time stamp when the error was updated.
         """
-        pulumi.set(__self__, "appliance_name", appliance_name)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "discovery_scope", discovery_scope)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "message_parameters", message_parameters)
-        pulumi.set(__self__, "possible_causes", possible_causes)
-        pulumi.set(__self__, "recommended_action", recommended_action)
-        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "summary_message", summary_message)
-        pulumi.set(__self__, "updated_time_stamp", updated_time_stamp)
+        HealthErrorDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            appliance_name=appliance_name,
+            code=code,
+            discovery_scope=discovery_scope,
+            id=id,
+            message=message,
+            message_parameters=message_parameters,
+            possible_causes=possible_causes,
+            recommended_action=recommended_action,
+            run_as_account_id=run_as_account_id,
+            severity=severity,
+            source=source,
+            summary_message=summary_message,
+            updated_time_stamp=updated_time_stamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             appliance_name: Optional[str] = None,
+             code: Optional[str] = None,
+             discovery_scope: Optional[str] = None,
+             id: Optional[float] = None,
+             message: Optional[str] = None,
+             message_parameters: Optional[Mapping[str, str]] = None,
+             possible_causes: Optional[str] = None,
+             recommended_action: Optional[str] = None,
+             run_as_account_id: Optional[str] = None,
+             severity: Optional[str] = None,
+             source: Optional[str] = None,
+             summary_message: Optional[str] = None,
+             updated_time_stamp: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if appliance_name is None and 'applianceName' in kwargs:
+            appliance_name = kwargs['applianceName']
+        if appliance_name is None:
+            raise TypeError("Missing 'appliance_name' argument")
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if discovery_scope is None and 'discoveryScope' in kwargs:
+            discovery_scope = kwargs['discoveryScope']
+        if discovery_scope is None:
+            raise TypeError("Missing 'discovery_scope' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if message_parameters is None and 'messageParameters' in kwargs:
+            message_parameters = kwargs['messageParameters']
+        if message_parameters is None:
+            raise TypeError("Missing 'message_parameters' argument")
+        if possible_causes is None and 'possibleCauses' in kwargs:
+            possible_causes = kwargs['possibleCauses']
+        if possible_causes is None:
+            raise TypeError("Missing 'possible_causes' argument")
+        if recommended_action is None and 'recommendedAction' in kwargs:
+            recommended_action = kwargs['recommendedAction']
+        if recommended_action is None:
+            raise TypeError("Missing 'recommended_action' argument")
+        if run_as_account_id is None and 'runAsAccountId' in kwargs:
+            run_as_account_id = kwargs['runAsAccountId']
+        if run_as_account_id is None:
+            raise TypeError("Missing 'run_as_account_id' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if summary_message is None and 'summaryMessage' in kwargs:
+            summary_message = kwargs['summaryMessage']
+        if summary_message is None:
+            raise TypeError("Missing 'summary_message' argument")
+        if updated_time_stamp is None and 'updatedTimeStamp' in kwargs:
+            updated_time_stamp = kwargs['updatedTimeStamp']
+        if updated_time_stamp is None:
+            raise TypeError("Missing 'updated_time_stamp' argument")
+
+        _setter("appliance_name", appliance_name)
+        _setter("code", code)
+        _setter("discovery_scope", discovery_scope)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("message_parameters", message_parameters)
+        _setter("possible_causes", possible_causes)
+        _setter("recommended_action", recommended_action)
+        _setter("run_as_account_id", run_as_account_id)
+        _setter("severity", severity)
+        _setter("source", source)
+        _setter("summary_message", summary_message)
+        _setter("updated_time_stamp", updated_time_stamp)
 
     @property
     @pulumi.getter(name="applianceName")
@@ -237,10 +314,35 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_endpoint: 'outputs.ResourceIdResponse',
                  provisioning_state: str,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        PrivateEndpointConnectionPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_endpoint=private_endpoint,
+            provisioning_state=provisioning_state,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_endpoint: Optional['outputs.ResourceIdResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_endpoint is None:
+            raise TypeError("Missing 'private_endpoint' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("private_endpoint", private_endpoint)
+        _setter("provisioning_state", provisioning_state)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -308,15 +410,64 @@ class PrivateEndpointConnectionResponse(dict):
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: private endpoints connection state
         """
-        pulumi.set(__self__, "group_ids", group_ids)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_endpoint", private_endpoint)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "system_data", system_data)
-        pulumi.set(__self__, "type", type)
+        PrivateEndpointConnectionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            id=id,
+            name=name,
+            private_endpoint=private_endpoint,
+            provisioning_state=provisioning_state,
+            system_data=system_data,
+            type=type,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_endpoint: Optional['outputs.ResourceIdResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             system_data: Optional['outputs.SystemDataResponse'] = None,
+             type: Optional[str] = None,
+             private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if group_ids is None:
+            raise TypeError("Missing 'group_ids' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if private_endpoint is None and 'privateEndpoint' in kwargs:
+            private_endpoint = kwargs['privateEndpoint']
+        if private_endpoint is None:
+            raise TypeError("Missing 'private_endpoint' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if system_data is None and 'systemData' in kwargs:
+            system_data = kwargs['systemData']
+        if system_data is None:
+            raise TypeError("Missing 'system_data' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
+        _setter("group_ids", group_ids)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("private_endpoint", private_endpoint)
+        _setter("provisioning_state", provisioning_state)
+        _setter("system_data", system_data)
+        _setter("type", type)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -415,12 +566,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         :param str description: description string
         :param str status: state status
         """
+        PrivateLinkServiceConnectionStateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[str] = None,
+             description: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -458,7 +626,20 @@ class ResourceIdResponse(dict):
         PrivateEndpointModelsResourceId
         :param str id: id name
         """
-        pulumi.set(__self__, "id", id)
+        ResourceIdResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -509,13 +690,44 @@ class SiteAgentPropertiesResponse(dict):
         :param str key_vault_id: Gets or sets the key vault ARM Id.
         :param str key_vault_uri: Gets or sets the key vault URI.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_heart_beat_utc", last_heart_beat_utc)
-        pulumi.set(__self__, "version", version)
+        SiteAgentPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            last_heart_beat_utc=last_heart_beat_utc,
+            version=version,
+            key_vault_id=key_vault_id,
+            key_vault_uri=key_vault_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             last_heart_beat_utc: Optional[str] = None,
+             version: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             key_vault_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_heart_beat_utc is None and 'lastHeartBeatUtc' in kwargs:
+            last_heart_beat_utc = kwargs['lastHeartBeatUtc']
+        if last_heart_beat_utc is None:
+            raise TypeError("Missing 'last_heart_beat_utc' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+
+        _setter("id", id)
+        _setter("last_heart_beat_utc", last_heart_beat_utc)
+        _setter("version", version)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_vault_uri is not None:
-            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+            _setter("key_vault_uri", key_vault_uri)
 
     @property
     @pulumi.getter
@@ -594,12 +806,33 @@ class SiteAppliancePropertiesResponse(dict):
         :param str appliance_name: Gets or sets the Appliance Name.
         :param 'SiteSpnPropertiesResponse' service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.  
         """
+        SiteAppliancePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_details=agent_details,
+            appliance_name=appliance_name,
+            service_principal_identity_details=service_principal_identity_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_details: Optional['outputs.SiteAgentPropertiesResponse'] = None,
+             appliance_name: Optional[str] = None,
+             service_principal_identity_details: Optional['outputs.SiteSpnPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_details is None and 'agentDetails' in kwargs:
+            agent_details = kwargs['agentDetails']
+        if appliance_name is None and 'applianceName' in kwargs:
+            appliance_name = kwargs['applianceName']
+        if service_principal_identity_details is None and 'servicePrincipalIdentityDetails' in kwargs:
+            service_principal_identity_details = kwargs['servicePrincipalIdentityDetails']
+
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if appliance_name is not None:
-            pulumi.set(__self__, "appliance_name", appliance_name)
+            _setter("appliance_name", appliance_name)
         if service_principal_identity_details is not None:
-            pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+            _setter("service_principal_identity_details", service_principal_identity_details)
 
     @property
     @pulumi.getter(name="agentDetails")
@@ -659,22 +892,93 @@ class SiteHealthSummaryResponse(dict):
         :param Sequence[str] fabric_layout_update_sources: Gets or sets sources of the exception.
         :param float hit_count: Gets or sets the hit count of the error.
         """
-        pulumi.set(__self__, "affected_resource_type", affected_resource_type)
-        pulumi.set(__self__, "appliance_name", appliance_name)
-        pulumi.set(__self__, "error_code", error_code)
-        pulumi.set(__self__, "error_id", error_id)
-        pulumi.set(__self__, "error_message", error_message)
-        pulumi.set(__self__, "remediation_guidance", remediation_guidance)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "summary_message", summary_message)
+        SiteHealthSummaryResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            affected_resource_type=affected_resource_type,
+            appliance_name=appliance_name,
+            error_code=error_code,
+            error_id=error_id,
+            error_message=error_message,
+            remediation_guidance=remediation_guidance,
+            severity=severity,
+            summary_message=summary_message,
+            affected_objects_count=affected_objects_count,
+            affected_resources=affected_resources,
+            fabric_layout_update_sources=fabric_layout_update_sources,
+            hit_count=hit_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             affected_resource_type: Optional[str] = None,
+             appliance_name: Optional[str] = None,
+             error_code: Optional[str] = None,
+             error_id: Optional[float] = None,
+             error_message: Optional[str] = None,
+             remediation_guidance: Optional[str] = None,
+             severity: Optional[str] = None,
+             summary_message: Optional[str] = None,
+             affected_objects_count: Optional[float] = None,
+             affected_resources: Optional[Sequence[str]] = None,
+             fabric_layout_update_sources: Optional[Sequence[str]] = None,
+             hit_count: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if affected_resource_type is None and 'affectedResourceType' in kwargs:
+            affected_resource_type = kwargs['affectedResourceType']
+        if affected_resource_type is None:
+            raise TypeError("Missing 'affected_resource_type' argument")
+        if appliance_name is None and 'applianceName' in kwargs:
+            appliance_name = kwargs['applianceName']
+        if appliance_name is None:
+            raise TypeError("Missing 'appliance_name' argument")
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_code is None:
+            raise TypeError("Missing 'error_code' argument")
+        if error_id is None and 'errorId' in kwargs:
+            error_id = kwargs['errorId']
+        if error_id is None:
+            raise TypeError("Missing 'error_id' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if error_message is None:
+            raise TypeError("Missing 'error_message' argument")
+        if remediation_guidance is None and 'remediationGuidance' in kwargs:
+            remediation_guidance = kwargs['remediationGuidance']
+        if remediation_guidance is None:
+            raise TypeError("Missing 'remediation_guidance' argument")
+        if severity is None:
+            raise TypeError("Missing 'severity' argument")
+        if summary_message is None and 'summaryMessage' in kwargs:
+            summary_message = kwargs['summaryMessage']
+        if summary_message is None:
+            raise TypeError("Missing 'summary_message' argument")
+        if affected_objects_count is None and 'affectedObjectsCount' in kwargs:
+            affected_objects_count = kwargs['affectedObjectsCount']
+        if affected_resources is None and 'affectedResources' in kwargs:
+            affected_resources = kwargs['affectedResources']
+        if fabric_layout_update_sources is None and 'fabricLayoutUpdateSources' in kwargs:
+            fabric_layout_update_sources = kwargs['fabricLayoutUpdateSources']
+        if hit_count is None and 'hitCount' in kwargs:
+            hit_count = kwargs['hitCount']
+
+        _setter("affected_resource_type", affected_resource_type)
+        _setter("appliance_name", appliance_name)
+        _setter("error_code", error_code)
+        _setter("error_id", error_id)
+        _setter("error_message", error_message)
+        _setter("remediation_guidance", remediation_guidance)
+        _setter("severity", severity)
+        _setter("summary_message", summary_message)
         if affected_objects_count is not None:
-            pulumi.set(__self__, "affected_objects_count", affected_objects_count)
+            _setter("affected_objects_count", affected_objects_count)
         if affected_resources is not None:
-            pulumi.set(__self__, "affected_resources", affected_resources)
+            _setter("affected_resources", affected_resources)
         if fabric_layout_update_sources is not None:
-            pulumi.set(__self__, "fabric_layout_update_sources", fabric_layout_update_sources)
+            _setter("fabric_layout_update_sources", fabric_layout_update_sources)
         if hit_count is not None:
-            pulumi.set(__self__, "hit_count", hit_count)
+            _setter("hit_count", hit_count)
 
     @property
     @pulumi.getter(name="affectedResourceType")
@@ -817,15 +1121,46 @@ class SitePropertiesResponse(dict):
         :param str discovery_solution_id: ARM ID of migration hub solution for SDS.
         :param 'SiteSpnPropertiesResponse' service_principal_identity_details: Service principal identity details used by agent for communication to the service.
         """
-        pulumi.set(__self__, "service_endpoint", service_endpoint)
+        SitePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            service_endpoint=service_endpoint,
+            agent_details=agent_details,
+            appliance_name=appliance_name,
+            discovery_solution_id=discovery_solution_id,
+            service_principal_identity_details=service_principal_identity_details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             service_endpoint: Optional[str] = None,
+             agent_details: Optional['outputs.SiteAgentPropertiesResponse'] = None,
+             appliance_name: Optional[str] = None,
+             discovery_solution_id: Optional[str] = None,
+             service_principal_identity_details: Optional['outputs.SiteSpnPropertiesResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_endpoint is None and 'serviceEndpoint' in kwargs:
+            service_endpoint = kwargs['serviceEndpoint']
+        if service_endpoint is None:
+            raise TypeError("Missing 'service_endpoint' argument")
+        if agent_details is None and 'agentDetails' in kwargs:
+            agent_details = kwargs['agentDetails']
+        if appliance_name is None and 'applianceName' in kwargs:
+            appliance_name = kwargs['applianceName']
+        if discovery_solution_id is None and 'discoverySolutionId' in kwargs:
+            discovery_solution_id = kwargs['discoverySolutionId']
+        if service_principal_identity_details is None and 'servicePrincipalIdentityDetails' in kwargs:
+            service_principal_identity_details = kwargs['servicePrincipalIdentityDetails']
+
+        _setter("service_endpoint", service_endpoint)
         if agent_details is not None:
-            pulumi.set(__self__, "agent_details", agent_details)
+            _setter("agent_details", agent_details)
         if appliance_name is not None:
-            pulumi.set(__self__, "appliance_name", appliance_name)
+            _setter("appliance_name", appliance_name)
         if discovery_solution_id is not None:
-            pulumi.set(__self__, "discovery_solution_id", discovery_solution_id)
+            _setter("discovery_solution_id", discovery_solution_id)
         if service_principal_identity_details is not None:
-            pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+            _setter("service_principal_identity_details", service_principal_identity_details)
 
     @property
     @pulumi.getter(name="serviceEndpoint")
@@ -926,18 +1261,49 @@ class SiteSpnPropertiesResponse(dict):
                            management/data plane components would communicate with
                our Azure services.
         """
+        SiteSpnPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_authority=aad_authority,
+            application_id=application_id,
+            audience=audience,
+            object_id=object_id,
+            raw_cert_data=raw_cert_data,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_authority: Optional[str] = None,
+             application_id: Optional[str] = None,
+             audience: Optional[str] = None,
+             object_id: Optional[str] = None,
+             raw_cert_data: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aad_authority is None and 'aadAuthority' in kwargs:
+            aad_authority = kwargs['aadAuthority']
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if raw_cert_data is None and 'rawCertData' in kwargs:
+            raw_cert_data = kwargs['rawCertData']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if aad_authority is not None:
-            pulumi.set(__self__, "aad_authority", aad_authority)
+            _setter("aad_authority", aad_authority)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if raw_cert_data is not None:
-            pulumi.set(__self__, "raw_cert_data", raw_cert_data)
+            _setter("raw_cert_data", raw_cert_data)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="aadAuthority")
@@ -1048,18 +1414,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

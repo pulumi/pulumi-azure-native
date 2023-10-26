@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,58 @@ class VolumeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] volume_name: The name of the Volume.
         """
-        pulumi.set(__self__, "elastic_san_name", elastic_san_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_group_name", volume_group_name)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elastic_san_name=elastic_san_name,
+            resource_group_name=resource_group_name,
+            volume_group_name=volume_group_name,
+            creation_data=creation_data,
+            size_gi_b=size_gi_b,
+            tags=tags,
+            volume_name=volume_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elastic_san_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             volume_group_name: Optional[pulumi.Input[str]] = None,
+             creation_data: Optional[pulumi.Input['SourceCreationDataArgs']] = None,
+             size_gi_b: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             volume_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if elastic_san_name is None and 'elasticSanName' in kwargs:
+            elastic_san_name = kwargs['elasticSanName']
+        if elastic_san_name is None:
+            raise TypeError("Missing 'elastic_san_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if volume_group_name is None and 'volumeGroupName' in kwargs:
+            volume_group_name = kwargs['volumeGroupName']
+        if volume_group_name is None:
+            raise TypeError("Missing 'volume_group_name' argument")
+        if creation_data is None and 'creationData' in kwargs:
+            creation_data = kwargs['creationData']
+        if size_gi_b is None and 'sizeGiB' in kwargs:
+            size_gi_b = kwargs['sizeGiB']
+        if volume_name is None and 'volumeName' in kwargs:
+            volume_name = kwargs['volumeName']
+
+        _setter("elastic_san_name", elastic_san_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("volume_group_name", volume_group_name)
         if creation_data is not None:
-            pulumi.set(__self__, "creation_data", creation_data)
+            _setter("creation_data", creation_data)
         if size_gi_b is not None:
-            pulumi.set(__self__, "size_gi_b", size_gi_b)
+            _setter("size_gi_b", size_gi_b)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
+            _setter("volume_name", volume_name)
 
     @property
     @pulumi.getter(name="elasticSanName")
@@ -176,6 +217,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -197,6 +242,7 @@ class Volume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VolumeArgs.__new__(VolumeArgs)
 
+            creation_data = _utilities.configure(creation_data, SourceCreationDataArgs, True)
             __props__.__dict__["creation_data"] = creation_data
             if elastic_san_name is None and not opts.urn:
                 raise TypeError("Missing required property 'elastic_san_name'")

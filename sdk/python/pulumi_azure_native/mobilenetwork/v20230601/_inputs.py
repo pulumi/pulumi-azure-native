@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -57,8 +57,25 @@ class AmbrArgs:
         :param pulumi.Input[str] downlink: Downlink bit rate.
         :param pulumi.Input[str] uplink: Uplink bit rate.
         """
-        pulumi.set(__self__, "downlink", downlink)
-        pulumi.set(__self__, "uplink", uplink)
+        AmbrArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downlink=downlink,
+            uplink=uplink,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downlink: Optional[pulumi.Input[str]] = None,
+             uplink: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if downlink is None:
+            raise TypeError("Missing 'downlink' argument")
+        if uplink is None:
+            raise TypeError("Missing 'uplink' argument")
+
+        _setter("downlink", downlink)
+        _setter("uplink", uplink)
 
     @property
     @pulumi.getter
@@ -93,7 +110,20 @@ class AttachedDataNetworkResourceIdArgs:
         Reference to an attached data network resource.
         :param pulumi.Input[str] id: Attached data network resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        AttachedDataNetworkResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -116,7 +146,20 @@ class AzureStackEdgeDeviceResourceIdArgs:
         Reference to an Azure Stack Edge device resource.
         :param pulumi.Input[str] id: Azure Stack Edge device resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        AzureStackEdgeDeviceResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -139,7 +182,20 @@ class AzureStackHCIClusterResourceIdArgs:
         Reference to an Azure Stack HCI cluster resource.
         :param pulumi.Input[str] id: Azure Stack HCI cluster resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        AzureStackHCIClusterResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -162,7 +218,20 @@ class ConnectedClusterResourceIdArgs:
         Reference to an Azure Arc custom location resource.
         :param pulumi.Input[str] id: Azure Arc connected cluster resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        ConnectedClusterResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -185,7 +254,20 @@ class CustomLocationResourceIdArgs:
         Reference to an Azure Arc custom location resource.
         :param pulumi.Input[str] id: Azure Arc custom location resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        CustomLocationResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -226,35 +308,90 @@ class DataNetworkConfigurationArgs:
         :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
-        pulumi.set(__self__, "allowed_services", allowed_services)
-        pulumi.set(__self__, "data_network", data_network)
-        pulumi.set(__self__, "session_ambr", session_ambr)
+        DataNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_services=allowed_services,
+            data_network=data_network,
+            session_ambr=session_ambr,
+            additional_allowed_session_types=additional_allowed_session_types,
+            allocation_and_retention_priority_level=allocation_and_retention_priority_level,
+            default_session_type=default_session_type,
+            five_qi=five_qi,
+            maximum_number_of_buffered_packets=maximum_number_of_buffered_packets,
+            preemption_capability=preemption_capability,
+            preemption_vulnerability=preemption_vulnerability,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceResourceIdArgs']]]] = None,
+             data_network: Optional[pulumi.Input['DataNetworkResourceIdArgs']] = None,
+             session_ambr: Optional[pulumi.Input['AmbrArgs']] = None,
+             additional_allowed_session_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PduSessionType']]]]] = None,
+             allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
+             default_session_type: Optional[pulumi.Input[Union[str, 'PduSessionType']]] = None,
+             five_qi: Optional[pulumi.Input[int]] = None,
+             maximum_number_of_buffered_packets: Optional[pulumi.Input[int]] = None,
+             preemption_capability: Optional[pulumi.Input[Union[str, 'PreemptionCapability']]] = None,
+             preemption_vulnerability: Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_services is None and 'allowedServices' in kwargs:
+            allowed_services = kwargs['allowedServices']
+        if allowed_services is None:
+            raise TypeError("Missing 'allowed_services' argument")
+        if data_network is None and 'dataNetwork' in kwargs:
+            data_network = kwargs['dataNetwork']
+        if data_network is None:
+            raise TypeError("Missing 'data_network' argument")
+        if session_ambr is None and 'sessionAmbr' in kwargs:
+            session_ambr = kwargs['sessionAmbr']
+        if session_ambr is None:
+            raise TypeError("Missing 'session_ambr' argument")
+        if additional_allowed_session_types is None and 'additionalAllowedSessionTypes' in kwargs:
+            additional_allowed_session_types = kwargs['additionalAllowedSessionTypes']
+        if allocation_and_retention_priority_level is None and 'allocationAndRetentionPriorityLevel' in kwargs:
+            allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
+        if default_session_type is None and 'defaultSessionType' in kwargs:
+            default_session_type = kwargs['defaultSessionType']
+        if five_qi is None and 'fiveQi' in kwargs:
+            five_qi = kwargs['fiveQi']
+        if maximum_number_of_buffered_packets is None and 'maximumNumberOfBufferedPackets' in kwargs:
+            maximum_number_of_buffered_packets = kwargs['maximumNumberOfBufferedPackets']
+        if preemption_capability is None and 'preemptionCapability' in kwargs:
+            preemption_capability = kwargs['preemptionCapability']
+        if preemption_vulnerability is None and 'preemptionVulnerability' in kwargs:
+            preemption_vulnerability = kwargs['preemptionVulnerability']
+
+        _setter("allowed_services", allowed_services)
+        _setter("data_network", data_network)
+        _setter("session_ambr", session_ambr)
         if additional_allowed_session_types is not None:
-            pulumi.set(__self__, "additional_allowed_session_types", additional_allowed_session_types)
+            _setter("additional_allowed_session_types", additional_allowed_session_types)
         if allocation_and_retention_priority_level is None:
             allocation_and_retention_priority_level = 9
         if allocation_and_retention_priority_level is not None:
-            pulumi.set(__self__, "allocation_and_retention_priority_level", allocation_and_retention_priority_level)
+            _setter("allocation_and_retention_priority_level", allocation_and_retention_priority_level)
         if default_session_type is None:
             default_session_type = 'IPv4'
         if default_session_type is not None:
-            pulumi.set(__self__, "default_session_type", default_session_type)
+            _setter("default_session_type", default_session_type)
         if five_qi is None:
             five_qi = 9
         if five_qi is not None:
-            pulumi.set(__self__, "five_qi", five_qi)
+            _setter("five_qi", five_qi)
         if maximum_number_of_buffered_packets is None:
             maximum_number_of_buffered_packets = 10
         if maximum_number_of_buffered_packets is not None:
-            pulumi.set(__self__, "maximum_number_of_buffered_packets", maximum_number_of_buffered_packets)
+            _setter("maximum_number_of_buffered_packets", maximum_number_of_buffered_packets)
         if preemption_capability is None:
             preemption_capability = 'NotPreempt'
         if preemption_capability is not None:
-            pulumi.set(__self__, "preemption_capability", preemption_capability)
+            _setter("preemption_capability", preemption_capability)
         if preemption_vulnerability is None:
             preemption_vulnerability = 'Preemptable'
         if preemption_vulnerability is not None:
-            pulumi.set(__self__, "preemption_vulnerability", preemption_vulnerability)
+            _setter("preemption_vulnerability", preemption_vulnerability)
 
     @property
     @pulumi.getter(name="allowedServices")
@@ -385,7 +522,20 @@ class DataNetworkResourceIdArgs:
         Reference to a data network resource.
         :param pulumi.Input[str] id: Data network resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        DataNetworkResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -408,7 +558,22 @@ class DiagnosticsUploadConfigurationArgs:
         Configuration for uploading packet core diagnostics.
         :param pulumi.Input[str] storage_account_container_url: The Storage Account Container URL to upload diagnostics to.
         """
-        pulumi.set(__self__, "storage_account_container_url", storage_account_container_url)
+        DiagnosticsUploadConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_container_url=storage_account_container_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_container_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_account_container_url is None and 'storageAccountContainerUrl' in kwargs:
+            storage_account_container_url = kwargs['storageAccountContainerUrl']
+        if storage_account_container_url is None:
+            raise TypeError("Missing 'storage_account_container_url' argument")
+
+        _setter("storage_account_container_url", storage_account_container_url)
 
     @property
     @pulumi.getter(name="storageAccountContainerUrl")
@@ -431,7 +596,22 @@ class HttpsServerCertificateArgs:
         HTTPS server certificate configuration.
         :param pulumi.Input[str] certificate_url: The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
         """
-        pulumi.set(__self__, "certificate_url", certificate_url)
+        HttpsServerCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_url=certificate_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_url is None and 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+        if certificate_url is None:
+            raise TypeError("Missing 'certificate_url' argument")
+
+        _setter("certificate_url", certificate_url)
 
     @property
     @pulumi.getter(name="certificateUrl")
@@ -454,10 +634,23 @@ class InstallationArgs:
         The installation state of the packet core.
         :param pulumi.Input[Union[str, 'DesiredInstallationState']] desired_state: The desired installation state
         """
+        InstallationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            desired_state=desired_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             desired_state: Optional[pulumi.Input[Union[str, 'DesiredInstallationState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if desired_state is None and 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+
         if desired_state is None:
             desired_state = 'Installed'
         if desired_state is not None:
-            pulumi.set(__self__, "desired_state", desired_state)
+            _setter("desired_state", desired_state)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -486,14 +679,37 @@ class InterfacePropertiesArgs:
         :param pulumi.Input[str] ipv4_subnet: The IPv4 subnet.
         :param pulumi.Input[str] name: The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
+        InterfacePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4_address=ipv4_address,
+            ipv4_gateway=ipv4_gateway,
+            ipv4_subnet=ipv4_subnet,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4_address: Optional[pulumi.Input[str]] = None,
+             ipv4_gateway: Optional[pulumi.Input[str]] = None,
+             ipv4_subnet: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv4_address is None and 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+        if ipv4_gateway is None and 'ipv4Gateway' in kwargs:
+            ipv4_gateway = kwargs['ipv4Gateway']
+        if ipv4_subnet is None and 'ipv4Subnet' in kwargs:
+            ipv4_subnet = kwargs['ipv4Subnet']
+
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
         if ipv4_gateway is not None:
-            pulumi.set(__self__, "ipv4_gateway", ipv4_gateway)
+            _setter("ipv4_gateway", ipv4_gateway)
         if ipv4_subnet is not None:
-            pulumi.set(__self__, "ipv4_subnet", ipv4_subnet)
+            _setter("ipv4_subnet", ipv4_subnet)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="ipv4Address")
@@ -552,8 +768,21 @@ class KeyVaultKeyArgs:
         An Azure key vault key.
         :param pulumi.Input[str] key_url: The key URL, unversioned. For example: https://contosovault.vault.azure.net/keys/azureKey.
         """
+        KeyVaultKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_url=key_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_url is None and 'keyUrl' in kwargs:
+            key_url = kwargs['keyUrl']
+
         if key_url is not None:
-            pulumi.set(__self__, "key_url", key_url)
+            _setter("key_url", key_url)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -578,9 +807,28 @@ class LocalDiagnosticsAccessConfigurationArgs:
         :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: How to authenticate users who access local diagnostics APIs.
         :param pulumi.Input['HttpsServerCertificateArgs'] https_server_certificate: The HTTPS server TLS certificate used to secure local access to diagnostics.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
+        LocalDiagnosticsAccessConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            https_server_certificate=https_server_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             https_server_certificate: Optional[pulumi.Input['HttpsServerCertificateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if https_server_certificate is None and 'httpsServerCertificate' in kwargs:
+            https_server_certificate = kwargs['httpsServerCertificate']
+
+        _setter("authentication_type", authentication_type)
         if https_server_certificate is not None:
-            pulumi.set(__self__, "https_server_certificate", https_server_certificate)
+            _setter("https_server_certificate", https_server_certificate)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -617,9 +865,26 @@ class ManagedServiceIdentityArgs:
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (currently only UserAssigned allowed).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedServiceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -654,7 +919,20 @@ class MobileNetworkResourceIdArgs:
         Reference to a mobile network resource.
         :param pulumi.Input[str] id: Mobile network resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        MobileNetworkResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -687,18 +965,45 @@ class NaptConfigurationArgs:
                (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
         :param pulumi.Input['PortReuseHoldTimesArgs'] port_reuse_hold_time: The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be at least 1 second.
         """
+        NaptConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            pinhole_limits=pinhole_limits,
+            pinhole_timeouts=pinhole_timeouts,
+            port_range=port_range,
+            port_reuse_hold_time=port_reuse_hold_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[Union[str, 'NaptEnabled']]] = None,
+             pinhole_limits: Optional[pulumi.Input[int]] = None,
+             pinhole_timeouts: Optional[pulumi.Input['PinholeTimeoutsArgs']] = None,
+             port_range: Optional[pulumi.Input['PortRangeArgs']] = None,
+             port_reuse_hold_time: Optional[pulumi.Input['PortReuseHoldTimesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pinhole_limits is None and 'pinholeLimits' in kwargs:
+            pinhole_limits = kwargs['pinholeLimits']
+        if pinhole_timeouts is None and 'pinholeTimeouts' in kwargs:
+            pinhole_timeouts = kwargs['pinholeTimeouts']
+        if port_range is None and 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+        if port_reuse_hold_time is None and 'portReuseHoldTime' in kwargs:
+            port_reuse_hold_time = kwargs['portReuseHoldTime']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if pinhole_limits is None:
             pinhole_limits = 65536
         if pinhole_limits is not None:
-            pulumi.set(__self__, "pinhole_limits", pinhole_limits)
+            _setter("pinhole_limits", pinhole_limits)
         if pinhole_timeouts is not None:
-            pulumi.set(__self__, "pinhole_timeouts", pinhole_timeouts)
+            _setter("pinhole_timeouts", pinhole_timeouts)
         if port_range is not None:
-            pulumi.set(__self__, "port_range", port_range)
+            _setter("port_range", port_range)
         if port_reuse_hold_time is not None:
-            pulumi.set(__self__, "port_reuse_hold_time", port_reuse_hold_time)
+            _setter("port_reuse_hold_time", port_reuse_hold_time)
 
     @property
     @pulumi.getter
@@ -779,15 +1084,50 @@ class PccRuleConfigurationArgs:
         :param pulumi.Input['PccRuleQosPolicyArgs'] rule_qos_policy: The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings.
         :param pulumi.Input[Union[str, 'TrafficControlPermission']] traffic_control: Determines whether flows that match this data flow policy rule are permitted.
         """
-        pulumi.set(__self__, "rule_name", rule_name)
-        pulumi.set(__self__, "rule_precedence", rule_precedence)
-        pulumi.set(__self__, "service_data_flow_templates", service_data_flow_templates)
+        PccRuleConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rule_name=rule_name,
+            rule_precedence=rule_precedence,
+            service_data_flow_templates=service_data_flow_templates,
+            rule_qos_policy=rule_qos_policy,
+            traffic_control=traffic_control,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rule_name: Optional[pulumi.Input[str]] = None,
+             rule_precedence: Optional[pulumi.Input[int]] = None,
+             service_data_flow_templates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDataFlowTemplateArgs']]]] = None,
+             rule_qos_policy: Optional[pulumi.Input['PccRuleQosPolicyArgs']] = None,
+             traffic_control: Optional[pulumi.Input[Union[str, 'TrafficControlPermission']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if rule_name is None:
+            raise TypeError("Missing 'rule_name' argument")
+        if rule_precedence is None and 'rulePrecedence' in kwargs:
+            rule_precedence = kwargs['rulePrecedence']
+        if rule_precedence is None:
+            raise TypeError("Missing 'rule_precedence' argument")
+        if service_data_flow_templates is None and 'serviceDataFlowTemplates' in kwargs:
+            service_data_flow_templates = kwargs['serviceDataFlowTemplates']
+        if service_data_flow_templates is None:
+            raise TypeError("Missing 'service_data_flow_templates' argument")
+        if rule_qos_policy is None and 'ruleQosPolicy' in kwargs:
+            rule_qos_policy = kwargs['ruleQosPolicy']
+        if traffic_control is None and 'trafficControl' in kwargs:
+            traffic_control = kwargs['trafficControl']
+
+        _setter("rule_name", rule_name)
+        _setter("rule_precedence", rule_precedence)
+        _setter("service_data_flow_templates", service_data_flow_templates)
         if rule_qos_policy is not None:
-            pulumi.set(__self__, "rule_qos_policy", rule_qos_policy)
+            _setter("rule_qos_policy", rule_qos_policy)
         if traffic_control is None:
             traffic_control = 'Enabled'
         if traffic_control is not None:
-            pulumi.set(__self__, "traffic_control", traffic_control)
+            _setter("traffic_control", traffic_control)
 
     @property
     @pulumi.getter(name="ruleName")
@@ -868,25 +1208,60 @@ class PccRuleQosPolicyArgs:
         :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
-        pulumi.set(__self__, "maximum_bit_rate", maximum_bit_rate)
+        PccRuleQosPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_bit_rate=maximum_bit_rate,
+            allocation_and_retention_priority_level=allocation_and_retention_priority_level,
+            five_qi=five_qi,
+            guaranteed_bit_rate=guaranteed_bit_rate,
+            preemption_capability=preemption_capability,
+            preemption_vulnerability=preemption_vulnerability,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_bit_rate: Optional[pulumi.Input['AmbrArgs']] = None,
+             allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
+             five_qi: Optional[pulumi.Input[int]] = None,
+             guaranteed_bit_rate: Optional[pulumi.Input['AmbrArgs']] = None,
+             preemption_capability: Optional[pulumi.Input[Union[str, 'PreemptionCapability']]] = None,
+             preemption_vulnerability: Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_bit_rate is None and 'maximumBitRate' in kwargs:
+            maximum_bit_rate = kwargs['maximumBitRate']
+        if maximum_bit_rate is None:
+            raise TypeError("Missing 'maximum_bit_rate' argument")
+        if allocation_and_retention_priority_level is None and 'allocationAndRetentionPriorityLevel' in kwargs:
+            allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
+        if five_qi is None and 'fiveQi' in kwargs:
+            five_qi = kwargs['fiveQi']
+        if guaranteed_bit_rate is None and 'guaranteedBitRate' in kwargs:
+            guaranteed_bit_rate = kwargs['guaranteedBitRate']
+        if preemption_capability is None and 'preemptionCapability' in kwargs:
+            preemption_capability = kwargs['preemptionCapability']
+        if preemption_vulnerability is None and 'preemptionVulnerability' in kwargs:
+            preemption_vulnerability = kwargs['preemptionVulnerability']
+
+        _setter("maximum_bit_rate", maximum_bit_rate)
         if allocation_and_retention_priority_level is None:
             allocation_and_retention_priority_level = 9
         if allocation_and_retention_priority_level is not None:
-            pulumi.set(__self__, "allocation_and_retention_priority_level", allocation_and_retention_priority_level)
+            _setter("allocation_and_retention_priority_level", allocation_and_retention_priority_level)
         if five_qi is None:
             five_qi = 9
         if five_qi is not None:
-            pulumi.set(__self__, "five_qi", five_qi)
+            _setter("five_qi", five_qi)
         if guaranteed_bit_rate is not None:
-            pulumi.set(__self__, "guaranteed_bit_rate", guaranteed_bit_rate)
+            _setter("guaranteed_bit_rate", guaranteed_bit_rate)
         if preemption_capability is None:
             preemption_capability = 'NotPreempt'
         if preemption_capability is not None:
-            pulumi.set(__self__, "preemption_capability", preemption_capability)
+            _setter("preemption_capability", preemption_capability)
         if preemption_vulnerability is None:
             preemption_vulnerability = 'Preemptable'
         if preemption_vulnerability is not None:
-            pulumi.set(__self__, "preemption_vulnerability", preemption_vulnerability)
+            _setter("preemption_vulnerability", preemption_vulnerability)
 
     @property
     @pulumi.getter(name="maximumBitRate")
@@ -973,18 +1348,33 @@ class PinholeTimeoutsArgs:
         :param pulumi.Input[int] tcp: Pinhole timeout for TCP pinholes in seconds. Default for TCP is 3 minutes.
         :param pulumi.Input[int] udp: Pinhole timeout for UDP pinholes in seconds. Default for UDP is 30 seconds.
         """
+        PinholeTimeoutsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            icmp=icmp,
+            tcp=tcp,
+            udp=udp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             icmp: Optional[pulumi.Input[int]] = None,
+             tcp: Optional[pulumi.Input[int]] = None,
+             udp: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if icmp is None:
             icmp = 30
         if icmp is not None:
-            pulumi.set(__self__, "icmp", icmp)
+            _setter("icmp", icmp)
         if tcp is None:
             tcp = 180
         if tcp is not None:
-            pulumi.set(__self__, "tcp", tcp)
+            _setter("tcp", tcp)
         if udp is None:
             udp = 30
         if udp is not None:
-            pulumi.set(__self__, "udp", udp)
+            _setter("udp", udp)
 
     @property
     @pulumi.getter
@@ -1039,15 +1429,44 @@ class PlatformConfigurationArgs:
         :param pulumi.Input['ConnectedClusterResourceIdArgs'] connected_cluster: Azure Arc connected cluster where the packet core is deployed.
         :param pulumi.Input['CustomLocationResourceIdArgs'] custom_location: Azure Arc custom location where the packet core is deployed.
         """
-        pulumi.set(__self__, "type", type)
+        PlatformConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            azure_stack_edge_device=azure_stack_edge_device,
+            azure_stack_hci_cluster=azure_stack_hci_cluster,
+            connected_cluster=connected_cluster,
+            custom_location=custom_location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'PlatformType']]] = None,
+             azure_stack_edge_device: Optional[pulumi.Input['AzureStackEdgeDeviceResourceIdArgs']] = None,
+             azure_stack_hci_cluster: Optional[pulumi.Input['AzureStackHCIClusterResourceIdArgs']] = None,
+             connected_cluster: Optional[pulumi.Input['ConnectedClusterResourceIdArgs']] = None,
+             custom_location: Optional[pulumi.Input['CustomLocationResourceIdArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if azure_stack_edge_device is None and 'azureStackEdgeDevice' in kwargs:
+            azure_stack_edge_device = kwargs['azureStackEdgeDevice']
+        if azure_stack_hci_cluster is None and 'azureStackHciCluster' in kwargs:
+            azure_stack_hci_cluster = kwargs['azureStackHciCluster']
+        if connected_cluster is None and 'connectedCluster' in kwargs:
+            connected_cluster = kwargs['connectedCluster']
+        if custom_location is None and 'customLocation' in kwargs:
+            custom_location = kwargs['customLocation']
+
+        _setter("type", type)
         if azure_stack_edge_device is not None:
-            pulumi.set(__self__, "azure_stack_edge_device", azure_stack_edge_device)
+            _setter("azure_stack_edge_device", azure_stack_edge_device)
         if azure_stack_hci_cluster is not None:
-            pulumi.set(__self__, "azure_stack_hci_cluster", azure_stack_hci_cluster)
+            _setter("azure_stack_hci_cluster", azure_stack_hci_cluster)
         if connected_cluster is not None:
-            pulumi.set(__self__, "connected_cluster", connected_cluster)
+            _setter("connected_cluster", connected_cluster)
         if custom_location is not None:
-            pulumi.set(__self__, "custom_location", custom_location)
+            _setter("custom_location", custom_location)
 
     @property
     @pulumi.getter
@@ -1120,8 +1539,25 @@ class PlmnIdArgs:
         :param pulumi.Input[str] mcc: Mobile country code (MCC).
         :param pulumi.Input[str] mnc: Mobile network code (MNC).
         """
-        pulumi.set(__self__, "mcc", mcc)
-        pulumi.set(__self__, "mnc", mnc)
+        PlmnIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mcc=mcc,
+            mnc=mnc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mcc: Optional[pulumi.Input[str]] = None,
+             mnc: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mcc is None:
+            raise TypeError("Missing 'mcc' argument")
+        if mnc is None:
+            raise TypeError("Missing 'mnc' argument")
+
+        _setter("mcc", mcc)
+        _setter("mnc", mnc)
 
     @property
     @pulumi.getter
@@ -1160,14 +1596,31 @@ class PortRangeArgs:
         :param pulumi.Input[int] max_port: The maximum port number
         :param pulumi.Input[int] min_port: The minimum port number
         """
+        PortRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_port=max_port,
+            min_port=min_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_port: Optional[pulumi.Input[int]] = None,
+             min_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_port is None and 'maxPort' in kwargs:
+            max_port = kwargs['maxPort']
+        if min_port is None and 'minPort' in kwargs:
+            min_port = kwargs['minPort']
+
         if max_port is None:
             max_port = 49999
         if max_port is not None:
-            pulumi.set(__self__, "max_port", max_port)
+            _setter("max_port", max_port)
         if min_port is None:
             min_port = 1024
         if min_port is not None:
-            pulumi.set(__self__, "min_port", min_port)
+            _setter("min_port", min_port)
 
     @property
     @pulumi.getter(name="maxPort")
@@ -1204,14 +1657,27 @@ class PortReuseHoldTimesArgs:
         :param pulumi.Input[int] tcp: Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Default for TCP is 2 minutes.
         :param pulumi.Input[int] udp: Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Default for UDP is 1 minute.
         """
+        PortReuseHoldTimesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tcp=tcp,
+            udp=udp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tcp: Optional[pulumi.Input[int]] = None,
+             udp: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if tcp is None:
             tcp = 120
         if tcp is not None:
-            pulumi.set(__self__, "tcp", tcp)
+            _setter("tcp", tcp)
         if udp is None:
             udp = 60
         if udp is not None:
-            pulumi.set(__self__, "udp", udp)
+            _setter("udp", udp)
 
     @property
     @pulumi.getter
@@ -1254,23 +1720,54 @@ class QosPolicyArgs:
         :param pulumi.Input[Union[str, 'PreemptionCapability']] preemption_capability: QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param pulumi.Input[Union[str, 'PreemptionVulnerability']] preemption_vulnerability: QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
-        pulumi.set(__self__, "maximum_bit_rate", maximum_bit_rate)
+        QosPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_bit_rate=maximum_bit_rate,
+            allocation_and_retention_priority_level=allocation_and_retention_priority_level,
+            five_qi=five_qi,
+            preemption_capability=preemption_capability,
+            preemption_vulnerability=preemption_vulnerability,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_bit_rate: Optional[pulumi.Input['AmbrArgs']] = None,
+             allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
+             five_qi: Optional[pulumi.Input[int]] = None,
+             preemption_capability: Optional[pulumi.Input[Union[str, 'PreemptionCapability']]] = None,
+             preemption_vulnerability: Optional[pulumi.Input[Union[str, 'PreemptionVulnerability']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_bit_rate is None and 'maximumBitRate' in kwargs:
+            maximum_bit_rate = kwargs['maximumBitRate']
+        if maximum_bit_rate is None:
+            raise TypeError("Missing 'maximum_bit_rate' argument")
+        if allocation_and_retention_priority_level is None and 'allocationAndRetentionPriorityLevel' in kwargs:
+            allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
+        if five_qi is None and 'fiveQi' in kwargs:
+            five_qi = kwargs['fiveQi']
+        if preemption_capability is None and 'preemptionCapability' in kwargs:
+            preemption_capability = kwargs['preemptionCapability']
+        if preemption_vulnerability is None and 'preemptionVulnerability' in kwargs:
+            preemption_vulnerability = kwargs['preemptionVulnerability']
+
+        _setter("maximum_bit_rate", maximum_bit_rate)
         if allocation_and_retention_priority_level is None:
             allocation_and_retention_priority_level = 9
         if allocation_and_retention_priority_level is not None:
-            pulumi.set(__self__, "allocation_and_retention_priority_level", allocation_and_retention_priority_level)
+            _setter("allocation_and_retention_priority_level", allocation_and_retention_priority_level)
         if five_qi is None:
             five_qi = 9
         if five_qi is not None:
-            pulumi.set(__self__, "five_qi", five_qi)
+            _setter("five_qi", five_qi)
         if preemption_capability is None:
             preemption_capability = 'NotPreempt'
         if preemption_capability is not None:
-            pulumi.set(__self__, "preemption_capability", preemption_capability)
+            _setter("preemption_capability", preemption_capability)
         if preemption_vulnerability is None:
             preemption_vulnerability = 'Preemptable'
         if preemption_vulnerability is not None:
-            pulumi.set(__self__, "preemption_vulnerability", preemption_vulnerability)
+            _setter("preemption_vulnerability", preemption_vulnerability)
 
     @property
     @pulumi.getter(name="maximumBitRate")
@@ -1349,12 +1846,43 @@ class ServiceDataFlowTemplateArgs:
         :param pulumi.Input[str] template_name: The name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than `ip` in the `protocol` field. This is an optional setting. If you do not specify it then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: [`8080`, `8082-8085`].
         """
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "remote_ip_list", remote_ip_list)
-        pulumi.set(__self__, "template_name", template_name)
+        ServiceDataFlowTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            protocol=protocol,
+            remote_ip_list=remote_ip_list,
+            template_name=template_name,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: Optional[pulumi.Input[Union[str, 'SdfDirection']]] = None,
+             protocol: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             remote_ip_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if remote_ip_list is None and 'remoteIpList' in kwargs:
+            remote_ip_list = kwargs['remoteIpList']
+        if remote_ip_list is None:
+            raise TypeError("Missing 'remote_ip_list' argument")
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
+
+        _setter("direction", direction)
+        _setter("protocol", protocol)
+        _setter("remote_ip_list", remote_ip_list)
+        _setter("template_name", template_name)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter
@@ -1425,7 +1953,20 @@ class ServiceResourceIdArgs:
         Reference to a service resource.
         :param pulumi.Input[str] id: Service resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        ServiceResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1448,7 +1989,20 @@ class SimPolicyResourceIdArgs:
         Reference to a SIM policy resource.
         :param pulumi.Input[str] id: SIM policy resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        SimPolicyResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1471,8 +2025,21 @@ class SimStaticIpPropertiesStaticIpArgs:
         The static IP configuration for the SIM to use at the defined network scope.
         :param pulumi.Input[str] ipv4_address: The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
         """
+        SimStaticIpPropertiesStaticIpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipv4_address=ipv4_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipv4_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv4_address is None and 'ipv4Address' in kwargs:
+            ipv4_address = kwargs['ipv4Address']
+
         if ipv4_address is not None:
-            pulumi.set(__self__, "ipv4_address", ipv4_address)
+            _setter("ipv4_address", ipv4_address)
 
     @property
     @pulumi.getter(name="ipv4Address")
@@ -1499,12 +2066,31 @@ class SimStaticIpPropertiesArgs:
         :param pulumi.Input['SliceResourceIdArgs'] slice: The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
         :param pulumi.Input['SimStaticIpPropertiesStaticIpArgs'] static_ip: The static IP configuration for the SIM to use at the defined network scope.
         """
+        SimStaticIpPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_data_network=attached_data_network,
+            slice=slice,
+            static_ip=static_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_data_network: Optional[pulumi.Input['AttachedDataNetworkResourceIdArgs']] = None,
+             slice: Optional[pulumi.Input['SliceResourceIdArgs']] = None,
+             static_ip: Optional[pulumi.Input['SimStaticIpPropertiesStaticIpArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attached_data_network is None and 'attachedDataNetwork' in kwargs:
+            attached_data_network = kwargs['attachedDataNetwork']
+        if static_ip is None and 'staticIp' in kwargs:
+            static_ip = kwargs['staticIp']
+
         if attached_data_network is not None:
-            pulumi.set(__self__, "attached_data_network", attached_data_network)
+            _setter("attached_data_network", attached_data_network)
         if slice is not None:
-            pulumi.set(__self__, "slice", slice)
+            _setter("slice", slice)
         if static_ip is not None:
-            pulumi.set(__self__, "static_ip", static_ip)
+            _setter("static_ip", static_ip)
 
     @property
     @pulumi.getter(name="attachedDataNetwork")
@@ -1551,7 +2137,20 @@ class SiteResourceIdArgs:
         Reference to a site resource.
         :param pulumi.Input[str] id: Site resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        SiteResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1578,9 +2177,34 @@ class SliceConfigurationArgs:
         :param pulumi.Input['DataNetworkResourceIdArgs'] default_data_network: The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map. The data network must be in the same location as the SIM policy.
         :param pulumi.Input['SliceResourceIdArgs'] slice: A reference to the slice that these settings apply to. The slice must be in the same location as the SIM policy.
         """
-        pulumi.set(__self__, "data_network_configurations", data_network_configurations)
-        pulumi.set(__self__, "default_data_network", default_data_network)
-        pulumi.set(__self__, "slice", slice)
+        SliceConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_network_configurations=data_network_configurations,
+            default_data_network=default_data_network,
+            slice=slice,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_network_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataNetworkConfigurationArgs']]]] = None,
+             default_data_network: Optional[pulumi.Input['DataNetworkResourceIdArgs']] = None,
+             slice: Optional[pulumi.Input['SliceResourceIdArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_network_configurations is None and 'dataNetworkConfigurations' in kwargs:
+            data_network_configurations = kwargs['dataNetworkConfigurations']
+        if data_network_configurations is None:
+            raise TypeError("Missing 'data_network_configurations' argument")
+        if default_data_network is None and 'defaultDataNetwork' in kwargs:
+            default_data_network = kwargs['defaultDataNetwork']
+        if default_data_network is None:
+            raise TypeError("Missing 'default_data_network' argument")
+        if slice is None:
+            raise TypeError("Missing 'slice' argument")
+
+        _setter("data_network_configurations", data_network_configurations)
+        _setter("default_data_network", default_data_network)
+        _setter("slice", slice)
 
     @property
     @pulumi.getter(name="dataNetworkConfigurations")
@@ -1627,7 +2251,20 @@ class SliceResourceIdArgs:
         Reference to a slice resource.
         :param pulumi.Input[str] id: Slice resource ID.
         """
-        pulumi.set(__self__, "id", id)
+        SliceResourceIdArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -1652,9 +2289,24 @@ class SnssaiArgs:
         :param pulumi.Input[int] sst: Slice/service type (SST).
         :param pulumi.Input[str] sd: Slice differentiator (SD).
         """
-        pulumi.set(__self__, "sst", sst)
+        SnssaiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sst=sst,
+            sd=sd,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sst: Optional[pulumi.Input[int]] = None,
+             sd: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sst is None:
+            raise TypeError("Missing 'sst' argument")
+
+        _setter("sst", sst)
         if sd is not None:
-            pulumi.set(__self__, "sd", sd)
+            _setter("sd", sd)
 
     @property
     @pulumi.getter

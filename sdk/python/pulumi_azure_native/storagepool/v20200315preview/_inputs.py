@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,10 +32,39 @@ class AclArgs:
         :param pulumi.Input[str] password: Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
         :param pulumi.Input[str] username: Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
-        pulumi.set(__self__, "initiator_iqn", initiator_iqn)
-        pulumi.set(__self__, "mapped_luns", mapped_luns)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        AclArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initiator_iqn=initiator_iqn,
+            mapped_luns=mapped_luns,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initiator_iqn: Optional[pulumi.Input[str]] = None,
+             mapped_luns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if initiator_iqn is None and 'initiatorIqn' in kwargs:
+            initiator_iqn = kwargs['initiatorIqn']
+        if initiator_iqn is None:
+            raise TypeError("Missing 'initiator_iqn' argument")
+        if mapped_luns is None and 'mappedLuns' in kwargs:
+            mapped_luns = kwargs['mappedLuns']
+        if mapped_luns is None:
+            raise TypeError("Missing 'mapped_luns' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("initiator_iqn", initiator_iqn)
+        _setter("mapped_luns", mapped_luns)
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="initiatorIqn")
@@ -96,8 +125,27 @@ class AttributesArgs:
         :param pulumi.Input[bool] authentication: Indicates whether or not authentication is enabled on the ACL.
         :param pulumi.Input[bool] prod_mode_write_protect: Indicates whether or not write protect is enabled on the LUNs.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "prod_mode_write_protect", prod_mode_write_protect)
+        AttributesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            prod_mode_write_protect=prod_mode_write_protect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input[bool]] = None,
+             prod_mode_write_protect: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if prod_mode_write_protect is None and 'prodModeWriteProtect' in kwargs:
+            prod_mode_write_protect = kwargs['prodModeWriteProtect']
+        if prod_mode_write_protect is None:
+            raise TypeError("Missing 'prod_mode_write_protect' argument")
+
+        _setter("authentication", authentication)
+        _setter("prod_mode_write_protect", prod_mode_write_protect)
 
     @property
     @pulumi.getter
@@ -132,7 +180,20 @@ class DiskArgs:
         Azure Managed Disk to attach to the Disk pool.
         :param pulumi.Input[str] id: Unique Azure Resource ID of the Managed Disk.
         """
-        pulumi.set(__self__, "id", id)
+        DiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -157,8 +218,27 @@ class IscsiLunArgs:
         :param pulumi.Input[str] managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
         :param pulumi.Input[str] name: User defined name for iSCSI LUN; example: "lun0"
         """
-        pulumi.set(__self__, "managed_disk_azure_resource_id", managed_disk_azure_resource_id)
-        pulumi.set(__self__, "name", name)
+        IscsiLunArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_disk_azure_resource_id=managed_disk_azure_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_disk_azure_resource_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if managed_disk_azure_resource_id is None and 'managedDiskAzureResourceId' in kwargs:
+            managed_disk_azure_resource_id = kwargs['managedDiskAzureResourceId']
+        if managed_disk_azure_resource_id is None:
+            raise TypeError("Missing 'managed_disk_azure_resource_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("managed_disk_azure_resource_id", managed_disk_azure_resource_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="managedDiskAzureResourceId")
@@ -197,9 +277,30 @@ class TargetPortalGroupCreateArgs:
         :param pulumi.Input['AttributesArgs'] attributes: Attributes of an iSCSI target portal group.
         :param pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]] luns: List of LUNs to be exposed through the iSCSI target portal group.
         """
-        pulumi.set(__self__, "acls", acls)
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "luns", luns)
+        TargetPortalGroupCreateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acls=acls,
+            attributes=attributes,
+            luns=luns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acls: Optional[pulumi.Input[Sequence[pulumi.Input['AclArgs']]]] = None,
+             attributes: Optional[pulumi.Input['AttributesArgs']] = None,
+             luns: Optional[pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acls is None:
+            raise TypeError("Missing 'acls' argument")
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if luns is None:
+            raise TypeError("Missing 'luns' argument")
+
+        _setter("acls", acls)
+        _setter("attributes", attributes)
+        _setter("luns", luns)
 
     @property
     @pulumi.getter

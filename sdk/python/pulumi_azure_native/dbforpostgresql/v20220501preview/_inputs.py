@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -23,8 +23,29 @@ class AdminCredentialsArgs:
         """
         Server admin credentials.
         """
-        pulumi.set(__self__, "source_server_password", source_server_password)
-        pulumi.set(__self__, "target_server_password", target_server_password)
+        AdminCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_server_password=source_server_password,
+            target_server_password=target_server_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_server_password: Optional[pulumi.Input[str]] = None,
+             target_server_password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_server_password is None and 'sourceServerPassword' in kwargs:
+            source_server_password = kwargs['sourceServerPassword']
+        if source_server_password is None:
+            raise TypeError("Missing 'source_server_password' argument")
+        if target_server_password is None and 'targetServerPassword' in kwargs:
+            target_server_password = kwargs['targetServerPassword']
+        if target_server_password is None:
+            raise TypeError("Missing 'target_server_password' argument")
+
+        _setter("source_server_password", source_server_password)
+        _setter("target_server_password", target_server_password)
 
     @property
     @pulumi.getter(name="sourceServerPassword")
@@ -53,7 +74,22 @@ class MigrationSecretParametersArgs:
         Migration secret parameters.
         :param pulumi.Input['AdminCredentialsArgs'] admin_credentials: Server admin credentials.
         """
-        pulumi.set(__self__, "admin_credentials", admin_credentials)
+        MigrationSecretParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_credentials=admin_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_credentials: Optional[pulumi.Input['AdminCredentialsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_credentials is None and 'adminCredentials' in kwargs:
+            admin_credentials = kwargs['adminCredentials']
+        if admin_credentials is None:
+            raise TypeError("Missing 'admin_credentials' argument")
+
+        _setter("admin_credentials", admin_credentials)
 
     @property
     @pulumi.getter(name="adminCredentials")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,10 +30,23 @@ class AgentPropertiesResponseErrorDetails(dict):
         :param str code: Error code reported by Agent
         :param str message: Expanded description of reported error code
         """
+        AgentPropertiesResponseErrorDetails._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -87,11 +100,32 @@ class AzureKeyVaultSmbCredentialsResponse(dict):
         :param str password_uri: The Azure Key Vault secret URI which stores the password. Use empty string to clean-up existing value.
         :param str username_uri: The Azure Key Vault secret URI which stores the username. Use empty string to clean-up existing value.
         """
-        pulumi.set(__self__, "type", 'AzureKeyVaultSmb')
+        AzureKeyVaultSmbCredentialsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            password_uri=password_uri,
+            username_uri=username_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             password_uri: Optional[str] = None,
+             username_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if password_uri is None and 'passwordUri' in kwargs:
+            password_uri = kwargs['passwordUri']
+        if username_uri is None and 'usernameUri' in kwargs:
+            username_uri = kwargs['usernameUri']
+
+        _setter("type", 'AzureKeyVaultSmb')
         if password_uri is not None:
-            pulumi.set(__self__, "password_uri", password_uri)
+            _setter("password_uri", password_uri)
         if username_uri is not None:
-            pulumi.set(__self__, "username_uri", username_uri)
+            _setter("username_uri", username_uri)
 
     @property
     @pulumi.getter
@@ -162,12 +196,47 @@ class AzureStorageBlobContainerEndpointPropertiesResponse(dict):
         :param str storage_account_resource_id: The Azure Resource ID of the storage account that is the target destination.
         :param str description: A description for the Endpoint.
         """
-        pulumi.set(__self__, "blob_container_name", blob_container_name)
-        pulumi.set(__self__, "endpoint_type", 'AzureStorageBlobContainer')
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        AzureStorageBlobContainerEndpointPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_container_name=blob_container_name,
+            endpoint_type=endpoint_type,
+            provisioning_state=provisioning_state,
+            storage_account_resource_id=storage_account_resource_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_container_name: Optional[str] = None,
+             endpoint_type: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             storage_account_resource_id: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blob_container_name is None and 'blobContainerName' in kwargs:
+            blob_container_name = kwargs['blobContainerName']
+        if blob_container_name is None:
+            raise TypeError("Missing 'blob_container_name' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if storage_account_resource_id is None and 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+        if storage_account_resource_id is None:
+            raise TypeError("Missing 'storage_account_resource_id' argument")
+
+        _setter("blob_container_name", blob_container_name)
+        _setter("endpoint_type", 'AzureStorageBlobContainer')
+        _setter("provisioning_state", provisioning_state)
+        _setter("storage_account_resource_id", storage_account_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="blobContainerName")
@@ -254,12 +323,47 @@ class AzureStorageSmbFileShareEndpointPropertiesResponse(dict):
         :param str storage_account_resource_id: The Azure Resource ID of the storage account.
         :param str description: A description for the Endpoint.
         """
-        pulumi.set(__self__, "endpoint_type", 'AzureStorageSmbFileShare')
-        pulumi.set(__self__, "file_share_name", file_share_name)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+        AzureStorageSmbFileShareEndpointPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            file_share_name=file_share_name,
+            provisioning_state=provisioning_state,
+            storage_account_resource_id=storage_account_resource_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[str] = None,
+             file_share_name: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             storage_account_resource_id: Optional[str] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if file_share_name is None and 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if file_share_name is None:
+            raise TypeError("Missing 'file_share_name' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if storage_account_resource_id is None and 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+        if storage_account_resource_id is None:
+            raise TypeError("Missing 'storage_account_resource_id' argument")
+
+        _setter("endpoint_type", 'AzureStorageSmbFileShare')
+        _setter("file_share_name", file_share_name)
+        _setter("provisioning_state", provisioning_state)
+        _setter("storage_account_resource_id", storage_account_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -346,14 +450,49 @@ class NfsMountEndpointPropertiesResponse(dict):
         :param str description: A description for the Endpoint.
         :param str nfs_version: The NFS protocol version.
         """
-        pulumi.set(__self__, "endpoint_type", 'NfsMount')
-        pulumi.set(__self__, "export", export)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        NfsMountEndpointPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            export=export,
+            host=host,
+            provisioning_state=provisioning_state,
+            description=description,
+            nfs_version=nfs_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[str] = None,
+             export: Optional[str] = None,
+             host: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             description: Optional[str] = None,
+             nfs_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if export is None:
+            raise TypeError("Missing 'export' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if nfs_version is None and 'nfsVersion' in kwargs:
+            nfs_version = kwargs['nfsVersion']
+
+        _setter("endpoint_type", 'NfsMount')
+        _setter("export", export)
+        _setter("host", host)
+        _setter("provisioning_state", provisioning_state)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if nfs_version is not None:
-            pulumi.set(__self__, "nfs_version", nfs_version)
+            _setter("nfs_version", nfs_version)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -448,14 +587,49 @@ class SmbMountEndpointPropertiesResponse(dict):
         :param 'AzureKeyVaultSmbCredentialsResponse' credentials: The Azure Key Vault secret URIs which store the required credentials to access the SMB share.
         :param str description: A description for the Endpoint.
         """
-        pulumi.set(__self__, "endpoint_type", 'SmbMount')
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "share_name", share_name)
+        SmbMountEndpointPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            host=host,
+            provisioning_state=provisioning_state,
+            share_name=share_name,
+            credentials=credentials,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[str] = None,
+             host: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             share_name: Optional[str] = None,
+             credentials: Optional['outputs.AzureKeyVaultSmbCredentialsResponse'] = None,
+             description: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+
+        _setter("endpoint_type", 'SmbMount')
+        _setter("host", host)
+        _setter("provisioning_state", provisioning_state)
+        _setter("share_name", share_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -555,18 +729,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

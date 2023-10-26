@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,55 @@ class WorkloadNetworkSegmentArgs:
         :param pulumi.Input[str] segment_id: NSX Segment identifier. Generally the same as the Segment's display name
         :param pulumi.Input['WorkloadNetworkSegmentSubnetArgs'] subnet: Subnet which to connect segment to.
         """
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkloadNetworkSegmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_name=private_cloud_name,
+            resource_group_name=resource_group_name,
+            connected_gateway=connected_gateway,
+            display_name=display_name,
+            revision=revision,
+            segment_id=segment_id,
+            subnet=subnet,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             connected_gateway: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[float]] = None,
+             segment_id: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input['WorkloadNetworkSegmentSubnetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_cloud_name is None and 'privateCloudName' in kwargs:
+            private_cloud_name = kwargs['privateCloudName']
+        if private_cloud_name is None:
+            raise TypeError("Missing 'private_cloud_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if connected_gateway is None and 'connectedGateway' in kwargs:
+            connected_gateway = kwargs['connectedGateway']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if segment_id is None and 'segmentId' in kwargs:
+            segment_id = kwargs['segmentId']
+
+        _setter("private_cloud_name", private_cloud_name)
+        _setter("resource_group_name", resource_group_name)
         if connected_gateway is not None:
-            pulumi.set(__self__, "connected_gateway", connected_gateway)
+            _setter("connected_gateway", connected_gateway)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if segment_id is not None:
-            pulumi.set(__self__, "segment_id", segment_id)
+            _setter("segment_id", segment_id)
         if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
+            _setter("subnet", subnet)
 
     @property
     @pulumi.getter(name="privateCloudName")
@@ -176,6 +213,10 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkloadNetworkSegmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,6 +248,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["revision"] = revision
             __props__.__dict__["segment_id"] = segment_id
+            subnet = _utilities.configure(subnet, WorkloadNetworkSegmentSubnetArgs, True)
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["name"] = None
             __props__.__dict__["port_vif"] = None

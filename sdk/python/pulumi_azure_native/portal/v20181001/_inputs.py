@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -29,11 +29,32 @@ class ConsoleCreatePropertiesArgs:
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the console.
         :param pulumi.Input[str] uri: Uri of the console.
         """
-        pulumi.set(__self__, "os_type", os_type)
+        ConsoleCreatePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            provisioning_state=provisioning_state,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+             provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+
+        _setter("os_type", os_type)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="osType")
@@ -84,12 +105,33 @@ class StorageProfileArgs:
         :param pulumi.Input[str] file_share_name: Name of the mounted file share. 63 characters or less, lowercase alphabet, numbers, and -
         :param pulumi.Input[str] storage_account_resource_id: Full resource ID of storage account.
         """
+        StorageProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_size_in_gb=disk_size_in_gb,
+            file_share_name=file_share_name,
+            storage_account_resource_id=storage_account_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_size_in_gb: Optional[pulumi.Input[int]] = None,
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             storage_account_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disk_size_in_gb is None and 'diskSizeInGB' in kwargs:
+            disk_size_in_gb = kwargs['diskSizeInGB']
+        if file_share_name is None and 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if storage_account_resource_id is None and 'storageAccountResourceId' in kwargs:
+            storage_account_resource_id = kwargs['storageAccountResourceId']
+
         if disk_size_in_gb is not None:
-            pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
+            _setter("disk_size_in_gb", disk_size_in_gb)
         if file_share_name is not None:
-            pulumi.set(__self__, "file_share_name", file_share_name)
+            _setter("file_share_name", file_share_name)
         if storage_account_resource_id is not None:
-            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+            _setter("storage_account_resource_id", storage_account_resource_id)
 
     @property
     @pulumi.getter(name="diskSizeInGB")
@@ -138,10 +180,27 @@ class TerminalSettingsArgs:
         :param pulumi.Input[Union[str, 'FontSize']] font_size: Size of terminal font.
         :param pulumi.Input[Union[str, 'FontStyle']] font_style: Style of terminal font.
         """
+        TerminalSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            font_size=font_size,
+            font_style=font_style,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             font_size: Optional[pulumi.Input[Union[str, 'FontSize']]] = None,
+             font_style: Optional[pulumi.Input[Union[str, 'FontStyle']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if font_size is None and 'fontSize' in kwargs:
+            font_size = kwargs['fontSize']
+        if font_style is None and 'fontStyle' in kwargs:
+            font_style = kwargs['fontStyle']
+
         if font_size is not None:
-            pulumi.set(__self__, "font_size", font_size)
+            _setter("font_size", font_size)
         if font_style is not None:
-            pulumi.set(__self__, "font_style", font_style)
+            _setter("font_style", font_style)
 
     @property
     @pulumi.getter(name="fontSize")
@@ -184,11 +243,50 @@ class UserPropertiesArgs:
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile of the user settings.
         :param pulumi.Input['TerminalSettingsArgs'] terminal_settings: Settings for terminal appearance.
         """
-        pulumi.set(__self__, "preferred_location", preferred_location)
-        pulumi.set(__self__, "preferred_os_type", preferred_os_type)
-        pulumi.set(__self__, "preferred_shell_type", preferred_shell_type)
-        pulumi.set(__self__, "storage_profile", storage_profile)
-        pulumi.set(__self__, "terminal_settings", terminal_settings)
+        UserPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            preferred_location=preferred_location,
+            preferred_os_type=preferred_os_type,
+            preferred_shell_type=preferred_shell_type,
+            storage_profile=storage_profile,
+            terminal_settings=terminal_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             preferred_location: Optional[pulumi.Input[str]] = None,
+             preferred_os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+             preferred_shell_type: Optional[pulumi.Input[Union[str, 'ShellType']]] = None,
+             storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
+             terminal_settings: Optional[pulumi.Input['TerminalSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preferred_location is None and 'preferredLocation' in kwargs:
+            preferred_location = kwargs['preferredLocation']
+        if preferred_location is None:
+            raise TypeError("Missing 'preferred_location' argument")
+        if preferred_os_type is None and 'preferredOsType' in kwargs:
+            preferred_os_type = kwargs['preferredOsType']
+        if preferred_os_type is None:
+            raise TypeError("Missing 'preferred_os_type' argument")
+        if preferred_shell_type is None and 'preferredShellType' in kwargs:
+            preferred_shell_type = kwargs['preferredShellType']
+        if preferred_shell_type is None:
+            raise TypeError("Missing 'preferred_shell_type' argument")
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if storage_profile is None:
+            raise TypeError("Missing 'storage_profile' argument")
+        if terminal_settings is None and 'terminalSettings' in kwargs:
+            terminal_settings = kwargs['terminalSettings']
+        if terminal_settings is None:
+            raise TypeError("Missing 'terminal_settings' argument")
+
+        _setter("preferred_location", preferred_location)
+        _setter("preferred_os_type", preferred_os_type)
+        _setter("preferred_shell_type", preferred_shell_type)
+        _setter("storage_profile", storage_profile)
+        _setter("terminal_settings", terminal_settings)
 
     @property
     @pulumi.getter(name="preferredLocation")

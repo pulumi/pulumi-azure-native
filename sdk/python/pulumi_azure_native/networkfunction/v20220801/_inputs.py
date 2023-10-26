@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -32,14 +32,35 @@ class CollectorPolicyArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        CollectorPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            emission_policies=emission_policies,
+            ingestion_policy=ingestion_policy,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]] = None,
+             ingestion_policy: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if emission_policies is None and 'emissionPolicies' in kwargs:
+            emission_policies = kwargs['emissionPolicies']
+        if ingestion_policy is None and 'ingestionPolicy' in kwargs:
+            ingestion_policy = kwargs['ingestionPolicy']
+
         if emission_policies is not None:
-            pulumi.set(__self__, "emission_policies", emission_policies)
+            _setter("emission_policies", emission_policies)
         if ingestion_policy is not None:
-            pulumi.set(__self__, "ingestion_policy", ingestion_policy)
+            _setter("ingestion_policy", ingestion_policy)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="emissionPolicies")
@@ -100,10 +121,27 @@ class EmissionPoliciesPropertiesFormatArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EmissionPolicyDestinationArgs']]] emission_destinations: Emission policy destinations.
         :param pulumi.Input[Union[str, 'EmissionType']] emission_type: Emission format type.
         """
+        EmissionPoliciesPropertiesFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            emission_destinations=emission_destinations,
+            emission_type=emission_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             emission_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPolicyDestinationArgs']]]] = None,
+             emission_type: Optional[pulumi.Input[Union[str, 'EmissionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if emission_destinations is None and 'emissionDestinations' in kwargs:
+            emission_destinations = kwargs['emissionDestinations']
+        if emission_type is None and 'emissionType' in kwargs:
+            emission_type = kwargs['emissionType']
+
         if emission_destinations is not None:
-            pulumi.set(__self__, "emission_destinations", emission_destinations)
+            _setter("emission_destinations", emission_destinations)
         if emission_type is not None:
-            pulumi.set(__self__, "emission_type", emission_type)
+            _setter("emission_type", emission_type)
 
     @property
     @pulumi.getter(name="emissionDestinations")
@@ -138,8 +176,21 @@ class EmissionPolicyDestinationArgs:
         Emission policy destination properties.
         :param pulumi.Input[Union[str, 'DestinationType']] destination_type: Emission destination type.
         """
+        EmissionPolicyDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_type=destination_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_type: Optional[pulumi.Input[Union[str, 'DestinationType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_type is None and 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+
         if destination_type is not None:
-            pulumi.set(__self__, "destination_type", destination_type)
+            _setter("destination_type", destination_type)
 
     @property
     @pulumi.getter(name="destinationType")
@@ -164,10 +215,27 @@ class IngestionPolicyPropertiesFormatArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgs']]] ingestion_sources: Ingestion Sources.
         :param pulumi.Input[Union[str, 'IngestionType']] ingestion_type: The ingestion type.
         """
+        IngestionPolicyPropertiesFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ingestion_sources=ingestion_sources,
+            ingestion_type=ingestion_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ingestion_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IngestionSourcesPropertiesFormatArgs']]]] = None,
+             ingestion_type: Optional[pulumi.Input[Union[str, 'IngestionType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ingestion_sources is None and 'ingestionSources' in kwargs:
+            ingestion_sources = kwargs['ingestionSources']
+        if ingestion_type is None and 'ingestionType' in kwargs:
+            ingestion_type = kwargs['ingestionType']
+
         if ingestion_sources is not None:
-            pulumi.set(__self__, "ingestion_sources", ingestion_sources)
+            _setter("ingestion_sources", ingestion_sources)
         if ingestion_type is not None:
-            pulumi.set(__self__, "ingestion_type", ingestion_type)
+            _setter("ingestion_type", ingestion_type)
 
     @property
     @pulumi.getter(name="ingestionSources")
@@ -204,10 +272,27 @@ class IngestionSourcesPropertiesFormatArgs:
         :param pulumi.Input[str] resource_id: Resource ID.
         :param pulumi.Input[Union[str, 'SourceType']] source_type: Ingestion source type.
         """
+        IngestionSourcesPropertiesFormatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+            source_type=source_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
 
     @property
     @pulumi.getter(name="resourceId")

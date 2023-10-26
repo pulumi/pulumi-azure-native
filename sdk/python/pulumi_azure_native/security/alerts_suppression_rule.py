@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,54 @@ class AlertsSuppressionRuleArgs:
         :param pulumi.Input[str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
         :param pulumi.Input['SuppressionAlertsScopeArgs'] suppression_alerts_scope: The suppression conditions
         """
-        pulumi.set(__self__, "alert_type", alert_type)
-        pulumi.set(__self__, "reason", reason)
-        pulumi.set(__self__, "state", state)
+        AlertsSuppressionRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_type=alert_type,
+            reason=reason,
+            state=state,
+            alerts_suppression_rule_name=alerts_suppression_rule_name,
+            comment=comment,
+            expiration_date_utc=expiration_date_utc,
+            suppression_alerts_scope=suppression_alerts_scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_type: Optional[pulumi.Input[str]] = None,
+             reason: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'RuleState']]] = None,
+             alerts_suppression_rule_name: Optional[pulumi.Input[str]] = None,
+             comment: Optional[pulumi.Input[str]] = None,
+             expiration_date_utc: Optional[pulumi.Input[str]] = None,
+             suppression_alerts_scope: Optional[pulumi.Input['SuppressionAlertsScopeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alert_type is None and 'alertType' in kwargs:
+            alert_type = kwargs['alertType']
+        if alert_type is None:
+            raise TypeError("Missing 'alert_type' argument")
+        if reason is None:
+            raise TypeError("Missing 'reason' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if alerts_suppression_rule_name is None and 'alertsSuppressionRuleName' in kwargs:
+            alerts_suppression_rule_name = kwargs['alertsSuppressionRuleName']
+        if expiration_date_utc is None and 'expirationDateUtc' in kwargs:
+            expiration_date_utc = kwargs['expirationDateUtc']
+        if suppression_alerts_scope is None and 'suppressionAlertsScope' in kwargs:
+            suppression_alerts_scope = kwargs['suppressionAlertsScope']
+
+        _setter("alert_type", alert_type)
+        _setter("reason", reason)
+        _setter("state", state)
         if alerts_suppression_rule_name is not None:
-            pulumi.set(__self__, "alerts_suppression_rule_name", alerts_suppression_rule_name)
+            _setter("alerts_suppression_rule_name", alerts_suppression_rule_name)
         if comment is not None:
-            pulumi.set(__self__, "comment", comment)
+            _setter("comment", comment)
         if expiration_date_utc is not None:
-            pulumi.set(__self__, "expiration_date_utc", expiration_date_utc)
+            _setter("expiration_date_utc", expiration_date_utc)
         if suppression_alerts_scope is not None:
-            pulumi.set(__self__, "suppression_alerts_scope", suppression_alerts_scope)
+            _setter("suppression_alerts_scope", suppression_alerts_scope)
 
     @property
     @pulumi.getter(name="alertType")
@@ -178,6 +215,10 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlertsSuppressionRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -211,6 +252,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
+            suppression_alerts_scope = _utilities.configure(suppression_alerts_scope, SuppressionAlertsScopeArgs, True)
             __props__.__dict__["suppression_alerts_scope"] = suppression_alerts_scope
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None

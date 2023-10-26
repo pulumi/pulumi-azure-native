@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,19 +35,64 @@ class InventoryItemArgs:
         :param pulumi.Input[str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
         :param pulumi.Input[str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
         """
-        pulumi.set(__self__, "inventory_type", inventory_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vcenter_name", vcenter_name)
+        InventoryItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            inventory_type=inventory_type,
+            resource_group_name=resource_group_name,
+            vcenter_name=vcenter_name,
+            inventory_item_name=inventory_item_name,
+            kind=kind,
+            managed_resource_id=managed_resource_id,
+            mo_name=mo_name,
+            mo_ref_id=mo_ref_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             inventory_type: Optional[pulumi.Input[Union[str, 'InventoryType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vcenter_name: Optional[pulumi.Input[str]] = None,
+             inventory_item_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             managed_resource_id: Optional[pulumi.Input[str]] = None,
+             mo_name: Optional[pulumi.Input[str]] = None,
+             mo_ref_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inventory_type is None and 'inventoryType' in kwargs:
+            inventory_type = kwargs['inventoryType']
+        if inventory_type is None:
+            raise TypeError("Missing 'inventory_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vcenter_name is None and 'vcenterName' in kwargs:
+            vcenter_name = kwargs['vcenterName']
+        if vcenter_name is None:
+            raise TypeError("Missing 'vcenter_name' argument")
+        if inventory_item_name is None and 'inventoryItemName' in kwargs:
+            inventory_item_name = kwargs['inventoryItemName']
+        if managed_resource_id is None and 'managedResourceId' in kwargs:
+            managed_resource_id = kwargs['managedResourceId']
+        if mo_name is None and 'moName' in kwargs:
+            mo_name = kwargs['moName']
+        if mo_ref_id is None and 'moRefId' in kwargs:
+            mo_ref_id = kwargs['moRefId']
+
+        _setter("inventory_type", inventory_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vcenter_name", vcenter_name)
         if inventory_item_name is not None:
-            pulumi.set(__self__, "inventory_item_name", inventory_item_name)
+            _setter("inventory_item_name", inventory_item_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if managed_resource_id is not None:
-            pulumi.set(__self__, "managed_resource_id", managed_resource_id)
+            _setter("managed_resource_id", managed_resource_id)
         if mo_name is not None:
-            pulumi.set(__self__, "mo_name", mo_name)
+            _setter("mo_name", mo_name)
         if mo_ref_id is not None:
-            pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+            _setter("mo_ref_id", mo_ref_id)
 
     @property
     @pulumi.getter(name="inventoryType")
@@ -199,6 +244,10 @@ class InventoryItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InventoryItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

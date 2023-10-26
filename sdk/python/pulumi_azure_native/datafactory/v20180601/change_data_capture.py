@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,21 +40,72 @@ class ChangeDataCaptureArgs:
         :param pulumi.Input['ChangeDataCaptureFolderArgs'] folder: The folder that this CDC is in. If not specified, CDC will appear at the root level.
         :param pulumi.Input[str] status: Status of the CDC as to if it is running or stopped.
         """
-        pulumi.set(__self__, "factory_name", factory_name)
-        pulumi.set(__self__, "policy", policy)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_connections_info", source_connections_info)
-        pulumi.set(__self__, "target_connections_info", target_connections_info)
+        ChangeDataCaptureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            factory_name=factory_name,
+            policy=policy,
+            resource_group_name=resource_group_name,
+            source_connections_info=source_connections_info,
+            target_connections_info=target_connections_info,
+            allow_v_net_override=allow_v_net_override,
+            change_data_capture_name=change_data_capture_name,
+            description=description,
+            folder=folder,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             factory_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input['MapperPolicyArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input['MapperSourceConnectionsInfoArgs']]]] = None,
+             target_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input['MapperTargetConnectionsInfoArgs']]]] = None,
+             allow_v_net_override: Optional[pulumi.Input[bool]] = None,
+             change_data_capture_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input['ChangeDataCaptureFolderArgs']] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if factory_name is None and 'factoryName' in kwargs:
+            factory_name = kwargs['factoryName']
+        if factory_name is None:
+            raise TypeError("Missing 'factory_name' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_connections_info is None and 'sourceConnectionsInfo' in kwargs:
+            source_connections_info = kwargs['sourceConnectionsInfo']
+        if source_connections_info is None:
+            raise TypeError("Missing 'source_connections_info' argument")
+        if target_connections_info is None and 'targetConnectionsInfo' in kwargs:
+            target_connections_info = kwargs['targetConnectionsInfo']
+        if target_connections_info is None:
+            raise TypeError("Missing 'target_connections_info' argument")
+        if allow_v_net_override is None and 'allowVNetOverride' in kwargs:
+            allow_v_net_override = kwargs['allowVNetOverride']
+        if change_data_capture_name is None and 'changeDataCaptureName' in kwargs:
+            change_data_capture_name = kwargs['changeDataCaptureName']
+
+        _setter("factory_name", factory_name)
+        _setter("policy", policy)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_connections_info", source_connections_info)
+        _setter("target_connections_info", target_connections_info)
         if allow_v_net_override is not None:
-            pulumi.set(__self__, "allow_v_net_override", allow_v_net_override)
+            _setter("allow_v_net_override", allow_v_net_override)
         if change_data_capture_name is not None:
-            pulumi.set(__self__, "change_data_capture_name", change_data_capture_name)
+            _setter("change_data_capture_name", change_data_capture_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="factoryName")
@@ -228,6 +279,10 @@ class ChangeDataCapture(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChangeDataCaptureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,7 +313,9 @@ class ChangeDataCapture(pulumi.CustomResource):
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__.__dict__["factory_name"] = factory_name
+            folder = _utilities.configure(folder, ChangeDataCaptureFolderArgs, True)
             __props__.__dict__["folder"] = folder
+            policy = _utilities.configure(policy, MapperPolicyArgs, True)
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy

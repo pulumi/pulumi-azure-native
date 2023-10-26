@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -34,19 +34,56 @@ class PrivateStoreOfferArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
         :param pulumi.Input[bool] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """
-        pulumi.set(__self__, "private_store_id", private_store_id)
+        PrivateStoreOfferArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_store_id=private_store_id,
+            e_tag=e_tag,
+            icon_file_uris=icon_file_uris,
+            offer_id=offer_id,
+            plans=plans,
+            specific_plan_ids_limitation=specific_plan_ids_limitation,
+            update_suppressed_due_idempotence=update_suppressed_due_idempotence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_store_id: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             icon_file_uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             offer_id: Optional[pulumi.Input[str]] = None,
+             plans: Optional[pulumi.Input[Sequence[pulumi.Input['PlanArgs']]]] = None,
+             specific_plan_ids_limitation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             update_suppressed_due_idempotence: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_store_id is None and 'privateStoreId' in kwargs:
+            private_store_id = kwargs['privateStoreId']
+        if private_store_id is None:
+            raise TypeError("Missing 'private_store_id' argument")
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if icon_file_uris is None and 'iconFileUris' in kwargs:
+            icon_file_uris = kwargs['iconFileUris']
+        if offer_id is None and 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+        if specific_plan_ids_limitation is None and 'specificPlanIdsLimitation' in kwargs:
+            specific_plan_ids_limitation = kwargs['specificPlanIdsLimitation']
+        if update_suppressed_due_idempotence is None and 'updateSuppressedDueIdempotence' in kwargs:
+            update_suppressed_due_idempotence = kwargs['updateSuppressedDueIdempotence']
+
+        _setter("private_store_id", private_store_id)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if icon_file_uris is not None:
-            pulumi.set(__self__, "icon_file_uris", icon_file_uris)
+            _setter("icon_file_uris", icon_file_uris)
         if offer_id is not None:
-            pulumi.set(__self__, "offer_id", offer_id)
+            _setter("offer_id", offer_id)
         if plans is not None:
-            pulumi.set(__self__, "plans", plans)
+            _setter("plans", plans)
         if specific_plan_ids_limitation is not None:
-            pulumi.set(__self__, "specific_plan_ids_limitation", specific_plan_ids_limitation)
+            _setter("specific_plan_ids_limitation", specific_plan_ids_limitation)
         if update_suppressed_due_idempotence is not None:
-            pulumi.set(__self__, "update_suppressed_due_idempotence", update_suppressed_due_idempotence)
+            _setter("update_suppressed_due_idempotence", update_suppressed_due_idempotence)
 
     @property
     @pulumi.getter(name="privateStoreId")
@@ -178,6 +215,10 @@ class PrivateStoreOffer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateStoreOfferArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

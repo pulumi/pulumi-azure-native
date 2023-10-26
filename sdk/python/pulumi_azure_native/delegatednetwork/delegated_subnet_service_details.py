@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,48 @@ class DelegatedSubnetServiceDetailsArgs:
         :param pulumi.Input['SubnetDetailsArgs'] subnet_details: subnet details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DelegatedSubnetServiceDetailsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            controller_details=controller_details,
+            location=location,
+            resource_name=resource_name,
+            subnet_details=subnet_details,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             controller_details: Optional[pulumi.Input['ControllerDetailsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             subnet_details: Optional[pulumi.Input['SubnetDetailsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if controller_details is None and 'controllerDetails' in kwargs:
+            controller_details = kwargs['controllerDetails']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if subnet_details is None and 'subnetDetails' in kwargs:
+            subnet_details = kwargs['subnetDetails']
+
+        _setter("resource_group_name", resource_group_name)
         if controller_details is not None:
-            pulumi.set(__self__, "controller_details", controller_details)
+            _setter("controller_details", controller_details)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if subnet_details is not None:
-            pulumi.set(__self__, "subnet_details", subnet_details)
+            _setter("subnet_details", subnet_details)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -165,6 +196,10 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DelegatedSubnetServiceDetailsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -185,12 +220,14 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DelegatedSubnetServiceDetailsArgs.__new__(DelegatedSubnetServiceDetailsArgs)
 
+            controller_details = _utilities.configure(controller_details, ControllerDetailsArgs, True)
             __props__.__dict__["controller_details"] = controller_details
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            subnet_details = _utilities.configure(subnet_details, SubnetDetailsArgs, True)
             __props__.__dict__["subnet_details"] = subnet_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None

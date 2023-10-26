@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,40 +56,119 @@ class ProfileArgs:
         :param pulumi.Input[str] timestamp_field_name: The timestamp property name. Represents the time when the interaction or profile update happened.
         :param pulumi.Input[str] type_name: The name of the entity.
         """
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hub_name=hub_name,
+            resource_group_name=resource_group_name,
+            api_entity_set_name=api_entity_set_name,
+            attributes=attributes,
+            description=description,
+            display_name=display_name,
+            entity_type=entity_type,
+            fields=fields,
+            instances_count=instances_count,
+            large_image=large_image,
+            localized_attributes=localized_attributes,
+            medium_image=medium_image,
+            profile_name=profile_name,
+            schema_item_type_link=schema_item_type_link,
+            small_image=small_image,
+            strong_ids=strong_ids,
+            timestamp_field_name=timestamp_field_name,
+            type_name=type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hub_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             api_entity_set_name: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             entity_type: Optional[pulumi.Input['EntityTypes']] = None,
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input['PropertyDefinitionArgs']]]] = None,
+             instances_count: Optional[pulumi.Input[int]] = None,
+             large_image: Optional[pulumi.Input[str]] = None,
+             localized_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
+             medium_image: Optional[pulumi.Input[str]] = None,
+             profile_name: Optional[pulumi.Input[str]] = None,
+             schema_item_type_link: Optional[pulumi.Input[str]] = None,
+             small_image: Optional[pulumi.Input[str]] = None,
+             strong_ids: Optional[pulumi.Input[Sequence[pulumi.Input['StrongIdArgs']]]] = None,
+             timestamp_field_name: Optional[pulumi.Input[str]] = None,
+             type_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hub_name is None and 'hubName' in kwargs:
+            hub_name = kwargs['hubName']
+        if hub_name is None:
+            raise TypeError("Missing 'hub_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if api_entity_set_name is None and 'apiEntitySetName' in kwargs:
+            api_entity_set_name = kwargs['apiEntitySetName']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if entity_type is None and 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if instances_count is None and 'instancesCount' in kwargs:
+            instances_count = kwargs['instancesCount']
+        if large_image is None and 'largeImage' in kwargs:
+            large_image = kwargs['largeImage']
+        if localized_attributes is None and 'localizedAttributes' in kwargs:
+            localized_attributes = kwargs['localizedAttributes']
+        if medium_image is None and 'mediumImage' in kwargs:
+            medium_image = kwargs['mediumImage']
+        if profile_name is None and 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if schema_item_type_link is None and 'schemaItemTypeLink' in kwargs:
+            schema_item_type_link = kwargs['schemaItemTypeLink']
+        if small_image is None and 'smallImage' in kwargs:
+            small_image = kwargs['smallImage']
+        if strong_ids is None and 'strongIds' in kwargs:
+            strong_ids = kwargs['strongIds']
+        if timestamp_field_name is None and 'timestampFieldName' in kwargs:
+            timestamp_field_name = kwargs['timestampFieldName']
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
+        _setter("hub_name", hub_name)
+        _setter("resource_group_name", resource_group_name)
         if api_entity_set_name is not None:
-            pulumi.set(__self__, "api_entity_set_name", api_entity_set_name)
+            _setter("api_entity_set_name", api_entity_set_name)
         if attributes is not None:
-            pulumi.set(__self__, "attributes", attributes)
+            _setter("attributes", attributes)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if entity_type is not None:
-            pulumi.set(__self__, "entity_type", entity_type)
+            _setter("entity_type", entity_type)
         if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+            _setter("fields", fields)
         if instances_count is not None:
-            pulumi.set(__self__, "instances_count", instances_count)
+            _setter("instances_count", instances_count)
         if large_image is not None:
-            pulumi.set(__self__, "large_image", large_image)
+            _setter("large_image", large_image)
         if localized_attributes is not None:
-            pulumi.set(__self__, "localized_attributes", localized_attributes)
+            _setter("localized_attributes", localized_attributes)
         if medium_image is not None:
-            pulumi.set(__self__, "medium_image", medium_image)
+            _setter("medium_image", medium_image)
         if profile_name is not None:
-            pulumi.set(__self__, "profile_name", profile_name)
+            _setter("profile_name", profile_name)
         if schema_item_type_link is not None:
-            pulumi.set(__self__, "schema_item_type_link", schema_item_type_link)
+            _setter("schema_item_type_link", schema_item_type_link)
         if small_image is not None:
-            pulumi.set(__self__, "small_image", small_image)
+            _setter("small_image", small_image)
         if strong_ids is not None:
-            pulumi.set(__self__, "strong_ids", strong_ids)
+            _setter("strong_ids", strong_ids)
         if timestamp_field_name is not None:
-            pulumi.set(__self__, "timestamp_field_name", timestamp_field_name)
+            _setter("timestamp_field_name", timestamp_field_name)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
 
     @property
     @pulumi.getter(name="hubName")
@@ -377,6 +456,10 @@ class Profile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

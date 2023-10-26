@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,48 @@ class OutboundEndpointArgs:
         :param pulumi.Input[str] outbound_endpoint_name: The name of the outbound endpoint for the DNS resolver.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dns_resolver_name", dns_resolver_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet", subnet)
+        OutboundEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_resolver_name=dns_resolver_name,
+            resource_group_name=resource_group_name,
+            subnet=subnet,
+            location=location,
+            outbound_endpoint_name=outbound_endpoint_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_resolver_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet: Optional[pulumi.Input['SubResourceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             outbound_endpoint_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_resolver_name is None and 'dnsResolverName' in kwargs:
+            dns_resolver_name = kwargs['dnsResolverName']
+        if dns_resolver_name is None:
+            raise TypeError("Missing 'dns_resolver_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet is None:
+            raise TypeError("Missing 'subnet' argument")
+        if outbound_endpoint_name is None and 'outboundEndpointName' in kwargs:
+            outbound_endpoint_name = kwargs['outboundEndpointName']
+
+        _setter("dns_resolver_name", dns_resolver_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subnet", subnet)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if outbound_endpoint_name is not None:
-            pulumi.set(__self__, "outbound_endpoint_name", outbound_endpoint_name)
+            _setter("outbound_endpoint_name", outbound_endpoint_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dnsResolverName")
@@ -163,6 +196,10 @@ class OutboundEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutboundEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -191,6 +228,7 @@ class OutboundEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            subnet = _utilities.configure(subnet, SubResourceArgs, True)
             if subnet is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet'")
             __props__.__dict__["subnet"] = subnet

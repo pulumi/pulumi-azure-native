@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -36,10 +36,29 @@ class AzureResourceErrorInfoResponse(dict):
         :param str message: The error message.
         :param Sequence['AzureResourceErrorInfoResponse'] details: The error details.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        AzureResourceErrorInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+            details=details,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             details: Optional[Sequence['outputs.AzureResourceErrorInfoResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+
+        _setter("code", code)
+        _setter("message", message)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
 
     @property
     @pulumi.getter
@@ -76,14 +95,31 @@ class ExpressionResponse(dict):
         """
         :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         """
+        ExpressionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            subexpressions=subexpressions,
+            text=text,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.AzureResourceErrorInfoResponse'] = None,
+             subexpressions: Optional[Sequence['outputs.ExpressionResponse']] = None,
+             text: Optional[str] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if subexpressions is not None:
-            pulumi.set(__self__, "subexpressions", subexpressions)
+            _setter("subexpressions", subexpressions)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -121,16 +157,35 @@ class ExpressionRootResponse(dict):
         :param 'AzureResourceErrorInfoResponse' error: The azure resource error info.
         :param str path: The path.
         """
+        ExpressionRootResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            path=path,
+            subexpressions=subexpressions,
+            text=text,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.AzureResourceErrorInfoResponse'] = None,
+             path: Optional[str] = None,
+             subexpressions: Optional[Sequence['outputs.ExpressionResponse']] = None,
+             text: Optional[str] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if subexpressions is not None:
-            pulumi.set(__self__, "subexpressions", subexpressions)
+            _setter("subexpressions", subexpressions)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -179,10 +234,29 @@ class ResourceReferenceResponse(dict):
         :param str type: Gets the resource type.
         :param str id: The resource id.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ResourceReferenceResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("name", name)
+        _setter("type", type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -222,9 +296,24 @@ class SkuResponse(dict):
         :param str name: The name.
         :param 'ResourceReferenceResponse' plan: The reference to plan.
         """
-        pulumi.set(__self__, "name", name)
+        SkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            plan=plan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             plan: Optional['outputs.ResourceReferenceResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
 
     @property
     @pulumi.getter
@@ -260,14 +349,31 @@ class WorkflowParameterResponse(dict):
         :param str type: The type.
         :param Any value: The value.
         """
+        WorkflowParameterResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            metadata=metadata,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             metadata: Optional[Any] = None,
+             type: Optional[str] = None,
+             value: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -321,16 +427,37 @@ class WorkflowTriggerListCallbackUrlQueriesResponse(dict):
         :param str sp: The SAS permissions.
         :param str sv: The SAS version.
         """
+        WorkflowTriggerListCallbackUrlQueriesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_version=api_version,
+            se=se,
+            sig=sig,
+            sp=sp,
+            sv=sv,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_version: Optional[str] = None,
+             se: Optional[str] = None,
+             sig: Optional[str] = None,
+             sp: Optional[str] = None,
+             sv: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_version is None and 'apiVersion' in kwargs:
+            api_version = kwargs['apiVersion']
+
         if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
+            _setter("api_version", api_version)
         if se is not None:
-            pulumi.set(__self__, "se", se)
+            _setter("se", se)
         if sig is not None:
-            pulumi.set(__self__, "sig", sig)
+            _setter("sig", sig)
         if sp is not None:
-            pulumi.set(__self__, "sp", sp)
+            _setter("sp", sp)
         if sv is not None:
-            pulumi.set(__self__, "sv", sv)
+            _setter("sv", sv)
 
     @property
     @pulumi.getter(name="apiVersion")

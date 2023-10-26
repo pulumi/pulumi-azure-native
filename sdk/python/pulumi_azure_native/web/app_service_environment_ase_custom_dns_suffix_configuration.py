@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs', 'AppServiceEnvironmentAseCustomDnsSuffixConfiguration']
@@ -29,16 +29,49 @@ class AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs:
         :param pulumi.Input[str] key_vault_reference_identity: The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
         :param pulumi.Input[str] kind: Kind of resource.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            certificate_url=certificate_url,
+            dns_suffix=dns_suffix,
+            key_vault_reference_identity=key_vault_reference_identity,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             certificate_url: Optional[pulumi.Input[str]] = None,
+             dns_suffix: Optional[pulumi.Input[str]] = None,
+             key_vault_reference_identity: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if certificate_url is None and 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+        if dns_suffix is None and 'dnsSuffix' in kwargs:
+            dns_suffix = kwargs['dnsSuffix']
+        if key_vault_reference_identity is None and 'keyVaultReferenceIdentity' in kwargs:
+            key_vault_reference_identity = kwargs['keyVaultReferenceIdentity']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if certificate_url is not None:
-            pulumi.set(__self__, "certificate_url", certificate_url)
+            _setter("certificate_url", certificate_url)
         if dns_suffix is not None:
-            pulumi.set(__self__, "dns_suffix", dns_suffix)
+            _setter("dns_suffix", dns_suffix)
         if key_vault_reference_identity is not None:
-            pulumi.set(__self__, "key_vault_reference_identity", key_vault_reference_identity)
+            _setter("key_vault_reference_identity", key_vault_reference_identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter
@@ -158,6 +191,10 @@ class AppServiceEnvironmentAseCustomDnsSuffixConfiguration(pulumi.CustomResource
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

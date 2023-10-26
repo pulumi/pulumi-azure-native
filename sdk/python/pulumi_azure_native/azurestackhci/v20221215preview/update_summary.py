@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -41,26 +41,79 @@ class UpdateSummaryArgs:
         :param pulumi.Input[str] oem_family: OEM family name.
         :param pulumi.Input[Union[str, 'UpdateSummariesPropertiesState']] state: Overall update state of the stamp.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        UpdateSummaryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            current_oem_version=current_oem_version,
+            current_version=current_version,
+            hardware_model=hardware_model,
+            health_check_date=health_check_date,
+            last_checked=last_checked,
+            last_updated=last_updated,
+            location=location,
+            oem_family=oem_family,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             current_oem_version: Optional[pulumi.Input[str]] = None,
+             current_version: Optional[pulumi.Input[str]] = None,
+             hardware_model: Optional[pulumi.Input[str]] = None,
+             health_check_date: Optional[pulumi.Input[str]] = None,
+             last_checked: Optional[pulumi.Input[str]] = None,
+             last_updated: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             oem_family: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[Union[str, 'UpdateSummariesPropertiesState']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if current_oem_version is None and 'currentOemVersion' in kwargs:
+            current_oem_version = kwargs['currentOemVersion']
+        if current_version is None and 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if hardware_model is None and 'hardwareModel' in kwargs:
+            hardware_model = kwargs['hardwareModel']
+        if health_check_date is None and 'healthCheckDate' in kwargs:
+            health_check_date = kwargs['healthCheckDate']
+        if last_checked is None and 'lastChecked' in kwargs:
+            last_checked = kwargs['lastChecked']
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if oem_family is None and 'oemFamily' in kwargs:
+            oem_family = kwargs['oemFamily']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if current_oem_version is not None:
-            pulumi.set(__self__, "current_oem_version", current_oem_version)
+            _setter("current_oem_version", current_oem_version)
         if current_version is not None:
-            pulumi.set(__self__, "current_version", current_version)
+            _setter("current_version", current_version)
         if hardware_model is not None:
-            pulumi.set(__self__, "hardware_model", hardware_model)
+            _setter("hardware_model", hardware_model)
         if health_check_date is not None:
-            pulumi.set(__self__, "health_check_date", health_check_date)
+            _setter("health_check_date", health_check_date)
         if last_checked is not None:
-            pulumi.set(__self__, "last_checked", last_checked)
+            _setter("last_checked", last_checked)
         if last_updated is not None:
-            pulumi.set(__self__, "last_updated", last_updated)
+            _setter("last_updated", last_updated)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if oem_family is not None:
-            pulumi.set(__self__, "oem_family", oem_family)
+            _setter("oem_family", oem_family)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -248,6 +301,10 @@ class UpdateSummary(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UpdateSummaryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

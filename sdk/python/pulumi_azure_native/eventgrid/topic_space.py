@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -32,14 +32,45 @@ class TopicSpaceArgs:
                              "devices/topic1/+",
                              "devices/${principal.name}/${principal.attributes.keyName}" ].
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TopicSpaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            topic_space_name=topic_space_name,
+            topic_templates=topic_templates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             topic_space_name: Optional[pulumi.Input[str]] = None,
+             topic_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if topic_space_name is None and 'topicSpaceName' in kwargs:
+            topic_space_name = kwargs['topicSpaceName']
+        if topic_templates is None and 'topicTemplates' in kwargs:
+            topic_templates = kwargs['topicTemplates']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if topic_space_name is not None:
-            pulumi.set(__self__, "topic_space_name", topic_space_name)
+            _setter("topic_space_name", topic_space_name)
         if topic_templates is not None:
-            pulumi.set(__self__, "topic_templates", topic_templates)
+            _setter("topic_templates", topic_templates)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -153,6 +184,10 @@ class TopicSpace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicSpaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

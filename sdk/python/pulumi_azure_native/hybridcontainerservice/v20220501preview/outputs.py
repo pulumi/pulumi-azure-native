@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -91,18 +91,49 @@ class AADProfileResponseResponse(dict):
         :param str server_app_id: The server AAD application ID.
         :param str tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
         """
+        AADProfileResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_group_object_ids=admin_group_object_ids,
+            client_app_id=client_app_id,
+            enable_azure_rbac=enable_azure_rbac,
+            managed=managed,
+            server_app_id=server_app_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_group_object_ids: Optional[Sequence[str]] = None,
+             client_app_id: Optional[str] = None,
+             enable_azure_rbac: Optional[bool] = None,
+             managed: Optional[bool] = None,
+             server_app_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_group_object_ids is None and 'adminGroupObjectIDs' in kwargs:
+            admin_group_object_ids = kwargs['adminGroupObjectIDs']
+        if client_app_id is None and 'clientAppID' in kwargs:
+            client_app_id = kwargs['clientAppID']
+        if enable_azure_rbac is None and 'enableAzureRbac' in kwargs:
+            enable_azure_rbac = kwargs['enableAzureRbac']
+        if server_app_id is None and 'serverAppID' in kwargs:
+            server_app_id = kwargs['serverAppID']
+        if tenant_id is None and 'tenantID' in kwargs:
+            tenant_id = kwargs['tenantID']
+
         if admin_group_object_ids is not None:
-            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+            _setter("admin_group_object_ids", admin_group_object_ids)
         if client_app_id is not None:
-            pulumi.set(__self__, "client_app_id", client_app_id)
+            _setter("client_app_id", client_app_id)
         if enable_azure_rbac is not None:
-            pulumi.set(__self__, "enable_azure_rbac", enable_azure_rbac)
+            _setter("enable_azure_rbac", enable_azure_rbac)
         if managed is not None:
-            pulumi.set(__self__, "managed", managed)
+            _setter("managed", managed)
         if server_app_id is not None:
-            pulumi.set(__self__, "server_app_id", server_app_id)
+            _setter("server_app_id", server_app_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="adminGroupObjectIDs")
@@ -166,10 +197,23 @@ class AddonProfilesResponse(dict):
         :param Mapping[str, str] config: Config - Key-value pairs for configuring an add-on.
         :param bool enabled: Enabled - Whether the add-on is enabled or not.
         """
+        AddonProfilesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            config=config,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             config: Optional[Mapping[str, str]] = None,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if config is not None:
-            pulumi.set(__self__, "config", config)
+            _setter("config", config)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -219,12 +263,29 @@ class AddonStatusResponse(dict):
         :param str error_message: ErrorMessage will be set in the event that there is a terminal problem reconciling the AddOn and will contain a more verbose string suitable for logging and human consumption.
         :param str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
         """
+        AddonStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            phase=phase,
+            ready=ready,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: Optional[str] = None,
+             phase: Optional[str] = None,
+             ready: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if phase is not None:
-            pulumi.set(__self__, "phase", phase)
+            _setter("phase", phase)
         if ready is not None:
-            pulumi.set(__self__, "ready", ready)
+            _setter("ready", ready)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -253,10 +314,23 @@ class AgentPoolProvisioningStatusResponseError(dict):
     def __init__(__self__, *,
                  code: Optional[str] = None,
                  message: Optional[str] = None):
+        AgentPoolProvisioningStatusResponseError._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -300,14 +374,33 @@ class AgentPoolProvisioningStatusResponseProvisioningStatus(dict):
         Contains Provisioning errors
         :param str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
         """
+        AgentPoolProvisioningStatusResponseProvisioningStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            operation_id=operation_id,
+            phase=phase,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.AgentPoolProvisioningStatusResponseError'] = None,
+             operation_id: Optional[str] = None,
+             phase: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operation_id is None and 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if operation_id is not None:
-            pulumi.set(__self__, "operation_id", operation_id)
+            _setter("operation_id", operation_id)
         if phase is not None:
-            pulumi.set(__self__, "phase", phase)
+            _setter("phase", phase)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -371,14 +464,37 @@ class AgentPoolProvisioningStatusResponseStatus(dict):
         :param int ready_replicas: Total number of ready machines targeted by this deployment.
         :param int replicas: Total number of non-terminated machines targeted by this deployment
         """
+        AgentPoolProvisioningStatusResponseStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error_message=error_message,
+            provisioning_status=provisioning_status,
+            ready_replicas=ready_replicas,
+            replicas=replicas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error_message: Optional[str] = None,
+             provisioning_status: Optional['outputs.AgentPoolProvisioningStatusResponseProvisioningStatus'] = None,
+             ready_replicas: Optional[int] = None,
+             replicas: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if provisioning_status is None and 'provisioningStatus' in kwargs:
+            provisioning_status = kwargs['provisioningStatus']
+        if ready_replicas is None and 'readyReplicas' in kwargs:
+            ready_replicas = kwargs['readyReplicas']
+
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if provisioning_status is not None:
-            pulumi.set(__self__, "provisioning_status", provisioning_status)
+            _setter("provisioning_status", provisioning_status)
         if ready_replicas is not None:
-            pulumi.set(__self__, "ready_replicas", ready_replicas)
+            _setter("ready_replicas", ready_replicas)
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -422,10 +538,23 @@ class AgentPoolResponseExtendedLocation(dict):
         :param str name: The extended location name.
         :param str type: The extended location type.
         """
+        AgentPoolResponseExtendedLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -476,12 +605,29 @@ class ArcAgentProfileResponse(dict):
         :param str agent_auto_upgrade: Indicates whether the Arc agents on the provisioned clusters be upgraded automatically to the latest version. Defaults to Enabled.
         :param str agent_version: Version of the Arc agents to be installed on the provisioned Provisioned cluster resource
         """
+        ArcAgentProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_auto_upgrade=agent_auto_upgrade,
+            agent_version=agent_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_auto_upgrade: Optional[str] = None,
+             agent_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_auto_upgrade is None and 'agentAutoUpgrade' in kwargs:
+            agent_auto_upgrade = kwargs['agentAutoUpgrade']
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+
         if agent_auto_upgrade is None:
             agent_auto_upgrade = 'Enabled'
         if agent_auto_upgrade is not None:
-            pulumi.set(__self__, "agent_auto_upgrade", agent_auto_upgrade)
+            _setter("agent_auto_upgrade", agent_auto_upgrade)
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
 
     @property
     @pulumi.getter(name="agentAutoUpgrade")
@@ -552,20 +698,57 @@ class ArcAgentStatusResponse(dict):
         :param str managed_identity_certificate_expiration_time: ManagedIdentity certificate expiration time (ValidUntil).
         :param str onboarding_public_key: Onboarding public key for provisioning the Managed identity for the HybridAKS cluster. Will be used to create the hybridIdentityMetadata proxy resource and will not be persisted.
         """
+        ArcAgentStatusResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_version=agent_version,
+            core_count=core_count,
+            deployment_state=deployment_state,
+            error_message=error_message,
+            last_connectivity_time=last_connectivity_time,
+            managed_identity_certificate_expiration_time=managed_identity_certificate_expiration_time,
+            onboarding_public_key=onboarding_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_version: Optional[str] = None,
+             core_count: Optional[float] = None,
+             deployment_state: Optional[str] = None,
+             error_message: Optional[str] = None,
+             last_connectivity_time: Optional[str] = None,
+             managed_identity_certificate_expiration_time: Optional[str] = None,
+             onboarding_public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if core_count is None and 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if deployment_state is None and 'deploymentState' in kwargs:
+            deployment_state = kwargs['deploymentState']
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if last_connectivity_time is None and 'lastConnectivityTime' in kwargs:
+            last_connectivity_time = kwargs['lastConnectivityTime']
+        if managed_identity_certificate_expiration_time is None and 'managedIdentityCertificateExpirationTime' in kwargs:
+            managed_identity_certificate_expiration_time = kwargs['managedIdentityCertificateExpirationTime']
+        if onboarding_public_key is None and 'onboardingPublicKey' in kwargs:
+            onboarding_public_key = kwargs['onboardingPublicKey']
+
         if agent_version is not None:
-            pulumi.set(__self__, "agent_version", agent_version)
+            _setter("agent_version", agent_version)
         if core_count is not None:
-            pulumi.set(__self__, "core_count", core_count)
+            _setter("core_count", core_count)
         if deployment_state is not None:
-            pulumi.set(__self__, "deployment_state", deployment_state)
+            _setter("deployment_state", deployment_state)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if last_connectivity_time is not None:
-            pulumi.set(__self__, "last_connectivity_time", last_connectivity_time)
+            _setter("last_connectivity_time", last_connectivity_time)
         if managed_identity_certificate_expiration_time is not None:
-            pulumi.set(__self__, "managed_identity_certificate_expiration_time", managed_identity_certificate_expiration_time)
+            _setter("managed_identity_certificate_expiration_time", managed_identity_certificate_expiration_time)
         if onboarding_public_key is not None:
-            pulumi.set(__self__, "onboarding_public_key", onboarding_public_key)
+            _setter("onboarding_public_key", onboarding_public_key)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -656,10 +839,27 @@ class CloudProviderProfileResponse(dict):
         :param 'CloudProviderProfileResponseInfraNetworkProfile' infra_network_profile: InfraNetworkProfile - List of infra network profiles for the provisioned cluster
         :param 'CloudProviderProfileResponseInfraStorageProfile' infra_storage_profile: InfraStorageProfile - List of infra storage profiles for the provisioned cluster
         """
+        CloudProviderProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            infra_network_profile=infra_network_profile,
+            infra_storage_profile=infra_storage_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             infra_network_profile: Optional['outputs.CloudProviderProfileResponseInfraNetworkProfile'] = None,
+             infra_storage_profile: Optional['outputs.CloudProviderProfileResponseInfraStorageProfile'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if infra_network_profile is None and 'infraNetworkProfile' in kwargs:
+            infra_network_profile = kwargs['infraNetworkProfile']
+        if infra_storage_profile is None and 'infraStorageProfile' in kwargs:
+            infra_storage_profile = kwargs['infraStorageProfile']
+
         if infra_network_profile is not None:
-            pulumi.set(__self__, "infra_network_profile", infra_network_profile)
+            _setter("infra_network_profile", infra_network_profile)
         if infra_storage_profile is not None:
-            pulumi.set(__self__, "infra_storage_profile", infra_storage_profile)
+            _setter("infra_storage_profile", infra_storage_profile)
 
     @property
     @pulumi.getter(name="infraNetworkProfile")
@@ -706,8 +906,21 @@ class CloudProviderProfileResponseInfraNetworkProfile(dict):
         InfraNetworkProfile - List of infra network profiles for the provisioned cluster
         :param Sequence[str] vnet_subnet_ids: Array of references to azure resource corresponding to the new HybridAKSNetwork object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/virtualNetworks/{virtualNetworkName}
         """
+        CloudProviderProfileResponseInfraNetworkProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            vnet_subnet_ids=vnet_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             vnet_subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vnet_subnet_ids is None and 'vnetSubnetIds' in kwargs:
+            vnet_subnet_ids = kwargs['vnetSubnetIds']
+
         if vnet_subnet_ids is not None:
-            pulumi.set(__self__, "vnet_subnet_ids", vnet_subnet_ids)
+            _setter("vnet_subnet_ids", vnet_subnet_ids)
 
     @property
     @pulumi.getter(name="vnetSubnetIds")
@@ -746,8 +959,21 @@ class CloudProviderProfileResponseInfraStorageProfile(dict):
         InfraStorageProfile - List of infra storage profiles for the provisioned cluster
         :param Sequence[str] storage_space_ids: Reference to azure resource corresponding to the new HybridAKSStorage object e.g. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/storageSpaces/{storageSpaceName}
         """
+        CloudProviderProfileResponseInfraStorageProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_space_ids=storage_space_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_space_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_space_ids is None and 'storageSpaceIds' in kwargs:
+            storage_space_ids = kwargs['storageSpaceIds']
+
         if storage_space_ids is not None:
-            pulumi.set(__self__, "storage_space_ids", storage_space_ids)
+            _setter("storage_space_ids", storage_space_ids)
 
     @property
     @pulumi.getter(name="storageSpaceIds")
@@ -788,10 +1014,25 @@ class ControlPlaneEndpointProfileResponseControlPlaneEndpoint(dict):
         :param str host_ip: Host IP address for API server
         :param str port: Port for the API server
         """
+        ControlPlaneEndpointProfileResponseControlPlaneEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_ip=host_ip,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_ip: Optional[str] = None,
+             port: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host_ip is None and 'hostIP' in kwargs:
+            host_ip = kwargs['hostIP']
+
         if host_ip is not None:
-            pulumi.set(__self__, "host_ip", host_ip)
+            _setter("host_ip", host_ip)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="hostIP")
@@ -888,42 +1129,105 @@ class ControlPlaneProfileResponse(dict):
         :param str os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
         :param str vm_size: VmSize - The size of the agent pool VMs.
         """
+        ControlPlaneProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zones=availability_zones,
+            cloud_provider_profile=cloud_provider_profile,
+            control_plane_endpoint=control_plane_endpoint,
+            count=count,
+            linux_profile=linux_profile,
+            max_count=max_count,
+            max_pods=max_pods,
+            min_count=min_count,
+            mode=mode,
+            name=name,
+            node_image_version=node_image_version,
+            node_labels=node_labels,
+            node_taints=node_taints,
+            os_type=os_type,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zones: Optional[Sequence[str]] = None,
+             cloud_provider_profile: Optional['outputs.CloudProviderProfileResponse'] = None,
+             control_plane_endpoint: Optional['outputs.ControlPlaneEndpointProfileResponseControlPlaneEndpoint'] = None,
+             count: Optional[int] = None,
+             linux_profile: Optional['outputs.LinuxProfilePropertiesResponse'] = None,
+             max_count: Optional[int] = None,
+             max_pods: Optional[int] = None,
+             min_count: Optional[int] = None,
+             mode: Optional[str] = None,
+             name: Optional[str] = None,
+             node_image_version: Optional[str] = None,
+             node_labels: Optional[Mapping[str, str]] = None,
+             node_taints: Optional[Sequence[str]] = None,
+             os_type: Optional[str] = None,
+             vm_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if cloud_provider_profile is None and 'cloudProviderProfile' in kwargs:
+            cloud_provider_profile = kwargs['cloudProviderProfile']
+        if control_plane_endpoint is None and 'controlPlaneEndpoint' in kwargs:
+            control_plane_endpoint = kwargs['controlPlaneEndpoint']
+        if linux_profile is None and 'linuxProfile' in kwargs:
+            linux_profile = kwargs['linuxProfile']
+        if max_count is None and 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+        if max_pods is None and 'maxPods' in kwargs:
+            max_pods = kwargs['maxPods']
+        if min_count is None and 'minCount' in kwargs:
+            min_count = kwargs['minCount']
+        if node_image_version is None and 'nodeImageVersion' in kwargs:
+            node_image_version = kwargs['nodeImageVersion']
+        if node_labels is None and 'nodeLabels' in kwargs:
+            node_labels = kwargs['nodeLabels']
+        if node_taints is None and 'nodeTaints' in kwargs:
+            node_taints = kwargs['nodeTaints']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
+            _setter("cloud_provider_profile", cloud_provider_profile)
         if control_plane_endpoint is not None:
-            pulumi.set(__self__, "control_plane_endpoint", control_plane_endpoint)
+            _setter("control_plane_endpoint", control_plane_endpoint)
         if count is None:
             count = 1
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
+            _setter("linux_profile", linux_profile)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if mode is None:
             mode = 'User'
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_image_version is not None:
-            pulumi.set(__self__, "node_image_version", node_image_version)
+            _setter("node_image_version", node_image_version)
         if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
+            _setter("node_labels", node_labels)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if os_type is None:
             os_type = 'Linux'
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1088,16 +1392,43 @@ class HttpProxyConfigResponseResponse(dict):
         :param str trusted_ca: Alternative CA cert to use for connecting to proxy servers.
         :param str username: Username to use for connecting to proxy server
         """
+        HttpProxyConfigResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_proxy=http_proxy,
+            https_proxy=https_proxy,
+            no_proxy=no_proxy,
+            trusted_ca=trusted_ca,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_proxy: Optional[str] = None,
+             https_proxy: Optional[str] = None,
+             no_proxy: Optional[Sequence[str]] = None,
+             trusted_ca: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_proxy is None and 'httpProxy' in kwargs:
+            http_proxy = kwargs['httpProxy']
+        if https_proxy is None and 'httpsProxy' in kwargs:
+            https_proxy = kwargs['httpsProxy']
+        if no_proxy is None and 'noProxy' in kwargs:
+            no_proxy = kwargs['noProxy']
+        if trusted_ca is None and 'trustedCa' in kwargs:
+            trusted_ca = kwargs['trustedCa']
+
         if http_proxy is not None:
-            pulumi.set(__self__, "http_proxy", http_proxy)
+            _setter("http_proxy", http_proxy)
         if https_proxy is not None:
-            pulumi.set(__self__, "https_proxy", https_proxy)
+            _setter("https_proxy", https_proxy)
         if no_proxy is not None:
-            pulumi.set(__self__, "no_proxy", no_proxy)
+            _setter("no_proxy", no_proxy)
         if trusted_ca is not None:
-            pulumi.set(__self__, "trusted_ca", trusted_ca)
+            _setter("trusted_ca", trusted_ca)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="httpProxy")
@@ -1170,10 +1501,25 @@ class LinuxProfilePropertiesResponse(dict):
         :param str admin_username: AdminUsername - The administrator username to use for Linux VMs.
         :param 'LinuxProfilePropertiesResponseSsh' ssh: SSH - SSH configuration for Linux-based VMs running on Azure.
         """
+        LinuxProfilePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            ssh=ssh,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: Optional[str] = None,
+             ssh: Optional['outputs.LinuxProfilePropertiesResponseSsh'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if ssh is not None:
-            pulumi.set(__self__, "ssh", ssh)
+            _setter("ssh", ssh)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -1216,8 +1562,21 @@ class LinuxProfilePropertiesResponsePublicKeys(dict):
         """
         :param str key_data: KeyData - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
         """
+        LinuxProfilePropertiesResponsePublicKeys._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_data=key_data,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_data: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_data is None and 'keyData' in kwargs:
+            key_data = kwargs['keyData']
+
         if key_data is not None:
-            pulumi.set(__self__, "key_data", key_data)
+            _setter("key_data", key_data)
 
     @property
     @pulumi.getter(name="keyData")
@@ -1256,8 +1615,21 @@ class LinuxProfilePropertiesResponseSsh(dict):
         SSH - SSH configuration for Linux-based VMs running on Azure.
         :param Sequence['LinuxProfilePropertiesResponsePublicKeys'] public_keys: PublicKeys - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
+        LinuxProfilePropertiesResponseSsh._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_keys=public_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_keys: Optional[Sequence['outputs.LinuxProfilePropertiesResponsePublicKeys']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_keys is None and 'publicKeys' in kwargs:
+            public_keys = kwargs['publicKeys']
+
         if public_keys is not None:
-            pulumi.set(__self__, "public_keys", public_keys)
+            _setter("public_keys", public_keys)
 
     @property
     @pulumi.getter(name="publicKeys")
@@ -1342,40 +1714,99 @@ class LoadBalancerProfileResponse(dict):
         :param str os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
         :param str vm_size: VmSize - The size of the agent pool VMs.
         """
+        LoadBalancerProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zones=availability_zones,
+            cloud_provider_profile=cloud_provider_profile,
+            count=count,
+            linux_profile=linux_profile,
+            max_count=max_count,
+            max_pods=max_pods,
+            min_count=min_count,
+            mode=mode,
+            name=name,
+            node_image_version=node_image_version,
+            node_labels=node_labels,
+            node_taints=node_taints,
+            os_type=os_type,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zones: Optional[Sequence[str]] = None,
+             cloud_provider_profile: Optional['outputs.CloudProviderProfileResponse'] = None,
+             count: Optional[int] = None,
+             linux_profile: Optional['outputs.LinuxProfilePropertiesResponse'] = None,
+             max_count: Optional[int] = None,
+             max_pods: Optional[int] = None,
+             min_count: Optional[int] = None,
+             mode: Optional[str] = None,
+             name: Optional[str] = None,
+             node_image_version: Optional[str] = None,
+             node_labels: Optional[Mapping[str, str]] = None,
+             node_taints: Optional[Sequence[str]] = None,
+             os_type: Optional[str] = None,
+             vm_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if cloud_provider_profile is None and 'cloudProviderProfile' in kwargs:
+            cloud_provider_profile = kwargs['cloudProviderProfile']
+        if linux_profile is None and 'linuxProfile' in kwargs:
+            linux_profile = kwargs['linuxProfile']
+        if max_count is None and 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+        if max_pods is None and 'maxPods' in kwargs:
+            max_pods = kwargs['maxPods']
+        if min_count is None and 'minCount' in kwargs:
+            min_count = kwargs['minCount']
+        if node_image_version is None and 'nodeImageVersion' in kwargs:
+            node_image_version = kwargs['nodeImageVersion']
+        if node_labels is None and 'nodeLabels' in kwargs:
+            node_labels = kwargs['nodeLabels']
+        if node_taints is None and 'nodeTaints' in kwargs:
+            node_taints = kwargs['nodeTaints']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
+            _setter("cloud_provider_profile", cloud_provider_profile)
         if count is None:
             count = 1
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
+            _setter("linux_profile", linux_profile)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if mode is None:
             mode = 'User'
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_image_version is not None:
-            pulumi.set(__self__, "node_image_version", node_image_version)
+            _setter("node_image_version", node_image_version)
         if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
+            _setter("node_labels", node_labels)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if os_type is None:
             os_type = 'Linux'
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1560,38 +1991,93 @@ class NamedAgentPoolProfileResponse(dict):
         :param str os_type: OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
         :param str vm_size: VmSize - The size of the agent pool VMs.
         """
+        NamedAgentPoolProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_zones=availability_zones,
+            cloud_provider_profile=cloud_provider_profile,
+            count=count,
+            max_count=max_count,
+            max_pods=max_pods,
+            min_count=min_count,
+            mode=mode,
+            name=name,
+            node_image_version=node_image_version,
+            node_labels=node_labels,
+            node_taints=node_taints,
+            os_type=os_type,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_zones: Optional[Sequence[str]] = None,
+             cloud_provider_profile: Optional['outputs.CloudProviderProfileResponse'] = None,
+             count: Optional[int] = None,
+             max_count: Optional[int] = None,
+             max_pods: Optional[int] = None,
+             min_count: Optional[int] = None,
+             mode: Optional[str] = None,
+             name: Optional[str] = None,
+             node_image_version: Optional[str] = None,
+             node_labels: Optional[Mapping[str, str]] = None,
+             node_taints: Optional[Sequence[str]] = None,
+             os_type: Optional[str] = None,
+             vm_size: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if cloud_provider_profile is None and 'cloudProviderProfile' in kwargs:
+            cloud_provider_profile = kwargs['cloudProviderProfile']
+        if max_count is None and 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+        if max_pods is None and 'maxPods' in kwargs:
+            max_pods = kwargs['maxPods']
+        if min_count is None and 'minCount' in kwargs:
+            min_count = kwargs['minCount']
+        if node_image_version is None and 'nodeImageVersion' in kwargs:
+            node_image_version = kwargs['nodeImageVersion']
+        if node_labels is None and 'nodeLabels' in kwargs:
+            node_labels = kwargs['nodeLabels']
+        if node_taints is None and 'nodeTaints' in kwargs:
+            node_taints = kwargs['nodeTaints']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
+            _setter("cloud_provider_profile", cloud_provider_profile)
         if count is None:
             count = 1
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if mode is None:
             mode = 'User'
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_image_version is not None:
-            pulumi.set(__self__, "node_image_version", node_image_version)
+            _setter("node_image_version", node_image_version)
         if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
+            _setter("node_labels", node_labels)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if os_type is None:
             os_type = 'Linux'
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1754,26 +2240,67 @@ class NetworkProfileResponse(dict):
         :param str service_cidr: ServiceCidr - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         :param Sequence[str] service_cidrs: The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
         """
+        NetworkProfileResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_service_ip=dns_service_ip,
+            load_balancer_profile=load_balancer_profile,
+            load_balancer_sku=load_balancer_sku,
+            network_policy=network_policy,
+            pod_cidr=pod_cidr,
+            pod_cidrs=pod_cidrs,
+            service_cidr=service_cidr,
+            service_cidrs=service_cidrs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_service_ip: Optional[str] = None,
+             load_balancer_profile: Optional['outputs.LoadBalancerProfileResponse'] = None,
+             load_balancer_sku: Optional[str] = None,
+             network_policy: Optional[str] = None,
+             pod_cidr: Optional[str] = None,
+             pod_cidrs: Optional[Sequence[str]] = None,
+             service_cidr: Optional[str] = None,
+             service_cidrs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_service_ip is None and 'dnsServiceIP' in kwargs:
+            dns_service_ip = kwargs['dnsServiceIP']
+        if load_balancer_profile is None and 'loadBalancerProfile' in kwargs:
+            load_balancer_profile = kwargs['loadBalancerProfile']
+        if load_balancer_sku is None and 'loadBalancerSku' in kwargs:
+            load_balancer_sku = kwargs['loadBalancerSku']
+        if network_policy is None and 'networkPolicy' in kwargs:
+            network_policy = kwargs['networkPolicy']
+        if pod_cidr is None and 'podCidr' in kwargs:
+            pod_cidr = kwargs['podCidr']
+        if pod_cidrs is None and 'podCidrs' in kwargs:
+            pod_cidrs = kwargs['podCidrs']
+        if service_cidr is None and 'serviceCidr' in kwargs:
+            service_cidr = kwargs['serviceCidr']
+        if service_cidrs is None and 'serviceCidrs' in kwargs:
+            service_cidrs = kwargs['serviceCidrs']
+
         if dns_service_ip is not None:
-            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+            _setter("dns_service_ip", dns_service_ip)
         if load_balancer_profile is not None:
-            pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
+            _setter("load_balancer_profile", load_balancer_profile)
         if load_balancer_sku is None:
             load_balancer_sku = 'unmanaged'
         if load_balancer_sku is not None:
-            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+            _setter("load_balancer_sku", load_balancer_sku)
         if network_policy is None:
             network_policy = 'calico'
         if network_policy is not None:
-            pulumi.set(__self__, "network_policy", network_policy)
+            _setter("network_policy", network_policy)
         if pod_cidr is not None:
-            pulumi.set(__self__, "pod_cidr", pod_cidr)
+            _setter("pod_cidr", pod_cidr)
         if pod_cidrs is not None:
-            pulumi.set(__self__, "pod_cidrs", pod_cidrs)
+            _setter("pod_cidrs", pod_cidrs)
         if service_cidr is not None:
-            pulumi.set(__self__, "service_cidr", service_cidr)
+            _setter("service_cidr", service_cidr)
         if service_cidrs is not None:
-            pulumi.set(__self__, "service_cidrs", service_cidrs)
+            _setter("service_cidrs", service_cidrs)
 
     @property
     @pulumi.getter(name="dnsServiceIP")
@@ -1874,9 +2401,34 @@ class ProvisionedClusterIdentityResponse(dict):
         :param str tenant_id: The tenant id associated with the provisioned cluster. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the provisioned cluster. The type SystemAssigned, includes a system created identity. The type None means no identity is assigned to the provisioned cluster.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        ProvisionedClusterIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1908,10 +2460,23 @@ class ProvisionedClustersCommonPropertiesResponseError(dict):
     def __init__(__self__, *,
                  code: Optional[str] = None,
                  message: Optional[str] = None):
+        ProvisionedClustersCommonPropertiesResponseError._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -1952,8 +2517,21 @@ class ProvisionedClustersCommonPropertiesResponseFeatures(dict):
         Additional features specs like Arc Agent Onboarding.
         :param 'ArcAgentProfileResponse' arc_agent_profile: Arc agentry configuration for the provisioned cluster.
         """
+        ProvisionedClustersCommonPropertiesResponseFeatures._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arc_agent_profile=arc_agent_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arc_agent_profile: Optional['outputs.ArcAgentProfileResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arc_agent_profile is None and 'arcAgentProfile' in kwargs:
+            arc_agent_profile = kwargs['arcAgentProfile']
+
         if arc_agent_profile is not None:
-            pulumi.set(__self__, "arc_agent_profile", arc_agent_profile)
+            _setter("arc_agent_profile", arc_agent_profile)
 
     @property
     @pulumi.getter(name="arcAgentProfile")
@@ -1992,8 +2570,21 @@ class ProvisionedClustersCommonPropertiesResponseFeaturesStatus(dict):
         Additional features status like Arc Agent Onboarding.
         :param 'ArcAgentStatusResponse' arc_agent_status: Defines the observed Arc Agent status that is resourceSynced back to the ARM resource.
         """
+        ProvisionedClustersCommonPropertiesResponseFeaturesStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            arc_agent_status=arc_agent_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             arc_agent_status: Optional['outputs.ArcAgentStatusResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arc_agent_status is None and 'arcAgentStatus' in kwargs:
+            arc_agent_status = kwargs['arcAgentStatus']
+
         if arc_agent_status is not None:
-            pulumi.set(__self__, "arc_agent_status", arc_agent_status)
+            _setter("arc_agent_status", arc_agent_status)
 
     @property
     @pulumi.getter(name="arcAgentStatus")
@@ -2035,14 +2626,33 @@ class ProvisionedClustersCommonPropertiesResponseProvisioningStatus(dict):
         Contains Provisioning errors
         :param str phase: Phase represents the current phase of cluster actuation. E.g. Pending, Running, Terminating, Failed etc.
         """
+        ProvisionedClustersCommonPropertiesResponseProvisioningStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            operation_id=operation_id,
+            phase=phase,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ProvisionedClustersCommonPropertiesResponseError'] = None,
+             operation_id: Optional[str] = None,
+             phase: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operation_id is None and 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if operation_id is not None:
-            pulumi.set(__self__, "operation_id", operation_id)
+            _setter("operation_id", operation_id)
         if phase is not None:
-            pulumi.set(__self__, "phase", phase)
+            _setter("phase", phase)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter
@@ -2108,14 +2718,39 @@ class ProvisionedClustersCommonPropertiesResponseStatus(dict):
         :param 'ProvisionedClustersCommonPropertiesResponseFeaturesStatus' features_status: Additional features status like Arc Agent Onboarding.
         :param 'ProvisionedClustersCommonPropertiesResponseProvisioningStatus' provisioning_status: Contains Provisioning errors
         """
+        ProvisionedClustersCommonPropertiesResponseStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addon_status=addon_status,
+            error_message=error_message,
+            features_status=features_status,
+            provisioning_status=provisioning_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addon_status: Optional[Mapping[str, 'outputs.AddonStatusResponse']] = None,
+             error_message: Optional[str] = None,
+             features_status: Optional['outputs.ProvisionedClustersCommonPropertiesResponseFeaturesStatus'] = None,
+             provisioning_status: Optional['outputs.ProvisionedClustersCommonPropertiesResponseProvisioningStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if addon_status is None and 'addonStatus' in kwargs:
+            addon_status = kwargs['addonStatus']
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if features_status is None and 'featuresStatus' in kwargs:
+            features_status = kwargs['featuresStatus']
+        if provisioning_status is None and 'provisioningStatus' in kwargs:
+            provisioning_status = kwargs['provisioningStatus']
+
         if addon_status is not None:
-            pulumi.set(__self__, "addon_status", addon_status)
+            _setter("addon_status", addon_status)
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if features_status is not None:
-            pulumi.set(__self__, "features_status", features_status)
+            _setter("features_status", features_status)
         if provisioning_status is not None:
-            pulumi.set(__self__, "provisioning_status", provisioning_status)
+            _setter("provisioning_status", provisioning_status)
 
     @property
     @pulumi.getter(name="addonStatus")
@@ -2225,34 +2860,103 @@ class ProvisionedClustersResponsePropertiesResponse(dict):
         :param str node_resource_group: NodeResourceGroup - Name of the resource group containing agent pool nodes.
         :param 'WindowsProfileResponseResponse' windows_profile: WindowsProfile - Profile for Windows VMs in the Provisioned Cluster.
         """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "status", status)
+        ProvisionedClustersResponsePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_state=provisioning_state,
+            status=status,
+            aad_profile=aad_profile,
+            addon_profiles=addon_profiles,
+            agent_pool_profiles=agent_pool_profiles,
+            cloud_provider_profile=cloud_provider_profile,
+            control_plane=control_plane,
+            enable_rbac=enable_rbac,
+            features=features,
+            http_proxy_config=http_proxy_config,
+            kubernetes_version=kubernetes_version,
+            linux_profile=linux_profile,
+            network_profile=network_profile,
+            node_resource_group=node_resource_group,
+            windows_profile=windows_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_state: Optional[str] = None,
+             status: Optional['outputs.ProvisionedClustersCommonPropertiesResponseStatus'] = None,
+             aad_profile: Optional['outputs.AADProfileResponseResponse'] = None,
+             addon_profiles: Optional[Mapping[str, 'outputs.AddonProfilesResponse']] = None,
+             agent_pool_profiles: Optional[Sequence['outputs.NamedAgentPoolProfileResponse']] = None,
+             cloud_provider_profile: Optional['outputs.CloudProviderProfileResponse'] = None,
+             control_plane: Optional['outputs.ControlPlaneProfileResponse'] = None,
+             enable_rbac: Optional[bool] = None,
+             features: Optional['outputs.ProvisionedClustersCommonPropertiesResponseFeatures'] = None,
+             http_proxy_config: Optional['outputs.HttpProxyConfigResponseResponse'] = None,
+             kubernetes_version: Optional[str] = None,
+             linux_profile: Optional['outputs.LinuxProfilePropertiesResponse'] = None,
+             network_profile: Optional['outputs.NetworkProfileResponse'] = None,
+             node_resource_group: Optional[str] = None,
+             windows_profile: Optional['outputs.WindowsProfileResponseResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if aad_profile is None and 'aadProfile' in kwargs:
+            aad_profile = kwargs['aadProfile']
+        if addon_profiles is None and 'addonProfiles' in kwargs:
+            addon_profiles = kwargs['addonProfiles']
+        if agent_pool_profiles is None and 'agentPoolProfiles' in kwargs:
+            agent_pool_profiles = kwargs['agentPoolProfiles']
+        if cloud_provider_profile is None and 'cloudProviderProfile' in kwargs:
+            cloud_provider_profile = kwargs['cloudProviderProfile']
+        if control_plane is None and 'controlPlane' in kwargs:
+            control_plane = kwargs['controlPlane']
+        if enable_rbac is None and 'enableRbac' in kwargs:
+            enable_rbac = kwargs['enableRbac']
+        if http_proxy_config is None and 'httpProxyConfig' in kwargs:
+            http_proxy_config = kwargs['httpProxyConfig']
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if linux_profile is None and 'linuxProfile' in kwargs:
+            linux_profile = kwargs['linuxProfile']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if node_resource_group is None and 'nodeResourceGroup' in kwargs:
+            node_resource_group = kwargs['nodeResourceGroup']
+        if windows_profile is None and 'windowsProfile' in kwargs:
+            windows_profile = kwargs['windowsProfile']
+
+        _setter("provisioning_state", provisioning_state)
+        _setter("status", status)
         if aad_profile is not None:
-            pulumi.set(__self__, "aad_profile", aad_profile)
+            _setter("aad_profile", aad_profile)
         if addon_profiles is not None:
-            pulumi.set(__self__, "addon_profiles", addon_profiles)
+            _setter("addon_profiles", addon_profiles)
         if agent_pool_profiles is not None:
-            pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
+            _setter("agent_pool_profiles", agent_pool_profiles)
         if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
+            _setter("cloud_provider_profile", cloud_provider_profile)
         if control_plane is not None:
-            pulumi.set(__self__, "control_plane", control_plane)
+            _setter("control_plane", control_plane)
         if enable_rbac is not None:
-            pulumi.set(__self__, "enable_rbac", enable_rbac)
+            _setter("enable_rbac", enable_rbac)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if http_proxy_config is not None:
-            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+            _setter("http_proxy_config", http_proxy_config)
         if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+            _setter("kubernetes_version", kubernetes_version)
         if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
+            _setter("linux_profile", linux_profile)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if node_resource_group is not None:
-            pulumi.set(__self__, "node_resource_group", node_resource_group)
+            _setter("node_resource_group", node_resource_group)
         if windows_profile is not None:
-            pulumi.set(__self__, "windows_profile", windows_profile)
+            _setter("windows_profile", windows_profile)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -2381,10 +3085,23 @@ class ProvisionedClustersResponseResponseExtendedLocation(dict):
         :param str name: The extended location name.
         :param str type: The extended location type.
         """
+        ProvisionedClustersResponseResponseExtendedLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2451,18 +3168,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -2549,12 +3299,33 @@ class WindowsProfileResponseResponse(dict):
         :param bool enable_csi_proxy: EnableCSIProxy - Whether to enable CSI proxy.
         :param str license_type: LicenseType - The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs. Possible values include: 'None', 'Windows_Server'
         """
+        WindowsProfileResponseResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            enable_csi_proxy=enable_csi_proxy,
+            license_type=license_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: Optional[str] = None,
+             enable_csi_proxy: Optional[bool] = None,
+             license_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if enable_csi_proxy is None and 'enableCsiProxy' in kwargs:
+            enable_csi_proxy = kwargs['enableCsiProxy']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if enable_csi_proxy is not None:
-            pulumi.set(__self__, "enable_csi_proxy", enable_csi_proxy)
+            _setter("enable_csi_proxy", enable_csi_proxy)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
 
     @property
     @pulumi.getter(name="adminUsername")

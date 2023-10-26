@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -56,10 +56,39 @@ class AclResponse(dict):
         :param str password: Password for Challenge Handshake Authentication Protocol (CHAP) authentication.
         :param str username: Username for Challenge Handshake Authentication Protocol (CHAP) authentication.
         """
-        pulumi.set(__self__, "initiator_iqn", initiator_iqn)
-        pulumi.set(__self__, "mapped_luns", mapped_luns)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        AclResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            initiator_iqn=initiator_iqn,
+            mapped_luns=mapped_luns,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             initiator_iqn: Optional[str] = None,
+             mapped_luns: Optional[Sequence[str]] = None,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if initiator_iqn is None and 'initiatorIqn' in kwargs:
+            initiator_iqn = kwargs['initiatorIqn']
+        if initiator_iqn is None:
+            raise TypeError("Missing 'initiator_iqn' argument")
+        if mapped_luns is None and 'mappedLuns' in kwargs:
+            mapped_luns = kwargs['mappedLuns']
+        if mapped_luns is None:
+            raise TypeError("Missing 'mapped_luns' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("initiator_iqn", initiator_iqn)
+        _setter("mapped_luns", mapped_luns)
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="initiatorIqn")
@@ -124,8 +153,27 @@ class AttributesResponse(dict):
         :param bool authentication: Indicates whether or not authentication is enabled on the ACL.
         :param bool prod_mode_write_protect: Indicates whether or not write protect is enabled on the LUNs.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "prod_mode_write_protect", prod_mode_write_protect)
+        AttributesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            prod_mode_write_protect=prod_mode_write_protect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[bool] = None,
+             prod_mode_write_protect: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if prod_mode_write_protect is None and 'prodModeWriteProtect' in kwargs:
+            prod_mode_write_protect = kwargs['prodModeWriteProtect']
+        if prod_mode_write_protect is None:
+            raise TypeError("Missing 'prod_mode_write_protect' argument")
+
+        _setter("authentication", authentication)
+        _setter("prod_mode_write_protect", prod_mode_write_protect)
 
     @property
     @pulumi.getter
@@ -155,7 +203,20 @@ class DiskResponse(dict):
         Azure Managed Disk to attach to the Disk pool.
         :param str id: Unique Azure Resource ID of the Managed Disk.
         """
-        pulumi.set(__self__, "id", id)
+        DiskResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -196,8 +257,27 @@ class IscsiLunResponse(dict):
         :param str managed_disk_azure_resource_id: Azure Resource ID of the Managed Disk.
         :param str name: User defined name for iSCSI LUN; example: "lun0"
         """
-        pulumi.set(__self__, "managed_disk_azure_resource_id", managed_disk_azure_resource_id)
-        pulumi.set(__self__, "name", name)
+        IscsiLunResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_disk_azure_resource_id=managed_disk_azure_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_disk_azure_resource_id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if managed_disk_azure_resource_id is None and 'managedDiskAzureResourceId' in kwargs:
+            managed_disk_azure_resource_id = kwargs['managedDiskAzureResourceId']
+        if managed_disk_azure_resource_id is None:
+            raise TypeError("Missing 'managed_disk_azure_resource_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("managed_disk_azure_resource_id", managed_disk_azure_resource_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="managedDiskAzureResourceId")
@@ -264,18 +344,51 @@ class SystemMetadataResponse(dict):
         :param str last_modified_by: A string identifier for the identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource: user, application, managedIdentity.
         """
+        SystemMetadataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -347,12 +460,45 @@ class TargetPortalGroupResponse(dict):
         :param int port: The port used by iSCSI target portal group.
         :param int tag: The tag associated with the iSCSI target portal group.
         """
-        pulumi.set(__self__, "acls", acls)
-        pulumi.set(__self__, "attributes", attributes)
-        pulumi.set(__self__, "endpoints", endpoints)
-        pulumi.set(__self__, "luns", luns)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "tag", tag)
+        TargetPortalGroupResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            acls=acls,
+            attributes=attributes,
+            endpoints=endpoints,
+            luns=luns,
+            port=port,
+            tag=tag,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             acls: Optional[Sequence['outputs.AclResponse']] = None,
+             attributes: Optional['outputs.AttributesResponse'] = None,
+             endpoints: Optional[Sequence[str]] = None,
+             luns: Optional[Sequence['outputs.IscsiLunResponse']] = None,
+             port: Optional[int] = None,
+             tag: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acls is None:
+            raise TypeError("Missing 'acls' argument")
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if endpoints is None:
+            raise TypeError("Missing 'endpoints' argument")
+        if luns is None:
+            raise TypeError("Missing 'luns' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+
+        _setter("acls", acls)
+        _setter("attributes", attributes)
+        _setter("endpoints", endpoints)
+        _setter("luns", luns)
+        _setter("port", port)
+        _setter("tag", tag)
 
     @property
     @pulumi.getter

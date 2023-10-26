@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -34,8 +34,29 @@ class AddActionGroupsArgs:
         :param pulumi.Input[str] action_type: Action that should be applied.
                Expected value is 'AddActionGroups'.
         """
-        pulumi.set(__self__, "action_group_ids", action_group_ids)
-        pulumi.set(__self__, "action_type", 'AddActionGroups')
+        AddActionGroupsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_group_ids=action_group_ids,
+            action_type=action_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             action_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_group_ids is None and 'actionGroupIds' in kwargs:
+            action_group_ids = kwargs['actionGroupIds']
+        if action_group_ids is None:
+            raise TypeError("Missing 'action_group_ids' argument")
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+
+        _setter("action_group_ids", action_group_ids)
+        _setter("action_type", 'AddActionGroups')
 
     @property
     @pulumi.getter(name="actionGroupIds")
@@ -81,18 +102,43 @@ class AlertProcessingRulePropertiesArgs:
         :param pulumi.Input[bool] enabled: Indicates if the given alert processing rule is enabled or disabled.
         :param pulumi.Input['ScheduleArgs'] schedule: Scheduling for alert processing rule.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "scopes", scopes)
+        AlertProcessingRulePropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            scopes=scopes,
+            conditions=conditions,
+            description=description,
+            enabled=enabled,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'CorrelateAlertsArgs', 'RemoveAllActionGroupsArgs']]]]] = None,
+             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             schedule: Optional[pulumi.Input['ScheduleArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+
+        _setter("actions", actions)
+        _setter("scopes", scopes)
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is None:
             enabled = True
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -179,12 +225,27 @@ class ConditionArgs:
         :param pulumi.Input[Union[str, 'Operator']] operator: Operator for a given condition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of values to match for a given condition.
         """
+        ConditionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+            operator=operator,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: Optional[pulumi.Input[Union[str, 'Field']]] = None,
+             operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
         if operator is not None:
-            pulumi.set(__self__, "operator", operator)
+            _setter("operator", operator)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -240,14 +301,49 @@ class CorrelateAlertsArgs:
         :param pulumi.Input[int] priority: The priority of this correlation.
         :param pulumi.Input[Union[str, 'NotificationsForCorrelatedAlerts']] notifications_for_correlated_alerts: Indicates how to handle child alerts notifications.
         """
-        pulumi.set(__self__, "action_type", 'CorrelateAlerts')
-        pulumi.set(__self__, "correlate_by", correlate_by)
-        pulumi.set(__self__, "correlation_interval", correlation_interval)
-        pulumi.set(__self__, "priority", priority)
+        CorrelateAlertsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+            correlate_by=correlate_by,
+            correlation_interval=correlation_interval,
+            priority=priority,
+            notifications_for_correlated_alerts=notifications_for_correlated_alerts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: Optional[pulumi.Input[str]] = None,
+             correlate_by: Optional[pulumi.Input[Sequence[pulumi.Input['CorrelateByArgs']]]] = None,
+             correlation_interval: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             notifications_for_correlated_alerts: Optional[pulumi.Input[Union[str, 'NotificationsForCorrelatedAlerts']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+        if correlate_by is None and 'correlateBy' in kwargs:
+            correlate_by = kwargs['correlateBy']
+        if correlate_by is None:
+            raise TypeError("Missing 'correlate_by' argument")
+        if correlation_interval is None and 'correlationInterval' in kwargs:
+            correlation_interval = kwargs['correlationInterval']
+        if correlation_interval is None:
+            raise TypeError("Missing 'correlation_interval' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if notifications_for_correlated_alerts is None and 'notificationsForCorrelatedAlerts' in kwargs:
+            notifications_for_correlated_alerts = kwargs['notificationsForCorrelatedAlerts']
+
+        _setter("action_type", 'CorrelateAlerts')
+        _setter("correlate_by", correlate_by)
+        _setter("correlation_interval", correlation_interval)
+        _setter("priority", priority)
         if notifications_for_correlated_alerts is None:
             notifications_for_correlated_alerts = 'SuppressAlways'
         if notifications_for_correlated_alerts is not None:
-            pulumi.set(__self__, "notifications_for_correlated_alerts", notifications_for_correlated_alerts)
+            _setter("notifications_for_correlated_alerts", notifications_for_correlated_alerts)
 
     @property
     @pulumi.getter(name="actionType")
@@ -319,8 +415,19 @@ class CorrelateByArgs:
         The logic for the correlation.
         :param pulumi.Input[str] field: The JPath of the property that the alerts should be correlated by.
         """
+        CorrelateByArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            field=field,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if field is not None:
-            pulumi.set(__self__, "field", field)
+            _setter("field", field)
 
     @property
     @pulumi.getter
@@ -348,9 +455,36 @@ class DailyRecurrenceArgs:
                Expected value is 'Daily'.
         :param pulumi.Input[str] start_time: Start time for recurrence.
         """
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "recurrence_type", 'Daily')
-        pulumi.set(__self__, "start_time", start_time)
+        DailyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            recurrence_type=recurrence_type,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[pulumi.Input[str]] = None,
+             recurrence_type: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if recurrence_type is None and 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
+        _setter("end_time", end_time)
+        _setter("recurrence_type", 'Daily')
+        _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -405,12 +539,41 @@ class MonthlyRecurrenceArgs:
         :param pulumi.Input[str] end_time: End time for recurrence.
         :param pulumi.Input[str] start_time: Start time for recurrence.
         """
-        pulumi.set(__self__, "days_of_month", days_of_month)
-        pulumi.set(__self__, "recurrence_type", 'Monthly')
+        MonthlyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_month=days_of_month,
+            recurrence_type=recurrence_type,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_month: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             recurrence_type: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_of_month is None and 'daysOfMonth' in kwargs:
+            days_of_month = kwargs['daysOfMonth']
+        if days_of_month is None:
+            raise TypeError("Missing 'days_of_month' argument")
+        if recurrence_type is None and 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
+        _setter("days_of_month", days_of_month)
+        _setter("recurrence_type", 'Monthly')
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="daysOfMonth")
@@ -471,7 +634,22 @@ class RemoveAllActionGroupsArgs:
         :param pulumi.Input[str] action_type: Action that should be applied.
                Expected value is 'RemoveAllActionGroups'.
         """
-        pulumi.set(__self__, "action_type", 'RemoveAllActionGroups')
+        RemoveAllActionGroupsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_type is None and 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+        if action_type is None:
+            raise TypeError("Missing 'action_type' argument")
+
+        _setter("action_type", 'RemoveAllActionGroups')
 
     @property
     @pulumi.getter(name="actionType")
@@ -501,14 +679,37 @@ class ScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]] recurrences: List of recurrences.
         :param pulumi.Input[str] time_zone: Scheduling time zone.
         """
+        ScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            effective_from=effective_from,
+            effective_until=effective_until,
+            recurrences=recurrences,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             effective_from: Optional[pulumi.Input[str]] = None,
+             effective_until: Optional[pulumi.Input[str]] = None,
+             recurrences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if effective_from is None and 'effectiveFrom' in kwargs:
+            effective_from = kwargs['effectiveFrom']
+        if effective_until is None and 'effectiveUntil' in kwargs:
+            effective_until = kwargs['effectiveUntil']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if effective_from is not None:
-            pulumi.set(__self__, "effective_from", effective_from)
+            _setter("effective_from", effective_from)
         if effective_until is not None:
-            pulumi.set(__self__, "effective_until", effective_until)
+            _setter("effective_until", effective_until)
         if recurrences is not None:
-            pulumi.set(__self__, "recurrences", recurrences)
+            _setter("recurrences", recurrences)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="effectiveFrom")
@@ -574,12 +775,41 @@ class WeeklyRecurrenceArgs:
         :param pulumi.Input[str] end_time: End time for recurrence.
         :param pulumi.Input[str] start_time: Start time for recurrence.
         """
-        pulumi.set(__self__, "days_of_week", days_of_week)
-        pulumi.set(__self__, "recurrence_type", 'Weekly')
+        WeeklyRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_week=days_of_week,
+            recurrence_type=recurrence_type,
+            end_time=end_time,
+            start_time=start_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]] = None,
+             recurrence_type: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_of_week is None and 'daysOfWeek' in kwargs:
+            days_of_week = kwargs['daysOfWeek']
+        if days_of_week is None:
+            raise TypeError("Missing 'days_of_week' argument")
+        if recurrence_type is None and 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if recurrence_type is None:
+            raise TypeError("Missing 'recurrence_type' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
+        _setter("days_of_week", days_of_week)
+        _setter("recurrence_type", 'Weekly')
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
 
     @property
     @pulumi.getter(name="daysOfWeek")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,19 +42,88 @@ class BackupScheduleArgs:
         :param pulumi.Input[str] backup_schedule_name: The backup schedule name.
         :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         """
-        pulumi.set(__self__, "backup_policy_name", backup_policy_name)
-        pulumi.set(__self__, "backup_type", backup_type)
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "manager_name", manager_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "retention_count", retention_count)
-        pulumi.set(__self__, "schedule_recurrence", schedule_recurrence)
-        pulumi.set(__self__, "schedule_status", schedule_status)
-        pulumi.set(__self__, "start_time", start_time)
+        BackupScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_policy_name=backup_policy_name,
+            backup_type=backup_type,
+            device_name=device_name,
+            manager_name=manager_name,
+            resource_group_name=resource_group_name,
+            retention_count=retention_count,
+            schedule_recurrence=schedule_recurrence,
+            schedule_status=schedule_status,
+            start_time=start_time,
+            backup_schedule_name=backup_schedule_name,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_policy_name: Optional[pulumi.Input[str]] = None,
+             backup_type: Optional[pulumi.Input['BackupType']] = None,
+             device_name: Optional[pulumi.Input[str]] = None,
+             manager_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_count: Optional[pulumi.Input[float]] = None,
+             schedule_recurrence: Optional[pulumi.Input['ScheduleRecurrenceArgs']] = None,
+             schedule_status: Optional[pulumi.Input['ScheduleStatus']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             backup_schedule_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input['Kind']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_policy_name is None and 'backupPolicyName' in kwargs:
+            backup_policy_name = kwargs['backupPolicyName']
+        if backup_policy_name is None:
+            raise TypeError("Missing 'backup_policy_name' argument")
+        if backup_type is None and 'backupType' in kwargs:
+            backup_type = kwargs['backupType']
+        if backup_type is None:
+            raise TypeError("Missing 'backup_type' argument")
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if manager_name is None and 'managerName' in kwargs:
+            manager_name = kwargs['managerName']
+        if manager_name is None:
+            raise TypeError("Missing 'manager_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if retention_count is None and 'retentionCount' in kwargs:
+            retention_count = kwargs['retentionCount']
+        if retention_count is None:
+            raise TypeError("Missing 'retention_count' argument")
+        if schedule_recurrence is None and 'scheduleRecurrence' in kwargs:
+            schedule_recurrence = kwargs['scheduleRecurrence']
+        if schedule_recurrence is None:
+            raise TypeError("Missing 'schedule_recurrence' argument")
+        if schedule_status is None and 'scheduleStatus' in kwargs:
+            schedule_status = kwargs['scheduleStatus']
+        if schedule_status is None:
+            raise TypeError("Missing 'schedule_status' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if backup_schedule_name is None and 'backupScheduleName' in kwargs:
+            backup_schedule_name = kwargs['backupScheduleName']
+
+        _setter("backup_policy_name", backup_policy_name)
+        _setter("backup_type", backup_type)
+        _setter("device_name", device_name)
+        _setter("manager_name", manager_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("retention_count", retention_count)
+        _setter("schedule_recurrence", schedule_recurrence)
+        _setter("schedule_status", schedule_status)
+        _setter("start_time", start_time)
         if backup_schedule_name is not None:
-            pulumi.set(__self__, "backup_schedule_name", backup_schedule_name)
+            _setter("backup_schedule_name", backup_schedule_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
 
     @property
     @pulumi.getter(name="backupPolicyName")
@@ -244,6 +313,10 @@ class BackupSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -289,6 +362,7 @@ class BackupSchedule(pulumi.CustomResource):
             if retention_count is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_count'")
             __props__.__dict__["retention_count"] = retention_count
+            schedule_recurrence = _utilities.configure(schedule_recurrence, ScheduleRecurrenceArgs, True)
             if schedule_recurrence is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_recurrence'")
             __props__.__dict__["schedule_recurrence"] = schedule_recurrence

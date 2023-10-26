@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -75,60 +75,161 @@ class WebAppSlotArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] ttl_in_seconds: Time to live in seconds for web app's default domain name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WebAppSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            client_affinity_enabled=client_affinity_enabled,
+            client_cert_enabled=client_cert_enabled,
+            cloning_info=cloning_info,
+            container_size=container_size,
+            daily_memory_time_quota=daily_memory_time_quota,
+            enabled=enabled,
+            force_dns_registration=force_dns_registration,
+            host_name_ssl_states=host_name_ssl_states,
+            host_names_disabled=host_names_disabled,
+            hosting_environment_profile=hosting_environment_profile,
+            https_only=https_only,
+            identity=identity,
+            kind=kind,
+            location=location,
+            reserved=reserved,
+            scm_site_also_stopped=scm_site_also_stopped,
+            server_farm_id=server_farm_id,
+            site_config=site_config,
+            skip_custom_domain_verification=skip_custom_domain_verification,
+            skip_dns_registration=skip_dns_registration,
+            slot=slot,
+            snapshot_info=snapshot_info,
+            tags=tags,
+            ttl_in_seconds=ttl_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+             client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+             cloning_info: Optional[pulumi.Input['CloningInfoArgs']] = None,
+             container_size: Optional[pulumi.Input[int]] = None,
+             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             force_dns_registration: Optional[pulumi.Input[bool]] = None,
+             host_name_ssl_states: Optional[pulumi.Input[Sequence[pulumi.Input['HostNameSslStateArgs']]]] = None,
+             host_names_disabled: Optional[pulumi.Input[bool]] = None,
+             hosting_environment_profile: Optional[pulumi.Input['HostingEnvironmentProfileArgs']] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             reserved: Optional[pulumi.Input[bool]] = None,
+             scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
+             server_farm_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['SiteConfigArgs']] = None,
+             skip_custom_domain_verification: Optional[pulumi.Input[bool]] = None,
+             skip_dns_registration: Optional[pulumi.Input[bool]] = None,
+             slot: Optional[pulumi.Input[str]] = None,
+             snapshot_info: Optional[pulumi.Input['SnapshotRecoveryRequestArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl_in_seconds: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if client_cert_enabled is None and 'clientCertEnabled' in kwargs:
+            client_cert_enabled = kwargs['clientCertEnabled']
+        if cloning_info is None and 'cloningInfo' in kwargs:
+            cloning_info = kwargs['cloningInfo']
+        if container_size is None and 'containerSize' in kwargs:
+            container_size = kwargs['containerSize']
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if force_dns_registration is None and 'forceDnsRegistration' in kwargs:
+            force_dns_registration = kwargs['forceDnsRegistration']
+        if host_name_ssl_states is None and 'hostNameSslStates' in kwargs:
+            host_name_ssl_states = kwargs['hostNameSslStates']
+        if host_names_disabled is None and 'hostNamesDisabled' in kwargs:
+            host_names_disabled = kwargs['hostNamesDisabled']
+        if hosting_environment_profile is None and 'hostingEnvironmentProfile' in kwargs:
+            hosting_environment_profile = kwargs['hostingEnvironmentProfile']
+        if https_only is None and 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if scm_site_also_stopped is None and 'scmSiteAlsoStopped' in kwargs:
+            scm_site_also_stopped = kwargs['scmSiteAlsoStopped']
+        if server_farm_id is None and 'serverFarmId' in kwargs:
+            server_farm_id = kwargs['serverFarmId']
+        if site_config is None and 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if skip_custom_domain_verification is None and 'skipCustomDomainVerification' in kwargs:
+            skip_custom_domain_verification = kwargs['skipCustomDomainVerification']
+        if skip_dns_registration is None and 'skipDnsRegistration' in kwargs:
+            skip_dns_registration = kwargs['skipDnsRegistration']
+        if snapshot_info is None and 'snapshotInfo' in kwargs:
+            snapshot_info = kwargs['snapshotInfo']
+        if ttl_in_seconds is None and 'ttlInSeconds' in kwargs:
+            ttl_in_seconds = kwargs['ttlInSeconds']
+
+        _setter("name", name)
+        _setter("resource_group_name", resource_group_name)
         if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+            _setter("client_affinity_enabled", client_affinity_enabled)
         if client_cert_enabled is not None:
-            pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+            _setter("client_cert_enabled", client_cert_enabled)
         if cloning_info is not None:
-            pulumi.set(__self__, "cloning_info", cloning_info)
+            _setter("cloning_info", cloning_info)
         if container_size is not None:
-            pulumi.set(__self__, "container_size", container_size)
+            _setter("container_size", container_size)
         if daily_memory_time_quota is not None:
-            pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
+            _setter("daily_memory_time_quota", daily_memory_time_quota)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if force_dns_registration is not None:
-            pulumi.set(__self__, "force_dns_registration", force_dns_registration)
+            _setter("force_dns_registration", force_dns_registration)
         if host_name_ssl_states is not None:
-            pulumi.set(__self__, "host_name_ssl_states", host_name_ssl_states)
+            _setter("host_name_ssl_states", host_name_ssl_states)
         if host_names_disabled is not None:
-            pulumi.set(__self__, "host_names_disabled", host_names_disabled)
+            _setter("host_names_disabled", host_names_disabled)
         if hosting_environment_profile is not None:
-            pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+            _setter("hosting_environment_profile", hosting_environment_profile)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if reserved is None:
             reserved = False
         if reserved is not None:
-            pulumi.set(__self__, "reserved", reserved)
+            _setter("reserved", reserved)
         if scm_site_also_stopped is None:
             scm_site_also_stopped = False
         if scm_site_also_stopped is not None:
-            pulumi.set(__self__, "scm_site_also_stopped", scm_site_also_stopped)
+            _setter("scm_site_also_stopped", scm_site_also_stopped)
         if server_farm_id is not None:
-            pulumi.set(__self__, "server_farm_id", server_farm_id)
+            _setter("server_farm_id", server_farm_id)
         if site_config is not None:
-            pulumi.set(__self__, "site_config", site_config)
+            _setter("site_config", site_config)
         if skip_custom_domain_verification is not None:
-            pulumi.set(__self__, "skip_custom_domain_verification", skip_custom_domain_verification)
+            _setter("skip_custom_domain_verification", skip_custom_domain_verification)
         if skip_dns_registration is not None:
-            pulumi.set(__self__, "skip_dns_registration", skip_dns_registration)
+            _setter("skip_dns_registration", skip_dns_registration)
         if slot is not None:
-            pulumi.set(__self__, "slot", slot)
+            _setter("slot", slot)
         if snapshot_info is not None:
-            pulumi.set(__self__, "snapshot_info", snapshot_info)
+            _setter("snapshot_info", snapshot_info)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ttl_in_seconds is not None:
-            pulumi.set(__self__, "ttl_in_seconds", ttl_in_seconds)
+            _setter("ttl_in_seconds", ttl_in_seconds)
 
     @property
     @pulumi.getter
@@ -532,6 +633,10 @@ class WebAppSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebAppSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -574,6 +679,7 @@ class WebAppSlot(pulumi.CustomResource):
 
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_cert_enabled"] = client_cert_enabled
+            cloning_info = _utilities.configure(cloning_info, CloningInfoArgs, True)
             __props__.__dict__["cloning_info"] = cloning_info
             __props__.__dict__["container_size"] = container_size
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
@@ -581,8 +687,10 @@ class WebAppSlot(pulumi.CustomResource):
             __props__.__dict__["force_dns_registration"] = force_dns_registration
             __props__.__dict__["host_name_ssl_states"] = host_name_ssl_states
             __props__.__dict__["host_names_disabled"] = host_names_disabled
+            hosting_environment_profile = _utilities.configure(hosting_environment_profile, HostingEnvironmentProfileArgs, True)
             __props__.__dict__["hosting_environment_profile"] = hosting_environment_profile
             __props__.__dict__["https_only"] = https_only
+            identity = _utilities.configure(identity, ManagedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -599,10 +707,12 @@ class WebAppSlot(pulumi.CustomResource):
                 scm_site_also_stopped = False
             __props__.__dict__["scm_site_also_stopped"] = scm_site_also_stopped
             __props__.__dict__["server_farm_id"] = server_farm_id
+            site_config = _utilities.configure(site_config, SiteConfigArgs, True)
             __props__.__dict__["site_config"] = site_config
             __props__.__dict__["skip_custom_domain_verification"] = skip_custom_domain_verification
             __props__.__dict__["skip_dns_registration"] = skip_dns_registration
             __props__.__dict__["slot"] = slot
+            snapshot_info = _utilities.configure(snapshot_info, SnapshotRecoveryRequestArgs, True)
             __props__.__dict__["snapshot_info"] = snapshot_info
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ttl_in_seconds"] = ttl_in_seconds

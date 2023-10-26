@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,13 +28,48 @@ class SqlDiscoverySiteDataSourceControllerArgs:
         :param pulumi.Input[str] discovery_site_data_source_name: SQL Discovery site data source name.
         :param pulumi.Input[str] discovery_site_id: Gets or sets the discovery site Id.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "site_name", site_name)
-        pulumi.set(__self__, "sql_site_name", sql_site_name)
+        SqlDiscoverySiteDataSourceControllerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            site_name=site_name,
+            sql_site_name=sql_site_name,
+            discovery_site_data_source_name=discovery_site_data_source_name,
+            discovery_site_id=discovery_site_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             site_name: Optional[pulumi.Input[str]] = None,
+             sql_site_name: Optional[pulumi.Input[str]] = None,
+             discovery_site_data_source_name: Optional[pulumi.Input[str]] = None,
+             discovery_site_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if site_name is None and 'siteName' in kwargs:
+            site_name = kwargs['siteName']
+        if site_name is None:
+            raise TypeError("Missing 'site_name' argument")
+        if sql_site_name is None and 'sqlSiteName' in kwargs:
+            sql_site_name = kwargs['sqlSiteName']
+        if sql_site_name is None:
+            raise TypeError("Missing 'sql_site_name' argument")
+        if discovery_site_data_source_name is None and 'discoverySiteDataSourceName' in kwargs:
+            discovery_site_data_source_name = kwargs['discoverySiteDataSourceName']
+        if discovery_site_id is None and 'discoverySiteId' in kwargs:
+            discovery_site_id = kwargs['discoverySiteId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("site_name", site_name)
+        _setter("sql_site_name", sql_site_name)
         if discovery_site_data_source_name is not None:
-            pulumi.set(__self__, "discovery_site_data_source_name", discovery_site_data_source_name)
+            _setter("discovery_site_data_source_name", discovery_site_data_source_name)
         if discovery_site_id is not None:
-            pulumi.set(__self__, "discovery_site_id", discovery_site_id)
+            _setter("discovery_site_id", discovery_site_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -140,6 +175,10 @@ class SqlDiscoverySiteDataSourceController(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlDiscoverySiteDataSourceControllerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,18 +35,55 @@ class PermissionBindingArgs:
         :param pulumi.Input[str] topic_space_name: The name of the Topic Space resource that the permission is bound to.
                The Topic space needs to be a resource under the same namespace the permission binding is a part of.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PermissionBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            client_group_name=client_group_name,
+            description=description,
+            permission=permission,
+            permission_binding_name=permission_binding_name,
+            topic_space_name=topic_space_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             client_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input[Union[str, 'PermissionType']]] = None,
+             permission_binding_name: Optional[pulumi.Input[str]] = None,
+             topic_space_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if client_group_name is None and 'clientGroupName' in kwargs:
+            client_group_name = kwargs['clientGroupName']
+        if permission_binding_name is None and 'permissionBindingName' in kwargs:
+            permission_binding_name = kwargs['permissionBindingName']
+        if topic_space_name is None and 'topicSpaceName' in kwargs:
+            topic_space_name = kwargs['topicSpaceName']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if client_group_name is not None:
-            pulumi.set(__self__, "client_group_name", client_group_name)
+            _setter("client_group_name", client_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if permission is not None:
-            pulumi.set(__self__, "permission", permission)
+            _setter("permission", permission)
         if permission_binding_name is not None:
-            pulumi.set(__self__, "permission_binding_name", permission_binding_name)
+            _setter("permission_binding_name", permission_binding_name)
         if topic_space_name is not None:
-            pulumi.set(__self__, "topic_space_name", topic_space_name)
+            _setter("topic_space_name", topic_space_name)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -182,6 +219,10 @@ class PermissionBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PermissionBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

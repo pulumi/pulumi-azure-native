@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,29 +44,78 @@ class ContainerAppArgs:
         :param pulumi.Input['TemplateArgs'] template: Container App versioned application definition.
         :param pulumi.Input[str] workload_profile_name: Workload profile name to pin for container app execution.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ContainerAppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            configuration=configuration,
+            container_app_name=container_app_name,
+            environment_id=environment_id,
+            extended_location=extended_location,
+            identity=identity,
+            location=location,
+            managed_by=managed_by,
+            managed_environment_id=managed_environment_id,
+            tags=tags,
+            template=template,
+            workload_profile_name=workload_profile_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input['ConfigurationArgs']] = None,
+             container_app_name: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_by: Optional[pulumi.Input[str]] = None,
+             managed_environment_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template: Optional[pulumi.Input['TemplateArgs']] = None,
+             workload_profile_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if container_app_name is None and 'containerAppName' in kwargs:
+            container_app_name = kwargs['containerAppName']
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if managed_by is None and 'managedBy' in kwargs:
+            managed_by = kwargs['managedBy']
+        if managed_environment_id is None and 'managedEnvironmentId' in kwargs:
+            managed_environment_id = kwargs['managedEnvironmentId']
+        if workload_profile_name is None and 'workloadProfileName' in kwargs:
+            workload_profile_name = kwargs['workloadProfileName']
+
+        _setter("resource_group_name", resource_group_name)
         if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
+            _setter("configuration", configuration)
         if container_app_name is not None:
-            pulumi.set(__self__, "container_app_name", container_app_name)
+            _setter("container_app_name", container_app_name)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_by is not None:
-            pulumi.set(__self__, "managed_by", managed_by)
+            _setter("managed_by", managed_by)
         if managed_environment_id is not None:
-            pulumi.set(__self__, "managed_environment_id", managed_environment_id)
+            _setter("managed_environment_id", managed_environment_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if workload_profile_name is not None:
-            pulumi.set(__self__, "workload_profile_name", workload_profile_name)
+            _setter("workload_profile_name", workload_profile_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -268,6 +317,10 @@ class ContainerApp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContainerAppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -294,10 +347,13 @@ class ContainerApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerAppArgs.__new__(ContainerAppArgs)
 
+            configuration = _utilities.configure(configuration, ConfigurationArgs, True)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["container_app_name"] = container_app_name
             __props__.__dict__["environment_id"] = environment_id
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
+            identity = _utilities.configure(identity, ManagedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
@@ -306,6 +362,7 @@ class ContainerApp(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            template = _utilities.configure(template, TemplateArgs, True)
             __props__.__dict__["template"] = template
             __props__.__dict__["workload_profile_name"] = workload_profile_name
             __props__.__dict__["custom_domain_verification_id"] = None

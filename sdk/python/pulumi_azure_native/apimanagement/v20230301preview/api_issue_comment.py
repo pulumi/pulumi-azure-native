@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['ApiIssueCommentArgs', 'ApiIssueComment']
@@ -33,16 +33,67 @@ class ApiIssueCommentArgs:
         :param pulumi.Input[str] comment_id: Comment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[str] created_date: Date and time when the comment was created.
         """
-        pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "issue_id", issue_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "text", text)
-        pulumi.set(__self__, "user_id", user_id)
+        ApiIssueCommentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            issue_id=issue_id,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            text=text,
+            user_id=user_id,
+            comment_id=comment_id,
+            created_date=created_date,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             issue_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             text: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             comment_id: Optional[pulumi.Input[str]] = None,
+             created_date: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if issue_id is None and 'issueId' in kwargs:
+            issue_id = kwargs['issueId']
+        if issue_id is None:
+            raise TypeError("Missing 'issue_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+        if comment_id is None and 'commentId' in kwargs:
+            comment_id = kwargs['commentId']
+        if created_date is None and 'createdDate' in kwargs:
+            created_date = kwargs['createdDate']
+
+        _setter("api_id", api_id)
+        _setter("issue_id", issue_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("text", text)
+        _setter("user_id", user_id)
         if comment_id is not None:
-            pulumi.set(__self__, "comment_id", comment_id)
+            _setter("comment_id", comment_id)
         if created_date is not None:
-            pulumi.set(__self__, "created_date", created_date)
+            _setter("created_date", created_date)
 
     @property
     @pulumi.getter(name="apiId")
@@ -188,6 +239,10 @@ class ApiIssueComment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiIssueCommentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

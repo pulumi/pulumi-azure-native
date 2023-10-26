@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,12 +28,33 @@ class TagInheritanceSettingArgs:
         :param pulumi.Input['TagInheritancePropertiesArgs'] properties: The properties of the tag inheritance setting.
         :param pulumi.Input[str] type: Setting type.
         """
-        pulumi.set(__self__, "kind", 'taginheritance')
-        pulumi.set(__self__, "scope", scope)
+        TagInheritanceSettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            scope=scope,
+            properties=properties,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['TagInheritancePropertiesArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+
+        _setter("kind", 'taginheritance')
+        _setter("scope", scope)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -125,6 +146,10 @@ class TagInheritanceSetting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagInheritanceSettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -146,6 +171,7 @@ class TagInheritanceSetting(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'taginheritance'
+            properties = _utilities.configure(properties, TagInheritancePropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

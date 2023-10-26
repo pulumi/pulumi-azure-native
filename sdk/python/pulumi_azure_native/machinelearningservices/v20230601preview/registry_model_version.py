@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -30,12 +30,47 @@ class RegistryModelVersionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: Version identifier.
         """
-        pulumi.set(__self__, "model_name", model_name)
-        pulumi.set(__self__, "model_version_properties", model_version_properties)
-        pulumi.set(__self__, "registry_name", registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RegistryModelVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            model_name=model_name,
+            model_version_properties=model_version_properties,
+            registry_name=registry_name,
+            resource_group_name=resource_group_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             model_name: Optional[pulumi.Input[str]] = None,
+             model_version_properties: Optional[pulumi.Input['ModelVersionArgs']] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if model_name is None and 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if model_name is None:
+            raise TypeError("Missing 'model_name' argument")
+        if model_version_properties is None and 'modelVersionProperties' in kwargs:
+            model_version_properties = kwargs['modelVersionProperties']
+        if model_version_properties is None:
+            raise TypeError("Missing 'model_version_properties' argument")
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("model_name", model_name)
+        _setter("model_version_properties", model_version_properties)
+        _setter("registry_name", registry_name)
+        _setter("resource_group_name", resource_group_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="modelName")
@@ -139,6 +174,10 @@ class RegistryModelVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryModelVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,6 +200,7 @@ class RegistryModelVersion(pulumi.CustomResource):
             if model_name is None and not opts.urn:
                 raise TypeError("Missing required property 'model_name'")
             __props__.__dict__["model_name"] = model_name
+            model_version_properties = _utilities.configure(model_version_properties, ModelVersionArgs, True)
             if model_version_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'model_version_properties'")
             __props__.__dict__["model_version_properties"] = model_version_properties

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,18 +38,73 @@ class KustoPoolAttachedDatabaseConfigurationArgs:
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing specifications
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "default_principals_modification_kind", default_principals_modification_kind)
-        pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
-        pulumi.set(__self__, "kusto_pool_resource_id", kusto_pool_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        KustoPoolAttachedDatabaseConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            default_principals_modification_kind=default_principals_modification_kind,
+            kusto_pool_name=kusto_pool_name,
+            kusto_pool_resource_id=kusto_pool_resource_id,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            attached_database_configuration_name=attached_database_configuration_name,
+            location=location,
+            table_level_sharing_properties=table_level_sharing_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             default_principals_modification_kind: Optional[pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]] = None,
+             kusto_pool_name: Optional[pulumi.Input[str]] = None,
+             kusto_pool_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             table_level_sharing_properties: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if default_principals_modification_kind is None and 'defaultPrincipalsModificationKind' in kwargs:
+            default_principals_modification_kind = kwargs['defaultPrincipalsModificationKind']
+        if default_principals_modification_kind is None:
+            raise TypeError("Missing 'default_principals_modification_kind' argument")
+        if kusto_pool_name is None and 'kustoPoolName' in kwargs:
+            kusto_pool_name = kwargs['kustoPoolName']
+        if kusto_pool_name is None:
+            raise TypeError("Missing 'kusto_pool_name' argument")
+        if kusto_pool_resource_id is None and 'kustoPoolResourceId' in kwargs:
+            kusto_pool_resource_id = kwargs['kustoPoolResourceId']
+        if kusto_pool_resource_id is None:
+            raise TypeError("Missing 'kusto_pool_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if attached_database_configuration_name is None and 'attachedDatabaseConfigurationName' in kwargs:
+            attached_database_configuration_name = kwargs['attachedDatabaseConfigurationName']
+        if table_level_sharing_properties is None and 'tableLevelSharingProperties' in kwargs:
+            table_level_sharing_properties = kwargs['tableLevelSharingProperties']
+
+        _setter("database_name", database_name)
+        _setter("default_principals_modification_kind", default_principals_modification_kind)
+        _setter("kusto_pool_name", kusto_pool_name)
+        _setter("kusto_pool_resource_id", kusto_pool_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if attached_database_configuration_name is not None:
-            pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
+            _setter("attached_database_configuration_name", attached_database_configuration_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if table_level_sharing_properties is not None:
-            pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
+            _setter("table_level_sharing_properties", table_level_sharing_properties)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -209,6 +264,10 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KustoPoolAttachedDatabaseConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -249,6 +308,7 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            table_level_sharing_properties = _utilities.configure(table_level_sharing_properties, TableLevelSharingPropertiesArgs, True)
             __props__.__dict__["table_level_sharing_properties"] = table_level_sharing_properties
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

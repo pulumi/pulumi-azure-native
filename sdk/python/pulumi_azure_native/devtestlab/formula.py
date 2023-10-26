@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,22 +38,61 @@ class FormulaArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input['FormulaPropertiesFromVmArgs'] vm: Information about a VM from which a formula is to be created.
         """
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        FormulaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_name=lab_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            formula_content=formula_content,
+            location=location,
+            name=name,
+            os_type=os_type,
+            tags=tags,
+            vm=vm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             formula_content: Optional[pulumi.Input['LabVirtualMachineCreationParameterArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vm: Optional[pulumi.Input['FormulaPropertiesFromVmArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lab_name is None and 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if formula_content is None and 'formulaContent' in kwargs:
+            formula_content = kwargs['formulaContent']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+
+        _setter("lab_name", lab_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if formula_content is not None:
-            pulumi.set(__self__, "formula_content", formula_content)
+            _setter("formula_content", formula_content)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vm is not None:
-            pulumi.set(__self__, "vm", vm)
+            _setter("vm", vm)
 
     @property
     @pulumi.getter(name="labName")
@@ -219,6 +258,10 @@ class Formula(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FormulaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -243,6 +286,7 @@ class Formula(pulumi.CustomResource):
             __props__ = FormulaArgs.__new__(FormulaArgs)
 
             __props__.__dict__["description"] = description
+            formula_content = _utilities.configure(formula_content, LabVirtualMachineCreationParameterArgs, True)
             __props__.__dict__["formula_content"] = formula_content
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
@@ -254,6 +298,7 @@ class Formula(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            vm = _utilities.configure(vm, FormulaPropertiesFromVmArgs, True)
             __props__.__dict__["vm"] = vm
             __props__.__dict__["author"] = None
             __props__.__dict__["creation_date"] = None

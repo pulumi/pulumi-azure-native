@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -59,43 +59,122 @@ class WorkspaceArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace
         :param pulumi.Input['WorkspaceRepositoryConfigurationArgs'] workspace_repository_configuration: Git integration settings
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            connectivity_endpoints=connectivity_endpoints,
+            csp_workspace_admin_properties=csp_workspace_admin_properties,
+            default_data_lake_storage=default_data_lake_storage,
+            encryption=encryption,
+            identity=identity,
+            location=location,
+            managed_resource_group_name=managed_resource_group_name,
+            managed_virtual_network=managed_virtual_network,
+            managed_virtual_network_settings=managed_virtual_network_settings,
+            private_endpoint_connections=private_endpoint_connections,
+            public_network_access=public_network_access,
+            purview_configuration=purview_configuration,
+            sql_administrator_login=sql_administrator_login,
+            sql_administrator_login_password=sql_administrator_login_password,
+            tags=tags,
+            virtual_network_profile=virtual_network_profile,
+            workspace_name=workspace_name,
+            workspace_repository_configuration=workspace_repository_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             csp_workspace_admin_properties: Optional[pulumi.Input['CspWorkspaceAdminPropertiesArgs']] = None,
+             default_data_lake_storage: Optional[pulumi.Input['DataLakeStorageAccountDetailsArgs']] = None,
+             encryption: Optional[pulumi.Input['EncryptionDetailsArgs']] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             managed_virtual_network: Optional[pulumi.Input[str]] = None,
+             managed_virtual_network_settings: Optional[pulumi.Input['ManagedVirtualNetworkSettingsArgs']] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'WorkspacePublicNetworkAccess']]] = None,
+             purview_configuration: Optional[pulumi.Input['PurviewConfigurationArgs']] = None,
+             sql_administrator_login: Optional[pulumi.Input[str]] = None,
+             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_profile: Optional[pulumi.Input['VirtualNetworkProfileArgs']] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             workspace_repository_configuration: Optional[pulumi.Input['WorkspaceRepositoryConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if connectivity_endpoints is None and 'connectivityEndpoints' in kwargs:
+            connectivity_endpoints = kwargs['connectivityEndpoints']
+        if csp_workspace_admin_properties is None and 'cspWorkspaceAdminProperties' in kwargs:
+            csp_workspace_admin_properties = kwargs['cspWorkspaceAdminProperties']
+        if default_data_lake_storage is None and 'defaultDataLakeStorage' in kwargs:
+            default_data_lake_storage = kwargs['defaultDataLakeStorage']
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if managed_virtual_network is None and 'managedVirtualNetwork' in kwargs:
+            managed_virtual_network = kwargs['managedVirtualNetwork']
+        if managed_virtual_network_settings is None and 'managedVirtualNetworkSettings' in kwargs:
+            managed_virtual_network_settings = kwargs['managedVirtualNetworkSettings']
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if purview_configuration is None and 'purviewConfiguration' in kwargs:
+            purview_configuration = kwargs['purviewConfiguration']
+        if sql_administrator_login is None and 'sqlAdministratorLogin' in kwargs:
+            sql_administrator_login = kwargs['sqlAdministratorLogin']
+        if sql_administrator_login_password is None and 'sqlAdministratorLoginPassword' in kwargs:
+            sql_administrator_login_password = kwargs['sqlAdministratorLoginPassword']
+        if virtual_network_profile is None and 'virtualNetworkProfile' in kwargs:
+            virtual_network_profile = kwargs['virtualNetworkProfile']
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_repository_configuration is None and 'workspaceRepositoryConfiguration' in kwargs:
+            workspace_repository_configuration = kwargs['workspaceRepositoryConfiguration']
+
+        _setter("resource_group_name", resource_group_name)
         if connectivity_endpoints is not None:
-            pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
+            _setter("connectivity_endpoints", connectivity_endpoints)
         if csp_workspace_admin_properties is not None:
-            pulumi.set(__self__, "csp_workspace_admin_properties", csp_workspace_admin_properties)
+            _setter("csp_workspace_admin_properties", csp_workspace_admin_properties)
         if default_data_lake_storage is not None:
-            pulumi.set(__self__, "default_data_lake_storage", default_data_lake_storage)
+            _setter("default_data_lake_storage", default_data_lake_storage)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_name is not None:
-            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+            _setter("managed_resource_group_name", managed_resource_group_name)
         if managed_virtual_network is not None:
-            pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
+            _setter("managed_virtual_network", managed_virtual_network)
         if managed_virtual_network_settings is not None:
-            pulumi.set(__self__, "managed_virtual_network_settings", managed_virtual_network_settings)
+            _setter("managed_virtual_network_settings", managed_virtual_network_settings)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if purview_configuration is not None:
-            pulumi.set(__self__, "purview_configuration", purview_configuration)
+            _setter("purview_configuration", purview_configuration)
         if sql_administrator_login is not None:
-            pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
+            _setter("sql_administrator_login", sql_administrator_login)
         if sql_administrator_login_password is not None:
-            pulumi.set(__self__, "sql_administrator_login_password", sql_administrator_login_password)
+            _setter("sql_administrator_login_password", sql_administrator_login_password)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_profile is not None:
-            pulumi.set(__self__, "virtual_network_profile", virtual_network_profile)
+            _setter("virtual_network_profile", virtual_network_profile)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
         if workspace_repository_configuration is not None:
-            pulumi.set(__self__, "workspace_repository_configuration", workspace_repository_configuration)
+            _setter("workspace_repository_configuration", workspace_repository_configuration)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -397,6 +476,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -431,16 +514,22 @@ class Workspace(pulumi.CustomResource):
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
             __props__.__dict__["connectivity_endpoints"] = connectivity_endpoints
+            csp_workspace_admin_properties = _utilities.configure(csp_workspace_admin_properties, CspWorkspaceAdminPropertiesArgs, True)
             __props__.__dict__["csp_workspace_admin_properties"] = csp_workspace_admin_properties
+            default_data_lake_storage = _utilities.configure(default_data_lake_storage, DataLakeStorageAccountDetailsArgs, True)
             __props__.__dict__["default_data_lake_storage"] = default_data_lake_storage
+            encryption = _utilities.configure(encryption, EncryptionDetailsArgs, True)
             __props__.__dict__["encryption"] = encryption
+            identity = _utilities.configure(identity, ManagedIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
             __props__.__dict__["managed_virtual_network"] = managed_virtual_network
+            managed_virtual_network_settings = _utilities.configure(managed_virtual_network_settings, ManagedVirtualNetworkSettingsArgs, True)
             __props__.__dict__["managed_virtual_network_settings"] = managed_virtual_network_settings
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
             __props__.__dict__["public_network_access"] = public_network_access
+            purview_configuration = _utilities.configure(purview_configuration, PurviewConfigurationArgs, True)
             __props__.__dict__["purview_configuration"] = purview_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -448,8 +537,10 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["sql_administrator_login"] = sql_administrator_login
             __props__.__dict__["sql_administrator_login_password"] = sql_administrator_login_password
             __props__.__dict__["tags"] = tags
+            virtual_network_profile = _utilities.configure(virtual_network_profile, VirtualNetworkProfileArgs, True)
             __props__.__dict__["virtual_network_profile"] = virtual_network_profile
             __props__.__dict__["workspace_name"] = workspace_name
+            workspace_repository_configuration = _utilities.configure(workspace_repository_configuration, WorkspaceRepositoryConfigurationArgs, True)
             __props__.__dict__["workspace_repository_configuration"] = workspace_repository_configuration
             __props__.__dict__["adla_resource_id"] = None
             __props__.__dict__["extra_properties"] = None

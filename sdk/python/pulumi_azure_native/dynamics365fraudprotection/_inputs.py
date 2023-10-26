@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,8 +21,19 @@ class DFPInstanceAdministratorsArgs:
         An array of administrator user identities
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: An array of administrator user identities.
         """
+        DFPInstanceAdministratorsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            members=members,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
 
     @property
     @pulumi.getter

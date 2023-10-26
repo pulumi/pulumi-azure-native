@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,13 +32,54 @@ class ReplicationMigrationItemArgs:
         :param pulumi.Input[str] resource_name: The name of the recovery services vault.
         :param pulumi.Input[str] migration_item_name: Migration item name.
         """
-        pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "protection_container_name", protection_container_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        ReplicationMigrationItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fabric_name=fabric_name,
+            properties=properties,
+            protection_container_name=protection_container_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            migration_item_name=migration_item_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fabric_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['EnableMigrationInputPropertiesArgs']] = None,
+             protection_container_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             migration_item_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fabric_name is None and 'fabricName' in kwargs:
+            fabric_name = kwargs['fabricName']
+        if fabric_name is None:
+            raise TypeError("Missing 'fabric_name' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if protection_container_name is None and 'protectionContainerName' in kwargs:
+            protection_container_name = kwargs['protectionContainerName']
+        if protection_container_name is None:
+            raise TypeError("Missing 'protection_container_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if migration_item_name is None and 'migrationItemName' in kwargs:
+            migration_item_name = kwargs['migrationItemName']
+
+        _setter("fabric_name", fabric_name)
+        _setter("properties", properties)
+        _setter("protection_container_name", protection_container_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if migration_item_name is not None:
-            pulumi.set(__self__, "migration_item_name", migration_item_name)
+            _setter("migration_item_name", migration_item_name)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -162,6 +203,10 @@ class ReplicationMigrationItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicationMigrationItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,6 +231,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
             __props__.__dict__["migration_item_name"] = migration_item_name
+            properties = _utilities.configure(properties, EnableMigrationInputPropertiesArgs, True)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties

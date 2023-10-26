@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -35,14 +35,35 @@ class NetworkProfileArgs:
         :param pulumi.Input[str] vnet_cidr: CIDR for the OpenShift Vnet.
         :param pulumi.Input[str] vnet_id: ID of the Vnet created for OSA cluster.
         """
+        NetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_subnet_cidr=management_subnet_cidr,
+            vnet_cidr=vnet_cidr,
+            vnet_id=vnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_subnet_cidr: Optional[pulumi.Input[str]] = None,
+             vnet_cidr: Optional[pulumi.Input[str]] = None,
+             vnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if management_subnet_cidr is None and 'managementSubnetCidr' in kwargs:
+            management_subnet_cidr = kwargs['managementSubnetCidr']
+        if vnet_cidr is None and 'vnetCidr' in kwargs:
+            vnet_cidr = kwargs['vnetCidr']
+        if vnet_id is None and 'vnetId' in kwargs:
+            vnet_id = kwargs['vnetId']
+
         if management_subnet_cidr is not None:
-            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
+            _setter("management_subnet_cidr", management_subnet_cidr)
         if vnet_cidr is None:
             vnet_cidr = '10.0.0.0/8'
         if vnet_cidr is not None:
-            pulumi.set(__self__, "vnet_cidr", vnet_cidr)
+            _setter("vnet_cidr", vnet_cidr)
         if vnet_id is not None:
-            pulumi.set(__self__, "vnet_id", vnet_id)
+            _setter("vnet_id", vnet_id)
 
     @property
     @pulumi.getter(name="managementSubnetCidr")
@@ -89,8 +110,21 @@ class OpenShiftAPIPropertiesArgs:
         Defines further properties on the API.
         :param pulumi.Input[bool] private_api_server: Specifies if API server is public or private.
         """
+        OpenShiftAPIPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_api_server=private_api_server,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_api_server: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_api_server is None and 'privateApiServer' in kwargs:
+            private_api_server = kwargs['privateApiServer']
+
         if private_api_server is not None:
-            pulumi.set(__self__, "private_api_server", private_api_server)
+            _setter("private_api_server", private_api_server)
 
     @property
     @pulumi.getter(name="privateApiServer")
@@ -122,15 +156,42 @@ class OpenShiftManagedClusterAADIdentityProviderArgs:
         :param pulumi.Input[str] secret: The secret password associated with the provider.
         :param pulumi.Input[str] tenant_id: The tenantId associated with the provider.
         """
-        pulumi.set(__self__, "kind", 'AADIdentityProvider')
+        OpenShiftManagedClusterAADIdentityProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            client_id=client_id,
+            customer_admin_group_id=customer_admin_group_id,
+            secret=secret,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             customer_admin_group_id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if customer_admin_group_id is None and 'customerAdminGroupId' in kwargs:
+            customer_admin_group_id = kwargs['customerAdminGroupId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("kind", 'AADIdentityProvider')
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if customer_admin_group_id is not None:
-            pulumi.set(__self__, "customer_admin_group_id", customer_admin_group_id)
+            _setter("customer_admin_group_id", customer_admin_group_id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -212,17 +273,50 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']] role: Define the role of the AgentPoolProfile.
         :param pulumi.Input[str] subnet_cidr: Subnet CIDR for the peering.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vm_size", vm_size)
+        OpenShiftManagedClusterAgentPoolProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            name=name,
+            vm_size=vm_size,
+            os_type=os_type,
+            role=role,
+            subnet_cidr=subnet_cidr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             vm_size: Optional[pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]] = None,
+             os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+             role: Optional[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]] = None,
+             subnet_cidr: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if subnet_cidr is None and 'subnetCidr' in kwargs:
+            subnet_cidr = kwargs['subnetCidr']
+
+        _setter("count", count)
+        _setter("name", name)
+        _setter("vm_size", vm_size)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
         if subnet_cidr is None:
             subnet_cidr = '10.0.0.0/24'
         if subnet_cidr is not None:
-            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+            _setter("subnet_cidr", subnet_cidr)
 
     @property
     @pulumi.getter
@@ -305,8 +399,21 @@ class OpenShiftManagedClusterAuthProfileArgs:
         Defines all possible authentication profiles for the OpenShift cluster.
         :param pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]] identity_providers: Type of authentication profile to use.
         """
+        OpenShiftManagedClusterAuthProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_providers=identity_providers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identity_providers is None and 'identityProviders' in kwargs:
+            identity_providers = kwargs['identityProviders']
+
         if identity_providers is not None:
-            pulumi.set(__self__, "identity_providers", identity_providers)
+            _setter("identity_providers", identity_providers)
 
     @property
     @pulumi.getter(name="identityProviders")
@@ -331,10 +438,23 @@ class OpenShiftManagedClusterIdentityProviderArgs:
         :param pulumi.Input[str] name: Name of the provider.
         :param pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs'] provider: Configuration of the provider.
         """
+        OpenShiftManagedClusterIdentityProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             provider: Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if provider is not None:
-            pulumi.set(__self__, "provider", provider)
+            _setter("provider", provider)
 
     @property
     @pulumi.getter
@@ -375,12 +495,39 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
         :param pulumi.Input['OpenShiftAPIPropertiesArgs'] api_properties: Defines further properties on the API.
         :param pulumi.Input[str] subnet_cidr: Subnet CIDR for the peering.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "vm_size", vm_size)
+        OpenShiftManagedClusterMasterPoolProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            vm_size=vm_size,
+            api_properties=api_properties,
+            subnet_cidr=subnet_cidr,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: Optional[pulumi.Input[int]] = None,
+             vm_size: Optional[pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]] = None,
+             api_properties: Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']] = None,
+             subnet_cidr: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if count is None:
+            raise TypeError("Missing 'count' argument")
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if vm_size is None:
+            raise TypeError("Missing 'vm_size' argument")
+        if api_properties is None and 'apiProperties' in kwargs:
+            api_properties = kwargs['apiProperties']
+        if subnet_cidr is None and 'subnetCidr' in kwargs:
+            subnet_cidr = kwargs['subnetCidr']
+
+        _setter("count", count)
+        _setter("vm_size", vm_size)
         if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
+            _setter("api_properties", api_properties)
         if subnet_cidr is not None:
-            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+            _setter("subnet_cidr", subnet_cidr)
 
     @property
     @pulumi.getter
@@ -441,10 +588,25 @@ class OpenShiftManagedClusterMonitorProfileArgs:
         :param pulumi.Input[bool] enabled: If the Log analytics integration should be turned on or off
         :param pulumi.Input[str] workspace_resource_id: Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
         """
+        OpenShiftManagedClusterMonitorProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if workspace_resource_id is None and 'workspaceResourceID' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceID']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter
@@ -479,8 +641,19 @@ class OpenShiftRouterProfileArgs:
         Represents an OpenShift router
         :param pulumi.Input[str] name: Name of the router profile.
         """
+        OpenShiftRouterProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -509,14 +682,33 @@ class PurchasePlanArgs:
         :param pulumi.Input[str] promotion_code: The promotion code.
         :param pulumi.Input[str] publisher: The plan ID.
         """
+        PurchasePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            promotion_code=promotion_code,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             product: Optional[pulumi.Input[str]] = None,
+             promotion_code: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if promotion_code is None and 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product is not None:
-            pulumi.set(__self__, "product", product)
+            _setter("product", product)
         if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
+            _setter("promotion_code", promotion_code)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
 
     @property
     @pulumi.getter

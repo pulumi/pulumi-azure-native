@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,23 +40,66 @@ class AnalyticsItemArgs:
         :param pulumi.Input[Union[str, 'ItemScope']] scope: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[Union[str, 'ItemType']] type: Enum indicating the type of the Analytics item.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "scope_path", scope_path)
+        AnalyticsItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            scope_path=scope_path,
+            content=content,
+            id=id,
+            name=name,
+            override_item=override_item,
+            properties=properties,
+            scope=scope,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             scope_path: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             override_item: Optional[pulumi.Input[bool]] = None,
+             properties: Optional[pulumi.Input['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']] = None,
+             scope: Optional[pulumi.Input[Union[str, 'ItemScope']]] = None,
+             type: Optional[pulumi.Input[Union[str, 'ItemType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if scope_path is None and 'scopePath' in kwargs:
+            scope_path = kwargs['scopePath']
+        if scope_path is None:
+            raise TypeError("Missing 'scope_path' argument")
+        if override_item is None and 'overrideItem' in kwargs:
+            override_item = kwargs['overrideItem']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
+        _setter("scope_path", scope_path)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if override_item is not None:
-            pulumi.set(__self__, "override_item", override_item)
+            _setter("override_item", override_item)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -232,6 +275,10 @@ class AnalyticsItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnalyticsItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -260,6 +307,7 @@ class AnalyticsItem(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
             __props__.__dict__["override_item"] = override_item
+            properties = _utilities.configure(properties, ApplicationInsightsComponentAnalyticsItemPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

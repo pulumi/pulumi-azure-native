@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -48,28 +48,101 @@ class GovernanceRuleArgs:
         :param pulumi.Input[str] remediation_timeframe: Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
         :param pulumi.Input[str] rule_id: The governance rule key - unique key for the standard governance rule (GUID)
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "owner_source", owner_source)
-        pulumi.set(__self__, "rule_priority", rule_priority)
-        pulumi.set(__self__, "rule_type", rule_type)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "source_resource_type", source_resource_type)
+        GovernanceRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            owner_source=owner_source,
+            rule_priority=rule_priority,
+            rule_type=rule_type,
+            scope=scope,
+            source_resource_type=source_resource_type,
+            description=description,
+            excluded_scopes=excluded_scopes,
+            governance_email_notification=governance_email_notification,
+            include_member_scopes=include_member_scopes,
+            is_disabled=is_disabled,
+            is_grace_period=is_grace_period,
+            remediation_timeframe=remediation_timeframe,
+            rule_id=rule_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             owner_source: Optional[pulumi.Input['GovernanceRuleOwnerSourceArgs']] = None,
+             rule_priority: Optional[pulumi.Input[int]] = None,
+             rule_type: Optional[pulumi.Input[Union[str, 'GovernanceRuleType']]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             source_resource_type: Optional[pulumi.Input[Union[str, 'GovernanceRuleSourceResourceType']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             governance_email_notification: Optional[pulumi.Input['GovernanceRuleEmailNotificationArgs']] = None,
+             include_member_scopes: Optional[pulumi.Input[bool]] = None,
+             is_disabled: Optional[pulumi.Input[bool]] = None,
+             is_grace_period: Optional[pulumi.Input[bool]] = None,
+             remediation_timeframe: Optional[pulumi.Input[str]] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if owner_source is None and 'ownerSource' in kwargs:
+            owner_source = kwargs['ownerSource']
+        if owner_source is None:
+            raise TypeError("Missing 'owner_source' argument")
+        if rule_priority is None and 'rulePriority' in kwargs:
+            rule_priority = kwargs['rulePriority']
+        if rule_priority is None:
+            raise TypeError("Missing 'rule_priority' argument")
+        if rule_type is None and 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if rule_type is None:
+            raise TypeError("Missing 'rule_type' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if source_resource_type is None and 'sourceResourceType' in kwargs:
+            source_resource_type = kwargs['sourceResourceType']
+        if source_resource_type is None:
+            raise TypeError("Missing 'source_resource_type' argument")
+        if excluded_scopes is None and 'excludedScopes' in kwargs:
+            excluded_scopes = kwargs['excludedScopes']
+        if governance_email_notification is None and 'governanceEmailNotification' in kwargs:
+            governance_email_notification = kwargs['governanceEmailNotification']
+        if include_member_scopes is None and 'includeMemberScopes' in kwargs:
+            include_member_scopes = kwargs['includeMemberScopes']
+        if is_disabled is None and 'isDisabled' in kwargs:
+            is_disabled = kwargs['isDisabled']
+        if is_grace_period is None and 'isGracePeriod' in kwargs:
+            is_grace_period = kwargs['isGracePeriod']
+        if remediation_timeframe is None and 'remediationTimeframe' in kwargs:
+            remediation_timeframe = kwargs['remediationTimeframe']
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+
+        _setter("display_name", display_name)
+        _setter("owner_source", owner_source)
+        _setter("rule_priority", rule_priority)
+        _setter("rule_type", rule_type)
+        _setter("scope", scope)
+        _setter("source_resource_type", source_resource_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if excluded_scopes is not None:
-            pulumi.set(__self__, "excluded_scopes", excluded_scopes)
+            _setter("excluded_scopes", excluded_scopes)
         if governance_email_notification is not None:
-            pulumi.set(__self__, "governance_email_notification", governance_email_notification)
+            _setter("governance_email_notification", governance_email_notification)
         if include_member_scopes is not None:
-            pulumi.set(__self__, "include_member_scopes", include_member_scopes)
+            _setter("include_member_scopes", include_member_scopes)
         if is_disabled is not None:
-            pulumi.set(__self__, "is_disabled", is_disabled)
+            _setter("is_disabled", is_disabled)
         if is_grace_period is not None:
-            pulumi.set(__self__, "is_grace_period", is_grace_period)
+            _setter("is_grace_period", is_grace_period)
         if remediation_timeframe is not None:
-            pulumi.set(__self__, "remediation_timeframe", remediation_timeframe)
+            _setter("remediation_timeframe", remediation_timeframe)
         if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
+            _setter("rule_id", rule_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -299,6 +372,10 @@ class GovernanceRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GovernanceRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -332,10 +409,12 @@ class GovernanceRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["excluded_scopes"] = excluded_scopes
+            governance_email_notification = _utilities.configure(governance_email_notification, GovernanceRuleEmailNotificationArgs, True)
             __props__.__dict__["governance_email_notification"] = governance_email_notification
             __props__.__dict__["include_member_scopes"] = include_member_scopes
             __props__.__dict__["is_disabled"] = is_disabled
             __props__.__dict__["is_grace_period"] = is_grace_period
+            owner_source = _utilities.configure(owner_source, GovernanceRuleOwnerSourceArgs, True)
             if owner_source is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_source'")
             __props__.__dict__["owner_source"] = owner_source

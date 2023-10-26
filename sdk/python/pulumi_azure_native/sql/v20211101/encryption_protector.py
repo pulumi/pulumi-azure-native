@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -30,15 +30,54 @@ class EncryptionProtectorArgs:
         :param pulumi.Input[str] encryption_protector_name: The name of the encryption protector to be updated.
         :param pulumi.Input[str] server_key_name: The name of the server key.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_key_type", server_key_type)
-        pulumi.set(__self__, "server_name", server_name)
+        EncryptionProtectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_key_type=server_key_type,
+            server_name=server_name,
+            auto_rotation_enabled=auto_rotation_enabled,
+            encryption_protector_name=encryption_protector_name,
+            server_key_name=server_key_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_key_type: Optional[pulumi.Input[Union[str, 'ServerKeyType']]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption_protector_name: Optional[pulumi.Input[str]] = None,
+             server_key_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_key_type is None and 'serverKeyType' in kwargs:
+            server_key_type = kwargs['serverKeyType']
+        if server_key_type is None:
+            raise TypeError("Missing 'server_key_type' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if auto_rotation_enabled is None and 'autoRotationEnabled' in kwargs:
+            auto_rotation_enabled = kwargs['autoRotationEnabled']
+        if encryption_protector_name is None and 'encryptionProtectorName' in kwargs:
+            encryption_protector_name = kwargs['encryptionProtectorName']
+        if server_key_name is None and 'serverKeyName' in kwargs:
+            server_key_name = kwargs['serverKeyName']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_key_type", server_key_type)
+        _setter("server_name", server_name)
         if auto_rotation_enabled is not None:
-            pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
+            _setter("auto_rotation_enabled", auto_rotation_enabled)
         if encryption_protector_name is not None:
-            pulumi.set(__self__, "encryption_protector_name", encryption_protector_name)
+            _setter("encryption_protector_name", encryption_protector_name)
         if server_key_name is not None:
-            pulumi.set(__self__, "server_key_name", server_key_name)
+            _setter("server_key_name", server_key_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -156,6 +195,10 @@ class EncryptionProtector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EncryptionProtectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

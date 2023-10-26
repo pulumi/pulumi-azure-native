@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,16 +34,57 @@ class SoftwareUpdateConfigurationByNameArgs:
         :param pulumi.Input[str] software_update_configuration_name: The name of the software update configuration to be created.
         :param pulumi.Input['SoftwareUpdateConfigurationTasksArgs'] tasks: Tasks information for the Software update configuration.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schedule_info", schedule_info)
-        pulumi.set(__self__, "update_configuration", update_configuration)
+        SoftwareUpdateConfigurationByNameArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            resource_group_name=resource_group_name,
+            schedule_info=schedule_info,
+            update_configuration=update_configuration,
+            error=error,
+            software_update_configuration_name=software_update_configuration_name,
+            tasks=tasks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schedule_info: Optional[pulumi.Input['SUCSchedulePropertiesArgs']] = None,
+             update_configuration: Optional[pulumi.Input['UpdateConfigurationArgs']] = None,
+             error: Optional[pulumi.Input['ErrorResponseArgs']] = None,
+             software_update_configuration_name: Optional[pulumi.Input[str]] = None,
+             tasks: Optional[pulumi.Input['SoftwareUpdateConfigurationTasksArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if automation_account_name is None and 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schedule_info is None and 'scheduleInfo' in kwargs:
+            schedule_info = kwargs['scheduleInfo']
+        if schedule_info is None:
+            raise TypeError("Missing 'schedule_info' argument")
+        if update_configuration is None and 'updateConfiguration' in kwargs:
+            update_configuration = kwargs['updateConfiguration']
+        if update_configuration is None:
+            raise TypeError("Missing 'update_configuration' argument")
+        if software_update_configuration_name is None and 'softwareUpdateConfigurationName' in kwargs:
+            software_update_configuration_name = kwargs['softwareUpdateConfigurationName']
+
+        _setter("automation_account_name", automation_account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("schedule_info", schedule_info)
+        _setter("update_configuration", update_configuration)
         if error is not None:
-            pulumi.set(__self__, "error", error)
+            _setter("error", error)
         if software_update_configuration_name is not None:
-            pulumi.set(__self__, "software_update_configuration_name", software_update_configuration_name)
+            _setter("software_update_configuration_name", software_update_configuration_name)
         if tasks is not None:
-            pulumi.set(__self__, "tasks", tasks)
+            _setter("tasks", tasks)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -181,6 +222,10 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SoftwareUpdateConfigurationByNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -205,15 +250,19 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
+            error = _utilities.configure(error, ErrorResponseArgs, True)
             __props__.__dict__["error"] = error
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            schedule_info = _utilities.configure(schedule_info, SUCSchedulePropertiesArgs, True)
             if schedule_info is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_info'")
             __props__.__dict__["schedule_info"] = schedule_info
             __props__.__dict__["software_update_configuration_name"] = software_update_configuration_name
+            tasks = _utilities.configure(tasks, SoftwareUpdateConfigurationTasksArgs, True)
             __props__.__dict__["tasks"] = tasks
+            update_configuration = _utilities.configure(update_configuration, UpdateConfigurationArgs, True)
             if update_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'update_configuration'")
             __props__.__dict__["update_configuration"] = update_configuration

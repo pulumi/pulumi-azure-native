@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -14,6 +14,7 @@ __all__ = [
     'ListListTenantConfigurationViolationResult',
     'AwaitableListListTenantConfigurationViolationResult',
     'list_list_tenant_configuration_violation',
+    'list_list_tenant_configuration_violation_output',
 ]
 
 @pulumi.output_type
@@ -68,3 +69,12 @@ def list_list_tenant_configuration_violation(opts: Optional[pulumi.InvokeOptions
     return AwaitableListListTenantConfigurationViolationResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_list_tenant_configuration_violation)
+def list_list_tenant_configuration_violation_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListListTenantConfigurationViolationResult]:
+    """
+    Gets list of items that violate tenant's configuration.
+    Azure REST API version: 2020-09-01-preview.
+    """
+    ...

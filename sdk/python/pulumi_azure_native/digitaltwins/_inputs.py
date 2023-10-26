@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -55,31 +55,104 @@ class AzureDataExplorerConnectionPropertiesArgs:
         :param pulumi.Input['ManagedIdentityReferenceArgs'] identity: Managed identity properties for the time series database connection resource.
         :param pulumi.Input[Union[str, 'RecordPropertyAndItemRemovals']] record_property_and_item_removals: Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
         """
-        pulumi.set(__self__, "adx_database_name", adx_database_name)
-        pulumi.set(__self__, "adx_endpoint_uri", adx_endpoint_uri)
-        pulumi.set(__self__, "adx_resource_id", adx_resource_id)
-        pulumi.set(__self__, "connection_type", 'AzureDataExplorer')
-        pulumi.set(__self__, "event_hub_endpoint_uri", event_hub_endpoint_uri)
-        pulumi.set(__self__, "event_hub_entity_path", event_hub_entity_path)
-        pulumi.set(__self__, "event_hub_namespace_resource_id", event_hub_namespace_resource_id)
+        AzureDataExplorerConnectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adx_database_name=adx_database_name,
+            adx_endpoint_uri=adx_endpoint_uri,
+            adx_resource_id=adx_resource_id,
+            connection_type=connection_type,
+            event_hub_endpoint_uri=event_hub_endpoint_uri,
+            event_hub_entity_path=event_hub_entity_path,
+            event_hub_namespace_resource_id=event_hub_namespace_resource_id,
+            adx_relationship_lifecycle_events_table_name=adx_relationship_lifecycle_events_table_name,
+            adx_table_name=adx_table_name,
+            adx_twin_lifecycle_events_table_name=adx_twin_lifecycle_events_table_name,
+            event_hub_consumer_group=event_hub_consumer_group,
+            identity=identity,
+            record_property_and_item_removals=record_property_and_item_removals,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adx_database_name: Optional[pulumi.Input[str]] = None,
+             adx_endpoint_uri: Optional[pulumi.Input[str]] = None,
+             adx_resource_id: Optional[pulumi.Input[str]] = None,
+             connection_type: Optional[pulumi.Input[str]] = None,
+             event_hub_endpoint_uri: Optional[pulumi.Input[str]] = None,
+             event_hub_entity_path: Optional[pulumi.Input[str]] = None,
+             event_hub_namespace_resource_id: Optional[pulumi.Input[str]] = None,
+             adx_relationship_lifecycle_events_table_name: Optional[pulumi.Input[str]] = None,
+             adx_table_name: Optional[pulumi.Input[str]] = None,
+             adx_twin_lifecycle_events_table_name: Optional[pulumi.Input[str]] = None,
+             event_hub_consumer_group: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityReferenceArgs']] = None,
+             record_property_and_item_removals: Optional[pulumi.Input[Union[str, 'RecordPropertyAndItemRemovals']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if adx_database_name is None and 'adxDatabaseName' in kwargs:
+            adx_database_name = kwargs['adxDatabaseName']
+        if adx_database_name is None:
+            raise TypeError("Missing 'adx_database_name' argument")
+        if adx_endpoint_uri is None and 'adxEndpointUri' in kwargs:
+            adx_endpoint_uri = kwargs['adxEndpointUri']
+        if adx_endpoint_uri is None:
+            raise TypeError("Missing 'adx_endpoint_uri' argument")
+        if adx_resource_id is None and 'adxResourceId' in kwargs:
+            adx_resource_id = kwargs['adxResourceId']
+        if adx_resource_id is None:
+            raise TypeError("Missing 'adx_resource_id' argument")
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if connection_type is None:
+            raise TypeError("Missing 'connection_type' argument")
+        if event_hub_endpoint_uri is None and 'eventHubEndpointUri' in kwargs:
+            event_hub_endpoint_uri = kwargs['eventHubEndpointUri']
+        if event_hub_endpoint_uri is None:
+            raise TypeError("Missing 'event_hub_endpoint_uri' argument")
+        if event_hub_entity_path is None and 'eventHubEntityPath' in kwargs:
+            event_hub_entity_path = kwargs['eventHubEntityPath']
+        if event_hub_entity_path is None:
+            raise TypeError("Missing 'event_hub_entity_path' argument")
+        if event_hub_namespace_resource_id is None and 'eventHubNamespaceResourceId' in kwargs:
+            event_hub_namespace_resource_id = kwargs['eventHubNamespaceResourceId']
+        if event_hub_namespace_resource_id is None:
+            raise TypeError("Missing 'event_hub_namespace_resource_id' argument")
+        if adx_relationship_lifecycle_events_table_name is None and 'adxRelationshipLifecycleEventsTableName' in kwargs:
+            adx_relationship_lifecycle_events_table_name = kwargs['adxRelationshipLifecycleEventsTableName']
+        if adx_table_name is None and 'adxTableName' in kwargs:
+            adx_table_name = kwargs['adxTableName']
+        if adx_twin_lifecycle_events_table_name is None and 'adxTwinLifecycleEventsTableName' in kwargs:
+            adx_twin_lifecycle_events_table_name = kwargs['adxTwinLifecycleEventsTableName']
+        if event_hub_consumer_group is None and 'eventHubConsumerGroup' in kwargs:
+            event_hub_consumer_group = kwargs['eventHubConsumerGroup']
+        if record_property_and_item_removals is None and 'recordPropertyAndItemRemovals' in kwargs:
+            record_property_and_item_removals = kwargs['recordPropertyAndItemRemovals']
+
+        _setter("adx_database_name", adx_database_name)
+        _setter("adx_endpoint_uri", adx_endpoint_uri)
+        _setter("adx_resource_id", adx_resource_id)
+        _setter("connection_type", 'AzureDataExplorer')
+        _setter("event_hub_endpoint_uri", event_hub_endpoint_uri)
+        _setter("event_hub_entity_path", event_hub_entity_path)
+        _setter("event_hub_namespace_resource_id", event_hub_namespace_resource_id)
         if adx_relationship_lifecycle_events_table_name is not None:
-            pulumi.set(__self__, "adx_relationship_lifecycle_events_table_name", adx_relationship_lifecycle_events_table_name)
+            _setter("adx_relationship_lifecycle_events_table_name", adx_relationship_lifecycle_events_table_name)
         if adx_table_name is None:
             adx_table_name = 'AdtPropertyEvents'
         if adx_table_name is not None:
-            pulumi.set(__self__, "adx_table_name", adx_table_name)
+            _setter("adx_table_name", adx_table_name)
         if adx_twin_lifecycle_events_table_name is not None:
-            pulumi.set(__self__, "adx_twin_lifecycle_events_table_name", adx_twin_lifecycle_events_table_name)
+            _setter("adx_twin_lifecycle_events_table_name", adx_twin_lifecycle_events_table_name)
         if event_hub_consumer_group is None:
             event_hub_consumer_group = '$Default'
         if event_hub_consumer_group is not None:
-            pulumi.set(__self__, "event_hub_consumer_group", event_hub_consumer_group)
+            _setter("event_hub_consumer_group", event_hub_consumer_group)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if record_property_and_item_removals is None:
             record_property_and_item_removals = 'false'
         if record_property_and_item_removals is not None:
-            pulumi.set(__self__, "record_property_and_item_removals", record_property_and_item_removals)
+            _setter("record_property_and_item_removals", record_property_and_item_removals)
 
     @property
     @pulumi.getter(name="adxDatabaseName")
@@ -251,10 +324,31 @@ class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection.
         :param pulumi.Input[str] actions_required: Actions required for a private endpoint connection.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "status", status)
+        ConnectionPropertiesPrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            status=status,
+            actions_required=actions_required,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]] = None,
+             actions_required: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
+        _setter("description", description)
+        _setter("status", status)
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
 
     @property
     @pulumi.getter
@@ -303,10 +397,27 @@ class ConnectionPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The list of group ids for the private endpoint connection.
         :param pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The connection state.
         """
+        ConnectionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            group_ids=group_ids,
+            private_link_service_connection_state=private_link_service_connection_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_link_service_connection_state: Optional[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ids is None and 'groupIds' in kwargs:
+            group_ids = kwargs['groupIds']
+        if private_link_service_connection_state is None and 'privateLinkServiceConnectionState' in kwargs:
+            private_link_service_connection_state = kwargs['privateLinkServiceConnectionState']
+
         if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
+            _setter("group_ids", group_ids)
         if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+            _setter("private_link_service_connection_state", private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -345,10 +456,25 @@ class DigitalTwinsIdentityArgs:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
                .
         """
+        DigitalTwinsIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'DigitalTwinsIdentityType']]] = None,
+             user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -400,19 +526,64 @@ class EventGridArgs:
         :param pulumi.Input[str] dead_letter_uri: Dead letter storage URL for identity-based authentication.
         :param pulumi.Input['ManagedIdentityReferenceArgs'] identity: Managed identity properties for the endpoint.
         """
-        pulumi.set(__self__, "access_key1", access_key1)
-        pulumi.set(__self__, "endpoint_type", 'EventGrid')
-        pulumi.set(__self__, "topic_endpoint", topic_endpoint)
+        EventGridArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key1=access_key1,
+            endpoint_type=endpoint_type,
+            topic_endpoint=topic_endpoint,
+            access_key2=access_key2,
+            authentication_type=authentication_type,
+            dead_letter_secret=dead_letter_secret,
+            dead_letter_uri=dead_letter_uri,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key1: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             topic_endpoint: Optional[pulumi.Input[str]] = None,
+             access_key2: Optional[pulumi.Input[str]] = None,
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             dead_letter_secret: Optional[pulumi.Input[str]] = None,
+             dead_letter_uri: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key1 is None and 'accessKey1' in kwargs:
+            access_key1 = kwargs['accessKey1']
+        if access_key1 is None:
+            raise TypeError("Missing 'access_key1' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if topic_endpoint is None and 'topicEndpoint' in kwargs:
+            topic_endpoint = kwargs['topicEndpoint']
+        if topic_endpoint is None:
+            raise TypeError("Missing 'topic_endpoint' argument")
+        if access_key2 is None and 'accessKey2' in kwargs:
+            access_key2 = kwargs['accessKey2']
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if dead_letter_secret is None and 'deadLetterSecret' in kwargs:
+            dead_letter_secret = kwargs['deadLetterSecret']
+        if dead_letter_uri is None and 'deadLetterUri' in kwargs:
+            dead_letter_uri = kwargs['deadLetterUri']
+
+        _setter("access_key1", access_key1)
+        _setter("endpoint_type", 'EventGrid')
+        _setter("topic_endpoint", topic_endpoint)
         if access_key2 is not None:
-            pulumi.set(__self__, "access_key2", access_key2)
+            _setter("access_key2", access_key2)
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if dead_letter_secret is not None:
-            pulumi.set(__self__, "dead_letter_secret", dead_letter_secret)
+            _setter("dead_letter_secret", dead_letter_secret)
         if dead_letter_uri is not None:
-            pulumi.set(__self__, "dead_letter_uri", dead_letter_uri)
+            _setter("dead_letter_uri", dead_letter_uri)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter(name="accessKey1")
@@ -537,23 +708,68 @@ class EventHubArgs:
         :param pulumi.Input[str] entity_path: The EventHub name in the EventHub namespace for identity-based authentication.
         :param pulumi.Input['ManagedIdentityReferenceArgs'] identity: Managed identity properties for the endpoint.
         """
-        pulumi.set(__self__, "endpoint_type", 'EventHub')
+        EventHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            authentication_type=authentication_type,
+            connection_string_primary_key=connection_string_primary_key,
+            connection_string_secondary_key=connection_string_secondary_key,
+            dead_letter_secret=dead_letter_secret,
+            dead_letter_uri=dead_letter_uri,
+            endpoint_uri=endpoint_uri,
+            entity_path=entity_path,
+            identity=identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             connection_string_primary_key: Optional[pulumi.Input[str]] = None,
+             connection_string_secondary_key: Optional[pulumi.Input[str]] = None,
+             dead_letter_secret: Optional[pulumi.Input[str]] = None,
+             dead_letter_uri: Optional[pulumi.Input[str]] = None,
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             entity_path: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if connection_string_primary_key is None and 'connectionStringPrimaryKey' in kwargs:
+            connection_string_primary_key = kwargs['connectionStringPrimaryKey']
+        if connection_string_secondary_key is None and 'connectionStringSecondaryKey' in kwargs:
+            connection_string_secondary_key = kwargs['connectionStringSecondaryKey']
+        if dead_letter_secret is None and 'deadLetterSecret' in kwargs:
+            dead_letter_secret = kwargs['deadLetterSecret']
+        if dead_letter_uri is None and 'deadLetterUri' in kwargs:
+            dead_letter_uri = kwargs['deadLetterUri']
+        if endpoint_uri is None and 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if entity_path is None and 'entityPath' in kwargs:
+            entity_path = kwargs['entityPath']
+
+        _setter("endpoint_type", 'EventHub')
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if connection_string_primary_key is not None:
-            pulumi.set(__self__, "connection_string_primary_key", connection_string_primary_key)
+            _setter("connection_string_primary_key", connection_string_primary_key)
         if connection_string_secondary_key is not None:
-            pulumi.set(__self__, "connection_string_secondary_key", connection_string_secondary_key)
+            _setter("connection_string_secondary_key", connection_string_secondary_key)
         if dead_letter_secret is not None:
-            pulumi.set(__self__, "dead_letter_secret", dead_letter_secret)
+            _setter("dead_letter_secret", dead_letter_secret)
         if dead_letter_uri is not None:
-            pulumi.set(__self__, "dead_letter_uri", dead_letter_uri)
+            _setter("dead_letter_uri", dead_letter_uri)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if entity_path is not None:
-            pulumi.set(__self__, "entity_path", entity_path)
+            _setter("entity_path", entity_path)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
 
     @property
     @pulumi.getter(name="endpointType")
@@ -675,10 +891,25 @@ class ManagedIdentityReferenceArgs:
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed identity used.
         :param pulumi.Input[str] user_assigned_identity: The user identity ARM resource id if the managed identity type is 'UserAssigned'.
         """
+        ManagedIdentityReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            user_assigned_identity=user_assigned_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
+             user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_assigned_identity is None and 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+            _setter("user_assigned_identity", user_assigned_identity)
 
     @property
     @pulumi.getter
@@ -713,7 +944,20 @@ class PrivateEndpointConnectionArgs:
         The private endpoint connection of a Digital Twin.
         :param pulumi.Input['ConnectionPropertiesArgs'] properties: The connection properties.
         """
-        pulumi.set(__self__, "properties", properties)
+        PrivateEndpointConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[pulumi.Input['ConnectionPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+
+        _setter("properties", properties)
 
     @property
     @pulumi.getter
@@ -753,23 +997,68 @@ class ServiceBusArgs:
         :param pulumi.Input[str] primary_connection_string: PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         :param pulumi.Input[str] secondary_connection_string: SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         """
-        pulumi.set(__self__, "endpoint_type", 'ServiceBus')
+        ServiceBusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_type=endpoint_type,
+            authentication_type=authentication_type,
+            dead_letter_secret=dead_letter_secret,
+            dead_letter_uri=dead_letter_uri,
+            endpoint_uri=endpoint_uri,
+            entity_path=entity_path,
+            identity=identity,
+            primary_connection_string=primary_connection_string,
+            secondary_connection_string=secondary_connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
+             dead_letter_secret: Optional[pulumi.Input[str]] = None,
+             dead_letter_uri: Optional[pulumi.Input[str]] = None,
+             endpoint_uri: Optional[pulumi.Input[str]] = None,
+             entity_path: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedIdentityReferenceArgs']] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if dead_letter_secret is None and 'deadLetterSecret' in kwargs:
+            dead_letter_secret = kwargs['deadLetterSecret']
+        if dead_letter_uri is None and 'deadLetterUri' in kwargs:
+            dead_letter_uri = kwargs['deadLetterUri']
+        if endpoint_uri is None and 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if entity_path is None and 'entityPath' in kwargs:
+            entity_path = kwargs['entityPath']
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+
+        _setter("endpoint_type", 'ServiceBus')
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if dead_letter_secret is not None:
-            pulumi.set(__self__, "dead_letter_secret", dead_letter_secret)
+            _setter("dead_letter_secret", dead_letter_secret)
         if dead_letter_uri is not None:
-            pulumi.set(__self__, "dead_letter_uri", dead_letter_uri)
+            _setter("dead_letter_uri", dead_letter_uri)
         if endpoint_uri is not None:
-            pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+            _setter("endpoint_uri", endpoint_uri)
         if entity_path is not None:
-            pulumi.set(__self__, "entity_path", entity_path)
+            _setter("entity_path", entity_path)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
 
     @property
     @pulumi.getter(name="endpointType")

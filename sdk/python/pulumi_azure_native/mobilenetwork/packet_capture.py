@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -32,24 +32,65 @@ class PacketCaptureArgs:
         :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
         :param pulumi.Input[float] total_bytes_per_session: Maximum size of the capture output.
         """
-        pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PacketCaptureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            packet_core_control_plane_name=packet_core_control_plane_name,
+            resource_group_name=resource_group_name,
+            bytes_to_capture_per_packet=bytes_to_capture_per_packet,
+            network_interfaces=network_interfaces,
+            packet_capture_name=packet_capture_name,
+            time_limit_in_seconds=time_limit_in_seconds,
+            total_bytes_per_session=total_bytes_per_session,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             packet_capture_name: Optional[pulumi.Input[str]] = None,
+             time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
+             total_bytes_per_session: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if packet_core_control_plane_name is None and 'packetCoreControlPlaneName' in kwargs:
+            packet_core_control_plane_name = kwargs['packetCoreControlPlaneName']
+        if packet_core_control_plane_name is None:
+            raise TypeError("Missing 'packet_core_control_plane_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if bytes_to_capture_per_packet is None and 'bytesToCapturePerPacket' in kwargs:
+            bytes_to_capture_per_packet = kwargs['bytesToCapturePerPacket']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if packet_capture_name is None and 'packetCaptureName' in kwargs:
+            packet_capture_name = kwargs['packetCaptureName']
+        if time_limit_in_seconds is None and 'timeLimitInSeconds' in kwargs:
+            time_limit_in_seconds = kwargs['timeLimitInSeconds']
+        if total_bytes_per_session is None and 'totalBytesPerSession' in kwargs:
+            total_bytes_per_session = kwargs['totalBytesPerSession']
+
+        _setter("packet_core_control_plane_name", packet_core_control_plane_name)
+        _setter("resource_group_name", resource_group_name)
         if bytes_to_capture_per_packet is None:
             bytes_to_capture_per_packet = 0
         if bytes_to_capture_per_packet is not None:
-            pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
+            _setter("bytes_to_capture_per_packet", bytes_to_capture_per_packet)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if packet_capture_name is not None:
-            pulumi.set(__self__, "packet_capture_name", packet_capture_name)
+            _setter("packet_capture_name", packet_capture_name)
         if time_limit_in_seconds is None:
             time_limit_in_seconds = 18000
         if time_limit_in_seconds is not None:
-            pulumi.set(__self__, "time_limit_in_seconds", time_limit_in_seconds)
+            _setter("time_limit_in_seconds", time_limit_in_seconds)
         if total_bytes_per_session is None:
             total_bytes_per_session = 67108864
         if total_bytes_per_session is not None:
-            pulumi.set(__self__, "total_bytes_per_session", total_bytes_per_session)
+            _setter("total_bytes_per_session", total_bytes_per_session)
 
     @property
     @pulumi.getter(name="packetCoreControlPlaneName")
@@ -187,6 +228,10 @@ class PacketCapture(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PacketCaptureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

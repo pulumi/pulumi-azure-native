@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,19 +35,58 @@ class CertificateArgs:
         :param pulumi.Input[str] thumbprint: This must match the thumbprint from the name.
         :param pulumi.Input[str] thumbprint_algorithm: This must match the first portion of the certificate name. Currently required to be 'SHA1'.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data", data)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            data=data,
+            resource_group_name=resource_group_name,
+            certificate_name=certificate_name,
+            format=format,
+            password=password,
+            thumbprint=thumbprint,
+            thumbprint_algorithm=thumbprint_algorithm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             data: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input['CertificateFormat']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             thumbprint_algorithm: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if data is None:
+            raise TypeError("Missing 'data' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if thumbprint_algorithm is None and 'thumbprintAlgorithm' in kwargs:
+            thumbprint_algorithm = kwargs['thumbprintAlgorithm']
+
+        _setter("account_name", account_name)
+        _setter("data", data)
+        _setter("resource_group_name", resource_group_name)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if thumbprint_algorithm is not None:
-            pulumi.set(__self__, "thumbprint_algorithm", thumbprint_algorithm)
+            _setter("thumbprint_algorithm", thumbprint_algorithm)
 
     @property
     @pulumi.getter(name="accountName")
@@ -193,6 +232,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

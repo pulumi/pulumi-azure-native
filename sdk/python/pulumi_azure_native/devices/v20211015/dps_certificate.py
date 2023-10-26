@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 
@@ -28,14 +28,45 @@ class DpsCertificateArgs:
         :param pulumi.Input[str] certificate_name: The name of the certificate create or update.
         :param pulumi.Input[bool] is_verified: True indicates that the certificate will be created in verified state and proof of possession will not be required.
         """
-        pulumi.set(__self__, "provisioning_service_name", provisioning_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DpsCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provisioning_service_name=provisioning_service_name,
+            resource_group_name=resource_group_name,
+            certificate=certificate,
+            certificate_name=certificate_name,
+            is_verified=is_verified,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provisioning_service_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             certificate: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             is_verified: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_service_name is None and 'provisioningServiceName' in kwargs:
+            provisioning_service_name = kwargs['provisioningServiceName']
+        if provisioning_service_name is None:
+            raise TypeError("Missing 'provisioning_service_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if is_verified is None and 'isVerified' in kwargs:
+            is_verified = kwargs['isVerified']
+
+        _setter("provisioning_service_name", provisioning_service_name)
+        _setter("resource_group_name", resource_group_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_name is not None:
-            pulumi.set(__self__, "certificate_name", certificate_name)
+            _setter("certificate_name", certificate_name)
         if is_verified is not None:
-            pulumi.set(__self__, "is_verified", is_verified)
+            _setter("is_verified", is_verified)
 
     @property
     @pulumi.getter(name="provisioningServiceName")
@@ -139,6 +170,10 @@ class DpsCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DpsCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

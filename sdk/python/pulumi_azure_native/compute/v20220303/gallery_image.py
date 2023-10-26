@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -58,39 +58,116 @@ class GalleryImageArgs:
         :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "gallery_name", gallery_name)
-        pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "os_state", os_state)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GalleryImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gallery_name=gallery_name,
+            identifier=identifier,
+            os_state=os_state,
+            os_type=os_type,
+            resource_group_name=resource_group_name,
+            architecture=architecture,
+            description=description,
+            disallowed=disallowed,
+            end_of_life_date=end_of_life_date,
+            eula=eula,
+            features=features,
+            gallery_image_name=gallery_image_name,
+            hyper_v_generation=hyper_v_generation,
+            location=location,
+            privacy_statement_uri=privacy_statement_uri,
+            purchase_plan=purchase_plan,
+            recommended=recommended,
+            release_note_uri=release_note_uri,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input['GalleryImageIdentifierArgs']] = None,
+             os_state: Optional[pulumi.Input['OperatingSystemStateTypes']] = None,
+             os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disallowed: Optional[pulumi.Input['DisallowedArgs']] = None,
+             end_of_life_date: Optional[pulumi.Input[str]] = None,
+             eula: Optional[pulumi.Input[str]] = None,
+             features: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]] = None,
+             gallery_image_name: Optional[pulumi.Input[str]] = None,
+             hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             privacy_statement_uri: Optional[pulumi.Input[str]] = None,
+             purchase_plan: Optional[pulumi.Input['ImagePurchasePlanArgs']] = None,
+             recommended: Optional[pulumi.Input['RecommendedMachineConfigurationArgs']] = None,
+             release_note_uri: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gallery_name is None and 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if gallery_name is None:
+            raise TypeError("Missing 'gallery_name' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if os_state is None and 'osState' in kwargs:
+            os_state = kwargs['osState']
+        if os_state is None:
+            raise TypeError("Missing 'os_state' argument")
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if gallery_image_name is None and 'galleryImageName' in kwargs:
+            gallery_image_name = kwargs['galleryImageName']
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
+            privacy_statement_uri = kwargs['privacyStatementUri']
+        if purchase_plan is None and 'purchasePlan' in kwargs:
+            purchase_plan = kwargs['purchasePlan']
+        if release_note_uri is None and 'releaseNoteUri' in kwargs:
+            release_note_uri = kwargs['releaseNoteUri']
+
+        _setter("gallery_name", gallery_name)
+        _setter("identifier", identifier)
+        _setter("os_state", os_state)
+        _setter("os_type", os_type)
+        _setter("resource_group_name", resource_group_name)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disallowed is not None:
-            pulumi.set(__self__, "disallowed", disallowed)
+            _setter("disallowed", disallowed)
         if end_of_life_date is not None:
-            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+            _setter("end_of_life_date", end_of_life_date)
         if eula is not None:
-            pulumi.set(__self__, "eula", eula)
+            _setter("eula", eula)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if gallery_image_name is not None:
-            pulumi.set(__self__, "gallery_image_name", gallery_image_name)
+            _setter("gallery_image_name", gallery_image_name)
         if hyper_v_generation is not None:
-            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+            _setter("hyper_v_generation", hyper_v_generation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if privacy_statement_uri is not None:
-            pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
+            _setter("privacy_statement_uri", privacy_statement_uri)
         if purchase_plan is not None:
-            pulumi.set(__self__, "purchase_plan", purchase_plan)
+            _setter("purchase_plan", purchase_plan)
         if recommended is not None:
-            pulumi.set(__self__, "recommended", recommended)
+            _setter("recommended", recommended)
         if release_note_uri is not None:
-            pulumi.set(__self__, "release_note_uri", release_note_uri)
+            _setter("release_note_uri", release_note_uri)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="galleryName")
@@ -390,6 +467,10 @@ class GalleryImage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GalleryImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -425,6 +506,7 @@ class GalleryImage(pulumi.CustomResource):
 
             __props__.__dict__["architecture"] = architecture
             __props__.__dict__["description"] = description
+            disallowed = _utilities.configure(disallowed, DisallowedArgs, True)
             __props__.__dict__["disallowed"] = disallowed
             __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["eula"] = eula
@@ -434,6 +516,7 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gallery_name'")
             __props__.__dict__["gallery_name"] = gallery_name
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
+            identifier = _utilities.configure(identifier, GalleryImageIdentifierArgs, True)
             if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
@@ -445,7 +528,9 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["privacy_statement_uri"] = privacy_statement_uri
+            purchase_plan = _utilities.configure(purchase_plan, ImagePurchasePlanArgs, True)
             __props__.__dict__["purchase_plan"] = purchase_plan
+            recommended = _utilities.configure(recommended, RecommendedMachineConfigurationArgs, True)
             __props__.__dict__["recommended"] = recommended
             __props__.__dict__["release_note_uri"] = release_note_uri
             if resource_group_name is None and not opts.urn:

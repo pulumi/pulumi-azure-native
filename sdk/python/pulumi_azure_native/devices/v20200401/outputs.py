@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
@@ -53,14 +53,51 @@ class CertificatePropertiesResponse(dict):
         :param str updated: The certificate's last update date and time.
         :param str certificate: The certificate content
         """
-        pulumi.set(__self__, "created", created)
-        pulumi.set(__self__, "expiry", expiry)
-        pulumi.set(__self__, "is_verified", is_verified)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "updated", updated)
+        CertificatePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            expiry=expiry,
+            is_verified=is_verified,
+            subject=subject,
+            thumbprint=thumbprint,
+            updated=updated,
+            certificate=certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[str] = None,
+             expiry: Optional[str] = None,
+             is_verified: Optional[bool] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             updated: Optional[str] = None,
+             certificate: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created is None:
+            raise TypeError("Missing 'created' argument")
+        if expiry is None:
+            raise TypeError("Missing 'expiry' argument")
+        if is_verified is None and 'isVerified' in kwargs:
+            is_verified = kwargs['isVerified']
+        if is_verified is None:
+            raise TypeError("Missing 'is_verified' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if thumbprint is None:
+            raise TypeError("Missing 'thumbprint' argument")
+        if updated is None:
+            raise TypeError("Missing 'updated' argument")
+
+        _setter("created", created)
+        _setter("expiry", expiry)
+        _setter("is_verified", is_verified)
+        _setter("subject", subject)
+        _setter("thumbprint", thumbprint)
+        _setter("updated", updated)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
 
     @property
     @pulumi.getter

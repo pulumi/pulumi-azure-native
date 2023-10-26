@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,64 @@ class ADCCatalogArgs:
         :param pulumi.Input[int] units: Azure data catalog units.
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]] users: Azure data catalog user list.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ADCCatalogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            admins=admins,
+            catalog_name=catalog_name,
+            enable_automatic_unit_adjustment=enable_automatic_unit_adjustment,
+            location=location,
+            sku=sku,
+            successfully_provisioned=successfully_provisioned,
+            tags=tags,
+            units=units,
+            users=users,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             admins: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]] = None,
+             catalog_name: Optional[pulumi.Input[str]] = None,
+             enable_automatic_unit_adjustment: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
+             successfully_provisioned: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             units: Optional[pulumi.Input[int]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if catalog_name is None and 'catalogName' in kwargs:
+            catalog_name = kwargs['catalogName']
+        if enable_automatic_unit_adjustment is None and 'enableAutomaticUnitAdjustment' in kwargs:
+            enable_automatic_unit_adjustment = kwargs['enableAutomaticUnitAdjustment']
+        if successfully_provisioned is None and 'successfullyProvisioned' in kwargs:
+            successfully_provisioned = kwargs['successfullyProvisioned']
+
+        _setter("resource_group_name", resource_group_name)
         if admins is not None:
-            pulumi.set(__self__, "admins", admins)
+            _setter("admins", admins)
         if catalog_name is not None:
-            pulumi.set(__self__, "catalog_name", catalog_name)
+            _setter("catalog_name", catalog_name)
         if enable_automatic_unit_adjustment is not None:
-            pulumi.set(__self__, "enable_automatic_unit_adjustment", enable_automatic_unit_adjustment)
+            _setter("enable_automatic_unit_adjustment", enable_automatic_unit_adjustment)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if successfully_provisioned is not None:
-            pulumi.set(__self__, "successfully_provisioned", successfully_provisioned)
+            _setter("successfully_provisioned", successfully_provisioned)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if units is not None:
-            pulumi.set(__self__, "units", units)
+            _setter("units", units)
         if users is not None:
-            pulumi.set(__self__, "users", users)
+            _setter("users", users)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -234,6 +273,10 @@ class ADCCatalog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ADCCatalogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

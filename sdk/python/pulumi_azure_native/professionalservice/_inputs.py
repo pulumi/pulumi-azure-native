@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,22 +35,63 @@ class ProfessionalServiceCreationPropertiesArgs:
         :param pulumi.Input[str] store_front: The store front which initiates the purchase.
         :param pulumi.Input[str] term_unit: The unit term eg P1M,P1Y,P2Y,P3Y meaning month,1year,2year,3year respectively
         """
+        ProfessionalServiceCreationPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_renew=auto_renew,
+            billing_period=billing_period,
+            offer_id=offer_id,
+            publisher_id=publisher_id,
+            quote_id=quote_id,
+            sku_id=sku_id,
+            store_front=store_front,
+            term_unit=term_unit,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_renew: Optional[pulumi.Input[bool]] = None,
+             billing_period: Optional[pulumi.Input[str]] = None,
+             offer_id: Optional[pulumi.Input[str]] = None,
+             publisher_id: Optional[pulumi.Input[str]] = None,
+             quote_id: Optional[pulumi.Input[str]] = None,
+             sku_id: Optional[pulumi.Input[str]] = None,
+             store_front: Optional[pulumi.Input[str]] = None,
+             term_unit: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_renew is None and 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if billing_period is None and 'billingPeriod' in kwargs:
+            billing_period = kwargs['billingPeriod']
+        if offer_id is None and 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+        if publisher_id is None and 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if quote_id is None and 'quoteId' in kwargs:
+            quote_id = kwargs['quoteId']
+        if sku_id is None and 'skuId' in kwargs:
+            sku_id = kwargs['skuId']
+        if store_front is None and 'storeFront' in kwargs:
+            store_front = kwargs['storeFront']
+        if term_unit is None and 'termUnit' in kwargs:
+            term_unit = kwargs['termUnit']
+
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if billing_period is not None:
-            pulumi.set(__self__, "billing_period", billing_period)
+            _setter("billing_period", billing_period)
         if offer_id is not None:
-            pulumi.set(__self__, "offer_id", offer_id)
+            _setter("offer_id", offer_id)
         if publisher_id is not None:
-            pulumi.set(__self__, "publisher_id", publisher_id)
+            _setter("publisher_id", publisher_id)
         if quote_id is not None:
-            pulumi.set(__self__, "quote_id", quote_id)
+            _setter("quote_id", quote_id)
         if sku_id is not None:
-            pulumi.set(__self__, "sku_id", sku_id)
+            _setter("sku_id", sku_id)
         if store_front is not None:
-            pulumi.set(__self__, "store_front", store_front)
+            _setter("store_front", store_front)
         if term_unit is not None:
-            pulumi.set(__self__, "term_unit", term_unit)
+            _setter("term_unit", term_unit)
 
     @property
     @pulumi.getter(name="autoRenew")

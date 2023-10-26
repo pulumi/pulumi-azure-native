@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,17 +34,60 @@ class NamespaceTopicEventSubscriptionArgs:
         :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
         :param pulumi.Input['FiltersConfigurationArgs'] filters_configuration: Information about the filter for the event subscription.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "topic_name", topic_name)
+        NamespaceTopicEventSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            topic_name=topic_name,
+            delivery_configuration=delivery_configuration,
+            event_delivery_schema=event_delivery_schema,
+            event_subscription_name=event_subscription_name,
+            filters_configuration=filters_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
+             delivery_configuration: Optional[pulumi.Input['DeliveryConfigurationArgs']] = None,
+             event_delivery_schema: Optional[pulumi.Input[Union[str, 'DeliverySchema']]] = None,
+             event_subscription_name: Optional[pulumi.Input[str]] = None,
+             filters_configuration: Optional[pulumi.Input['FiltersConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+        if delivery_configuration is None and 'deliveryConfiguration' in kwargs:
+            delivery_configuration = kwargs['deliveryConfiguration']
+        if event_delivery_schema is None and 'eventDeliverySchema' in kwargs:
+            event_delivery_schema = kwargs['eventDeliverySchema']
+        if event_subscription_name is None and 'eventSubscriptionName' in kwargs:
+            event_subscription_name = kwargs['eventSubscriptionName']
+        if filters_configuration is None and 'filtersConfiguration' in kwargs:
+            filters_configuration = kwargs['filtersConfiguration']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("topic_name", topic_name)
         if delivery_configuration is not None:
-            pulumi.set(__self__, "delivery_configuration", delivery_configuration)
+            _setter("delivery_configuration", delivery_configuration)
         if event_delivery_schema is not None:
-            pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
+            _setter("event_delivery_schema", event_delivery_schema)
         if event_subscription_name is not None:
-            pulumi.set(__self__, "event_subscription_name", event_subscription_name)
+            _setter("event_subscription_name", event_subscription_name)
         if filters_configuration is not None:
-            pulumi.set(__self__, "filters_configuration", filters_configuration)
+            _setter("filters_configuration", filters_configuration)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -178,6 +221,10 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceTopicEventSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,9 +246,11 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NamespaceTopicEventSubscriptionArgs.__new__(NamespaceTopicEventSubscriptionArgs)
 
+            delivery_configuration = _utilities.configure(delivery_configuration, DeliveryConfigurationArgs, True)
             __props__.__dict__["delivery_configuration"] = delivery_configuration
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
             __props__.__dict__["event_subscription_name"] = event_subscription_name
+            filters_configuration = _utilities.configure(filters_configuration, FiltersConfigurationArgs, True)
             __props__.__dict__["filters_configuration"] = filters_configuration
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")

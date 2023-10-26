@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -46,25 +46,94 @@ class MicrosoftSecurityIncidentCreationAlertRuleArgs:
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertSeverity']]]] severities_filter: the alerts' severities on which the cases will be generated
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "kind", 'MicrosoftSecurityIncidentCreation')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "product_filter", product_filter)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        MicrosoftSecurityIncidentCreationAlertRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            enabled=enabled,
+            kind=kind,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            product_filter=product_filter,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            alert_rule_template_name=alert_rule_template_name,
+            description=description,
+            display_names_exclude_filter=display_names_exclude_filter,
+            display_names_filter=display_names_filter,
+            rule_id=rule_id,
+            severities_filter=severities_filter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+             product_filter: Optional[pulumi.Input[Union[str, 'MicrosoftSecurityProductName']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             alert_rule_template_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_names_exclude_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_names_filter: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             severities_filter: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlertSeverity']]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if operational_insights_resource_provider is None and 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if operational_insights_resource_provider is None:
+            raise TypeError("Missing 'operational_insights_resource_provider' argument")
+        if product_filter is None and 'productFilter' in kwargs:
+            product_filter = kwargs['productFilter']
+        if product_filter is None:
+            raise TypeError("Missing 'product_filter' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if alert_rule_template_name is None and 'alertRuleTemplateName' in kwargs:
+            alert_rule_template_name = kwargs['alertRuleTemplateName']
+        if display_names_exclude_filter is None and 'displayNamesExcludeFilter' in kwargs:
+            display_names_exclude_filter = kwargs['displayNamesExcludeFilter']
+        if display_names_filter is None and 'displayNamesFilter' in kwargs:
+            display_names_filter = kwargs['displayNamesFilter']
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if severities_filter is None and 'severitiesFilter' in kwargs:
+            severities_filter = kwargs['severitiesFilter']
+
+        _setter("display_name", display_name)
+        _setter("enabled", enabled)
+        _setter("kind", 'MicrosoftSecurityIncidentCreation')
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("product_filter", product_filter)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if alert_rule_template_name is not None:
-            pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
+            _setter("alert_rule_template_name", alert_rule_template_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_names_exclude_filter is not None:
-            pulumi.set(__self__, "display_names_exclude_filter", display_names_exclude_filter)
+            _setter("display_names_exclude_filter", display_names_exclude_filter)
         if display_names_filter is not None:
-            pulumi.set(__self__, "display_names_filter", display_names_filter)
+            _setter("display_names_filter", display_names_filter)
         if rule_id is not None:
-            pulumi.set(__self__, "rule_id", rule_id)
+            _setter("rule_id", rule_id)
         if severities_filter is not None:
-            pulumi.set(__self__, "severities_filter", severities_filter)
+            _setter("severities_filter", severities_filter)
 
     @property
     @pulumi.getter(name="displayName")
@@ -282,6 +351,10 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MicrosoftSecurityIncidentCreationAlertRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,25 +40,74 @@ class VirtualMachineInstanceArgs:
         :param pulumi.Input['VirtualMachineInstancePropertiesSecurityProfileArgs'] security_profile: SecurityProfile - Specifies the security settings for the virtual machine instance.
         :param pulumi.Input['VirtualMachineInstancePropertiesStorageProfileArgs'] storage_profile: StorageProfile - contains information about the disks and storage information for the virtual machine instance
         """
-        pulumi.set(__self__, "resource_uri", resource_uri)
+        VirtualMachineInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_uri=resource_uri,
+            extended_location=extended_location,
+            hardware_profile=hardware_profile,
+            http_proxy_config=http_proxy_config,
+            identity=identity,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            resource_uid=resource_uid,
+            security_profile=security_profile,
+            storage_profile=storage_profile,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_uri: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hardware_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesHardwareProfileArgs']] = None,
+             http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             network_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesNetworkProfileArgs']] = None,
+             os_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesOsProfileArgs']] = None,
+             resource_uid: Optional[pulumi.Input[str]] = None,
+             security_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesSecurityProfileArgs']] = None,
+             storage_profile: Optional[pulumi.Input['VirtualMachineInstancePropertiesStorageProfileArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_uri is None and 'resourceUri' in kwargs:
+            resource_uri = kwargs['resourceUri']
+        if resource_uri is None:
+            raise TypeError("Missing 'resource_uri' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if hardware_profile is None and 'hardwareProfile' in kwargs:
+            hardware_profile = kwargs['hardwareProfile']
+        if http_proxy_config is None and 'httpProxyConfig' in kwargs:
+            http_proxy_config = kwargs['httpProxyConfig']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if resource_uid is None and 'resourceUid' in kwargs:
+            resource_uid = kwargs['resourceUid']
+        if security_profile is None and 'securityProfile' in kwargs:
+            security_profile = kwargs['securityProfile']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+
+        _setter("resource_uri", resource_uri)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if http_proxy_config is not None:
-            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+            _setter("http_proxy_config", http_proxy_config)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if resource_uid is not None:
-            pulumi.set(__self__, "resource_uid", resource_uid)
+            _setter("resource_uid", resource_uid)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
 
     @property
     @pulumi.getter(name="resourceUri")
@@ -232,6 +281,10 @@ class VirtualMachineInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -256,17 +309,25 @@ class VirtualMachineInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineInstanceArgs.__new__(VirtualMachineInstanceArgs)
 
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
+            hardware_profile = _utilities.configure(hardware_profile, VirtualMachineInstancePropertiesHardwareProfileArgs, True)
             __props__.__dict__["hardware_profile"] = hardware_profile
+            http_proxy_config = _utilities.configure(http_proxy_config, HttpProxyConfigurationArgs, True)
             __props__.__dict__["http_proxy_config"] = http_proxy_config
+            identity = _utilities.configure(identity, IdentityArgs, True)
             __props__.__dict__["identity"] = identity
+            network_profile = _utilities.configure(network_profile, VirtualMachineInstancePropertiesNetworkProfileArgs, True)
             __props__.__dict__["network_profile"] = network_profile
+            os_profile = _utilities.configure(os_profile, VirtualMachineInstancePropertiesOsProfileArgs, True)
             __props__.__dict__["os_profile"] = os_profile
             __props__.__dict__["resource_uid"] = resource_uid
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
+            security_profile = _utilities.configure(security_profile, VirtualMachineInstancePropertiesSecurityProfileArgs, True)
             __props__.__dict__["security_profile"] = security_profile
+            storage_profile = _utilities.configure(storage_profile, VirtualMachineInstancePropertiesStorageProfileArgs, True)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["guest_agent_install_status"] = None
             __props__.__dict__["instance_view"] = None

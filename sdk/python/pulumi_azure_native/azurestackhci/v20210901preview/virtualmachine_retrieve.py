@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -43,29 +43,82 @@ class VirtualmachineRetrieveArgs:
         :param pulumi.Input['VirtualmachinesPropertiesStorageProfileArgs'] storage_profile: StorageProfile - contains information about the disks and storage information for the virtual machine
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualmachineRetrieveArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            extended_location=extended_location,
+            hardware_profile=hardware_profile,
+            identity=identity,
+            location=location,
+            network_profile=network_profile,
+            os_profile=os_profile,
+            resource_name=resource_name,
+            security_profile=security_profile,
+            storage_profile=storage_profile,
+            tags=tags,
+            virtualmachines_name=virtualmachines_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+             hardware_profile: Optional[pulumi.Input['VirtualmachinesPropertiesHardwareProfileArgs']] = None,
+             identity: Optional[pulumi.Input['IdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['VirtualmachinesPropertiesNetworkProfileArgs']] = None,
+             os_profile: Optional[pulumi.Input['VirtualmachinesPropertiesOsProfileArgs']] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             security_profile: Optional[pulumi.Input['VirtualmachinesPropertiesSecurityProfileArgs']] = None,
+             storage_profile: Optional[pulumi.Input['VirtualmachinesPropertiesStorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtualmachines_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if hardware_profile is None and 'hardwareProfile' in kwargs:
+            hardware_profile = kwargs['hardwareProfile']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if security_profile is None and 'securityProfile' in kwargs:
+            security_profile = kwargs['securityProfile']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if virtualmachines_name is None and 'virtualmachinesName' in kwargs:
+            virtualmachines_name = kwargs['virtualmachinesName']
+
+        _setter("resource_group_name", resource_group_name)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if hardware_profile is not None:
-            pulumi.set(__self__, "hardware_profile", hardware_profile)
+            _setter("hardware_profile", hardware_profile)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if resource_name is not None:
-            pulumi.set(__self__, "resource_name", resource_name)
+            _setter("resource_name", resource_name)
         if security_profile is not None:
-            pulumi.set(__self__, "security_profile", security_profile)
+            _setter("security_profile", security_profile)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtualmachines_name is not None:
-            pulumi.set(__self__, "virtualmachines_name", virtualmachines_name)
+            _setter("virtualmachines_name", virtualmachines_name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -263,6 +316,10 @@ class VirtualmachineRetrieve(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualmachineRetrieveArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -289,17 +346,24 @@ class VirtualmachineRetrieve(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualmachineRetrieveArgs.__new__(VirtualmachineRetrieveArgs)
 
+            extended_location = _utilities.configure(extended_location, ExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
+            hardware_profile = _utilities.configure(hardware_profile, VirtualmachinesPropertiesHardwareProfileArgs, True)
             __props__.__dict__["hardware_profile"] = hardware_profile
+            identity = _utilities.configure(identity, IdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            network_profile = _utilities.configure(network_profile, VirtualmachinesPropertiesNetworkProfileArgs, True)
             __props__.__dict__["network_profile"] = network_profile
+            os_profile = _utilities.configure(os_profile, VirtualmachinesPropertiesOsProfileArgs, True)
             __props__.__dict__["os_profile"] = os_profile
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            security_profile = _utilities.configure(security_profile, VirtualmachinesPropertiesSecurityProfileArgs, True)
             __props__.__dict__["security_profile"] = security_profile
+            storage_profile = _utilities.configure(storage_profile, VirtualmachinesPropertiesStorageProfileArgs, True)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtualmachines_name"] = virtualmachines_name

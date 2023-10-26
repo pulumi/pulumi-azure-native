@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['BookmarkRelationArgs', 'BookmarkRelation']
@@ -29,13 +29,56 @@ class BookmarkRelationArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] relation_name: Relation Name
         """
-        pulumi.set(__self__, "bookmark_id", bookmark_id)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
-        pulumi.set(__self__, "related_resource_id", related_resource_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        BookmarkRelationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bookmark_id=bookmark_id,
+            operational_insights_resource_provider=operational_insights_resource_provider,
+            related_resource_id=related_resource_id,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            relation_name=relation_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bookmark_id: Optional[pulumi.Input[str]] = None,
+             operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
+             related_resource_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             relation_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bookmark_id is None and 'bookmarkId' in kwargs:
+            bookmark_id = kwargs['bookmarkId']
+        if bookmark_id is None:
+            raise TypeError("Missing 'bookmark_id' argument")
+        if operational_insights_resource_provider is None and 'operationalInsightsResourceProvider' in kwargs:
+            operational_insights_resource_provider = kwargs['operationalInsightsResourceProvider']
+        if operational_insights_resource_provider is None:
+            raise TypeError("Missing 'operational_insights_resource_provider' argument")
+        if related_resource_id is None and 'relatedResourceId' in kwargs:
+            related_resource_id = kwargs['relatedResourceId']
+        if related_resource_id is None:
+            raise TypeError("Missing 'related_resource_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if relation_name is None and 'relationName' in kwargs:
+            relation_name = kwargs['relationName']
+
+        _setter("bookmark_id", bookmark_id)
+        _setter("operational_insights_resource_provider", operational_insights_resource_provider)
+        _setter("related_resource_id", related_resource_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if relation_name is not None:
-            pulumi.set(__self__, "relation_name", relation_name)
+            _setter("relation_name", relation_name)
 
     @property
     @pulumi.getter(name="bookmarkId")
@@ -153,6 +196,10 @@ class BookmarkRelation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BookmarkRelationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

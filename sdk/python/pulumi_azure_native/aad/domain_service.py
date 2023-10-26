@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,37 +50,102 @@ class DomainServiceArgs:
         :param pulumi.Input[Union[str, 'SyncScope']] sync_scope: All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DomainServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            config_diagnostics=config_diagnostics,
+            domain_configuration_type=domain_configuration_type,
+            domain_name=domain_name,
+            domain_security_settings=domain_security_settings,
+            domain_service_name=domain_service_name,
+            filtered_sync=filtered_sync,
+            ldaps_settings=ldaps_settings,
+            location=location,
+            notification_settings=notification_settings,
+            replica_sets=replica_sets,
+            resource_forest_settings=resource_forest_settings,
+            sku=sku,
+            sync_scope=sync_scope,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             config_diagnostics: Optional[pulumi.Input['ConfigDiagnosticsArgs']] = None,
+             domain_configuration_type: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             domain_security_settings: Optional[pulumi.Input['DomainSecuritySettingsArgs']] = None,
+             domain_service_name: Optional[pulumi.Input[str]] = None,
+             filtered_sync: Optional[pulumi.Input[Union[str, 'FilteredSync']]] = None,
+             ldaps_settings: Optional[pulumi.Input['LdapsSettingsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             notification_settings: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
+             replica_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicaSetArgs']]]] = None,
+             resource_forest_settings: Optional[pulumi.Input['ResourceForestSettingsArgs']] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             sync_scope: Optional[pulumi.Input[Union[str, 'SyncScope']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if config_diagnostics is None and 'configDiagnostics' in kwargs:
+            config_diagnostics = kwargs['configDiagnostics']
+        if domain_configuration_type is None and 'domainConfigurationType' in kwargs:
+            domain_configuration_type = kwargs['domainConfigurationType']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_security_settings is None and 'domainSecuritySettings' in kwargs:
+            domain_security_settings = kwargs['domainSecuritySettings']
+        if domain_service_name is None and 'domainServiceName' in kwargs:
+            domain_service_name = kwargs['domainServiceName']
+        if filtered_sync is None and 'filteredSync' in kwargs:
+            filtered_sync = kwargs['filteredSync']
+        if ldaps_settings is None and 'ldapsSettings' in kwargs:
+            ldaps_settings = kwargs['ldapsSettings']
+        if notification_settings is None and 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+        if replica_sets is None and 'replicaSets' in kwargs:
+            replica_sets = kwargs['replicaSets']
+        if resource_forest_settings is None and 'resourceForestSettings' in kwargs:
+            resource_forest_settings = kwargs['resourceForestSettings']
+        if sync_scope is None and 'syncScope' in kwargs:
+            sync_scope = kwargs['syncScope']
+
+        _setter("resource_group_name", resource_group_name)
         if config_diagnostics is not None:
-            pulumi.set(__self__, "config_diagnostics", config_diagnostics)
+            _setter("config_diagnostics", config_diagnostics)
         if domain_configuration_type is not None:
-            pulumi.set(__self__, "domain_configuration_type", domain_configuration_type)
+            _setter("domain_configuration_type", domain_configuration_type)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if domain_security_settings is not None:
-            pulumi.set(__self__, "domain_security_settings", domain_security_settings)
+            _setter("domain_security_settings", domain_security_settings)
         if domain_service_name is not None:
-            pulumi.set(__self__, "domain_service_name", domain_service_name)
+            _setter("domain_service_name", domain_service_name)
         if filtered_sync is not None:
-            pulumi.set(__self__, "filtered_sync", filtered_sync)
+            _setter("filtered_sync", filtered_sync)
         if ldaps_settings is not None:
-            pulumi.set(__self__, "ldaps_settings", ldaps_settings)
+            _setter("ldaps_settings", ldaps_settings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if notification_settings is not None:
-            pulumi.set(__self__, "notification_settings", notification_settings)
+            _setter("notification_settings", notification_settings)
         if replica_sets is not None:
-            pulumi.set(__self__, "replica_sets", replica_sets)
+            _setter("replica_sets", replica_sets)
         if resource_forest_settings is not None:
-            pulumi.set(__self__, "resource_forest_settings", resource_forest_settings)
+            _setter("resource_forest_settings", resource_forest_settings)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if sync_scope is None:
             sync_scope = 'All'
         if sync_scope is not None:
-            pulumi.set(__self__, "sync_scope", sync_scope)
+            _setter("sync_scope", sync_scope)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -330,6 +395,10 @@ class DomainService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DomainServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -359,16 +428,21 @@ class DomainService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainServiceArgs.__new__(DomainServiceArgs)
 
+            config_diagnostics = _utilities.configure(config_diagnostics, ConfigDiagnosticsArgs, True)
             __props__.__dict__["config_diagnostics"] = config_diagnostics
             __props__.__dict__["domain_configuration_type"] = domain_configuration_type
             __props__.__dict__["domain_name"] = domain_name
+            domain_security_settings = _utilities.configure(domain_security_settings, DomainSecuritySettingsArgs, True)
             __props__.__dict__["domain_security_settings"] = domain_security_settings
             __props__.__dict__["domain_service_name"] = domain_service_name
             __props__.__dict__["filtered_sync"] = filtered_sync
+            ldaps_settings = _utilities.configure(ldaps_settings, LdapsSettingsArgs, True)
             __props__.__dict__["ldaps_settings"] = ldaps_settings
             __props__.__dict__["location"] = location
+            notification_settings = _utilities.configure(notification_settings, NotificationSettingsArgs, True)
             __props__.__dict__["notification_settings"] = notification_settings
             __props__.__dict__["replica_sets"] = replica_sets
+            resource_forest_settings = _utilities.configure(resource_forest_settings, ResourceForestSettingsArgs, True)
             __props__.__dict__["resource_forest_settings"] = resource_forest_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

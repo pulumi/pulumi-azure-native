@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -156,86 +156,251 @@ class DatabaseArgs:
         :param pulumi.Input[bool] use_free_limit: Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        DatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            auto_pause_delay=auto_pause_delay,
+            availability_zone=availability_zone,
+            catalog_collation=catalog_collation,
+            collation=collation,
+            create_mode=create_mode,
+            database_name=database_name,
+            elastic_pool_id=elastic_pool_id,
+            encryption_protector=encryption_protector,
+            encryption_protector_auto_rotation=encryption_protector_auto_rotation,
+            federated_client_id=federated_client_id,
+            free_limit_exhaustion_behavior=free_limit_exhaustion_behavior,
+            high_availability_replica_count=high_availability_replica_count,
+            identity=identity,
+            is_ledger_on=is_ledger_on,
+            keys=keys,
+            license_type=license_type,
+            location=location,
+            long_term_retention_backup_resource_id=long_term_retention_backup_resource_id,
+            maintenance_configuration_id=maintenance_configuration_id,
+            manual_cutover=manual_cutover,
+            max_size_bytes=max_size_bytes,
+            min_capacity=min_capacity,
+            perform_cutover=perform_cutover,
+            preferred_enclave_type=preferred_enclave_type,
+            read_scale=read_scale,
+            recoverable_database_id=recoverable_database_id,
+            recovery_services_recovery_point_id=recovery_services_recovery_point_id,
+            requested_backup_storage_redundancy=requested_backup_storage_redundancy,
+            restorable_dropped_database_id=restorable_dropped_database_id,
+            restore_point_in_time=restore_point_in_time,
+            sample_name=sample_name,
+            secondary_type=secondary_type,
+            sku=sku,
+            source_database_deletion_date=source_database_deletion_date,
+            source_database_id=source_database_id,
+            source_resource_id=source_resource_id,
+            tags=tags,
+            use_free_limit=use_free_limit,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             auto_pause_delay: Optional[pulumi.Input[int]] = None,
+             availability_zone: Optional[pulumi.Input[Union[str, 'AvailabilityZoneType']]] = None,
+             catalog_collation: Optional[pulumi.Input[Union[str, 'CatalogCollationType']]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             elastic_pool_id: Optional[pulumi.Input[str]] = None,
+             encryption_protector: Optional[pulumi.Input[str]] = None,
+             encryption_protector_auto_rotation: Optional[pulumi.Input[bool]] = None,
+             federated_client_id: Optional[pulumi.Input[str]] = None,
+             free_limit_exhaustion_behavior: Optional[pulumi.Input[Union[str, 'FreeLimitExhaustionBehavior']]] = None,
+             high_availability_replica_count: Optional[pulumi.Input[int]] = None,
+             identity: Optional[pulumi.Input['DatabaseIdentityArgs']] = None,
+             is_ledger_on: Optional[pulumi.Input[bool]] = None,
+             keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
+             manual_cutover: Optional[pulumi.Input[bool]] = None,
+             max_size_bytes: Optional[pulumi.Input[float]] = None,
+             min_capacity: Optional[pulumi.Input[float]] = None,
+             perform_cutover: Optional[pulumi.Input[bool]] = None,
+             preferred_enclave_type: Optional[pulumi.Input[Union[str, 'AlwaysEncryptedEnclaveType']]] = None,
+             read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
+             recoverable_database_id: Optional[pulumi.Input[str]] = None,
+             recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
+             requested_backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None,
+             restorable_dropped_database_id: Optional[pulumi.Input[str]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             sample_name: Optional[pulumi.Input[Union[str, 'SampleName']]] = None,
+             secondary_type: Optional[pulumi.Input[Union[str, 'SecondaryType']]] = None,
+             sku: Optional[pulumi.Input['SkuArgs']] = None,
+             source_database_deletion_date: Optional[pulumi.Input[str]] = None,
+             source_database_id: Optional[pulumi.Input[str]] = None,
+             source_resource_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_free_limit: Optional[pulumi.Input[bool]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if auto_pause_delay is None and 'autoPauseDelay' in kwargs:
+            auto_pause_delay = kwargs['autoPauseDelay']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if catalog_collation is None and 'catalogCollation' in kwargs:
+            catalog_collation = kwargs['catalogCollation']
+        if create_mode is None and 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if elastic_pool_id is None and 'elasticPoolId' in kwargs:
+            elastic_pool_id = kwargs['elasticPoolId']
+        if encryption_protector is None and 'encryptionProtector' in kwargs:
+            encryption_protector = kwargs['encryptionProtector']
+        if encryption_protector_auto_rotation is None and 'encryptionProtectorAutoRotation' in kwargs:
+            encryption_protector_auto_rotation = kwargs['encryptionProtectorAutoRotation']
+        if federated_client_id is None and 'federatedClientId' in kwargs:
+            federated_client_id = kwargs['federatedClientId']
+        if free_limit_exhaustion_behavior is None and 'freeLimitExhaustionBehavior' in kwargs:
+            free_limit_exhaustion_behavior = kwargs['freeLimitExhaustionBehavior']
+        if high_availability_replica_count is None and 'highAvailabilityReplicaCount' in kwargs:
+            high_availability_replica_count = kwargs['highAvailabilityReplicaCount']
+        if is_ledger_on is None and 'isLedgerOn' in kwargs:
+            is_ledger_on = kwargs['isLedgerOn']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if long_term_retention_backup_resource_id is None and 'longTermRetentionBackupResourceId' in kwargs:
+            long_term_retention_backup_resource_id = kwargs['longTermRetentionBackupResourceId']
+        if maintenance_configuration_id is None and 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if manual_cutover is None and 'manualCutover' in kwargs:
+            manual_cutover = kwargs['manualCutover']
+        if max_size_bytes is None and 'maxSizeBytes' in kwargs:
+            max_size_bytes = kwargs['maxSizeBytes']
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if perform_cutover is None and 'performCutover' in kwargs:
+            perform_cutover = kwargs['performCutover']
+        if preferred_enclave_type is None and 'preferredEnclaveType' in kwargs:
+            preferred_enclave_type = kwargs['preferredEnclaveType']
+        if read_scale is None and 'readScale' in kwargs:
+            read_scale = kwargs['readScale']
+        if recoverable_database_id is None and 'recoverableDatabaseId' in kwargs:
+            recoverable_database_id = kwargs['recoverableDatabaseId']
+        if recovery_services_recovery_point_id is None and 'recoveryServicesRecoveryPointId' in kwargs:
+            recovery_services_recovery_point_id = kwargs['recoveryServicesRecoveryPointId']
+        if requested_backup_storage_redundancy is None and 'requestedBackupStorageRedundancy' in kwargs:
+            requested_backup_storage_redundancy = kwargs['requestedBackupStorageRedundancy']
+        if restorable_dropped_database_id is None and 'restorableDroppedDatabaseId' in kwargs:
+            restorable_dropped_database_id = kwargs['restorableDroppedDatabaseId']
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if sample_name is None and 'sampleName' in kwargs:
+            sample_name = kwargs['sampleName']
+        if secondary_type is None and 'secondaryType' in kwargs:
+            secondary_type = kwargs['secondaryType']
+        if source_database_deletion_date is None and 'sourceDatabaseDeletionDate' in kwargs:
+            source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
+        if source_database_id is None and 'sourceDatabaseId' in kwargs:
+            source_database_id = kwargs['sourceDatabaseId']
+        if source_resource_id is None and 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if use_free_limit is None and 'useFreeLimit' in kwargs:
+            use_free_limit = kwargs['useFreeLimit']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if auto_pause_delay is not None:
-            pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
+            _setter("auto_pause_delay", auto_pause_delay)
         if availability_zone is not None:
-            pulumi.set(__self__, "availability_zone", availability_zone)
+            _setter("availability_zone", availability_zone)
         if catalog_collation is not None:
-            pulumi.set(__self__, "catalog_collation", catalog_collation)
+            _setter("catalog_collation", catalog_collation)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if elastic_pool_id is not None:
-            pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
+            _setter("elastic_pool_id", elastic_pool_id)
         if encryption_protector is not None:
-            pulumi.set(__self__, "encryption_protector", encryption_protector)
+            _setter("encryption_protector", encryption_protector)
         if encryption_protector_auto_rotation is not None:
-            pulumi.set(__self__, "encryption_protector_auto_rotation", encryption_protector_auto_rotation)
+            _setter("encryption_protector_auto_rotation", encryption_protector_auto_rotation)
         if federated_client_id is not None:
-            pulumi.set(__self__, "federated_client_id", federated_client_id)
+            _setter("federated_client_id", federated_client_id)
         if free_limit_exhaustion_behavior is not None:
-            pulumi.set(__self__, "free_limit_exhaustion_behavior", free_limit_exhaustion_behavior)
+            _setter("free_limit_exhaustion_behavior", free_limit_exhaustion_behavior)
         if high_availability_replica_count is not None:
-            pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
+            _setter("high_availability_replica_count", high_availability_replica_count)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if is_ledger_on is not None:
-            pulumi.set(__self__, "is_ledger_on", is_ledger_on)
+            _setter("is_ledger_on", is_ledger_on)
         if keys is not None:
-            pulumi.set(__self__, "keys", keys)
+            _setter("keys", keys)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if long_term_retention_backup_resource_id is not None:
-            pulumi.set(__self__, "long_term_retention_backup_resource_id", long_term_retention_backup_resource_id)
+            _setter("long_term_retention_backup_resource_id", long_term_retention_backup_resource_id)
         if maintenance_configuration_id is not None:
-            pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
+            _setter("maintenance_configuration_id", maintenance_configuration_id)
         if manual_cutover is not None:
-            pulumi.set(__self__, "manual_cutover", manual_cutover)
+            _setter("manual_cutover", manual_cutover)
         if max_size_bytes is not None:
-            pulumi.set(__self__, "max_size_bytes", max_size_bytes)
+            _setter("max_size_bytes", max_size_bytes)
         if min_capacity is not None:
-            pulumi.set(__self__, "min_capacity", min_capacity)
+            _setter("min_capacity", min_capacity)
         if perform_cutover is not None:
-            pulumi.set(__self__, "perform_cutover", perform_cutover)
+            _setter("perform_cutover", perform_cutover)
         if preferred_enclave_type is not None:
-            pulumi.set(__self__, "preferred_enclave_type", preferred_enclave_type)
+            _setter("preferred_enclave_type", preferred_enclave_type)
         if read_scale is not None:
-            pulumi.set(__self__, "read_scale", read_scale)
+            _setter("read_scale", read_scale)
         if recoverable_database_id is not None:
-            pulumi.set(__self__, "recoverable_database_id", recoverable_database_id)
+            _setter("recoverable_database_id", recoverable_database_id)
         if recovery_services_recovery_point_id is not None:
-            pulumi.set(__self__, "recovery_services_recovery_point_id", recovery_services_recovery_point_id)
+            _setter("recovery_services_recovery_point_id", recovery_services_recovery_point_id)
         if requested_backup_storage_redundancy is not None:
-            pulumi.set(__self__, "requested_backup_storage_redundancy", requested_backup_storage_redundancy)
+            _setter("requested_backup_storage_redundancy", requested_backup_storage_redundancy)
         if restorable_dropped_database_id is not None:
-            pulumi.set(__self__, "restorable_dropped_database_id", restorable_dropped_database_id)
+            _setter("restorable_dropped_database_id", restorable_dropped_database_id)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if sample_name is not None:
-            pulumi.set(__self__, "sample_name", sample_name)
+            _setter("sample_name", sample_name)
         if secondary_type is not None:
-            pulumi.set(__self__, "secondary_type", secondary_type)
+            _setter("secondary_type", secondary_type)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if source_database_deletion_date is not None:
-            pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
+            _setter("source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
-            pulumi.set(__self__, "source_database_id", source_database_id)
+            _setter("source_database_id", source_database_id)
         if source_resource_id is not None:
-            pulumi.set(__self__, "source_resource_id", source_resource_id)
+            _setter("source_resource_id", source_resource_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_free_limit is not None:
-            pulumi.set(__self__, "use_free_limit", use_free_limit)
+            _setter("use_free_limit", use_free_limit)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -951,6 +1116,10 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1018,6 +1187,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["federated_client_id"] = federated_client_id
             __props__.__dict__["free_limit_exhaustion_behavior"] = free_limit_exhaustion_behavior
             __props__.__dict__["high_availability_replica_count"] = high_availability_replica_count
+            identity = _utilities.configure(identity, DatabaseIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["is_ledger_on"] = is_ledger_on
             __props__.__dict__["keys"] = keys
@@ -1044,6 +1214,7 @@ class Database(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
+            sku = _utilities.configure(sku, SkuArgs, True)
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id

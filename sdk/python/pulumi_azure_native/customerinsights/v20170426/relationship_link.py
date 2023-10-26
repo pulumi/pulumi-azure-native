@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -40,20 +40,77 @@ class RelationshipLinkArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]] mappings: The mappings between Interaction and Relationship fields.
         :param pulumi.Input[str] relationship_link_name: The name of the relationship link.
         """
-        pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "interaction_type", interaction_type)
-        pulumi.set(__self__, "profile_property_references", profile_property_references)
-        pulumi.set(__self__, "related_profile_property_references", related_profile_property_references)
-        pulumi.set(__self__, "relationship_name", relationship_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        RelationshipLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hub_name=hub_name,
+            interaction_type=interaction_type,
+            profile_property_references=profile_property_references,
+            related_profile_property_references=related_profile_property_references,
+            relationship_name=relationship_name,
+            resource_group_name=resource_group_name,
+            description=description,
+            display_name=display_name,
+            mappings=mappings,
+            relationship_link_name=relationship_link_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hub_name: Optional[pulumi.Input[str]] = None,
+             interaction_type: Optional[pulumi.Input[str]] = None,
+             profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]]] = None,
+             related_profile_property_references: Optional[pulumi.Input[Sequence[pulumi.Input['ParticipantProfilePropertyReferenceArgs']]]] = None,
+             relationship_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             mappings: Optional[pulumi.Input[Sequence[pulumi.Input['RelationshipLinkFieldMappingArgs']]]] = None,
+             relationship_link_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hub_name is None and 'hubName' in kwargs:
+            hub_name = kwargs['hubName']
+        if hub_name is None:
+            raise TypeError("Missing 'hub_name' argument")
+        if interaction_type is None and 'interactionType' in kwargs:
+            interaction_type = kwargs['interactionType']
+        if interaction_type is None:
+            raise TypeError("Missing 'interaction_type' argument")
+        if profile_property_references is None and 'profilePropertyReferences' in kwargs:
+            profile_property_references = kwargs['profilePropertyReferences']
+        if profile_property_references is None:
+            raise TypeError("Missing 'profile_property_references' argument")
+        if related_profile_property_references is None and 'relatedProfilePropertyReferences' in kwargs:
+            related_profile_property_references = kwargs['relatedProfilePropertyReferences']
+        if related_profile_property_references is None:
+            raise TypeError("Missing 'related_profile_property_references' argument")
+        if relationship_name is None and 'relationshipName' in kwargs:
+            relationship_name = kwargs['relationshipName']
+        if relationship_name is None:
+            raise TypeError("Missing 'relationship_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if relationship_link_name is None and 'relationshipLinkName' in kwargs:
+            relationship_link_name = kwargs['relationshipLinkName']
+
+        _setter("hub_name", hub_name)
+        _setter("interaction_type", interaction_type)
+        _setter("profile_property_references", profile_property_references)
+        _setter("related_profile_property_references", related_profile_property_references)
+        _setter("relationship_name", relationship_name)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if mappings is not None:
-            pulumi.set(__self__, "mappings", mappings)
+            _setter("mappings", mappings)
         if relationship_link_name is not None:
-            pulumi.set(__self__, "relationship_link_name", relationship_link_name)
+            _setter("relationship_link_name", relationship_link_name)
 
     @property
     @pulumi.getter(name="hubName")
@@ -227,6 +284,10 @@ class RelationshipLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RelationshipLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -44,8 +44,21 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesResponse(dict):
         A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         :param str function_alias: A function alias, used when the type of the item is Function
         """
+        ApplicationInsightsComponentAnalyticsItemPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_alias=function_alias,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_alias: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_alias is None and 'functionAlias' in kwargs:
+            function_alias = kwargs['functionAlias']
+
         if function_alias is not None:
-            pulumi.set(__self__, "function_alias", function_alias)
+            _setter("function_alias", function_alias)
 
     @property
     @pulumi.getter(name="functionAlias")
@@ -102,16 +115,51 @@ class ApplicationInsightsComponentDataVolumeCapResponse(dict):
         :param bool stop_send_notification_when_hit_threshold: Reserved, not used for now.
         :param int warning_threshold: Reserved, not used for now.
         """
-        pulumi.set(__self__, "max_history_cap", max_history_cap)
-        pulumi.set(__self__, "reset_time", reset_time)
+        ApplicationInsightsComponentDataVolumeCapResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_history_cap=max_history_cap,
+            reset_time=reset_time,
+            cap=cap,
+            stop_send_notification_when_hit_cap=stop_send_notification_when_hit_cap,
+            stop_send_notification_when_hit_threshold=stop_send_notification_when_hit_threshold,
+            warning_threshold=warning_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_history_cap: Optional[float] = None,
+             reset_time: Optional[int] = None,
+             cap: Optional[float] = None,
+             stop_send_notification_when_hit_cap: Optional[bool] = None,
+             stop_send_notification_when_hit_threshold: Optional[bool] = None,
+             warning_threshold: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_history_cap is None and 'maxHistoryCap' in kwargs:
+            max_history_cap = kwargs['maxHistoryCap']
+        if max_history_cap is None:
+            raise TypeError("Missing 'max_history_cap' argument")
+        if reset_time is None and 'resetTime' in kwargs:
+            reset_time = kwargs['resetTime']
+        if reset_time is None:
+            raise TypeError("Missing 'reset_time' argument")
+        if stop_send_notification_when_hit_cap is None and 'stopSendNotificationWhenHitCap' in kwargs:
+            stop_send_notification_when_hit_cap = kwargs['stopSendNotificationWhenHitCap']
+        if stop_send_notification_when_hit_threshold is None and 'stopSendNotificationWhenHitThreshold' in kwargs:
+            stop_send_notification_when_hit_threshold = kwargs['stopSendNotificationWhenHitThreshold']
+        if warning_threshold is None and 'warningThreshold' in kwargs:
+            warning_threshold = kwargs['warningThreshold']
+
+        _setter("max_history_cap", max_history_cap)
+        _setter("reset_time", reset_time)
         if cap is not None:
-            pulumi.set(__self__, "cap", cap)
+            _setter("cap", cap)
         if stop_send_notification_when_hit_cap is not None:
-            pulumi.set(__self__, "stop_send_notification_when_hit_cap", stop_send_notification_when_hit_cap)
+            _setter("stop_send_notification_when_hit_cap", stop_send_notification_when_hit_cap)
         if stop_send_notification_when_hit_threshold is not None:
-            pulumi.set(__self__, "stop_send_notification_when_hit_threshold", stop_send_notification_when_hit_threshold)
+            _setter("stop_send_notification_when_hit_threshold", stop_send_notification_when_hit_threshold)
         if warning_threshold is not None:
-            pulumi.set(__self__, "warning_threshold", warning_threshold)
+            _setter("warning_threshold", warning_threshold)
 
     @property
     @pulumi.getter(name="maxHistoryCap")
@@ -214,22 +262,59 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDef
         :param str name: The rule name
         :param bool supports_email_notifications: A flag indicating whether email notifications are supported for detections for this rule
         """
+        ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            help_url=help_url,
+            is_enabled_by_default=is_enabled_by_default,
+            is_hidden=is_hidden,
+            is_in_preview=is_in_preview,
+            name=name,
+            supports_email_notifications=supports_email_notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             help_url: Optional[str] = None,
+             is_enabled_by_default: Optional[bool] = None,
+             is_hidden: Optional[bool] = None,
+             is_in_preview: Optional[bool] = None,
+             name: Optional[str] = None,
+             supports_email_notifications: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if help_url is None and 'helpUrl' in kwargs:
+            help_url = kwargs['helpUrl']
+        if is_enabled_by_default is None and 'isEnabledByDefault' in kwargs:
+            is_enabled_by_default = kwargs['isEnabledByDefault']
+        if is_hidden is None and 'isHidden' in kwargs:
+            is_hidden = kwargs['isHidden']
+        if is_in_preview is None and 'isInPreview' in kwargs:
+            is_in_preview = kwargs['isInPreview']
+        if supports_email_notifications is None and 'supportsEmailNotifications' in kwargs:
+            supports_email_notifications = kwargs['supportsEmailNotifications']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if help_url is not None:
-            pulumi.set(__self__, "help_url", help_url)
+            _setter("help_url", help_url)
         if is_enabled_by_default is not None:
-            pulumi.set(__self__, "is_enabled_by_default", is_enabled_by_default)
+            _setter("is_enabled_by_default", is_enabled_by_default)
         if is_hidden is not None:
-            pulumi.set(__self__, "is_hidden", is_hidden)
+            _setter("is_hidden", is_hidden)
         if is_in_preview is not None:
-            pulumi.set(__self__, "is_in_preview", is_in_preview)
+            _setter("is_in_preview", is_in_preview)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if supports_email_notifications is not None:
-            pulumi.set(__self__, "supports_email_notifications", supports_email_notifications)
+            _setter("supports_email_notifications", supports_email_notifications)
 
     @property
     @pulumi.getter

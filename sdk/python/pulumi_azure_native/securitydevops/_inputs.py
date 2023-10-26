@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -28,8 +28,19 @@ class AuthorizationInfoArgs:
                Only used during PUT operations. The secret is cleared during GET.
                In general, RPaaS does not return any property marked as a secret.
         """
+        AuthorizationInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
 
     @property
     @pulumi.getter
@@ -55,10 +66,23 @@ class AzureDevOpsConnectorPropertiesArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input['AzureDevOpsOrgMetadataArgs']]] orgs: Gets or sets org onboarding information.
         """
+        AzureDevOpsConnectorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            orgs=orgs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input['AuthorizationInfoArgs']] = None,
+             orgs: Optional[pulumi.Input[Sequence[pulumi.Input['AzureDevOpsOrgMetadataArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if orgs is not None:
-            pulumi.set(__self__, "orgs", orgs)
+            _setter("orgs", orgs)
 
     @property
     @pulumi.getter
@@ -92,12 +116,29 @@ class AzureDevOpsOrgMetadataArgs:
         Org onboarding info.
         :param pulumi.Input[str] name: Gets or sets name of the AzureDevOps Org.
         """
+        AzureDevOpsOrgMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_discovery=auto_discovery,
+            name=name,
+            projects=projects,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_discovery: Optional[pulumi.Input[Union[str, 'AutoDiscovery']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             projects: Optional[pulumi.Input[Sequence[pulumi.Input['AzureDevOpsProjectMetadataArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_discovery is None and 'autoDiscovery' in kwargs:
+            auto_discovery = kwargs['autoDiscovery']
+
         if auto_discovery is not None:
-            pulumi.set(__self__, "auto_discovery", auto_discovery)
+            _setter("auto_discovery", auto_discovery)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if projects is not None:
-            pulumi.set(__self__, "projects", projects)
+            _setter("projects", projects)
 
     @property
     @pulumi.getter(name="autoDiscovery")
@@ -141,12 +182,29 @@ class AzureDevOpsProjectMetadataArgs:
         :param pulumi.Input[str] name: Gets or sets name of the AzureDevOps Project.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repos: Gets or sets repositories.
         """
+        AzureDevOpsProjectMetadataArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_discovery=auto_discovery,
+            name=name,
+            repos=repos,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_discovery: Optional[pulumi.Input[Union[str, 'AutoDiscovery']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             repos: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_discovery is None and 'autoDiscovery' in kwargs:
+            auto_discovery = kwargs['autoDiscovery']
+
         if auto_discovery is not None:
-            pulumi.set(__self__, "auto_discovery", auto_discovery)
+            _setter("auto_discovery", auto_discovery)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if repos is not None:
-            pulumi.set(__self__, "repos", repos)
+            _setter("repos", repos)
 
     @property
     @pulumi.getter(name="autoDiscovery")
@@ -193,8 +251,19 @@ class GitHubConnectorPropertiesArgs:
                Only used during PUT operations. The secret is cleared during GET.
                In general, RPaaS does not return any property marked as a secret.
         """
+        GitHubConnectorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
 
     @property
     @pulumi.getter

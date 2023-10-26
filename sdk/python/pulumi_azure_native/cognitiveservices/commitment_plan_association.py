@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -26,12 +26,41 @@ class CommitmentPlanAssociationArgs:
         :param pulumi.Input[str] account_id: The Azure resource id of the account.
         :param pulumi.Input[str] commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
         """
-        pulumi.set(__self__, "commitment_plan_name", commitment_plan_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CommitmentPlanAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commitment_plan_name=commitment_plan_name,
+            resource_group_name=resource_group_name,
+            account_id=account_id,
+            commitment_plan_association_name=commitment_plan_association_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commitment_plan_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[str]] = None,
+             commitment_plan_association_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commitment_plan_name is None and 'commitmentPlanName' in kwargs:
+            commitment_plan_name = kwargs['commitmentPlanName']
+        if commitment_plan_name is None:
+            raise TypeError("Missing 'commitment_plan_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if commitment_plan_association_name is None and 'commitmentPlanAssociationName' in kwargs:
+            commitment_plan_association_name = kwargs['commitmentPlanAssociationName']
+
+        _setter("commitment_plan_name", commitment_plan_name)
+        _setter("resource_group_name", resource_group_name)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if commitment_plan_association_name is not None:
-            pulumi.set(__self__, "commitment_plan_association_name", commitment_plan_association_name)
+            _setter("commitment_plan_association_name", commitment_plan_association_name)
 
     @property
     @pulumi.getter(name="commitmentPlanName")
@@ -127,6 +156,10 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CommitmentPlanAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

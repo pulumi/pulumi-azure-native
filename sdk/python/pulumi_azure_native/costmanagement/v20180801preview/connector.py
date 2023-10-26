@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -39,25 +39,68 @@ class ConnectorArgs:
         :param pulumi.Input[Union[str, 'ConnectorStatus']] status: Connector status
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConnectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            connector_name=connector_name,
+            credentials_key=credentials_key,
+            credentials_secret=credentials_secret,
+            display_name=display_name,
+            kind=kind,
+            location=location,
+            report_id=report_id,
+            status=status,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             connector_name: Optional[pulumi.Input[str]] = None,
+             credentials_key: Optional[pulumi.Input[str]] = None,
+             credentials_secret: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             report_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'ConnectorStatus']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if connector_name is None and 'connectorName' in kwargs:
+            connector_name = kwargs['connectorName']
+        if credentials_key is None and 'credentialsKey' in kwargs:
+            credentials_key = kwargs['credentialsKey']
+        if credentials_secret is None and 'credentialsSecret' in kwargs:
+            credentials_secret = kwargs['credentialsSecret']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if report_id is None and 'reportId' in kwargs:
+            report_id = kwargs['reportId']
+
+        _setter("resource_group_name", resource_group_name)
         if connector_name is not None:
-            pulumi.set(__self__, "connector_name", connector_name)
+            _setter("connector_name", connector_name)
         if credentials_key is not None:
-            pulumi.set(__self__, "credentials_key", credentials_key)
+            _setter("credentials_key", credentials_key)
         if credentials_secret is not None:
-            pulumi.set(__self__, "credentials_secret", credentials_secret)
+            _setter("credentials_secret", credentials_secret)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if report_id is not None:
-            pulumi.set(__self__, "report_id", report_id)
+            _setter("report_id", report_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -231,6 +274,10 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

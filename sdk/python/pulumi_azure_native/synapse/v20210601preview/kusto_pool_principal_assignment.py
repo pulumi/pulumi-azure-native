@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,16 +35,67 @@ class KustoPoolPrincipalAssignmentArgs:
         :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
-        pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        KustoPoolPrincipalAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kusto_pool_name=kusto_pool_name,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            resource_group_name=resource_group_name,
+            role=role,
+            workspace_name=workspace_name,
+            principal_assignment_name=principal_assignment_name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kusto_pool_name: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[Union[str, 'ClusterPrincipalRole']]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             principal_assignment_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kusto_pool_name is None and 'kustoPoolName' in kwargs:
+            kusto_pool_name = kwargs['kustoPoolName']
+        if kusto_pool_name is None:
+            raise TypeError("Missing 'kusto_pool_name' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if principal_type is None:
+            raise TypeError("Missing 'principal_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if principal_assignment_name is None and 'principalAssignmentName' in kwargs:
+            principal_assignment_name = kwargs['principalAssignmentName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("kusto_pool_name", kusto_pool_name)
+        _setter("principal_id", principal_id)
+        _setter("principal_type", principal_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("role", role)
+        _setter("workspace_name", workspace_name)
         if principal_assignment_name is not None:
-            pulumi.set(__self__, "principal_assignment_name", principal_assignment_name)
+            _setter("principal_assignment_name", principal_assignment_name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="kustoPoolName")
@@ -190,6 +241,10 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KustoPoolPrincipalAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

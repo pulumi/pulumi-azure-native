@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -38,20 +38,67 @@ class ProtectedItemArgs:
         :param pulumi.Input[str] protected_item_name: Item name to be backed up.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vault_name", vault_name)
+        ProtectedItemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            fabric_name=fabric_name,
+            resource_group_name=resource_group_name,
+            vault_name=vault_name,
+            e_tag=e_tag,
+            location=location,
+            properties=properties,
+            protected_item_name=protected_item_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[pulumi.Input[str]] = None,
+             fabric_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]] = None,
+             protected_item_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if fabric_name is None and 'fabricName' in kwargs:
+            fabric_name = kwargs['fabricName']
+        if fabric_name is None:
+            raise TypeError("Missing 'fabric_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vault_name is None and 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+        if vault_name is None:
+            raise TypeError("Missing 'vault_name' argument")
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+        if protected_item_name is None and 'protectedItemName' in kwargs:
+            protected_item_name = kwargs['protectedItemName']
+
+        _setter("container_name", container_name)
+        _setter("fabric_name", fabric_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vault_name", vault_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if protected_item_name is not None:
-            pulumi.set(__self__, "protected_item_name", protected_item_name)
+            _setter("protected_item_name", protected_item_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="containerName")
@@ -211,6 +258,10 @@ class ProtectedItem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProtectedItemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

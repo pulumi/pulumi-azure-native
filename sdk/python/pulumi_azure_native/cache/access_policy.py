@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccessPolicyArgs', 'AccessPolicy']
@@ -25,11 +25,40 @@ class AccessPolicyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] access_policy_name: The name of the access policy that is being added to the Redis cache.
         """
-        pulumi.set(__self__, "cache_name", cache_name)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_name=cache_name,
+            permissions=permissions,
+            resource_group_name=resource_group_name,
+            access_policy_name=access_policy_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             access_policy_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_name is None and 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if cache_name is None:
+            raise TypeError("Missing 'cache_name' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if access_policy_name is None and 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+
+        _setter("cache_name", cache_name)
+        _setter("permissions", permissions)
+        _setter("resource_group_name", resource_group_name)
         if access_policy_name is not None:
-            pulumi.set(__self__, "access_policy_name", access_policy_name)
+            _setter("access_policy_name", access_policy_name)
 
     @property
     @pulumi.getter(name="cacheName")
@@ -125,6 +154,10 @@ class AccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -50,9 +50,36 @@ class AccountResourceResponseProperties(dict):
         :param str billing_plan_id: Billing Plan Id
         :param str provisioning_state: Provisioning state.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "billing_plan_id", billing_plan_id)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        AccountResourceResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            billing_plan_id=billing_plan_id,
+            provisioning_state=provisioning_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[str] = None,
+             billing_plan_id: Optional[str] = None,
+             provisioning_state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if billing_plan_id is None and 'billingPlanId' in kwargs:
+            billing_plan_id = kwargs['billingPlanId']
+        if billing_plan_id is None:
+            raise TypeError("Missing 'billing_plan_id' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+
+        _setter("app_id", app_id)
+        _setter("billing_plan_id", billing_plan_id)
+        _setter("provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="appId")
@@ -119,14 +146,39 @@ class AccountResourceResponseSystemData(dict):
         :param str last_modified_at: The timestamp of resource last modification (UTC)
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        AccountResourceResponseSystemData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,24 +40,69 @@ class NatRuleInitArgs:
         :param pulumi.Input[str] nat_rule_name: The name of the nat rule.
         :param pulumi.Input[Union[str, 'VpnNatRuleType']] type: The type of NAT rule for VPN NAT.
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NatRuleInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gateway_name=gateway_name,
+            resource_group_name=resource_group_name,
+            external_mappings=external_mappings,
+            id=id,
+            internal_mappings=internal_mappings,
+            ip_configuration_id=ip_configuration_id,
+            mode=mode,
+            name=name,
+            nat_rule_name=nat_rule_name,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VpnNatRuleMappingArgs']]]] = None,
+             ip_configuration_id: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'VpnNatRuleMode']]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nat_rule_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[Union[str, 'VpnNatRuleType']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_name is None and 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if gateway_name is None:
+            raise TypeError("Missing 'gateway_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if external_mappings is None and 'externalMappings' in kwargs:
+            external_mappings = kwargs['externalMappings']
+        if internal_mappings is None and 'internalMappings' in kwargs:
+            internal_mappings = kwargs['internalMappings']
+        if ip_configuration_id is None and 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+        if nat_rule_name is None and 'natRuleName' in kwargs:
+            nat_rule_name = kwargs['natRuleName']
+
+        _setter("gateway_name", gateway_name)
+        _setter("resource_group_name", resource_group_name)
         if external_mappings is not None:
-            pulumi.set(__self__, "external_mappings", external_mappings)
+            _setter("external_mappings", external_mappings)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if internal_mappings is not None:
-            pulumi.set(__self__, "internal_mappings", internal_mappings)
+            _setter("internal_mappings", internal_mappings)
         if ip_configuration_id is not None:
-            pulumi.set(__self__, "ip_configuration_id", ip_configuration_id)
+            _setter("ip_configuration_id", ip_configuration_id)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nat_rule_name is not None:
-            pulumi.set(__self__, "nat_rule_name", nat_rule_name)
+            _setter("nat_rule_name", nat_rule_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="gatewayName")
@@ -237,6 +282,10 @@ class NatRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NatRuleInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

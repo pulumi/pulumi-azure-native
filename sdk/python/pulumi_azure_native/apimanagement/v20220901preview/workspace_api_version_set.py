@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -36,19 +36,72 @@ class WorkspaceApiVersionSetArgs:
         :param pulumi.Input[str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
         :param pulumi.Input[str] version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "versioning_scheme", versioning_scheme)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceApiVersionSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            versioning_scheme=versioning_scheme,
+            workspace_id=workspace_id,
+            description=description,
+            version_header_name=version_header_name,
+            version_query_name=version_query_name,
+            version_set_id=version_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             versioning_scheme: Optional[pulumi.Input[Union[str, 'VersioningScheme']]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             version_header_name: Optional[pulumi.Input[str]] = None,
+             version_query_name: Optional[pulumi.Input[str]] = None,
+             version_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if versioning_scheme is None and 'versioningScheme' in kwargs:
+            versioning_scheme = kwargs['versioningScheme']
+        if versioning_scheme is None:
+            raise TypeError("Missing 'versioning_scheme' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if version_header_name is None and 'versionHeaderName' in kwargs:
+            version_header_name = kwargs['versionHeaderName']
+        if version_query_name is None and 'versionQueryName' in kwargs:
+            version_query_name = kwargs['versionQueryName']
+        if version_set_id is None and 'versionSetId' in kwargs:
+            version_set_id = kwargs['versionSetId']
+
+        _setter("display_name", display_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("versioning_scheme", versioning_scheme)
+        _setter("workspace_id", workspace_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if version_header_name is not None:
-            pulumi.set(__self__, "version_header_name", version_header_name)
+            _setter("version_header_name", version_header_name)
         if version_query_name is not None:
-            pulumi.set(__self__, "version_query_name", version_query_name)
+            _setter("version_query_name", version_query_name)
         if version_set_id is not None:
-            pulumi.set(__self__, "version_set_id", version_set_id)
+            _setter("version_set_id", version_set_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -208,6 +261,10 @@ class WorkspaceApiVersionSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceApiVersionSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

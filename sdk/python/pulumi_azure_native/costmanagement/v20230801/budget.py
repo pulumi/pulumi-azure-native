@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -102,20 +102,63 @@ class BudgetArgs:
                - Constraints for **CategoryType: Cost** - Budget can have up to 5 notifications with thresholdType: Actual and 5 notifications with thresholdType: Forecasted.
                - Constraints for **CategoryType: ReservationUtilization** - Only one notification allowed. thresholdType is not applicable.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "time_grain", time_grain)
-        pulumi.set(__self__, "time_period", time_period)
+        BudgetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            scope=scope,
+            time_grain=time_grain,
+            time_period=time_period,
+            amount=amount,
+            budget_name=budget_name,
+            e_tag=e_tag,
+            filter=filter,
+            notifications=notifications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[Union[str, 'CategoryType']]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
+             time_period: Optional[pulumi.Input['BudgetTimePeriodArgs']] = None,
+             amount: Optional[pulumi.Input[float]] = None,
+             budget_name: Optional[pulumi.Input[str]] = None,
+             e_tag: Optional[pulumi.Input[str]] = None,
+             filter: Optional[pulumi.Input['BudgetFilterArgs']] = None,
+             notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if time_grain is None and 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+        if time_grain is None:
+            raise TypeError("Missing 'time_grain' argument")
+        if time_period is None and 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+        if time_period is None:
+            raise TypeError("Missing 'time_period' argument")
+        if budget_name is None and 'budgetName' in kwargs:
+            budget_name = kwargs['budgetName']
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+
+        _setter("category", category)
+        _setter("scope", scope)
+        _setter("time_grain", time_grain)
+        _setter("time_period", time_period)
         if amount is not None:
-            pulumi.set(__self__, "amount", amount)
+            _setter("amount", amount)
         if budget_name is not None:
-            pulumi.set(__self__, "budget_name", budget_name)
+            _setter("budget_name", budget_name)
         if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
+            _setter("e_tag", e_tag)
         if filter is not None:
-            pulumi.set(__self__, "filter", filter)
+            _setter("filter", filter)
         if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
+            _setter("notifications", notifications)
 
     @property
     @pulumi.getter
@@ -403,6 +446,10 @@ class Budget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BudgetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -432,6 +479,7 @@ class Budget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'category'")
             __props__.__dict__["category"] = category
             __props__.__dict__["e_tag"] = e_tag
+            filter = _utilities.configure(filter, BudgetFilterArgs, True)
             __props__.__dict__["filter"] = filter
             __props__.__dict__["notifications"] = notifications
             if scope is None and not opts.urn:
@@ -440,6 +488,7 @@ class Budget(pulumi.CustomResource):
             if time_grain is None and not opts.urn:
                 raise TypeError("Missing required property 'time_grain'")
             __props__.__dict__["time_grain"] = time_grain
+            time_period = _utilities.configure(time_period, BudgetTimePeriodArgs, True)
             if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__.__dict__["time_period"] = time_period

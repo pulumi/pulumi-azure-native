@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = ['SqlPoolWorkloadGroupArgs', 'SqlPoolWorkloadGroup']
@@ -37,20 +37,79 @@ class SqlPoolWorkloadGroupArgs:
         :param pulumi.Input[int] query_execution_timeout: The workload group query execution timeout.
         :param pulumi.Input[str] workload_group_name: The name of the workload group.
         """
-        pulumi.set(__self__, "max_resource_percent", max_resource_percent)
-        pulumi.set(__self__, "min_resource_percent", min_resource_percent)
-        pulumi.set(__self__, "min_resource_percent_per_request", min_resource_percent_per_request)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_pool_name", sql_pool_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SqlPoolWorkloadGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_resource_percent=max_resource_percent,
+            min_resource_percent=min_resource_percent,
+            min_resource_percent_per_request=min_resource_percent_per_request,
+            resource_group_name=resource_group_name,
+            sql_pool_name=sql_pool_name,
+            workspace_name=workspace_name,
+            importance=importance,
+            max_resource_percent_per_request=max_resource_percent_per_request,
+            query_execution_timeout=query_execution_timeout,
+            workload_group_name=workload_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_resource_percent: Optional[pulumi.Input[int]] = None,
+             min_resource_percent: Optional[pulumi.Input[int]] = None,
+             min_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sql_pool_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             importance: Optional[pulumi.Input[str]] = None,
+             max_resource_percent_per_request: Optional[pulumi.Input[float]] = None,
+             query_execution_timeout: Optional[pulumi.Input[int]] = None,
+             workload_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_resource_percent is None and 'maxResourcePercent' in kwargs:
+            max_resource_percent = kwargs['maxResourcePercent']
+        if max_resource_percent is None:
+            raise TypeError("Missing 'max_resource_percent' argument")
+        if min_resource_percent is None and 'minResourcePercent' in kwargs:
+            min_resource_percent = kwargs['minResourcePercent']
+        if min_resource_percent is None:
+            raise TypeError("Missing 'min_resource_percent' argument")
+        if min_resource_percent_per_request is None and 'minResourcePercentPerRequest' in kwargs:
+            min_resource_percent_per_request = kwargs['minResourcePercentPerRequest']
+        if min_resource_percent_per_request is None:
+            raise TypeError("Missing 'min_resource_percent_per_request' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sql_pool_name is None and 'sqlPoolName' in kwargs:
+            sql_pool_name = kwargs['sqlPoolName']
+        if sql_pool_name is None:
+            raise TypeError("Missing 'sql_pool_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if max_resource_percent_per_request is None and 'maxResourcePercentPerRequest' in kwargs:
+            max_resource_percent_per_request = kwargs['maxResourcePercentPerRequest']
+        if query_execution_timeout is None and 'queryExecutionTimeout' in kwargs:
+            query_execution_timeout = kwargs['queryExecutionTimeout']
+        if workload_group_name is None and 'workloadGroupName' in kwargs:
+            workload_group_name = kwargs['workloadGroupName']
+
+        _setter("max_resource_percent", max_resource_percent)
+        _setter("min_resource_percent", min_resource_percent)
+        _setter("min_resource_percent_per_request", min_resource_percent_per_request)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sql_pool_name", sql_pool_name)
+        _setter("workspace_name", workspace_name)
         if importance is not None:
-            pulumi.set(__self__, "importance", importance)
+            _setter("importance", importance)
         if max_resource_percent_per_request is not None:
-            pulumi.set(__self__, "max_resource_percent_per_request", max_resource_percent_per_request)
+            _setter("max_resource_percent_per_request", max_resource_percent_per_request)
         if query_execution_timeout is not None:
-            pulumi.set(__self__, "query_execution_timeout", query_execution_timeout)
+            _setter("query_execution_timeout", query_execution_timeout)
         if workload_group_name is not None:
-            pulumi.set(__self__, "workload_group_name", workload_group_name)
+            _setter("workload_group_name", workload_group_name)
 
     @property
     @pulumi.getter(name="maxResourcePercent")
@@ -224,6 +283,10 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlPoolWorkloadGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

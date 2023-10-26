@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -47,23 +47,82 @@ class AttachedDataNetworkArgs:
                The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
                At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
         """
-        pulumi.set(__self__, "dns_addresses", dns_addresses)
-        pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
-        pulumi.set(__self__, "packet_core_data_plane_name", packet_core_data_plane_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_plane_data_interface", user_plane_data_interface)
+        AttachedDataNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_addresses=dns_addresses,
+            packet_core_control_plane_name=packet_core_control_plane_name,
+            packet_core_data_plane_name=packet_core_data_plane_name,
+            resource_group_name=resource_group_name,
+            user_plane_data_interface=user_plane_data_interface,
+            attached_data_network_name=attached_data_network_name,
+            location=location,
+            napt_configuration=napt_configuration,
+            tags=tags,
+            user_equipment_address_pool_prefix=user_equipment_address_pool_prefix,
+            user_equipment_static_address_pool_prefix=user_equipment_static_address_pool_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
+             packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user_plane_data_interface: Optional[pulumi.Input['InterfacePropertiesArgs']] = None,
+             attached_data_network_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             napt_configuration: Optional[pulumi.Input['NaptConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_equipment_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_equipment_static_address_pool_prefix: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_addresses is None and 'dnsAddresses' in kwargs:
+            dns_addresses = kwargs['dnsAddresses']
+        if dns_addresses is None:
+            raise TypeError("Missing 'dns_addresses' argument")
+        if packet_core_control_plane_name is None and 'packetCoreControlPlaneName' in kwargs:
+            packet_core_control_plane_name = kwargs['packetCoreControlPlaneName']
+        if packet_core_control_plane_name is None:
+            raise TypeError("Missing 'packet_core_control_plane_name' argument")
+        if packet_core_data_plane_name is None and 'packetCoreDataPlaneName' in kwargs:
+            packet_core_data_plane_name = kwargs['packetCoreDataPlaneName']
+        if packet_core_data_plane_name is None:
+            raise TypeError("Missing 'packet_core_data_plane_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user_plane_data_interface is None and 'userPlaneDataInterface' in kwargs:
+            user_plane_data_interface = kwargs['userPlaneDataInterface']
+        if user_plane_data_interface is None:
+            raise TypeError("Missing 'user_plane_data_interface' argument")
+        if attached_data_network_name is None and 'attachedDataNetworkName' in kwargs:
+            attached_data_network_name = kwargs['attachedDataNetworkName']
+        if napt_configuration is None and 'naptConfiguration' in kwargs:
+            napt_configuration = kwargs['naptConfiguration']
+        if user_equipment_address_pool_prefix is None and 'userEquipmentAddressPoolPrefix' in kwargs:
+            user_equipment_address_pool_prefix = kwargs['userEquipmentAddressPoolPrefix']
+        if user_equipment_static_address_pool_prefix is None and 'userEquipmentStaticAddressPoolPrefix' in kwargs:
+            user_equipment_static_address_pool_prefix = kwargs['userEquipmentStaticAddressPoolPrefix']
+
+        _setter("dns_addresses", dns_addresses)
+        _setter("packet_core_control_plane_name", packet_core_control_plane_name)
+        _setter("packet_core_data_plane_name", packet_core_data_plane_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_plane_data_interface", user_plane_data_interface)
         if attached_data_network_name is not None:
-            pulumi.set(__self__, "attached_data_network_name", attached_data_network_name)
+            _setter("attached_data_network_name", attached_data_network_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if napt_configuration is not None:
-            pulumi.set(__self__, "napt_configuration", napt_configuration)
+            _setter("napt_configuration", napt_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_equipment_address_pool_prefix is not None:
-            pulumi.set(__self__, "user_equipment_address_pool_prefix", user_equipment_address_pool_prefix)
+            _setter("user_equipment_address_pool_prefix", user_equipment_address_pool_prefix)
         if user_equipment_static_address_pool_prefix is not None:
-            pulumi.set(__self__, "user_equipment_static_address_pool_prefix", user_equipment_static_address_pool_prefix)
+            _setter("user_equipment_static_address_pool_prefix", user_equipment_static_address_pool_prefix)
 
     @property
     @pulumi.getter(name="dnsAddresses")
@@ -261,6 +320,10 @@ class AttachedDataNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AttachedDataNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -291,6 +354,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dns_addresses'")
             __props__.__dict__["dns_addresses"] = dns_addresses
             __props__.__dict__["location"] = location
+            napt_configuration = _utilities.configure(napt_configuration, NaptConfigurationArgs, True)
             __props__.__dict__["napt_configuration"] = napt_configuration
             if packet_core_control_plane_name is None and not opts.urn:
                 raise TypeError("Missing required property 'packet_core_control_plane_name'")
@@ -304,6 +368,7 @@ class AttachedDataNetwork(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_equipment_address_pool_prefix"] = user_equipment_address_pool_prefix
             __props__.__dict__["user_equipment_static_address_pool_prefix"] = user_equipment_static_address_pool_prefix
+            user_plane_data_interface = _utilities.configure(user_plane_data_interface, InterfacePropertiesArgs, True)
             if user_plane_data_interface is None and not opts.urn:
                 raise TypeError("Missing required property 'user_plane_data_interface'")
             __props__.__dict__["user_plane_data_interface"] = user_plane_data_interface

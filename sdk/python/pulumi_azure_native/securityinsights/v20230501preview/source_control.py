@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -44,24 +44,85 @@ class SourceControlArgs:
         :param pulumi.Input[str] source_control_id: Source control Id
         :param pulumi.Input[Union[str, 'Version']] version: The version number associated with the source control
         """
-        pulumi.set(__self__, "content_types", content_types)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "repo_type", repo_type)
-        pulumi.set(__self__, "repository", repository)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
+        SourceControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_types=content_types,
+            display_name=display_name,
+            repo_type=repo_type,
+            repository=repository,
+            resource_group_name=resource_group_name,
+            workspace_name=workspace_name,
+            description=description,
+            id=id,
+            last_deployment_info=last_deployment_info,
+            repository_resource_info=repository_resource_info,
+            source_control_id=source_control_id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             repo_type: Optional[pulumi.Input[Union[str, 'RepoType']]] = None,
+             repository: Optional[pulumi.Input['RepositoryArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             last_deployment_info: Optional[pulumi.Input['DeploymentInfoArgs']] = None,
+             repository_resource_info: Optional[pulumi.Input['RepositoryResourceInfoArgs']] = None,
+             source_control_id: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[Union[str, 'Version']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_types is None and 'contentTypes' in kwargs:
+            content_types = kwargs['contentTypes']
+        if content_types is None:
+            raise TypeError("Missing 'content_types' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if repo_type is None and 'repoType' in kwargs:
+            repo_type = kwargs['repoType']
+        if repo_type is None:
+            raise TypeError("Missing 'repo_type' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if last_deployment_info is None and 'lastDeploymentInfo' in kwargs:
+            last_deployment_info = kwargs['lastDeploymentInfo']
+        if repository_resource_info is None and 'repositoryResourceInfo' in kwargs:
+            repository_resource_info = kwargs['repositoryResourceInfo']
+        if source_control_id is None and 'sourceControlId' in kwargs:
+            source_control_id = kwargs['sourceControlId']
+
+        _setter("content_types", content_types)
+        _setter("display_name", display_name)
+        _setter("repo_type", repo_type)
+        _setter("repository", repository)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_name", workspace_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if last_deployment_info is not None:
-            pulumi.set(__self__, "last_deployment_info", last_deployment_info)
+            _setter("last_deployment_info", last_deployment_info)
         if repository_resource_info is not None:
-            pulumi.set(__self__, "repository_resource_info", repository_resource_info)
+            _setter("repository_resource_info", repository_resource_info)
         if source_control_id is not None:
-            pulumi.set(__self__, "source_control_id", source_control_id)
+            _setter("source_control_id", source_control_id)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="contentTypes")
@@ -263,6 +324,10 @@ class SourceControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -297,13 +362,16 @@ class SourceControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["id"] = id
+            last_deployment_info = _utilities.configure(last_deployment_info, DeploymentInfoArgs, True)
             __props__.__dict__["last_deployment_info"] = last_deployment_info
             if repo_type is None and not opts.urn:
                 raise TypeError("Missing required property 'repo_type'")
             __props__.__dict__["repo_type"] = repo_type
+            repository = _utilities.configure(repository, RepositoryArgs, True)
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
+            repository_resource_info = _utilities.configure(repository_resource_info, RepositoryResourceInfoArgs, True)
             __props__.__dict__["repository_resource_info"] = repository_resource_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

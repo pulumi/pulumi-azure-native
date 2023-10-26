@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -47,32 +47,99 @@ class TopicArgs:
         :param pulumi.Input[bool] support_ordering: Value that indicates whether the topic supports ordering.
         :param pulumi.Input[str] topic_name: The topic name.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        TopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            auto_delete_on_idle=auto_delete_on_idle,
+            default_message_time_to_live=default_message_time_to_live,
+            duplicate_detection_history_time_window=duplicate_detection_history_time_window,
+            enable_batched_operations=enable_batched_operations,
+            enable_express=enable_express,
+            enable_partitioning=enable_partitioning,
+            max_message_size_in_kilobytes=max_message_size_in_kilobytes,
+            max_size_in_megabytes=max_size_in_megabytes,
+            requires_duplicate_detection=requires_duplicate_detection,
+            status=status,
+            support_ordering=support_ordering,
+            topic_name=topic_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+             default_message_time_to_live: Optional[pulumi.Input[str]] = None,
+             duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
+             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+             enable_express: Optional[pulumi.Input[bool]] = None,
+             enable_partitioning: Optional[pulumi.Input[bool]] = None,
+             max_message_size_in_kilobytes: Optional[pulumi.Input[float]] = None,
+             max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
+             requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input['EntityStatus']] = None,
+             support_ordering: Optional[pulumi.Input[bool]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_delete_on_idle is None and 'autoDeleteOnIdle' in kwargs:
+            auto_delete_on_idle = kwargs['autoDeleteOnIdle']
+        if default_message_time_to_live is None and 'defaultMessageTimeToLive' in kwargs:
+            default_message_time_to_live = kwargs['defaultMessageTimeToLive']
+        if duplicate_detection_history_time_window is None and 'duplicateDetectionHistoryTimeWindow' in kwargs:
+            duplicate_detection_history_time_window = kwargs['duplicateDetectionHistoryTimeWindow']
+        if enable_batched_operations is None and 'enableBatchedOperations' in kwargs:
+            enable_batched_operations = kwargs['enableBatchedOperations']
+        if enable_express is None and 'enableExpress' in kwargs:
+            enable_express = kwargs['enableExpress']
+        if enable_partitioning is None and 'enablePartitioning' in kwargs:
+            enable_partitioning = kwargs['enablePartitioning']
+        if max_message_size_in_kilobytes is None and 'maxMessageSizeInKilobytes' in kwargs:
+            max_message_size_in_kilobytes = kwargs['maxMessageSizeInKilobytes']
+        if max_size_in_megabytes is None and 'maxSizeInMegabytes' in kwargs:
+            max_size_in_megabytes = kwargs['maxSizeInMegabytes']
+        if requires_duplicate_detection is None and 'requiresDuplicateDetection' in kwargs:
+            requires_duplicate_detection = kwargs['requiresDuplicateDetection']
+        if support_ordering is None and 'supportOrdering' in kwargs:
+            support_ordering = kwargs['supportOrdering']
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if auto_delete_on_idle is not None:
-            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+            _setter("auto_delete_on_idle", auto_delete_on_idle)
         if default_message_time_to_live is not None:
-            pulumi.set(__self__, "default_message_time_to_live", default_message_time_to_live)
+            _setter("default_message_time_to_live", default_message_time_to_live)
         if duplicate_detection_history_time_window is not None:
-            pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
+            _setter("duplicate_detection_history_time_window", duplicate_detection_history_time_window)
         if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+            _setter("enable_batched_operations", enable_batched_operations)
         if enable_express is not None:
-            pulumi.set(__self__, "enable_express", enable_express)
+            _setter("enable_express", enable_express)
         if enable_partitioning is not None:
-            pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+            _setter("enable_partitioning", enable_partitioning)
         if max_message_size_in_kilobytes is not None:
-            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
+            _setter("max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
-            pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
+            _setter("max_size_in_megabytes", max_size_in_megabytes)
         if requires_duplicate_detection is not None:
-            pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
+            _setter("requires_duplicate_detection", requires_duplicate_detection)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if support_ordering is not None:
-            pulumi.set(__self__, "support_ordering", support_ordering)
+            _setter("support_ordering", support_ordering)
         if topic_name is not None:
-            pulumi.set(__self__, "topic_name", topic_name)
+            _setter("topic_name", topic_name)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -308,6 +375,10 @@ class Topic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

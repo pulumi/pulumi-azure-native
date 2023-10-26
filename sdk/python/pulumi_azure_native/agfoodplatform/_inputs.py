@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -33,8 +33,27 @@ class ApiKeyAuthCredentialsArgs:
         :param pulumi.Input[str] kind: Enum for different types of AuthCredentials supported.
                Expected value is 'ApiKeyAuthCredentials'.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "kind", 'ApiKeyAuthCredentials')
+        ApiKeyAuthCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+
+        _setter("api_key", api_key)
+        _setter("kind", 'ApiKeyAuthCredentials')
 
     @property
     @pulumi.getter(name="apiKey")
@@ -70,8 +89,21 @@ class ApiPropertiesArgs:
         Api properties.
         :param pulumi.Input[int] api_freshness_time_in_minutes: Interval in minutes for which the weather data for the api needs to be refreshed.
         """
+        ApiPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_freshness_time_in_minutes=api_freshness_time_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_freshness_time_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_freshness_time_in_minutes is None and 'apiFreshnessTimeInMinutes' in kwargs:
+            api_freshness_time_in_minutes = kwargs['apiFreshnessTimeInMinutes']
+
         if api_freshness_time_in_minutes is not None:
-            pulumi.set(__self__, "api_freshness_time_in_minutes", api_freshness_time_in_minutes)
+            _setter("api_freshness_time_in_minutes", api_freshness_time_in_minutes)
 
     @property
     @pulumi.getter(name="apiFreshnessTimeInMinutes")
@@ -94,7 +126,20 @@ class DataConnectorPropertiesArgs:
         DataConnector Properties.
         :param pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']] credentials: AuthCredentials abstract base class for Auth Purpose.
         """
-        pulumi.set(__self__, "credentials", credentials)
+        DataConnectorPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional[pulumi.Input[Union['ApiKeyAuthCredentialsArgs', 'OAuthClientCredentialsArgs']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+
+        _setter("credentials", credentials)
 
     @property
     @pulumi.getter
@@ -117,8 +162,19 @@ class IdentityArgs:
         Identity for the resource.
         :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
+        IdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -145,9 +201,36 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_uri: Uri of the key vault.
         :param pulumi.Input[str] key_version: Version of Key Vault key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
-        pulumi.set(__self__, "key_version", key_version)
+        KeyVaultPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_uri=key_vault_uri,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_uri: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_uri is None and 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if key_vault_uri is None:
+            raise TypeError("Missing 'key_vault_uri' argument")
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if key_version is None:
+            raise TypeError("Missing 'key_version' argument")
+
+        _setter("key_name", key_name)
+        _setter("key_vault_uri", key_vault_uri)
+        _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -199,9 +282,34 @@ class OAuthClientCredentialsArgs:
         :param pulumi.Input[str] kind: Enum for different types of AuthCredentials supported.
                Expected value is 'OAuthClientCredentials'.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "kind", 'OAuthClientCredentials')
+        OAuthClientCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            kind=kind,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("kind", 'OAuthClientCredentials')
 
     @property
     @pulumi.getter(name="clientId")
@@ -253,12 +361,29 @@ class PrivateLinkServiceConnectionStateArgs:
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
+        PrivateLinkServiceConnectionStateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions_required=actions_required,
+            description=description,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions_required: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions_required is None and 'actionsRequired' in kwargs:
+            actions_required = kwargs['actionsRequired']
+
         if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
+            _setter("actions_required", actions_required)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="actionsRequired")
@@ -305,8 +430,19 @@ class SensorIntegrationArgs:
         Sensor integration request model.
         :param pulumi.Input[str] enabled: Sensor integration enable state.
         """
+        SensorIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -341,14 +477,63 @@ class SolutionPropertiesArgs:
         :param pulumi.Input[str] term_id: SaaS application Term Id.
         :param pulumi.Input[str] role_assignment_id: Role Assignment Id.
         """
-        pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
-        pulumi.set(__self__, "offer_id", offer_id)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
-        pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
-        pulumi.set(__self__, "term_id", term_id)
+        SolutionPropertiesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            marketplace_publisher_id=marketplace_publisher_id,
+            offer_id=offer_id,
+            plan_id=plan_id,
+            saas_subscription_id=saas_subscription_id,
+            saas_subscription_name=saas_subscription_name,
+            term_id=term_id,
+            role_assignment_id=role_assignment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             marketplace_publisher_id: Optional[pulumi.Input[str]] = None,
+             offer_id: Optional[pulumi.Input[str]] = None,
+             plan_id: Optional[pulumi.Input[str]] = None,
+             saas_subscription_id: Optional[pulumi.Input[str]] = None,
+             saas_subscription_name: Optional[pulumi.Input[str]] = None,
+             term_id: Optional[pulumi.Input[str]] = None,
+             role_assignment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if marketplace_publisher_id is None and 'marketplacePublisherId' in kwargs:
+            marketplace_publisher_id = kwargs['marketplacePublisherId']
+        if marketplace_publisher_id is None:
+            raise TypeError("Missing 'marketplace_publisher_id' argument")
+        if offer_id is None and 'offerId' in kwargs:
+            offer_id = kwargs['offerId']
+        if offer_id is None:
+            raise TypeError("Missing 'offer_id' argument")
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if plan_id is None:
+            raise TypeError("Missing 'plan_id' argument")
+        if saas_subscription_id is None and 'saasSubscriptionId' in kwargs:
+            saas_subscription_id = kwargs['saasSubscriptionId']
+        if saas_subscription_id is None:
+            raise TypeError("Missing 'saas_subscription_id' argument")
+        if saas_subscription_name is None and 'saasSubscriptionName' in kwargs:
+            saas_subscription_name = kwargs['saasSubscriptionName']
+        if saas_subscription_name is None:
+            raise TypeError("Missing 'saas_subscription_name' argument")
+        if term_id is None and 'termId' in kwargs:
+            term_id = kwargs['termId']
+        if term_id is None:
+            raise TypeError("Missing 'term_id' argument")
+        if role_assignment_id is None and 'roleAssignmentId' in kwargs:
+            role_assignment_id = kwargs['roleAssignmentId']
+
+        _setter("marketplace_publisher_id", marketplace_publisher_id)
+        _setter("offer_id", offer_id)
+        _setter("plan_id", plan_id)
+        _setter("saas_subscription_id", saas_subscription_id)
+        _setter("saas_subscription_name", saas_subscription_name)
+        _setter("term_id", term_id)
         if role_assignment_id is not None:
-            pulumi.set(__self__, "role_assignment_id", role_assignment_id)
+            _setter("role_assignment_id", role_assignment_id)
 
     @property
     @pulumi.getter(name="marketplacePublisherId")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,12 +29,47 @@ class CustomerEventArgs:
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[str] customer_event_name: The resource name of the Test Base Customer event.
         """
-        pulumi.set(__self__, "event_name", event_name)
-        pulumi.set(__self__, "receivers", receivers)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "test_base_account_name", test_base_account_name)
+        CustomerEventArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_name=event_name,
+            receivers=receivers,
+            resource_group_name=resource_group_name,
+            test_base_account_name=test_base_account_name,
+            customer_event_name=customer_event_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_name: Optional[pulumi.Input[str]] = None,
+             receivers: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationEventReceiverArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             test_base_account_name: Optional[pulumi.Input[str]] = None,
+             customer_event_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_name is None and 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+        if event_name is None:
+            raise TypeError("Missing 'event_name' argument")
+        if receivers is None:
+            raise TypeError("Missing 'receivers' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if test_base_account_name is None and 'testBaseAccountName' in kwargs:
+            test_base_account_name = kwargs['testBaseAccountName']
+        if test_base_account_name is None:
+            raise TypeError("Missing 'test_base_account_name' argument")
+        if customer_event_name is None and 'customerEventName' in kwargs:
+            customer_event_name = kwargs['customerEventName']
+
+        _setter("event_name", event_name)
+        _setter("receivers", receivers)
+        _setter("resource_group_name", resource_group_name)
+        _setter("test_base_account_name", test_base_account_name)
         if customer_event_name is not None:
-            pulumi.set(__self__, "customer_event_name", customer_event_name)
+            _setter("customer_event_name", customer_event_name)
 
     @property
     @pulumi.getter(name="eventName")
@@ -140,6 +175,10 @@ class CustomerEvent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomerEventArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

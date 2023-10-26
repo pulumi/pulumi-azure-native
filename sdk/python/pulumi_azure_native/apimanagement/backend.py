@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,26 +44,75 @@ class BackendArgs:
         :param pulumi.Input[str] title: Backend Title.
         :param pulumi.Input['BackendTlsPropertiesArgs'] tls: Backend TLS Properties
         """
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "url", url)
+        BackendArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protocol=protocol,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            url=url,
+            backend_id=backend_id,
+            credentials=credentials,
+            description=description,
+            properties=properties,
+            proxy=proxy,
+            resource_id=resource_id,
+            title=title,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protocol: Optional[pulumi.Input[Union[str, 'BackendProtocol']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             backend_id: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['BackendCredentialsContractArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['BackendPropertiesArgs']] = None,
+             proxy: Optional[pulumi.Input['BackendProxyContractArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             tls: Optional[pulumi.Input['BackendTlsPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if backend_id is None and 'backendId' in kwargs:
+            backend_id = kwargs['backendId']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
+        _setter("protocol", protocol)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
+        _setter("url", url)
         if backend_id is not None:
-            pulumi.set(__self__, "backend_id", backend_id)
+            _setter("backend_id", backend_id)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
+            _setter("proxy", proxy)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter
@@ -271,6 +320,10 @@ class Backend(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackendArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -298,12 +351,15 @@ class Backend(pulumi.CustomResource):
             __props__ = BackendArgs.__new__(BackendArgs)
 
             __props__.__dict__["backend_id"] = backend_id
+            credentials = _utilities.configure(credentials, BackendCredentialsContractArgs, True)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
+            properties = _utilities.configure(properties, BackendPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            proxy = _utilities.configure(proxy, BackendProxyContractArgs, True)
             __props__.__dict__["proxy"] = proxy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -313,6 +369,7 @@ class Backend(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["title"] = title
+            tls = _utilities.configure(tls, BackendTlsPropertiesArgs, True)
             __props__.__dict__["tls"] = tls
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")

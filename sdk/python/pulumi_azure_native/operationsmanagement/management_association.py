@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,57 @@ class ManagementAssociationArgs:
         :param pulumi.Input[str] management_association_name: User ManagementAssociation Name.
         :param pulumi.Input['ManagementAssociationPropertiesArgs'] properties: Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
         """
-        pulumi.set(__self__, "provider_name", provider_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "resource_type", resource_type)
+        ManagementAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider_name=provider_name,
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            location=location,
+            management_association_name=management_association_name,
+            properties=properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             management_association_name: Optional[pulumi.Input[str]] = None,
+             properties: Optional[pulumi.Input['ManagementAssociationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if provider_name is None:
+            raise TypeError("Missing 'provider_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if management_association_name is None and 'managementAssociationName' in kwargs:
+            management_association_name = kwargs['managementAssociationName']
+
+        _setter("provider_name", provider_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
+        _setter("resource_type", resource_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if management_association_name is not None:
-            pulumi.set(__self__, "management_association_name", management_association_name)
+            _setter("management_association_name", management_association_name)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
 
     @property
     @pulumi.getter(name="providerName")
@@ -176,6 +217,10 @@ class ManagementAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagementAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,6 +244,7 @@ class ManagementAssociation(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["management_association_name"] = management_association_name
+            properties = _utilities.configure(properties, ManagementAssociationPropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,13 +28,48 @@ class SuppressionListArgs:
         :param pulumi.Input[str] list_name: The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
         :param pulumi.Input[str] suppression_list_name: The name of the suppression list.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "email_service_name", email_service_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SuppressionListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            email_service_name=email_service_name,
+            resource_group_name=resource_group_name,
+            list_name=list_name,
+            suppression_list_name=suppression_list_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             email_service_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             list_name: Optional[pulumi.Input[str]] = None,
+             suppression_list_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if email_service_name is None and 'emailServiceName' in kwargs:
+            email_service_name = kwargs['emailServiceName']
+        if email_service_name is None:
+            raise TypeError("Missing 'email_service_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if list_name is None and 'listName' in kwargs:
+            list_name = kwargs['listName']
+        if suppression_list_name is None and 'suppressionListName' in kwargs:
+            suppression_list_name = kwargs['suppressionListName']
+
+        _setter("domain_name", domain_name)
+        _setter("email_service_name", email_service_name)
+        _setter("resource_group_name", resource_group_name)
         if list_name is not None:
-            pulumi.set(__self__, "list_name", list_name)
+            _setter("list_name", list_name)
         if suppression_list_name is not None:
-            pulumi.set(__self__, "suppression_list_name", suppression_list_name)
+            _setter("suppression_list_name", suppression_list_name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -140,6 +175,10 @@ class SuppressionList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SuppressionListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -253,9 +253,36 @@ class AzureActiveDirectoryAppResponse(dict):
         :param str application_id: Application ID of the Azure Active Directory Application
         :param str tenant_id: Tenant id of the customer
         """
-        pulumi.set(__self__, "app_key", app_key)
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        AzureActiveDirectoryAppResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_key=app_key,
+            application_id=application_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_key: Optional[str] = None,
+             application_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_key is None and 'appKey' in kwargs:
+            app_key = kwargs['appKey']
+        if app_key is None:
+            raise TypeError("Missing 'app_key' argument")
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("app_key", app_key)
+        _setter("application_id", application_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="appKey")
@@ -316,12 +343,31 @@ class BackupFileInfoResponse(dict):
         :param str file_location: Location of the backup file in shared folder
         :param str status: Status of the backup file during migration
         """
+        BackupFileInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            family_sequence_number=family_sequence_number,
+            file_location=file_location,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             family_sequence_number: Optional[int] = None,
+             file_location: Optional[str] = None,
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if family_sequence_number is None and 'familySequenceNumber' in kwargs:
+            family_sequence_number = kwargs['familySequenceNumber']
+        if file_location is None and 'fileLocation' in kwargs:
+            file_location = kwargs['fileLocation']
+
         if family_sequence_number is not None:
-            pulumi.set(__self__, "family_sequence_number", family_sequence_number)
+            _setter("family_sequence_number", family_sequence_number)
         if file_location is not None:
-            pulumi.set(__self__, "file_location", file_location)
+            _setter("file_location", file_location)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="familySequenceNumber")
@@ -412,26 +458,75 @@ class BackupSetInfoResponse(dict):
         :param str last_modified_time: Last modified time of the backup file in share location
         :param Sequence['BackupFileInfoResponse'] list_of_backup_files: List of files in the backup set
         """
+        BackupSetInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_finished_date=backup_finished_date,
+            backup_set_id=backup_set_id,
+            backup_start_date=backup_start_date,
+            backup_type=backup_type,
+            database_name=database_name,
+            first_lsn=first_lsn,
+            is_backup_restored=is_backup_restored,
+            last_lsn=last_lsn,
+            last_modified_time=last_modified_time,
+            list_of_backup_files=list_of_backup_files,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_finished_date: Optional[str] = None,
+             backup_set_id: Optional[str] = None,
+             backup_start_date: Optional[str] = None,
+             backup_type: Optional[str] = None,
+             database_name: Optional[str] = None,
+             first_lsn: Optional[str] = None,
+             is_backup_restored: Optional[bool] = None,
+             last_lsn: Optional[str] = None,
+             last_modified_time: Optional[str] = None,
+             list_of_backup_files: Optional[Sequence['outputs.BackupFileInfoResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_finished_date is None and 'backupFinishedDate' in kwargs:
+            backup_finished_date = kwargs['backupFinishedDate']
+        if backup_set_id is None and 'backupSetId' in kwargs:
+            backup_set_id = kwargs['backupSetId']
+        if backup_start_date is None and 'backupStartDate' in kwargs:
+            backup_start_date = kwargs['backupStartDate']
+        if backup_type is None and 'backupType' in kwargs:
+            backup_type = kwargs['backupType']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if first_lsn is None and 'firstLsn' in kwargs:
+            first_lsn = kwargs['firstLsn']
+        if is_backup_restored is None and 'isBackupRestored' in kwargs:
+            is_backup_restored = kwargs['isBackupRestored']
+        if last_lsn is None and 'lastLsn' in kwargs:
+            last_lsn = kwargs['lastLsn']
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if list_of_backup_files is None and 'listOfBackupFiles' in kwargs:
+            list_of_backup_files = kwargs['listOfBackupFiles']
+
         if backup_finished_date is not None:
-            pulumi.set(__self__, "backup_finished_date", backup_finished_date)
+            _setter("backup_finished_date", backup_finished_date)
         if backup_set_id is not None:
-            pulumi.set(__self__, "backup_set_id", backup_set_id)
+            _setter("backup_set_id", backup_set_id)
         if backup_start_date is not None:
-            pulumi.set(__self__, "backup_start_date", backup_start_date)
+            _setter("backup_start_date", backup_start_date)
         if backup_type is not None:
-            pulumi.set(__self__, "backup_type", backup_type)
+            _setter("backup_type", backup_type)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if first_lsn is not None:
-            pulumi.set(__self__, "first_lsn", first_lsn)
+            _setter("first_lsn", first_lsn)
         if is_backup_restored is not None:
-            pulumi.set(__self__, "is_backup_restored", is_backup_restored)
+            _setter("is_backup_restored", is_backup_restored)
         if last_lsn is not None:
-            pulumi.set(__self__, "last_lsn", last_lsn)
+            _setter("last_lsn", last_lsn)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if list_of_backup_files is not None:
-            pulumi.set(__self__, "list_of_backup_files", list_of_backup_files)
+            _setter("list_of_backup_files", list_of_backup_files)
 
     @property
     @pulumi.getter(name="backupFinishedDate")
@@ -542,7 +637,22 @@ class BlobShareResponse(dict):
         Blob container storage information.
         :param str sas_uri: SAS URI of Azure Storage Account Container.
         """
-        pulumi.set(__self__, "sas_uri", sas_uri)
+        BlobShareResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sas_uri=sas_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sas_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sas_uri is None and 'sasUri' in kwargs:
+            sas_uri = kwargs['sasUri']
+        if sas_uri is None:
+            raise TypeError("Missing 'sas_uri' argument")
+
+        _setter("sas_uri", sas_uri)
 
     @property
     @pulumi.getter(name="sasUri")
@@ -596,15 +706,52 @@ class ConnectToMongoDbTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbConnectionInfoResponse' input: Describes a connection to a MongoDB data source
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Connect.MongoDb')
+        ConnectToMongoDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.MongoDbClusterInfoResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MongoDbConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Connect.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -704,15 +851,42 @@ class ConnectToSourceMySqlTaskInputResponse(dict):
         :param bool is_offline_migration: Flag for whether or not the migration is offline
         :param str target_platform: Target Platform for the migration
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceMySqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            check_permissions_group=check_permissions_group,
+            is_offline_migration=is_offline_migration,
+            target_platform=target_platform,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional['outputs.MySqlConnectionInfoResponse'] = None,
+             check_permissions_group: Optional[str] = None,
+             is_offline_migration: Optional[bool] = None,
+             target_platform: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if check_permissions_group is None and 'checkPermissionsGroup' in kwargs:
+            check_permissions_group = kwargs['checkPermissionsGroup']
+        if is_offline_migration is None and 'isOfflineMigration' in kwargs:
+            is_offline_migration = kwargs['isOfflineMigration']
+        if target_platform is None and 'targetPlatform' in kwargs:
+            target_platform = kwargs['targetPlatform']
+
+        _setter("source_connection_info", source_connection_info)
         if check_permissions_group is not None:
-            pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+            _setter("check_permissions_group", check_permissions_group)
         if is_offline_migration is None:
             is_offline_migration = False
         if is_offline_migration is not None:
-            pulumi.set(__self__, "is_offline_migration", is_offline_migration)
+            _setter("is_offline_migration", is_offline_migration)
         if target_platform is not None:
-            pulumi.set(__self__, "target_platform", target_platform)
+            _setter("target_platform", target_platform)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -790,15 +964,52 @@ class ConnectToSourceMySqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceMySqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.MySql')
+        ConnectToSourceMySqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToSourceNonSqlTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourceMySqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.MySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -898,11 +1109,46 @@ class ConnectToSourceNonSqlTaskOutputResponse(dict):
         :param str source_server_brand_version: Server brand version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "server_properties", server_properties)
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourceNonSqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            server_properties=server_properties,
+            source_server_brand_version=source_server_brand_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             server_properties: Optional['outputs.ServerPropertiesResponse'] = None,
+             source_server_brand_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if server_properties is None and 'serverProperties' in kwargs:
+            server_properties = kwargs['serverProperties']
+        if server_properties is None:
+            raise TypeError("Missing 'server_properties' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("server_properties", server_properties)
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -973,7 +1219,22 @@ class ConnectToSourceOracleSyncTaskInputResponse(dict):
         Input for the task that validates Oracle database connection
         :param 'OracleConnectionInfoResponse' source_connection_info: Information for connecting to Oracle source
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceOracleSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional['outputs.OracleConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -1022,10 +1283,41 @@ class ConnectToSourceOracleSyncTaskOutputResponse(dict):
         :param str source_server_version: Version of the source server
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourceOracleSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Sequence[str]] = None,
+             source_server_brand_version: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("databases", databases)
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -1103,15 +1395,52 @@ class ConnectToSourceOracleSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceOracleSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.Oracle.Sync')
+        ConnectToSourceOracleSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToSourceOracleSyncTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourceOracleSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.Oracle.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -1199,7 +1528,22 @@ class ConnectToSourcePostgreSqlSyncTaskInputResponse(dict):
         Input for the task that validates connection to PostgreSQL and source server requirements
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL server
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourcePostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional['outputs.PostgreSqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -1250,11 +1594,46 @@ class ConnectToSourcePostgreSqlSyncTaskOutputResponse(dict):
         :param str source_server_version: Version of the source server
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourcePostgreSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             source_server_brand_version: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -1340,15 +1719,52 @@ class ConnectToSourcePostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourcePostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.PostgreSql.Sync')
+        ConnectToSourcePostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToSourcePostgreSqlSyncTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourcePostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.PostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -1451,15 +1867,52 @@ class ConnectToSourceSqlServerSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer.Sync')
+        ConnectToSourceSqlServerSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.SqlServer.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -1571,29 +2024,68 @@ class ConnectToSourceSqlServerTaskInputResponse(dict):
         :param bool collect_tde_certificate_info: Flag for whether to collect TDE Certificate names from source server.
         :param bool validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the source server.
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
+        ConnectToSourceSqlServerTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            check_permissions_group=check_permissions_group,
+            collect_agent_jobs=collect_agent_jobs,
+            collect_databases=collect_databases,
+            collect_logins=collect_logins,
+            collect_tde_certificate_info=collect_tde_certificate_info,
+            validate_ssis_catalog_only=validate_ssis_catalog_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             check_permissions_group: Optional[str] = None,
+             collect_agent_jobs: Optional[bool] = None,
+             collect_databases: Optional[bool] = None,
+             collect_logins: Optional[bool] = None,
+             collect_tde_certificate_info: Optional[bool] = None,
+             validate_ssis_catalog_only: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if check_permissions_group is None and 'checkPermissionsGroup' in kwargs:
+            check_permissions_group = kwargs['checkPermissionsGroup']
+        if collect_agent_jobs is None and 'collectAgentJobs' in kwargs:
+            collect_agent_jobs = kwargs['collectAgentJobs']
+        if collect_databases is None and 'collectDatabases' in kwargs:
+            collect_databases = kwargs['collectDatabases']
+        if collect_logins is None and 'collectLogins' in kwargs:
+            collect_logins = kwargs['collectLogins']
+        if collect_tde_certificate_info is None and 'collectTdeCertificateInfo' in kwargs:
+            collect_tde_certificate_info = kwargs['collectTdeCertificateInfo']
+        if validate_ssis_catalog_only is None and 'validateSsisCatalogOnly' in kwargs:
+            validate_ssis_catalog_only = kwargs['validateSsisCatalogOnly']
+
+        _setter("source_connection_info", source_connection_info)
         if check_permissions_group is not None:
-            pulumi.set(__self__, "check_permissions_group", check_permissions_group)
+            _setter("check_permissions_group", check_permissions_group)
         if collect_agent_jobs is None:
             collect_agent_jobs = False
         if collect_agent_jobs is not None:
-            pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+            _setter("collect_agent_jobs", collect_agent_jobs)
         if collect_databases is None:
             collect_databases = True
         if collect_databases is not None:
-            pulumi.set(__self__, "collect_databases", collect_databases)
+            _setter("collect_databases", collect_databases)
         if collect_logins is None:
             collect_logins = False
         if collect_logins is not None:
-            pulumi.set(__self__, "collect_logins", collect_logins)
+            _setter("collect_logins", collect_logins)
         if collect_tde_certificate_info is None:
             collect_tde_certificate_info = False
         if collect_tde_certificate_info is not None:
-            pulumi.set(__self__, "collect_tde_certificate_info", collect_tde_certificate_info)
+            _setter("collect_tde_certificate_info", collect_tde_certificate_info)
         if validate_ssis_catalog_only is None:
             validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
-            pulumi.set(__self__, "validate_ssis_catalog_only", validate_ssis_catalog_only)
+            _setter("validate_ssis_catalog_only", validate_ssis_catalog_only)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -1709,15 +2201,74 @@ class ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(dict):
                Expected value is 'AgentJobLevelOutput'.
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "job_category", job_category)
-        pulumi.set(__self__, "job_owner", job_owner)
-        pulumi.set(__self__, "last_executed_on", last_executed_on)
-        pulumi.set(__self__, "migration_eligibility", migration_eligibility)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_type", 'AgentJobLevelOutput')
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            is_enabled=is_enabled,
+            job_category=job_category,
+            job_owner=job_owner,
+            last_executed_on=last_executed_on,
+            migration_eligibility=migration_eligibility,
+            name=name,
+            result_type=result_type,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             job_category: Optional[str] = None,
+             job_owner: Optional[str] = None,
+             last_executed_on: Optional[str] = None,
+             migration_eligibility: Optional['outputs.MigrationEligibilityInfoResponse'] = None,
+             name: Optional[str] = None,
+             result_type: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if job_category is None and 'jobCategory' in kwargs:
+            job_category = kwargs['jobCategory']
+        if job_category is None:
+            raise TypeError("Missing 'job_category' argument")
+        if job_owner is None and 'jobOwner' in kwargs:
+            job_owner = kwargs['jobOwner']
+        if job_owner is None:
+            raise TypeError("Missing 'job_owner' argument")
+        if last_executed_on is None and 'lastExecutedOn' in kwargs:
+            last_executed_on = kwargs['lastExecutedOn']
+        if last_executed_on is None:
+            raise TypeError("Missing 'last_executed_on' argument")
+        if migration_eligibility is None and 'migrationEligibility' in kwargs:
+            migration_eligibility = kwargs['migrationEligibility']
+        if migration_eligibility is None:
+            raise TypeError("Missing 'migration_eligibility' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("id", id)
+        _setter("is_enabled", is_enabled)
+        _setter("job_category", job_category)
+        _setter("job_owner", job_owner)
+        _setter("last_executed_on", last_executed_on)
+        _setter("migration_eligibility", migration_eligibility)
+        _setter("name", name)
+        _setter("result_type", 'AgentJobLevelOutput')
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -1842,13 +2393,60 @@ class ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse(dict):
                Expected value is 'DatabaseLevelOutput'.
         :param float size_mb: Size of the file in megabytes
         """
-        pulumi.set(__self__, "compatibility_level", compatibility_level)
-        pulumi.set(__self__, "database_files", database_files)
-        pulumi.set(__self__, "database_state", database_state)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "size_mb", size_mb)
+        ConnectToSourceSqlServerTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility_level=compatibility_level,
+            database_files=database_files,
+            database_state=database_state,
+            id=id,
+            name=name,
+            result_type=result_type,
+            size_mb=size_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility_level: Optional[str] = None,
+             database_files: Optional[Sequence['outputs.DatabaseFileInfoResponse']] = None,
+             database_state: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             result_type: Optional[str] = None,
+             size_mb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compatibility_level is None and 'compatibilityLevel' in kwargs:
+            compatibility_level = kwargs['compatibilityLevel']
+        if compatibility_level is None:
+            raise TypeError("Missing 'compatibility_level' argument")
+        if database_files is None and 'databaseFiles' in kwargs:
+            database_files = kwargs['databaseFiles']
+        if database_files is None:
+            raise TypeError("Missing 'database_files' argument")
+        if database_state is None and 'databaseState' in kwargs:
+            database_state = kwargs['databaseState']
+        if database_state is None:
+            raise TypeError("Missing 'database_state' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if size_mb is None and 'sizeMB' in kwargs:
+            size_mb = kwargs['sizeMB']
+        if size_mb is None:
+            raise TypeError("Missing 'size_mb' argument")
+
+        _setter("compatibility_level", compatibility_level)
+        _setter("database_files", database_files)
+        _setter("database_state", database_state)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("size_mb", size_mb)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -1957,13 +2555,60 @@ class ConnectToSourceSqlServerTaskOutputLoginLevelResponse(dict):
         :param str result_type: Type of result - database level or task level
                Expected value is 'LoginLevelOutput'.
         """
-        pulumi.set(__self__, "default_database", default_database)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "login_type", login_type)
-        pulumi.set(__self__, "migration_eligibility", migration_eligibility)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_type", 'LoginLevelOutput')
+        ConnectToSourceSqlServerTaskOutputLoginLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_database=default_database,
+            id=id,
+            is_enabled=is_enabled,
+            login_type=login_type,
+            migration_eligibility=migration_eligibility,
+            name=name,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_database: Optional[str] = None,
+             id: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             login_type: Optional[str] = None,
+             migration_eligibility: Optional['outputs.MigrationEligibilityInfoResponse'] = None,
+             name: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_database is None and 'defaultDatabase' in kwargs:
+            default_database = kwargs['defaultDatabase']
+        if default_database is None:
+            raise TypeError("Missing 'default_database' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if login_type is None and 'loginType' in kwargs:
+            login_type = kwargs['loginType']
+        if login_type is None:
+            raise TypeError("Missing 'login_type' argument")
+        if migration_eligibility is None and 'migrationEligibility' in kwargs:
+            migration_eligibility = kwargs['migrationEligibility']
+        if migration_eligibility is None:
+            raise TypeError("Missing 'migration_eligibility' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("default_database", default_database)
+        _setter("id", id)
+        _setter("is_enabled", is_enabled)
+        _setter("login_type", login_type)
+        _setter("migration_eligibility", migration_eligibility)
+        _setter("name", name)
+        _setter("result_type", 'LoginLevelOutput')
 
     @property
     @pulumi.getter(name="defaultDatabase")
@@ -2078,15 +2723,72 @@ class ConnectToSourceSqlServerTaskOutputTaskLevelResponse(dict):
         :param str source_server_version: Source server version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "agent_jobs", agent_jobs)
-        pulumi.set(__self__, "database_tde_certificate_mapping", database_tde_certificate_mapping)
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "logins", logins)
-        pulumi.set(__self__, "result_type", 'TaskLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToSourceSqlServerTaskOutputTaskLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_jobs=agent_jobs,
+            database_tde_certificate_mapping=database_tde_certificate_mapping,
+            databases=databases,
+            id=id,
+            logins=logins,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_jobs: Optional[Mapping[str, str]] = None,
+             database_tde_certificate_mapping: Optional[Mapping[str, str]] = None,
+             databases: Optional[Mapping[str, str]] = None,
+             id: Optional[str] = None,
+             logins: Optional[Mapping[str, str]] = None,
+             result_type: Optional[str] = None,
+             source_server_brand_version: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_jobs is None and 'agentJobs' in kwargs:
+            agent_jobs = kwargs['agentJobs']
+        if agent_jobs is None:
+            raise TypeError("Missing 'agent_jobs' argument")
+        if database_tde_certificate_mapping is None and 'databaseTdeCertificateMapping' in kwargs:
+            database_tde_certificate_mapping = kwargs['databaseTdeCertificateMapping']
+        if database_tde_certificate_mapping is None:
+            raise TypeError("Missing 'database_tde_certificate_mapping' argument")
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if logins is None:
+            raise TypeError("Missing 'logins' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("agent_jobs", agent_jobs)
+        _setter("database_tde_certificate_mapping", database_tde_certificate_mapping)
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("logins", logins)
+        _setter("result_type", 'TaskLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="agentJobs")
@@ -2205,15 +2907,52 @@ class ConnectToSourceSqlServerTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToSourceSqlServerTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToSource.SqlServer')
+        ConnectToSourceSqlServerTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToSourceSqlServerTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToSource.SqlServer')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -2309,12 +3048,37 @@ class ConnectToTargetAzureDbForMySqlTaskInputResponse(dict):
         :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL server
         :param bool is_offline_migration: Flag for whether or not the migration is offline
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetAzureDbForMySqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            is_offline_migration=is_offline_migration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional['outputs.MySqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.MySqlConnectionInfoResponse'] = None,
+             is_offline_migration: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if is_offline_migration is None and 'isOfflineMigration' in kwargs:
+            is_offline_migration = kwargs['isOfflineMigration']
+
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if is_offline_migration is None:
             is_offline_migration = False
         if is_offline_migration is not None:
-            pulumi.set(__self__, "is_offline_migration", is_offline_migration)
+            _setter("is_offline_migration", is_offline_migration)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -2381,11 +3145,46 @@ class ConnectToTargetAzureDbForMySqlTaskOutputResponse(dict):
         :param str target_server_brand_version: Target server brand version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "server_version", server_version)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetAzureDbForMySqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            server_version=server_version,
+            target_server_brand_version=target_server_brand_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             server_version: Optional[str] = None,
+             target_server_brand_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if server_version is None and 'serverVersion' in kwargs:
+            server_version = kwargs['serverVersion']
+        if server_version is None:
+            raise TypeError("Missing 'server_version' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("server_version", server_version)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -2471,15 +3270,52 @@ class ConnectToTargetAzureDbForMySqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetAzureDbForMySqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureDbForMySql')
+        ConnectToTargetAzureDbForMySqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToTargetAzureDbForMySqlTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetAzureDbForMySqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.AzureDbForMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -2571,8 +3407,29 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse(dict):
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL server
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional['outputs.PostgreSqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.PostgreSqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -2631,11 +3488,46 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse(dict):
         :param str target_server_version: Version of the target server
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -2721,15 +3613,52 @@ class ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureDbForPostgreSql.Sync')
+        ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -2817,7 +3746,22 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse(dict):
         Input for the task that validates connection to Azure Database for PostgreSQL and target server requirements for Oracle source.
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL server
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: Optional['outputs.PostgreSqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -2870,12 +3814,47 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse(dict):
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         :param Sequence['ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap'] database_schema_map: Mapping of schemas per database
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            validation_errors=validation_errors,
+            database_schema_map=database_schema_map,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Sequence[str]] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             database_schema_map: Optional[Sequence['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+        if database_schema_map is None and 'databaseSchemaMap' in kwargs:
+            database_schema_map = kwargs['databaseSchemaMap']
+
+        _setter("databases", databases)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
+        _setter("validation_errors", validation_errors)
         if database_schema_map is not None:
-            pulumi.set(__self__, "database_schema_map", database_schema_map)
+            _setter("database_schema_map", database_schema_map)
 
     @property
     @pulumi.getter
@@ -2923,10 +3902,23 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSch
     def __init__(__self__, *,
                  database: Optional[str] = None,
                  schemas: Optional[Sequence[str]] = None):
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponseDatabaseSchemaMap._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            schemas=schemas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[str] = None,
+             schemas: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if schemas is not None:
-            pulumi.set(__self__, "schemas", schemas)
+            _setter("schemas", schemas)
 
     @property
     @pulumi.getter
@@ -2982,15 +3974,52 @@ class ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync')
+        ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.Oracle.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -3078,7 +4107,22 @@ class ConnectToTargetSqlDbTaskInputResponse(dict):
         Input for the task that validates connection to SQL DB and target server requirements
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlDbTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -3125,10 +4169,39 @@ class ConnectToTargetSqlDbTaskOutputResponse(dict):
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Version of the target server
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        ConnectToTargetSqlDbTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            id=id,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Mapping[str, str]] = None,
+             id: Optional[str] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+
+        _setter("databases", databases)
+        _setter("id", id)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter
@@ -3206,15 +4279,52 @@ class ConnectToTargetSqlDbTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlDbTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb')
+        ConnectToTargetSqlDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToTargetSqlDbTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetSqlDbTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.SqlDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -3306,8 +4416,29 @@ class ConnectToTargetSqlMISyncTaskInputResponse(dict):
         :param 'AzureActiveDirectoryAppResponse' azure_app: Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlMISyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: Optional['outputs.AzureActiveDirectoryAppResponse'] = None,
+             target_connection_info: Optional['outputs.MiSqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_app is None and 'azureApp' in kwargs:
+            azure_app = kwargs['azureApp']
+        if azure_app is None:
+            raise TypeError("Missing 'azure_app' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("azure_app", azure_app)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -3362,9 +4493,36 @@ class ConnectToTargetSqlMISyncTaskOutputResponse(dict):
         :param str target_server_version: Target server version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetSqlMISyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="targetServerBrandVersion")
@@ -3434,15 +4592,52 @@ class ConnectToTargetSqlMISyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlMISyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI.Sync.LRS')
+        ConnectToTargetSqlMISyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToTargetSqlMISyncTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetSqlMISyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -3542,19 +4737,46 @@ class ConnectToTargetSqlMITaskInputResponse(dict):
         :param bool collect_logins: Flag for whether to collect logins from target SQL MI server.
         :param bool validate_ssis_catalog_only: Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
         """
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlMITaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_connection_info=target_connection_info,
+            collect_agent_jobs=collect_agent_jobs,
+            collect_logins=collect_logins,
+            validate_ssis_catalog_only=validate_ssis_catalog_only,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             collect_agent_jobs: Optional[bool] = None,
+             collect_logins: Optional[bool] = None,
+             validate_ssis_catalog_only: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if collect_agent_jobs is None and 'collectAgentJobs' in kwargs:
+            collect_agent_jobs = kwargs['collectAgentJobs']
+        if collect_logins is None and 'collectLogins' in kwargs:
+            collect_logins = kwargs['collectLogins']
+        if validate_ssis_catalog_only is None and 'validateSsisCatalogOnly' in kwargs:
+            validate_ssis_catalog_only = kwargs['validateSsisCatalogOnly']
+
+        _setter("target_connection_info", target_connection_info)
         if collect_agent_jobs is None:
             collect_agent_jobs = True
         if collect_agent_jobs is not None:
-            pulumi.set(__self__, "collect_agent_jobs", collect_agent_jobs)
+            _setter("collect_agent_jobs", collect_agent_jobs)
         if collect_logins is None:
             collect_logins = True
         if collect_logins is not None:
-            pulumi.set(__self__, "collect_logins", collect_logins)
+            _setter("collect_logins", collect_logins)
         if validate_ssis_catalog_only is None:
             validate_ssis_catalog_only = False
         if validate_ssis_catalog_only is not None:
-            pulumi.set(__self__, "validate_ssis_catalog_only", validate_ssis_catalog_only)
+            _setter("validate_ssis_catalog_only", validate_ssis_catalog_only)
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
@@ -3633,12 +4855,53 @@ class ConnectToTargetSqlMITaskOutputResponse(dict):
         :param str target_server_version: Target server version
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "agent_jobs", agent_jobs)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "logins", logins)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ConnectToTargetSqlMITaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_jobs=agent_jobs,
+            id=id,
+            logins=logins,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_jobs: Optional[Sequence[str]] = None,
+             id: Optional[str] = None,
+             logins: Optional[Sequence[str]] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_jobs is None and 'agentJobs' in kwargs:
+            agent_jobs = kwargs['agentJobs']
+        if agent_jobs is None:
+            raise TypeError("Missing 'agent_jobs' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if logins is None:
+            raise TypeError("Missing 'logins' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("agent_jobs", agent_jobs)
+        _setter("id", id)
+        _setter("logins", logins)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="agentJobs")
@@ -3732,15 +4995,52 @@ class ConnectToTargetSqlMITaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlMITaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.AzureSqlDbMI')
+        ConnectToTargetSqlMITaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToTargetSqlMITaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetSqlMITaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -3832,8 +5132,29 @@ class ConnectToTargetSqlSqlDbSyncTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for source SQL Server
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for target SQL DB
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ConnectToTargetSqlSqlDbSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -3895,15 +5216,52 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ConnectToTargetSqlSqlDbSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ConnectToTarget.SqlDb.Sync')
+        ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ConnectToTargetSqlDbTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ConnectToTargetSqlSqlDbSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ConnectToTarget.SqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -4029,17 +5387,90 @@ class CopyProgressDetailsResponse(dict):
         :param str table_name: Table Name
         :param int used_parallel_copies: The degree of parallelization.
         """
-        pulumi.set(__self__, "copy_duration", copy_duration)
-        pulumi.set(__self__, "copy_start", copy_start)
-        pulumi.set(__self__, "copy_throughput", copy_throughput)
-        pulumi.set(__self__, "data_read", data_read)
-        pulumi.set(__self__, "data_written", data_written)
-        pulumi.set(__self__, "parallel_copy_type", parallel_copy_type)
-        pulumi.set(__self__, "rows_copied", rows_copied)
-        pulumi.set(__self__, "rows_read", rows_read)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "used_parallel_copies", used_parallel_copies)
+        CopyProgressDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_duration=copy_duration,
+            copy_start=copy_start,
+            copy_throughput=copy_throughput,
+            data_read=data_read,
+            data_written=data_written,
+            parallel_copy_type=parallel_copy_type,
+            rows_copied=rows_copied,
+            rows_read=rows_read,
+            status=status,
+            table_name=table_name,
+            used_parallel_copies=used_parallel_copies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_duration: Optional[int] = None,
+             copy_start: Optional[str] = None,
+             copy_throughput: Optional[float] = None,
+             data_read: Optional[float] = None,
+             data_written: Optional[float] = None,
+             parallel_copy_type: Optional[str] = None,
+             rows_copied: Optional[float] = None,
+             rows_read: Optional[float] = None,
+             status: Optional[str] = None,
+             table_name: Optional[str] = None,
+             used_parallel_copies: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_duration is None and 'copyDuration' in kwargs:
+            copy_duration = kwargs['copyDuration']
+        if copy_duration is None:
+            raise TypeError("Missing 'copy_duration' argument")
+        if copy_start is None and 'copyStart' in kwargs:
+            copy_start = kwargs['copyStart']
+        if copy_start is None:
+            raise TypeError("Missing 'copy_start' argument")
+        if copy_throughput is None and 'copyThroughput' in kwargs:
+            copy_throughput = kwargs['copyThroughput']
+        if copy_throughput is None:
+            raise TypeError("Missing 'copy_throughput' argument")
+        if data_read is None and 'dataRead' in kwargs:
+            data_read = kwargs['dataRead']
+        if data_read is None:
+            raise TypeError("Missing 'data_read' argument")
+        if data_written is None and 'dataWritten' in kwargs:
+            data_written = kwargs['dataWritten']
+        if data_written is None:
+            raise TypeError("Missing 'data_written' argument")
+        if parallel_copy_type is None and 'parallelCopyType' in kwargs:
+            parallel_copy_type = kwargs['parallelCopyType']
+        if parallel_copy_type is None:
+            raise TypeError("Missing 'parallel_copy_type' argument")
+        if rows_copied is None and 'rowsCopied' in kwargs:
+            rows_copied = kwargs['rowsCopied']
+        if rows_copied is None:
+            raise TypeError("Missing 'rows_copied' argument")
+        if rows_read is None and 'rowsRead' in kwargs:
+            rows_read = kwargs['rowsRead']
+        if rows_read is None:
+            raise TypeError("Missing 'rows_read' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if used_parallel_copies is None and 'usedParallelCopies' in kwargs:
+            used_parallel_copies = kwargs['usedParallelCopies']
+        if used_parallel_copies is None:
+            raise TypeError("Missing 'used_parallel_copies' argument")
+
+        _setter("copy_duration", copy_duration)
+        _setter("copy_start", copy_start)
+        _setter("copy_throughput", copy_throughput)
+        _setter("data_read", data_read)
+        _setter("data_written", data_written)
+        _setter("parallel_copy_type", parallel_copy_type)
+        _setter("rows_copied", rows_copied)
+        _setter("rows_read", rows_read)
+        _setter("status", status)
+        _setter("table_name", table_name)
+        _setter("used_parallel_copies", used_parallel_copies)
 
     @property
     @pulumi.getter(name="copyDuration")
@@ -4162,10 +5593,27 @@ class DataIntegrityValidationResultResponse(dict):
         :param Mapping[str, str] failed_objects: List of failed table names of source and target pair
         :param 'ValidationErrorResponse' validation_errors: List of errors that happened while performing data integrity validation
         """
+        DataIntegrityValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failed_objects=failed_objects,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failed_objects: Optional[Mapping[str, str]] = None,
+             validation_errors: Optional['outputs.ValidationErrorResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failed_objects is None and 'failedObjects' in kwargs:
+            failed_objects = kwargs['failedObjects']
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+
         if failed_objects is not None:
-            pulumi.set(__self__, "failed_objects", failed_objects)
+            _setter("failed_objects", failed_objects)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="failedObjects")
@@ -4240,15 +5688,74 @@ class DataItemMigrationSummaryResultResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "items_completed_count", items_completed_count)
-        pulumi.set(__self__, "items_count", items_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        DataItemMigrationSummaryResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            items_completed_count=items_completed_count,
+            items_count=items_count,
+            name=name,
+            result_prefix=result_prefix,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             error_prefix: Optional[str] = None,
+             items_completed_count: Optional[float] = None,
+             items_count: Optional[float] = None,
+             name: Optional[str] = None,
+             result_prefix: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             status_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if error_prefix is None and 'errorPrefix' in kwargs:
+            error_prefix = kwargs['errorPrefix']
+        if error_prefix is None:
+            raise TypeError("Missing 'error_prefix' argument")
+        if items_completed_count is None and 'itemsCompletedCount' in kwargs:
+            items_completed_count = kwargs['itemsCompletedCount']
+        if items_completed_count is None:
+            raise TypeError("Missing 'items_completed_count' argument")
+        if items_count is None and 'itemsCount' in kwargs:
+            items_count = kwargs['itemsCount']
+        if items_count is None:
+            raise TypeError("Missing 'items_count' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if result_prefix is None and 'resultPrefix' in kwargs:
+            result_prefix = kwargs['resultPrefix']
+        if result_prefix is None:
+            raise TypeError("Missing 'result_prefix' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if status_message is None:
+            raise TypeError("Missing 'status_message' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("items_completed_count", items_completed_count)
+        _setter("items_count", items_count)
+        _setter("name", name)
+        _setter("result_prefix", result_prefix)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -4377,14 +5884,69 @@ class DatabaseBackupInfoResponse(dict):
         :param bool is_damaged: Database was damaged when backed up, but the backup operation was requested to continue despite errors.
         :param int position: Position of current database backup in the file.
         """
-        pulumi.set(__self__, "backup_files", backup_files)
-        pulumi.set(__self__, "backup_finish_date", backup_finish_date)
-        pulumi.set(__self__, "backup_type", backup_type)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "family_count", family_count)
-        pulumi.set(__self__, "is_compressed", is_compressed)
-        pulumi.set(__self__, "is_damaged", is_damaged)
-        pulumi.set(__self__, "position", position)
+        DatabaseBackupInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_files=backup_files,
+            backup_finish_date=backup_finish_date,
+            backup_type=backup_type,
+            database_name=database_name,
+            family_count=family_count,
+            is_compressed=is_compressed,
+            is_damaged=is_damaged,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_files: Optional[Sequence[str]] = None,
+             backup_finish_date: Optional[str] = None,
+             backup_type: Optional[str] = None,
+             database_name: Optional[str] = None,
+             family_count: Optional[int] = None,
+             is_compressed: Optional[bool] = None,
+             is_damaged: Optional[bool] = None,
+             position: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_files is None and 'backupFiles' in kwargs:
+            backup_files = kwargs['backupFiles']
+        if backup_files is None:
+            raise TypeError("Missing 'backup_files' argument")
+        if backup_finish_date is None and 'backupFinishDate' in kwargs:
+            backup_finish_date = kwargs['backupFinishDate']
+        if backup_finish_date is None:
+            raise TypeError("Missing 'backup_finish_date' argument")
+        if backup_type is None and 'backupType' in kwargs:
+            backup_type = kwargs['backupType']
+        if backup_type is None:
+            raise TypeError("Missing 'backup_type' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if family_count is None and 'familyCount' in kwargs:
+            family_count = kwargs['familyCount']
+        if family_count is None:
+            raise TypeError("Missing 'family_count' argument")
+        if is_compressed is None and 'isCompressed' in kwargs:
+            is_compressed = kwargs['isCompressed']
+        if is_compressed is None:
+            raise TypeError("Missing 'is_compressed' argument")
+        if is_damaged is None and 'isDamaged' in kwargs:
+            is_damaged = kwargs['isDamaged']
+        if is_damaged is None:
+            raise TypeError("Missing 'is_damaged' argument")
+        if position is None:
+            raise TypeError("Missing 'position' argument")
+
+        _setter("backup_files", backup_files)
+        _setter("backup_finish_date", backup_finish_date)
+        _setter("backup_type", backup_type)
+        _setter("database_name", database_name)
+        _setter("family_count", family_count)
+        _setter("is_compressed", is_compressed)
+        _setter("is_damaged", is_damaged)
+        _setter("position", position)
 
     @property
     @pulumi.getter(name="backupFiles")
@@ -4501,20 +6063,55 @@ class DatabaseFileInfoResponse(dict):
         :param str restore_full_name: Suggested full path of the file for restoring
         :param float size_mb: Size of the file in megabytes
         """
+        DatabaseFileInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            file_type=file_type,
+            id=id,
+            logical_name=logical_name,
+            physical_full_name=physical_full_name,
+            restore_full_name=restore_full_name,
+            size_mb=size_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             file_type: Optional[str] = None,
+             id: Optional[str] = None,
+             logical_name: Optional[str] = None,
+             physical_full_name: Optional[str] = None,
+             restore_full_name: Optional[str] = None,
+             size_mb: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if file_type is None and 'fileType' in kwargs:
+            file_type = kwargs['fileType']
+        if logical_name is None and 'logicalName' in kwargs:
+            logical_name = kwargs['logicalName']
+        if physical_full_name is None and 'physicalFullName' in kwargs:
+            physical_full_name = kwargs['physicalFullName']
+        if restore_full_name is None and 'restoreFullName' in kwargs:
+            restore_full_name = kwargs['restoreFullName']
+        if size_mb is None and 'sizeMB' in kwargs:
+            size_mb = kwargs['sizeMB']
+
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if file_type is not None:
-            pulumi.set(__self__, "file_type", file_type)
+            _setter("file_type", file_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if logical_name is not None:
-            pulumi.set(__self__, "logical_name", logical_name)
+            _setter("logical_name", logical_name)
         if physical_full_name is not None:
-            pulumi.set(__self__, "physical_full_name", physical_full_name)
+            _setter("physical_full_name", physical_full_name)
         if restore_full_name is not None:
-            pulumi.set(__self__, "restore_full_name", restore_full_name)
+            _setter("restore_full_name", restore_full_name)
         if size_mb is not None:
-            pulumi.set(__self__, "size_mb", size_mb)
+            _setter("size_mb", size_mb)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -4601,7 +6198,22 @@ class DatabaseInfoResponse(dict):
         Project Database Details
         :param str source_database_name: Name of the database
         """
-        pulumi.set(__self__, "source_database_name", source_database_name)
+        DatabaseInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_database_name=source_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_database_name is None and 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+        if source_database_name is None:
+            raise TypeError("Missing 'source_database_name' argument")
+
+        _setter("source_database_name", source_database_name)
 
     @property
     @pulumi.getter(name="sourceDatabaseName")
@@ -4705,33 +6317,128 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
         :param str target_database_collation: Database collation to be used for the target database.
         :param 'SqlConnectionInformationResponse' target_sql_connection: Target SQL DB connection details.
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "kind", 'SqlDb')
-        pulumi.set(__self__, "migration_failure_error", migration_failure_error)
-        pulumi.set(__self__, "migration_status", migration_status)
-        pulumi.set(__self__, "migration_status_details", migration_status_details)
-        pulumi.set(__self__, "offline_configuration", offline_configuration)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "source_server_name", source_server_name)
-        pulumi.set(__self__, "started_on", started_on)
+        DatabaseMigrationPropertiesSqlDbResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            kind=kind,
+            migration_failure_error=migration_failure_error,
+            migration_status=migration_status,
+            migration_status_details=migration_status_details,
+            offline_configuration=offline_configuration,
+            provisioning_state=provisioning_state,
+            source_server_name=source_server_name,
+            started_on=started_on,
+            migration_operation_id=migration_operation_id,
+            migration_service=migration_service,
+            provisioning_error=provisioning_error,
+            scope=scope,
+            source_database_name=source_database_name,
+            source_sql_connection=source_sql_connection,
+            table_list=table_list,
+            target_database_collation=target_database_collation,
+            target_sql_connection=target_sql_connection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             kind: Optional[str] = None,
+             migration_failure_error: Optional['outputs.ErrorInfoResponse'] = None,
+             migration_status: Optional[str] = None,
+             migration_status_details: Optional['outputs.SqlDbMigrationStatusDetailsResponse'] = None,
+             offline_configuration: Optional['outputs.SqlDbOfflineConfigurationResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             source_server_name: Optional[str] = None,
+             started_on: Optional[str] = None,
+             migration_operation_id: Optional[str] = None,
+             migration_service: Optional[str] = None,
+             provisioning_error: Optional[str] = None,
+             scope: Optional[str] = None,
+             source_database_name: Optional[str] = None,
+             source_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None,
+             table_list: Optional[Sequence[str]] = None,
+             target_database_collation: Optional[str] = None,
+             target_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if migration_failure_error is None and 'migrationFailureError' in kwargs:
+            migration_failure_error = kwargs['migrationFailureError']
+        if migration_failure_error is None:
+            raise TypeError("Missing 'migration_failure_error' argument")
+        if migration_status is None and 'migrationStatus' in kwargs:
+            migration_status = kwargs['migrationStatus']
+        if migration_status is None:
+            raise TypeError("Missing 'migration_status' argument")
+        if migration_status_details is None and 'migrationStatusDetails' in kwargs:
+            migration_status_details = kwargs['migrationStatusDetails']
+        if migration_status_details is None:
+            raise TypeError("Missing 'migration_status_details' argument")
+        if offline_configuration is None and 'offlineConfiguration' in kwargs:
+            offline_configuration = kwargs['offlineConfiguration']
+        if offline_configuration is None:
+            raise TypeError("Missing 'offline_configuration' argument")
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if provisioning_state is None:
+            raise TypeError("Missing 'provisioning_state' argument")
+        if source_server_name is None and 'sourceServerName' in kwargs:
+            source_server_name = kwargs['sourceServerName']
+        if source_server_name is None:
+            raise TypeError("Missing 'source_server_name' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if migration_operation_id is None and 'migrationOperationId' in kwargs:
+            migration_operation_id = kwargs['migrationOperationId']
+        if migration_service is None and 'migrationService' in kwargs:
+            migration_service = kwargs['migrationService']
+        if provisioning_error is None and 'provisioningError' in kwargs:
+            provisioning_error = kwargs['provisioningError']
+        if source_database_name is None and 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+        if source_sql_connection is None and 'sourceSqlConnection' in kwargs:
+            source_sql_connection = kwargs['sourceSqlConnection']
+        if table_list is None and 'tableList' in kwargs:
+            table_list = kwargs['tableList']
+        if target_database_collation is None and 'targetDatabaseCollation' in kwargs:
+            target_database_collation = kwargs['targetDatabaseCollation']
+        if target_sql_connection is None and 'targetSqlConnection' in kwargs:
+            target_sql_connection = kwargs['targetSqlConnection']
+
+        _setter("ended_on", ended_on)
+        _setter("kind", 'SqlDb')
+        _setter("migration_failure_error", migration_failure_error)
+        _setter("migration_status", migration_status)
+        _setter("migration_status_details", migration_status_details)
+        _setter("offline_configuration", offline_configuration)
+        _setter("provisioning_state", provisioning_state)
+        _setter("source_server_name", source_server_name)
+        _setter("started_on", started_on)
         if migration_operation_id is not None:
-            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+            _setter("migration_operation_id", migration_operation_id)
         if migration_service is not None:
-            pulumi.set(__self__, "migration_service", migration_service)
+            _setter("migration_service", migration_service)
         if provisioning_error is not None:
-            pulumi.set(__self__, "provisioning_error", provisioning_error)
+            _setter("provisioning_error", provisioning_error)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if source_database_name is not None:
-            pulumi.set(__self__, "source_database_name", source_database_name)
+            _setter("source_database_name", source_database_name)
         if source_sql_connection is not None:
-            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+            _setter("source_sql_connection", source_sql_connection)
         if table_list is not None:
-            pulumi.set(__self__, "table_list", table_list)
+            _setter("table_list", table_list)
         if target_database_collation is not None:
-            pulumi.set(__self__, "target_database_collation", target_database_collation)
+            _setter("target_database_collation", target_database_collation)
         if target_sql_connection is not None:
-            pulumi.set(__self__, "target_sql_connection", target_sql_connection)
+            _setter("target_sql_connection", target_sql_connection)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -4939,16 +6646,81 @@ class DatabaseSummaryResultResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "items_completed_count", items_completed_count)
-        pulumi.set(__self__, "items_count", items_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "size_mb", size_mb)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        DatabaseSummaryResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            items_completed_count=items_completed_count,
+            items_count=items_count,
+            name=name,
+            result_prefix=result_prefix,
+            size_mb=size_mb,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             error_prefix: Optional[str] = None,
+             items_completed_count: Optional[float] = None,
+             items_count: Optional[float] = None,
+             name: Optional[str] = None,
+             result_prefix: Optional[str] = None,
+             size_mb: Optional[float] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             status_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if error_prefix is None and 'errorPrefix' in kwargs:
+            error_prefix = kwargs['errorPrefix']
+        if error_prefix is None:
+            raise TypeError("Missing 'error_prefix' argument")
+        if items_completed_count is None and 'itemsCompletedCount' in kwargs:
+            items_completed_count = kwargs['itemsCompletedCount']
+        if items_completed_count is None:
+            raise TypeError("Missing 'items_completed_count' argument")
+        if items_count is None and 'itemsCount' in kwargs:
+            items_count = kwargs['itemsCount']
+        if items_count is None:
+            raise TypeError("Missing 'items_count' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if result_prefix is None and 'resultPrefix' in kwargs:
+            result_prefix = kwargs['resultPrefix']
+        if result_prefix is None:
+            raise TypeError("Missing 'result_prefix' argument")
+        if size_mb is None and 'sizeMB' in kwargs:
+            size_mb = kwargs['sizeMB']
+        if size_mb is None:
+            raise TypeError("Missing 'size_mb' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if status_message is None:
+            raise TypeError("Missing 'status_message' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("items_completed_count", items_completed_count)
+        _setter("items_count", items_count)
+        _setter("name", name)
+        _setter("result_prefix", result_prefix)
+        _setter("size_mb", size_mb)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -5061,8 +6833,27 @@ class DatabaseTableResponse(dict):
         :param bool has_rows: Indicates whether table is empty or not
         :param str name: Schema-qualified name of the table
         """
-        pulumi.set(__self__, "has_rows", has_rows)
-        pulumi.set(__self__, "name", name)
+        DatabaseTableResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            has_rows=has_rows,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             has_rows: Optional[bool] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if has_rows is None and 'hasRows' in kwargs:
+            has_rows = kwargs['hasRows']
+        if has_rows is None:
+            raise TypeError("Missing 'has_rows' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("has_rows", has_rows)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="hasRows")
@@ -5094,8 +6885,25 @@ class ErrorInfoResponse(dict):
         :param str code: Error code.
         :param str message: Error message.
         """
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
+        ErrorInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+
+        _setter("code", code)
+        _setter("message", message)
 
     @property
     @pulumi.getter
@@ -5162,18 +6970,51 @@ class ExecutionStatisticsResponse(dict):
         :param Sequence[str] sql_errors: List of sql Errors
         :param Mapping[str, 'WaitStatisticsResponse'] wait_stats: Dictionary of sql query execution wait types and the respective statistics
         """
+        ExecutionStatisticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu_time_ms=cpu_time_ms,
+            elapsed_time_ms=elapsed_time_ms,
+            execution_count=execution_count,
+            has_errors=has_errors,
+            sql_errors=sql_errors,
+            wait_stats=wait_stats,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu_time_ms: Optional[float] = None,
+             elapsed_time_ms: Optional[float] = None,
+             execution_count: Optional[float] = None,
+             has_errors: Optional[bool] = None,
+             sql_errors: Optional[Sequence[str]] = None,
+             wait_stats: Optional[Mapping[str, 'outputs.WaitStatisticsResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu_time_ms is None and 'cpuTimeMs' in kwargs:
+            cpu_time_ms = kwargs['cpuTimeMs']
+        if elapsed_time_ms is None and 'elapsedTimeMs' in kwargs:
+            elapsed_time_ms = kwargs['elapsedTimeMs']
+        if execution_count is None and 'executionCount' in kwargs:
+            execution_count = kwargs['executionCount']
+        if has_errors is None and 'hasErrors' in kwargs:
+            has_errors = kwargs['hasErrors']
+        if sql_errors is None and 'sqlErrors' in kwargs:
+            sql_errors = kwargs['sqlErrors']
+        if wait_stats is None and 'waitStats' in kwargs:
+            wait_stats = kwargs['waitStats']
+
         if cpu_time_ms is not None:
-            pulumi.set(__self__, "cpu_time_ms", cpu_time_ms)
+            _setter("cpu_time_ms", cpu_time_ms)
         if elapsed_time_ms is not None:
-            pulumi.set(__self__, "elapsed_time_ms", elapsed_time_ms)
+            _setter("elapsed_time_ms", elapsed_time_ms)
         if execution_count is not None:
-            pulumi.set(__self__, "execution_count", execution_count)
+            _setter("execution_count", execution_count)
         if has_errors is not None:
-            pulumi.set(__self__, "has_errors", has_errors)
+            _setter("has_errors", has_errors)
         if sql_errors is not None:
-            pulumi.set(__self__, "sql_errors", sql_errors)
+            _setter("sql_errors", sql_errors)
         if wait_stats is not None:
-            pulumi.set(__self__, "wait_stats", wait_stats)
+            _setter("wait_stats", wait_stats)
 
     @property
     @pulumi.getter(name="cpuTimeMs")
@@ -5256,11 +7097,30 @@ class FileShareResponse(dict):
         :param str password: Password credential used to connect to the share location.
         :param str user_name: User name credential to connect to the share location
         """
-        pulumi.set(__self__, "path", path)
+        FileShareResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[str] = None,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("path", path)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -5323,9 +7183,36 @@ class GetTdeCertificatesSqlTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence['SelectedCertificateInputResponse'] selected_certificates: List containing certificate names and corresponding password to use for encrypting the exported certificate.
         """
-        pulumi.set(__self__, "backup_file_share", backup_file_share)
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_certificates", selected_certificates)
+        GetTdeCertificatesSqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_file_share=backup_file_share,
+            connection_info=connection_info,
+            selected_certificates=selected_certificates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             selected_certificates: Optional[Sequence['outputs.SelectedCertificateInputResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+        if backup_file_share is None:
+            raise TypeError("Missing 'backup_file_share' argument")
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_certificates is None and 'selectedCertificates' in kwargs:
+            selected_certificates = kwargs['selectedCertificates']
+        if selected_certificates is None:
+            raise TypeError("Missing 'selected_certificates' argument")
+
+        _setter("backup_file_share", backup_file_share)
+        _setter("connection_info", connection_info)
+        _setter("selected_certificates", selected_certificates)
 
     @property
     @pulumi.getter(name="backupFileShare")
@@ -5384,8 +7271,29 @@ class GetTdeCertificatesSqlTaskOutputResponse(dict):
         :param Mapping[str, Sequence[str]] base64_encoded_certificates: Mapping from certificate name to base 64 encoded format.
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "base64_encoded_certificates", base64_encoded_certificates)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetTdeCertificatesSqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            base64_encoded_certificates=base64_encoded_certificates,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             base64_encoded_certificates: Optional[Mapping[str, Sequence[str]]] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base64_encoded_certificates is None and 'base64EncodedCertificates' in kwargs:
+            base64_encoded_certificates = kwargs['base64EncodedCertificates']
+        if base64_encoded_certificates is None:
+            raise TypeError("Missing 'base64_encoded_certificates' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("base64_encoded_certificates", base64_encoded_certificates)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="base64EncodedCertificates")
@@ -5447,15 +7355,52 @@ class GetTdeCertificatesSqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetTdeCertificatesSqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetTDECertificates.Sql')
+        GetTdeCertificatesSqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.GetTdeCertificatesSqlTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetTdeCertificatesSqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetTDECertificates.Sql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -5547,8 +7492,29 @@ class GetUserTablesMySqlTaskInputResponse(dict):
         :param 'MySqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence[str] selected_databases: List of database names to collect tables for
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesMySqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: Optional['outputs.MySqlConnectionInfoResponse'] = None,
+             selected_databases: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -5601,9 +7567,34 @@ class GetUserTablesMySqlTaskOutputResponse(dict):
         :param str id: Result identifier
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "databases_to_tables", databases_to_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesMySqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_tables=databases_to_tables,
+            id=id,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_tables: Optional[Mapping[str, Sequence['outputs.DatabaseTableResponse']]] = None,
+             id: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases_to_tables is None and 'databasesToTables' in kwargs:
+            databases_to_tables = kwargs['databasesToTables']
+        if databases_to_tables is None:
+            raise TypeError("Missing 'databases_to_tables' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("databases_to_tables", databases_to_tables)
+        _setter("id", id)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="databasesToTables")
@@ -5673,15 +7664,52 @@ class GetUserTablesMySqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesMySqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTablesMySql')
+        GetUserTablesMySqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.GetUserTablesMySqlTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesMySqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTablesMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -5773,8 +7801,29 @@ class GetUserTablesOracleTaskInputResponse(dict):
         :param 'OracleConnectionInfoResponse' connection_info: Information for connecting to Oracle source
         :param Sequence[str] selected_schemas: List of Oracle schemas for which to collect tables
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_schemas", selected_schemas)
+        GetUserTablesOracleTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_schemas=selected_schemas,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: Optional['outputs.OracleConnectionInfoResponse'] = None,
+             selected_schemas: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_schemas is None and 'selectedSchemas' in kwargs:
+            selected_schemas = kwargs['selectedSchemas']
+        if selected_schemas is None:
+            raise TypeError("Missing 'selected_schemas' argument")
+
+        _setter("connection_info", connection_info)
+        _setter("selected_schemas", selected_schemas)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -5827,9 +7876,34 @@ class GetUserTablesOracleTaskOutputResponse(dict):
         :param Sequence['DatabaseTableResponse'] tables: List of valid tables found for this schema
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "tables", tables)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesOracleTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_name=schema_name,
+            tables=tables,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_name: Optional[str] = None,
+             tables: Optional[Sequence['outputs.DatabaseTableResponse']] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if schema_name is None:
+            raise TypeError("Missing 'schema_name' argument")
+        if tables is None:
+            raise TypeError("Missing 'tables' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("schema_name", schema_name)
+        _setter("tables", tables)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="schemaName")
@@ -5899,15 +7973,52 @@ class GetUserTablesOracleTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesOracleTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTablesOracle')
+        GetUserTablesOracleTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.GetUserTablesOracleTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesOracleTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTablesOracle')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -5999,8 +8110,29 @@ class GetUserTablesPostgreSqlTaskInputResponse(dict):
         :param 'PostgreSqlConnectionInfoResponse' connection_info: Information for connecting to PostgreSQL source
         :param Sequence[str] selected_databases: List of PostgreSQL databases for which to collect tables
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesPostgreSqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: Optional['outputs.PostgreSqlConnectionInfoResponse'] = None,
+             selected_databases: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -6053,9 +8185,34 @@ class GetUserTablesPostgreSqlTaskOutputResponse(dict):
         :param Sequence['DatabaseTableResponse'] tables: List of valid tables found for this database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors associated with the task
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "tables", tables)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesPostgreSqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            tables=tables,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             tables: Optional[Sequence['outputs.DatabaseTableResponse']] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if tables is None:
+            raise TypeError("Missing 'tables' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("database_name", database_name)
+        _setter("tables", tables)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -6125,15 +8282,52 @@ class GetUserTablesPostgreSqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesPostgreSqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTablesPostgreSql')
+        GetUserTablesPostgreSqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.GetUserTablesPostgreSqlTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesPostgreSqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTablesPostgreSql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -6233,10 +8427,43 @@ class GetUserTablesSqlSyncTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' source_connection_info: Connection information for SQL Server
         :param 'SqlConnectionInfoResponse' target_connection_info: Connection information for SQL DB
         """
-        pulumi.set(__self__, "selected_source_databases", selected_source_databases)
-        pulumi.set(__self__, "selected_target_databases", selected_target_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        GetUserTablesSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_source_databases=selected_source_databases,
+            selected_target_databases=selected_target_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_source_databases: Optional[Sequence[str]] = None,
+             selected_target_databases: Optional[Sequence[str]] = None,
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_source_databases is None and 'selectedSourceDatabases' in kwargs:
+            selected_source_databases = kwargs['selectedSourceDatabases']
+        if selected_source_databases is None:
+            raise TypeError("Missing 'selected_source_databases' argument")
+        if selected_target_databases is None and 'selectedTargetDatabases' in kwargs:
+            selected_target_databases = kwargs['selectedTargetDatabases']
+        if selected_target_databases is None:
+            raise TypeError("Missing 'selected_target_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_source_databases", selected_source_databases)
+        _setter("selected_target_databases", selected_target_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedSourceDatabases")
@@ -6311,10 +8538,43 @@ class GetUserTablesSqlSyncTaskOutputResponse(dict):
         :param Mapping[str, Sequence[str]] table_validation_errors: Mapping from database name to list of validation errors
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "databases_to_source_tables", databases_to_source_tables)
-        pulumi.set(__self__, "databases_to_target_tables", databases_to_target_tables)
-        pulumi.set(__self__, "table_validation_errors", table_validation_errors)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_source_tables=databases_to_source_tables,
+            databases_to_target_tables=databases_to_target_tables,
+            table_validation_errors=table_validation_errors,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_source_tables: Optional[Mapping[str, Sequence['outputs.DatabaseTableResponse']]] = None,
+             databases_to_target_tables: Optional[Mapping[str, Sequence['outputs.DatabaseTableResponse']]] = None,
+             table_validation_errors: Optional[Mapping[str, Sequence[str]]] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases_to_source_tables is None and 'databasesToSourceTables' in kwargs:
+            databases_to_source_tables = kwargs['databasesToSourceTables']
+        if databases_to_source_tables is None:
+            raise TypeError("Missing 'databases_to_source_tables' argument")
+        if databases_to_target_tables is None and 'databasesToTargetTables' in kwargs:
+            databases_to_target_tables = kwargs['databasesToTargetTables']
+        if databases_to_target_tables is None:
+            raise TypeError("Missing 'databases_to_target_tables' argument")
+        if table_validation_errors is None and 'tableValidationErrors' in kwargs:
+            table_validation_errors = kwargs['tableValidationErrors']
+        if table_validation_errors is None:
+            raise TypeError("Missing 'table_validation_errors' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("databases_to_source_tables", databases_to_source_tables)
+        _setter("databases_to_target_tables", databases_to_target_tables)
+        _setter("table_validation_errors", table_validation_errors)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="databasesToSourceTables")
@@ -6392,15 +8652,52 @@ class GetUserTablesSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTables.AzureSqlDb.Sync')
+        GetUserTablesSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.GetUserTablesSqlSyncTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTables.AzureSqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -6492,8 +8789,29 @@ class GetUserTablesSqlTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' connection_info: Connection information for SQL Server
         :param Sequence[str] selected_databases: List of database names to collect tables for
         """
-        pulumi.set(__self__, "connection_info", connection_info)
-        pulumi.set(__self__, "selected_databases", selected_databases)
+        GetUserTablesSqlTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_info=connection_info,
+            selected_databases=selected_databases,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             selected_databases: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_info is None and 'connectionInfo' in kwargs:
+            connection_info = kwargs['connectionInfo']
+        if connection_info is None:
+            raise TypeError("Missing 'connection_info' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+
+        _setter("connection_info", connection_info)
+        _setter("selected_databases", selected_databases)
 
     @property
     @pulumi.getter(name="connectionInfo")
@@ -6546,9 +8864,34 @@ class GetUserTablesSqlTaskOutputResponse(dict):
         :param str id: Result identifier
         :param Sequence['ReportableExceptionResponse'] validation_errors: Validation errors
         """
-        pulumi.set(__self__, "databases_to_tables", databases_to_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        GetUserTablesSqlTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases_to_tables=databases_to_tables,
+            id=id,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases_to_tables: Optional[Mapping[str, Sequence['outputs.DatabaseTableResponse']]] = None,
+             id: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases_to_tables is None and 'databasesToTables' in kwargs:
+            databases_to_tables = kwargs['databasesToTables']
+        if databases_to_tables is None:
+            raise TypeError("Missing 'databases_to_tables' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("databases_to_tables", databases_to_tables)
+        _setter("id", id)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="databasesToTables")
@@ -6618,15 +8961,52 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'GetUserTablesSqlTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'GetUserTables.Sql')
+        GetUserTablesSqlTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.GetUserTablesSqlTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.GetUserTablesSqlTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'GetUserTables.Sql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -6723,12 +9103,37 @@ class MiSqlConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "managed_instance_resource_id", managed_instance_resource_id)
-        pulumi.set(__self__, "type", 'MiSqlConnectionInfo')
+        MiSqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_resource_id=managed_instance_resource_id,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_resource_id: Optional[str] = None,
+             type: Optional[str] = None,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if managed_instance_resource_id is None and 'managedInstanceResourceId' in kwargs:
+            managed_instance_resource_id = kwargs['managedInstanceResourceId']
+        if managed_instance_resource_id is None:
+            raise TypeError("Missing 'managed_instance_resource_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("managed_instance_resource_id", managed_instance_resource_id)
+        _setter("type", 'MiSqlConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="managedInstanceResourceId")
@@ -6792,7 +9197,22 @@ class MigrateMISyncCompleteCommandInputResponse(dict):
         Input for command that completes online migration for an Azure SQL Database Managed Instance.
         :param str source_database_name: Name of managed instance database
         """
-        pulumi.set(__self__, "source_database_name", source_database_name)
+        MigrateMISyncCompleteCommandInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_database_name=source_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_database_name is None and 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+        if source_database_name is None:
+            raise TypeError("Missing 'source_database_name' argument")
+
+        _setter("source_database_name", source_database_name)
 
     @property
     @pulumi.getter(name="sourceDatabaseName")
@@ -6814,8 +9234,19 @@ class MigrateMISyncCompleteCommandOutputResponse(dict):
         Output for command that completes online migration for an Azure SQL Database Managed Instance.
         :param Sequence['ReportableExceptionResponse'] errors: List of errors that happened during the command execution
         """
+        MigrateMISyncCompleteCommandOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            errors=errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if errors is not None:
-            pulumi.set(__self__, "errors", errors)
+            _setter("errors", errors)
 
     @property
     @pulumi.getter
@@ -6863,12 +9294,41 @@ class MigrateMISyncCompleteCommandPropertiesResponse(dict):
         :param str state: The state of the command. This is ignored if submitted.
         :param 'MigrateMISyncCompleteCommandInputResponse' input: Command input
         """
-        pulumi.set(__self__, "command_type", 'Migrate.SqlServer.AzureDbSqlMi.Complete')
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
+        MigrateMISyncCompleteCommandPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command_type=command_type,
+            errors=errors,
+            output=output,
+            state=state,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command_type: Optional[str] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional['outputs.MigrateMISyncCompleteCommandOutputResponse'] = None,
+             state: Optional[str] = None,
+             input: Optional['outputs.MigrateMISyncCompleteCommandInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if command_type is None and 'commandType' in kwargs:
+            command_type = kwargs['commandType']
+        if command_type is None:
+            raise TypeError("Missing 'command_type' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("command_type", 'Migrate.SqlServer.AzureDbSqlMi.Complete')
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="commandType")
@@ -6954,15 +9414,52 @@ class MigrateMongoDbTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbMigrationSettingsResponse' input: Describes how a MongoDB data migration should be performed
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.MongoDb')
+        MigrateMongoDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MongoDbMigrationSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -7053,12 +9550,31 @@ class MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse(dict):
         :param Mapping[str, str] table_map: Mapping of source to target tables
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         """
+        MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            table_map=table_map,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter
@@ -7133,17 +9649,56 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse(dict):
         :param Mapping[str, str] optional_agent_settings: Optional parameters for fine tuning the data transfer rate during migration
         :param str started_on: Parameter to specify when the migration started
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            make_source_server_read_only=make_source_server_read_only,
+            optional_agent_settings=optional_agent_settings,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[Sequence['outputs.MigrateMySqlAzureDbForMySqlOfflineDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.MySqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.MySqlConnectionInfoResponse'] = None,
+             make_source_server_read_only: Optional[bool] = None,
+             optional_agent_settings: Optional[Mapping[str, str]] = None,
+             started_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if make_source_server_read_only is None and 'makeSourceServerReadOnly' in kwargs:
+            make_source_server_read_only = kwargs['makeSourceServerReadOnly']
+        if optional_agent_settings is None and 'optionalAgentSettings' in kwargs:
+            optional_agent_settings = kwargs['optionalAgentSettings']
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if make_source_server_read_only is None:
             make_source_server_read_only = False
         if make_source_server_read_only is not None:
-            pulumi.set(__self__, "make_source_server_read_only", make_source_server_read_only)
+            _setter("make_source_server_read_only", make_source_server_read_only)
         if optional_agent_settings is not None:
-            pulumi.set(__self__, "optional_agent_settings", optional_agent_settings)
+            _setter("optional_agent_settings", optional_agent_settings)
         if started_on is not None:
-            pulumi.set(__self__, "started_on", started_on)
+            _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -7275,23 +9830,126 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskOutputDatabaseLevelResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_count", error_count)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_storage_update", last_storage_update)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "number_of_objects", number_of_objects)
-        pulumi.set(__self__, "number_of_objects_completed", number_of_objects_completed)
-        pulumi.set(__self__, "object_summary", object_summary)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        MigrateMySqlAzureDbForMySqlOfflineTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            ended_on=ended_on,
+            error_count=error_count,
+            error_prefix=error_prefix,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            last_storage_update=last_storage_update,
+            message=message,
+            number_of_objects=number_of_objects,
+            number_of_objects_completed=number_of_objects_completed,
+            object_summary=object_summary,
+            result_prefix=result_prefix,
+            result_type=result_type,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             ended_on: Optional[str] = None,
+             error_count: Optional[float] = None,
+             error_prefix: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             last_storage_update: Optional[str] = None,
+             message: Optional[str] = None,
+             number_of_objects: Optional[float] = None,
+             number_of_objects_completed: Optional[float] = None,
+             object_summary: Optional[Mapping[str, 'outputs.DataItemMigrationSummaryResultResponse']] = None,
+             result_prefix: Optional[str] = None,
+             result_type: Optional[str] = None,
+             stage: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             status_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if error_count is None and 'errorCount' in kwargs:
+            error_count = kwargs['errorCount']
+        if error_count is None:
+            raise TypeError("Missing 'error_count' argument")
+        if error_prefix is None and 'errorPrefix' in kwargs:
+            error_prefix = kwargs['errorPrefix']
+        if error_prefix is None:
+            raise TypeError("Missing 'error_prefix' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_storage_update is None and 'lastStorageUpdate' in kwargs:
+            last_storage_update = kwargs['lastStorageUpdate']
+        if last_storage_update is None:
+            raise TypeError("Missing 'last_storage_update' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if number_of_objects is None and 'numberOfObjects' in kwargs:
+            number_of_objects = kwargs['numberOfObjects']
+        if number_of_objects is None:
+            raise TypeError("Missing 'number_of_objects' argument")
+        if number_of_objects_completed is None and 'numberOfObjectsCompleted' in kwargs:
+            number_of_objects_completed = kwargs['numberOfObjectsCompleted']
+        if number_of_objects_completed is None:
+            raise TypeError("Missing 'number_of_objects_completed' argument")
+        if object_summary is None and 'objectSummary' in kwargs:
+            object_summary = kwargs['objectSummary']
+        if object_summary is None:
+            raise TypeError("Missing 'object_summary' argument")
+        if result_prefix is None and 'resultPrefix' in kwargs:
+            result_prefix = kwargs['resultPrefix']
+        if result_prefix is None:
+            raise TypeError("Missing 'result_prefix' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if status_message is None:
+            raise TypeError("Missing 'status_message' argument")
+
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("error_count", error_count)
+        _setter("error_prefix", error_prefix)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("last_storage_update", last_storage_update)
+        _setter("message", message)
+        _setter("number_of_objects", number_of_objects)
+        _setter("number_of_objects_completed", number_of_objects_completed)
+        _setter("object_summary", object_summary)
+        _setter("result_prefix", result_prefix)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -7460,9 +10118,32 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateMySqlAzureDbForMySqlOfflineTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ReportableExceptionResponse'] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -7571,25 +10252,124 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskOutputMigrationLevelResponse(dict):
         :param Mapping[str, str] databases: Selected databases as a map from database name to database id
         :param 'MigrationReportResultResponse' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
         """
-        pulumi.set(__self__, "database_summary", database_summary)
-        pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_storage_update", last_storage_update)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_message", status_message)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateMySqlAzureDbForMySqlOfflineTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_summary=database_summary,
+            duration_in_seconds=duration_in_seconds,
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            last_storage_update=last_storage_update,
+            message=message,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            status=status,
+            status_message=status_message,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            databases=databases,
+            migration_report_result=migration_report_result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_summary: Optional[Mapping[str, 'outputs.DatabaseSummaryResultResponse']] = None,
+             duration_in_seconds: Optional[float] = None,
+             ended_on: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             last_storage_update: Optional[str] = None,
+             message: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_server_brand_version: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             started_on: Optional[str] = None,
+             status: Optional[str] = None,
+             status_message: Optional[str] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             databases: Optional[Mapping[str, str]] = None,
+             migration_report_result: Optional['outputs.MigrationReportResultResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_summary is None and 'databaseSummary' in kwargs:
+            database_summary = kwargs['databaseSummary']
+        if database_summary is None:
+            raise TypeError("Missing 'database_summary' argument")
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+        if duration_in_seconds is None:
+            raise TypeError("Missing 'duration_in_seconds' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_storage_update is None and 'lastStorageUpdate' in kwargs:
+            last_storage_update = kwargs['lastStorageUpdate']
+        if last_storage_update is None:
+            raise TypeError("Missing 'last_storage_update' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if status_message is None:
+            raise TypeError("Missing 'status_message' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+        if migration_report_result is None and 'migrationReportResult' in kwargs:
+            migration_report_result = kwargs['migrationReportResult']
+
+        _setter("database_summary", database_summary)
+        _setter("duration_in_seconds", duration_in_seconds)
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("last_storage_update", last_storage_update)
+        _setter("message", message)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("status_message", status_message)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
         if migration_report_result is not None:
-            pulumi.set(__self__, "migration_report_result", migration_report_result)
+            _setter("migration_report_result", migration_report_result)
 
     @property
     @pulumi.getter(name="databaseSummary")
@@ -7794,18 +10574,95 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskOutputTableLevelResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "items_completed_count", items_completed_count)
-        pulumi.set(__self__, "items_count", items_count)
-        pulumi.set(__self__, "last_storage_update", last_storage_update)
-        pulumi.set(__self__, "object_name", object_name)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        MigrateMySqlAzureDbForMySqlOfflineTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            id=id,
+            items_completed_count=items_completed_count,
+            items_count=items_count,
+            last_storage_update=last_storage_update,
+            object_name=object_name,
+            result_prefix=result_prefix,
+            result_type=result_type,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             error_prefix: Optional[str] = None,
+             id: Optional[str] = None,
+             items_completed_count: Optional[float] = None,
+             items_count: Optional[float] = None,
+             last_storage_update: Optional[str] = None,
+             object_name: Optional[str] = None,
+             result_prefix: Optional[str] = None,
+             result_type: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             status_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if error_prefix is None and 'errorPrefix' in kwargs:
+            error_prefix = kwargs['errorPrefix']
+        if error_prefix is None:
+            raise TypeError("Missing 'error_prefix' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if items_completed_count is None and 'itemsCompletedCount' in kwargs:
+            items_completed_count = kwargs['itemsCompletedCount']
+        if items_completed_count is None:
+            raise TypeError("Missing 'items_completed_count' argument")
+        if items_count is None and 'itemsCount' in kwargs:
+            items_count = kwargs['itemsCount']
+        if items_count is None:
+            raise TypeError("Missing 'items_count' argument")
+        if last_storage_update is None and 'lastStorageUpdate' in kwargs:
+            last_storage_update = kwargs['lastStorageUpdate']
+        if last_storage_update is None:
+            raise TypeError("Missing 'last_storage_update' argument")
+        if object_name is None and 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if object_name is None:
+            raise TypeError("Missing 'object_name' argument")
+        if result_prefix is None and 'resultPrefix' in kwargs:
+            result_prefix = kwargs['resultPrefix']
+        if result_prefix is None:
+            raise TypeError("Missing 'result_prefix' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if status_message is None:
+            raise TypeError("Missing 'status_message' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("id", id)
+        _setter("items_completed_count", items_completed_count)
+        _setter("items_count", items_count)
+        _setter("last_storage_update", last_storage_update)
+        _setter("object_name", object_name)
+        _setter("result_prefix", result_prefix)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -7948,15 +10805,52 @@ class MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.MySql.AzureDbForMySql')
+        MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateMySqlAzureDbForMySqlOfflineTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.MySql.AzureDbForMySql')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -8062,18 +10956,49 @@ class MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse(dict):
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migration_setting=migration_setting,
+            name=name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migration_setting: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             source_setting: Optional[Mapping[str, str]] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             target_setting: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_setting is None and 'migrationSetting' in kwargs:
+            migration_setting = kwargs['migrationSetting']
+        if source_setting is None and 'sourceSetting' in kwargs:
+            source_setting = kwargs['sourceSetting']
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_setting is None and 'targetSetting' in kwargs:
+            target_setting = kwargs['targetSetting']
+
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter(name="migrationSetting")
@@ -8160,9 +11085,36 @@ class MigrateMySqlAzureDbForMySqlSyncTaskInputResponse(dict):
         :param 'MySqlConnectionInfoResponse' source_connection_info: Connection information for source MySQL
         :param 'MySqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for MySQL
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateMySqlAzureDbForMySqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[Sequence['outputs.MigrateMySqlAzureDbForMySqlSyncDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.MySqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.MySqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -8222,12 +11174,37 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse(dict):
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            result_type=result_type,
+            error_message=error_message,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             error_message: Optional[str] = None,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+
+        _setter("id", id)
+        _setter("result_type", 'DatabaseLevelErrorOutput')
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -8348,23 +11325,130 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse(dict):
                Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
-        pulumi.set(__self__, "applied_changes", applied_changes)
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "full_load_completed_tables", full_load_completed_tables)
-        pulumi.set(__self__, "full_load_errored_tables", full_load_errored_tables)
-        pulumi.set(__self__, "full_load_loading_tables", full_load_loading_tables)
-        pulumi.set(__self__, "full_load_queued_tables", full_load_queued_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "incoming_changes", incoming_changes)
-        pulumi.set(__self__, "initialization_completed", initialization_completed)
-        pulumi.set(__self__, "latency", latency)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_changes=applied_changes,
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            database_name=database_name,
+            ended_on=ended_on,
+            full_load_completed_tables=full_load_completed_tables,
+            full_load_errored_tables=full_load_errored_tables,
+            full_load_loading_tables=full_load_loading_tables,
+            full_load_queued_tables=full_load_queued_tables,
+            id=id,
+            incoming_changes=incoming_changes,
+            initialization_completed=initialization_completed,
+            latency=latency,
+            migration_state=migration_state,
+            result_type=result_type,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_changes: Optional[float] = None,
+             cdc_delete_counter: Optional[float] = None,
+             cdc_insert_counter: Optional[float] = None,
+             cdc_update_counter: Optional[float] = None,
+             database_name: Optional[str] = None,
+             ended_on: Optional[str] = None,
+             full_load_completed_tables: Optional[float] = None,
+             full_load_errored_tables: Optional[float] = None,
+             full_load_loading_tables: Optional[float] = None,
+             full_load_queued_tables: Optional[float] = None,
+             id: Optional[str] = None,
+             incoming_changes: Optional[float] = None,
+             initialization_completed: Optional[bool] = None,
+             latency: Optional[float] = None,
+             migration_state: Optional[str] = None,
+             result_type: Optional[str] = None,
+             started_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if applied_changes is None and 'appliedChanges' in kwargs:
+            applied_changes = kwargs['appliedChanges']
+        if applied_changes is None:
+            raise TypeError("Missing 'applied_changes' argument")
+        if cdc_delete_counter is None and 'cdcDeleteCounter' in kwargs:
+            cdc_delete_counter = kwargs['cdcDeleteCounter']
+        if cdc_delete_counter is None:
+            raise TypeError("Missing 'cdc_delete_counter' argument")
+        if cdc_insert_counter is None and 'cdcInsertCounter' in kwargs:
+            cdc_insert_counter = kwargs['cdcInsertCounter']
+        if cdc_insert_counter is None:
+            raise TypeError("Missing 'cdc_insert_counter' argument")
+        if cdc_update_counter is None and 'cdcUpdateCounter' in kwargs:
+            cdc_update_counter = kwargs['cdcUpdateCounter']
+        if cdc_update_counter is None:
+            raise TypeError("Missing 'cdc_update_counter' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if full_load_completed_tables is None and 'fullLoadCompletedTables' in kwargs:
+            full_load_completed_tables = kwargs['fullLoadCompletedTables']
+        if full_load_completed_tables is None:
+            raise TypeError("Missing 'full_load_completed_tables' argument")
+        if full_load_errored_tables is None and 'fullLoadErroredTables' in kwargs:
+            full_load_errored_tables = kwargs['fullLoadErroredTables']
+        if full_load_errored_tables is None:
+            raise TypeError("Missing 'full_load_errored_tables' argument")
+        if full_load_loading_tables is None and 'fullLoadLoadingTables' in kwargs:
+            full_load_loading_tables = kwargs['fullLoadLoadingTables']
+        if full_load_loading_tables is None:
+            raise TypeError("Missing 'full_load_loading_tables' argument")
+        if full_load_queued_tables is None and 'fullLoadQueuedTables' in kwargs:
+            full_load_queued_tables = kwargs['fullLoadQueuedTables']
+        if full_load_queued_tables is None:
+            raise TypeError("Missing 'full_load_queued_tables' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if incoming_changes is None and 'incomingChanges' in kwargs:
+            incoming_changes = kwargs['incomingChanges']
+        if incoming_changes is None:
+            raise TypeError("Missing 'incoming_changes' argument")
+        if initialization_completed is None and 'initializationCompleted' in kwargs:
+            initialization_completed = kwargs['initializationCompleted']
+        if initialization_completed is None:
+            raise TypeError("Missing 'initialization_completed' argument")
+        if latency is None:
+            raise TypeError("Missing 'latency' argument")
+        if migration_state is None and 'migrationState' in kwargs:
+            migration_state = kwargs['migrationState']
+        if migration_state is None:
+            raise TypeError("Missing 'migration_state' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+
+        _setter("applied_changes", applied_changes)
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("full_load_completed_tables", full_load_completed_tables)
+        _setter("full_load_errored_tables", full_load_errored_tables)
+        _setter("full_load_loading_tables", full_load_loading_tables)
+        _setter("full_load_queued_tables", full_load_queued_tables)
+        _setter("id", id)
+        _setter("incoming_changes", incoming_changes)
+        _setter("initialization_completed", initialization_completed)
+        _setter("latency", latency)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="appliedChanges")
@@ -8533,9 +11617,32 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ReportableExceptionResponse'] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -8614,14 +11721,69 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse(dict):
         :param str target_server: Target server name
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server", source_server)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "target_server", target_server)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server=source_server,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            target_server=target_server,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_server: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             started_on: Optional[str] = None,
+             target_server: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server is None and 'sourceServer' in kwargs:
+            source_server = kwargs['sourceServer']
+        if source_server is None:
+            raise TypeError("Missing 'source_server' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if target_server is None and 'targetServer' in kwargs:
+            target_server = kwargs['targetServer']
+        if target_server is None:
+            raise TypeError("Missing 'target_server' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server", source_server)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("target_server", target_server)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -8766,21 +11928,116 @@ class MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse(dict):
         :param str table_name: Name of the table
         :param float total_changes_applied: Total number of applied changes
         """
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "data_errors_counter", data_errors_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "full_load_ended_on", full_load_ended_on)
-        pulumi.set(__self__, "full_load_est_finish_time", full_load_est_finish_time)
-        pulumi.set(__self__, "full_load_started_on", full_load_started_on)
-        pulumi.set(__self__, "full_load_total_rows", full_load_total_rows)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "total_changes_applied", total_changes_applied)
+        MigrateMySqlAzureDbForMySqlSyncTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            data_errors_counter=data_errors_counter,
+            database_name=database_name,
+            full_load_ended_on=full_load_ended_on,
+            full_load_est_finish_time=full_load_est_finish_time,
+            full_load_started_on=full_load_started_on,
+            full_load_total_rows=full_load_total_rows,
+            id=id,
+            last_modified_time=last_modified_time,
+            result_type=result_type,
+            state=state,
+            table_name=table_name,
+            total_changes_applied=total_changes_applied,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdc_delete_counter: Optional[str] = None,
+             cdc_insert_counter: Optional[str] = None,
+             cdc_update_counter: Optional[str] = None,
+             data_errors_counter: Optional[float] = None,
+             database_name: Optional[str] = None,
+             full_load_ended_on: Optional[str] = None,
+             full_load_est_finish_time: Optional[str] = None,
+             full_load_started_on: Optional[str] = None,
+             full_load_total_rows: Optional[float] = None,
+             id: Optional[str] = None,
+             last_modified_time: Optional[str] = None,
+             result_type: Optional[str] = None,
+             state: Optional[str] = None,
+             table_name: Optional[str] = None,
+             total_changes_applied: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cdc_delete_counter is None and 'cdcDeleteCounter' in kwargs:
+            cdc_delete_counter = kwargs['cdcDeleteCounter']
+        if cdc_delete_counter is None:
+            raise TypeError("Missing 'cdc_delete_counter' argument")
+        if cdc_insert_counter is None and 'cdcInsertCounter' in kwargs:
+            cdc_insert_counter = kwargs['cdcInsertCounter']
+        if cdc_insert_counter is None:
+            raise TypeError("Missing 'cdc_insert_counter' argument")
+        if cdc_update_counter is None and 'cdcUpdateCounter' in kwargs:
+            cdc_update_counter = kwargs['cdcUpdateCounter']
+        if cdc_update_counter is None:
+            raise TypeError("Missing 'cdc_update_counter' argument")
+        if data_errors_counter is None and 'dataErrorsCounter' in kwargs:
+            data_errors_counter = kwargs['dataErrorsCounter']
+        if data_errors_counter is None:
+            raise TypeError("Missing 'data_errors_counter' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if full_load_ended_on is None and 'fullLoadEndedOn' in kwargs:
+            full_load_ended_on = kwargs['fullLoadEndedOn']
+        if full_load_ended_on is None:
+            raise TypeError("Missing 'full_load_ended_on' argument")
+        if full_load_est_finish_time is None and 'fullLoadEstFinishTime' in kwargs:
+            full_load_est_finish_time = kwargs['fullLoadEstFinishTime']
+        if full_load_est_finish_time is None:
+            raise TypeError("Missing 'full_load_est_finish_time' argument")
+        if full_load_started_on is None and 'fullLoadStartedOn' in kwargs:
+            full_load_started_on = kwargs['fullLoadStartedOn']
+        if full_load_started_on is None:
+            raise TypeError("Missing 'full_load_started_on' argument")
+        if full_load_total_rows is None and 'fullLoadTotalRows' in kwargs:
+            full_load_total_rows = kwargs['fullLoadTotalRows']
+        if full_load_total_rows is None:
+            raise TypeError("Missing 'full_load_total_rows' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if last_modified_time is None:
+            raise TypeError("Missing 'last_modified_time' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if total_changes_applied is None and 'totalChangesApplied' in kwargs:
+            total_changes_applied = kwargs['totalChangesApplied']
+        if total_changes_applied is None:
+            raise TypeError("Missing 'total_changes_applied' argument")
+
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("data_errors_counter", data_errors_counter)
+        _setter("database_name", database_name)
+        _setter("full_load_ended_on", full_load_ended_on)
+        _setter("full_load_est_finish_time", full_load_est_finish_time)
+        _setter("full_load_started_on", full_load_started_on)
+        _setter("full_load_total_rows", full_load_total_rows)
+        _setter("id", id)
+        _setter("last_modified_time", last_modified_time)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("state", state)
+        _setter("table_name", table_name)
+        _setter("total_changes_applied", total_changes_applied)
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
@@ -8947,15 +12204,52 @@ class MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateMySqlAzureDbForMySqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.MySql.AzureDbForMySql.Sync')
+        MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateMySqlAzureDbForMySqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.MySql.AzureDbForMySql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -9058,15 +12352,52 @@ class MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.Oracle.AzureDbForPostgreSql.Sync')
+        MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.Oracle.AzureDbForPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -9180,22 +12511,61 @@ class MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse(dict):
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            case_manipulation=case_manipulation,
+            migration_setting=migration_setting,
+            name=name,
+            schema_name=schema_name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             case_manipulation: Optional[str] = None,
+             migration_setting: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             source_setting: Optional[Mapping[str, str]] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             target_setting: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if case_manipulation is None and 'caseManipulation' in kwargs:
+            case_manipulation = kwargs['caseManipulation']
+        if migration_setting is None and 'migrationSetting' in kwargs:
+            migration_setting = kwargs['migrationSetting']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if source_setting is None and 'sourceSetting' in kwargs:
+            source_setting = kwargs['sourceSetting']
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_setting is None and 'targetSetting' in kwargs:
+            target_setting = kwargs['targetSetting']
+
         if case_manipulation is not None:
-            pulumi.set(__self__, "case_manipulation", case_manipulation)
+            _setter("case_manipulation", case_manipulation)
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter(name="caseManipulation")
@@ -9298,9 +12668,36 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse(dict):
         :param 'OracleConnectionInfoResponse' source_connection_info: Connection information for source Oracle
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[Sequence['outputs.MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.OracleConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.PostgreSqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -9360,12 +12757,37 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse(dict):
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            result_type=result_type,
+            error_message=error_message,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             error_message: Optional[str] = None,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+
+        _setter("id", id)
+        _setter("result_type", 'DatabaseLevelErrorOutput')
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -9486,23 +12908,130 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse(dict):
                Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
-        pulumi.set(__self__, "applied_changes", applied_changes)
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "full_load_completed_tables", full_load_completed_tables)
-        pulumi.set(__self__, "full_load_errored_tables", full_load_errored_tables)
-        pulumi.set(__self__, "full_load_loading_tables", full_load_loading_tables)
-        pulumi.set(__self__, "full_load_queued_tables", full_load_queued_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "incoming_changes", incoming_changes)
-        pulumi.set(__self__, "initialization_completed", initialization_completed)
-        pulumi.set(__self__, "latency", latency)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_changes=applied_changes,
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            database_name=database_name,
+            ended_on=ended_on,
+            full_load_completed_tables=full_load_completed_tables,
+            full_load_errored_tables=full_load_errored_tables,
+            full_load_loading_tables=full_load_loading_tables,
+            full_load_queued_tables=full_load_queued_tables,
+            id=id,
+            incoming_changes=incoming_changes,
+            initialization_completed=initialization_completed,
+            latency=latency,
+            migration_state=migration_state,
+            result_type=result_type,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_changes: Optional[float] = None,
+             cdc_delete_counter: Optional[float] = None,
+             cdc_insert_counter: Optional[float] = None,
+             cdc_update_counter: Optional[float] = None,
+             database_name: Optional[str] = None,
+             ended_on: Optional[str] = None,
+             full_load_completed_tables: Optional[float] = None,
+             full_load_errored_tables: Optional[float] = None,
+             full_load_loading_tables: Optional[float] = None,
+             full_load_queued_tables: Optional[float] = None,
+             id: Optional[str] = None,
+             incoming_changes: Optional[float] = None,
+             initialization_completed: Optional[bool] = None,
+             latency: Optional[float] = None,
+             migration_state: Optional[str] = None,
+             result_type: Optional[str] = None,
+             started_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if applied_changes is None and 'appliedChanges' in kwargs:
+            applied_changes = kwargs['appliedChanges']
+        if applied_changes is None:
+            raise TypeError("Missing 'applied_changes' argument")
+        if cdc_delete_counter is None and 'cdcDeleteCounter' in kwargs:
+            cdc_delete_counter = kwargs['cdcDeleteCounter']
+        if cdc_delete_counter is None:
+            raise TypeError("Missing 'cdc_delete_counter' argument")
+        if cdc_insert_counter is None and 'cdcInsertCounter' in kwargs:
+            cdc_insert_counter = kwargs['cdcInsertCounter']
+        if cdc_insert_counter is None:
+            raise TypeError("Missing 'cdc_insert_counter' argument")
+        if cdc_update_counter is None and 'cdcUpdateCounter' in kwargs:
+            cdc_update_counter = kwargs['cdcUpdateCounter']
+        if cdc_update_counter is None:
+            raise TypeError("Missing 'cdc_update_counter' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if full_load_completed_tables is None and 'fullLoadCompletedTables' in kwargs:
+            full_load_completed_tables = kwargs['fullLoadCompletedTables']
+        if full_load_completed_tables is None:
+            raise TypeError("Missing 'full_load_completed_tables' argument")
+        if full_load_errored_tables is None and 'fullLoadErroredTables' in kwargs:
+            full_load_errored_tables = kwargs['fullLoadErroredTables']
+        if full_load_errored_tables is None:
+            raise TypeError("Missing 'full_load_errored_tables' argument")
+        if full_load_loading_tables is None and 'fullLoadLoadingTables' in kwargs:
+            full_load_loading_tables = kwargs['fullLoadLoadingTables']
+        if full_load_loading_tables is None:
+            raise TypeError("Missing 'full_load_loading_tables' argument")
+        if full_load_queued_tables is None and 'fullLoadQueuedTables' in kwargs:
+            full_load_queued_tables = kwargs['fullLoadQueuedTables']
+        if full_load_queued_tables is None:
+            raise TypeError("Missing 'full_load_queued_tables' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if incoming_changes is None and 'incomingChanges' in kwargs:
+            incoming_changes = kwargs['incomingChanges']
+        if incoming_changes is None:
+            raise TypeError("Missing 'incoming_changes' argument")
+        if initialization_completed is None and 'initializationCompleted' in kwargs:
+            initialization_completed = kwargs['initializationCompleted']
+        if initialization_completed is None:
+            raise TypeError("Missing 'initialization_completed' argument")
+        if latency is None:
+            raise TypeError("Missing 'latency' argument")
+        if migration_state is None and 'migrationState' in kwargs:
+            migration_state = kwargs['migrationState']
+        if migration_state is None:
+            raise TypeError("Missing 'migration_state' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+
+        _setter("applied_changes", applied_changes)
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("full_load_completed_tables", full_load_completed_tables)
+        _setter("full_load_errored_tables", full_load_errored_tables)
+        _setter("full_load_loading_tables", full_load_loading_tables)
+        _setter("full_load_queued_tables", full_load_queued_tables)
+        _setter("id", id)
+        _setter("incoming_changes", incoming_changes)
+        _setter("initialization_completed", initialization_completed)
+        _setter("latency", latency)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="appliedChanges")
@@ -9671,9 +13200,32 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ReportableExceptionResponse'] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -9752,14 +13304,69 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse(dict):
         :param str target_server: Target server name
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server", source_server)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "target_server", target_server)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server=source_server,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            target_server=target_server,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_server: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             started_on: Optional[str] = None,
+             target_server: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server is None and 'sourceServer' in kwargs:
+            source_server = kwargs['sourceServer']
+        if source_server is None:
+            raise TypeError("Missing 'source_server' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if target_server is None and 'targetServer' in kwargs:
+            target_server = kwargs['targetServer']
+        if target_server is None:
+            raise TypeError("Missing 'target_server' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server", source_server)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("target_server", target_server)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -9904,21 +13511,116 @@ class MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse(dict):
         :param str table_name: Name of the table
         :param float total_changes_applied: Total number of applied changes
         """
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "data_errors_counter", data_errors_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "full_load_ended_on", full_load_ended_on)
-        pulumi.set(__self__, "full_load_est_finish_time", full_load_est_finish_time)
-        pulumi.set(__self__, "full_load_started_on", full_load_started_on)
-        pulumi.set(__self__, "full_load_total_rows", full_load_total_rows)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "total_changes_applied", total_changes_applied)
+        MigrateOracleAzureDbPostgreSqlSyncTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            data_errors_counter=data_errors_counter,
+            database_name=database_name,
+            full_load_ended_on=full_load_ended_on,
+            full_load_est_finish_time=full_load_est_finish_time,
+            full_load_started_on=full_load_started_on,
+            full_load_total_rows=full_load_total_rows,
+            id=id,
+            last_modified_time=last_modified_time,
+            result_type=result_type,
+            state=state,
+            table_name=table_name,
+            total_changes_applied=total_changes_applied,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdc_delete_counter: Optional[float] = None,
+             cdc_insert_counter: Optional[float] = None,
+             cdc_update_counter: Optional[float] = None,
+             data_errors_counter: Optional[float] = None,
+             database_name: Optional[str] = None,
+             full_load_ended_on: Optional[str] = None,
+             full_load_est_finish_time: Optional[str] = None,
+             full_load_started_on: Optional[str] = None,
+             full_load_total_rows: Optional[float] = None,
+             id: Optional[str] = None,
+             last_modified_time: Optional[str] = None,
+             result_type: Optional[str] = None,
+             state: Optional[str] = None,
+             table_name: Optional[str] = None,
+             total_changes_applied: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cdc_delete_counter is None and 'cdcDeleteCounter' in kwargs:
+            cdc_delete_counter = kwargs['cdcDeleteCounter']
+        if cdc_delete_counter is None:
+            raise TypeError("Missing 'cdc_delete_counter' argument")
+        if cdc_insert_counter is None and 'cdcInsertCounter' in kwargs:
+            cdc_insert_counter = kwargs['cdcInsertCounter']
+        if cdc_insert_counter is None:
+            raise TypeError("Missing 'cdc_insert_counter' argument")
+        if cdc_update_counter is None and 'cdcUpdateCounter' in kwargs:
+            cdc_update_counter = kwargs['cdcUpdateCounter']
+        if cdc_update_counter is None:
+            raise TypeError("Missing 'cdc_update_counter' argument")
+        if data_errors_counter is None and 'dataErrorsCounter' in kwargs:
+            data_errors_counter = kwargs['dataErrorsCounter']
+        if data_errors_counter is None:
+            raise TypeError("Missing 'data_errors_counter' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if full_load_ended_on is None and 'fullLoadEndedOn' in kwargs:
+            full_load_ended_on = kwargs['fullLoadEndedOn']
+        if full_load_ended_on is None:
+            raise TypeError("Missing 'full_load_ended_on' argument")
+        if full_load_est_finish_time is None and 'fullLoadEstFinishTime' in kwargs:
+            full_load_est_finish_time = kwargs['fullLoadEstFinishTime']
+        if full_load_est_finish_time is None:
+            raise TypeError("Missing 'full_load_est_finish_time' argument")
+        if full_load_started_on is None and 'fullLoadStartedOn' in kwargs:
+            full_load_started_on = kwargs['fullLoadStartedOn']
+        if full_load_started_on is None:
+            raise TypeError("Missing 'full_load_started_on' argument")
+        if full_load_total_rows is None and 'fullLoadTotalRows' in kwargs:
+            full_load_total_rows = kwargs['fullLoadTotalRows']
+        if full_load_total_rows is None:
+            raise TypeError("Missing 'full_load_total_rows' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if last_modified_time is None:
+            raise TypeError("Missing 'last_modified_time' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if total_changes_applied is None and 'totalChangesApplied' in kwargs:
+            total_changes_applied = kwargs['totalChangesApplied']
+        if total_changes_applied is None:
+            raise TypeError("Missing 'total_changes_applied' argument")
+
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("data_errors_counter", data_errors_counter)
+        _setter("database_name", database_name)
+        _setter("full_load_ended_on", full_load_ended_on)
+        _setter("full_load_est_finish_time", full_load_est_finish_time)
+        _setter("full_load_started_on", full_load_started_on)
+        _setter("full_load_total_rows", full_load_total_rows)
+        _setter("id", id)
+        _setter("last_modified_time", last_modified_time)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("state", state)
+        _setter("table_name", table_name)
+        _setter("total_changes_applied", total_changes_applied)
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
@@ -10088,18 +13790,49 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(dict):
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            migration_setting=migration_setting,
+            name=name,
+            selected_tables=selected_tables,
+            source_setting=source_setting,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             migration_setting: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             selected_tables: Optional[Sequence['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse']] = None,
+             source_setting: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             target_setting: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_setting is None and 'migrationSetting' in kwargs:
+            migration_setting = kwargs['migrationSetting']
+        if selected_tables is None and 'selectedTables' in kwargs:
+            selected_tables = kwargs['selectedTables']
+        if source_setting is None and 'sourceSetting' in kwargs:
+            source_setting = kwargs['sourceSetting']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_setting is None and 'targetSetting' in kwargs:
+            target_setting = kwargs['targetSetting']
+
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if selected_tables is not None:
-            pulumi.set(__self__, "selected_tables", selected_tables)
+            _setter("selected_tables", selected_tables)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter(name="migrationSetting")
@@ -10161,8 +13894,19 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse(dict):
         Selected tables for the migration
         :param str name: Name of the table to migrate
         """
+        MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -10209,9 +13953,36 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse(dict):
         :param 'PostgreSqlConnectionInfoResponse' source_connection_info: Connection information for source PostgreSQL
         :param 'PostgreSqlConnectionInfoResponse' target_connection_info: Connection information for target Azure Database for PostgreSQL
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[Sequence['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.PostgreSqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.PostgreSqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -10271,12 +14042,37 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse(d
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            result_type=result_type,
+            error_message=error_message,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             error_message: Optional[str] = None,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+
+        _setter("id", id)
+        _setter("result_type", 'DatabaseLevelErrorOutput')
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -10397,23 +14193,130 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse(d
                Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
-        pulumi.set(__self__, "applied_changes", applied_changes)
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "full_load_completed_tables", full_load_completed_tables)
-        pulumi.set(__self__, "full_load_errored_tables", full_load_errored_tables)
-        pulumi.set(__self__, "full_load_loading_tables", full_load_loading_tables)
-        pulumi.set(__self__, "full_load_queued_tables", full_load_queued_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "incoming_changes", incoming_changes)
-        pulumi.set(__self__, "initialization_completed", initialization_completed)
-        pulumi.set(__self__, "latency", latency)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_changes=applied_changes,
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            database_name=database_name,
+            ended_on=ended_on,
+            full_load_completed_tables=full_load_completed_tables,
+            full_load_errored_tables=full_load_errored_tables,
+            full_load_loading_tables=full_load_loading_tables,
+            full_load_queued_tables=full_load_queued_tables,
+            id=id,
+            incoming_changes=incoming_changes,
+            initialization_completed=initialization_completed,
+            latency=latency,
+            migration_state=migration_state,
+            result_type=result_type,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_changes: Optional[float] = None,
+             cdc_delete_counter: Optional[float] = None,
+             cdc_insert_counter: Optional[float] = None,
+             cdc_update_counter: Optional[float] = None,
+             database_name: Optional[str] = None,
+             ended_on: Optional[str] = None,
+             full_load_completed_tables: Optional[float] = None,
+             full_load_errored_tables: Optional[float] = None,
+             full_load_loading_tables: Optional[float] = None,
+             full_load_queued_tables: Optional[float] = None,
+             id: Optional[str] = None,
+             incoming_changes: Optional[float] = None,
+             initialization_completed: Optional[bool] = None,
+             latency: Optional[float] = None,
+             migration_state: Optional[str] = None,
+             result_type: Optional[str] = None,
+             started_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if applied_changes is None and 'appliedChanges' in kwargs:
+            applied_changes = kwargs['appliedChanges']
+        if applied_changes is None:
+            raise TypeError("Missing 'applied_changes' argument")
+        if cdc_delete_counter is None and 'cdcDeleteCounter' in kwargs:
+            cdc_delete_counter = kwargs['cdcDeleteCounter']
+        if cdc_delete_counter is None:
+            raise TypeError("Missing 'cdc_delete_counter' argument")
+        if cdc_insert_counter is None and 'cdcInsertCounter' in kwargs:
+            cdc_insert_counter = kwargs['cdcInsertCounter']
+        if cdc_insert_counter is None:
+            raise TypeError("Missing 'cdc_insert_counter' argument")
+        if cdc_update_counter is None and 'cdcUpdateCounter' in kwargs:
+            cdc_update_counter = kwargs['cdcUpdateCounter']
+        if cdc_update_counter is None:
+            raise TypeError("Missing 'cdc_update_counter' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if full_load_completed_tables is None and 'fullLoadCompletedTables' in kwargs:
+            full_load_completed_tables = kwargs['fullLoadCompletedTables']
+        if full_load_completed_tables is None:
+            raise TypeError("Missing 'full_load_completed_tables' argument")
+        if full_load_errored_tables is None and 'fullLoadErroredTables' in kwargs:
+            full_load_errored_tables = kwargs['fullLoadErroredTables']
+        if full_load_errored_tables is None:
+            raise TypeError("Missing 'full_load_errored_tables' argument")
+        if full_load_loading_tables is None and 'fullLoadLoadingTables' in kwargs:
+            full_load_loading_tables = kwargs['fullLoadLoadingTables']
+        if full_load_loading_tables is None:
+            raise TypeError("Missing 'full_load_loading_tables' argument")
+        if full_load_queued_tables is None and 'fullLoadQueuedTables' in kwargs:
+            full_load_queued_tables = kwargs['fullLoadQueuedTables']
+        if full_load_queued_tables is None:
+            raise TypeError("Missing 'full_load_queued_tables' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if incoming_changes is None and 'incomingChanges' in kwargs:
+            incoming_changes = kwargs['incomingChanges']
+        if incoming_changes is None:
+            raise TypeError("Missing 'incoming_changes' argument")
+        if initialization_completed is None and 'initializationCompleted' in kwargs:
+            initialization_completed = kwargs['initializationCompleted']
+        if initialization_completed is None:
+            raise TypeError("Missing 'initialization_completed' argument")
+        if latency is None:
+            raise TypeError("Missing 'latency' argument")
+        if migration_state is None and 'migrationState' in kwargs:
+            migration_state = kwargs['migrationState']
+        if migration_state is None:
+            raise TypeError("Missing 'migration_state' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+
+        _setter("applied_changes", applied_changes)
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("full_load_completed_tables", full_load_completed_tables)
+        _setter("full_load_errored_tables", full_load_errored_tables)
+        _setter("full_load_loading_tables", full_load_loading_tables)
+        _setter("full_load_queued_tables", full_load_queued_tables)
+        _setter("id", id)
+        _setter("incoming_changes", incoming_changes)
+        _setter("initialization_completed", initialization_completed)
+        _setter("latency", latency)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="appliedChanges")
@@ -10582,9 +14485,32 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ReportableExceptionResponse'] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -10673,17 +14599,88 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
         :param str target_server_type: Target server type.
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server", source_server)
-        pulumi.set(__self__, "source_server_type", source_server_type)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "target_server", target_server)
-        pulumi.set(__self__, "target_server_type", target_server_type)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server=source_server,
+            source_server_type=source_server_type,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            state=state,
+            target_server=target_server,
+            target_server_type=target_server_type,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_server: Optional[str] = None,
+             source_server_type: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             target_server: Optional[str] = None,
+             target_server_type: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server is None and 'sourceServer' in kwargs:
+            source_server = kwargs['sourceServer']
+        if source_server is None:
+            raise TypeError("Missing 'source_server' argument")
+        if source_server_type is None and 'sourceServerType' in kwargs:
+            source_server_type = kwargs['sourceServerType']
+        if source_server_type is None:
+            raise TypeError("Missing 'source_server_type' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if target_server is None and 'targetServer' in kwargs:
+            target_server = kwargs['targetServer']
+        if target_server is None:
+            raise TypeError("Missing 'target_server' argument")
+        if target_server_type is None and 'targetServerType' in kwargs:
+            target_server_type = kwargs['targetServerType']
+        if target_server_type is None:
+            raise TypeError("Missing 'target_server_type' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server", source_server)
+        _setter("source_server_type", source_server_type)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("target_server", target_server)
+        _setter("target_server_type", target_server_type)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -10852,21 +14849,116 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse(dict
         :param str table_name: Name of the table
         :param float total_changes_applied: Total number of applied changes
         """
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "data_errors_counter", data_errors_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "full_load_ended_on", full_load_ended_on)
-        pulumi.set(__self__, "full_load_est_finish_time", full_load_est_finish_time)
-        pulumi.set(__self__, "full_load_started_on", full_load_started_on)
-        pulumi.set(__self__, "full_load_total_rows", full_load_total_rows)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "total_changes_applied", total_changes_applied)
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            data_errors_counter=data_errors_counter,
+            database_name=database_name,
+            full_load_ended_on=full_load_ended_on,
+            full_load_est_finish_time=full_load_est_finish_time,
+            full_load_started_on=full_load_started_on,
+            full_load_total_rows=full_load_total_rows,
+            id=id,
+            last_modified_time=last_modified_time,
+            result_type=result_type,
+            state=state,
+            table_name=table_name,
+            total_changes_applied=total_changes_applied,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdc_delete_counter: Optional[float] = None,
+             cdc_insert_counter: Optional[float] = None,
+             cdc_update_counter: Optional[float] = None,
+             data_errors_counter: Optional[float] = None,
+             database_name: Optional[str] = None,
+             full_load_ended_on: Optional[str] = None,
+             full_load_est_finish_time: Optional[str] = None,
+             full_load_started_on: Optional[str] = None,
+             full_load_total_rows: Optional[float] = None,
+             id: Optional[str] = None,
+             last_modified_time: Optional[str] = None,
+             result_type: Optional[str] = None,
+             state: Optional[str] = None,
+             table_name: Optional[str] = None,
+             total_changes_applied: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cdc_delete_counter is None and 'cdcDeleteCounter' in kwargs:
+            cdc_delete_counter = kwargs['cdcDeleteCounter']
+        if cdc_delete_counter is None:
+            raise TypeError("Missing 'cdc_delete_counter' argument")
+        if cdc_insert_counter is None and 'cdcInsertCounter' in kwargs:
+            cdc_insert_counter = kwargs['cdcInsertCounter']
+        if cdc_insert_counter is None:
+            raise TypeError("Missing 'cdc_insert_counter' argument")
+        if cdc_update_counter is None and 'cdcUpdateCounter' in kwargs:
+            cdc_update_counter = kwargs['cdcUpdateCounter']
+        if cdc_update_counter is None:
+            raise TypeError("Missing 'cdc_update_counter' argument")
+        if data_errors_counter is None and 'dataErrorsCounter' in kwargs:
+            data_errors_counter = kwargs['dataErrorsCounter']
+        if data_errors_counter is None:
+            raise TypeError("Missing 'data_errors_counter' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if full_load_ended_on is None and 'fullLoadEndedOn' in kwargs:
+            full_load_ended_on = kwargs['fullLoadEndedOn']
+        if full_load_ended_on is None:
+            raise TypeError("Missing 'full_load_ended_on' argument")
+        if full_load_est_finish_time is None and 'fullLoadEstFinishTime' in kwargs:
+            full_load_est_finish_time = kwargs['fullLoadEstFinishTime']
+        if full_load_est_finish_time is None:
+            raise TypeError("Missing 'full_load_est_finish_time' argument")
+        if full_load_started_on is None and 'fullLoadStartedOn' in kwargs:
+            full_load_started_on = kwargs['fullLoadStartedOn']
+        if full_load_started_on is None:
+            raise TypeError("Missing 'full_load_started_on' argument")
+        if full_load_total_rows is None and 'fullLoadTotalRows' in kwargs:
+            full_load_total_rows = kwargs['fullLoadTotalRows']
+        if full_load_total_rows is None:
+            raise TypeError("Missing 'full_load_total_rows' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if last_modified_time is None:
+            raise TypeError("Missing 'last_modified_time' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if total_changes_applied is None and 'totalChangesApplied' in kwargs:
+            total_changes_applied = kwargs['totalChangesApplied']
+        if total_changes_applied is None:
+            raise TypeError("Missing 'total_changes_applied' argument")
+
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("data_errors_counter", data_errors_counter)
+        _setter("database_name", database_name)
+        _setter("full_load_ended_on", full_load_ended_on)
+        _setter("full_load_est_finish_time", full_load_est_finish_time)
+        _setter("full_load_started_on", full_load_started_on)
+        _setter("full_load_total_rows", full_load_total_rows)
+        _setter("id", id)
+        _setter("last_modified_time", last_modified_time)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("state", state)
+        _setter("table_name", table_name)
+        _setter("total_changes_applied", total_changes_applied)
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
@@ -11033,15 +15125,52 @@ class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2')
+        MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -11139,14 +15268,37 @@ class MigrateSqlServerSqlDbDatabaseInputResponse(dict):
         :param Mapping[str, str] table_map: Mapping of source to target tables
         :param str target_database_name: Name of target database. Note: Target database will be truncated before starting migration.
         """
+        MigrateSqlServerSqlDbDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            make_source_db_read_only=make_source_db_read_only,
+            name=name,
+            table_map=table_map,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             make_source_db_read_only: Optional[bool] = None,
+             name: Optional[str] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if make_source_db_read_only is None and 'makeSourceDbReadOnly' in kwargs:
+            make_source_db_read_only = kwargs['makeSourceDbReadOnly']
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+
         if make_source_db_read_only is not None:
-            pulumi.set(__self__, "make_source_db_read_only", make_source_db_read_only)
+            _setter("make_source_db_read_only", make_source_db_read_only)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter(name="makeSourceDbReadOnly")
@@ -11233,22 +15385,59 @@ class MigrateSqlServerSqlDbSyncDatabaseInputResponse(dict):
         :param str target_database_name: Target database name
         :param Mapping[str, str] target_setting: Target settings to tune target endpoint migration behavior
         """
+        MigrateSqlServerSqlDbSyncDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            migration_setting=migration_setting,
+            name=name,
+            schema_name=schema_name,
+            source_setting=source_setting,
+            table_map=table_map,
+            target_database_name=target_database_name,
+            target_setting=target_setting,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             migration_setting: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             schema_name: Optional[str] = None,
+             source_setting: Optional[Mapping[str, str]] = None,
+             table_map: Optional[Mapping[str, str]] = None,
+             target_database_name: Optional[str] = None,
+             target_setting: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_setting is None and 'migrationSetting' in kwargs:
+            migration_setting = kwargs['migrationSetting']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if source_setting is None and 'sourceSetting' in kwargs:
+            source_setting = kwargs['sourceSetting']
+        if table_map is None and 'tableMap' in kwargs:
+            table_map = kwargs['tableMap']
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_setting is None and 'targetSetting' in kwargs:
+            target_setting = kwargs['targetSetting']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if migration_setting is not None:
-            pulumi.set(__self__, "migration_setting", migration_setting)
+            _setter("migration_setting", migration_setting)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema_name is not None:
-            pulumi.set(__self__, "schema_name", schema_name)
+            _setter("schema_name", schema_name)
         if source_setting is not None:
-            pulumi.set(__self__, "source_setting", source_setting)
+            _setter("source_setting", source_setting)
         if table_map is not None:
-            pulumi.set(__self__, "table_map", table_map)
+            _setter("table_map", table_map)
         if target_database_name is not None:
-            pulumi.set(__self__, "target_database_name", target_database_name)
+            _setter("target_database_name", target_database_name)
         if target_setting is not None:
-            pulumi.set(__self__, "target_setting", target_setting)
+            _setter("target_setting", target_setting)
 
     @property
     @pulumi.getter
@@ -11355,11 +15544,42 @@ class MigrateSqlServerSqlDbSyncTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         :param 'MigrationValidationOptionsResponse' validation_options: Validation options
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlDbSyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[Sequence['outputs.MigrateSqlServerSqlDbSyncDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -11427,12 +15647,37 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse(dict):
         :param str error_message: Error message
         :param Sequence['SyncMigrationDatabaseErrorEventResponse'] events: List of error events.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelErrorOutput')
+        MigrateSqlServerSqlDbSyncTaskOutputDatabaseErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            result_type=result_type,
+            error_message=error_message,
+            events=events,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             error_message: Optional[str] = None,
+             events: Optional[Sequence['outputs.SyncMigrationDatabaseErrorEventResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if error_message is None and 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+
+        _setter("id", id)
+        _setter("result_type", 'DatabaseLevelErrorOutput')
         if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
+            _setter("error_message", error_message)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
 
     @property
     @pulumi.getter
@@ -11553,23 +15798,130 @@ class MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse(dict):
                Expected value is 'DatabaseLevelOutput'.
         :param str started_on: Migration start time
         """
-        pulumi.set(__self__, "applied_changes", applied_changes)
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "full_load_completed_tables", full_load_completed_tables)
-        pulumi.set(__self__, "full_load_errored_tables", full_load_errored_tables)
-        pulumi.set(__self__, "full_load_loading_tables", full_load_loading_tables)
-        pulumi.set(__self__, "full_load_queued_tables", full_load_queued_tables)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "incoming_changes", incoming_changes)
-        pulumi.set(__self__, "initialization_completed", initialization_completed)
-        pulumi.set(__self__, "latency", latency)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
+        MigrateSqlServerSqlDbSyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_changes=applied_changes,
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            database_name=database_name,
+            ended_on=ended_on,
+            full_load_completed_tables=full_load_completed_tables,
+            full_load_errored_tables=full_load_errored_tables,
+            full_load_loading_tables=full_load_loading_tables,
+            full_load_queued_tables=full_load_queued_tables,
+            id=id,
+            incoming_changes=incoming_changes,
+            initialization_completed=initialization_completed,
+            latency=latency,
+            migration_state=migration_state,
+            result_type=result_type,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_changes: Optional[float] = None,
+             cdc_delete_counter: Optional[float] = None,
+             cdc_insert_counter: Optional[float] = None,
+             cdc_update_counter: Optional[float] = None,
+             database_name: Optional[str] = None,
+             ended_on: Optional[str] = None,
+             full_load_completed_tables: Optional[float] = None,
+             full_load_errored_tables: Optional[float] = None,
+             full_load_loading_tables: Optional[float] = None,
+             full_load_queued_tables: Optional[float] = None,
+             id: Optional[str] = None,
+             incoming_changes: Optional[float] = None,
+             initialization_completed: Optional[bool] = None,
+             latency: Optional[float] = None,
+             migration_state: Optional[str] = None,
+             result_type: Optional[str] = None,
+             started_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if applied_changes is None and 'appliedChanges' in kwargs:
+            applied_changes = kwargs['appliedChanges']
+        if applied_changes is None:
+            raise TypeError("Missing 'applied_changes' argument")
+        if cdc_delete_counter is None and 'cdcDeleteCounter' in kwargs:
+            cdc_delete_counter = kwargs['cdcDeleteCounter']
+        if cdc_delete_counter is None:
+            raise TypeError("Missing 'cdc_delete_counter' argument")
+        if cdc_insert_counter is None and 'cdcInsertCounter' in kwargs:
+            cdc_insert_counter = kwargs['cdcInsertCounter']
+        if cdc_insert_counter is None:
+            raise TypeError("Missing 'cdc_insert_counter' argument")
+        if cdc_update_counter is None and 'cdcUpdateCounter' in kwargs:
+            cdc_update_counter = kwargs['cdcUpdateCounter']
+        if cdc_update_counter is None:
+            raise TypeError("Missing 'cdc_update_counter' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if full_load_completed_tables is None and 'fullLoadCompletedTables' in kwargs:
+            full_load_completed_tables = kwargs['fullLoadCompletedTables']
+        if full_load_completed_tables is None:
+            raise TypeError("Missing 'full_load_completed_tables' argument")
+        if full_load_errored_tables is None and 'fullLoadErroredTables' in kwargs:
+            full_load_errored_tables = kwargs['fullLoadErroredTables']
+        if full_load_errored_tables is None:
+            raise TypeError("Missing 'full_load_errored_tables' argument")
+        if full_load_loading_tables is None and 'fullLoadLoadingTables' in kwargs:
+            full_load_loading_tables = kwargs['fullLoadLoadingTables']
+        if full_load_loading_tables is None:
+            raise TypeError("Missing 'full_load_loading_tables' argument")
+        if full_load_queued_tables is None and 'fullLoadQueuedTables' in kwargs:
+            full_load_queued_tables = kwargs['fullLoadQueuedTables']
+        if full_load_queued_tables is None:
+            raise TypeError("Missing 'full_load_queued_tables' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if incoming_changes is None and 'incomingChanges' in kwargs:
+            incoming_changes = kwargs['incomingChanges']
+        if incoming_changes is None:
+            raise TypeError("Missing 'incoming_changes' argument")
+        if initialization_completed is None and 'initializationCompleted' in kwargs:
+            initialization_completed = kwargs['initializationCompleted']
+        if initialization_completed is None:
+            raise TypeError("Missing 'initialization_completed' argument")
+        if latency is None:
+            raise TypeError("Missing 'latency' argument")
+        if migration_state is None and 'migrationState' in kwargs:
+            migration_state = kwargs['migrationState']
+        if migration_state is None:
+            raise TypeError("Missing 'migration_state' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+
+        _setter("applied_changes", applied_changes)
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("full_load_completed_tables", full_load_completed_tables)
+        _setter("full_load_errored_tables", full_load_errored_tables)
+        _setter("full_load_loading_tables", full_load_loading_tables)
+        _setter("full_load_queued_tables", full_load_queued_tables)
+        _setter("id", id)
+        _setter("incoming_changes", incoming_changes)
+        _setter("initialization_completed", initialization_completed)
+        _setter("latency", latency)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="appliedChanges")
@@ -11738,9 +16090,32 @@ class MigrateSqlServerSqlDbSyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateSqlServerSqlDbSyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ReportableExceptionResponse'] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -11823,15 +16198,76 @@ class MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse(dict):
         :param str target_server: Target server name
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "database_count", database_count)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server", source_server)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "target_server", target_server)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSqlServerSqlDbSyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_count=database_count,
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server=source_server,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            target_server=target_server,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_count: Optional[int] = None,
+             ended_on: Optional[str] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_server: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             started_on: Optional[str] = None,
+             target_server: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_count is None and 'databaseCount' in kwargs:
+            database_count = kwargs['databaseCount']
+        if database_count is None:
+            raise TypeError("Missing 'database_count' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server is None and 'sourceServer' in kwargs:
+            source_server = kwargs['sourceServer']
+        if source_server is None:
+            raise TypeError("Missing 'source_server' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if target_server is None and 'targetServer' in kwargs:
+            target_server = kwargs['targetServer']
+        if target_server is None:
+            raise TypeError("Missing 'target_server' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+
+        _setter("database_count", database_count)
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server", source_server)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("target_server", target_server)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="databaseCount")
@@ -11984,21 +16420,116 @@ class MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse(dict):
         :param str table_name: Name of the table
         :param float total_changes_applied: Total number of applied changes
         """
-        pulumi.set(__self__, "cdc_delete_counter", cdc_delete_counter)
-        pulumi.set(__self__, "cdc_insert_counter", cdc_insert_counter)
-        pulumi.set(__self__, "cdc_update_counter", cdc_update_counter)
-        pulumi.set(__self__, "data_errors_counter", data_errors_counter)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "full_load_ended_on", full_load_ended_on)
-        pulumi.set(__self__, "full_load_est_finish_time", full_load_est_finish_time)
-        pulumi.set(__self__, "full_load_started_on", full_load_started_on)
-        pulumi.set(__self__, "full_load_total_rows", full_load_total_rows)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_modified_time", last_modified_time)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "table_name", table_name)
-        pulumi.set(__self__, "total_changes_applied", total_changes_applied)
+        MigrateSqlServerSqlDbSyncTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdc_delete_counter=cdc_delete_counter,
+            cdc_insert_counter=cdc_insert_counter,
+            cdc_update_counter=cdc_update_counter,
+            data_errors_counter=data_errors_counter,
+            database_name=database_name,
+            full_load_ended_on=full_load_ended_on,
+            full_load_est_finish_time=full_load_est_finish_time,
+            full_load_started_on=full_load_started_on,
+            full_load_total_rows=full_load_total_rows,
+            id=id,
+            last_modified_time=last_modified_time,
+            result_type=result_type,
+            state=state,
+            table_name=table_name,
+            total_changes_applied=total_changes_applied,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdc_delete_counter: Optional[float] = None,
+             cdc_insert_counter: Optional[float] = None,
+             cdc_update_counter: Optional[float] = None,
+             data_errors_counter: Optional[float] = None,
+             database_name: Optional[str] = None,
+             full_load_ended_on: Optional[str] = None,
+             full_load_est_finish_time: Optional[str] = None,
+             full_load_started_on: Optional[str] = None,
+             full_load_total_rows: Optional[float] = None,
+             id: Optional[str] = None,
+             last_modified_time: Optional[str] = None,
+             result_type: Optional[str] = None,
+             state: Optional[str] = None,
+             table_name: Optional[str] = None,
+             total_changes_applied: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cdc_delete_counter is None and 'cdcDeleteCounter' in kwargs:
+            cdc_delete_counter = kwargs['cdcDeleteCounter']
+        if cdc_delete_counter is None:
+            raise TypeError("Missing 'cdc_delete_counter' argument")
+        if cdc_insert_counter is None and 'cdcInsertCounter' in kwargs:
+            cdc_insert_counter = kwargs['cdcInsertCounter']
+        if cdc_insert_counter is None:
+            raise TypeError("Missing 'cdc_insert_counter' argument")
+        if cdc_update_counter is None and 'cdcUpdateCounter' in kwargs:
+            cdc_update_counter = kwargs['cdcUpdateCounter']
+        if cdc_update_counter is None:
+            raise TypeError("Missing 'cdc_update_counter' argument")
+        if data_errors_counter is None and 'dataErrorsCounter' in kwargs:
+            data_errors_counter = kwargs['dataErrorsCounter']
+        if data_errors_counter is None:
+            raise TypeError("Missing 'data_errors_counter' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if full_load_ended_on is None and 'fullLoadEndedOn' in kwargs:
+            full_load_ended_on = kwargs['fullLoadEndedOn']
+        if full_load_ended_on is None:
+            raise TypeError("Missing 'full_load_ended_on' argument")
+        if full_load_est_finish_time is None and 'fullLoadEstFinishTime' in kwargs:
+            full_load_est_finish_time = kwargs['fullLoadEstFinishTime']
+        if full_load_est_finish_time is None:
+            raise TypeError("Missing 'full_load_est_finish_time' argument")
+        if full_load_started_on is None and 'fullLoadStartedOn' in kwargs:
+            full_load_started_on = kwargs['fullLoadStartedOn']
+        if full_load_started_on is None:
+            raise TypeError("Missing 'full_load_started_on' argument")
+        if full_load_total_rows is None and 'fullLoadTotalRows' in kwargs:
+            full_load_total_rows = kwargs['fullLoadTotalRows']
+        if full_load_total_rows is None:
+            raise TypeError("Missing 'full_load_total_rows' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if last_modified_time is None:
+            raise TypeError("Missing 'last_modified_time' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if total_changes_applied is None and 'totalChangesApplied' in kwargs:
+            total_changes_applied = kwargs['totalChangesApplied']
+        if total_changes_applied is None:
+            raise TypeError("Missing 'total_changes_applied' argument")
+
+        _setter("cdc_delete_counter", cdc_delete_counter)
+        _setter("cdc_insert_counter", cdc_insert_counter)
+        _setter("cdc_update_counter", cdc_update_counter)
+        _setter("data_errors_counter", data_errors_counter)
+        _setter("database_name", database_name)
+        _setter("full_load_ended_on", full_load_ended_on)
+        _setter("full_load_est_finish_time", full_load_est_finish_time)
+        _setter("full_load_started_on", full_load_started_on)
+        _setter("full_load_total_rows", full_load_total_rows)
+        _setter("id", id)
+        _setter("last_modified_time", last_modified_time)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("state", state)
+        _setter("table_name", table_name)
+        _setter("total_changes_applied", total_changes_applied)
 
     @property
     @pulumi.getter(name="cdcDeleteCounter")
@@ -12165,15 +16696,52 @@ class MigrateSqlServerSqlDbSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlDbSyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDb.Sync')
+        MigrateSqlServerSqlDbSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateSqlServerSqlDbSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -12275,11 +16843,42 @@ class MigrateSqlServerSqlDbTaskInputResponse(dict):
                 1.) Data Integrity Check: Performs a checksum based comparison on source and target tables after the migration to ensure the correctness of the data. 
                 2.) Schema Validation: Performs a thorough schema comparison between the source and target tables and provides a list of differences between the source and target database, 3.) Query Analysis: Executes a set of queries picked up automatically either from the Query Plan Cache or Query Store and execute them and compares the execution time between the source and target database.
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlDbTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            validation_options=validation_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[Sequence['outputs.MigrateSqlServerSqlDbDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             validation_options: Optional['outputs.MigrationValidationOptionsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if validation_options is None and 'validationOptions' in kwargs:
+            validation_options = kwargs['validationOptions']
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if validation_options is not None:
-            pulumi.set(__self__, "validation_options", validation_options)
+            _setter("validation_options", validation_options)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -12393,22 +16992,119 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_count", error_count)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "number_of_objects", number_of_objects)
-        pulumi.set(__self__, "number_of_objects_completed", number_of_objects_completed)
-        pulumi.set(__self__, "object_summary", object_summary)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        MigrateSqlServerSqlDbTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            ended_on=ended_on,
+            error_count=error_count,
+            error_prefix=error_prefix,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            message=message,
+            number_of_objects=number_of_objects,
+            number_of_objects_completed=number_of_objects_completed,
+            object_summary=object_summary,
+            result_prefix=result_prefix,
+            result_type=result_type,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             ended_on: Optional[str] = None,
+             error_count: Optional[float] = None,
+             error_prefix: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             message: Optional[str] = None,
+             number_of_objects: Optional[float] = None,
+             number_of_objects_completed: Optional[float] = None,
+             object_summary: Optional[Mapping[str, 'outputs.DataItemMigrationSummaryResultResponse']] = None,
+             result_prefix: Optional[str] = None,
+             result_type: Optional[str] = None,
+             stage: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             status_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if error_count is None and 'errorCount' in kwargs:
+            error_count = kwargs['errorCount']
+        if error_count is None:
+            raise TypeError("Missing 'error_count' argument")
+        if error_prefix is None and 'errorPrefix' in kwargs:
+            error_prefix = kwargs['errorPrefix']
+        if error_prefix is None:
+            raise TypeError("Missing 'error_prefix' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if number_of_objects is None and 'numberOfObjects' in kwargs:
+            number_of_objects = kwargs['numberOfObjects']
+        if number_of_objects is None:
+            raise TypeError("Missing 'number_of_objects' argument")
+        if number_of_objects_completed is None and 'numberOfObjectsCompleted' in kwargs:
+            number_of_objects_completed = kwargs['numberOfObjectsCompleted']
+        if number_of_objects_completed is None:
+            raise TypeError("Missing 'number_of_objects_completed' argument")
+        if object_summary is None and 'objectSummary' in kwargs:
+            object_summary = kwargs['objectSummary']
+        if object_summary is None:
+            raise TypeError("Missing 'object_summary' argument")
+        if result_prefix is None and 'resultPrefix' in kwargs:
+            result_prefix = kwargs['resultPrefix']
+        if result_prefix is None:
+            raise TypeError("Missing 'result_prefix' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if status_message is None:
+            raise TypeError("Missing 'status_message' argument")
+
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("error_count", error_count)
+        _setter("error_prefix", error_prefix)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("number_of_objects", number_of_objects)
+        _setter("number_of_objects_completed", number_of_objects_completed)
+        _setter("object_summary", object_summary)
+        _setter("result_prefix", result_prefix)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -12601,17 +17297,88 @@ class MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse(dict)
         :param str status: Current status of validation at the database level
         :param str target_database_name: Name of the target database
         """
-        pulumi.set(__self__, "data_integrity_validation_result", data_integrity_validation_result)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "migration_id", migration_id)
-        pulumi.set(__self__, "query_analysis_validation_result", query_analysis_validation_result)
-        pulumi.set(__self__, "result_type", 'MigrationDatabaseLevelValidationOutput')
-        pulumi.set(__self__, "schema_validation_result", schema_validation_result)
-        pulumi.set(__self__, "source_database_name", source_database_name)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "target_database_name", target_database_name)
+        MigrateSqlServerSqlDbTaskOutputDatabaseLevelValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_integrity_validation_result=data_integrity_validation_result,
+            ended_on=ended_on,
+            id=id,
+            migration_id=migration_id,
+            query_analysis_validation_result=query_analysis_validation_result,
+            result_type=result_type,
+            schema_validation_result=schema_validation_result,
+            source_database_name=source_database_name,
+            started_on=started_on,
+            status=status,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_integrity_validation_result: Optional['outputs.DataIntegrityValidationResultResponse'] = None,
+             ended_on: Optional[str] = None,
+             id: Optional[str] = None,
+             migration_id: Optional[str] = None,
+             query_analysis_validation_result: Optional['outputs.QueryAnalysisValidationResultResponse'] = None,
+             result_type: Optional[str] = None,
+             schema_validation_result: Optional['outputs.SchemaComparisonValidationResultResponse'] = None,
+             source_database_name: Optional[str] = None,
+             started_on: Optional[str] = None,
+             status: Optional[str] = None,
+             target_database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_integrity_validation_result is None and 'dataIntegrityValidationResult' in kwargs:
+            data_integrity_validation_result = kwargs['dataIntegrityValidationResult']
+        if data_integrity_validation_result is None:
+            raise TypeError("Missing 'data_integrity_validation_result' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if migration_id is None and 'migrationId' in kwargs:
+            migration_id = kwargs['migrationId']
+        if migration_id is None:
+            raise TypeError("Missing 'migration_id' argument")
+        if query_analysis_validation_result is None and 'queryAnalysisValidationResult' in kwargs:
+            query_analysis_validation_result = kwargs['queryAnalysisValidationResult']
+        if query_analysis_validation_result is None:
+            raise TypeError("Missing 'query_analysis_validation_result' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if schema_validation_result is None and 'schemaValidationResult' in kwargs:
+            schema_validation_result = kwargs['schemaValidationResult']
+        if schema_validation_result is None:
+            raise TypeError("Missing 'schema_validation_result' argument")
+        if source_database_name is None and 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+        if source_database_name is None:
+            raise TypeError("Missing 'source_database_name' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_database_name is None:
+            raise TypeError("Missing 'target_database_name' argument")
+
+        _setter("data_integrity_validation_result", data_integrity_validation_result)
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("migration_id", migration_id)
+        _setter("query_analysis_validation_result", query_analysis_validation_result)
+        _setter("result_type", 'MigrationDatabaseLevelValidationOutput')
+        _setter("schema_validation_result", schema_validation_result)
+        _setter("source_database_name", source_database_name)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter(name="dataIntegrityValidationResult")
@@ -12732,9 +17499,32 @@ class MigrateSqlServerSqlDbTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateSqlServerSqlDbTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ReportableExceptionResponse'] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -12843,25 +17633,124 @@ class MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse(dict):
         :param 'MigrationReportResultResponse' migration_report_result: Migration Report Result, provides unique url for downloading your migration report.
         :param 'MigrationValidationResultResponse' migration_validation_result: Migration Validation Results
         """
-        pulumi.set(__self__, "database_summary", database_summary)
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "status_message", status_message)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSqlServerSqlDbTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_summary=database_summary,
+            databases=databases,
+            duration_in_seconds=duration_in_seconds,
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            message=message,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            status=status,
+            status_message=status_message,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+            migration_report_result=migration_report_result,
+            migration_validation_result=migration_validation_result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_summary: Optional[Mapping[str, 'outputs.DatabaseSummaryResultResponse']] = None,
+             databases: Optional[Mapping[str, str]] = None,
+             duration_in_seconds: Optional[float] = None,
+             ended_on: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             message: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_server_brand_version: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             started_on: Optional[str] = None,
+             status: Optional[str] = None,
+             status_message: Optional[str] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             migration_report_result: Optional['outputs.MigrationReportResultResponse'] = None,
+             migration_validation_result: Optional['outputs.MigrationValidationResultResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_summary is None and 'databaseSummary' in kwargs:
+            database_summary = kwargs['databaseSummary']
+        if database_summary is None:
+            raise TypeError("Missing 'database_summary' argument")
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+        if duration_in_seconds is None:
+            raise TypeError("Missing 'duration_in_seconds' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if status_message is None:
+            raise TypeError("Missing 'status_message' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+        if migration_report_result is None and 'migrationReportResult' in kwargs:
+            migration_report_result = kwargs['migrationReportResult']
+        if migration_validation_result is None and 'migrationValidationResult' in kwargs:
+            migration_validation_result = kwargs['migrationValidationResult']
+
+        _setter("database_summary", database_summary)
+        _setter("databases", databases)
+        _setter("duration_in_seconds", duration_in_seconds)
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("status_message", status_message)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
         if migration_report_result is not None:
-            pulumi.set(__self__, "migration_report_result", migration_report_result)
+            _setter("migration_report_result", migration_report_result)
         if migration_validation_result is not None:
-            pulumi.set(__self__, "migration_validation_result", migration_validation_result)
+            _setter("migration_validation_result", migration_validation_result)
 
     @property
     @pulumi.getter(name="databaseSummary")
@@ -13062,17 +17951,88 @@ class MigrateSqlServerSqlDbTaskOutputTableLevelResponse(dict):
         :param str state: Current state of migration
         :param str status_message: Status message
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "items_completed_count", items_completed_count)
-        pulumi.set(__self__, "items_count", items_count)
-        pulumi.set(__self__, "object_name", object_name)
-        pulumi.set(__self__, "result_prefix", result_prefix)
-        pulumi.set(__self__, "result_type", 'TableLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status_message", status_message)
+        MigrateSqlServerSqlDbTaskOutputTableLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            id=id,
+            items_completed_count=items_completed_count,
+            items_count=items_count,
+            object_name=object_name,
+            result_prefix=result_prefix,
+            result_type=result_type,
+            started_on=started_on,
+            state=state,
+            status_message=status_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             error_prefix: Optional[str] = None,
+             id: Optional[str] = None,
+             items_completed_count: Optional[float] = None,
+             items_count: Optional[float] = None,
+             object_name: Optional[str] = None,
+             result_prefix: Optional[str] = None,
+             result_type: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             status_message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if error_prefix is None and 'errorPrefix' in kwargs:
+            error_prefix = kwargs['errorPrefix']
+        if error_prefix is None:
+            raise TypeError("Missing 'error_prefix' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if items_completed_count is None and 'itemsCompletedCount' in kwargs:
+            items_completed_count = kwargs['itemsCompletedCount']
+        if items_completed_count is None:
+            raise TypeError("Missing 'items_completed_count' argument")
+        if items_count is None and 'itemsCount' in kwargs:
+            items_count = kwargs['itemsCount']
+        if items_count is None:
+            raise TypeError("Missing 'items_count' argument")
+        if object_name is None and 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if object_name is None:
+            raise TypeError("Missing 'object_name' argument")
+        if result_prefix is None and 'resultPrefix' in kwargs:
+            result_prefix = kwargs['resultPrefix']
+        if result_prefix is None:
+            raise TypeError("Missing 'result_prefix' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status_message is None and 'statusMessage' in kwargs:
+            status_message = kwargs['statusMessage']
+        if status_message is None:
+            raise TypeError("Missing 'status_message' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("id", id)
+        _setter("items_completed_count", items_completed_count)
+        _setter("items_count", items_count)
+        _setter("object_name", object_name)
+        _setter("result_prefix", result_prefix)
+        _setter("result_type", 'TableLevelOutput')
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status_message", status_message)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -13201,12 +18161,45 @@ class MigrateSqlServerSqlDbTaskOutputValidationResultResponse(dict):
         :param str status: Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
         :param Mapping[str, 'MigrationValidationDatabaseSummaryResultResponse'] summary_results: Validation summary results for each database
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "migration_id", migration_id)
-        pulumi.set(__self__, "result_type", 'MigrationValidationOutput')
-        pulumi.set(__self__, "status", status)
+        MigrateSqlServerSqlDbTaskOutputValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            migration_id=migration_id,
+            result_type=result_type,
+            status=status,
+            summary_results=summary_results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             migration_id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             status: Optional[str] = None,
+             summary_results: Optional[Mapping[str, 'outputs.MigrationValidationDatabaseSummaryResultResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if migration_id is None and 'migrationId' in kwargs:
+            migration_id = kwargs['migrationId']
+        if migration_id is None:
+            raise TypeError("Missing 'migration_id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if summary_results is None and 'summaryResults' in kwargs:
+            summary_results = kwargs['summaryResults']
+
+        _setter("id", id)
+        _setter("migration_id", migration_id)
+        _setter("result_type", 'MigrationValidationOutput')
+        _setter("status", status)
         if summary_results is not None:
-            pulumi.set(__self__, "summary_results", summary_results)
+            _setter("summary_results", summary_results)
 
     @property
     @pulumi.getter
@@ -13293,15 +18286,52 @@ class MigrateSqlServerSqlDbTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlDbTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.SqlDb')
+        MigrateSqlServerSqlDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateSqlServerSqlDbTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.SqlServer.SqlDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -13399,12 +18429,39 @@ class MigrateSqlServerSqlMIDatabaseInputResponse(dict):
         :param Sequence[str] backup_file_paths: The list of backup files to be used in case of existing backups.
         :param 'FileShareResponse' backup_file_share: Backup file share information for backing up this database.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "restore_database_name", restore_database_name)
+        MigrateSqlServerSqlMIDatabaseInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            restore_database_name=restore_database_name,
+            backup_file_paths=backup_file_paths,
+            backup_file_share=backup_file_share,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             restore_database_name: Optional[str] = None,
+             backup_file_paths: Optional[Sequence[str]] = None,
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if restore_database_name is None and 'restoreDatabaseName' in kwargs:
+            restore_database_name = kwargs['restoreDatabaseName']
+        if restore_database_name is None:
+            raise TypeError("Missing 'restore_database_name' argument")
+        if backup_file_paths is None and 'backupFilePaths' in kwargs:
+            backup_file_paths = kwargs['backupFilePaths']
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+
+        _setter("name", name)
+        _setter("restore_database_name", restore_database_name)
         if backup_file_paths is not None:
-            pulumi.set(__self__, "backup_file_paths", backup_file_paths)
+            _setter("backup_file_paths", backup_file_paths)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
 
     @property
     @pulumi.getter
@@ -13487,13 +18544,56 @@ class MigrateSqlServerSqlMISyncTaskInputResponse(dict):
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlMISyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            storage_resource_id=storage_resource_id,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: Optional['outputs.AzureActiveDirectoryAppResponse'] = None,
+             selected_databases: Optional[Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             storage_resource_id: Optional[str] = None,
+             target_connection_info: Optional['outputs.MiSqlConnectionInfoResponse'] = None,
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_app is None and 'azureApp' in kwargs:
+            azure_app = kwargs['azureApp']
+        if azure_app is None:
+            raise TypeError("Missing 'azure_app' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+
+        _setter("azure_app", azure_app)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("storage_resource_id", storage_resource_id)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -13615,19 +18715,104 @@ class MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse(dict):
         :param str source_database_name: Name of the database
         :param str started_on: Database migration start time
         """
-        pulumi.set(__self__, "active_backup_sets", active_backup_sets)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "error_prefix", error_prefix)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "full_backup_set_info", full_backup_set_info)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_full_backup_restored", is_full_backup_restored)
-        pulumi.set(__self__, "last_restored_backup_set_info", last_restored_backup_set_info)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "source_database_name", source_database_name)
-        pulumi.set(__self__, "started_on", started_on)
+        MigrateSqlServerSqlMISyncTaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_backup_sets=active_backup_sets,
+            container_name=container_name,
+            ended_on=ended_on,
+            error_prefix=error_prefix,
+            exceptions_and_warnings=exceptions_and_warnings,
+            full_backup_set_info=full_backup_set_info,
+            id=id,
+            is_full_backup_restored=is_full_backup_restored,
+            last_restored_backup_set_info=last_restored_backup_set_info,
+            migration_state=migration_state,
+            result_type=result_type,
+            source_database_name=source_database_name,
+            started_on=started_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_backup_sets: Optional[Sequence['outputs.BackupSetInfoResponse']] = None,
+             container_name: Optional[str] = None,
+             ended_on: Optional[str] = None,
+             error_prefix: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             full_backup_set_info: Optional['outputs.BackupSetInfoResponse'] = None,
+             id: Optional[str] = None,
+             is_full_backup_restored: Optional[bool] = None,
+             last_restored_backup_set_info: Optional['outputs.BackupSetInfoResponse'] = None,
+             migration_state: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_database_name: Optional[str] = None,
+             started_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_backup_sets is None and 'activeBackupSets' in kwargs:
+            active_backup_sets = kwargs['activeBackupSets']
+        if active_backup_sets is None:
+            raise TypeError("Missing 'active_backup_sets' argument")
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if container_name is None:
+            raise TypeError("Missing 'container_name' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if error_prefix is None and 'errorPrefix' in kwargs:
+            error_prefix = kwargs['errorPrefix']
+        if error_prefix is None:
+            raise TypeError("Missing 'error_prefix' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if full_backup_set_info is None and 'fullBackupSetInfo' in kwargs:
+            full_backup_set_info = kwargs['fullBackupSetInfo']
+        if full_backup_set_info is None:
+            raise TypeError("Missing 'full_backup_set_info' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_full_backup_restored is None and 'isFullBackupRestored' in kwargs:
+            is_full_backup_restored = kwargs['isFullBackupRestored']
+        if is_full_backup_restored is None:
+            raise TypeError("Missing 'is_full_backup_restored' argument")
+        if last_restored_backup_set_info is None and 'lastRestoredBackupSetInfo' in kwargs:
+            last_restored_backup_set_info = kwargs['lastRestoredBackupSetInfo']
+        if last_restored_backup_set_info is None:
+            raise TypeError("Missing 'last_restored_backup_set_info' argument")
+        if migration_state is None and 'migrationState' in kwargs:
+            migration_state = kwargs['migrationState']
+        if migration_state is None:
+            raise TypeError("Missing 'migration_state' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_database_name is None and 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+        if source_database_name is None:
+            raise TypeError("Missing 'source_database_name' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+
+        _setter("active_backup_sets", active_backup_sets)
+        _setter("container_name", container_name)
+        _setter("ended_on", ended_on)
+        _setter("error_prefix", error_prefix)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("full_backup_set_info", full_backup_set_info)
+        _setter("id", id)
+        _setter("is_full_backup_restored", is_full_backup_restored)
+        _setter("last_restored_backup_set_info", last_restored_backup_set_info)
+        _setter("migration_state", migration_state)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("source_database_name", source_database_name)
+        _setter("started_on", started_on)
 
     @property
     @pulumi.getter(name="activeBackupSets")
@@ -13764,9 +18949,32 @@ class MigrateSqlServerSqlMISyncTaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateSqlServerSqlMISyncTaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ReportableExceptionResponse'] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -13863,19 +19071,102 @@ class MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse(dict):
         :param str target_server_name: Target server name
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "database_count", database_count)
-        pulumi.set(__self__, "database_error_count", database_error_count)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_name", source_server_name)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_name", target_server_name)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSqlServerSqlMISyncTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_count=database_count,
+            database_error_count=database_error_count,
+            ended_on=ended_on,
+            id=id,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_name=source_server_name,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            state=state,
+            target_server_brand_version=target_server_brand_version,
+            target_server_name=target_server_name,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_count: Optional[int] = None,
+             database_error_count: Optional[int] = None,
+             ended_on: Optional[str] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_server_brand_version: Optional[str] = None,
+             source_server_name: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_name: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_count is None and 'databaseCount' in kwargs:
+            database_count = kwargs['databaseCount']
+        if database_count is None:
+            raise TypeError("Missing 'database_count' argument")
+        if database_error_count is None and 'databaseErrorCount' in kwargs:
+            database_error_count = kwargs['databaseErrorCount']
+        if database_error_count is None:
+            raise TypeError("Missing 'database_error_count' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if source_server_name is None and 'sourceServerName' in kwargs:
+            source_server_name = kwargs['sourceServerName']
+        if source_server_name is None:
+            raise TypeError("Missing 'source_server_name' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_name is None and 'targetServerName' in kwargs:
+            target_server_name = kwargs['targetServerName']
+        if target_server_name is None:
+            raise TypeError("Missing 'target_server_name' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+
+        _setter("database_count", database_count)
+        _setter("database_error_count", database_error_count)
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_name", source_server_name)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_name", target_server_name)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="databaseCount")
@@ -14026,15 +19317,52 @@ class MigrateSqlServerSqlMISyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlMISyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS')
+        MigrateSqlServerSqlMISyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateSqlServerSqlMISyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -14154,20 +19482,73 @@ class MigrateSqlServerSqlMITaskInputResponse(dict):
         :param Sequence[str] selected_agent_jobs: Agent Jobs to migrate.
         :param Sequence[str] selected_logins: Logins to migrate.
         """
-        pulumi.set(__self__, "backup_blob_share", backup_blob_share)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSqlServerSqlMITaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_blob_share=backup_blob_share,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            aad_domain_name=aad_domain_name,
+            backup_file_share=backup_file_share,
+            backup_mode=backup_mode,
+            selected_agent_jobs=selected_agent_jobs,
+            selected_logins=selected_logins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_blob_share: Optional['outputs.BlobShareResponse'] = None,
+             selected_databases: Optional[Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             aad_domain_name: Optional[str] = None,
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             backup_mode: Optional[str] = None,
+             selected_agent_jobs: Optional[Sequence[str]] = None,
+             selected_logins: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_blob_share is None and 'backupBlobShare' in kwargs:
+            backup_blob_share = kwargs['backupBlobShare']
+        if backup_blob_share is None:
+            raise TypeError("Missing 'backup_blob_share' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if aad_domain_name is None and 'aadDomainName' in kwargs:
+            aad_domain_name = kwargs['aadDomainName']
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+        if backup_mode is None and 'backupMode' in kwargs:
+            backup_mode = kwargs['backupMode']
+        if selected_agent_jobs is None and 'selectedAgentJobs' in kwargs:
+            selected_agent_jobs = kwargs['selectedAgentJobs']
+        if selected_logins is None and 'selectedLogins' in kwargs:
+            selected_logins = kwargs['selectedLogins']
+
+        _setter("backup_blob_share", backup_blob_share)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if aad_domain_name is not None:
-            pulumi.set(__self__, "aad_domain_name", aad_domain_name)
+            _setter("aad_domain_name", aad_domain_name)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
         if backup_mode is not None:
-            pulumi.set(__self__, "backup_mode", backup_mode)
+            _setter("backup_mode", backup_mode)
         if selected_agent_jobs is not None:
-            pulumi.set(__self__, "selected_agent_jobs", selected_agent_jobs)
+            _setter("selected_agent_jobs", selected_agent_jobs)
         if selected_logins is not None:
-            pulumi.set(__self__, "selected_logins", selected_logins)
+            _setter("selected_logins", selected_logins)
 
     @property
     @pulumi.getter(name="backupBlobShare")
@@ -14291,15 +19672,70 @@ class MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse(dict):
         :param str started_on: Migration start time
         :param str state: Current state of migration
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "result_type", 'AgentJobLevelOutput')
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
+        MigrateSqlServerSqlMITaskOutputAgentJobLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            is_enabled=is_enabled,
+            message=message,
+            name=name,
+            result_type=result_type,
+            started_on=started_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             is_enabled: Optional[bool] = None,
+             message: Optional[str] = None,
+             name: Optional[str] = None,
+             result_type: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if is_enabled is None:
+            raise TypeError("Missing 'is_enabled' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("is_enabled", is_enabled)
+        _setter("message", message)
+        _setter("name", name)
+        _setter("result_type", 'AgentJobLevelOutput')
+        _setter("started_on", started_on)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -14428,16 +19864,77 @@ class MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse(dict):
         :param str started_on: Migration start time
         :param str state: Current state of migration
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'DatabaseLevelOutput')
-        pulumi.set(__self__, "size_mb", size_mb)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
+        MigrateSqlServerSqlMITaskOutputDatabaseLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            message=message,
+            result_type=result_type,
+            size_mb=size_mb,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             ended_on: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             message: Optional[str] = None,
+             result_type: Optional[str] = None,
+             size_mb: Optional[float] = None,
+             stage: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if size_mb is None and 'sizeMB' in kwargs:
+            size_mb = kwargs['sizeMB']
+        if size_mb is None:
+            raise TypeError("Missing 'size_mb' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("database_name", database_name)
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("result_type", 'DatabaseLevelOutput')
+        _setter("size_mb", size_mb)
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -14550,9 +20047,32 @@ class MigrateSqlServerSqlMITaskOutputErrorResponse(dict):
         :param str result_type: Result type
                Expected value is 'ErrorOutput'.
         """
-        pulumi.set(__self__, "error", error)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "result_type", 'ErrorOutput')
+        MigrateSqlServerSqlMITaskOutputErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            error=error,
+            id=id,
+            result_type=result_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             error: Optional['outputs.ReportableExceptionResponse'] = None,
+             id: Optional[str] = None,
+             result_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error is None:
+            raise TypeError("Missing 'error' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+
+        _setter("error", error)
+        _setter("id", id)
+        _setter("result_type", 'ErrorOutput')
 
     @property
     @pulumi.getter
@@ -14629,15 +20149,70 @@ class MigrateSqlServerSqlMITaskOutputLoginLevelResponse(dict):
         :param str started_on: Login migration start time
         :param str state: Current state of login
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "login_name", login_name)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'LoginLevelOutput')
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
+        MigrateSqlServerSqlMITaskOutputLoginLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            login_name=login_name,
+            message=message,
+            result_type=result_type,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             login_name: Optional[str] = None,
+             message: Optional[str] = None,
+             result_type: Optional[str] = None,
+             stage: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if login_name is None and 'loginName' in kwargs:
+            login_name = kwargs['loginName']
+        if login_name is None:
+            raise TypeError("Missing 'login_name' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("login_name", login_name)
+        _setter("message", message)
+        _setter("result_type", 'LoginLevelOutput')
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -14790,23 +20365,122 @@ class MigrateSqlServerSqlMITaskOutputMigrationLevelResponse(dict):
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "agent_jobs", agent_jobs)
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "logins", logins)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "orphaned_users_info", orphaned_users_info)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "server_role_results", server_role_results)
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSqlServerSqlMITaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_jobs=agent_jobs,
+            databases=databases,
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            logins=logins,
+            message=message,
+            orphaned_users_info=orphaned_users_info,
+            result_type=result_type,
+            server_role_results=server_role_results,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            started_on=started_on,
+            state=state,
+            status=status,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_jobs: Optional[Mapping[str, str]] = None,
+             databases: Optional[Mapping[str, str]] = None,
+             ended_on: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             logins: Optional[Mapping[str, str]] = None,
+             message: Optional[str] = None,
+             orphaned_users_info: Optional[Sequence['outputs.OrphanedUserInfoResponse']] = None,
+             result_type: Optional[str] = None,
+             server_role_results: Optional[Mapping[str, 'outputs.StartMigrationScenarioServerRoleResultResponse']] = None,
+             source_server_brand_version: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             status: Optional[str] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_jobs is None and 'agentJobs' in kwargs:
+            agent_jobs = kwargs['agentJobs']
+        if agent_jobs is None:
+            raise TypeError("Missing 'agent_jobs' argument")
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if logins is None:
+            raise TypeError("Missing 'logins' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if orphaned_users_info is None and 'orphanedUsersInfo' in kwargs:
+            orphaned_users_info = kwargs['orphanedUsersInfo']
+        if orphaned_users_info is None:
+            raise TypeError("Missing 'orphaned_users_info' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if server_role_results is None and 'serverRoleResults' in kwargs:
+            server_role_results = kwargs['serverRoleResults']
+        if server_role_results is None:
+            raise TypeError("Missing 'server_role_results' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+
+        _setter("agent_jobs", agent_jobs)
+        _setter("databases", databases)
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("logins", logins)
+        _setter("message", message)
+        _setter("orphaned_users_info", orphaned_users_info)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("server_role_results", server_role_results)
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("started_on", started_on)
+        _setter("state", state)
+        _setter("status", status)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="agentJobs")
@@ -14989,15 +20663,52 @@ class MigrateSqlServerSqlMITaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSqlServerSqlMITaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.SqlServer.AzureSqlDbMI')
+        MigrateSqlServerSqlMITaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateSqlServerSqlMITaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.SqlServer.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -15093,9 +20804,36 @@ class MigrateSsisTaskInputResponse(dict):
         :param 'SsisMigrationInfoResponse' ssis_migration_info: SSIS package migration information.
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         """
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "ssis_migration_info", ssis_migration_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        MigrateSsisTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_connection_info=source_connection_info,
+            ssis_migration_info=ssis_migration_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             ssis_migration_info: Optional['outputs.SsisMigrationInfoResponse'] = None,
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if ssis_migration_info is None and 'ssisMigrationInfo' in kwargs:
+            ssis_migration_info = kwargs['ssisMigrationInfo']
+        if ssis_migration_info is None:
+            raise TypeError("Missing 'ssis_migration_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("source_connection_info", source_connection_info)
+        _setter("ssis_migration_info", ssis_migration_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -15183,18 +20921,91 @@ class MigrateSsisTaskOutputMigrationLevelResponse(dict):
         :param str target_server_brand_version: Target server brand version
         :param str target_server_version: Target server version
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "result_type", 'MigrationLevelOutput')
-        pulumi.set(__self__, "source_server_brand_version", source_server_brand_version)
-        pulumi.set(__self__, "source_server_version", source_server_version)
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "target_server_brand_version", target_server_brand_version)
-        pulumi.set(__self__, "target_server_version", target_server_version)
+        MigrateSsisTaskOutputMigrationLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            id=id,
+            message=message,
+            result_type=result_type,
+            source_server_brand_version=source_server_brand_version,
+            source_server_version=source_server_version,
+            stage=stage,
+            started_on=started_on,
+            status=status,
+            target_server_brand_version=target_server_brand_version,
+            target_server_version=target_server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             message: Optional[str] = None,
+             result_type: Optional[str] = None,
+             source_server_brand_version: Optional[str] = None,
+             source_server_version: Optional[str] = None,
+             stage: Optional[str] = None,
+             started_on: Optional[str] = None,
+             status: Optional[str] = None,
+             target_server_brand_version: Optional[str] = None,
+             target_server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if source_server_brand_version is None and 'sourceServerBrandVersion' in kwargs:
+            source_server_brand_version = kwargs['sourceServerBrandVersion']
+        if source_server_brand_version is None:
+            raise TypeError("Missing 'source_server_brand_version' argument")
+        if source_server_version is None and 'sourceServerVersion' in kwargs:
+            source_server_version = kwargs['sourceServerVersion']
+        if source_server_version is None:
+            raise TypeError("Missing 'source_server_version' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if target_server_brand_version is None and 'targetServerBrandVersion' in kwargs:
+            target_server_brand_version = kwargs['targetServerBrandVersion']
+        if target_server_brand_version is None:
+            raise TypeError("Missing 'target_server_brand_version' argument")
+        if target_server_version is None and 'targetServerVersion' in kwargs:
+            target_server_version = kwargs['targetServerVersion']
+        if target_server_version is None:
+            raise TypeError("Missing 'target_server_version' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("result_type", 'MigrationLevelOutput')
+        _setter("source_server_brand_version", source_server_brand_version)
+        _setter("source_server_version", source_server_version)
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("target_server_brand_version", target_server_brand_version)
+        _setter("target_server_version", target_server_version)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -15347,16 +21158,77 @@ class MigrateSsisTaskOutputProjectLevelResponse(dict):
         :param str started_on: Migration start time
         :param str state: Current state of migration
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "folder_name", folder_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "result_type", 'SsisProjectLevelOutput')
-        pulumi.set(__self__, "stage", stage)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "state", state)
+        MigrateSsisTaskOutputProjectLevelResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            exceptions_and_warnings=exceptions_and_warnings,
+            folder_name=folder_name,
+            id=id,
+            message=message,
+            project_name=project_name,
+            result_type=result_type,
+            stage=stage,
+            started_on=started_on,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             folder_name: Optional[str] = None,
+             id: Optional[str] = None,
+             message: Optional[str] = None,
+             project_name: Optional[str] = None,
+             result_type: Optional[str] = None,
+             stage: Optional[str] = None,
+             started_on: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if folder_name is None and 'folderName' in kwargs:
+            folder_name = kwargs['folderName']
+        if folder_name is None:
+            raise TypeError("Missing 'folder_name' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("folder_name", folder_name)
+        _setter("id", id)
+        _setter("message", message)
+        _setter("project_name", project_name)
+        _setter("result_type", 'SsisProjectLevelOutput')
+        _setter("stage", stage)
+        _setter("started_on", started_on)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -15483,15 +21355,52 @@ class MigrateSsisTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateSsisTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Migrate.Ssis')
+        MigrateSsisTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence[Any]] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateSsisTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Migrate.Ssis')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -15583,9 +21492,28 @@ class MigrateSyncCompleteCommandInputResponse(dict):
         :param str database_name: Name of database
         :param str commit_time_stamp: Time stamp to complete
         """
-        pulumi.set(__self__, "database_name", database_name)
+        MigrateSyncCompleteCommandInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            commit_time_stamp=commit_time_stamp,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             commit_time_stamp: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if commit_time_stamp is None and 'commitTimeStamp' in kwargs:
+            commit_time_stamp = kwargs['commitTimeStamp']
+
+        _setter("database_name", database_name)
         if commit_time_stamp is not None:
-            pulumi.set(__self__, "commit_time_stamp", commit_time_stamp)
+            _setter("commit_time_stamp", commit_time_stamp)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -15617,8 +21545,25 @@ class MigrateSyncCompleteCommandOutputResponse(dict):
         :param Sequence['ReportableExceptionResponse'] errors: List of errors that happened during the command execution
         :param str id: Result identifier
         """
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "id", id)
+        MigrateSyncCompleteCommandOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            errors=errors,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("errors", errors)
+        _setter("id", id)
 
     @property
     @pulumi.getter
@@ -15674,12 +21619,41 @@ class MigrateSyncCompleteCommandPropertiesResponse(dict):
         :param str state: The state of the command. This is ignored if submitted.
         :param 'MigrateSyncCompleteCommandInputResponse' input: Command input
         """
-        pulumi.set(__self__, "command_type", 'Migrate.Sync.Complete.Database')
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
+        MigrateSyncCompleteCommandPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command_type=command_type,
+            errors=errors,
+            output=output,
+            state=state,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command_type: Optional[str] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional['outputs.MigrateSyncCompleteCommandOutputResponse'] = None,
+             state: Optional[str] = None,
+             input: Optional['outputs.MigrateSyncCompleteCommandInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if command_type is None and 'commandType' in kwargs:
+            command_type = kwargs['commandType']
+        if command_type is None:
+            raise TypeError("Missing 'command_type' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("command_type", 'Migrate.Sync.Complete.Database')
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter(name="commandType")
@@ -15755,8 +21729,29 @@ class MigrationEligibilityInfoResponse(dict):
         :param bool is_eligible_for_migration: Whether object is eligible for migration or not.
         :param Sequence[str] validation_messages: Information about eligibility failure for the server object.
         """
-        pulumi.set(__self__, "is_eligible_for_migration", is_eligible_for_migration)
-        pulumi.set(__self__, "validation_messages", validation_messages)
+        MigrationEligibilityInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_eligible_for_migration=is_eligible_for_migration,
+            validation_messages=validation_messages,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_eligible_for_migration: Optional[bool] = None,
+             validation_messages: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_eligible_for_migration is None and 'isEligibleForMigration' in kwargs:
+            is_eligible_for_migration = kwargs['isEligibleForMigration']
+        if is_eligible_for_migration is None:
+            raise TypeError("Missing 'is_eligible_for_migration' argument")
+        if validation_messages is None and 'validationMessages' in kwargs:
+            validation_messages = kwargs['validationMessages']
+        if validation_messages is None:
+            raise TypeError("Missing 'validation_messages' argument")
+
+        _setter("is_eligible_for_migration", is_eligible_for_migration)
+        _setter("validation_messages", validation_messages)
 
     @property
     @pulumi.getter(name="isEligibleForMigration")
@@ -15805,10 +21800,25 @@ class MigrationReportResultResponse(dict):
         :param str id: Migration validation result identifier
         :param str report_url: The url of the report.
         """
+        MigrationReportResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            report_url=report_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             report_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if report_url is None and 'reportUrl' in kwargs:
+            report_url = kwargs['reportUrl']
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if report_url is not None:
-            pulumi.set(__self__, "report_url", report_url)
+            _setter("report_url", report_url)
 
     @property
     @pulumi.getter
@@ -15875,13 +21885,60 @@ class MigrationValidationDatabaseSummaryResultResponse(dict):
         :param str status: Current status of validation at the database level
         :param str target_database_name: Name of the target database
         """
-        pulumi.set(__self__, "ended_on", ended_on)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "migration_id", migration_id)
-        pulumi.set(__self__, "source_database_name", source_database_name)
-        pulumi.set(__self__, "started_on", started_on)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "target_database_name", target_database_name)
+        MigrationValidationDatabaseSummaryResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ended_on=ended_on,
+            id=id,
+            migration_id=migration_id,
+            source_database_name=source_database_name,
+            started_on=started_on,
+            status=status,
+            target_database_name=target_database_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ended_on: Optional[str] = None,
+             id: Optional[str] = None,
+             migration_id: Optional[str] = None,
+             source_database_name: Optional[str] = None,
+             started_on: Optional[str] = None,
+             status: Optional[str] = None,
+             target_database_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ended_on is None and 'endedOn' in kwargs:
+            ended_on = kwargs['endedOn']
+        if ended_on is None:
+            raise TypeError("Missing 'ended_on' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if migration_id is None and 'migrationId' in kwargs:
+            migration_id = kwargs['migrationId']
+        if migration_id is None:
+            raise TypeError("Missing 'migration_id' argument")
+        if source_database_name is None and 'sourceDatabaseName' in kwargs:
+            source_database_name = kwargs['sourceDatabaseName']
+        if source_database_name is None:
+            raise TypeError("Missing 'source_database_name' argument")
+        if started_on is None and 'startedOn' in kwargs:
+            started_on = kwargs['startedOn']
+        if started_on is None:
+            raise TypeError("Missing 'started_on' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if target_database_name is None and 'targetDatabaseName' in kwargs:
+            target_database_name = kwargs['targetDatabaseName']
+        if target_database_name is None:
+            raise TypeError("Missing 'target_database_name' argument")
+
+        _setter("ended_on", ended_on)
+        _setter("id", id)
+        _setter("migration_id", migration_id)
+        _setter("source_database_name", source_database_name)
+        _setter("started_on", started_on)
+        _setter("status", status)
+        _setter("target_database_name", target_database_name)
 
     @property
     @pulumi.getter(name="endedOn")
@@ -15976,12 +22033,33 @@ class MigrationValidationOptionsResponse(dict):
         :param bool enable_query_analysis_validation: Allows to perform a quick and intelligent query analysis by retrieving queries from the source database and executes them in the target. The result will have execution statistics for executions in source and target databases for the extracted queries.
         :param bool enable_schema_validation: Allows to compare the schema information between source and target.
         """
+        MigrationValidationOptionsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_data_integrity_validation=enable_data_integrity_validation,
+            enable_query_analysis_validation=enable_query_analysis_validation,
+            enable_schema_validation=enable_schema_validation,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_data_integrity_validation: Optional[bool] = None,
+             enable_query_analysis_validation: Optional[bool] = None,
+             enable_schema_validation: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_data_integrity_validation is None and 'enableDataIntegrityValidation' in kwargs:
+            enable_data_integrity_validation = kwargs['enableDataIntegrityValidation']
+        if enable_query_analysis_validation is None and 'enableQueryAnalysisValidation' in kwargs:
+            enable_query_analysis_validation = kwargs['enableQueryAnalysisValidation']
+        if enable_schema_validation is None and 'enableSchemaValidation' in kwargs:
+            enable_schema_validation = kwargs['enableSchemaValidation']
+
         if enable_data_integrity_validation is not None:
-            pulumi.set(__self__, "enable_data_integrity_validation", enable_data_integrity_validation)
+            _setter("enable_data_integrity_validation", enable_data_integrity_validation)
         if enable_query_analysis_validation is not None:
-            pulumi.set(__self__, "enable_query_analysis_validation", enable_query_analysis_validation)
+            _setter("enable_query_analysis_validation", enable_query_analysis_validation)
         if enable_schema_validation is not None:
-            pulumi.set(__self__, "enable_schema_validation", enable_schema_validation)
+            _setter("enable_schema_validation", enable_schema_validation)
 
     @property
     @pulumi.getter(name="enableDataIntegrityValidation")
@@ -16044,11 +22122,38 @@ class MigrationValidationResultResponse(dict):
         :param str status: Current status of validation at the migration level. Status from the database validation result status will be aggregated here.
         :param Mapping[str, 'MigrationValidationDatabaseSummaryResultResponse'] summary_results: Validation summary results for each database
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "migration_id", migration_id)
-        pulumi.set(__self__, "status", status)
+        MigrationValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            migration_id=migration_id,
+            status=status,
+            summary_results=summary_results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             migration_id: Optional[str] = None,
+             status: Optional[str] = None,
+             summary_results: Optional[Mapping[str, 'outputs.MigrationValidationDatabaseSummaryResultResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if migration_id is None and 'migrationId' in kwargs:
+            migration_id = kwargs['migrationId']
+        if migration_id is None:
+            raise TypeError("Missing 'migration_id' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if summary_results is None and 'summaryResults' in kwargs:
+            summary_results = kwargs['summaryResults']
+
+        _setter("id", id)
+        _setter("migration_id", migration_id)
+        _setter("status", status)
         if summary_results is not None:
-            pulumi.set(__self__, "summary_results", summary_results)
+            _setter("summary_results", summary_results)
 
     @property
     @pulumi.getter
@@ -16117,10 +22222,37 @@ class MongoDbClusterInfoResponse(dict):
         :param str type: The type of data source
         :param str version: The version of the data source in the form x.y.z (e.g. 3.6.7). Not used if Type is BlobContainer.
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "supports_sharding", supports_sharding)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "version", version)
+        MongoDbClusterInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            supports_sharding=supports_sharding,
+            type=type,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Sequence['outputs.MongoDbDatabaseInfoResponse']] = None,
+             supports_sharding: Optional[bool] = None,
+             type: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if supports_sharding is None and 'supportsSharding' in kwargs:
+            supports_sharding = kwargs['supportsSharding']
+        if supports_sharding is None:
+            raise TypeError("Missing 'supports_sharding' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("databases", databases)
+        _setter("supports_sharding", supports_sharding)
+        _setter("type", type)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -16225,20 +22357,95 @@ class MongoDbCollectionInfoResponse(dict):
         :param 'MongoDbShardKeyInfoResponse' shard_key: The shard key on the collection, or null if the collection is not sharded
         :param str view_of: The name of the collection that this is a view of, if IsView is true
         """
-        pulumi.set(__self__, "average_document_size", average_document_size)
-        pulumi.set(__self__, "data_size", data_size)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "document_count", document_count)
-        pulumi.set(__self__, "is_capped", is_capped)
-        pulumi.set(__self__, "is_system_collection", is_system_collection)
-        pulumi.set(__self__, "is_view", is_view)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "qualified_name", qualified_name)
-        pulumi.set(__self__, "supports_sharding", supports_sharding)
+        MongoDbCollectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            average_document_size=average_document_size,
+            data_size=data_size,
+            database_name=database_name,
+            document_count=document_count,
+            is_capped=is_capped,
+            is_system_collection=is_system_collection,
+            is_view=is_view,
+            name=name,
+            qualified_name=qualified_name,
+            supports_sharding=supports_sharding,
+            shard_key=shard_key,
+            view_of=view_of,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             average_document_size: Optional[float] = None,
+             data_size: Optional[float] = None,
+             database_name: Optional[str] = None,
+             document_count: Optional[float] = None,
+             is_capped: Optional[bool] = None,
+             is_system_collection: Optional[bool] = None,
+             is_view: Optional[bool] = None,
+             name: Optional[str] = None,
+             qualified_name: Optional[str] = None,
+             supports_sharding: Optional[bool] = None,
+             shard_key: Optional['outputs.MongoDbShardKeyInfoResponse'] = None,
+             view_of: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if average_document_size is None and 'averageDocumentSize' in kwargs:
+            average_document_size = kwargs['averageDocumentSize']
+        if average_document_size is None:
+            raise TypeError("Missing 'average_document_size' argument")
+        if data_size is None and 'dataSize' in kwargs:
+            data_size = kwargs['dataSize']
+        if data_size is None:
+            raise TypeError("Missing 'data_size' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if document_count is None and 'documentCount' in kwargs:
+            document_count = kwargs['documentCount']
+        if document_count is None:
+            raise TypeError("Missing 'document_count' argument")
+        if is_capped is None and 'isCapped' in kwargs:
+            is_capped = kwargs['isCapped']
+        if is_capped is None:
+            raise TypeError("Missing 'is_capped' argument")
+        if is_system_collection is None and 'isSystemCollection' in kwargs:
+            is_system_collection = kwargs['isSystemCollection']
+        if is_system_collection is None:
+            raise TypeError("Missing 'is_system_collection' argument")
+        if is_view is None and 'isView' in kwargs:
+            is_view = kwargs['isView']
+        if is_view is None:
+            raise TypeError("Missing 'is_view' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if qualified_name is None and 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+        if qualified_name is None:
+            raise TypeError("Missing 'qualified_name' argument")
+        if supports_sharding is None and 'supportsSharding' in kwargs:
+            supports_sharding = kwargs['supportsSharding']
+        if supports_sharding is None:
+            raise TypeError("Missing 'supports_sharding' argument")
+        if shard_key is None and 'shardKey' in kwargs:
+            shard_key = kwargs['shardKey']
+        if view_of is None and 'viewOf' in kwargs:
+            view_of = kwargs['viewOf']
+
+        _setter("average_document_size", average_document_size)
+        _setter("data_size", data_size)
+        _setter("database_name", database_name)
+        _setter("document_count", document_count)
+        _setter("is_capped", is_capped)
+        _setter("is_system_collection", is_system_collection)
+        _setter("is_view", is_view)
+        _setter("name", name)
+        _setter("qualified_name", qualified_name)
+        _setter("supports_sharding", supports_sharding)
         if shard_key is not None:
-            pulumi.set(__self__, "shard_key", shard_key)
+            _setter("shard_key", shard_key)
         if view_of is not None:
-            pulumi.set(__self__, "view_of", view_of)
+            _setter("view_of", view_of)
 
     @property
     @pulumi.getter(name="averageDocumentSize")
@@ -16411,24 +22618,103 @@ class MongoDbCollectionProgressResponse(dict):
         :param str name: The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
         :param str qualified_name: The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
         """
-        pulumi.set(__self__, "bytes_copied", bytes_copied)
-        pulumi.set(__self__, "documents_copied", documents_copied)
-        pulumi.set(__self__, "elapsed_time", elapsed_time)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "events_pending", events_pending)
-        pulumi.set(__self__, "events_replayed", events_replayed)
-        pulumi.set(__self__, "result_type", 'Collection')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "total_bytes", total_bytes)
-        pulumi.set(__self__, "total_documents", total_documents)
+        MongoDbCollectionProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes_copied=bytes_copied,
+            documents_copied=documents_copied,
+            elapsed_time=elapsed_time,
+            errors=errors,
+            events_pending=events_pending,
+            events_replayed=events_replayed,
+            result_type=result_type,
+            state=state,
+            total_bytes=total_bytes,
+            total_documents=total_documents,
+            last_event_time=last_event_time,
+            last_replay_time=last_replay_time,
+            name=name,
+            qualified_name=qualified_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes_copied: Optional[float] = None,
+             documents_copied: Optional[float] = None,
+             elapsed_time: Optional[str] = None,
+             errors: Optional[Mapping[str, 'outputs.MongoDbErrorResponse']] = None,
+             events_pending: Optional[float] = None,
+             events_replayed: Optional[float] = None,
+             result_type: Optional[str] = None,
+             state: Optional[str] = None,
+             total_bytes: Optional[float] = None,
+             total_documents: Optional[float] = None,
+             last_event_time: Optional[str] = None,
+             last_replay_time: Optional[str] = None,
+             name: Optional[str] = None,
+             qualified_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bytes_copied is None and 'bytesCopied' in kwargs:
+            bytes_copied = kwargs['bytesCopied']
+        if bytes_copied is None:
+            raise TypeError("Missing 'bytes_copied' argument")
+        if documents_copied is None and 'documentsCopied' in kwargs:
+            documents_copied = kwargs['documentsCopied']
+        if documents_copied is None:
+            raise TypeError("Missing 'documents_copied' argument")
+        if elapsed_time is None and 'elapsedTime' in kwargs:
+            elapsed_time = kwargs['elapsedTime']
+        if elapsed_time is None:
+            raise TypeError("Missing 'elapsed_time' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if events_pending is None and 'eventsPending' in kwargs:
+            events_pending = kwargs['eventsPending']
+        if events_pending is None:
+            raise TypeError("Missing 'events_pending' argument")
+        if events_replayed is None and 'eventsReplayed' in kwargs:
+            events_replayed = kwargs['eventsReplayed']
+        if events_replayed is None:
+            raise TypeError("Missing 'events_replayed' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if total_bytes is None and 'totalBytes' in kwargs:
+            total_bytes = kwargs['totalBytes']
+        if total_bytes is None:
+            raise TypeError("Missing 'total_bytes' argument")
+        if total_documents is None and 'totalDocuments' in kwargs:
+            total_documents = kwargs['totalDocuments']
+        if total_documents is None:
+            raise TypeError("Missing 'total_documents' argument")
+        if last_event_time is None and 'lastEventTime' in kwargs:
+            last_event_time = kwargs['lastEventTime']
+        if last_replay_time is None and 'lastReplayTime' in kwargs:
+            last_replay_time = kwargs['lastReplayTime']
+        if qualified_name is None and 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+
+        _setter("bytes_copied", bytes_copied)
+        _setter("documents_copied", documents_copied)
+        _setter("elapsed_time", elapsed_time)
+        _setter("errors", errors)
+        _setter("events_pending", events_pending)
+        _setter("events_replayed", events_replayed)
+        _setter("result_type", 'Collection')
+        _setter("state", state)
+        _setter("total_bytes", total_bytes)
+        _setter("total_documents", total_documents)
         if last_event_time is not None:
-            pulumi.set(__self__, "last_event_time", last_event_time)
+            _setter("last_event_time", last_event_time)
         if last_replay_time is not None:
-            pulumi.set(__self__, "last_replay_time", last_replay_time)
+            _setter("last_replay_time", last_replay_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
+            _setter("qualified_name", qualified_name)
 
     @property
     @pulumi.getter(name="bytesCopied")
@@ -16577,12 +22863,33 @@ class MongoDbCollectionSettingsResponse(dict):
         :param 'MongoDbShardKeySettingResponse' shard_key: Describes a MongoDB shard key
         :param int target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default. This has no effect on non-CosmosDB targets.
         """
+        MongoDbCollectionSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            can_delete=can_delete,
+            shard_key=shard_key,
+            target_rus=target_rus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             can_delete: Optional[bool] = None,
+             shard_key: Optional['outputs.MongoDbShardKeySettingResponse'] = None,
+             target_rus: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if can_delete is None and 'canDelete' in kwargs:
+            can_delete = kwargs['canDelete']
+        if shard_key is None and 'shardKey' in kwargs:
+            shard_key = kwargs['shardKey']
+        if target_rus is None and 'targetRUs' in kwargs:
+            target_rus = kwargs['targetRUs']
+
         if can_delete is not None:
-            pulumi.set(__self__, "can_delete", can_delete)
+            _setter("can_delete", can_delete)
         if shard_key is not None:
-            pulumi.set(__self__, "shard_key", shard_key)
+            _setter("shard_key", shard_key)
         if target_rus is not None:
-            pulumi.set(__self__, "target_rus", target_rus)
+            _setter("target_rus", target_rus)
 
     @property
     @pulumi.getter(name="canDelete")
@@ -16646,12 +22953,37 @@ class MongoDbConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "type", 'MongoDbConnectionInfo')
+        MongoDbConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[str] = None,
+             type: Optional[str] = None,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("connection_string", connection_string)
+        _setter("type", 'MongoDbConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -16735,13 +23067,60 @@ class MongoDbDatabaseInfoResponse(dict):
         :param str qualified_name: The qualified name of the database or collection. For a collection, this is the database-qualified name.
         :param bool supports_sharding: Whether the database has sharding enabled. Note that the migration task will enable sharding on the target if necessary.
         """
-        pulumi.set(__self__, "average_document_size", average_document_size)
-        pulumi.set(__self__, "collections", collections)
-        pulumi.set(__self__, "data_size", data_size)
-        pulumi.set(__self__, "document_count", document_count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "qualified_name", qualified_name)
-        pulumi.set(__self__, "supports_sharding", supports_sharding)
+        MongoDbDatabaseInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            average_document_size=average_document_size,
+            collections=collections,
+            data_size=data_size,
+            document_count=document_count,
+            name=name,
+            qualified_name=qualified_name,
+            supports_sharding=supports_sharding,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             average_document_size: Optional[float] = None,
+             collections: Optional[Sequence['outputs.MongoDbCollectionInfoResponse']] = None,
+             data_size: Optional[float] = None,
+             document_count: Optional[float] = None,
+             name: Optional[str] = None,
+             qualified_name: Optional[str] = None,
+             supports_sharding: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if average_document_size is None and 'averageDocumentSize' in kwargs:
+            average_document_size = kwargs['averageDocumentSize']
+        if average_document_size is None:
+            raise TypeError("Missing 'average_document_size' argument")
+        if collections is None:
+            raise TypeError("Missing 'collections' argument")
+        if data_size is None and 'dataSize' in kwargs:
+            data_size = kwargs['dataSize']
+        if data_size is None:
+            raise TypeError("Missing 'data_size' argument")
+        if document_count is None and 'documentCount' in kwargs:
+            document_count = kwargs['documentCount']
+        if document_count is None:
+            raise TypeError("Missing 'document_count' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if qualified_name is None and 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+        if qualified_name is None:
+            raise TypeError("Missing 'qualified_name' argument")
+        if supports_sharding is None and 'supportsSharding' in kwargs:
+            supports_sharding = kwargs['supportsSharding']
+        if supports_sharding is None:
+            raise TypeError("Missing 'supports_sharding' argument")
+
+        _setter("average_document_size", average_document_size)
+        _setter("collections", collections)
+        _setter("data_size", data_size)
+        _setter("document_count", document_count)
+        _setter("name", name)
+        _setter("qualified_name", qualified_name)
+        _setter("supports_sharding", supports_sharding)
 
     @property
     @pulumi.getter(name="averageDocumentSize")
@@ -16876,26 +23255,107 @@ class MongoDbDatabaseProgressResponse(dict):
         :param str name: The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
         :param str qualified_name: The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
         """
-        pulumi.set(__self__, "bytes_copied", bytes_copied)
-        pulumi.set(__self__, "documents_copied", documents_copied)
-        pulumi.set(__self__, "elapsed_time", elapsed_time)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "events_pending", events_pending)
-        pulumi.set(__self__, "events_replayed", events_replayed)
-        pulumi.set(__self__, "result_type", 'Database')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "total_bytes", total_bytes)
-        pulumi.set(__self__, "total_documents", total_documents)
+        MongoDbDatabaseProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes_copied=bytes_copied,
+            documents_copied=documents_copied,
+            elapsed_time=elapsed_time,
+            errors=errors,
+            events_pending=events_pending,
+            events_replayed=events_replayed,
+            result_type=result_type,
+            state=state,
+            total_bytes=total_bytes,
+            total_documents=total_documents,
+            collections=collections,
+            last_event_time=last_event_time,
+            last_replay_time=last_replay_time,
+            name=name,
+            qualified_name=qualified_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes_copied: Optional[float] = None,
+             documents_copied: Optional[float] = None,
+             elapsed_time: Optional[str] = None,
+             errors: Optional[Mapping[str, 'outputs.MongoDbErrorResponse']] = None,
+             events_pending: Optional[float] = None,
+             events_replayed: Optional[float] = None,
+             result_type: Optional[str] = None,
+             state: Optional[str] = None,
+             total_bytes: Optional[float] = None,
+             total_documents: Optional[float] = None,
+             collections: Optional[Mapping[str, 'outputs.MongoDbCollectionProgressResponse']] = None,
+             last_event_time: Optional[str] = None,
+             last_replay_time: Optional[str] = None,
+             name: Optional[str] = None,
+             qualified_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bytes_copied is None and 'bytesCopied' in kwargs:
+            bytes_copied = kwargs['bytesCopied']
+        if bytes_copied is None:
+            raise TypeError("Missing 'bytes_copied' argument")
+        if documents_copied is None and 'documentsCopied' in kwargs:
+            documents_copied = kwargs['documentsCopied']
+        if documents_copied is None:
+            raise TypeError("Missing 'documents_copied' argument")
+        if elapsed_time is None and 'elapsedTime' in kwargs:
+            elapsed_time = kwargs['elapsedTime']
+        if elapsed_time is None:
+            raise TypeError("Missing 'elapsed_time' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if events_pending is None and 'eventsPending' in kwargs:
+            events_pending = kwargs['eventsPending']
+        if events_pending is None:
+            raise TypeError("Missing 'events_pending' argument")
+        if events_replayed is None and 'eventsReplayed' in kwargs:
+            events_replayed = kwargs['eventsReplayed']
+        if events_replayed is None:
+            raise TypeError("Missing 'events_replayed' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if total_bytes is None and 'totalBytes' in kwargs:
+            total_bytes = kwargs['totalBytes']
+        if total_bytes is None:
+            raise TypeError("Missing 'total_bytes' argument")
+        if total_documents is None and 'totalDocuments' in kwargs:
+            total_documents = kwargs['totalDocuments']
+        if total_documents is None:
+            raise TypeError("Missing 'total_documents' argument")
+        if last_event_time is None and 'lastEventTime' in kwargs:
+            last_event_time = kwargs['lastEventTime']
+        if last_replay_time is None and 'lastReplayTime' in kwargs:
+            last_replay_time = kwargs['lastReplayTime']
+        if qualified_name is None and 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+
+        _setter("bytes_copied", bytes_copied)
+        _setter("documents_copied", documents_copied)
+        _setter("elapsed_time", elapsed_time)
+        _setter("errors", errors)
+        _setter("events_pending", events_pending)
+        _setter("events_replayed", events_replayed)
+        _setter("result_type", 'Database')
+        _setter("state", state)
+        _setter("total_bytes", total_bytes)
+        _setter("total_documents", total_documents)
         if collections is not None:
-            pulumi.set(__self__, "collections", collections)
+            _setter("collections", collections)
         if last_event_time is not None:
-            pulumi.set(__self__, "last_event_time", last_event_time)
+            _setter("last_event_time", last_event_time)
         if last_replay_time is not None:
-            pulumi.set(__self__, "last_replay_time", last_replay_time)
+            _setter("last_replay_time", last_replay_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
+            _setter("qualified_name", qualified_name)
 
     @property
     @pulumi.getter(name="bytesCopied")
@@ -17046,9 +23506,26 @@ class MongoDbDatabaseSettingsResponse(dict):
         :param Mapping[str, 'MongoDbCollectionSettingsResponse'] collections: The collections on the source database to migrate to the target. The keys are the unqualified names of the collections.
         :param int target_rus: The RUs that should be configured on a CosmosDB target, or null to use the default, or 0 if throughput should not be provisioned for the database. This has no effect on non-CosmosDB targets.
         """
-        pulumi.set(__self__, "collections", collections)
+        MongoDbDatabaseSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            collections=collections,
+            target_rus=target_rus,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             collections: Optional[Mapping[str, 'outputs.MongoDbCollectionSettingsResponse']] = None,
+             target_rus: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collections is None:
+            raise TypeError("Missing 'collections' argument")
+        if target_rus is None and 'targetRUs' in kwargs:
+            target_rus = kwargs['targetRUs']
+
+        _setter("collections", collections)
         if target_rus is not None:
-            pulumi.set(__self__, "target_rus", target_rus)
+            _setter("target_rus", target_rus)
 
     @property
     @pulumi.getter
@@ -17084,14 +23561,31 @@ class MongoDbErrorResponse(dict):
         :param str message: The localized, human-readable message that describes the error or warning
         :param str type: The type of error or warning
         """
+        MongoDbErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            count=count,
+            message=message,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             count: Optional[int] = None,
+             message: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -17202,26 +23696,107 @@ class MongoDbMigrationProgressResponse(dict):
         :param str name: The name of the progress object. For a collection, this is the unqualified collection name. For a database, this is the database name. For the overall migration, this is null.
         :param str qualified_name: The qualified name of the progress object. For a collection, this is the database-qualified name. For a database, this is the database name. For the overall migration, this is null.
         """
-        pulumi.set(__self__, "bytes_copied", bytes_copied)
-        pulumi.set(__self__, "documents_copied", documents_copied)
-        pulumi.set(__self__, "elapsed_time", elapsed_time)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "events_pending", events_pending)
-        pulumi.set(__self__, "events_replayed", events_replayed)
-        pulumi.set(__self__, "result_type", 'Migration')
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "total_bytes", total_bytes)
-        pulumi.set(__self__, "total_documents", total_documents)
+        MongoDbMigrationProgressResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bytes_copied=bytes_copied,
+            documents_copied=documents_copied,
+            elapsed_time=elapsed_time,
+            errors=errors,
+            events_pending=events_pending,
+            events_replayed=events_replayed,
+            result_type=result_type,
+            state=state,
+            total_bytes=total_bytes,
+            total_documents=total_documents,
+            databases=databases,
+            last_event_time=last_event_time,
+            last_replay_time=last_replay_time,
+            name=name,
+            qualified_name=qualified_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bytes_copied: Optional[float] = None,
+             documents_copied: Optional[float] = None,
+             elapsed_time: Optional[str] = None,
+             errors: Optional[Mapping[str, 'outputs.MongoDbErrorResponse']] = None,
+             events_pending: Optional[float] = None,
+             events_replayed: Optional[float] = None,
+             result_type: Optional[str] = None,
+             state: Optional[str] = None,
+             total_bytes: Optional[float] = None,
+             total_documents: Optional[float] = None,
+             databases: Optional[Mapping[str, 'outputs.MongoDbDatabaseProgressResponse']] = None,
+             last_event_time: Optional[str] = None,
+             last_replay_time: Optional[str] = None,
+             name: Optional[str] = None,
+             qualified_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bytes_copied is None and 'bytesCopied' in kwargs:
+            bytes_copied = kwargs['bytesCopied']
+        if bytes_copied is None:
+            raise TypeError("Missing 'bytes_copied' argument")
+        if documents_copied is None and 'documentsCopied' in kwargs:
+            documents_copied = kwargs['documentsCopied']
+        if documents_copied is None:
+            raise TypeError("Missing 'documents_copied' argument")
+        if elapsed_time is None and 'elapsedTime' in kwargs:
+            elapsed_time = kwargs['elapsedTime']
+        if elapsed_time is None:
+            raise TypeError("Missing 'elapsed_time' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if events_pending is None and 'eventsPending' in kwargs:
+            events_pending = kwargs['eventsPending']
+        if events_pending is None:
+            raise TypeError("Missing 'events_pending' argument")
+        if events_replayed is None and 'eventsReplayed' in kwargs:
+            events_replayed = kwargs['eventsReplayed']
+        if events_replayed is None:
+            raise TypeError("Missing 'events_replayed' argument")
+        if result_type is None and 'resultType' in kwargs:
+            result_type = kwargs['resultType']
+        if result_type is None:
+            raise TypeError("Missing 'result_type' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if total_bytes is None and 'totalBytes' in kwargs:
+            total_bytes = kwargs['totalBytes']
+        if total_bytes is None:
+            raise TypeError("Missing 'total_bytes' argument")
+        if total_documents is None and 'totalDocuments' in kwargs:
+            total_documents = kwargs['totalDocuments']
+        if total_documents is None:
+            raise TypeError("Missing 'total_documents' argument")
+        if last_event_time is None and 'lastEventTime' in kwargs:
+            last_event_time = kwargs['lastEventTime']
+        if last_replay_time is None and 'lastReplayTime' in kwargs:
+            last_replay_time = kwargs['lastReplayTime']
+        if qualified_name is None and 'qualifiedName' in kwargs:
+            qualified_name = kwargs['qualifiedName']
+
+        _setter("bytes_copied", bytes_copied)
+        _setter("documents_copied", documents_copied)
+        _setter("elapsed_time", elapsed_time)
+        _setter("errors", errors)
+        _setter("events_pending", events_pending)
+        _setter("events_replayed", events_replayed)
+        _setter("result_type", 'Migration')
+        _setter("state", state)
+        _setter("total_bytes", total_bytes)
+        _setter("total_documents", total_documents)
         if databases is not None:
-            pulumi.set(__self__, "databases", databases)
+            _setter("databases", databases)
         if last_event_time is not None:
-            pulumi.set(__self__, "last_event_time", last_event_time)
+            _setter("last_event_time", last_event_time)
         if last_replay_time is not None:
-            pulumi.set(__self__, "last_replay_time", last_replay_time)
+            _setter("last_replay_time", last_replay_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if qualified_name is not None:
-            pulumi.set(__self__, "qualified_name", qualified_name)
+            _setter("qualified_name", qualified_name)
 
     @property
     @pulumi.getter(name="bytesCopied")
@@ -17380,15 +23955,44 @@ class MongoDbMigrationSettingsResponse(dict):
         :param str replication: Describes how changes will be replicated from the source to the target. The default is OneTime.
         :param 'MongoDbThrottlingSettingsResponse' throttling: Settings used to limit the resource usage of the migration
         """
-        pulumi.set(__self__, "databases", databases)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "target", target)
+        MongoDbMigrationSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            databases=databases,
+            source=source,
+            target=target,
+            boost_rus=boost_rus,
+            replication=replication,
+            throttling=throttling,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             databases: Optional[Mapping[str, 'outputs.MongoDbDatabaseSettingsResponse']] = None,
+             source: Optional['outputs.MongoDbConnectionInfoResponse'] = None,
+             target: Optional['outputs.MongoDbConnectionInfoResponse'] = None,
+             boost_rus: Optional[int] = None,
+             replication: Optional[str] = None,
+             throttling: Optional['outputs.MongoDbThrottlingSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if databases is None:
+            raise TypeError("Missing 'databases' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if boost_rus is None and 'boostRUs' in kwargs:
+            boost_rus = kwargs['boostRUs']
+
+        _setter("databases", databases)
+        _setter("source", source)
+        _setter("target", target)
         if boost_rus is not None:
-            pulumi.set(__self__, "boost_rus", boost_rus)
+            _setter("boost_rus", boost_rus)
         if replication is not None:
-            pulumi.set(__self__, "replication", replication)
+            _setter("replication", replication)
         if throttling is not None:
-            pulumi.set(__self__, "throttling", throttling)
+            _setter("throttling", throttling)
 
     @property
     @pulumi.getter
@@ -17452,8 +24056,25 @@ class MongoDbShardKeyFieldResponse(dict):
         :param str name: The name of the field
         :param str order: The field ordering
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "order", order)
+        MongoDbShardKeyFieldResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            order=order,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             order: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+
+        _setter("name", name)
+        _setter("order", order)
 
     @property
     @pulumi.getter
@@ -17502,8 +24123,27 @@ class MongoDbShardKeyInfoResponse(dict):
         :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param bool is_unique: Whether the shard key is unique
         """
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "is_unique", is_unique)
+        MongoDbShardKeyInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fields=fields,
+            is_unique=is_unique,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fields: Optional[Sequence['outputs.MongoDbShardKeyFieldResponse']] = None,
+             is_unique: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fields is None:
+            raise TypeError("Missing 'fields' argument")
+        if is_unique is None and 'isUnique' in kwargs:
+            is_unique = kwargs['isUnique']
+        if is_unique is None:
+            raise TypeError("Missing 'is_unique' argument")
+
+        _setter("fields", fields)
+        _setter("is_unique", is_unique)
 
     @property
     @pulumi.getter
@@ -17552,8 +24192,27 @@ class MongoDbShardKeySettingResponse(dict):
         :param Sequence['MongoDbShardKeyFieldResponse'] fields: The fields within the shard key
         :param bool is_unique: Whether the shard key is unique
         """
-        pulumi.set(__self__, "fields", fields)
-        pulumi.set(__self__, "is_unique", is_unique)
+        MongoDbShardKeySettingResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fields=fields,
+            is_unique=is_unique,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fields: Optional[Sequence['outputs.MongoDbShardKeyFieldResponse']] = None,
+             is_unique: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fields is None:
+            raise TypeError("Missing 'fields' argument")
+        if is_unique is None and 'isUnique' in kwargs:
+            is_unique = kwargs['isUnique']
+        if is_unique is None:
+            raise TypeError("Missing 'is_unique' argument")
+
+        _setter("fields", fields)
+        _setter("is_unique", is_unique)
 
     @property
     @pulumi.getter
@@ -17608,12 +24267,33 @@ class MongoDbThrottlingSettingsResponse(dict):
         :param int min_free_cpu: The percentage of CPU time that the migrator will try to avoid using, from 0 to 100
         :param int min_free_memory_mb: The number of megabytes of RAM that the migrator will try to avoid using
         """
+        MongoDbThrottlingSettingsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_parallelism=max_parallelism,
+            min_free_cpu=min_free_cpu,
+            min_free_memory_mb=min_free_memory_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_parallelism: Optional[int] = None,
+             min_free_cpu: Optional[int] = None,
+             min_free_memory_mb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_parallelism is None and 'maxParallelism' in kwargs:
+            max_parallelism = kwargs['maxParallelism']
+        if min_free_cpu is None and 'minFreeCpu' in kwargs:
+            min_free_cpu = kwargs['minFreeCpu']
+        if min_free_memory_mb is None and 'minFreeMemoryMb' in kwargs:
+            min_free_memory_mb = kwargs['minFreeMemoryMb']
+
         if max_parallelism is not None:
-            pulumi.set(__self__, "max_parallelism", max_parallelism)
+            _setter("max_parallelism", max_parallelism)
         if min_free_cpu is not None:
-            pulumi.set(__self__, "min_free_cpu", min_free_cpu)
+            _setter("min_free_cpu", min_free_cpu)
         if min_free_memory_mb is not None:
-            pulumi.set(__self__, "min_free_memory_mb", min_free_memory_mb)
+            _setter("min_free_memory_mb", min_free_memory_mb)
 
     @property
     @pulumi.getter(name="maxParallelism")
@@ -17683,17 +24363,50 @@ class MySqlConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "type", 'MySqlConnectionInfo')
+        MySqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            server_name=server_name,
+            type=type,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[int] = None,
+             server_name: Optional[str] = None,
+             type: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if encrypt_connection is None and 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("type", 'MySqlConnectionInfo')
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -17768,15 +24481,78 @@ class NodeMonitoringDataResponse(dict):
         :param float received_bytes: Received bytes on the integration runtime node.
         :param float sent_bytes: Sent bytes on the integration runtime node.
         """
-        pulumi.set(__self__, "additional_properties", additional_properties)
-        pulumi.set(__self__, "available_memory_in_mb", available_memory_in_mb)
-        pulumi.set(__self__, "concurrent_jobs_limit", concurrent_jobs_limit)
-        pulumi.set(__self__, "concurrent_jobs_running", concurrent_jobs_running)
-        pulumi.set(__self__, "cpu_utilization", cpu_utilization)
-        pulumi.set(__self__, "max_concurrent_jobs", max_concurrent_jobs)
-        pulumi.set(__self__, "node_name", node_name)
-        pulumi.set(__self__, "received_bytes", received_bytes)
-        pulumi.set(__self__, "sent_bytes", sent_bytes)
+        NodeMonitoringDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            available_memory_in_mb=available_memory_in_mb,
+            concurrent_jobs_limit=concurrent_jobs_limit,
+            concurrent_jobs_running=concurrent_jobs_running,
+            cpu_utilization=cpu_utilization,
+            max_concurrent_jobs=max_concurrent_jobs,
+            node_name=node_name,
+            received_bytes=received_bytes,
+            sent_bytes=sent_bytes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[Mapping[str, Any]] = None,
+             available_memory_in_mb: Optional[int] = None,
+             concurrent_jobs_limit: Optional[int] = None,
+             concurrent_jobs_running: Optional[int] = None,
+             cpu_utilization: Optional[int] = None,
+             max_concurrent_jobs: Optional[int] = None,
+             node_name: Optional[str] = None,
+             received_bytes: Optional[float] = None,
+             sent_bytes: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if additional_properties is None:
+            raise TypeError("Missing 'additional_properties' argument")
+        if available_memory_in_mb is None and 'availableMemoryInMB' in kwargs:
+            available_memory_in_mb = kwargs['availableMemoryInMB']
+        if available_memory_in_mb is None:
+            raise TypeError("Missing 'available_memory_in_mb' argument")
+        if concurrent_jobs_limit is None and 'concurrentJobsLimit' in kwargs:
+            concurrent_jobs_limit = kwargs['concurrentJobsLimit']
+        if concurrent_jobs_limit is None:
+            raise TypeError("Missing 'concurrent_jobs_limit' argument")
+        if concurrent_jobs_running is None and 'concurrentJobsRunning' in kwargs:
+            concurrent_jobs_running = kwargs['concurrentJobsRunning']
+        if concurrent_jobs_running is None:
+            raise TypeError("Missing 'concurrent_jobs_running' argument")
+        if cpu_utilization is None and 'cpuUtilization' in kwargs:
+            cpu_utilization = kwargs['cpuUtilization']
+        if cpu_utilization is None:
+            raise TypeError("Missing 'cpu_utilization' argument")
+        if max_concurrent_jobs is None and 'maxConcurrentJobs' in kwargs:
+            max_concurrent_jobs = kwargs['maxConcurrentJobs']
+        if max_concurrent_jobs is None:
+            raise TypeError("Missing 'max_concurrent_jobs' argument")
+        if node_name is None and 'nodeName' in kwargs:
+            node_name = kwargs['nodeName']
+        if node_name is None:
+            raise TypeError("Missing 'node_name' argument")
+        if received_bytes is None and 'receivedBytes' in kwargs:
+            received_bytes = kwargs['receivedBytes']
+        if received_bytes is None:
+            raise TypeError("Missing 'received_bytes' argument")
+        if sent_bytes is None and 'sentBytes' in kwargs:
+            sent_bytes = kwargs['sentBytes']
+        if sent_bytes is None:
+            raise TypeError("Missing 'sent_bytes' argument")
+
+        _setter("additional_properties", additional_properties)
+        _setter("available_memory_in_mb", available_memory_in_mb)
+        _setter("concurrent_jobs_limit", concurrent_jobs_limit)
+        _setter("concurrent_jobs_running", concurrent_jobs_running)
+        _setter("cpu_utilization", cpu_utilization)
+        _setter("max_concurrent_jobs", max_concurrent_jobs)
+        _setter("node_name", node_name)
+        _setter("received_bytes", received_bytes)
+        _setter("sent_bytes", sent_bytes)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -17866,12 +24642,27 @@ class ODataErrorResponse(dict):
         :param Sequence['ODataErrorResponse'] details: Inner errors that caused this error
         :param str message: The human-readable description of the error
         """
+        ODataErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            code=code,
+            details=details,
+            message=message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             code: Optional[str] = None,
+             details: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             message: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
-            pulumi.set(__self__, "code", code)
+            _setter("code", code)
         if details is not None:
-            pulumi.set(__self__, "details", details)
+            _setter("details", details)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
 
     @property
     @pulumi.getter
@@ -17935,12 +24726,37 @@ class OracleConnectionInfoResponse(dict):
         :param str password: Password credential.
         :param str user_name: User name
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "type", 'OracleConnectionInfo')
+        OracleConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            type=type,
+            password=password,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: Optional[str] = None,
+             type: Optional[str] = None,
+             password: Optional[str] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_source is None:
+            raise TypeError("Missing 'data_source' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("data_source", data_source)
+        _setter("type", 'OracleConnectionInfo')
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -18006,10 +24822,25 @@ class OrphanedUserInfoResponse(dict):
         :param str database_name: Parent database of the user
         :param str name: Name of the orphaned user
         """
+        OrphanedUserInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -18079,23 +24910,64 @@ class PostgreSqlConnectionInfoResponse(dict):
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "type", 'PostgreSqlConnectionInfo')
+        PostgreSqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            server_name=server_name,
+            type=type,
+            database_name=database_name,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[int] = None,
+             server_name: Optional[str] = None,
+             type: Optional[str] = None,
+             database_name: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if encrypt_connection is None and 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if trust_server_certificate is None and 'trustServerCertificate' in kwargs:
+            trust_server_certificate = kwargs['trustServerCertificate']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("port", port)
+        _setter("server_name", server_name)
+        _setter("type", 'PostgreSqlConnectionInfo')
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -18203,14 +25075,43 @@ class ProjectFilePropertiesResponse(dict):
         :param str file_path: Relative path of this file resource. This property can be set when creating or updating the file resource.
         :param str media_type: File content type. This property can be modified to reflect the file content type.
         """
-        pulumi.set(__self__, "last_modified", last_modified)
-        pulumi.set(__self__, "size", size)
+        ProjectFilePropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_modified=last_modified,
+            size=size,
+            extension=extension,
+            file_path=file_path,
+            media_type=media_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_modified: Optional[str] = None,
+             size: Optional[float] = None,
+             extension: Optional[str] = None,
+             file_path: Optional[str] = None,
+             media_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if last_modified is None and 'lastModified' in kwargs:
+            last_modified = kwargs['lastModified']
+        if last_modified is None:
+            raise TypeError("Missing 'last_modified' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if file_path is None and 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if media_type is None and 'mediaType' in kwargs:
+            media_type = kwargs['mediaType']
+
+        _setter("last_modified", last_modified)
+        _setter("size", size)
         if extension is not None:
-            pulumi.set(__self__, "extension", extension)
+            _setter("extension", extension)
         if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
+            _setter("file_path", file_path)
         if media_type is not None:
-            pulumi.set(__self__, "media_type", media_type)
+            _setter("media_type", media_type)
 
     @property
     @pulumi.getter(name="lastModified")
@@ -18285,10 +25186,27 @@ class QueryAnalysisValidationResultResponse(dict):
         :param 'QueryExecutionResultResponse' query_results: List of queries executed and it's execution results in source and target
         :param 'ValidationErrorResponse' validation_errors: Errors that are part of the execution
         """
+        QueryAnalysisValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_results=query_results,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_results: Optional['outputs.QueryExecutionResultResponse'] = None,
+             validation_errors: Optional['outputs.ValidationErrorResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_results is None and 'queryResults' in kwargs:
+            query_results = kwargs['queryResults']
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+
         if query_results is not None:
-            pulumi.set(__self__, "query_results", query_results)
+            _setter("query_results", query_results)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="queryResults")
@@ -18347,14 +25265,39 @@ class QueryExecutionResultResponse(dict):
         :param float statements_in_batch: Total no. of statements in the batch
         :param 'ExecutionStatisticsResponse' target_result: Query analysis result from the target
         """
+        QueryExecutionResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            query_text=query_text,
+            source_result=source_result,
+            statements_in_batch=statements_in_batch,
+            target_result=target_result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             query_text: Optional[str] = None,
+             source_result: Optional['outputs.ExecutionStatisticsResponse'] = None,
+             statements_in_batch: Optional[float] = None,
+             target_result: Optional['outputs.ExecutionStatisticsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_text is None and 'queryText' in kwargs:
+            query_text = kwargs['queryText']
+        if source_result is None and 'sourceResult' in kwargs:
+            source_result = kwargs['sourceResult']
+        if statements_in_batch is None and 'statementsInBatch' in kwargs:
+            statements_in_batch = kwargs['statementsInBatch']
+        if target_result is None and 'targetResult' in kwargs:
+            target_result = kwargs['targetResult']
+
         if query_text is not None:
-            pulumi.set(__self__, "query_text", query_text)
+            _setter("query_text", query_text)
         if source_result is not None:
-            pulumi.set(__self__, "source_result", source_result)
+            _setter("source_result", source_result)
         if statements_in_batch is not None:
-            pulumi.set(__self__, "statements_in_batch", statements_in_batch)
+            _setter("statements_in_batch", statements_in_batch)
         if target_result is not None:
-            pulumi.set(__self__, "target_result", target_result)
+            _setter("target_result", target_result)
 
     @property
     @pulumi.getter(name="queryText")
@@ -18435,18 +25378,49 @@ class ReportableExceptionResponse(dict):
         :param str message: Error message
         :param str stack_trace: Stack trace
         """
+        ReportableExceptionResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actionable_message=actionable_message,
+            file_path=file_path,
+            h_result=h_result,
+            line_number=line_number,
+            message=message,
+            stack_trace=stack_trace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actionable_message: Optional[str] = None,
+             file_path: Optional[str] = None,
+             h_result: Optional[int] = None,
+             line_number: Optional[str] = None,
+             message: Optional[str] = None,
+             stack_trace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actionable_message is None and 'actionableMessage' in kwargs:
+            actionable_message = kwargs['actionableMessage']
+        if file_path is None and 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if h_result is None and 'hResult' in kwargs:
+            h_result = kwargs['hResult']
+        if line_number is None and 'lineNumber' in kwargs:
+            line_number = kwargs['lineNumber']
+        if stack_trace is None and 'stackTrace' in kwargs:
+            stack_trace = kwargs['stackTrace']
+
         if actionable_message is not None:
-            pulumi.set(__self__, "actionable_message", actionable_message)
+            _setter("actionable_message", actionable_message)
         if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
+            _setter("file_path", file_path)
         if h_result is not None:
-            pulumi.set(__self__, "h_result", h_result)
+            _setter("h_result", h_result)
         if line_number is not None:
-            pulumi.set(__self__, "line_number", line_number)
+            _setter("line_number", line_number)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if stack_trace is not None:
-            pulumi.set(__self__, "stack_trace", stack_trace)
+            _setter("stack_trace", stack_trace)
 
     @property
     @pulumi.getter(name="actionableMessage")
@@ -18537,14 +25511,39 @@ class SchemaComparisonValidationResultResponse(dict):
         :param Mapping[str, float] target_database_object_count: Count of target database objects
         :param 'ValidationErrorResponse' validation_errors: List of errors that happened while performing schema compare validation
         """
+        SchemaComparisonValidationResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schema_differences=schema_differences,
+            source_database_object_count=source_database_object_count,
+            target_database_object_count=target_database_object_count,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schema_differences: Optional['outputs.SchemaComparisonValidationResultTypeResponse'] = None,
+             source_database_object_count: Optional[Mapping[str, float]] = None,
+             target_database_object_count: Optional[Mapping[str, float]] = None,
+             validation_errors: Optional['outputs.ValidationErrorResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schema_differences is None and 'schemaDifferences' in kwargs:
+            schema_differences = kwargs['schemaDifferences']
+        if source_database_object_count is None and 'sourceDatabaseObjectCount' in kwargs:
+            source_database_object_count = kwargs['sourceDatabaseObjectCount']
+        if target_database_object_count is None and 'targetDatabaseObjectCount' in kwargs:
+            target_database_object_count = kwargs['targetDatabaseObjectCount']
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+
         if schema_differences is not None:
-            pulumi.set(__self__, "schema_differences", schema_differences)
+            _setter("schema_differences", schema_differences)
         if source_database_object_count is not None:
-            pulumi.set(__self__, "source_database_object_count", source_database_object_count)
+            _setter("source_database_object_count", source_database_object_count)
         if target_database_object_count is not None:
-            pulumi.set(__self__, "target_database_object_count", target_database_object_count)
+            _setter("target_database_object_count", target_database_object_count)
         if validation_errors is not None:
-            pulumi.set(__self__, "validation_errors", validation_errors)
+            _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="schemaDifferences")
@@ -18615,12 +25614,33 @@ class SchemaComparisonValidationResultTypeResponse(dict):
         :param str object_type: Type of the object that has the difference. e.g (Table/View/StoredProcedure)
         :param str update_action: Update action type with respect to target
         """
+        SchemaComparisonValidationResultTypeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_name=object_name,
+            object_type=object_type,
+            update_action=update_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_name: Optional[str] = None,
+             object_type: Optional[str] = None,
+             update_action: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_name is None and 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if object_type is None and 'objectType' in kwargs:
+            object_type = kwargs['objectType']
+        if update_action is None and 'updateAction' in kwargs:
+            update_action = kwargs['updateAction']
+
         if object_name is not None:
-            pulumi.set(__self__, "object_name", object_name)
+            _setter("object_name", object_name)
         if object_type is not None:
-            pulumi.set(__self__, "object_type", object_type)
+            _setter("object_type", object_type)
         if update_action is not None:
-            pulumi.set(__self__, "update_action", update_action)
+            _setter("update_action", update_action)
 
     @property
     @pulumi.getter(name="objectName")
@@ -18677,8 +25697,27 @@ class SelectedCertificateInputResponse(dict):
         :param str certificate_name: Name of certificate to be exported.
         :param str password: Password to use for encrypting the exported certificate.
         """
-        pulumi.set(__self__, "certificate_name", certificate_name)
-        pulumi.set(__self__, "password", password)
+        SelectedCertificateInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_name=certificate_name,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_name: Optional[str] = None,
+             password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if certificate_name is None:
+            raise TypeError("Missing 'certificate_name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+
+        _setter("certificate_name", certificate_name)
+        _setter("password", password)
 
     @property
     @pulumi.getter(name="certificateName")
@@ -18745,12 +25784,57 @@ class ServerPropertiesResponse(dict):
         :param str server_platform: Name of the server platform
         :param str server_version: Version of the database server
         """
-        pulumi.set(__self__, "server_database_count", server_database_count)
-        pulumi.set(__self__, "server_edition", server_edition)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "server_operating_system_version", server_operating_system_version)
-        pulumi.set(__self__, "server_platform", server_platform)
-        pulumi.set(__self__, "server_version", server_version)
+        ServerPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_database_count=server_database_count,
+            server_edition=server_edition,
+            server_name=server_name,
+            server_operating_system_version=server_operating_system_version,
+            server_platform=server_platform,
+            server_version=server_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_database_count: Optional[int] = None,
+             server_edition: Optional[str] = None,
+             server_name: Optional[str] = None,
+             server_operating_system_version: Optional[str] = None,
+             server_platform: Optional[str] = None,
+             server_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if server_database_count is None and 'serverDatabaseCount' in kwargs:
+            server_database_count = kwargs['serverDatabaseCount']
+        if server_database_count is None:
+            raise TypeError("Missing 'server_database_count' argument")
+        if server_edition is None and 'serverEdition' in kwargs:
+            server_edition = kwargs['serverEdition']
+        if server_edition is None:
+            raise TypeError("Missing 'server_edition' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if server_operating_system_version is None and 'serverOperatingSystemVersion' in kwargs:
+            server_operating_system_version = kwargs['serverOperatingSystemVersion']
+        if server_operating_system_version is None:
+            raise TypeError("Missing 'server_operating_system_version' argument")
+        if server_platform is None and 'serverPlatform' in kwargs:
+            server_platform = kwargs['serverPlatform']
+        if server_platform is None:
+            raise TypeError("Missing 'server_platform' argument")
+        if server_version is None and 'serverVersion' in kwargs:
+            server_version = kwargs['serverVersion']
+        if server_version is None:
+            raise TypeError("Missing 'server_version' argument")
+
+        _setter("server_database_count", server_database_count)
+        _setter("server_edition", server_edition)
+        _setter("server_name", server_name)
+        _setter("server_operating_system_version", server_operating_system_version)
+        _setter("server_platform", server_platform)
+        _setter("server_version", server_version)
 
     @property
     @pulumi.getter(name="serverDatabaseCount")
@@ -18820,16 +25904,35 @@ class ServiceSkuResponse(dict):
         :param str size: The size of the SKU, used when the name alone does not denote a service size or when a SKU has multiple performance classes within a family, e.g. 'A1' for virtual machines
         :param str tier: The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
         """
+        ServiceSkuResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            name=name,
+            size=size,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             name: Optional[str] = None,
+             size: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if tier is not None:
-            pulumi.set(__self__, "tier", tier)
+            _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -18925,26 +26028,67 @@ class SqlConnectionInfoResponse(dict):
         :param bool trust_server_certificate: Whether to trust the server certificate
         :param str user_name: User name
         """
-        pulumi.set(__self__, "data_source", data_source)
-        pulumi.set(__self__, "type", 'SqlConnectionInfo')
+        SqlConnectionInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_source=data_source,
+            type=type,
+            additional_settings=additional_settings,
+            authentication=authentication,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            platform=platform,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_source: Optional[str] = None,
+             type: Optional[str] = None,
+             additional_settings: Optional[str] = None,
+             authentication: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             platform: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_source is None:
+            raise TypeError("Missing 'data_source' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if additional_settings is None and 'additionalSettings' in kwargs:
+            additional_settings = kwargs['additionalSettings']
+        if encrypt_connection is None and 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if trust_server_certificate is None and 'trustServerCertificate' in kwargs:
+            trust_server_certificate = kwargs['trustServerCertificate']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("data_source", data_source)
+        _setter("type", 'SqlConnectionInfo')
         if additional_settings is not None:
-            pulumi.set(__self__, "additional_settings", additional_settings)
+            _setter("additional_settings", additional_settings)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if encrypt_connection is None:
             encrypt_connection = True
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if platform is not None:
-            pulumi.set(__self__, "platform", platform)
+            _setter("platform", platform)
         if trust_server_certificate is None:
             trust_server_certificate = False
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -19064,18 +26208,47 @@ class SqlConnectionInformationResponse(dict):
         :param bool trust_server_certificate: Whether to trust server certificate or not.
         :param str user_name: User name to connect to source SQL.
         """
+        SqlConnectionInformationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            data_source=data_source,
+            encrypt_connection=encrypt_connection,
+            password=password,
+            trust_server_certificate=trust_server_certificate,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[str] = None,
+             data_source: Optional[str] = None,
+             encrypt_connection: Optional[bool] = None,
+             password: Optional[str] = None,
+             trust_server_certificate: Optional[bool] = None,
+             user_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if encrypt_connection is None and 'encryptConnection' in kwargs:
+            encrypt_connection = kwargs['encryptConnection']
+        if trust_server_certificate is None and 'trustServerCertificate' in kwargs:
+            trust_server_certificate = kwargs['trustServerCertificate']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+            _setter("data_source", data_source)
         if encrypt_connection is not None:
-            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+            _setter("encrypt_connection", encrypt_connection)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if trust_server_certificate is not None:
-            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+            _setter("trust_server_certificate", trust_server_certificate)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter
@@ -19162,9 +26335,36 @@ class SqlDbMigrationStatusDetailsResponse(dict):
         :param str migration_state: Current State of Migration.
         :param Sequence[str] sql_data_copy_errors: Sql Data Copy errors, if any.
         """
-        pulumi.set(__self__, "list_of_copy_progress_details", list_of_copy_progress_details)
-        pulumi.set(__self__, "migration_state", migration_state)
-        pulumi.set(__self__, "sql_data_copy_errors", sql_data_copy_errors)
+        SqlDbMigrationStatusDetailsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            list_of_copy_progress_details=list_of_copy_progress_details,
+            migration_state=migration_state,
+            sql_data_copy_errors=sql_data_copy_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             list_of_copy_progress_details: Optional[Sequence['outputs.CopyProgressDetailsResponse']] = None,
+             migration_state: Optional[str] = None,
+             sql_data_copy_errors: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if list_of_copy_progress_details is None and 'listOfCopyProgressDetails' in kwargs:
+            list_of_copy_progress_details = kwargs['listOfCopyProgressDetails']
+        if list_of_copy_progress_details is None:
+            raise TypeError("Missing 'list_of_copy_progress_details' argument")
+        if migration_state is None and 'migrationState' in kwargs:
+            migration_state = kwargs['migrationState']
+        if migration_state is None:
+            raise TypeError("Missing 'migration_state' argument")
+        if sql_data_copy_errors is None and 'sqlDataCopyErrors' in kwargs:
+            sql_data_copy_errors = kwargs['sqlDataCopyErrors']
+        if sql_data_copy_errors is None:
+            raise TypeError("Missing 'sql_data_copy_errors' argument")
+
+        _setter("list_of_copy_progress_details", list_of_copy_progress_details)
+        _setter("migration_state", migration_state)
+        _setter("sql_data_copy_errors", sql_data_copy_errors)
 
     @property
     @pulumi.getter(name="listOfCopyProgressDetails")
@@ -19202,7 +26402,20 @@ class SqlDbOfflineConfigurationResponse(dict):
         Offline configuration
         :param bool offline: Offline migration
         """
-        pulumi.set(__self__, "offline", offline)
+        SqlDbOfflineConfigurationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offline=offline,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offline: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if offline is None:
+            raise TypeError("Missing 'offline' argument")
+
+        _setter("offline", offline)
 
     @property
     @pulumi.getter
@@ -19249,12 +26462,33 @@ class SsisMigrationInfoResponse(dict):
         :param str project_overwrite_option: The overwrite option for the SSIS project migration
         :param str ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS
         """
+        SsisMigrationInfoResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            environment_overwrite_option=environment_overwrite_option,
+            project_overwrite_option=project_overwrite_option,
+            ssis_store_type=ssis_store_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             environment_overwrite_option: Optional[str] = None,
+             project_overwrite_option: Optional[str] = None,
+             ssis_store_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_overwrite_option is None and 'environmentOverwriteOption' in kwargs:
+            environment_overwrite_option = kwargs['environmentOverwriteOption']
+        if project_overwrite_option is None and 'projectOverwriteOption' in kwargs:
+            project_overwrite_option = kwargs['projectOverwriteOption']
+        if ssis_store_type is None and 'ssisStoreType' in kwargs:
+            ssis_store_type = kwargs['ssisStoreType']
+
         if environment_overwrite_option is not None:
-            pulumi.set(__self__, "environment_overwrite_option", environment_overwrite_option)
+            _setter("environment_overwrite_option", environment_overwrite_option)
         if project_overwrite_option is not None:
-            pulumi.set(__self__, "project_overwrite_option", project_overwrite_option)
+            _setter("project_overwrite_option", project_overwrite_option)
         if ssis_store_type is not None:
-            pulumi.set(__self__, "ssis_store_type", ssis_store_type)
+            _setter("ssis_store_type", ssis_store_type)
 
     @property
     @pulumi.getter(name="environmentOverwriteOption")
@@ -19313,9 +26547,32 @@ class StartMigrationScenarioServerRoleResultResponse(dict):
         :param str name: Name of server role.
         :param str state: Current state of migration
         """
-        pulumi.set(__self__, "exceptions_and_warnings", exceptions_and_warnings)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "state", state)
+        StartMigrationScenarioServerRoleResultResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exceptions_and_warnings=exceptions_and_warnings,
+            name=name,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exceptions_and_warnings: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             name: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exceptions_and_warnings is None and 'exceptionsAndWarnings' in kwargs:
+            exceptions_and_warnings = kwargs['exceptionsAndWarnings']
+        if exceptions_and_warnings is None:
+            raise TypeError("Missing 'exceptions_and_warnings' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("exceptions_and_warnings", exceptions_and_warnings)
+        _setter("name", name)
+        _setter("state", state)
 
     @property
     @pulumi.getter(name="exceptionsAndWarnings")
@@ -19378,9 +26635,36 @@ class SyncMigrationDatabaseErrorEventResponse(dict):
         :param str event_type_string: Event type.
         :param str timestamp_string: String value of timestamp.
         """
-        pulumi.set(__self__, "event_text", event_text)
-        pulumi.set(__self__, "event_type_string", event_type_string)
-        pulumi.set(__self__, "timestamp_string", timestamp_string)
+        SyncMigrationDatabaseErrorEventResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_text=event_text,
+            event_type_string=event_type_string,
+            timestamp_string=timestamp_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_text: Optional[str] = None,
+             event_type_string: Optional[str] = None,
+             timestamp_string: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_text is None and 'eventText' in kwargs:
+            event_text = kwargs['eventText']
+        if event_text is None:
+            raise TypeError("Missing 'event_text' argument")
+        if event_type_string is None and 'eventTypeString' in kwargs:
+            event_type_string = kwargs['eventTypeString']
+        if event_type_string is None:
+            raise TypeError("Missing 'event_type_string' argument")
+        if timestamp_string is None and 'timestampString' in kwargs:
+            timestamp_string = kwargs['timestampString']
+        if timestamp_string is None:
+            raise TypeError("Missing 'timestamp_string' argument")
+
+        _setter("event_text", event_text)
+        _setter("event_type_string", event_type_string)
+        _setter("timestamp_string", timestamp_string)
 
     @property
     @pulumi.getter(name="eventText")
@@ -19455,18 +26739,51 @@ class SystemDataResponse(dict):
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
+        SystemDataResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created_at=created_at,
+            created_by=created_by,
+            created_by_type=created_by_type,
+            last_modified_at=last_modified_at,
+            last_modified_by=last_modified_by,
+            last_modified_by_type=last_modified_by_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created_at: Optional[str] = None,
+             created_by: Optional[str] = None,
+             created_by_type: Optional[str] = None,
+             last_modified_at: Optional[str] = None,
+             last_modified_by: Optional[str] = None,
+             last_modified_by_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if created_by_type is None and 'createdByType' in kwargs:
+            created_by_type = kwargs['createdByType']
+        if last_modified_at is None and 'lastModifiedAt' in kwargs:
+            last_modified_at = kwargs['lastModifiedAt']
+        if last_modified_by is None and 'lastModifiedBy' in kwargs:
+            last_modified_by = kwargs['lastModifiedBy']
+        if last_modified_by_type is None and 'lastModifiedByType' in kwargs:
+            last_modified_by_type = kwargs['lastModifiedByType']
+
         if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
+            _setter("created_at", created_at)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
+            _setter("created_by_type", created_by_type)
         if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
+            _setter("last_modified_at", last_modified_at)
         if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
+            _setter("last_modified_by", last_modified_by)
         if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+            _setter("last_modified_by_type", last_modified_by_type)
 
     @property
     @pulumi.getter(name="createdAt")
@@ -19560,15 +26877,52 @@ class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateSyncMigrationInputSqlServerTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.SqlDb.Sync')
+        ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ValidateSyncMigrationInputSqlServerTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ValidateSyncMigrationInputSqlServerTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.SqlDb.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -19676,13 +27030,56 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse(dict):
         :param 'MiSqlConnectionInfoResponse' target_connection_info: Connection information for Azure SQL Database Managed Instance
         :param 'FileShareResponse' backup_file_share: Backup file share information for all selected databases.
         """
-        pulumi.set(__self__, "azure_app", azure_app)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_app=azure_app,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            storage_resource_id=storage_resource_id,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_app: Optional['outputs.AzureActiveDirectoryAppResponse'] = None,
+             selected_databases: Optional[Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             storage_resource_id: Optional[str] = None,
+             target_connection_info: Optional['outputs.MiSqlConnectionInfoResponse'] = None,
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if azure_app is None and 'azureApp' in kwargs:
+            azure_app = kwargs['azureApp']
+        if azure_app is None:
+            raise TypeError("Missing 'azure_app' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if storage_resource_id is None and 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+        if storage_resource_id is None:
+            raise TypeError("Missing 'storage_resource_id' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+
+        _setter("azure_app", azure_app)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("storage_resource_id", storage_resource_id)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
 
     @property
     @pulumi.getter(name="azureApp")
@@ -19765,9 +27162,32 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse(dict):
         :param str name: Name of database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -19837,15 +27257,52 @@ class ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS')
+        ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI.Sync.LRS')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -19957,16 +27414,61 @@ class ValidateMigrationInputSqlServerSqlMITaskInputResponse(dict):
         :param str backup_mode: Backup Mode to specify whether to use existing backup or create new backup.
         :param Sequence[str] selected_logins: Logins to migrate
         """
-        pulumi.set(__self__, "backup_blob_share", backup_blob_share)
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateMigrationInputSqlServerSqlMITaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_blob_share=backup_blob_share,
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+            backup_file_share=backup_file_share,
+            backup_mode=backup_mode,
+            selected_logins=selected_logins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_blob_share: Optional['outputs.BlobShareResponse'] = None,
+             selected_databases: Optional[Sequence['outputs.MigrateSqlServerSqlMIDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             backup_file_share: Optional['outputs.FileShareResponse'] = None,
+             backup_mode: Optional[str] = None,
+             selected_logins: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_blob_share is None and 'backupBlobShare' in kwargs:
+            backup_blob_share = kwargs['backupBlobShare']
+        if backup_blob_share is None:
+            raise TypeError("Missing 'backup_blob_share' argument")
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+        if backup_file_share is None and 'backupFileShare' in kwargs:
+            backup_file_share = kwargs['backupFileShare']
+        if backup_mode is None and 'backupMode' in kwargs:
+            backup_mode = kwargs['backupMode']
+        if selected_logins is None and 'selectedLogins' in kwargs:
+            selected_logins = kwargs['selectedLogins']
+
+        _setter("backup_blob_share", backup_blob_share)
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
         if backup_file_share is not None:
-            pulumi.set(__self__, "backup_file_share", backup_file_share)
+            _setter("backup_file_share", backup_file_share)
         if backup_mode is not None:
-            pulumi.set(__self__, "backup_mode", backup_mode)
+            _setter("backup_mode", backup_mode)
         if selected_logins is not None:
-            pulumi.set(__self__, "selected_logins", selected_logins)
+            _setter("selected_logins", selected_logins)
 
     @property
     @pulumi.getter(name="backupBlobShare")
@@ -20077,15 +27579,66 @@ class ValidateMigrationInputSqlServerSqlMITaskOutputResponse(dict):
         :param Sequence['ReportableExceptionResponse'] restore_database_name_errors: Errors associated with the RestoreDatabaseName
         :param 'DatabaseBackupInfoResponse' database_backup_info: Information about backup files when existing backup mode is used.
         """
-        pulumi.set(__self__, "backup_folder_errors", backup_folder_errors)
-        pulumi.set(__self__, "backup_share_credentials_errors", backup_share_credentials_errors)
-        pulumi.set(__self__, "backup_storage_account_errors", backup_storage_account_errors)
-        pulumi.set(__self__, "existing_backup_errors", existing_backup_errors)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "restore_database_name_errors", restore_database_name_errors)
+        ValidateMigrationInputSqlServerSqlMITaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_folder_errors=backup_folder_errors,
+            backup_share_credentials_errors=backup_share_credentials_errors,
+            backup_storage_account_errors=backup_storage_account_errors,
+            existing_backup_errors=existing_backup_errors,
+            id=id,
+            name=name,
+            restore_database_name_errors=restore_database_name_errors,
+            database_backup_info=database_backup_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_folder_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             backup_share_credentials_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             backup_storage_account_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             existing_backup_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             restore_database_name_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             database_backup_info: Optional['outputs.DatabaseBackupInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_folder_errors is None and 'backupFolderErrors' in kwargs:
+            backup_folder_errors = kwargs['backupFolderErrors']
+        if backup_folder_errors is None:
+            raise TypeError("Missing 'backup_folder_errors' argument")
+        if backup_share_credentials_errors is None and 'backupShareCredentialsErrors' in kwargs:
+            backup_share_credentials_errors = kwargs['backupShareCredentialsErrors']
+        if backup_share_credentials_errors is None:
+            raise TypeError("Missing 'backup_share_credentials_errors' argument")
+        if backup_storage_account_errors is None and 'backupStorageAccountErrors' in kwargs:
+            backup_storage_account_errors = kwargs['backupStorageAccountErrors']
+        if backup_storage_account_errors is None:
+            raise TypeError("Missing 'backup_storage_account_errors' argument")
+        if existing_backup_errors is None and 'existingBackupErrors' in kwargs:
+            existing_backup_errors = kwargs['existingBackupErrors']
+        if existing_backup_errors is None:
+            raise TypeError("Missing 'existing_backup_errors' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if restore_database_name_errors is None and 'restoreDatabaseNameErrors' in kwargs:
+            restore_database_name_errors = kwargs['restoreDatabaseNameErrors']
+        if restore_database_name_errors is None:
+            raise TypeError("Missing 'restore_database_name_errors' argument")
+        if database_backup_info is None and 'databaseBackupInfo' in kwargs:
+            database_backup_info = kwargs['databaseBackupInfo']
+
+        _setter("backup_folder_errors", backup_folder_errors)
+        _setter("backup_share_credentials_errors", backup_share_credentials_errors)
+        _setter("backup_storage_account_errors", backup_storage_account_errors)
+        _setter("existing_backup_errors", existing_backup_errors)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("restore_database_name_errors", restore_database_name_errors)
         if database_backup_info is not None:
-            pulumi.set(__self__, "database_backup_info", database_backup_info)
+            _setter("database_backup_info", database_backup_info)
 
     @property
     @pulumi.getter(name="backupFolderErrors")
@@ -20195,15 +27748,52 @@ class ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'ValidateMigrationInputSqlServerSqlMITaskInputResponse' input: Task input
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI')
+        ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ValidateMigrationInputSqlServerSqlMITaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.ValidateMigrationInputSqlServerSqlMITaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'ValidateMigrationInput.SqlServer.AzureSqlDbMI')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -20306,15 +27896,52 @@ class ValidateMongoDbTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MongoDbMigrationSettingsResponse' input: Describes how a MongoDB data migration should be performed
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Validate.MongoDb')
+        ValidateMongoDbTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.MongoDbMigrationProgressResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MongoDbMigrationSettingsResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Validate.MongoDb')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -20417,15 +28044,52 @@ class ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse(dict):
         :param Mapping[str, str] client_data: Key value pairs of client data to attach meta data information to task
         :param 'MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse' input: Input for the task that migrates Oracle databases to Azure Database for PostgreSQL for online migrations
         """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "errors", errors)
-        pulumi.set(__self__, "output", output)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "task_type", 'Validate.Oracle.AzureDbPostgreSql.Sync')
+        ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            errors=errors,
+            output=output,
+            state=state,
+            task_type=task_type,
+            client_data=client_data,
+            input=input,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[Sequence[Any]] = None,
+             errors: Optional[Sequence['outputs.ODataErrorResponse']] = None,
+             output: Optional[Sequence['outputs.ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse']] = None,
+             state: Optional[str] = None,
+             task_type: Optional[str] = None,
+             client_data: Optional[Mapping[str, str]] = None,
+             input: Optional['outputs.MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if errors is None:
+            raise TypeError("Missing 'errors' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if client_data is None and 'clientData' in kwargs:
+            client_data = kwargs['clientData']
+
+        _setter("commands", commands)
+        _setter("errors", errors)
+        _setter("output", output)
+        _setter("state", state)
+        _setter("task_type", 'Validate.Oracle.AzureDbPostgreSql.Sync')
         if client_data is not None:
-            pulumi.set(__self__, "client_data", client_data)
+            _setter("client_data", client_data)
         if input is not None:
-            pulumi.set(__self__, "input", input)
+            _setter("input", input)
 
     @property
     @pulumi.getter
@@ -20513,7 +28177,22 @@ class ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse(dict):
         Output for task that validates migration input for Oracle to Azure Database for PostgreSQL for online migrations
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter(name="validationErrors")
@@ -20560,9 +28239,36 @@ class ValidateSyncMigrationInputSqlServerTaskInputResponse(dict):
         :param 'SqlConnectionInfoResponse' source_connection_info: Information for connecting to source SQL server
         :param 'SqlConnectionInfoResponse' target_connection_info: Information for connecting to target
         """
-        pulumi.set(__self__, "selected_databases", selected_databases)
-        pulumi.set(__self__, "source_connection_info", source_connection_info)
-        pulumi.set(__self__, "target_connection_info", target_connection_info)
+        ValidateSyncMigrationInputSqlServerTaskInputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selected_databases=selected_databases,
+            source_connection_info=source_connection_info,
+            target_connection_info=target_connection_info,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selected_databases: Optional[Sequence['outputs.MigrateSqlServerSqlDbSyncDatabaseInputResponse']] = None,
+             source_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             target_connection_info: Optional['outputs.SqlConnectionInfoResponse'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if selected_databases is None and 'selectedDatabases' in kwargs:
+            selected_databases = kwargs['selectedDatabases']
+        if selected_databases is None:
+            raise TypeError("Missing 'selected_databases' argument")
+        if source_connection_info is None and 'sourceConnectionInfo' in kwargs:
+            source_connection_info = kwargs['sourceConnectionInfo']
+        if source_connection_info is None:
+            raise TypeError("Missing 'source_connection_info' argument")
+        if target_connection_info is None and 'targetConnectionInfo' in kwargs:
+            target_connection_info = kwargs['targetConnectionInfo']
+        if target_connection_info is None:
+            raise TypeError("Missing 'target_connection_info' argument")
+
+        _setter("selected_databases", selected_databases)
+        _setter("source_connection_info", source_connection_info)
+        _setter("target_connection_info", target_connection_info)
 
     @property
     @pulumi.getter(name="selectedDatabases")
@@ -20621,9 +28327,32 @@ class ValidateSyncMigrationInputSqlServerTaskOutputResponse(dict):
         :param str name: Name of database
         :param Sequence['ReportableExceptionResponse'] validation_errors: Errors associated with a selected database object
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "validation_errors", validation_errors)
+        ValidateSyncMigrationInputSqlServerTaskOutputResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            validation_errors=validation_errors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             validation_errors: Optional[Sequence['outputs.ReportableExceptionResponse']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if validation_errors is None and 'validationErrors' in kwargs:
+            validation_errors = kwargs['validationErrors']
+        if validation_errors is None:
+            raise TypeError("Missing 'validation_errors' argument")
+
+        _setter("id", id)
+        _setter("name", name)
+        _setter("validation_errors", validation_errors)
 
     @property
     @pulumi.getter
@@ -20663,10 +28392,23 @@ class ValidationErrorResponse(dict):
         :param str severity: Severity of the error
         :param str text: Error Text
         """
+        ValidationErrorResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            severity=severity,
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             severity: Optional[str] = None,
+             text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
 
     @property
     @pulumi.getter
@@ -20721,14 +28463,35 @@ class WaitStatisticsResponse(dict):
         :param float wait_time_ms: Total wait time in millisecond(s) 
         :param str wait_type: Type of the Wait
         """
+        WaitStatisticsResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            wait_count=wait_count,
+            wait_time_ms=wait_time_ms,
+            wait_type=wait_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             wait_count: Optional[float] = None,
+             wait_time_ms: Optional[float] = None,
+             wait_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if wait_count is None and 'waitCount' in kwargs:
+            wait_count = kwargs['waitCount']
+        if wait_time_ms is None and 'waitTimeMs' in kwargs:
+            wait_time_ms = kwargs['waitTimeMs']
+        if wait_type is None and 'waitType' in kwargs:
+            wait_type = kwargs['waitType']
+
         if wait_count is not None:
-            pulumi.set(__self__, "wait_count", wait_count)
+            _setter("wait_count", wait_count)
         if wait_time_ms is None:
             wait_time_ms = 0
         if wait_time_ms is not None:
-            pulumi.set(__self__, "wait_time_ms", wait_time_ms)
+            _setter("wait_time_ms", wait_time_ms)
         if wait_type is not None:
-            pulumi.set(__self__, "wait_type", wait_type)
+            _setter("wait_type", wait_type)
 
     @property
     @pulumi.getter(name="waitCount")

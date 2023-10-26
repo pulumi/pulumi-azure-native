@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,21 +36,60 @@ class NetworkTapArgs:
         :param pulumi.Input[Union[str, 'PollingType']] polling_type: Polling type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "destinations", destinations)
-        pulumi.set(__self__, "network_packet_broker_id", network_packet_broker_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkTapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destinations=destinations,
+            network_packet_broker_id=network_packet_broker_id,
+            resource_group_name=resource_group_name,
+            annotation=annotation,
+            location=location,
+            network_tap_name=network_tap_name,
+            polling_type=polling_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapPropertiesDestinationsArgs']]]] = None,
+             network_packet_broker_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             annotation: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_tap_name: Optional[pulumi.Input[str]] = None,
+             polling_type: Optional[pulumi.Input[Union[str, 'PollingType']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if network_packet_broker_id is None and 'networkPacketBrokerId' in kwargs:
+            network_packet_broker_id = kwargs['networkPacketBrokerId']
+        if network_packet_broker_id is None:
+            raise TypeError("Missing 'network_packet_broker_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if network_tap_name is None and 'networkTapName' in kwargs:
+            network_tap_name = kwargs['networkTapName']
+        if polling_type is None and 'pollingType' in kwargs:
+            polling_type = kwargs['pollingType']
+
+        _setter("destinations", destinations)
+        _setter("network_packet_broker_id", network_packet_broker_id)
+        _setter("resource_group_name", resource_group_name)
         if annotation is not None:
-            pulumi.set(__self__, "annotation", annotation)
+            _setter("annotation", annotation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_tap_name is not None:
-            pulumi.set(__self__, "network_tap_name", network_tap_name)
+            _setter("network_tap_name", network_tap_name)
         if polling_type is None:
             polling_type = 'Pull'
         if polling_type is not None:
-            pulumi.set(__self__, "polling_type", polling_type)
+            _setter("polling_type", polling_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -198,6 +237,10 @@ class NetworkTap(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkTapArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -26,8 +26,19 @@ class CertificateResponse(dict):
         """
         :param str pem: PEM formatted public key.
         """
+        CertificateResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pem=pem,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pem: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if pem is not None:
-            pulumi.set(__self__, "pem", pem)
+            _setter("pem", pem)
 
     @property
     @pulumi.getter
@@ -114,30 +125,95 @@ class ClusterResourceResponseProperties(dict):
         :param str provisioning_state: The status of the resource at the time the operation was called.
         :param bool repair_enabled: Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.
         """
-        pulumi.set(__self__, "gossip_certificates", gossip_certificates)
-        pulumi.set(__self__, "seed_nodes", seed_nodes)
+        ClusterResourceResponseProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gossip_certificates=gossip_certificates,
+            seed_nodes=seed_nodes,
+            authentication_method=authentication_method,
+            cassandra_version=cassandra_version,
+            client_certificates=client_certificates,
+            cluster_name_override=cluster_name_override,
+            delegated_management_subnet_id=delegated_management_subnet_id,
+            external_gossip_certificates=external_gossip_certificates,
+            external_seed_nodes=external_seed_nodes,
+            hours_between_backups=hours_between_backups,
+            prometheus_endpoint=prometheus_endpoint,
+            provisioning_state=provisioning_state,
+            repair_enabled=repair_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gossip_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
+             seed_nodes: Optional[Sequence['outputs.SeedNodeResponse']] = None,
+             authentication_method: Optional[str] = None,
+             cassandra_version: Optional[str] = None,
+             client_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
+             cluster_name_override: Optional[str] = None,
+             delegated_management_subnet_id: Optional[str] = None,
+             external_gossip_certificates: Optional[Sequence['outputs.CertificateResponse']] = None,
+             external_seed_nodes: Optional[Sequence['outputs.SeedNodeResponse']] = None,
+             hours_between_backups: Optional[int] = None,
+             prometheus_endpoint: Optional['outputs.SeedNodeResponse'] = None,
+             provisioning_state: Optional[str] = None,
+             repair_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gossip_certificates is None and 'gossipCertificates' in kwargs:
+            gossip_certificates = kwargs['gossipCertificates']
+        if gossip_certificates is None:
+            raise TypeError("Missing 'gossip_certificates' argument")
+        if seed_nodes is None and 'seedNodes' in kwargs:
+            seed_nodes = kwargs['seedNodes']
+        if seed_nodes is None:
+            raise TypeError("Missing 'seed_nodes' argument")
+        if authentication_method is None and 'authenticationMethod' in kwargs:
+            authentication_method = kwargs['authenticationMethod']
+        if cassandra_version is None and 'cassandraVersion' in kwargs:
+            cassandra_version = kwargs['cassandraVersion']
+        if client_certificates is None and 'clientCertificates' in kwargs:
+            client_certificates = kwargs['clientCertificates']
+        if cluster_name_override is None and 'clusterNameOverride' in kwargs:
+            cluster_name_override = kwargs['clusterNameOverride']
+        if delegated_management_subnet_id is None and 'delegatedManagementSubnetId' in kwargs:
+            delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
+        if external_gossip_certificates is None and 'externalGossipCertificates' in kwargs:
+            external_gossip_certificates = kwargs['externalGossipCertificates']
+        if external_seed_nodes is None and 'externalSeedNodes' in kwargs:
+            external_seed_nodes = kwargs['externalSeedNodes']
+        if hours_between_backups is None and 'hoursBetweenBackups' in kwargs:
+            hours_between_backups = kwargs['hoursBetweenBackups']
+        if prometheus_endpoint is None and 'prometheusEndpoint' in kwargs:
+            prometheus_endpoint = kwargs['prometheusEndpoint']
+        if provisioning_state is None and 'provisioningState' in kwargs:
+            provisioning_state = kwargs['provisioningState']
+        if repair_enabled is None and 'repairEnabled' in kwargs:
+            repair_enabled = kwargs['repairEnabled']
+
+        _setter("gossip_certificates", gossip_certificates)
+        _setter("seed_nodes", seed_nodes)
         if authentication_method is not None:
-            pulumi.set(__self__, "authentication_method", authentication_method)
+            _setter("authentication_method", authentication_method)
         if cassandra_version is not None:
-            pulumi.set(__self__, "cassandra_version", cassandra_version)
+            _setter("cassandra_version", cassandra_version)
         if client_certificates is not None:
-            pulumi.set(__self__, "client_certificates", client_certificates)
+            _setter("client_certificates", client_certificates)
         if cluster_name_override is not None:
-            pulumi.set(__self__, "cluster_name_override", cluster_name_override)
+            _setter("cluster_name_override", cluster_name_override)
         if delegated_management_subnet_id is not None:
-            pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
+            _setter("delegated_management_subnet_id", delegated_management_subnet_id)
         if external_gossip_certificates is not None:
-            pulumi.set(__self__, "external_gossip_certificates", external_gossip_certificates)
+            _setter("external_gossip_certificates", external_gossip_certificates)
         if external_seed_nodes is not None:
-            pulumi.set(__self__, "external_seed_nodes", external_seed_nodes)
+            _setter("external_seed_nodes", external_seed_nodes)
         if hours_between_backups is not None:
-            pulumi.set(__self__, "hours_between_backups", hours_between_backups)
+            _setter("hours_between_backups", hours_between_backups)
         if prometheus_endpoint is not None:
-            pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
+            _setter("prometheus_endpoint", prometheus_endpoint)
         if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+            _setter("provisioning_state", provisioning_state)
         if repair_enabled is not None:
-            pulumi.set(__self__, "repair_enabled", repair_enabled)
+            _setter("repair_enabled", repair_enabled)
 
     @property
     @pulumi.getter(name="gossipCertificates")
@@ -282,12 +358,39 @@ class ManagedServiceIdentityResponse(dict):
         :param str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedServiceIdentityResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+            user_assigned_identities=user_assigned_identities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if user_assigned_identities is None and 'userAssignedIdentities' in kwargs:
+            user_assigned_identities = kwargs['userAssignedIdentities']
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+            _setter("user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -350,8 +453,29 @@ class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
         :param str client_id: The client id of user assigned identity.
         :param str principal_id: The principal id of user assigned identity.
         """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
+        ManagedServiceIdentityResponseUserAssignedIdentities._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            principal_id=principal_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+
+        _setter("client_id", client_id)
+        _setter("principal_id", principal_id)
 
     @property
     @pulumi.getter(name="clientId")
@@ -394,8 +518,21 @@ class SeedNodeResponse(dict):
         """
         :param str ip_address: IP address of this seed node.
         """
+        SeedNodeResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address=ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
 
     @property
     @pulumi.getter(name="ipAddress")

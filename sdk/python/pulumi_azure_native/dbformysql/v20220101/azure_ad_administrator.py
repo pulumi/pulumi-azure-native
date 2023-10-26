@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -35,20 +35,61 @@ class AzureADAdministratorArgs:
         :param pulumi.Input[str] sid: SID (object ID) of the server administrator.
         :param pulumi.Input[str] tenant_id: Tenant ID of the administrator.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
+        AzureADAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            administrator_name=administrator_name,
+            administrator_type=administrator_type,
+            identity_resource_id=identity_resource_id,
+            login=login,
+            sid=sid,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             administrator_name: Optional[pulumi.Input[str]] = None,
+             administrator_type: Optional[pulumi.Input[Union[str, 'AdministratorType']]] = None,
+             identity_resource_id: Optional[pulumi.Input[str]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             sid: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if administrator_name is None and 'administratorName' in kwargs:
+            administrator_name = kwargs['administratorName']
+        if administrator_type is None and 'administratorType' in kwargs:
+            administrator_type = kwargs['administratorType']
+        if identity_resource_id is None and 'identityResourceId' in kwargs:
+            identity_resource_id = kwargs['identityResourceId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
         if administrator_name is not None:
-            pulumi.set(__self__, "administrator_name", administrator_name)
+            _setter("administrator_name", administrator_name)
         if administrator_type is not None:
-            pulumi.set(__self__, "administrator_type", administrator_type)
+            _setter("administrator_type", administrator_type)
         if identity_resource_id is not None:
-            pulumi.set(__self__, "identity_resource_id", identity_resource_id)
+            _setter("identity_resource_id", identity_resource_id)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if sid is not None:
-            pulumi.set(__self__, "sid", sid)
+            _setter("sid", sid)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -194,6 +235,10 @@ class AzureADAdministrator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AzureADAdministratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

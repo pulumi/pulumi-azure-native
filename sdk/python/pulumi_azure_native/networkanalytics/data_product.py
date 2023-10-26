@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -58,40 +58,117 @@ class DataProductArgs:
         :param pulumi.Input[Union[str, 'ControlState']] redundancy: Flag to enable or disable redundancy for data product.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "major_version", major_version)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DataProductArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            major_version=major_version,
+            product=product,
+            publisher=publisher,
+            resource_group_name=resource_group_name,
+            current_minor_version=current_minor_version,
+            customer_encryption_key=customer_encryption_key,
+            customer_managed_key_encryption_enabled=customer_managed_key_encryption_enabled,
+            data_product_name=data_product_name,
+            identity=identity,
+            location=location,
+            managed_resource_group_configuration=managed_resource_group_configuration,
+            networkacls=networkacls,
+            owners=owners,
+            private_links_enabled=private_links_enabled,
+            public_network_access=public_network_access,
+            purview_account=purview_account,
+            purview_collection=purview_collection,
+            redundancy=redundancy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             major_version: Optional[pulumi.Input[str]] = None,
+             product: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             current_minor_version: Optional[pulumi.Input[str]] = None,
+             customer_encryption_key: Optional[pulumi.Input['EncryptionKeyDetailsArgs']] = None,
+             customer_managed_key_encryption_enabled: Optional[pulumi.Input[Union[str, 'ControlState']]] = None,
+             data_product_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
+             networkacls: Optional[pulumi.Input['DataProductNetworkAclsArgs']] = None,
+             owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_links_enabled: Optional[pulumi.Input[Union[str, 'ControlState']]] = None,
+             public_network_access: Optional[pulumi.Input[Union[str, 'ControlState']]] = None,
+             purview_account: Optional[pulumi.Input[str]] = None,
+             purview_collection: Optional[pulumi.Input[str]] = None,
+             redundancy: Optional[pulumi.Input[Union[str, 'ControlState']]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if major_version is None and 'majorVersion' in kwargs:
+            major_version = kwargs['majorVersion']
+        if major_version is None:
+            raise TypeError("Missing 'major_version' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if current_minor_version is None and 'currentMinorVersion' in kwargs:
+            current_minor_version = kwargs['currentMinorVersion']
+        if customer_encryption_key is None and 'customerEncryptionKey' in kwargs:
+            customer_encryption_key = kwargs['customerEncryptionKey']
+        if customer_managed_key_encryption_enabled is None and 'customerManagedKeyEncryptionEnabled' in kwargs:
+            customer_managed_key_encryption_enabled = kwargs['customerManagedKeyEncryptionEnabled']
+        if data_product_name is None and 'dataProductName' in kwargs:
+            data_product_name = kwargs['dataProductName']
+        if managed_resource_group_configuration is None and 'managedResourceGroupConfiguration' in kwargs:
+            managed_resource_group_configuration = kwargs['managedResourceGroupConfiguration']
+        if private_links_enabled is None and 'privateLinksEnabled' in kwargs:
+            private_links_enabled = kwargs['privateLinksEnabled']
+        if public_network_access is None and 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if purview_account is None and 'purviewAccount' in kwargs:
+            purview_account = kwargs['purviewAccount']
+        if purview_collection is None and 'purviewCollection' in kwargs:
+            purview_collection = kwargs['purviewCollection']
+
+        _setter("major_version", major_version)
+        _setter("product", product)
+        _setter("publisher", publisher)
+        _setter("resource_group_name", resource_group_name)
         if current_minor_version is not None:
-            pulumi.set(__self__, "current_minor_version", current_minor_version)
+            _setter("current_minor_version", current_minor_version)
         if customer_encryption_key is not None:
-            pulumi.set(__self__, "customer_encryption_key", customer_encryption_key)
+            _setter("customer_encryption_key", customer_encryption_key)
         if customer_managed_key_encryption_enabled is not None:
-            pulumi.set(__self__, "customer_managed_key_encryption_enabled", customer_managed_key_encryption_enabled)
+            _setter("customer_managed_key_encryption_enabled", customer_managed_key_encryption_enabled)
         if data_product_name is not None:
-            pulumi.set(__self__, "data_product_name", data_product_name)
+            _setter("data_product_name", data_product_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_configuration is not None:
-            pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+            _setter("managed_resource_group_configuration", managed_resource_group_configuration)
         if networkacls is not None:
-            pulumi.set(__self__, "networkacls", networkacls)
+            _setter("networkacls", networkacls)
         if owners is not None:
-            pulumi.set(__self__, "owners", owners)
+            _setter("owners", owners)
         if private_links_enabled is not None:
-            pulumi.set(__self__, "private_links_enabled", private_links_enabled)
+            _setter("private_links_enabled", private_links_enabled)
         if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
+            _setter("public_network_access", public_network_access)
         if purview_account is not None:
-            pulumi.set(__self__, "purview_account", purview_account)
+            _setter("purview_account", purview_account)
         if purview_collection is not None:
-            pulumi.set(__self__, "purview_collection", purview_collection)
+            _setter("purview_collection", purview_collection)
         if redundancy is not None:
-            pulumi.set(__self__, "redundancy", redundancy)
+            _setter("redundancy", redundancy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="majorVersion")
@@ -393,6 +470,10 @@ class DataProduct(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataProductArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -427,15 +508,19 @@ class DataProduct(pulumi.CustomResource):
             __props__ = DataProductArgs.__new__(DataProductArgs)
 
             __props__.__dict__["current_minor_version"] = current_minor_version
+            customer_encryption_key = _utilities.configure(customer_encryption_key, EncryptionKeyDetailsArgs, True)
             __props__.__dict__["customer_encryption_key"] = customer_encryption_key
             __props__.__dict__["customer_managed_key_encryption_enabled"] = customer_managed_key_encryption_enabled
             __props__.__dict__["data_product_name"] = data_product_name
+            identity = _utilities.configure(identity, ManagedServiceIdentityArgs, True)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if major_version is None and not opts.urn:
                 raise TypeError("Missing required property 'major_version'")
             __props__.__dict__["major_version"] = major_version
+            managed_resource_group_configuration = _utilities.configure(managed_resource_group_configuration, ManagedResourceGroupConfigurationArgs, True)
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
+            networkacls = _utilities.configure(networkacls, DataProductNetworkAclsArgs, True)
             __props__.__dict__["networkacls"] = networkacls
             __props__.__dict__["owners"] = owners
             __props__.__dict__["private_links_enabled"] = private_links_enabled

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -56,13 +56,54 @@ class PlanResponse(dict):
         :param str stack_type: Stack type (classic or arm)
         :param str accessibility: Plan accessibility
         """
-        pulumi.set(__self__, "alt_stack_reference", alt_stack_reference)
-        pulumi.set(__self__, "plan_display_name", plan_display_name)
-        pulumi.set(__self__, "plan_id", plan_id)
-        pulumi.set(__self__, "sku_id", sku_id)
-        pulumi.set(__self__, "stack_type", stack_type)
+        PlanResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alt_stack_reference=alt_stack_reference,
+            plan_display_name=plan_display_name,
+            plan_id=plan_id,
+            sku_id=sku_id,
+            stack_type=stack_type,
+            accessibility=accessibility,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alt_stack_reference: Optional[str] = None,
+             plan_display_name: Optional[str] = None,
+             plan_id: Optional[str] = None,
+             sku_id: Optional[str] = None,
+             stack_type: Optional[str] = None,
+             accessibility: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alt_stack_reference is None and 'altStackReference' in kwargs:
+            alt_stack_reference = kwargs['altStackReference']
+        if alt_stack_reference is None:
+            raise TypeError("Missing 'alt_stack_reference' argument")
+        if plan_display_name is None and 'planDisplayName' in kwargs:
+            plan_display_name = kwargs['planDisplayName']
+        if plan_display_name is None:
+            raise TypeError("Missing 'plan_display_name' argument")
+        if plan_id is None and 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if plan_id is None:
+            raise TypeError("Missing 'plan_id' argument")
+        if sku_id is None and 'skuId' in kwargs:
+            sku_id = kwargs['skuId']
+        if sku_id is None:
+            raise TypeError("Missing 'sku_id' argument")
+        if stack_type is None and 'stackType' in kwargs:
+            stack_type = kwargs['stackType']
+        if stack_type is None:
+            raise TypeError("Missing 'stack_type' argument")
+
+        _setter("alt_stack_reference", alt_stack_reference)
+        _setter("plan_display_name", plan_display_name)
+        _setter("plan_id", plan_id)
+        _setter("sku_id", sku_id)
+        _setter("stack_type", stack_type)
         if accessibility is not None:
-            pulumi.set(__self__, "accessibility", accessibility)
+            _setter("accessibility", accessibility)
 
     @property
     @pulumi.getter(name="altStackReference")

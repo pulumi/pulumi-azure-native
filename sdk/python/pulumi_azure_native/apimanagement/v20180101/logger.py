@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from ._enums import *
 
@@ -33,16 +33,55 @@ class LoggerArgs:
         :param pulumi.Input[bool] is_buffered: Whether records are buffered in the logger before publishing. Default is assumed to be true.
         :param pulumi.Input[str] loggerid: Logger identifier. Must be unique in the API Management service instance.
         """
-        pulumi.set(__self__, "credentials", credentials)
-        pulumi.set(__self__, "logger_type", logger_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        LoggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            credentials=credentials,
+            logger_type=logger_type,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            description=description,
+            is_buffered=is_buffered,
+            loggerid=loggerid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             logger_type: Optional[pulumi.Input[Union[str, 'LoggerType']]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             is_buffered: Optional[pulumi.Input[bool]] = None,
+             loggerid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if logger_type is None and 'loggerType' in kwargs:
+            logger_type = kwargs['loggerType']
+        if logger_type is None:
+            raise TypeError("Missing 'logger_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if is_buffered is None and 'isBuffered' in kwargs:
+            is_buffered = kwargs['isBuffered']
+
+        _setter("credentials", credentials)
+        _setter("logger_type", logger_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_buffered is not None:
-            pulumi.set(__self__, "is_buffered", is_buffered)
+            _setter("is_buffered", is_buffered)
         if loggerid is not None:
-            pulumi.set(__self__, "loggerid", loggerid)
+            _setter("loggerid", loggerid)
 
     @property
     @pulumi.getter
@@ -176,6 +215,10 @@ class Logger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LoggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

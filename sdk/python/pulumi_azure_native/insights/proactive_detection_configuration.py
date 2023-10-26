@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,65 @@ class ProactiveDetectionConfigurationArgs:
         :param pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs'] rule_definitions: Static definitions of the ProactiveDetection configuration rule (same values for all components).
         :param pulumi.Input[bool] send_emails_to_subscription_owners: A flag that indicated whether notifications on this rule should be sent to subscription owners
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        ProactiveDetectionConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            configuration_id=configuration_id,
+            custom_emails=custom_emails,
+            enabled=enabled,
+            location=location,
+            name=name,
+            rule_definitions=rule_definitions,
+            send_emails_to_subscription_owners=send_emails_to_subscription_owners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             configuration_id: Optional[pulumi.Input[str]] = None,
+             custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rule_definitions: Optional[pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs']] = None,
+             send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if configuration_id is None and 'configurationId' in kwargs:
+            configuration_id = kwargs['configurationId']
+        if custom_emails is None and 'customEmails' in kwargs:
+            custom_emails = kwargs['customEmails']
+        if rule_definitions is None and 'ruleDefinitions' in kwargs:
+            rule_definitions = kwargs['ruleDefinitions']
+        if send_emails_to_subscription_owners is None and 'sendEmailsToSubscriptionOwners' in kwargs:
+            send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if configuration_id is not None:
-            pulumi.set(__self__, "configuration_id", configuration_id)
+            _setter("configuration_id", configuration_id)
         if custom_emails is not None:
-            pulumi.set(__self__, "custom_emails", custom_emails)
+            _setter("custom_emails", custom_emails)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rule_definitions is not None:
-            pulumi.set(__self__, "rule_definitions", rule_definitions)
+            _setter("rule_definitions", rule_definitions)
         if send_emails_to_subscription_owners is not None:
-            pulumi.set(__self__, "send_emails_to_subscription_owners", send_emails_to_subscription_owners)
+            _setter("send_emails_to_subscription_owners", send_emails_to_subscription_owners)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -218,6 +261,10 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProactiveDetectionConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -252,6 +299,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            rule_definitions = _utilities.configure(rule_definitions, ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs, True)
             __props__.__dict__["rule_definitions"] = rule_definitions
             __props__.__dict__["send_emails_to_subscription_owners"] = send_emails_to_subscription_owners
             __props__.__dict__["last_updated_time"] = None

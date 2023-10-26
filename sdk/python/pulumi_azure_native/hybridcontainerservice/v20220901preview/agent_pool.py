@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 from . import outputs
 from ._enums import *
@@ -57,46 +57,125 @@ class AgentPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] vm_size: VmSize - The size of the agent pool VMs.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
+        AgentPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            resource_name=resource_name,
+            agent_pool_name=agent_pool_name,
+            availability_zones=availability_zones,
+            cloud_provider_profile=cloud_provider_profile,
+            count=count,
+            extended_location=extended_location,
+            location=location,
+            max_count=max_count,
+            max_pods=max_pods,
+            min_count=min_count,
+            mode=mode,
+            node_image_version=node_image_version,
+            node_labels=node_labels,
+            node_taints=node_taints,
+            os_type=os_type,
+            status=status,
+            tags=tags,
+            vm_size=vm_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_name: Optional[pulumi.Input[str]] = None,
+             agent_pool_name: Optional[pulumi.Input[str]] = None,
+             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cloud_provider_profile: Optional[pulumi.Input['CloudProviderProfileArgs']] = None,
+             count: Optional[pulumi.Input[int]] = None,
+             extended_location: Optional[pulumi.Input['AgentPoolExtendedLocationArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_count: Optional[pulumi.Input[int]] = None,
+             max_pods: Optional[pulumi.Input[int]] = None,
+             min_count: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[Union[str, 'Mode']]] = None,
+             node_image_version: Optional[pulumi.Input[str]] = None,
+             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+             status: Optional[pulumi.Input['AgentPoolProvisioningStatusStatusArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vm_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if resource_name is None:
+            raise TypeError("Missing 'resource_name' argument")
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if cloud_provider_profile is None and 'cloudProviderProfile' in kwargs:
+            cloud_provider_profile = kwargs['cloudProviderProfile']
+        if extended_location is None and 'extendedLocation' in kwargs:
+            extended_location = kwargs['extendedLocation']
+        if max_count is None and 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+        if max_pods is None and 'maxPods' in kwargs:
+            max_pods = kwargs['maxPods']
+        if min_count is None and 'minCount' in kwargs:
+            min_count = kwargs['minCount']
+        if node_image_version is None and 'nodeImageVersion' in kwargs:
+            node_image_version = kwargs['nodeImageVersion']
+        if node_labels is None and 'nodeLabels' in kwargs:
+            node_labels = kwargs['nodeLabels']
+        if node_taints is None and 'nodeTaints' in kwargs:
+            node_taints = kwargs['nodeTaints']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if vm_size is None and 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("resource_name", resource_name)
         if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+            _setter("agent_pool_name", agent_pool_name)
         if availability_zones is not None:
-            pulumi.set(__self__, "availability_zones", availability_zones)
+            _setter("availability_zones", availability_zones)
         if cloud_provider_profile is not None:
-            pulumi.set(__self__, "cloud_provider_profile", cloud_provider_profile)
+            _setter("cloud_provider_profile", cloud_provider_profile)
         if count is None:
             count = 1
         if count is not None:
-            pulumi.set(__self__, "count", count)
+            _setter("count", count)
         if extended_location is not None:
-            pulumi.set(__self__, "extended_location", extended_location)
+            _setter("extended_location", extended_location)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_count is not None:
-            pulumi.set(__self__, "max_count", max_count)
+            _setter("max_count", max_count)
         if max_pods is not None:
-            pulumi.set(__self__, "max_pods", max_pods)
+            _setter("max_pods", max_pods)
         if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
+            _setter("min_count", min_count)
         if mode is None:
             mode = 'User'
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if node_image_version is not None:
-            pulumi.set(__self__, "node_image_version", node_image_version)
+            _setter("node_image_version", node_image_version)
         if node_labels is not None:
-            pulumi.set(__self__, "node_labels", node_labels)
+            _setter("node_labels", node_labels)
         if node_taints is not None:
-            pulumi.set(__self__, "node_taints", node_taints)
+            _setter("node_taints", node_taints)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
+            _setter("vm_size", vm_size)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -392,6 +471,10 @@ class AgentPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgentPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -427,10 +510,12 @@ class AgentPool(pulumi.CustomResource):
 
             __props__.__dict__["agent_pool_name"] = agent_pool_name
             __props__.__dict__["availability_zones"] = availability_zones
+            cloud_provider_profile = _utilities.configure(cloud_provider_profile, CloudProviderProfileArgs, True)
             __props__.__dict__["cloud_provider_profile"] = cloud_provider_profile
             if count is None:
                 count = 1
             __props__.__dict__["count"] = count
+            extended_location = _utilities.configure(extended_location, AgentPoolExtendedLocationArgs, True)
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
             __props__.__dict__["max_count"] = max_count
@@ -449,6 +534,7 @@ class AgentPool(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            status = _utilities.configure(status, AgentPoolProvisioningStatusStatusArgs, True)
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vm_size"] = vm_size
