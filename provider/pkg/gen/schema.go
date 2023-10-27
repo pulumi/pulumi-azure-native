@@ -786,7 +786,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		readMethod = "HEAD"
 	}
 
-	requiredContainers := append(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok)...)
+	requiredContainers := mergeRequiredContainers(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok))
 
 	r := resources.AzureAPIResource{
 		APIVersion:           swagger.Info.Version,
@@ -1354,7 +1354,7 @@ func (bag *parameterBag) merge(other *propertyBag) {
 	for key := range other.requiredSpecs {
 		bag.requiredSpecs.Add(key)
 	}
-	bag.requiredContainers = append(bag.requiredContainers, other.requiredContainers...)
+	bag.requiredContainers = mergeRequiredContainers(bag.requiredContainers, other.requiredContainers)
 }
 
 func rawMessage(v interface{}) pschema.RawMessage {
