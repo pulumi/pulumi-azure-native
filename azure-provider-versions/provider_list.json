@@ -3623,7 +3623,7 @@
         ]
       },
       {
-        "resourceType": "locations/operationstatuses",
+        "resourceType": "locations/operationStatuses",
         "apiVersions": [
           "2023-09-01-preview",
           "2023-08-01-preview",
@@ -3666,6 +3666,7 @@
       {
         "resourceType": "networkInterfaces",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-07-01-preview",
           "2022-12-15-preview",
           "2021-09-01-preview",
@@ -17618,6 +17619,8 @@
       {
         "resourceType": "cassandraClusters",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17643,6 +17646,8 @@
       {
         "resourceType": "databaseAccountNames",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17685,6 +17690,8 @@
       {
         "resourceType": "databaseAccounts",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17727,6 +17734,8 @@
       {
         "resourceType": "databaseAccounts/encryptionScopes",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17752,6 +17761,8 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17794,6 +17805,7 @@
       {
         "resourceType": "locations/checkMongoClusterNameAvailability",
         "apiVersions": [
+          "2023-11-15-preview",
           "2023-09-15-preview",
           "2023-03-15-preview",
           "2023-03-01-preview",
@@ -17803,6 +17815,8 @@
       {
         "resourceType": "locations/deleteVirtualNetworkOrSubnets",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17845,6 +17859,7 @@
       {
         "resourceType": "locations/mongoClusterAzureAsyncOperation",
         "apiVersions": [
+          "2023-11-15-preview",
           "2023-09-15-preview",
           "2023-03-15-preview",
           "2023-03-01-preview",
@@ -17854,6 +17869,7 @@
       {
         "resourceType": "locations/mongoClusterOperationResults",
         "apiVersions": [
+          "2023-11-15-preview",
           "2023-09-15-preview",
           "2023-03-15-preview",
           "2023-03-01-preview",
@@ -17863,6 +17879,8 @@
       {
         "resourceType": "locations/notifyNetworkSecurityPerimeterUpdatesAvailable",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17878,6 +17896,8 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17920,6 +17940,8 @@
       {
         "resourceType": "locations/operationsStatus",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17962,6 +17984,8 @@
       {
         "resourceType": "locations/restorableDatabaseAccounts",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -17989,6 +18013,7 @@
       {
         "resourceType": "mongoClusters",
         "apiVersions": [
+          "2023-11-15-preview",
           "2023-09-15-preview",
           "2023-03-15-preview",
           "2023-03-01-preview",
@@ -17998,6 +18023,8 @@
       {
         "resourceType": "operationResults",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -18040,6 +18067,8 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -18082,6 +18111,8 @@
       {
         "resourceType": "operationsStatus",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",
@@ -18124,6 +18155,8 @@
       {
         "resourceType": "restorableDatabaseAccounts",
         "apiVersions": [
+          "2023-11-15-preview",
+          "2023-11-15",
           "2023-09-15-preview",
           "2023-09-15",
           "2023-04-15",

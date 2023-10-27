@@ -3291,6 +3291,12 @@
       "Capability",
       "Experiment",
       "Target"
+    ],
+    "2023-11-01": [
+      "Capability",
+      "Experiment",
+      "Target",
+      "getExperimentExecutionDetails"
     ]
   },
   "CognitiveServices": {
@@ -3396,6 +3402,14 @@
       "listEmailServiceVerifiedExchangeOnlineDomains"
     ],
     "2023-03-31": [
+      "CommunicationService",
+      "Domain",
+      "EmailService",
+      "SenderUsername",
+      "listCommunicationServiceKeys",
+      "listEmailServiceVerifiedExchangeOnlineDomains"
+    ],
+    "2023-04-01": [
       "CommunicationService",
       "Domain",
       "EmailService",
@@ -5056,6 +5070,18 @@
       "AgentPool",
       "MaintenanceConfiguration",
       "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-09-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
       "PrivateEndpointConnection",
       "Snapshot",
       "TrustedAccessRoleBinding",
@@ -9004,6 +9030,21 @@
       "VendorSkus",
       "listDeviceRegistrationKey",
       "listVendorSkusCredential"
+    ],
+    "2023-09-01": [
+      "ArtifactManifest",
+      "ArtifactStore",
+      "ConfigurationGroupSchema",
+      "ConfigurationGroupValue",
+      "NetworkFunction",
+      "NetworkFunctionDefinitionGroup",
+      "NetworkFunctionDefinitionVersion",
+      "NetworkServiceDesignGroup",
+      "NetworkServiceDesignVersion",
+      "Publisher",
+      "Site",
+      "SiteNetworkService",
+      "listArtifactManifestCredential"
     ]
   },
   "ImportExport": {
@@ -16388,6 +16429,9 @@
       "listGitHubOwnerAvailable",
       "listGitLabGroupAvailable",
       "listGitLabSubgroup"
+    ],
+    "2023-10-01-preview": [
+      "SecurityConnector"
     ],
     "2023-11-15": [
       "APICollectionByAzureApiManagementService"

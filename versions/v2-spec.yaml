@@ -205,6 +205,8 @@ ChangeAnalysis:
     tracking: 2020-04-01-preview
 Chaos:
     tracking: 2023-04-15-preview
+    additions:
+        getExperimentExecutionDetails: "2023-11-01"
 CognitiveServices:
     tracking: "2023-05-01"
     additions:
@@ -751,6 +753,19 @@ HybridData:
     tracking: "2019-06-01"
 HybridNetwork:
     tracking: 2022-01-01-preview
+    additions:
+        ArtifactManifest: "2023-09-01"
+        ArtifactStore: "2023-09-01"
+        ConfigurationGroupSchema: "2023-09-01"
+        ConfigurationGroupValue: "2023-09-01"
+        NetworkFunctionDefinitionGroup: "2023-09-01"
+        NetworkFunctionDefinitionVersion: "2023-09-01"
+        NetworkServiceDesignGroup: "2023-09-01"
+        NetworkServiceDesignVersion: "2023-09-01"
+        Publisher: "2023-09-01"
+        Site: "2023-09-01"
+        SiteNetworkService: "2023-09-01"
+        listArtifactManifestCredential: "2023-09-01"
 ImportExport:
     tracking: "2021-01-01"
 Insights:
