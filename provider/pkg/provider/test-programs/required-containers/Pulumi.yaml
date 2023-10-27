@@ -1,0 +1,11 @@
+name: managed-environment
+runtime: yaml
+description: Tests if required containers are created even if no properties are set within them
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+  queryPack:
+    type: azure-native:operationalinsights:QueryPack
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}

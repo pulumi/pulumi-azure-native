@@ -786,6 +786,8 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		readMethod = "HEAD"
 	}
 
+	requiredContainers := mergeRequiredContainers(resourceRequest.requiredContainers, additionalRequiredContainers(resourceTok))
+
 	r := resources.AzureAPIResource{
 		APIVersion:           swagger.Info.Version,
 		Path:                 resource.Path,
@@ -799,6 +801,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		ReadMethod:           readMethod,
 		ReadPath:             readPath,
 		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
+		RequiredContainers:   requiredContainers,
 	}
 	g.metadata.Resources[resourceTok] = r
 
@@ -1330,10 +1333,11 @@ func getPropertyDescription(schema *spec.Schema, context *openapi.ReferenceConte
 
 // parameterBag keeps the schema and metadata parameters for a single resource or invocation.
 type parameterBag struct {
-	description   string
-	specs         map[string]pschema.PropertySpec
-	parameters    []resources.AzureAPIParameter
-	requiredSpecs codegen.StringSet
+	description        string
+	specs              map[string]pschema.PropertySpec
+	parameters         []resources.AzureAPIParameter
+	requiredSpecs      codegen.StringSet
+	requiredContainers RequiredContainers
 }
 
 func newParameterBag() *parameterBag {
@@ -1350,6 +1354,7 @@ func (bag *parameterBag) merge(other *propertyBag) {
 	for key := range other.requiredSpecs {
 		bag.requiredSpecs.Add(key)
 	}
+	bag.requiredContainers = mergeRequiredContainers(bag.requiredContainers, other.requiredContainers)
 }
 
 func rawMessage(v interface{}) pschema.RawMessage {

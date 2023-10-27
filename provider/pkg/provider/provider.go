@@ -31,6 +31,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
@@ -309,6 +310,7 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		id, body, query, err := k.prepareAzureRESTInputs(
 			res.Path,
 			parameters,
+			nil,
 			args.Mappable(),
 			map[string]interface{}{
 				"subscriptionId": k.subscriptionID,
@@ -861,6 +863,7 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
 		res.PutParameters,
+		res.RequiredContainers,
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.subscriptionID,
@@ -1195,6 +1198,7 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
 		res.Path,
 		res.PutParameters,
+		res.RequiredContainers,
 		inputs.Mappable(),
 		map[string]interface{}{
 			"subscriptionId": k.subscriptionID,
@@ -1817,7 +1821,7 @@ func (k *azureNativeProvider) azurePost(
 	return outputs, nil
 }
 
-func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, methodInputs,
+func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, requiredContainers gen.RequiredContainers, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	params := map[string]map[string]interface{}{
@@ -1863,6 +1867,22 @@ func (k *azureNativeProvider) prepareAzureRESTInputs(path string, parameters []r
 		}
 		body = k.converter.SdkPropertiesToRequestBody(param.Body.Properties, methodInputs, id)
 		break
+	}
+
+	// Ensure all required containers are created.
+	for _, containers := range requiredContainers {
+		currentContainer := body
+		for _, containerName := range containers {
+			innerContainer, ok := currentContainer[containerName]
+			if !ok {
+				innerContainer = map[string]interface{}{}
+				currentContainer[containerName] = innerContainer
+			}
+			currentContainer, ok = innerContainer.(map[string]interface{})
+			if !ok {
+				break
+			}
+		}
 	}
 
 	return id, body, params["query"], nil

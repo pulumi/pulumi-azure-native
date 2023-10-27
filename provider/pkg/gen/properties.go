@@ -37,7 +37,10 @@ type propertyBag struct {
 	properties         map[string]resources.AzureAPIProperty
 	requiredSpecs      codegen.StringSet
 	requiredProperties codegen.StringSet
+	requiredContainers RequiredContainers
 }
+
+type RequiredContainers [][]string
 
 func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput, isType bool) (*propertyBag, error) {
 	result := newPropertyBag()
@@ -101,6 +104,17 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				newProperties[n] = value
 			}
 			bag.properties = newProperties
+
+			newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
+			for i, containers := range bag.requiredContainers {
+				newRequiredContainers[i] = append([]string{name}, containers...)
+			}
+			for _, requiredName := range resolvedSchema.Required {
+				if requiredName == name {
+					newRequiredContainers = append(newRequiredContainers, []string{name})
+				}
+			}
+			bag.requiredContainers = newRequiredContainers
 
 			result.merge(bag)
 			continue
@@ -335,6 +349,27 @@ func (bag *propertyBag) merge(other *propertyBag) {
 	for key := range other.requiredProperties {
 		bag.requiredProperties.Add(key)
 	}
+	bag.requiredContainers = mergeRequiredContainers(bag.requiredContainers, other.requiredContainers)
+}
+
+func mergeRequiredContainers(a, b RequiredContainers) RequiredContainers {
+	if len(a) == 0 && len(b) == 0 {
+		return nil
+	}
+	result := make(RequiredContainers, 0, len(a)+len(b))
+	// Index each container by concatenating its elements with a separator.
+	// This is necessary because we can't compare slices directly.
+	index := map[string]bool{}
+	for _, containers := range a {
+		index[strings.Join(containers, ".")] = true
+		result = append(result, containers)
+	}
+	for _, containers := range b {
+		if _, ok := index[strings.Join(containers, ".")]; !ok {
+			result = append(result, containers)
+		}
+	}
+	return result
 }
 
 // forceNew return true if a property with a given name requires a replacement in the resource

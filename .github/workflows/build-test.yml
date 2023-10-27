@@ -151,13 +151,13 @@ jobs:
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
         run: |
           set -euo pipefail
-          cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd examples && go test -v -json -cover -timeout 2h -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
 
       - name: Run short tests
         if: inputs.short_test
         run: |
           set -euo pipefail
-          cd examples && go test -v -json -count=1 -cover -timeout 15m -short -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+          cd examples && go test -v -json -cover -timeout 15m -short -tags=${{ matrix.language }} -parallel 16 . 2>&1 | tee /tmp/gotest.log | gotestfmt
 
       - name: Tar SDK folder
         if: ${{ matrix.language != 'go' }}
@@ -207,16 +207,27 @@ jobs:
         with:
           skip_dotnet_and_java: "true"
 
+      - name: Install gotestfmt
+        uses: jaxxstorm/action-install-gh-release@v1.9.0
+        with:
+          tag: v2.4.0
+          repo: GoTestTools/gotestfmt
+
       - run: make ensure
 
       - name: Prerequisites artifact restore
         uses: ./.github/actions/prerequisites-artifact-restore
 
-      - name: Mark prerequisites as up-to-date
-        run: make --touch codegen schema provider
+      # This is essentially just copying files from bin to the provider folder
+      - name: Prebuild provider prerequisites
+        run: |
+          make --touch codegen schema
+          make provider_prebuild
 
       - name: Test Provider Library
-        run: PROVIDER_TEST_TAGS=all make test_provider
+        run: |
+          set -euo pipefail
+          cd provider && go test -v -json -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3

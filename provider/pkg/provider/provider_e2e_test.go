@@ -29,6 +29,10 @@ func TestApi(t *testing.T) {
 	runTestProgram(t, "api")
 }
 
+func TestRequiredContainers(t *testing.T) {
+	runTestProgram(t, "required-containers")
+}
+
 // runTestProgram runs an example from ./examples/<initialDir>
 // Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
 func runTestProgram(t *testing.T, initialDir string, editDirs ...string) {
