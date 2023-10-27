@@ -29,8 +29,8 @@ func TestApi(t *testing.T) {
 	runTestProgram(t, "api")
 }
 
-func TestMangedEnvironment(t *testing.T) {
-	runTestProgram(t, "managed-environment")
+func TestRequiredContainers(t *testing.T) {
+	runTestProgram(t, "required-containers")
 }
 
 // runTestProgram runs an example from ./examples/<initialDir>

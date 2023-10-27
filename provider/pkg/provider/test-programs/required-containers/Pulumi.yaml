@@ -4,8 +4,8 @@ description: Tests if required containers are created even if no properties are 
 resources:
   rg:
     type: azure-native:resources:ResourceGroup
-  managedEnvironment:
-    type: azure-native:app:ManagedEnvironment
+  queryPack:
+    type: azure-native:operationalinsights:QueryPack
     properties:
       resourceGroupName: ${rg.name}
       location: ${rg.location}
