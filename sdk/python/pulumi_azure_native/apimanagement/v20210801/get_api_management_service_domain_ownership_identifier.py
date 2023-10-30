@@ -13,6 +13,7 @@ __all__ = [
     'GetApiManagementServiceDomainOwnershipIdentifierResult',
     'AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult',
     'get_api_management_service_domain_ownership_identifier',
+    'get_api_management_service_domain_ownership_identifier_output',
 ]
 
 @pulumi.output_type
@@ -53,3 +54,11 @@ def get_api_management_service_domain_ownership_identifier(opts: Optional[pulumi
 
     return AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult(
         domain_ownership_identifier=pulumi.get(__ret__, 'domain_ownership_identifier'))
+
+
+@_utilities.lift_output_func(get_api_management_service_domain_ownership_identifier)
+def get_api_management_service_domain_ownership_identifier_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceDomainOwnershipIdentifierResult]:
+    """
+    Get the custom domain ownership identifier for an API Management service.
+    """
+    ...
