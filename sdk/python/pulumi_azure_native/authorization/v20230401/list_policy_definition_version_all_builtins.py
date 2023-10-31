@@ -14,6 +14,7 @@ __all__ = [
     'ListPolicyDefinitionVersionAllBuiltinsResult',
     'AwaitableListPolicyDefinitionVersionAllBuiltinsResult',
     'list_policy_definition_version_all_builtins',
+    'list_policy_definition_version_all_builtins_output',
 ]
 
 @pulumi.output_type
@@ -67,3 +68,11 @@ def list_policy_definition_version_all_builtins(opts: Optional[pulumi.InvokeOpti
     return AwaitableListPolicyDefinitionVersionAllBuiltinsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_policy_definition_version_all_builtins)
+def list_policy_definition_version_all_builtins_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicyDefinitionVersionAllBuiltinsResult]:
+    """
+    This operation lists all the built-in policy definition versions for all built-in policy definitions.
+    """
+    ...

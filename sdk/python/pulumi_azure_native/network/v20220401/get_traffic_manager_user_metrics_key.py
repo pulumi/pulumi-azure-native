@@ -13,6 +13,7 @@ __all__ = [
     'GetTrafficManagerUserMetricsKeyResult',
     'AwaitableGetTrafficManagerUserMetricsKeyResult',
     'get_traffic_manager_user_metrics_key',
+    'get_traffic_manager_user_metrics_key_output',
 ]
 
 @pulumi.output_type
@@ -92,3 +93,11 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
         key=pulumi.get(__ret__, 'key'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
+
+
+@_utilities.lift_output_func(get_traffic_manager_user_metrics_key)
+def get_traffic_manager_user_metrics_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficManagerUserMetricsKeyResult]:
+    """
+    Get the subscription-level key used for Real User Metrics collection.
+    """
+    ...

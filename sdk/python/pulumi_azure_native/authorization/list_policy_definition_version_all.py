@@ -14,6 +14,7 @@ __all__ = [
     'ListPolicyDefinitionVersionAllResult',
     'AwaitableListPolicyDefinitionVersionAllResult',
     'list_policy_definition_version_all',
+    'list_policy_definition_version_all_output',
 ]
 
 @pulumi.output_type
@@ -68,3 +69,12 @@ def list_policy_definition_version_all(opts: Optional[pulumi.InvokeOptions] = No
     return AwaitableListPolicyDefinitionVersionAllResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
+
+
+@_utilities.lift_output_func(list_policy_definition_version_all)
+def list_policy_definition_version_all_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicyDefinitionVersionAllResult]:
+    """
+    This operation lists all the policy definition versions for all policy definitions within a subscription.
+    Azure REST API version: 2023-04-01.
+    """
+    ...
