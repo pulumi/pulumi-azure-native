@@ -25,10 +25,25 @@ export const getExperiment: typeof import("./getExperiment").getExperiment = nul
 export const getExperimentOutput: typeof import("./getExperiment").getExperimentOutput = null as any;
 utilities.lazyLoad(exports, ["getExperiment","getExperimentOutput"], () => require("./getExperiment"));
 
+export { GetExperimentExecutionDetailsArgs, GetExperimentExecutionDetailsResult, GetExperimentExecutionDetailsOutputArgs } from "./getExperimentExecutionDetails";
+export const getExperimentExecutionDetails: typeof import("./getExperimentExecutionDetails").getExperimentExecutionDetails = null as any;
+export const getExperimentExecutionDetailsOutput: typeof import("./getExperimentExecutionDetails").getExperimentExecutionDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getExperimentExecutionDetails","getExperimentExecutionDetailsOutput"], () => require("./getExperimentExecutionDetails"));
+
+export { GetPrivateAccessArgs, GetPrivateAccessResult, GetPrivateAccessOutputArgs } from "./getPrivateAccess";
+export const getPrivateAccess: typeof import("./getPrivateAccess").getPrivateAccess = null as any;
+export const getPrivateAccessOutput: typeof import("./getPrivateAccess").getPrivateAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateAccess","getPrivateAccessOutput"], () => require("./getPrivateAccess"));
+
 export { GetTargetArgs, GetTargetResult, GetTargetOutputArgs } from "./getTarget";
 export const getTarget: typeof import("./getTarget").getTarget = null as any;
 export const getTargetOutput: typeof import("./getTarget").getTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getTarget","getTargetOutput"], () => require("./getTarget"));
+
+export { PrivateAccessArgs } from "./privateAccess";
+export type PrivateAccess = import("./privateAccess").PrivateAccess;
+export const PrivateAccess: typeof import("./privateAccess").PrivateAccess = null as any;
+utilities.lazyLoad(exports, ["PrivateAccess"], () => require("./privateAccess"));
 
 export { TargetArgs } from "./target";
 export type Target = import("./target").Target;
@@ -43,11 +58,13 @@ export * from "../types/enums/chaos";
 import * as v20230415preview from "./v20230415preview";
 import * as v20230901preview from "./v20230901preview";
 import * as v20231027preview from "./v20231027preview";
+import * as v20231101 from "./v20231101";
 
 export {
     v20230415preview,
     v20230901preview,
     v20231027preview,
+    v20231101,
 };
 
 const _module = {
@@ -58,6 +75,8 @@ const _module = {
                 return new Capability(name, <any>undefined, { urn })
             case "azure-native:chaos:Experiment":
                 return new Experiment(name, <any>undefined, { urn })
+            case "azure-native:chaos:PrivateAccess":
+                return new PrivateAccess(name, <any>undefined, { urn })
             case "azure-native:chaos:Target":
                 return new Target(name, <any>undefined, { urn })
             default:

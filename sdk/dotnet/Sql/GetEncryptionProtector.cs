@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a server encryption protector.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Task<GetEncryptionProtectorResult> InvokeAsync(GetEncryptionProtectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionProtectorResult>("azure-native:sql:getEncryptionProtector", args ?? new GetEncryptionProtectorArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a server encryption protector.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Output<GetEncryptionProtectorResult> Invoke(GetEncryptionProtectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionProtectorResult>("azure-native:sql:getEncryptionProtector", args ?? new GetEncryptionProtectorInvokeArgs(), options.WithDefaults());

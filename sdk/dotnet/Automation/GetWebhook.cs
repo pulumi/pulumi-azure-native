@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the webhook identified by webhook name.
         /// Azure REST API version: 2015-10-31.
+        /// 
+        /// Other available API versions: 2023-05-15-preview.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:automation:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the webhook identified by webhook name.
         /// Azure REST API version: 2015-10-31.
+        /// 
+        /// Other available API versions: 2023-05-15-preview.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:automation:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());

@@ -115,7 +115,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         An object that represents a private endpoint connection for a container registry.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
 
-        Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+        Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         An object that represents a private endpoint connection for a container registry.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
 
-        Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+        Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +179,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20210901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20221201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20230701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20210901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20221201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20230701:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:containerregistry:PrivateEndpointConnection',

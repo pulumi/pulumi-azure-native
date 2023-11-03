@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.VoiceServices.V20230403
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices:TestLine"},
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20221201preview:TestLine"},
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230131:TestLine"},
+                    new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230901:TestLine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

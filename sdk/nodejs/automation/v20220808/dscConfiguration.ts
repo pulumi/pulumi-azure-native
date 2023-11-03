@@ -155,7 +155,7 @@ export class DscConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:DscConfiguration" }, { type: "azure-native:automation/v20151031:DscConfiguration" }, { type: "azure-native:automation/v20190601:DscConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:DscConfiguration" }, { type: "azure-native:automation/v20151031:DscConfiguration" }, { type: "azure-native:automation/v20190601:DscConfiguration" }, { type: "azure-native:automation/v20230515preview:DscConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DscConfiguration.__pulumiType, name, resourceInputs, opts);
     }

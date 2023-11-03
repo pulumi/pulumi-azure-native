@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Definition of the variable.
     /// Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
+    /// 
+    /// Other available API versions: 2023-05-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Variable")]
     public partial class Variable : global::Pulumi.CustomResource
@@ -87,6 +89,7 @@ namespace Pulumi.AzureNative.Automation
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Variable"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Variable"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Variable"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Variable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

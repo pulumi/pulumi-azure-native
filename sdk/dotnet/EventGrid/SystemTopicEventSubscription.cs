@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     /// Event Subscription
     /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-04-01-preview.
     /// 
-    /// Other available API versions: 2023-06-01-preview.
+    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopicEventSubscription")]
     public partial class SystemTopicEventSubscription : global::Pulumi.CustomResource
@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.EventGrid
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:SystemTopicEventSubscription"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:SystemTopicEventSubscription"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:SystemTopicEventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -209,6 +209,8 @@ def get_webhook(automation_account_name: Optional[str] = None,
     Retrieve the webhook identified by webhook name.
     Azure REST API version: 2015-10-31.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
@@ -246,6 +248,8 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     """
     Retrieve the webhook identified by webhook name.
     Azure REST API version: 2015-10-31.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

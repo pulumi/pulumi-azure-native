@@ -162,6 +162,8 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[str] = None,
     Retrieve a hybrid runbook worker.
     Azure REST API version: 2022-08-08.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str hybrid_runbook_worker_group_name: The hybrid runbook worker group name
@@ -198,6 +200,8 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
     """
     Retrieve a hybrid runbook worker.
     Azure REST API version: 2022-08-08.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

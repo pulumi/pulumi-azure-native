@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20231001
         /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         /// </summary>
         public readonly string? KeyVault;
+        public readonly string? Kind;
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -242,6 +243,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20231001
 
             string? keyVault,
 
+            string? kind,
+
             string? location,
 
             Outputs.ManagedNetworkSettingsResponse? managedNetwork,
@@ -301,6 +304,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20231001
             Identity = identity;
             ImageBuildCompute = imageBuildCompute;
             KeyVault = keyVault;
+            Kind = kind;
             Location = location;
             ManagedNetwork = managedNetwork;
             MlFlowTrackingUri = mlFlowTrackingUri;

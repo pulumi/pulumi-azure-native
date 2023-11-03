@@ -228,7 +228,7 @@ class EventSubscription(pulumi.CustomResource):
         Event Subscription
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
+        Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,7 +258,7 @@ class EventSubscription(pulumi.CustomResource):
         Event Subscription
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
+        Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -315,7 +315,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["topic"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20170615preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20170915preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180101:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180501preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190101:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:EventSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20170615preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20170915preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180101:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180501preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190101:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:EventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:EventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventSubscription, __self__).__init__(
             'azure-native:eventgrid:EventSubscription',

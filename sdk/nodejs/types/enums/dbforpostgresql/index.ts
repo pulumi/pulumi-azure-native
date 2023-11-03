@@ -15,6 +15,7 @@ import * as v20220501preview from "./v20220501preview";
 import * as v20221108 from "./v20221108";
 import * as v20221201 from "./v20221201";
 import * as v20230301preview from "./v20230301preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
     v20171201,
@@ -30,6 +31,7 @@ export {
     v20221108,
     v20221201,
     v20230301preview,
+    v20230601preview,
 };
 
 export const ActiveDirectoryAuthEnum = {
@@ -224,3 +226,12 @@ export const TriggerCutoverEnum = {
  * To trigger cutover for entire migration we need to send this flag as True
  */
 export type TriggerCutoverEnum = (typeof TriggerCutoverEnum)[keyof typeof TriggerCutoverEnum];
+
+export const VirtualEndpointType = {
+    ReadWrite: "ReadWrite",
+} as const;
+
+/**
+ * The endpoint type for the virtual endpoint.
+ */
+export type VirtualEndpointType = (typeof VirtualEndpointType)[keyof typeof VirtualEndpointType];

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// An object that represents a connected registry for a container registry.
     /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+    /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ConnectedRegistry")]
     public partial class ConnectedRegistry : global::Pulumi.CustomResource
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:ConnectedRegistry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ConnectedRegistry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:ConnectedRegistry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ConnectedRegistry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

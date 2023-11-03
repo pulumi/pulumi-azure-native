@@ -241,6 +241,8 @@ class LedgerPropertiesResponse(dict):
             suggest = "aad_based_security_principals"
         elif key == "certBasedSecurityPrincipals":
             suggest = "cert_based_security_principals"
+        elif key == "ledgerSku":
+            suggest = "ledger_sku"
         elif key == "ledgerType":
             suggest = "ledger_type"
         elif key == "runningState":
@@ -265,6 +267,7 @@ class LedgerPropertiesResponse(dict):
                  provisioning_state: str,
                  aad_based_security_principals: Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']] = None,
                  cert_based_security_principals: Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']] = None,
+                 ledger_sku: Optional[str] = None,
                  ledger_type: Optional[str] = None,
                  running_state: Optional[str] = None):
         """
@@ -276,6 +279,7 @@ class LedgerPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of Ledger Resource
         :param Sequence['AADBasedSecurityPrincipalResponse'] aad_based_security_principals: Array of all AAD based Security Principals.
         :param Sequence['CertBasedSecurityPrincipalResponse'] cert_based_security_principals: Array of all cert based Security Principals.
+        :param str ledger_sku: SKU associated with the ledger
         :param str ledger_type: Type of Confidential Ledger
         :param str running_state: Object representing RunningState for Ledger.
         """
@@ -288,6 +292,8 @@ class LedgerPropertiesResponse(dict):
             pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
+        if ledger_sku is not None:
+            pulumi.set(__self__, "ledger_sku", ledger_sku)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
         if running_state is not None:
@@ -348,6 +354,14 @@ class LedgerPropertiesResponse(dict):
         Array of all cert based Security Principals.
         """
         return pulumi.get(self, "cert_based_security_principals")
+
+    @property
+    @pulumi.getter(name="ledgerSku")
+    def ledger_sku(self) -> Optional[str]:
+        """
+        SKU associated with the ledger
+        """
+        return pulumi.get(self, "ledger_sku")
 
     @property
     @pulumi.getter(name="ledgerType")

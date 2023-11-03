@@ -256,6 +256,8 @@ def get_network_function(network_function_name: Optional[str] = None,
     Gets information about the specified network function resource.
     Azure REST API version: 2022-01-01-preview.
 
+    Other available API versions: 2023-09-01.
+
 
     :param str network_function_name: The name of the network function resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -294,6 +296,8 @@ def get_network_function_output(network_function_name: Optional[pulumi.Input[str
     """
     Gets information about the specified network function resource.
     Azure REST API version: 2022-01-01-preview.
+
+    Other available API versions: 2023-09-01.
 
 
     :param str network_function_name: The name of the network function resource.

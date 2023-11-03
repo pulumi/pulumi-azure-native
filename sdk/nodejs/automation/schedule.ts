@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of the schedule.
  * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -167,7 +169,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Schedule" }, { type: "azure-native:automation/v20190601:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }, { type: "azure-native:automation/v20220808:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Schedule" }, { type: "azure-native:automation/v20190601:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }, { type: "azure-native:automation/v20220808:Schedule" }, { type: "azure-native:automation/v20230515preview:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);
     }

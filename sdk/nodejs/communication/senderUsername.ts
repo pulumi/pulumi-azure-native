@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A class representing a SenderUsername resource.
  * Azure REST API version: 2023-03-31.
  *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
 export class SenderUsername extends pulumi.CustomResource {
     /**
@@ -113,7 +113,7 @@ export class SenderUsername extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230301preview:SenderUsername" }, { type: "azure-native:communication/v20230331:SenderUsername" }, { type: "azure-native:communication/v20230401preview:SenderUsername" }, { type: "azure-native:communication/v20230601preview:SenderUsername" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20230301preview:SenderUsername" }, { type: "azure-native:communication/v20230331:SenderUsername" }, { type: "azure-native:communication/v20230401:SenderUsername" }, { type: "azure-native:communication/v20230401preview:SenderUsername" }, { type: "azure-native:communication/v20230601preview:SenderUsername" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SenderUsername.__pulumiType, name, resourceInputs, opts);
     }

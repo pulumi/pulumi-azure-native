@@ -197,7 +197,7 @@ def get_managed_database_sensitivity_label(column_name: Optional[str] = None,
     Gets the sensitivity label of a given column
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
 
 
     :param str column_name: The name of the column.
@@ -248,7 +248,7 @@ def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.I
     Gets the sensitivity label of a given column
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
 
 
     :param str column_name: The name of the column.

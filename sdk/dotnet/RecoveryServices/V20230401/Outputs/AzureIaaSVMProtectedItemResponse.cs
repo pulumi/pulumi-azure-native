@@ -130,6 +130,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
         /// </summary>
         public readonly string? SourceResourceId;
         /// <summary>
+        /// ID of the vault which protects this item
+        /// </summary>
+        public readonly string VaultId;
+        /// <summary>
         /// Fully qualified ARM ID of the virtual machine represented by this item.
         /// </summary>
         public readonly string VirtualMachineId;
@@ -196,6 +200,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
 
             string? sourceResourceId,
 
+            string vaultId,
+
             string virtualMachineId,
 
             string workloadType)
@@ -228,6 +234,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401.Outputs
             ResourceGuardOperationRequests = resourceGuardOperationRequests;
             SoftDeleteRetentionPeriodInDays = softDeleteRetentionPeriodInDays;
             SourceResourceId = sourceResourceId;
+            VaultId = vaultId;
             VirtualMachineId = virtualMachineId;
             WorkloadType = workloadType;
         }

@@ -128,7 +128,7 @@ class SenderUsername(pulumi.CustomResource):
         A class representing a SenderUsername resource.
         Azure REST API version: 2023-03-31.
 
-        Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+        Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,7 +149,7 @@ class SenderUsername(pulumi.CustomResource):
         A class representing a SenderUsername resource.
         Azure REST API version: 2023-03-31.
 
-        Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+        Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SenderUsernameArgs args: The arguments to use to populate this resource's properties.
@@ -200,7 +200,7 @@ class SenderUsername(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20230301preview:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230331:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230401preview:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230601preview:SenderUsername")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20230301preview:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230331:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230401:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230401preview:SenderUsername"), pulumi.Alias(type_="azure-native:communication/v20230601preview:SenderUsername")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SenderUsername, __self__).__init__(
             'azure-native:communication:SenderUsername',

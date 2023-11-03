@@ -981,6 +981,38 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
+    /// Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationLinkType : IEquatable<ReplicationLinkType>
+    {
+        private readonly string _value;
+
+        private ReplicationLinkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationLinkType GEO { get; } = new ReplicationLinkType("GEO");
+        public static ReplicationLinkType NAMED { get; } = new ReplicationLinkType("NAMED");
+        public static ReplicationLinkType STANDBY { get; } = new ReplicationLinkType("STANDBY");
+
+        public static bool operator ==(ReplicationLinkType left, ReplicationLinkType right) => left.Equals(right);
+        public static bool operator !=(ReplicationLinkType left, ReplicationLinkType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationLinkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationLinkType other && Equals(other);
+        public bool Equals(ReplicationLinkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The replication mode of a distributed availability group. Parameter will be ignored during link creation.
     /// </summary>
     [EnumType]

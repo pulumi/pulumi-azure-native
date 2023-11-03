@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.EventGrid.V20230601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:CaCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:CaCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

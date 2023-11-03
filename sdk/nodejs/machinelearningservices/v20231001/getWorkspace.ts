@@ -86,6 +86,7 @@ export interface GetWorkspaceResult {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     readonly keyVault?: string;
+    readonly kind?: string;
     /**
      * Specifies the location of the resource.
      */

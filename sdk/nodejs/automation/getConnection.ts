@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the connection identified by connection name.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
 
@@ -76,6 +78,8 @@ export interface GetConnectionResult {
 /**
  * Retrieve the connection identified by connection name.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))

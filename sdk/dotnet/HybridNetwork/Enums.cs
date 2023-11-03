@@ -8,6 +8,293 @@ using Pulumi;
 namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
+    /// The application enablement.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationEnablement : IEquatable<ApplicationEnablement>
+    {
+        private readonly string _value;
+
+        private ApplicationEnablement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationEnablement Unknown { get; } = new ApplicationEnablement("Unknown");
+        public static ApplicationEnablement Enabled { get; } = new ApplicationEnablement("Enabled");
+        public static ApplicationEnablement Disabled { get; } = new ApplicationEnablement("Disabled");
+
+        public static bool operator ==(ApplicationEnablement left, ApplicationEnablement right) => left.Equals(right);
+        public static bool operator !=(ApplicationEnablement left, ApplicationEnablement right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationEnablement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationEnablement other && Equals(other);
+        public bool Equals(ApplicationEnablement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The replication strategy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArtifactReplicationStrategy : IEquatable<ArtifactReplicationStrategy>
+    {
+        private readonly string _value;
+
+        private ArtifactReplicationStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArtifactReplicationStrategy Unknown { get; } = new ArtifactReplicationStrategy("Unknown");
+        public static ArtifactReplicationStrategy SingleReplication { get; } = new ArtifactReplicationStrategy("SingleReplication");
+
+        public static bool operator ==(ArtifactReplicationStrategy left, ArtifactReplicationStrategy right) => left.Equals(right);
+        public static bool operator !=(ArtifactReplicationStrategy left, ArtifactReplicationStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ArtifactReplicationStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArtifactReplicationStrategy other && Equals(other);
+        public bool Equals(ArtifactReplicationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The artifact store type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArtifactStoreType : IEquatable<ArtifactStoreType>
+    {
+        private readonly string _value;
+
+        private ArtifactStoreType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArtifactStoreType Unknown { get; } = new ArtifactStoreType("Unknown");
+        public static ArtifactStoreType AzureContainerRegistry { get; } = new ArtifactStoreType("AzureContainerRegistry");
+        public static ArtifactStoreType AzureStorageAccount { get; } = new ArtifactStoreType("AzureStorageAccount");
+
+        public static bool operator ==(ArtifactStoreType left, ArtifactStoreType right) => left.Equals(right);
+        public static bool operator !=(ArtifactStoreType left, ArtifactStoreType right) => !left.Equals(right);
+
+        public static explicit operator string(ArtifactStoreType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArtifactStoreType other && Equals(other);
+        public bool Equals(ArtifactStoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The artifact type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArtifactType : IEquatable<ArtifactType>
+    {
+        private readonly string _value;
+
+        private ArtifactType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArtifactType Unknown { get; } = new ArtifactType("Unknown");
+        public static ArtifactType OCIArtifact { get; } = new ArtifactType("OCIArtifact");
+        public static ArtifactType VhdImageFile { get; } = new ArtifactType("VhdImageFile");
+        public static ArtifactType ArmTemplate { get; } = new ArtifactType("ArmTemplate");
+        public static ArtifactType ImageFile { get; } = new ArtifactType("ImageFile");
+
+        public static bool operator ==(ArtifactType left, ArtifactType right) => left.Equals(right);
+        public static bool operator !=(ArtifactType left, ArtifactType right) => !left.Equals(right);
+
+        public static explicit operator string(ArtifactType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArtifactType other && Equals(other);
+        public bool Equals(ArtifactType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The artifact type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureArcKubernetesArtifactType : IEquatable<AzureArcKubernetesArtifactType>
+    {
+        private readonly string _value;
+
+        private AzureArcKubernetesArtifactType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureArcKubernetesArtifactType Unknown { get; } = new AzureArcKubernetesArtifactType("Unknown");
+        public static AzureArcKubernetesArtifactType HelmPackage { get; } = new AzureArcKubernetesArtifactType("HelmPackage");
+
+        public static bool operator ==(AzureArcKubernetesArtifactType left, AzureArcKubernetesArtifactType right) => left.Equals(right);
+        public static bool operator !=(AzureArcKubernetesArtifactType left, AzureArcKubernetesArtifactType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureArcKubernetesArtifactType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureArcKubernetesArtifactType other && Equals(other);
+        public bool Equals(AzureArcKubernetesArtifactType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The artifact type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureCoreArtifactType : IEquatable<AzureCoreArtifactType>
+    {
+        private readonly string _value;
+
+        private AzureCoreArtifactType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureCoreArtifactType Unknown { get; } = new AzureCoreArtifactType("Unknown");
+        public static AzureCoreArtifactType VhdImageFile { get; } = new AzureCoreArtifactType("VhdImageFile");
+        public static AzureCoreArtifactType ArmTemplate { get; } = new AzureCoreArtifactType("ArmTemplate");
+
+        public static bool operator ==(AzureCoreArtifactType left, AzureCoreArtifactType right) => left.Equals(right);
+        public static bool operator !=(AzureCoreArtifactType left, AzureCoreArtifactType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureCoreArtifactType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureCoreArtifactType other && Equals(other);
+        public bool Equals(AzureCoreArtifactType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The artifact type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureOperatorNexusArtifactType : IEquatable<AzureOperatorNexusArtifactType>
+    {
+        private readonly string _value;
+
+        private AzureOperatorNexusArtifactType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureOperatorNexusArtifactType Unknown { get; } = new AzureOperatorNexusArtifactType("Unknown");
+        public static AzureOperatorNexusArtifactType ImageFile { get; } = new AzureOperatorNexusArtifactType("ImageFile");
+        public static AzureOperatorNexusArtifactType ArmTemplate { get; } = new AzureOperatorNexusArtifactType("ArmTemplate");
+
+        public static bool operator ==(AzureOperatorNexusArtifactType left, AzureOperatorNexusArtifactType right) => left.Equals(right);
+        public static bool operator !=(AzureOperatorNexusArtifactType left, AzureOperatorNexusArtifactType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureOperatorNexusArtifactType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureOperatorNexusArtifactType other && Equals(other);
+        public bool Equals(AzureOperatorNexusArtifactType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The value which indicates if configuration values are secrets
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationGroupValueConfigurationType : IEquatable<ConfigurationGroupValueConfigurationType>
+    {
+        private readonly string _value;
+
+        private ConfigurationGroupValueConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationGroupValueConfigurationType Unknown { get; } = new ConfigurationGroupValueConfigurationType("Unknown");
+        public static ConfigurationGroupValueConfigurationType Secret { get; } = new ConfigurationGroupValueConfigurationType("Secret");
+        public static ConfigurationGroupValueConfigurationType Open { get; } = new ConfigurationGroupValueConfigurationType("Open");
+
+        public static bool operator ==(ConfigurationGroupValueConfigurationType left, ConfigurationGroupValueConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ConfigurationGroupValueConfigurationType left, ConfigurationGroupValueConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationGroupValueConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationGroupValueConfigurationType other && Equals(other);
+        public bool Equals(ConfigurationGroupValueConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network function type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerizedNetworkFunctionNFVIType : IEquatable<ContainerizedNetworkFunctionNFVIType>
+    {
+        private readonly string _value;
+
+        private ContainerizedNetworkFunctionNFVIType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerizedNetworkFunctionNFVIType Unknown { get; } = new ContainerizedNetworkFunctionNFVIType("Unknown");
+        public static ContainerizedNetworkFunctionNFVIType AzureArcKubernetes { get; } = new ContainerizedNetworkFunctionNFVIType("AzureArcKubernetes");
+
+        public static bool operator ==(ContainerizedNetworkFunctionNFVIType left, ContainerizedNetworkFunctionNFVIType right) => left.Equals(right);
+        public static bool operator !=(ContainerizedNetworkFunctionNFVIType left, ContainerizedNetworkFunctionNFVIType right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerizedNetworkFunctionNFVIType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerizedNetworkFunctionNFVIType other && Equals(other);
+        public bool Equals(ContainerizedNetworkFunctionNFVIType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the device.
     /// </summary>
     [EnumType]
@@ -133,6 +420,104 @@ namespace Pulumi.AzureNative.HybridNetwork
     }
 
     /// <summary>
+    /// The resource reference arm id type.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdType : IEquatable<IdType>
+    {
+        private readonly string _value;
+
+        private IdType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdType Unknown { get; } = new IdType("Unknown");
+        public static IdType Open { get; } = new IdType("Open");
+        public static IdType Secret { get; } = new IdType("Secret");
+
+        public static bool operator ==(IdType left, IdType right) => left.Equals(right);
+        public static bool operator !=(IdType left, IdType right) => !left.Equals(right);
+
+        public static explicit operator string(IdType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdType other && Equals(other);
+        public bool Equals(IdType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The NFVI type.
+    /// </summary>
+    [EnumType]
+    public readonly struct NFVIType : IEquatable<NFVIType>
+    {
+        private readonly string _value;
+
+        private NFVIType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NFVIType Unknown { get; } = new NFVIType("Unknown");
+        public static NFVIType AzureArcKubernetes { get; } = new NFVIType("AzureArcKubernetes");
+        public static NFVIType AzureCore { get; } = new NFVIType("AzureCore");
+        public static NFVIType AzureOperatorNexus { get; } = new NFVIType("AzureOperatorNexus");
+
+        public static bool operator ==(NFVIType left, NFVIType right) => left.Equals(right);
+        public static bool operator !=(NFVIType left, NFVIType right) => !left.Equals(right);
+
+        public static explicit operator string(NFVIType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NFVIType other && Equals(other);
+        public bool Equals(NFVIType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Role type.
     /// </summary>
     [EnumType]
@@ -228,6 +613,37 @@ namespace Pulumi.AzureNative.HybridNetwork
     }
 
     /// <summary>
+    /// The publisher scope.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublisherScope : IEquatable<PublisherScope>
+    {
+        private readonly string _value;
+
+        private PublisherScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublisherScope Unknown { get; } = new PublisherScope("Unknown");
+        public static PublisherScope Private { get; } = new PublisherScope("Private");
+
+        public static bool operator ==(PublisherScope left, PublisherScope right) => left.Equals(right);
+        public static bool operator !=(PublisherScope left, PublisherScope right) => !left.Equals(right);
+
+        public static explicit operator string(PublisherScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublisherScope other && Equals(other);
+        public bool Equals(PublisherScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The sku deployment mode.
     /// </summary>
     [EnumType]
@@ -252,6 +668,37 @@ namespace Pulumi.AzureNative.HybridNetwork
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuDeploymentMode other && Equals(other);
         public bool Equals(SkuDeploymentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of this Sku
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuName : IEquatable<SkuName>
+    {
+        private readonly string _value;
+
+        private SkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuName Basic { get; } = new SkuName("Basic");
+        public static SkuName Standard { get; } = new SkuName("Standard");
+
+        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
+        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
+        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -285,6 +732,69 @@ namespace Pulumi.AzureNative.HybridNetwork
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuType other && Equals(other);
         public bool Equals(SkuType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The template type.
+    /// </summary>
+    [EnumType]
+    public readonly struct TemplateType : IEquatable<TemplateType>
+    {
+        private readonly string _value;
+
+        private TemplateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateType Unknown { get; } = new TemplateType("Unknown");
+        public static TemplateType ArmTemplate { get; } = new TemplateType("ArmTemplate");
+
+        public static bool operator ==(TemplateType left, TemplateType right) => left.Equals(right);
+        public static bool operator !=(TemplateType left, TemplateType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateType other && Equals(other);
+        public bool Equals(TemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resource element template type.
+    /// </summary>
+    [EnumType]
+    public readonly struct Type : IEquatable<Type>
+    {
+        private readonly string _value;
+
+        private Type(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Type Unknown { get; } = new Type("Unknown");
+        public static Type ArmResourceDefinition { get; } = new Type("ArmResourceDefinition");
+        public static Type NetworkFunctionDefinition { get; } = new Type("NetworkFunctionDefinition");
+
+        public static bool operator ==(Type left, Type right) => left.Equals(right);
+        public static bool operator !=(Type left, Type right) => !left.Equals(right);
+
+        public static explicit operator string(Type value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Type other && Equals(other);
+        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -374,6 +884,38 @@ namespace Pulumi.AzureNative.HybridNetwork
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VirtualMachineSizeTypes other && Equals(other);
         public bool Equals(VirtualMachineSizeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network function type.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkFunctionNFVIType : IEquatable<VirtualNetworkFunctionNFVIType>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkFunctionNFVIType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkFunctionNFVIType Unknown { get; } = new VirtualNetworkFunctionNFVIType("Unknown");
+        public static VirtualNetworkFunctionNFVIType AzureCore { get; } = new VirtualNetworkFunctionNFVIType("AzureCore");
+        public static VirtualNetworkFunctionNFVIType AzureOperatorNexus { get; } = new VirtualNetworkFunctionNFVIType("AzureOperatorNexus");
+
+        public static bool operator ==(VirtualNetworkFunctionNFVIType left, VirtualNetworkFunctionNFVIType right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkFunctionNFVIType left, VirtualNetworkFunctionNFVIType right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkFunctionNFVIType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkFunctionNFVIType other && Equals(other);
+        public bool Equals(VirtualNetworkFunctionNFVIType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

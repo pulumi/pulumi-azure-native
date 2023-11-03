@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Get a CommunicationsGateway
         /// Azure REST API version: 2023-04-03.
+        /// 
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Task<GetCommunicationsGatewayResult> InvokeAsync(GetCommunicationsGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommunicationsGatewayResult>("azure-native:voiceservices:getCommunicationsGateway", args ?? new GetCommunicationsGatewayArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.VoiceServices
         /// <summary>
         /// Get a CommunicationsGateway
         /// Azure REST API version: 2023-04-03.
+        /// 
+        /// Other available API versions: 2023-09-01.
         /// </summary>
         public static Output<GetCommunicationsGatewayResult> Invoke(GetCommunicationsGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationsGatewayResult>("azure-native:voiceservices:getCommunicationsGateway", args ?? new GetCommunicationsGatewayInvokeArgs(), options.WithDefaults());

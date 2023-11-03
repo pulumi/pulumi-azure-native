@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.EventGrid.V20230601Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid:NamespaceTopicEventSubscription"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:NamespaceTopicEventSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a server key.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview.
+        /// Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Task<GetServerKeyResult> InvokeAsync(GetServerKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerKeyResult>("azure-native:sql:getServerKey", args ?? new GetServerKeyArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a server key.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview.
+        /// Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:sql:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());

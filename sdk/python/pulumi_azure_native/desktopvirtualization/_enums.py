@@ -8,8 +8,10 @@ __all__ = [
     'ApplicationGroupType',
     'CommandLineSetting',
     'DayOfWeek',
+    'FailHealthCheckOnStagingFailure',
     'HostPoolType',
     'LoadBalancerType',
+    'PackageTimestamped',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
     'PrivateEndpointServiceConnectionStatus',
@@ -55,6 +57,15 @@ class DayOfWeek(str, Enum):
     SUNDAY = "Sunday"
 
 
+class FailHealthCheckOnStagingFailure(str, Enum):
+    """
+    Parameter indicating how the health check should behave if this package fails staging
+    """
+    UNHEALTHY = "Unhealthy"
+    NEEDS_ASSISTANCE = "NeedsAssistance"
+    DO_NOT_FAIL = "DoNotFail"
+
+
 class HostPoolType(str, Enum):
     """
     HostPool type for desktop.
@@ -80,6 +91,14 @@ class LoadBalancerType(str, Enum):
     BREADTH_FIRST = "BreadthFirst"
     DEPTH_FIRST = "DepthFirst"
     PERSISTENT = "Persistent"
+
+
+class PackageTimestamped(str, Enum):
+    """
+    Is package timestamped so it can ignore the certificate expiry date
+    """
+    TIMESTAMPED = "Timestamped"
+    NOT_TIMESTAMPED = "NotTimestamped"
 
 
 class PersonalDesktopAssignmentType(str, Enum):

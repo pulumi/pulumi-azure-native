@@ -25,10 +25,20 @@ export const getExperiment: typeof import("./getExperiment").getExperiment = nul
 export const getExperimentOutput: typeof import("./getExperiment").getExperimentOutput = null as any;
 utilities.lazyLoad(exports, ["getExperiment","getExperimentOutput"], () => require("./getExperiment"));
 
+export { GetPrivateAccessArgs, GetPrivateAccessResult, GetPrivateAccessOutputArgs } from "./getPrivateAccess";
+export const getPrivateAccess: typeof import("./getPrivateAccess").getPrivateAccess = null as any;
+export const getPrivateAccessOutput: typeof import("./getPrivateAccess").getPrivateAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateAccess","getPrivateAccessOutput"], () => require("./getPrivateAccess"));
+
 export { GetTargetArgs, GetTargetResult, GetTargetOutputArgs } from "./getTarget";
 export const getTarget: typeof import("./getTarget").getTarget = null as any;
 export const getTargetOutput: typeof import("./getTarget").getTargetOutput = null as any;
 utilities.lazyLoad(exports, ["getTarget","getTargetOutput"], () => require("./getTarget"));
+
+export { PrivateAccessArgs } from "./privateAccess";
+export type PrivateAccess = import("./privateAccess").PrivateAccess;
+export const PrivateAccess: typeof import("./privateAccess").PrivateAccess = null as any;
+utilities.lazyLoad(exports, ["PrivateAccess"], () => require("./privateAccess"));
 
 export { TargetArgs } from "./target";
 export type Target = import("./target").Target;
@@ -47,6 +57,8 @@ const _module = {
                 return new Capability(name, <any>undefined, { urn })
             case "azure-native:chaos/v20231027preview:Experiment":
                 return new Experiment(name, <any>undefined, { urn })
+            case "azure-native:chaos/v20231027preview:PrivateAccess":
+                return new PrivateAccess(name, <any>undefined, { urn })
             case "azure-native:chaos/v20231027preview:Target":
                 return new Target(name, <any>undefined, { urn })
             default:

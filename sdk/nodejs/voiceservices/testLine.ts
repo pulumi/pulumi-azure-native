@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A TestLine resource
  * Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview.
  *
- * Other available API versions: 2022-12-01-preview.
+ * Other available API versions: 2022-12-01-preview, 2023-09-01.
  */
 export class TestLine extends pulumi.CustomResource {
     /**
@@ -118,7 +118,7 @@ export class TestLine extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:TestLine" }, { type: "azure-native:voiceservices/v20230131:TestLine" }, { type: "azure-native:voiceservices/v20230403:TestLine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:TestLine" }, { type: "azure-native:voiceservices/v20230131:TestLine" }, { type: "azure-native:voiceservices/v20230403:TestLine" }, { type: "azure-native:voiceservices/v20230901:TestLine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TestLine.__pulumiType, name, resourceInputs, opts);
     }

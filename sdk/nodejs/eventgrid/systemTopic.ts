@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * EventGrid System Topic.
  * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export class SystemTopic extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class SystemTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211201:SystemTopic" }, { type: "azure-native:eventgrid/v20220615:SystemTopic" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211201:SystemTopic" }, { type: "azure-native:eventgrid/v20220615:SystemTopic" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20231215preview:SystemTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopic.__pulumiType, name, resourceInputs, opts);
     }

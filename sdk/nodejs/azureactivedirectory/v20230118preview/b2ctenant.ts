@@ -113,7 +113,7 @@ export class B2CTenant extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory:B2CTenant" }, { type: "azure-native:azureactivedirectory/v20190101preview:B2CTenant" }, { type: "azure-native:azureactivedirectory/v20210401:B2CTenant" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory:B2CTenant" }, { type: "azure-native:azureactivedirectory/v20190101preview:B2CTenant" }, { type: "azure-native:azureactivedirectory/v20210401:B2CTenant" }, { type: "azure-native:azureactivedirectory/v20230517preview:B2CTenant" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(B2CTenant.__pulumiType, name, resourceInputs, opts);
     }

@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230802Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230602preview:TrustedAccessRoleBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230702preview:TrustedAccessRoleBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230901:TrustedAccessRoleBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230902preview:TrustedAccessRoleBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

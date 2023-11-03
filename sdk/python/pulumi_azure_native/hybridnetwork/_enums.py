@@ -5,18 +5,115 @@
 from enum import Enum
 
 __all__ = [
+    'ApplicationEnablement',
+    'ArtifactReplicationStrategy',
+    'ArtifactStoreType',
+    'ArtifactType',
+    'AzureArcKubernetesArtifactType',
+    'AzureCoreArtifactType',
+    'AzureOperatorNexusArtifactType',
+    'ConfigurationGroupValueConfigurationType',
+    'ContainerizedNetworkFunctionNFVIType',
     'DeviceType',
     'DiskCreateOptionTypes',
     'IPAllocationMethod',
     'IPVersion',
+    'IdType',
+    'ManagedServiceIdentityType',
+    'NFVIType',
     'NetworkFunctionRoleConfigurationType',
     'NetworkFunctionType',
     'OperatingSystemTypes',
+    'PublisherScope',
     'SkuDeploymentMode',
+    'SkuName',
     'SkuType',
+    'TemplateType',
+    'Type',
     'VMSwitchType',
     'VirtualMachineSizeTypes',
+    'VirtualNetworkFunctionNFVIType',
 ]
+
+
+class ApplicationEnablement(str, Enum):
+    """
+    The application enablement.
+    """
+    UNKNOWN = "Unknown"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ArtifactReplicationStrategy(str, Enum):
+    """
+    The replication strategy.
+    """
+    UNKNOWN = "Unknown"
+    SINGLE_REPLICATION = "SingleReplication"
+
+
+class ArtifactStoreType(str, Enum):
+    """
+    The artifact store type.
+    """
+    UNKNOWN = "Unknown"
+    AZURE_CONTAINER_REGISTRY = "AzureContainerRegistry"
+    AZURE_STORAGE_ACCOUNT = "AzureStorageAccount"
+
+
+class ArtifactType(str, Enum):
+    """
+    The artifact type.
+    """
+    UNKNOWN = "Unknown"
+    OCI_ARTIFACT = "OCIArtifact"
+    VHD_IMAGE_FILE = "VhdImageFile"
+    ARM_TEMPLATE = "ArmTemplate"
+    IMAGE_FILE = "ImageFile"
+
+
+class AzureArcKubernetesArtifactType(str, Enum):
+    """
+    The artifact type.
+    """
+    UNKNOWN = "Unknown"
+    HELM_PACKAGE = "HelmPackage"
+
+
+class AzureCoreArtifactType(str, Enum):
+    """
+    The artifact type.
+    """
+    UNKNOWN = "Unknown"
+    VHD_IMAGE_FILE = "VhdImageFile"
+    ARM_TEMPLATE = "ArmTemplate"
+
+
+class AzureOperatorNexusArtifactType(str, Enum):
+    """
+    The artifact type.
+    """
+    UNKNOWN = "Unknown"
+    IMAGE_FILE = "ImageFile"
+    ARM_TEMPLATE = "ArmTemplate"
+
+
+class ConfigurationGroupValueConfigurationType(str, Enum):
+    """
+    The value which indicates if configuration values are secrets
+    """
+    UNKNOWN = "Unknown"
+    SECRET = "Secret"
+    OPEN = "Open"
+
+
+class ContainerizedNetworkFunctionNFVIType(str, Enum):
+    """
+    The network function type.
+    """
+    UNKNOWN = "Unknown"
+    AZURE_ARC_KUBERNETES = "AzureArcKubernetes"
 
 
 class DeviceType(str, Enum):
@@ -52,6 +149,35 @@ class IPVersion(str, Enum):
     I_PV4 = "IPv4"
 
 
+class IdType(str, Enum):
+    """
+    The resource reference arm id type.
+    """
+    UNKNOWN = "Unknown"
+    OPEN = "Open"
+    SECRET = "Secret"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class NFVIType(str, Enum):
+    """
+    The NFVI type.
+    """
+    UNKNOWN = "Unknown"
+    AZURE_ARC_KUBERNETES = "AzureArcKubernetes"
+    AZURE_CORE = "AzureCore"
+    AZURE_OPERATOR_NEXUS = "AzureOperatorNexus"
+
+
 class NetworkFunctionRoleConfigurationType(str, Enum):
     """
     Role type.
@@ -78,6 +204,14 @@ class OperatingSystemTypes(str, Enum):
     LINUX = "Linux"
 
 
+class PublisherScope(str, Enum):
+    """
+    The publisher scope.
+    """
+    UNKNOWN = "Unknown"
+    PRIVATE = "Private"
+
+
 class SkuDeploymentMode(str, Enum):
     """
     The sku deployment mode.
@@ -85,6 +219,14 @@ class SkuDeploymentMode(str, Enum):
     UNKNOWN = "Unknown"
     AZURE = "Azure"
     PRIVATE_EDGE_ZONE = "PrivateEdgeZone"
+
+
+class SkuName(str, Enum):
+    """
+    Name of this Sku
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
 
 
 class SkuType(str, Enum):
@@ -95,6 +237,23 @@ class SkuType(str, Enum):
     EVOLVED_PACKET_CORE = "EvolvedPacketCore"
     SDWAN = "SDWAN"
     FIREWALL = "Firewall"
+
+
+class TemplateType(str, Enum):
+    """
+    The template type.
+    """
+    UNKNOWN = "Unknown"
+    ARM_TEMPLATE = "ArmTemplate"
+
+
+class Type(str, Enum):
+    """
+    The resource element template type.
+    """
+    UNKNOWN = "Unknown"
+    ARM_RESOURCE_DEFINITION = "ArmResourceDefinition"
+    NETWORK_FUNCTION_DEFINITION = "NetworkFunctionDefinition"
 
 
 class VMSwitchType(str, Enum):
@@ -138,3 +297,12 @@ class VirtualMachineSizeTypes(str, Enum):
     STANDARD_F4S = "Standard_F4s"
     STANDARD_F8S = "Standard_F8s"
     STANDARD_F16S = "Standard_F16s"
+
+
+class VirtualNetworkFunctionNFVIType(str, Enum):
+    """
+    The network function type.
+    """
+    UNKNOWN = "Unknown"
+    AZURE_CORE = "AzureCore"
+    AZURE_OPERATOR_NEXUS = "AzureOperatorNexus"

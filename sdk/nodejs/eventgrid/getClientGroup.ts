@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of a client group.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-12-15-preview.
  */
 export function getClientGroup(args: GetClientGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetClientGroupResult> {
 
@@ -73,6 +75,8 @@ export interface GetClientGroupResult {
 /**
  * Get properties of a client group.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-12-15-preview.
  */
 export function getClientGroupOutput(args: GetClientGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientGroupResult> {
     return pulumi.output(args).apply((a: any) => getClientGroup(a, opts))

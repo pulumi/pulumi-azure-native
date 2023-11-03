@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get the full endpoint URL for an event subscription.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
+ * Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview.
  */
 export function getEventSubscriptionFullUrl(args: GetEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionFullUrlResult> {
 
@@ -43,7 +43,7 @@ export interface GetEventSubscriptionFullUrlResult {
  * Get the full endpoint URL for an event subscription.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2017-06-15-preview, 2023-06-01-preview.
+ * Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview.
  */
 export function getEventSubscriptionFullUrlOutput(args: GetEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionFullUrlResult> {
     return pulumi.output(args).apply((a: any) => getEventSubscriptionFullUrl(a, opts))

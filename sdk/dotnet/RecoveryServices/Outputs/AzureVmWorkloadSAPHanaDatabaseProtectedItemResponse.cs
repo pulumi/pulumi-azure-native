@@ -142,6 +142,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? SourceResourceId;
         /// <summary>
+        /// ID of the vault which protects this item
+        /// </summary>
+        public readonly string VaultId;
+        /// <summary>
         /// Type of workload this item represents.
         /// </summary>
         public readonly string WorkloadType;
@@ -210,6 +214,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? sourceResourceId,
 
+            string vaultId,
+
             string workloadType)
         {
             BackupManagementType = backupManagementType;
@@ -243,6 +249,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ServerName = serverName;
             SoftDeleteRetentionPeriodInDays = softDeleteRetentionPeriodInDays;
             SourceResourceId = sourceResourceId;
+            VaultId = vaultId;
             WorkloadType = workloadType;
         }
     }

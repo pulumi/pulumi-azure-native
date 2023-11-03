@@ -5,11 +5,13 @@
 import * as v20190101preview from "./v20190101preview";
 import * as v20210401 from "./v20210401";
 import * as v20230118preview from "./v20230118preview";
+import * as v20230517preview from "./v20230517preview";
 
 export {
     v20190101preview,
     v20210401,
     v20230118preview,
+    v20230517preview,
 };
 
 export const B2CResourceSKUName = {
@@ -43,3 +45,14 @@ export const B2CResourceSKUTier = {
  * The tier of the tenant.
  */
 export type B2CResourceSKUTier = (typeof B2CResourceSKUTier)[keyof typeof B2CResourceSKUTier];
+
+export const CIAMResourceSKUName = {
+    Standard: "Standard",
+    PremiumP1: "PremiumP1",
+    PremiumP2: "PremiumP2",
+} as const;
+
+/**
+ * The name of the SKU for the tenant.
+ */
+export type CIAMResourceSKUName = (typeof CIAMResourceSKUName)[keyof typeof CIAMResourceSKUName];

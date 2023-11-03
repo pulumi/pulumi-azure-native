@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? DisableMetricsCollection;
         /// <summary>
+        /// Parquet format settings.
+        /// </summary>
+        public readonly Outputs.ParquetReadSettingsResponse? FormatSettings;
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object? MaxConcurrentConnections;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? disableMetricsCollection,
 
+            Outputs.ParquetReadSettingsResponse? formatSettings,
+
             object? maxConcurrentConnections,
 
             object? sourceRetryCount,
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         {
             AdditionalColumns = additionalColumns;
             DisableMetricsCollection = disableMetricsCollection;
+            FormatSettings = formatSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             SourceRetryCount = sourceRetryCount;
             SourceRetryWait = sourceRetryWait;

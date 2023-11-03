@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of the source control.
  * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export class SourceControl extends pulumi.CustomResource {
     /**
@@ -129,7 +131,7 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20170515preview:SourceControl" }, { type: "azure-native:automation/v20190601:SourceControl" }, { type: "azure-native:automation/v20200113preview:SourceControl" }, { type: "azure-native:automation/v20220808:SourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20170515preview:SourceControl" }, { type: "azure-native:automation/v20190601:SourceControl" }, { type: "azure-native:automation/v20200113preview:SourceControl" }, { type: "azure-native:automation/v20220808:SourceControl" }, { type: "azure-native:automation/v20230515preview:SourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControl.__pulumiType, name, resourceInputs, opts);
     }

@@ -52,6 +52,7 @@ from .get_instance_pool import *
 from .get_job import *
 from .get_job_agent import *
 from .get_job_credential import *
+from .get_job_private_endpoint import *
 from .get_job_step import *
 from .get_job_target_group import *
 from .get_long_term_retention_policy import *
@@ -69,6 +70,7 @@ from .get_managed_instance_vulnerability_assessment import *
 from .get_managed_server_dns_alias import *
 from .get_outbound_firewall_rule import *
 from .get_private_endpoint_connection import *
+from .get_replication_link import *
 from .get_sensitivity_label import *
 from .get_server import *
 from .get_server_advisor import *
@@ -98,6 +100,7 @@ from .instance_pool import *
 from .job import *
 from .job_agent import *
 from .job_credential import *
+from .job_private_endpoint import *
 from .job_step import *
 from .job_target_group import *
 from .long_term_retention_policy import *
@@ -115,6 +118,7 @@ from .managed_instance_vulnerability_assessment import *
 from .managed_server_dns_alias import *
 from .outbound_firewall_rule import *
 from .private_endpoint_connection import *
+from .replication_link import *
 from .sensitivity_label import *
 from .server import *
 from .server_advisor import *
@@ -165,6 +169,8 @@ if typing.TYPE_CHECKING:
     v20221101preview = __v20221101preview
     import pulumi_azure_native.sql.v20230201preview as __v20230201preview
     v20230201preview = __v20230201preview
+    import pulumi_azure_native.sql.v20230501preview as __v20230501preview
+    v20230501preview = __v20230501preview
 else:
     v20140401 = _utilities.lazy_import('pulumi_azure_native.sql.v20140401')
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20150501preview')
@@ -177,4 +183,5 @@ else:
     v20211101 = _utilities.lazy_import('pulumi_azure_native.sql.v20211101')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.sql.v20221101preview')
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.sql.v20230201preview')
+    v20230501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20230501preview')
 

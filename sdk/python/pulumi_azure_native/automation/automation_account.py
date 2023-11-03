@@ -201,6 +201,8 @@ class AutomationAccount(pulumi.CustomResource):
         Definition of the automation account type.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22.
 
+        Other available API versions: 2023-05-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -223,6 +225,8 @@ class AutomationAccount(pulumi.CustomResource):
         """
         Definition of the automation account type.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22.
+
+        Other available API versions: 2023-05-15-preview.
 
         :param str resource_name: The name of the resource.
         :param AutomationAccountArgs args: The arguments to use to populate this resource's properties.
@@ -280,7 +284,7 @@ class AutomationAccount(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20190601:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20200113preview:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20210622:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20220808:AutomationAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20190601:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20200113preview:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20210622:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20220808:AutomationAccount"), pulumi.Alias(type_="azure-native:automation/v20230515preview:AutomationAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutomationAccount, __self__).__init__(
             'azure-native:automation:AutomationAccount',

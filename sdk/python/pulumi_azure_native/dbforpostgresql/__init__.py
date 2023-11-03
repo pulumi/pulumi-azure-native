@@ -20,10 +20,12 @@ from .get_migration import *
 from .get_private_endpoint_connection import *
 from .get_role import *
 from .get_server import *
+from .get_virtual_endpoint import *
 from .migration import *
 from .private_endpoint_connection import *
 from .role import *
 from .server import *
+from .virtual_endpoint import *
 from ._inputs import *
 from . import outputs
 
@@ -57,6 +59,8 @@ if typing.TYPE_CHECKING:
     v20221201 = __v20221201
     import pulumi_azure_native.dbforpostgresql.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
+    import pulumi_azure_native.dbforpostgresql.v20230601preview as __v20230601preview
+    v20230601preview = __v20230601preview
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201')
     v20171201preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201preview')
@@ -72,4 +76,5 @@ else:
     v20221108 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20221108')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20221201')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20230301preview')
+    v20230601preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20230601preview')
 

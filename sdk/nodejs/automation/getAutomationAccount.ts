@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get information about an Automation Account.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getAutomationAccount(args: GetAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationAccountResult> {
 
@@ -115,6 +117,8 @@ export interface GetAutomationAccountResult {
 /**
  * Get information about an Automation Account.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getAutomationAccountOutput(args: GetAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationAccountResult> {
     return pulumi.output(args).apply((a: any) => getAutomationAccount(a, opts))

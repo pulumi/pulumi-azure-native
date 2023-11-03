@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the source control identified by source control name.
         /// Azure REST API version: 2022-08-08.
+        /// 
+        /// Other available API versions: 2023-05-15-preview.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:automation:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the source control identified by source control name.
         /// Azure REST API version: 2022-08-08.
+        /// 
+        /// Other available API versions: 2023-05-15-preview.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:automation:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());

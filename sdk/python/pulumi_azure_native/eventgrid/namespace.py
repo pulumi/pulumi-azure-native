@@ -235,6 +235,8 @@ class Namespace(pulumi.CustomResource):
         Namespace resource.
         Azure REST API version: 2023-06-01-preview.
 
+        Other available API versions: 2023-12-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityInfoArgs']] identity: Identity information for the Namespace resource.
@@ -260,6 +262,8 @@ class Namespace(pulumi.CustomResource):
         """
         Namespace resource.
         Azure REST API version: 2023-06-01-preview.
+
+        Other available API versions: 2023-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -316,7 +320,7 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["topics_configuration"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:Namespace"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-native:eventgrid:Namespace',

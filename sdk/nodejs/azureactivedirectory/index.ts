@@ -10,10 +10,20 @@ export type B2CTenant = import("./b2ctenant").B2CTenant;
 export const B2CTenant: typeof import("./b2ctenant").B2CTenant = null as any;
 utilities.lazyLoad(exports, ["B2CTenant"], () => require("./b2ctenant"));
 
+export { CIAMTenantArgs } from "./ciamtenant";
+export type CIAMTenant = import("./ciamtenant").CIAMTenant;
+export const CIAMTenant: typeof import("./ciamtenant").CIAMTenant = null as any;
+utilities.lazyLoad(exports, ["CIAMTenant"], () => require("./ciamtenant"));
+
 export { GetB2CTenantArgs, GetB2CTenantResult, GetB2CTenantOutputArgs } from "./getB2CTenant";
 export const getB2CTenant: typeof import("./getB2CTenant").getB2CTenant = null as any;
 export const getB2CTenantOutput: typeof import("./getB2CTenant").getB2CTenantOutput = null as any;
 utilities.lazyLoad(exports, ["getB2CTenant","getB2CTenantOutput"], () => require("./getB2CTenant"));
+
+export { GetCIAMTenantArgs, GetCIAMTenantResult, GetCIAMTenantOutputArgs } from "./getCIAMTenant";
+export const getCIAMTenant: typeof import("./getCIAMTenant").getCIAMTenant = null as any;
+export const getCIAMTenantOutput: typeof import("./getCIAMTenant").getCIAMTenantOutput = null as any;
+utilities.lazyLoad(exports, ["getCIAMTenant","getCIAMTenantOutput"], () => require("./getCIAMTenant"));
 
 export { GetGuestUsageArgs, GetGuestUsageResult, GetGuestUsageOutputArgs } from "./getGuestUsage";
 export const getGuestUsage: typeof import("./getGuestUsage").getGuestUsage = null as any;
@@ -33,11 +43,13 @@ export * from "../types/enums/azureactivedirectory";
 import * as v20190101preview from "./v20190101preview";
 import * as v20210401 from "./v20210401";
 import * as v20230118preview from "./v20230118preview";
+import * as v20230517preview from "./v20230517preview";
 
 export {
     v20190101preview,
     v20210401,
     v20230118preview,
+    v20230517preview,
 };
 
 const _module = {
@@ -46,6 +58,8 @@ const _module = {
         switch (type) {
             case "azure-native:azureactivedirectory:B2CTenant":
                 return new B2CTenant(name, <any>undefined, { urn })
+            case "azure-native:azureactivedirectory:CIAMTenant":
+                return new CIAMTenant(name, <any>undefined, { urn })
             case "azure-native:azureactivedirectory:GuestUsage":
                 return new GuestUsage(name, <any>undefined, { urn })
             default:

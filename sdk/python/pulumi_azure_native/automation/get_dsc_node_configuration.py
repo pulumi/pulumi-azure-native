@@ -149,6 +149,8 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
     Retrieve the Dsc node configurations by node configuration.
     Azure REST API version: 2022-08-08.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str node_configuration_name: The Dsc node configuration name.
@@ -181,6 +183,8 @@ def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.I
     """
     Retrieve the Dsc node configurations by node configuration.
     Azure REST API version: 2022-08-08.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

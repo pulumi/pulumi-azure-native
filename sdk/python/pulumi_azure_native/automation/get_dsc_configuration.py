@@ -233,6 +233,8 @@ def get_dsc_configuration(automation_account_name: Optional[str] = None,
     Retrieve the configuration identified by configuration name.
     Azure REST API version: 2022-08-08.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str configuration_name: The configuration name.
@@ -272,6 +274,8 @@ def get_dsc_configuration_output(automation_account_name: Optional[pulumi.Input[
     """
     Retrieve the configuration identified by configuration name.
     Azure REST API version: 2022-08-08.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

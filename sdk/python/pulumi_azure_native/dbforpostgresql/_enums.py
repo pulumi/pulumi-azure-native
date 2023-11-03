@@ -23,6 +23,7 @@ __all__ = [
     'SkuTier',
     'StartDataMigrationEnum',
     'TriggerCutoverEnum',
+    'VirtualEndpointType',
 ]
 
 
@@ -181,3 +182,10 @@ class TriggerCutoverEnum(str, Enum):
     """
     TRUE = "True"
     FALSE = "False"
+
+
+class VirtualEndpointType(str, Enum):
+    """
+    The endpoint type for the virtual endpoint.
+    """
+    READ_WRITE = "ReadWrite"

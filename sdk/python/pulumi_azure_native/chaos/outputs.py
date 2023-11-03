@@ -12,23 +12,109 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActionStatusResponse',
     'BranchResponse',
+    'BranchStatusResponse',
     'CapabilityPropertiesResponse',
     'ContinuousActionResponse',
     'DelayActionResponse',
     'DiscreteActionResponse',
+    'ExperimentExecutionActionTargetDetailsErrorResponse',
+    'ExperimentExecutionActionTargetDetailsPropertiesResponse',
+    'ExperimentExecutionDetailsPropertiesResponseRunInformation',
     'ExperimentPropertiesResponse',
     'KeyValuePairResponse',
     'ListSelectorResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionStateResponse',
     'QuerySelectorResponse',
     'ResourceIdentityResponse',
     'SimpleFilterParametersResponse',
     'SimpleFilterResponse',
     'StepResponse',
+    'StepStatusResponse',
     'SystemDataResponse',
     'TargetReferenceResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class ActionStatusResponse(dict):
+    """
+    Model that represents the an action and its status.
+    """
+    def __init__(__self__, *,
+                 action_id: str,
+                 action_name: str,
+                 end_time: str,
+                 start_time: str,
+                 status: str,
+                 targets: Sequence['outputs.ExperimentExecutionActionTargetDetailsPropertiesResponse']):
+        """
+        Model that represents the an action and its status.
+        :param str action_id: The id of the action status.
+        :param str action_name: The name of the action status.
+        :param str end_time: String that represents the end time of the action.
+        :param str start_time: String that represents the start time of the action.
+        :param str status: The status of the action.
+        :param Sequence['ExperimentExecutionActionTargetDetailsPropertiesResponse'] targets: The array of targets.
+        """
+        pulumi.set(__self__, "action_id", action_id)
+        pulumi.set(__self__, "action_name", action_name)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter(name="actionId")
+    def action_id(self) -> str:
+        """
+        The id of the action status.
+        """
+        return pulumi.get(self, "action_id")
+
+    @property
+    @pulumi.getter(name="actionName")
+    def action_name(self) -> str:
+        """
+        The name of the action status.
+        """
+        return pulumi.get(self, "action_name")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        """
+        String that represents the end time of the action.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        String that represents the start time of the action.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the action.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Sequence['outputs.ExperimentExecutionActionTargetDetailsPropertiesResponse']:
+        """
+        The array of targets.
+        """
+        return pulumi.get(self, "targets")
+
 
 @pulumi.output_type
 class BranchResponse(dict):
@@ -61,6 +147,61 @@ class BranchResponse(dict):
         String of the branch name.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class BranchStatusResponse(dict):
+    """
+    Model that represents the a list of actions and action statuses.
+    """
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.ActionStatusResponse'],
+                 branch_id: str,
+                 branch_name: str,
+                 status: str):
+        """
+        Model that represents the a list of actions and action statuses.
+        :param Sequence['ActionStatusResponse'] actions: The array of actions.
+        :param str branch_id: The id of the branch status.
+        :param str branch_name: The name of the branch status.
+        :param str status: The status of the branch.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "branch_id", branch_id)
+        pulumi.set(__self__, "branch_name", branch_name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.ActionStatusResponse']:
+        """
+        The array of actions.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="branchId")
+    def branch_id(self) -> str:
+        """
+        The id of the branch status.
+        """
+        return pulumi.get(self, "branch_id")
+
+    @property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> str:
+        """
+        The name of the branch status.
+        """
+        return pulumi.get(self, "branch_name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the branch.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -354,6 +495,127 @@ class DiscreteActionResponse(dict):
 
 
 @pulumi.output_type
+class ExperimentExecutionActionTargetDetailsErrorResponse(dict):
+    """
+    Model that represents the Experiment action target details error model.
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str):
+        """
+        Model that represents the Experiment action target details error model.
+        :param str code: The error code.
+        :param str message: The error message
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class ExperimentExecutionActionTargetDetailsPropertiesResponse(dict):
+    """
+    Model that represents the Experiment action target details properties model.
+    """
+    def __init__(__self__, *,
+                 error: 'outputs.ExperimentExecutionActionTargetDetailsErrorResponse',
+                 status: str,
+                 target: str,
+                 target_completed_time: str,
+                 target_failed_time: str):
+        """
+        Model that represents the Experiment action target details properties model.
+        :param 'ExperimentExecutionActionTargetDetailsErrorResponse' error: The error of the action.
+        :param str status: The status of the execution.
+        :param str target: The target for the action.
+        :param str target_completed_time: String that represents the completed date time.
+        :param str target_failed_time: String that represents the failed date time.
+        """
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "target_completed_time", target_completed_time)
+        pulumi.set(__self__, "target_failed_time", target_failed_time)
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ExperimentExecutionActionTargetDetailsErrorResponse':
+        """
+        The error of the action.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the execution.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The target for the action.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="targetCompletedTime")
+    def target_completed_time(self) -> str:
+        """
+        String that represents the completed date time.
+        """
+        return pulumi.get(self, "target_completed_time")
+
+    @property
+    @pulumi.getter(name="targetFailedTime")
+    def target_failed_time(self) -> str:
+        """
+        String that represents the failed date time.
+        """
+        return pulumi.get(self, "target_failed_time")
+
+
+@pulumi.output_type
+class ExperimentExecutionDetailsPropertiesResponseRunInformation(dict):
+    """
+    The information of the experiment run.
+    """
+    def __init__(__self__, *,
+                 steps: Sequence['outputs.StepStatusResponse']):
+        """
+        The information of the experiment run.
+        :param Sequence['StepStatusResponse'] steps: The steps of the experiment run.
+        """
+        pulumi.set(__self__, "steps", steps)
+
+    @property
+    @pulumi.getter
+    def steps(self) -> Sequence['outputs.StepStatusResponse']:
+        """
+        The steps of the experiment run.
+        """
+        return pulumi.get(self, "steps")
+
+
+@pulumi.output_type
 class ExperimentPropertiesResponse(dict):
     """
     Model that represents the Experiment properties model.
@@ -504,6 +766,217 @@ class ListSelectorResponse(dict):
         Model that represents available filter types that can be applied to a targets list.
         """
         return pulumi.get(self, "filter")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The private endpoint connection resource.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    The private endpoint resource.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        The private endpoint resource.
+        :param str id: The ARM identifier for private endpoint.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM identifier for private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval/rejection of the connection.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -761,6 +1234,61 @@ class StepResponse(dict):
         String of the step name.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class StepStatusResponse(dict):
+    """
+    Model that represents the a list of branches and branch statuses.
+    """
+    def __init__(__self__, *,
+                 branches: Sequence['outputs.BranchStatusResponse'],
+                 status: str,
+                 step_id: str,
+                 step_name: str):
+        """
+        Model that represents the a list of branches and branch statuses.
+        :param Sequence['BranchStatusResponse'] branches: The array of branches.
+        :param str status: The value of the status of the step.
+        :param str step_id: The id of the step.
+        :param str step_name: The name of the step.
+        """
+        pulumi.set(__self__, "branches", branches)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "step_id", step_id)
+        pulumi.set(__self__, "step_name", step_name)
+
+    @property
+    @pulumi.getter
+    def branches(self) -> Sequence['outputs.BranchStatusResponse']:
+        """
+        The array of branches.
+        """
+        return pulumi.get(self, "branches")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The value of the status of the step.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="stepId")
+    def step_id(self) -> str:
+        """
+        The id of the step.
+        """
+        return pulumi.get(self, "step_id")
+
+    @property
+    @pulumi.getter(name="stepName")
+    def step_name(self) -> str:
+        """
+        The name of the step.
+        """
+        return pulumi.get(self, "step_name")
 
 
 @pulumi.output_type

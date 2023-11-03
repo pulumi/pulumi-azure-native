@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation
     /// Definition of hybrid runbook worker group.
     /// Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22.
     /// 
-    /// Other available API versions: 2021-06-22.
+    /// Other available API versions: 2021-06-22, 2023-05-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:HybridRunbookWorkerGroup")]
     public partial class HybridRunbookWorkerGroup : global::Pulumi.CustomResource
@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.Automation
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:HybridRunbookWorkerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220222:HybridRunbookWorkerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:HybridRunbookWorkerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:HybridRunbookWorkerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

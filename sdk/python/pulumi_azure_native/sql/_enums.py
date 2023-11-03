@@ -35,6 +35,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStateStatus',
     'ReadOnlyEndpointFailoverPolicy',
     'ReadWriteEndpointFailoverPolicy',
+    'ReplicationLinkType',
     'ReplicationMode',
     'SampleName',
     'SecondaryType',
@@ -335,6 +336,15 @@ class ReadWriteEndpointFailoverPolicy(str, Enum):
     """
     MANUAL = "Manual"
     AUTOMATIC = "Automatic"
+
+
+class ReplicationLinkType(str, Enum):
+    """
+    Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.
+    """
+    GEO = "GEO"
+    NAMED = "NAMED"
+    STANDBY = "STANDBY"
 
 
 class ReplicationMode(str, Enum):

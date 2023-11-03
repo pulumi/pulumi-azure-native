@@ -201,6 +201,8 @@ class NetworkFunction(pulumi.CustomResource):
         Network function resource response.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
 
+        Other available API versions: 2023-09-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] device: The reference to the device resource. Once set, it cannot be updated.
@@ -223,6 +225,8 @@ class NetworkFunction(pulumi.CustomResource):
         """
         Network function resource response.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+
+        Other available API versions: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkFunctionArgs args: The arguments to use to populate this resource's properties.
@@ -279,7 +283,7 @@ class NetworkFunction(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vendor_provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:NetworkFunction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20220101preview:NetworkFunction"), pulumi.Alias(type_="azure-native:hybridnetwork/v20230901:NetworkFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkFunction, __self__).__init__(
             'azure-native:hybridnetwork:NetworkFunction',

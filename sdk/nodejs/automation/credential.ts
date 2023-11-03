@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of the credential.
  * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export class Credential extends pulumi.CustomResource {
     /**
@@ -105,7 +107,7 @@ export class Credential extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Credential" }, { type: "azure-native:automation/v20190601:Credential" }, { type: "azure-native:automation/v20200113preview:Credential" }, { type: "azure-native:automation/v20220808:Credential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Credential" }, { type: "azure-native:automation/v20190601:Credential" }, { type: "azure-native:automation/v20200113preview:Credential" }, { type: "azure-native:automation/v20220808:Credential" }, { type: "azure-native:automation/v20230515preview:Credential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Credential.__pulumiType, name, resourceInputs, opts);
     }

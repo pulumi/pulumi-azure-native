@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a client.
         /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-12-15-preview.
         /// </summary>
         public static Task<GetClientResult> InvokeAsync(GetClientArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientResult>("azure-native:eventgrid:getClient", args ?? new GetClientArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Get properties of a client.
         /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-12-15-preview.
         /// </summary>
         public static Output<GetClientResult> Invoke(GetClientInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientResult>("azure-native:eventgrid:getClient", args ?? new GetClientInvokeArgs(), options.WithDefaults());

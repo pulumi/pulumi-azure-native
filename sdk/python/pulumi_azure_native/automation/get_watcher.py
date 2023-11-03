@@ -220,6 +220,8 @@ def get_watcher(automation_account_name: Optional[str] = None,
     Retrieve the watcher identified by watcher name.
     Azure REST API version: 2020-01-13-preview.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
@@ -258,6 +260,8 @@ def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = No
     """
     Retrieve the watcher identified by watcher name.
     Azure REST API version: 2020-01-13-preview.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

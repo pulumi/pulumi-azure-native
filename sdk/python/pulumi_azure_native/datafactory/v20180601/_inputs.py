@@ -397,6 +397,7 @@ __all__ = [
     'ParameterSpecificationArgs',
     'ParquetDatasetArgs',
     'ParquetFormatArgs',
+    'ParquetReadSettingsArgs',
     'ParquetSinkArgs',
     'ParquetSourceArgs',
     'ParquetWriteSettingsArgs',
@@ -34834,7 +34835,7 @@ class GetMetadataActivityArgs:
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  field_list: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 format_settings: Optional[pulumi.Input[Union['BinaryReadSettingsArgs', 'DelimitedTextReadSettingsArgs', 'JsonReadSettingsArgs', 'XmlReadSettingsArgs']]] = None,
+                 format_settings: Optional[pulumi.Input[Union['BinaryReadSettingsArgs', 'DelimitedTextReadSettingsArgs', 'JsonReadSettingsArgs', 'ParquetReadSettingsArgs', 'XmlReadSettingsArgs']]] = None,
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  on_inactive_mark_as: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
@@ -34850,7 +34851,7 @@ class GetMetadataActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[Any]] field_list: Fields of metadata to get from dataset.
-        :param pulumi.Input[Union['BinaryReadSettingsArgs', 'DelimitedTextReadSettingsArgs', 'JsonReadSettingsArgs', 'XmlReadSettingsArgs']] format_settings: GetMetadata activity format settings.
+        :param pulumi.Input[Union['BinaryReadSettingsArgs', 'DelimitedTextReadSettingsArgs', 'JsonReadSettingsArgs', 'ParquetReadSettingsArgs', 'XmlReadSettingsArgs']] format_settings: GetMetadata activity format settings.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
@@ -34957,14 +34958,14 @@ class GetMetadataActivityArgs:
 
     @property
     @pulumi.getter(name="formatSettings")
-    def format_settings(self) -> Optional[pulumi.Input[Union['BinaryReadSettingsArgs', 'DelimitedTextReadSettingsArgs', 'JsonReadSettingsArgs', 'XmlReadSettingsArgs']]]:
+    def format_settings(self) -> Optional[pulumi.Input[Union['BinaryReadSettingsArgs', 'DelimitedTextReadSettingsArgs', 'JsonReadSettingsArgs', 'ParquetReadSettingsArgs', 'XmlReadSettingsArgs']]]:
         """
         GetMetadata activity format settings.
         """
         return pulumi.get(self, "format_settings")
 
     @format_settings.setter
-    def format_settings(self, value: Optional[pulumi.Input[Union['BinaryReadSettingsArgs', 'DelimitedTextReadSettingsArgs', 'JsonReadSettingsArgs', 'XmlReadSettingsArgs']]]):
+    def format_settings(self, value: Optional[pulumi.Input[Union['BinaryReadSettingsArgs', 'DelimitedTextReadSettingsArgs', 'JsonReadSettingsArgs', 'ParquetReadSettingsArgs', 'XmlReadSettingsArgs']]]):
         pulumi.set(self, "format_settings", value)
 
     @property
@@ -35168,16 +35169,16 @@ class GoogleAdWordsLinkedServiceArgs:
                  client_id: Optional[Any] = None,
                  client_secret: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
-                 connection_properties: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  developer_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  email: Optional[Any] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
-                 key_file_path: Optional[Any] = None,
+                 google_ads_api_version: Optional[Any] = None,
+                 login_customer_id: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 private_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  refresh_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 trusted_cert_path: Optional[Any] = None,
-                 use_system_trust_store: Optional[Any] = None):
+                 support_legacy_data_types: Optional[Any] = None):
         """
         Google AdWords service linked service.
         :param pulumi.Input[str] type: Type of linked service.
@@ -35188,16 +35189,16 @@ class GoogleAdWordsLinkedServiceArgs:
         :param Any client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] client_secret: The client secret of the google application used to acquire the refresh token.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
-        :param Any connection_properties: Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
         :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
-        :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
+        :param Any google_ads_api_version: The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/sunset-dates#timetable. Type: string (or Expression with resultType string).
+        :param Any login_customer_id: The customer ID of the Google Ads Manager account through which you want to fetch report data of specific Customer. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] private_key: The private key that is used to authenticate the service account email address and can only be used on self-hosted IR.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] refresh_token: The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication.
-        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
-        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
+        :param Any support_legacy_data_types: Specifies whether to use the legacy data type mappings, which maps float, int32 and int64 from Google to string. Do not set this to true unless you want to keep backward compatibility with legacy driver's data type mappings. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "type", 'GoogleAdWords')
         if annotations is not None:
@@ -35212,8 +35213,6 @@ class GoogleAdWordsLinkedServiceArgs:
             pulumi.set(__self__, "client_secret", client_secret)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
-        if connection_properties is not None:
-            pulumi.set(__self__, "connection_properties", connection_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if developer_token is not None:
@@ -35222,16 +35221,18 @@ class GoogleAdWordsLinkedServiceArgs:
             pulumi.set(__self__, "email", email)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
-        if key_file_path is not None:
-            pulumi.set(__self__, "key_file_path", key_file_path)
+        if google_ads_api_version is not None:
+            pulumi.set(__self__, "google_ads_api_version", google_ads_api_version)
+        if login_customer_id is not None:
+            pulumi.set(__self__, "login_customer_id", login_customer_id)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
         if refresh_token is not None:
             pulumi.set(__self__, "refresh_token", refresh_token)
-        if trusted_cert_path is not None:
-            pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
-        if use_system_trust_store is not None:
-            pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
+        if support_legacy_data_types is not None:
+            pulumi.set(__self__, "support_legacy_data_types", support_legacy_data_types)
 
     @property
     @pulumi.getter
@@ -35319,18 +35320,6 @@ class GoogleAdWordsLinkedServiceArgs:
         pulumi.set(self, "connect_via", value)
 
     @property
-    @pulumi.getter(name="connectionProperties")
-    def connection_properties(self) -> Optional[Any]:
-        """
-        Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
-        """
-        return pulumi.get(self, "connection_properties")
-
-    @connection_properties.setter
-    def connection_properties(self, value: Optional[Any]):
-        pulumi.set(self, "connection_properties", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -35379,16 +35368,28 @@ class GoogleAdWordsLinkedServiceArgs:
         pulumi.set(self, "encrypted_credential", value)
 
     @property
-    @pulumi.getter(name="keyFilePath")
-    def key_file_path(self) -> Optional[Any]:
+    @pulumi.getter(name="googleAdsApiVersion")
+    def google_ads_api_version(self) -> Optional[Any]:
         """
-        The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
+        The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/sunset-dates#timetable. Type: string (or Expression with resultType string).
         """
-        return pulumi.get(self, "key_file_path")
+        return pulumi.get(self, "google_ads_api_version")
 
-    @key_file_path.setter
-    def key_file_path(self, value: Optional[Any]):
-        pulumi.set(self, "key_file_path", value)
+    @google_ads_api_version.setter
+    def google_ads_api_version(self, value: Optional[Any]):
+        pulumi.set(self, "google_ads_api_version", value)
+
+    @property
+    @pulumi.getter(name="loginCustomerID")
+    def login_customer_id(self) -> Optional[Any]:
+        """
+        The customer ID of the Google Ads Manager account through which you want to fetch report data of specific Customer. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "login_customer_id")
+
+    @login_customer_id.setter
+    def login_customer_id(self, value: Optional[Any]):
+        pulumi.set(self, "login_customer_id", value)
 
     @property
     @pulumi.getter
@@ -35403,6 +35404,18 @@ class GoogleAdWordsLinkedServiceArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The private key that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "private_key", value)
+
+    @property
     @pulumi.getter(name="refreshToken")
     def refresh_token(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
         """
@@ -35415,28 +35428,16 @@ class GoogleAdWordsLinkedServiceArgs:
         pulumi.set(self, "refresh_token", value)
 
     @property
-    @pulumi.getter(name="trustedCertPath")
-    def trusted_cert_path(self) -> Optional[Any]:
+    @pulumi.getter(name="supportLegacyDataTypes")
+    def support_legacy_data_types(self) -> Optional[Any]:
         """
-        The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
+        Specifies whether to use the legacy data type mappings, which maps float, int32 and int64 from Google to string. Do not set this to true unless you want to keep backward compatibility with legacy driver's data type mappings. Type: boolean (or Expression with resultType boolean).
         """
-        return pulumi.get(self, "trusted_cert_path")
+        return pulumi.get(self, "support_legacy_data_types")
 
-    @trusted_cert_path.setter
-    def trusted_cert_path(self, value: Optional[Any]):
-        pulumi.set(self, "trusted_cert_path", value)
-
-    @property
-    @pulumi.getter(name="useSystemTrustStore")
-    def use_system_trust_store(self) -> Optional[Any]:
-        """
-        Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
-        """
-        return pulumi.get(self, "use_system_trust_store")
-
-    @use_system_trust_store.setter
-    def use_system_trust_store(self, value: Optional[Any]):
-        pulumi.set(self, "use_system_trust_store", value)
+    @support_legacy_data_types.setter
+    def support_legacy_data_types(self, value: Optional[Any]):
+        pulumi.set(self, "support_legacy_data_types", value)
 
 
 @pulumi.input_type
@@ -56593,6 +56594,47 @@ class ParquetFormatArgs:
 
 
 @pulumi.input_type
+class ParquetReadSettingsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 compression_properties: Optional[pulumi.Input[Union['TarGZipReadSettingsArgs', 'TarReadSettingsArgs', 'ZipDeflateReadSettingsArgs']]] = None):
+        """
+        Parquet read settings.
+        :param pulumi.Input[str] type: The read setting type.
+               Expected value is 'ParquetReadSettings'.
+        :param pulumi.Input[Union['TarGZipReadSettingsArgs', 'TarReadSettingsArgs', 'ZipDeflateReadSettingsArgs']] compression_properties: Compression settings.
+        """
+        pulumi.set(__self__, "type", 'ParquetReadSettings')
+        if compression_properties is not None:
+            pulumi.set(__self__, "compression_properties", compression_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The read setting type.
+        Expected value is 'ParquetReadSettings'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="compressionProperties")
+    def compression_properties(self) -> Optional[pulumi.Input[Union['TarGZipReadSettingsArgs', 'TarReadSettingsArgs', 'ZipDeflateReadSettingsArgs']]]:
+        """
+        Compression settings.
+        """
+        return pulumi.get(self, "compression_properties")
+
+    @compression_properties.setter
+    def compression_properties(self, value: Optional[pulumi.Input[Union['TarGZipReadSettingsArgs', 'TarReadSettingsArgs', 'ZipDeflateReadSettingsArgs']]]):
+        pulumi.set(self, "compression_properties", value)
+
+
+@pulumi.input_type
 class ParquetSinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -56751,6 +56793,7 @@ class ParquetSourceArgs:
                  type: pulumi.Input[str],
                  additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
+                 format_settings: Optional[pulumi.Input['ParquetReadSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
@@ -56761,6 +56804,7 @@ class ParquetSourceArgs:
                Expected value is 'ParquetSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param pulumi.Input['ParquetReadSettingsArgs'] format_settings: Parquet format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -56771,6 +56815,8 @@ class ParquetSourceArgs:
             pulumi.set(__self__, "additional_columns", additional_columns)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if format_settings is not None:
+            pulumi.set(__self__, "format_settings", format_settings)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if source_retry_count is not None:
@@ -56816,6 +56862,18 @@ class ParquetSourceArgs:
     @disable_metrics_collection.setter
     def disable_metrics_collection(self, value: Optional[Any]):
         pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
+    @pulumi.getter(name="formatSettings")
+    def format_settings(self) -> Optional[pulumi.Input['ParquetReadSettingsArgs']]:
+        """
+        Parquet format settings.
+        """
+        return pulumi.get(self, "format_settings")
+
+    @format_settings.setter
+    def format_settings(self, value: Optional[pulumi.Input['ParquetReadSettingsArgs']]):
+        pulumi.set(self, "format_settings", value)
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")

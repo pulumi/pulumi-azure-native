@@ -245,6 +245,8 @@ def get_schedule(automation_account_name: Optional[str] = None,
     Retrieve the schedule identified by schedule name.
     Azure REST API version: 2022-08-08.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
@@ -285,6 +287,8 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = N
     """
     Retrieve the schedule identified by schedule name.
     Azure REST API version: 2022-08-08.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

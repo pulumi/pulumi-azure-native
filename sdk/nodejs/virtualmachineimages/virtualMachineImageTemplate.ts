@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
  * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14.
  *
- * Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
+ * Other available API versions: 2018-02-01-preview, 2019-05-01-preview, 2023-07-01.
  */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
@@ -177,7 +177,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             resourceInputs["vmProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate" }, { type: "azure-native:virtualmachineimages/v20230701:VirtualMachineImageTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineImageTemplate.__pulumiType, name, resourceInputs, opts);
     }

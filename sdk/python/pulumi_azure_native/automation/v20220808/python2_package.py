@@ -183,7 +183,7 @@ class Python2Package(pulumi.CustomResource):
             __props__.__dict__["size_in_bytes"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20180630:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20190601:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Python2Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20180630:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20190601:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Python2Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Python2Package, __self__).__init__(
             'azure-native:automation/v20220808:Python2Package',

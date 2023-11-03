@@ -143,6 +143,8 @@ class ResourceGuardProxy(pulumi.CustomResource):
         """
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
 
+        Other available API versions: 2023-06-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
@@ -160,6 +162,8 @@ class ResourceGuardProxy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+
+        Other available API versions: 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardProxyArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +209,7 @@ class ResourceGuardProxy(pulumi.CustomResource):
             __props__.__dict__["vault_name"] = vault_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220601preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220901preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ResourceGuardProxy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220601preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220901preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230601:ResourceGuardProxy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceGuardProxy, __self__).__init__(
             'azure-native:recoveryservices:ResourceGuardProxy',

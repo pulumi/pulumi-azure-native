@@ -7,7 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .b2_c_tenant import *
+from .ciam_tenant import *
 from .get_b2_c_tenant import *
+from .get_ciam_tenant import *
 from .get_guest_usage import *
 from .guest_usage import *
 from ._inputs import *
@@ -21,8 +23,11 @@ if typing.TYPE_CHECKING:
     v20210401 = __v20210401
     import pulumi_azure_native.azureactivedirectory.v20230118preview as __v20230118preview
     v20230118preview = __v20230118preview
+    import pulumi_azure_native.azureactivedirectory.v20230517preview as __v20230517preview
+    v20230517preview = __v20230517preview
 else:
     v20190101preview = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20190101preview')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20210401')
     v20230118preview = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20230118preview')
+    v20230517preview = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20230517preview')
 

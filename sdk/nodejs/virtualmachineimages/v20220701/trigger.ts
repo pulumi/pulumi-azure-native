@@ -100,7 +100,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages:Trigger" }, { type: "azure-native:virtualmachineimages/v20230701:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, resourceInputs, opts);
     }

@@ -125,7 +125,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     Get the specified private endpoint connection associated with the container registry.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -158,7 +158,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     Get the specified private endpoint connection associated with the container registry.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

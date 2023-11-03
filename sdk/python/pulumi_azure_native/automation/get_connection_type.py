@@ -137,6 +137,8 @@ def get_connection_type(automation_account_name: Optional[str] = None,
     Retrieve the connection type identified by connection type name.
     Azure REST API version: 2022-08-08.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str connection_type_name: The name of connection type.
@@ -168,6 +170,8 @@ def get_connection_type_output(automation_account_name: Optional[pulumi.Input[st
     """
     Retrieve the connection type identified by connection type name.
     Azure REST API version: 2022-08-08.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

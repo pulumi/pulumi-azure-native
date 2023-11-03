@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of an event subscription of a topic.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export function getTopicEventSubscription(args: GetTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicEventSubscriptionResult> {
 
@@ -111,7 +111,7 @@ export interface GetTopicEventSubscriptionResult {
  * Get properties of an event subscription of a topic.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export function getTopicEventSubscriptionOutput(args: GetTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getTopicEventSubscription(a, opts))

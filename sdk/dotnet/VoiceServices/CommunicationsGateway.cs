@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.VoiceServices
     /// <summary>
     /// A CommunicationsGateway resource
     /// Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview.
+    /// 
+    /// Other available API versions: 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:voiceservices:CommunicationsGateway")]
     public partial class CommunicationsGateway : global::Pulumi.CustomResource
@@ -164,6 +166,7 @@ namespace Pulumi.AzureNative.VoiceServices
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20221201preview:CommunicationsGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230131:CommunicationsGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230403:CommunicationsGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230901:CommunicationsGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

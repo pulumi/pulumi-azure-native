@@ -145,6 +145,11 @@ export const getNamespaceTopicEventSubscription: typeof import("./getNamespaceTo
 export const getNamespaceTopicEventSubscriptionOutput: typeof import("./getNamespaceTopicEventSubscription").getNamespaceTopicEventSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceTopicEventSubscription","getNamespaceTopicEventSubscriptionOutput"], () => require("./getNamespaceTopicEventSubscription"));
 
+export { GetNamespaceTopicEventSubscriptionDeliveryAttributesArgs, GetNamespaceTopicEventSubscriptionDeliveryAttributesResult, GetNamespaceTopicEventSubscriptionDeliveryAttributesOutputArgs } from "./getNamespaceTopicEventSubscriptionDeliveryAttributes";
+export const getNamespaceTopicEventSubscriptionDeliveryAttributes: typeof import("./getNamespaceTopicEventSubscriptionDeliveryAttributes").getNamespaceTopicEventSubscriptionDeliveryAttributes = null as any;
+export const getNamespaceTopicEventSubscriptionDeliveryAttributesOutput: typeof import("./getNamespaceTopicEventSubscriptionDeliveryAttributes").getNamespaceTopicEventSubscriptionDeliveryAttributesOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceTopicEventSubscriptionDeliveryAttributes","getNamespaceTopicEventSubscriptionDeliveryAttributesOutput"], () => require("./getNamespaceTopicEventSubscriptionDeliveryAttributes"));
+
 export { GetPartnerConfigurationArgs, GetPartnerConfigurationResult, GetPartnerConfigurationOutputArgs } from "./getPartnerConfiguration";
 export const getPartnerConfiguration: typeof import("./getPartnerConfiguration").getPartnerConfiguration = null as any;
 export const getPartnerConfigurationOutput: typeof import("./getPartnerConfiguration").getPartnerConfigurationOutput = null as any;
@@ -354,12 +359,14 @@ import * as v20200401preview from "./v20200401preview";
 import * as v20211015preview from "./v20211015preview";
 import * as v20220615 from "./v20220615";
 import * as v20230601preview from "./v20230601preview";
+import * as v20231215preview from "./v20231215preview";
 
 export {
     v20200401preview,
     v20211015preview,
     v20220615,
     v20230601preview,
+    v20231215preview,
 };
 
 const _module = {

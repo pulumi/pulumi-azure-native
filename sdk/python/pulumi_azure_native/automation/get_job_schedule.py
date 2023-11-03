@@ -137,6 +137,8 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
     Retrieve the job schedule identified by job schedule name.
     Azure REST API version: 2022-08-08.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str job_schedule_id: The job schedule name.
@@ -168,6 +170,8 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]]
     """
     Retrieve the job schedule identified by job schedule name.
     Azure REST API version: 2022-08-08.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

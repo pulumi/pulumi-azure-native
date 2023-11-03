@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the python 2 package identified by package name.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getPython2Package(args: GetPython2PackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPython2PackageResult> {
 
@@ -112,6 +114,8 @@ export interface GetPython2PackageResult {
 /**
  * Retrieve the python 2 package identified by package name.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython2PackageResult> {
     return pulumi.output(args).apply((a: any) => getPython2Package(a, opts))

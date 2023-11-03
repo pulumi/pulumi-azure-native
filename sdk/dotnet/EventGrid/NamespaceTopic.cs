@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.EventGrid
     /// <summary>
     /// Namespace topic details.
     /// Azure REST API version: 2023-06-01-preview.
+    /// 
+    /// Other available API versions: 2023-12-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:NamespaceTopic")]
     public partial class NamespaceTopic : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.EventGrid
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:NamespaceTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:NamespaceTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

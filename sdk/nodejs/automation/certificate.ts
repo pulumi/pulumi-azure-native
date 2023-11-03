@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of the certificate.
  * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -114,7 +116,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Certificate" }, { type: "azure-native:automation/v20190601:Certificate" }, { type: "azure-native:automation/v20200113preview:Certificate" }, { type: "azure-native:automation/v20220808:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Certificate" }, { type: "azure-native:automation/v20190601:Certificate" }, { type: "azure-native:automation/v20200113preview:Certificate" }, { type: "azure-native:automation/v20220808:Certificate" }, { type: "azure-native:automation/v20230515preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

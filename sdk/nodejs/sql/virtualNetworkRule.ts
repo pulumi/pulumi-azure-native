@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * A virtual network rule.
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20200202preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20200801preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20201101preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20210201preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20210501preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20210801preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20211101:VirtualNetworkRule" }, { type: "azure-native:sql/v20211101preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20220201preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20220501preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20220801preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20221101preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20230201preview:VirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20200202preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20200801preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20201101preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20210201preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20210501preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20210801preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20211101:VirtualNetworkRule" }, { type: "azure-native:sql/v20211101preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20220201preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20220501preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20220801preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20221101preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20230201preview:VirtualNetworkRule" }, { type: "azure-native:sql/v20230501preview:VirtualNetworkRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -151,6 +151,8 @@ def get_permission_binding(namespace_name: Optional[str] = None,
     Get properties of a permission binding.
     Azure REST API version: 2023-06-01-preview.
 
+    Other available API versions: 2023-12-15-preview.
+
 
     :param str namespace_name: Name of the namespace.
     :param str permission_binding_name: Name of the permission binding.
@@ -183,6 +185,8 @@ def get_permission_binding_output(namespace_name: Optional[pulumi.Input[str]] = 
     """
     Get properties of a permission binding.
     Azure REST API version: 2023-06-01-preview.
+
+    Other available API versions: 2023-12-15-preview.
 
 
     :param str namespace_name: Name of the namespace.

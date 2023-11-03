@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of the module type.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export class Python3Package extends pulumi.CustomResource {
     /**
@@ -161,7 +163,7 @@ export class Python3Package extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:Python3Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20220808:Python3Package" }, { type: "azure-native:automation/v20230515preview:Python3Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Python3Package.__pulumiType, name, resourceInputs, opts);
     }
