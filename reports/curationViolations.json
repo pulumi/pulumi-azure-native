@@ -12,6 +12,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "AzureActiveDirectory",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "AzurePlaywrightService",
     "Detail": "expected tracking stable but found preview"
   },
@@ -33,6 +37,10 @@
   },
   {
     "Provider": "Cdn",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Chaos",
     "Detail": "expected no additions but found some"
   },
   {
@@ -136,6 +144,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "HybridNetwork",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "IntegrationSpaces",
     "Detail": "expected tracking stable but found preview"
   },
@@ -145,6 +157,18 @@
   },
   {
     "Provider": "IoTFirmwareDefense",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "IoTOperationsDataProcessor",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "IoTOperationsMQ",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "IoTOperationsOrchestrator",
     "Detail": "expected tracking stable but found preview"
   },
   {

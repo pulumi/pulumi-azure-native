@@ -132,14 +132,19 @@ Automanage:
 Automation:
     tracking: "2022-08-08"
     additions:
+        Package: 2023-05-15-preview
         PrivateEndpointConnection: 2020-01-13-preview
+        RuntimeEnvironment: 2023-05-15-preview
         SoftwareUpdateConfigurationByName: "2019-06-01"
         Watcher: 2020-01-13-preview
         Webhook: "2015-10-31"
+        listAutomationAccountDeletedRunbooks: 2023-05-15-preview
 AutonomousDevelopmentPlatform:
     tracking: 2021-11-01-preview
 AzureActiveDirectory:
     tracking: "2021-04-01"
+    additions:
+        CIAMTenant: 2023-05-17-preview
 AzureArcData:
     tracking: 2023-01-15-preview
 AzureData:
@@ -205,6 +210,9 @@ ChangeAnalysis:
     tracking: 2020-04-01-preview
 Chaos:
     tracking: 2023-04-15-preview
+    additions:
+        PrivateAccess: 2023-10-27-preview
+        getExperimentExecutionDetails: "2023-11-01"
 CognitiveServices:
     tracking: "2023-05-01"
     additions:
@@ -447,6 +455,9 @@ DBforMySQL:
         - provider: DBforMySQL
           resourcename: Server
           detail: version 2023-06-30 is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: Server
+          detail: version 2023-10-01-preview is greater than 2017-12-01
 DBforPostgreSQL:
     tracking: "2022-12-01"
     additions:
@@ -454,6 +465,7 @@ DBforPostgreSQL:
         Migration: 2023-03-01-preview
         PrivateEndpointConnection: "2022-11-08"
         Role: "2022-11-08"
+        VirtualEndpoint: 2023-06-01-preview
     exclusionErrors:
         - provider: DBforPostgreSQL
           resourcename: Configuration
@@ -566,6 +578,21 @@ DBforPostgreSQL:
         - provider: DBforPostgreSQL
           resourcename: Server
           detail: version 2023-03-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: Configuration
+          detail: version 2023-06-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2023-06-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2023-06-01-preview is greater than 2017-12-01
+        - provider: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2023-06-01-preview is greater than 2018-06-01
+        - provider: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2023-06-01-preview is greater than 2017-12-01
 Dashboard:
     tracking: "2022-08-01"
     additions:
@@ -612,6 +639,7 @@ DeploymentManager:
 DesktopVirtualization:
     tracking: "2022-09-09"
     additions:
+        AppAttachPackage: 2023-10-04-preview
         PrivateEndpointConnectionByHostPool: 2022-10-14-preview
         PrivateEndpointConnectionByWorkspace: 2022-10-14-preview
         ScalingPlanPersonalSchedule: 2023-07-07-preview
@@ -698,6 +726,7 @@ EventGrid:
         PartnerDestination: 2023-06-01-preview
         PermissionBinding: 2023-06-01-preview
         TopicSpace: 2023-06-01-preview
+        getNamespaceTopicEventSubscriptionDeliveryAttributes: 2023-12-15-preview
         listNamespaceSharedAccessKeys: 2023-06-01-preview
         listNamespaceTopicSharedAccessKeys: 2023-06-01-preview
 EventHub:
@@ -751,6 +780,19 @@ HybridData:
     tracking: "2019-06-01"
 HybridNetwork:
     tracking: 2022-01-01-preview
+    additions:
+        ArtifactManifest: "2023-09-01"
+        ArtifactStore: "2023-09-01"
+        ConfigurationGroupSchema: "2023-09-01"
+        ConfigurationGroupValue: "2023-09-01"
+        NetworkFunctionDefinitionGroup: "2023-09-01"
+        NetworkFunctionDefinitionVersion: "2023-09-01"
+        NetworkServiceDesignGroup: "2023-09-01"
+        NetworkServiceDesignVersion: "2023-09-01"
+        Publisher: "2023-09-01"
+        Site: "2023-09-01"
+        SiteNetworkService: "2023-09-01"
+        listArtifactManifestCredential: "2023-09-01"
 ImportExport:
     tracking: "2021-01-01"
 Insights:
@@ -800,6 +842,12 @@ IoTCentral:
         PrivateEndpointConnection: 2021-11-01-preview
 IoTFirmwareDefense:
     tracking: 2023-02-08-preview
+IoTOperationsDataProcessor:
+    tracking: 2023-10-04-preview
+IoTOperationsMQ:
+    tracking: 2023-10-04-preview
+IoTOperationsOrchestrator:
+    tracking: 2023-10-04-preview
 KeyVault:
     tracking: "2023-02-01"
 Kubernetes:
@@ -1424,7 +1472,9 @@ Sql:
         DatabaseSqlVulnerabilityAssessmentRuleBaseline: 2022-11-01-preview
         DatabaseThreatDetectionPolicy: "2014-04-01"
         DisasterRecoveryConfiguration: "2014-04-01"
+        JobPrivateEndpoint: 2023-05-01-preview
         ManagedInstanceLongTermRetentionPolicy: 2022-11-01-preview
+        ReplicationLink: 2023-05-01-preview
         ServerCommunicationLink: "2014-04-01"
         SqlVulnerabilityAssessmentRuleBaseline: 2022-11-01-preview
         SqlVulnerabilityAssessmentsSetting: 2022-11-01-preview

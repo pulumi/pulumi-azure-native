@@ -303,16 +303,19 @@
     "HybridRunbookWorkerGroup": "2022-08-08",
     "JobSchedule": "2022-08-08",
     "Module": "2022-08-08",
+    "Package": "2023-05-15-preview",
     "PrivateEndpointConnection": "2020-01-13-preview",
     "Python2Package": "2022-08-08",
     "Python3Package": "2022-08-08",
     "Runbook": "2022-08-08",
+    "RuntimeEnvironment": "2023-05-15-preview",
     "Schedule": "2022-08-08",
     "SoftwareUpdateConfigurationByName": "2019-06-01",
     "SourceControl": "2022-08-08",
     "Variable": "2022-08-08",
     "Watcher": "2020-01-13-preview",
     "Webhook": "2015-10-31",
+    "listAutomationAccountDeletedRunbooks": "2023-05-15-preview",
     "listKeyByAutomationAccount": "2022-08-08"
   },
   "AutonomousDevelopmentPlatform": {
@@ -321,6 +324,7 @@
   },
   "AzureActiveDirectory": {
     "B2CTenant": "2021-04-01",
+    "CIAMTenant": "2023-05-17-preview",
     "GuestUsage": "2021-04-01"
   },
   "AzureArcData": {
@@ -466,7 +470,9 @@
   "Chaos": {
     "Capability": "2023-04-15-preview",
     "Experiment": "2023-04-15-preview",
-    "Target": "2023-04-15-preview"
+    "PrivateAccess": "2023-10-27-preview",
+    "Target": "2023-04-15-preview",
+    "getExperimentExecutionDetails": "2023-11-01"
   },
   "CognitiveServices": {
     "Account": "2023-05-01",
@@ -679,6 +685,7 @@
     "PrivateEndpointConnection": "2022-11-08",
     "Role": "2022-11-08",
     "Server": "2022-12-01",
+    "VirtualEndpoint": "2023-06-01-preview",
     "getGetPrivateDnsZoneSuffixExecute": "2022-12-01"
   },
   "Dashboard": {
@@ -816,6 +823,7 @@
     "Step": "2019-11-01-preview"
   },
   "DesktopVirtualization": {
+    "AppAttachPackage": "2023-10-04-preview",
     "Application": "2022-09-09",
     "ApplicationGroup": "2022-09-09",
     "HostPool": "2022-09-09",
@@ -1034,6 +1042,7 @@
     "getDomainTopicEventSubscriptionFullUrl": "2022-06-15",
     "getEventSubscriptionDeliveryAttributes": "2022-06-15",
     "getEventSubscriptionFullUrl": "2022-06-15",
+    "getNamespaceTopicEventSubscriptionDeliveryAttributes": "2023-12-15-preview",
     "getPartnerTopicEventSubscriptionDeliveryAttributes": "2022-06-15",
     "getPartnerTopicEventSubscriptionFullUrl": "2022-06-15",
     "getSystemTopicEventSubscriptionDeliveryAttributes": "2022-06-15",
@@ -1153,11 +1162,23 @@
     "JobDefinition": "2019-06-01"
   },
   "HybridNetwork": {
+    "ArtifactManifest": "2023-09-01",
+    "ArtifactStore": "2023-09-01",
+    "ConfigurationGroupSchema": "2023-09-01",
+    "ConfigurationGroupValue": "2023-09-01",
     "Device": "2022-01-01-preview",
     "NetworkFunction": "2022-01-01-preview",
+    "NetworkFunctionDefinitionGroup": "2023-09-01",
+    "NetworkFunctionDefinitionVersion": "2023-09-01",
+    "NetworkServiceDesignGroup": "2023-09-01",
+    "NetworkServiceDesignVersion": "2023-09-01",
+    "Publisher": "2023-09-01",
+    "Site": "2023-09-01",
+    "SiteNetworkService": "2023-09-01",
     "Vendor": "2022-01-01-preview",
     "VendorSkuPreview": "2022-01-01-preview",
     "VendorSkus": "2022-01-01-preview",
+    "listArtifactManifestCredential": "2023-09-01",
     "listDeviceRegistrationKey": "2022-01-01-preview",
     "listVendorSkusCredential": "2022-01-01-preview"
   },
@@ -1222,6 +1243,30 @@
   "IoTFirmwareDefense": {
     "Firmware": "2023-02-08-preview",
     "Workspace": "2023-02-08-preview"
+  },
+  "IoTOperationsDataProcessor": {
+    "Dataset": "2023-10-04-preview",
+    "Instance": "2023-10-04-preview",
+    "Pipeline": "2023-10-04-preview"
+  },
+  "IoTOperationsMQ": {
+    "Broker": "2023-10-04-preview",
+    "BrokerAuthentication": "2023-10-04-preview",
+    "BrokerAuthorization": "2023-10-04-preview",
+    "BrokerListener": "2023-10-04-preview",
+    "DataLakeConnector": "2023-10-04-preview",
+    "DataLakeConnectorTopicMap": "2023-10-04-preview",
+    "DiagnosticService": "2023-10-04-preview",
+    "KafkaConnector": "2023-10-04-preview",
+    "KafkaConnectorTopicMap": "2023-10-04-preview",
+    "Mq": "2023-10-04-preview",
+    "MqttBridgeConnector": "2023-10-04-preview",
+    "MqttBridgeTopicMap": "2023-10-04-preview"
+  },
+  "IoTOperationsOrchestrator": {
+    "Instance": "2023-10-04-preview",
+    "Solution": "2023-10-04-preview",
+    "Target": "2023-10-04-preview"
   },
   "KeyVault": {
     "Key": "2023-02-01",
@@ -2231,6 +2276,7 @@
     "Job": "2021-11-01",
     "JobAgent": "2021-11-01",
     "JobCredential": "2021-11-01",
+    "JobPrivateEndpoint": "2023-05-01-preview",
     "JobStep": "2021-11-01",
     "JobTargetGroup": "2021-11-01",
     "LongTermRetentionPolicy": "2021-11-01",
@@ -2248,6 +2294,7 @@
     "ManagedServerDnsAlias": "2021-11-01",
     "OutboundFirewallRule": "2021-11-01",
     "PrivateEndpointConnection": "2021-11-01",
+    "ReplicationLink": "2023-05-01-preview",
     "SensitivityLabel": "2021-11-01",
     "Server": "2021-11-01",
     "ServerAdvisor": "2021-11-01",
