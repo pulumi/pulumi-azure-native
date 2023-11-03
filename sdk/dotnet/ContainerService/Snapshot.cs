@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerService
     /// A node pool snapshot resource.
     /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-08-01.
     /// 
-    /// Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01.
+    /// Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource
@@ -162,6 +162,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230801:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230802preview:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230901:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230902preview:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

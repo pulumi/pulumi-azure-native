@@ -125,6 +125,8 @@ def get_trigger(image_template_name: Optional[str] = None,
     Get the specified trigger for the specified image template resource
     Azure REST API version: 2022-07-01.
 
+    Other available API versions: 2023-07-01.
+
 
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
@@ -155,6 +157,8 @@ def get_trigger_output(image_template_name: Optional[pulumi.Input[str]] = None,
     """
     Get the specified trigger for the specified image template resource
     Azure REST API version: 2022-07-01.
+
+    Other available API versions: 2023-07-01.
 
 
     :param str image_template_name: The name of the image Template

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of a nested event subscription for a domain topic.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export function getDomainTopicEventSubscription(args: GetDomainTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicEventSubscriptionResult> {
 
@@ -116,7 +116,7 @@ export interface GetDomainTopicEventSubscriptionResult {
  * Get properties of a nested event subscription for a domain topic.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export function getDomainTopicEventSubscriptionOutput(args: GetDomainTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getDomainTopicEventSubscription(a, opts))

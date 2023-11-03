@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Task<GetManagedInstancePrivateEndpointConnectionResult> InvokeAsync(GetManagedInstancePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstancePrivateEndpointConnectionResult>("azure-native:sql:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Sql
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2021-11-01.
         /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
         /// </summary>
         public static Output<GetManagedInstancePrivateEndpointConnectionResult> Invoke(GetManagedInstancePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstancePrivateEndpointConnectionResult>("azure-native:sql:getManagedInstancePrivateEndpointConnection", args ?? new GetManagedInstancePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

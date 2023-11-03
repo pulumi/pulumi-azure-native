@@ -235,6 +235,11 @@ export const getJobCredential: typeof import("./getJobCredential").getJobCredent
 export const getJobCredentialOutput: typeof import("./getJobCredential").getJobCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["getJobCredential","getJobCredentialOutput"], () => require("./getJobCredential"));
 
+export { GetJobPrivateEndpointArgs, GetJobPrivateEndpointResult, GetJobPrivateEndpointOutputArgs } from "./getJobPrivateEndpoint";
+export const getJobPrivateEndpoint: typeof import("./getJobPrivateEndpoint").getJobPrivateEndpoint = null as any;
+export const getJobPrivateEndpointOutput: typeof import("./getJobPrivateEndpoint").getJobPrivateEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getJobPrivateEndpoint","getJobPrivateEndpointOutput"], () => require("./getJobPrivateEndpoint"));
+
 export { GetJobStepArgs, GetJobStepResult, GetJobStepOutputArgs } from "./getJobStep";
 export const getJobStep: typeof import("./getJobStep").getJobStep = null as any;
 export const getJobStepOutput: typeof import("./getJobStep").getJobStepOutput = null as any;
@@ -319,6 +324,11 @@ export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, G
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetReplicationLinkArgs, GetReplicationLinkResult, GetReplicationLinkOutputArgs } from "./getReplicationLink";
+export const getReplicationLink: typeof import("./getReplicationLink").getReplicationLink = null as any;
+export const getReplicationLinkOutput: typeof import("./getReplicationLink").getReplicationLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationLink","getReplicationLinkOutput"], () => require("./getReplicationLink"));
 
 export { GetSensitivityLabelArgs, GetSensitivityLabelResult, GetSensitivityLabelOutputArgs } from "./getSensitivityLabel";
 export const getSensitivityLabel: typeof import("./getSensitivityLabel").getSensitivityLabel = null as any;
@@ -465,6 +475,11 @@ export type JobCredential = import("./jobCredential").JobCredential;
 export const JobCredential: typeof import("./jobCredential").JobCredential = null as any;
 utilities.lazyLoad(exports, ["JobCredential"], () => require("./jobCredential"));
 
+export { JobPrivateEndpointArgs } from "./jobPrivateEndpoint";
+export type JobPrivateEndpoint = import("./jobPrivateEndpoint").JobPrivateEndpoint;
+export const JobPrivateEndpoint: typeof import("./jobPrivateEndpoint").JobPrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["JobPrivateEndpoint"], () => require("./jobPrivateEndpoint"));
+
 export { JobStepArgs } from "./jobStep";
 export type JobStep = import("./jobStep").JobStep;
 export const JobStep: typeof import("./jobStep").JobStep = null as any;
@@ -549,6 +564,11 @@ export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { ReplicationLinkArgs } from "./replicationLink";
+export type ReplicationLink = import("./replicationLink").ReplicationLink;
+export const ReplicationLink: typeof import("./replicationLink").ReplicationLink = null as any;
+utilities.lazyLoad(exports, ["ReplicationLink"], () => require("./replicationLink"));
 
 export { SensitivityLabelArgs } from "./sensitivityLabel";
 export type SensitivityLabel = import("./sensitivityLabel").SensitivityLabel;
@@ -681,6 +701,7 @@ import * as v20210201preview from "./v20210201preview";
 import * as v20211101 from "./v20211101";
 import * as v20221101preview from "./v20221101preview";
 import * as v20230201preview from "./v20230201preview";
+import * as v20230501preview from "./v20230501preview";
 
 export {
     v20140401,
@@ -694,6 +715,7 @@ export {
     v20211101,
     v20221101preview,
     v20230201preview,
+    v20230501preview,
 };
 
 const _module = {
@@ -752,6 +774,8 @@ const _module = {
                 return new JobAgent(name, <any>undefined, { urn })
             case "azure-native:sql:JobCredential":
                 return new JobCredential(name, <any>undefined, { urn })
+            case "azure-native:sql:JobPrivateEndpoint":
+                return new JobPrivateEndpoint(name, <any>undefined, { urn })
             case "azure-native:sql:JobStep":
                 return new JobStep(name, <any>undefined, { urn })
             case "azure-native:sql:JobTargetGroup":
@@ -786,6 +810,8 @@ const _module = {
                 return new OutboundFirewallRule(name, <any>undefined, { urn })
             case "azure-native:sql:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:sql:ReplicationLink":
+                return new ReplicationLink(name, <any>undefined, { urn })
             case "azure-native:sql:SensitivityLabel":
                 return new SensitivityLabel(name, <any>undefined, { urn })
             case "azure-native:sql:Server":

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the webhook identified by webhook name.
  * Azure REST API version: 2015-10-31.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getWebhook(args: GetWebhookArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookResult> {
 
@@ -100,6 +102,8 @@ export interface GetWebhookResult {
 /**
  * Retrieve the webhook identified by webhook name.
  * Azure REST API version: 2015-10-31.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
     return pulumi.output(args).apply((a: any) => getWebhook(a, opts))

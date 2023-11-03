@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the Dsc node configurations by node configuration.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getDscNodeConfiguration(args: GetDscNodeConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscNodeConfigurationResult> {
 
@@ -80,6 +82,8 @@ export interface GetDscNodeConfigurationResult {
 /**
  * Retrieve the Dsc node configurations by node configuration.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getDscNodeConfigurationOutput(args: GetDscNodeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscNodeConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDscNodeConfiguration(a, opts))

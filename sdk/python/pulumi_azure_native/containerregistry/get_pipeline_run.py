@@ -137,7 +137,7 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
     Gets the detailed information for a given pipeline run.
     Azure REST API version: 2023-01-01-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
 
 
     :param str pipeline_run_name: The name of the pipeline run.
@@ -171,7 +171,7 @@ def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = Non
     Gets the detailed information for a given pipeline run.
     Azure REST API version: 2023-01-01-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
 
 
     :param str pipeline_run_name: The name of the pipeline run.

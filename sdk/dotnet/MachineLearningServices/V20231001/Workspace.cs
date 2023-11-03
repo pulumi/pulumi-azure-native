@@ -87,6 +87,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20231001
         [Output("keyVault")]
         public Output<string?> KeyVault { get; private set; } = null!;
 
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
@@ -375,6 +378,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20231001
         /// </summary>
         [Input("keyVault")]
         public Input<string>? KeyVault { get; set; }
+
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.

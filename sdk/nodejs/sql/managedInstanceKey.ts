@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A managed instance key.
  * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
  *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
  */
 export class ManagedInstanceKey extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20211101:ManagedInstanceKey" }, { type: "azure-native:sql/v20211101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220501preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20221101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20230201preview:ManagedInstanceKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20211101:ManagedInstanceKey" }, { type: "azure-native:sql/v20211101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220501preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20220801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20221101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20230201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20230501preview:ManagedInstanceKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceKey.__pulumiType, name, resourceInputs, opts);
     }

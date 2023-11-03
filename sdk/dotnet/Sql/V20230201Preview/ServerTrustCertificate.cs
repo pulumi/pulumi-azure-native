@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ServerTrustCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ServerTrustCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ServerTrustCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

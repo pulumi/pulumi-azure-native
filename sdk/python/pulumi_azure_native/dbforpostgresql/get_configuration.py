@@ -221,7 +221,7 @@ def get_configuration(configuration_name: Optional[str] = None,
     Gets information about a configuration of server.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2017-12-01, 2023-03-01-preview.
+    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview.
 
 
     :param str configuration_name: The name of the server configuration.
@@ -262,7 +262,7 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
     Gets information about a configuration of server.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2017-12-01, 2023-03-01-preview.
+    Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview.
 
 
     :param str configuration_name: The name of the server configuration.

@@ -23,6 +23,17 @@ export const LedgerRoleName = {
  */
 export type LedgerRoleName = (typeof LedgerRoleName)[keyof typeof LedgerRoleName];
 
+export const LedgerSku = {
+    Standard: "Standard",
+    Basic: "Basic",
+    Unknown: "Unknown",
+} as const;
+
+/**
+ * SKU associated with the ledger
+ */
+export type LedgerSku = (typeof LedgerSku)[keyof typeof LedgerSku];
+
 export const LedgerType = {
     Unknown: "Unknown",
     Public: "Public",

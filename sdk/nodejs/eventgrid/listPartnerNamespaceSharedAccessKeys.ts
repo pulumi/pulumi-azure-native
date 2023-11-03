@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * List the two keys used to publish to a partner namespace.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export function listPartnerNamespaceSharedAccessKeys(args: ListPartnerNamespaceSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListPartnerNamespaceSharedAccessKeysResult> {
 
@@ -47,7 +47,7 @@ export interface ListPartnerNamespaceSharedAccessKeysResult {
  * List the two keys used to publish to a partner namespace.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export function listPartnerNamespaceSharedAccessKeysOutput(args: ListPartnerNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPartnerNamespaceSharedAccessKeysResult> {
     return pulumi.output(args).apply((a: any) => listPartnerNamespaceSharedAccessKeys(a, opts))

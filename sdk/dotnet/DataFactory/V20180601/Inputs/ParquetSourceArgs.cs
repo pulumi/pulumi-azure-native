@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? DisableMetricsCollection { get; set; }
 
         /// <summary>
+        /// Parquet format settings.
+        /// </summary>
+        [Input("formatSettings")]
+        public Input<Inputs.ParquetReadSettingsArgs>? FormatSettings { get; set; }
+
+        /// <summary>
         /// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("maxConcurrentConnections")]

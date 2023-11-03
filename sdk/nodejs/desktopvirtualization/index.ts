@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AppAttachPackageArgs } from "./appAttachPackage";
+export type AppAttachPackage = import("./appAttachPackage").AppAttachPackage;
+export const AppAttachPackage: typeof import("./appAttachPackage").AppAttachPackage = null as any;
+utilities.lazyLoad(exports, ["AppAttachPackage"], () => require("./appAttachPackage"));
+
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
@@ -14,6 +19,11 @@ export { ApplicationGroupArgs } from "./applicationGroup";
 export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
 export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
 utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
+
+export { GetAppAttachPackageArgs, GetAppAttachPackageResult, GetAppAttachPackageOutputArgs } from "./getAppAttachPackage";
+export const getAppAttachPackage: typeof import("./getAppAttachPackage").getAppAttachPackage = null as any;
+export const getAppAttachPackageOutput: typeof import("./getAppAttachPackage").getAppAttachPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getAppAttachPackage","getAppAttachPackageOutput"], () => require("./getAppAttachPackage"));
 
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
@@ -117,6 +127,7 @@ import * as v20220909 from "./v20220909";
 import * as v20221014preview from "./v20221014preview";
 import * as v20230707preview from "./v20230707preview";
 import * as v20230905 from "./v20230905";
+import * as v20231004preview from "./v20231004preview";
 
 export {
     v20210201preview,
@@ -126,12 +137,15 @@ export {
     v20221014preview,
     v20230707preview,
     v20230905,
+    v20231004preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:desktopvirtualization:AppAttachPackage":
+                return new AppAttachPackage(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:Application":
                 return new Application(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:ApplicationGroup":

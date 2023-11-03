@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A class representing a CommunicationService resource.
  * Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2020-08-20.
  *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**
@@ -135,7 +135,7 @@ export class CommunicationService extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20200820:CommunicationService" }, { type: "azure-native:communication/v20200820preview:CommunicationService" }, { type: "azure-native:communication/v20211001preview:CommunicationService" }, { type: "azure-native:communication/v20220701preview:CommunicationService" }, { type: "azure-native:communication/v20230301preview:CommunicationService" }, { type: "azure-native:communication/v20230331:CommunicationService" }, { type: "azure-native:communication/v20230401preview:CommunicationService" }, { type: "azure-native:communication/v20230601preview:CommunicationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20200820:CommunicationService" }, { type: "azure-native:communication/v20200820preview:CommunicationService" }, { type: "azure-native:communication/v20211001preview:CommunicationService" }, { type: "azure-native:communication/v20220701preview:CommunicationService" }, { type: "azure-native:communication/v20230301preview:CommunicationService" }, { type: "azure-native:communication/v20230331:CommunicationService" }, { type: "azure-native:communication/v20230401:CommunicationService" }, { type: "azure-native:communication/v20230401preview:CommunicationService" }, { type: "azure-native:communication/v20230601preview:CommunicationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommunicationService.__pulumiType, name, resourceInputs, opts);
     }

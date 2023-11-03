@@ -9,6 +9,7 @@ import * as v20220909 from "./v20220909";
 import * as v20221014preview from "./v20221014preview";
 import * as v20230707preview from "./v20230707preview";
 import * as v20230905 from "./v20230905";
+import * as v20231004preview from "./v20231004preview";
 
 export {
     v20210201preview,
@@ -18,6 +19,7 @@ export {
     v20221014preview,
     v20230707preview,
     v20230905,
+    v20231004preview,
 };
 
 export const ApplicationGroupType = {
@@ -53,6 +55,17 @@ export const DayOfWeek = {
 
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
+export const FailHealthCheckOnStagingFailure = {
+    Unhealthy: "Unhealthy",
+    NeedsAssistance: "NeedsAssistance",
+    DoNotFail: "DoNotFail",
+} as const;
+
+/**
+ * Parameter indicating how the health check should behave if this package fails staging
+ */
+export type FailHealthCheckOnStagingFailure = (typeof FailHealthCheckOnStagingFailure)[keyof typeof FailHealthCheckOnStagingFailure];
+
 export const HostPoolType = {
     /**
      * Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost.
@@ -83,6 +96,16 @@ export const LoadBalancerType = {
  * The type of the load balancer.
  */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
+
+export const PackageTimestamped = {
+    Timestamped: "Timestamped",
+    NotTimestamped: "NotTimestamped",
+} as const;
+
+/**
+ * Is package timestamped so it can ignore the certificate expiry date
+ */
+export type PackageTimestamped = (typeof PackageTimestamped)[keyof typeof PackageTimestamped];
 
 export const PersonalDesktopAssignmentType = {
     Automatic: "Automatic",

@@ -30,6 +30,7 @@ class WorkspaceArgs:
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_network: Optional[pulumi.Input['ManagedNetworkSettingsArgs']] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
@@ -99,6 +100,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "image_build_compute", image_build_compute)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_network is not None:
@@ -284,6 +287,15 @@ class WorkspaceArgs:
 
     @property
     @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the location of the resource.
@@ -444,6 +456,7 @@ class Workspace(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_network: Optional[pulumi.Input[pulumi.InputType['ManagedNetworkSettingsArgs']]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
@@ -525,6 +538,7 @@ class Workspace(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  image_build_compute: Optional[pulumi.Input[str]] = None,
                  key_vault: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_network: Optional[pulumi.Input[pulumi.InputType['ManagedNetworkSettingsArgs']]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
@@ -563,6 +577,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_build_compute"] = image_build_compute
             __props__.__dict__["key_vault"] = key_vault
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_network"] = managed_network
             __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
@@ -628,6 +643,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["identity"] = None
         __props__.__dict__["image_build_compute"] = None
         __props__.__dict__["key_vault"] = None
+        __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_network"] = None
         __props__.__dict__["ml_flow_tracking_uri"] = None
@@ -748,6 +764,11 @@ class Workspace(pulumi.CustomResource):
         ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         """
         return pulumi.get(self, "key_vault")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the automation keys for an account.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function listKeyByAutomationAccount(args: ListKeyByAutomationAccountArgs, opts?: pulumi.InvokeOptions): Promise<ListKeyByAutomationAccountResult> {
 
@@ -40,6 +42,8 @@ export interface ListKeyByAutomationAccountResult {
 /**
  * Retrieve the automation keys for an account.
  * Azure REST API version: 2022-08-08.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKeyByAutomationAccountResult> {
     return pulumi.output(args).apply((a: any) => listKeyByAutomationAccount(a, opts))

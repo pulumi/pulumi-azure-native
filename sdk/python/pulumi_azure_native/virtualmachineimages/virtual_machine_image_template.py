@@ -251,7 +251,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
         Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14.
 
-        Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
+        Other available API versions: 2018-02-01-preview, 2019-05-01-preview, 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,7 +279,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
         Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14.
 
-        Other available API versions: 2018-02-01-preview, 2019-05-01-preview.
+        Other available API versions: 2018-02-01-preview, 2019-05-01-preview, 2023-07-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineImageTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -348,7 +348,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20230701:VirtualMachineImageTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualMachineImageTemplate, __self__).__init__(
             'azure-native:virtualmachineimages:VirtualMachineImageTemplate',

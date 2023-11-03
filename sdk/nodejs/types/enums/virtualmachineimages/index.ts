@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20220701 from "./v20220701";
+import * as v20230701 from "./v20230701";
 
 export {
     v20220701,
+    v20230701,
 };
 
 export const ResourceIdentityType = {

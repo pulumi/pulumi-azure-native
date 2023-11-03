@@ -104,6 +104,38 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     }
 
     /// <summary>
+    /// Parameter indicating how the health check should behave if this package fails staging
+    /// </summary>
+    [EnumType]
+    public readonly struct FailHealthCheckOnStagingFailure : IEquatable<FailHealthCheckOnStagingFailure>
+    {
+        private readonly string _value;
+
+        private FailHealthCheckOnStagingFailure(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FailHealthCheckOnStagingFailure Unhealthy { get; } = new FailHealthCheckOnStagingFailure("Unhealthy");
+        public static FailHealthCheckOnStagingFailure NeedsAssistance { get; } = new FailHealthCheckOnStagingFailure("NeedsAssistance");
+        public static FailHealthCheckOnStagingFailure DoNotFail { get; } = new FailHealthCheckOnStagingFailure("DoNotFail");
+
+        public static bool operator ==(FailHealthCheckOnStagingFailure left, FailHealthCheckOnStagingFailure right) => left.Equals(right);
+        public static bool operator !=(FailHealthCheckOnStagingFailure left, FailHealthCheckOnStagingFailure right) => !left.Equals(right);
+
+        public static explicit operator string(FailHealthCheckOnStagingFailure value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FailHealthCheckOnStagingFailure other && Equals(other);
+        public bool Equals(FailHealthCheckOnStagingFailure other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// HostPool type for desktop.
     /// </summary>
     [EnumType]
@@ -169,6 +201,37 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LoadBalancerType other && Equals(other);
         public bool Equals(LoadBalancerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Is package timestamped so it can ignore the certificate expiry date
+    /// </summary>
+    [EnumType]
+    public readonly struct PackageTimestamped : IEquatable<PackageTimestamped>
+    {
+        private readonly string _value;
+
+        private PackageTimestamped(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PackageTimestamped Timestamped { get; } = new PackageTimestamped("Timestamped");
+        public static PackageTimestamped NotTimestamped { get; } = new PackageTimestamped("NotTimestamped");
+
+        public static bool operator ==(PackageTimestamped left, PackageTimestamped right) => left.Equals(right);
+        public static bool operator !=(PackageTimestamped left, PackageTimestamped right) => !left.Equals(right);
+
+        public static explicit operator string(PackageTimestamped value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PackageTimestamped other && Equals(other);
+        public bool Equals(PackageTimestamped other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

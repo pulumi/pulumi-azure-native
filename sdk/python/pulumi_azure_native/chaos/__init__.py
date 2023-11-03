@@ -10,7 +10,10 @@ from .capability import *
 from .experiment import *
 from .get_capability import *
 from .get_experiment import *
+from .get_experiment_execution_details import *
+from .get_private_access import *
 from .get_target import *
+from .private_access import *
 from .target import *
 from ._inputs import *
 from . import outputs
@@ -23,8 +26,11 @@ if typing.TYPE_CHECKING:
     v20230901preview = __v20230901preview
     import pulumi_azure_native.chaos.v20231027preview as __v20231027preview
     v20231027preview = __v20231027preview
+    import pulumi_azure_native.chaos.v20231101 as __v20231101
+    v20231101 = __v20231101
 else:
     v20230415preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20230415preview')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20230901preview')
     v20231027preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20231027preview')
+    v20231101 = _utilities.lazy_import('pulumi_azure_native.chaos.v20231101')
 

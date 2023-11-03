@@ -53,7 +53,7 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
     Get all delivery attributes for an event subscription.
     Azure REST API version: 2022-06-15.
 
-    Other available API versions: 2023-06-01-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
@@ -80,7 +80,7 @@ def get_system_topic_event_subscription_delivery_attributes_output(event_subscri
     Get all delivery attributes for an event subscription.
     Azure REST API version: 2022-06-15.
 
-    Other available API versions: 2023-06-01-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

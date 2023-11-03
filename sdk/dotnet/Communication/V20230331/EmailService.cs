@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.Communication.V20230331
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:EmailService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230401:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:EmailService"},
                 },

@@ -292,6 +292,8 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
     Get a CommunicationsGateway
     Azure REST API version: 2023-04-03.
 
+    Other available API versions: 2023-09-01.
+
 
     :param str communications_gateway_name: Unique identifier for this deployment
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -333,6 +335,8 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
     """
     Get a CommunicationsGateway
     Azure REST API version: 2023-04-03.
+
+    Other available API versions: 2023-09-01.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment

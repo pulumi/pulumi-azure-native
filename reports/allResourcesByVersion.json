@@ -2303,6 +2303,33 @@
       "SourceControl",
       "Variable",
       "listKeyByAutomationAccount"
+    ],
+    "2023-05-15-preview": [
+      "AutomationAccount",
+      "Certificate",
+      "Connection",
+      "ConnectionType",
+      "Credential",
+      "DscConfiguration",
+      "DscNodeConfiguration",
+      "HybridRunbookWorker",
+      "HybridRunbookWorkerGroup",
+      "JobSchedule",
+      "Module",
+      "Package",
+      "PrivateEndpointConnection",
+      "Python2Package",
+      "Python3Package",
+      "Runbook",
+      "RuntimeEnvironment",
+      "Schedule",
+      "SoftwareUpdateConfigurationByName",
+      "SourceControl",
+      "Variable",
+      "Watcher",
+      "Webhook",
+      "listAutomationAccountDeletedRunbooks",
+      "listKeyByAutomationAccount"
     ]
   },
   "AutonomousDevelopmentPlatform": {
@@ -2332,6 +2359,11 @@
     ],
     "2023-01-18-preview": [
       "B2CTenant",
+      "GuestUsage"
+    ],
+    "2023-05-17-preview": [
+      "B2CTenant",
+      "CIAMTenant",
       "GuestUsage"
     ]
   },
@@ -3290,7 +3322,14 @@
     "2023-10-27-preview": [
       "Capability",
       "Experiment",
+      "PrivateAccess",
       "Target"
+    ],
+    "2023-11-01": [
+      "Capability",
+      "Experiment",
+      "Target",
+      "getExperimentExecutionDetails"
     ]
   },
   "CognitiveServices": {
@@ -3396,6 +3435,14 @@
       "listEmailServiceVerifiedExchangeOnlineDomains"
     ],
     "2023-03-31": [
+      "CommunicationService",
+      "Domain",
+      "EmailService",
+      "SenderUsername",
+      "listCommunicationServiceKeys",
+      "listEmailServiceVerifiedExchangeOnlineDomains"
+    ],
+    "2023-04-01": [
       "CommunicationService",
       "Domain",
       "EmailService",
@@ -4392,6 +4439,25 @@
       "getWebhookCallbackConfig",
       "listRegistryCredentials",
       "listWebhookEvents"
+    ],
+    "2023-11-01-preview": [
+      "Archife",
+      "ArchiveVersion",
+      "CacheRule",
+      "ConnectedRegistry",
+      "CredentialSet",
+      "ExportPipeline",
+      "ImportPipeline",
+      "PipelineRun",
+      "PrivateEndpointConnection",
+      "Registry",
+      "Replication",
+      "ScopeMap",
+      "Token",
+      "Webhook",
+      "getWebhookCallbackConfig",
+      "listRegistryCredentials",
+      "listWebhookEvents"
     ]
   },
   "ContainerService": {
@@ -5063,6 +5129,18 @@
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
     ],
+    "2023-09-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
     "2023-10-15": [
       "Fleet",
       "FleetMember",
@@ -5357,6 +5435,9 @@
       "PrivateEndpointConnection",
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2023-10-01-preview": [
+      "Server"
     ]
   },
   "DBforPostgreSQL": {
@@ -5477,6 +5558,17 @@
       "FirewallRule",
       "Migration",
       "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2023-06-01-preview": [
+      "Administrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "Migration",
+      "PrivateEndpointConnection",
+      "Server",
+      "VirtualEndpoint",
       "getGetPrivateDnsZoneSuffixExecute"
     ]
   },
@@ -6063,6 +6155,13 @@
       "BackupVault",
       "DppResourceGuardProxy",
       "ResourceGuard"
+    ],
+    "2023-08-01-preview": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "DppResourceGuardProxy",
+      "ResourceGuard"
     ]
   },
   "DataReplication": {
@@ -6417,6 +6516,19 @@
       "Workspace"
     ],
     "2023-09-05": [
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
+    ],
+    "2023-10-04-preview": [
+      "AppAttachPackage",
       "Application",
       "ApplicationGroup",
       "HostPool",
@@ -8372,6 +8484,52 @@
       "listNamespaceTopicSharedAccessKeys",
       "listPartnerNamespaceSharedAccessKeys",
       "listTopicSharedAccessKeys"
+    ],
+    "2023-12-15-preview": [
+      "CaCertificate",
+      "Channel",
+      "Client",
+      "ClientGroup",
+      "Domain",
+      "DomainEventSubscription",
+      "DomainTopic",
+      "DomainTopicEventSubscription",
+      "EventSubscription",
+      "Namespace",
+      "NamespaceTopic",
+      "NamespaceTopicEventSubscription",
+      "PartnerConfiguration",
+      "PartnerDestination",
+      "PartnerNamespace",
+      "PartnerRegistration",
+      "PartnerTopic",
+      "PartnerTopicEventSubscription",
+      "PermissionBinding",
+      "PrivateEndpointConnection",
+      "SystemTopic",
+      "SystemTopicEventSubscription",
+      "Topic",
+      "TopicEventSubscription",
+      "TopicSpace",
+      "getChannelFullUrl",
+      "getDomainEventSubscriptionDeliveryAttributes",
+      "getDomainEventSubscriptionFullUrl",
+      "getDomainTopicEventSubscriptionDeliveryAttributes",
+      "getDomainTopicEventSubscriptionFullUrl",
+      "getEventSubscriptionDeliveryAttributes",
+      "getEventSubscriptionFullUrl",
+      "getNamespaceTopicEventSubscriptionDeliveryAttributes",
+      "getPartnerTopicEventSubscriptionDeliveryAttributes",
+      "getPartnerTopicEventSubscriptionFullUrl",
+      "getSystemTopicEventSubscriptionDeliveryAttributes",
+      "getSystemTopicEventSubscriptionFullUrl",
+      "getTopicEventSubscriptionDeliveryAttributes",
+      "getTopicEventSubscriptionFullUrl",
+      "listDomainSharedAccessKeys",
+      "listNamespaceSharedAccessKeys",
+      "listNamespaceTopicSharedAccessKeys",
+      "listPartnerNamespaceSharedAccessKeys",
+      "listTopicSharedAccessKeys"
     ]
   },
   "EventHub": {
@@ -8965,6 +9123,16 @@
       "agentPool",
       "storageSpaceRetrieve",
       "virtualNetworkRetrieve"
+    ],
+    "2023-11-15-preview": [
+      "HybridIdentityMetadatum",
+      "KubernetesVersions",
+      "VMSkus",
+      "agentPool",
+      "listprovisionedClusterInstanceAdminKubeconfig",
+      "listprovisionedClusterInstanceUserKubeconfig",
+      "provisionedClusterInstance",
+      "virtualNetworkRetrieve"
     ]
   },
   "HybridData": {
@@ -9004,6 +9172,21 @@
       "VendorSkus",
       "listDeviceRegistrationKey",
       "listVendorSkusCredential"
+    ],
+    "2023-09-01": [
+      "ArtifactManifest",
+      "ArtifactStore",
+      "ConfigurationGroupSchema",
+      "ConfigurationGroupValue",
+      "NetworkFunction",
+      "NetworkFunctionDefinitionGroup",
+      "NetworkFunctionDefinitionVersion",
+      "NetworkServiceDesignGroup",
+      "NetworkServiceDesignVersion",
+      "Publisher",
+      "Site",
+      "SiteNetworkService",
+      "listArtifactManifestCredential"
     ]
   },
   "ImportExport": {
@@ -9245,6 +9428,36 @@
     "2023-02-08-preview": [
       "Firmware",
       "Workspace"
+    ]
+  },
+  "IoTOperationsDataProcessor": {
+    "2023-10-04-preview": [
+      "Dataset",
+      "Instance",
+      "Pipeline"
+    ]
+  },
+  "IoTOperationsMQ": {
+    "2023-10-04-preview": [
+      "Broker",
+      "BrokerAuthentication",
+      "BrokerAuthorization",
+      "BrokerListener",
+      "DataLakeConnector",
+      "DataLakeConnectorTopicMap",
+      "DiagnosticService",
+      "KafkaConnector",
+      "KafkaConnectorTopicMap",
+      "Mq",
+      "MqttBridgeConnector",
+      "MqttBridgeTopicMap"
+    ]
+  },
+  "IoTOperationsOrchestrator": {
+    "2023-10-04-preview": [
+      "Instance",
+      "Solution",
+      "Target"
     ]
   },
   "KeyVault": {
@@ -10839,6 +11052,12 @@
       "listAccountSas"
     ],
     "2023-06-01": [
+      "Account",
+      "Creator",
+      "listAccountKeys",
+      "listAccountSas"
+    ],
+    "2023-08-01-preview": [
       "Account",
       "Creator",
       "listAccountKeys",
@@ -15831,6 +16050,11 @@
       "Vault"
     ],
     "2023-06-01": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
       "ReplicationFabric",
       "ReplicationMigrationItem",
       "ReplicationNetworkMapping",
@@ -15841,6 +16065,7 @@
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
       "ReplicationvCenter",
+      "ResourceGuardProxy",
       "Vault"
     ]
   },
@@ -16388,6 +16613,9 @@
       "listGitHubOwnerAvailable",
       "listGitLabGroupAvailable",
       "listGitLabSubgroup"
+    ],
+    "2023-10-01-preview": [
+      "SecurityConnector"
     ],
     "2023-11-15": [
       "APICollectionByAzureApiManagementService"
@@ -18469,6 +18697,72 @@
       "VirtualNetworkRule",
       "WorkloadClassifier",
       "WorkloadGroup"
+    ],
+    "2023-05-01-preview": [
+      "BackupShortTermRetentionPolicy",
+      "DataMaskingPolicy",
+      "Database",
+      "DatabaseAdvisor",
+      "DatabaseBlobAuditingPolicy",
+      "DatabaseSecurityAlertPolicy",
+      "DatabaseSqlVulnerabilityAssessmentRuleBaseline",
+      "DatabaseVulnerabilityAssessment",
+      "DatabaseVulnerabilityAssessmentRuleBaseline",
+      "DistributedAvailabilityGroup",
+      "ElasticPool",
+      "EncryptionProtector",
+      "ExtendedDatabaseBlobAuditingPolicy",
+      "ExtendedServerBlobAuditingPolicy",
+      "FailoverGroup",
+      "FirewallRule",
+      "GeoBackupPolicy",
+      "IPv6FirewallRule",
+      "InstanceFailoverGroup",
+      "InstancePool",
+      "Job",
+      "JobAgent",
+      "JobCredential",
+      "JobPrivateEndpoint",
+      "JobStep",
+      "JobTargetGroup",
+      "LongTermRetentionPolicy",
+      "ManagedDatabase",
+      "ManagedDatabaseSensitivityLabel",
+      "ManagedDatabaseVulnerabilityAssessment",
+      "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+      "ManagedInstance",
+      "ManagedInstanceAdministrator",
+      "ManagedInstanceAzureADOnlyAuthentication",
+      "ManagedInstanceKey",
+      "ManagedInstanceLongTermRetentionPolicy",
+      "ManagedInstancePrivateEndpointConnection",
+      "ManagedInstanceVulnerabilityAssessment",
+      "ManagedServerDnsAlias",
+      "OutboundFirewallRule",
+      "PrivateEndpointConnection",
+      "ReplicationLink",
+      "SensitivityLabel",
+      "Server",
+      "ServerAdvisor",
+      "ServerAzureADAdministrator",
+      "ServerAzureADOnlyAuthentication",
+      "ServerBlobAuditingPolicy",
+      "ServerDnsAlias",
+      "ServerKey",
+      "ServerSecurityAlertPolicy",
+      "ServerTrustCertificate",
+      "ServerTrustGroup",
+      "ServerVulnerabilityAssessment",
+      "SqlVulnerabilityAssessmentRuleBaseline",
+      "SqlVulnerabilityAssessmentsSetting",
+      "StartStopManagedInstanceSchedule",
+      "SyncAgent",
+      "SyncGroup",
+      "SyncMember",
+      "TransparentDataEncryption",
+      "VirtualNetworkRule",
+      "WorkloadClassifier",
+      "WorkloadGroup"
     ]
   },
   "SqlVirtualMachine": {
@@ -19422,6 +19716,10 @@
     "2022-07-01": [
       "Trigger",
       "VirtualMachineImageTemplate"
+    ],
+    "2023-07-01": [
+      "Trigger",
+      "VirtualMachineImageTemplate"
     ]
   },
   "VisualStudio": {
@@ -19446,6 +19744,10 @@
       "TestLine"
     ],
     "2023-04-03": [
+      "CommunicationsGateway",
+      "TestLine"
+    ],
+    "2023-09-01": [
       "CommunicationsGateway",
       "TestLine"
     ]

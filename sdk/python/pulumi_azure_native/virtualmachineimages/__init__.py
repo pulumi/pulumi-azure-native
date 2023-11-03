@@ -17,6 +17,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.virtualmachineimages.v20220701 as __v20220701
     v20220701 = __v20220701
+    import pulumi_azure_native.virtualmachineimages.v20230701 as __v20230701
+    v20230701 = __v20230701
 else:
     v20220701 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20220701')
+    v20230701 = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages.v20230701')
 

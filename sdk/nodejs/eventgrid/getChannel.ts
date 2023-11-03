@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of a channel.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
 
@@ -88,7 +88,7 @@ export interface GetChannelResult {
  * Get properties of a channel.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
     return pulumi.output(args).apply((a: any) => getChannel(a, opts))

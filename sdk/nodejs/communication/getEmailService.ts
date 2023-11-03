@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get the EmailService and its properties.
  * Azure REST API version: 2023-03-31.
  *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
 export function getEmailService(args: GetEmailServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailServiceResult> {
 
@@ -74,7 +74,7 @@ export interface GetEmailServiceResult {
  * Get the EmailService and its properties.
  * Azure REST API version: 2023-03-31.
  *
- * Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+ * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
 export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {
     return pulumi.output(args).apply((a: any) => getEmailService(a, opts))

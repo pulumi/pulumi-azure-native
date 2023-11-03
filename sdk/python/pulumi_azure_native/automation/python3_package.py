@@ -113,6 +113,8 @@ class Python3Package(pulumi.CustomResource):
         Definition of the module type.
         Azure REST API version: 2022-08-08.
 
+        Other available API versions: 2023-05-15-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -130,6 +132,8 @@ class Python3Package(pulumi.CustomResource):
         """
         Definition of the module type.
         Azure REST API version: 2022-08-08.
+
+        Other available API versions: 2023-05-15-preview.
 
         :param str resource_name: The name of the resource.
         :param Python3PackageArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +189,7 @@ class Python3Package(pulumi.CustomResource):
             __props__.__dict__["size_in_bytes"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20220808:Python3Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20220808:Python3Package"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Python3Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Python3Package, __self__).__init__(
             'azure-native:automation:Python3Package',

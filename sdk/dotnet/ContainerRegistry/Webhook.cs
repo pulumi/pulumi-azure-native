@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// An object that represents a webhook for a container registry.
     /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
     /// 
-    /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+    /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource
@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:Webhook"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230701:Webhook"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:Webhook"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:Webhook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

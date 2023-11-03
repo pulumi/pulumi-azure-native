@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Sql.V20140401
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:TransparentDataEncryption"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:TransparentDataEncryption"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:TransparentDataEncryption"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:TransparentDataEncryption"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

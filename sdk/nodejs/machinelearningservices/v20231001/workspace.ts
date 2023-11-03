@@ -85,6 +85,7 @@ export class Workspace extends pulumi.CustomResource {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     public readonly keyVault!: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Specifies the location of the resource.
      */
@@ -204,6 +205,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageBuildCompute"] = args ? args.imageBuildCompute : undefined;
             resourceInputs["keyVault"] = args ? args.keyVault : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedNetwork"] = args ? args.managedNetwork : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
@@ -242,6 +244,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["imageBuildCompute"] = undefined /*out*/;
             resourceInputs["keyVault"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedNetwork"] = undefined /*out*/;
             resourceInputs["mlFlowTrackingUri"] = undefined /*out*/;
@@ -325,6 +328,7 @@ export interface WorkspaceArgs {
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
     keyVault?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the location of the resource.
      */

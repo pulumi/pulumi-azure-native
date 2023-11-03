@@ -197,7 +197,7 @@ class Webhook(pulumi.CustomResource):
         An object that represents a webhook for a container registry.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+        Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -222,7 +222,7 @@ class Webhook(pulumi.CustomResource):
         An object that represents a webhook for a container registry.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview.
+        Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
@@ -280,7 +280,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20171001:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20190501:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210901:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20221201:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230701:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:Webhook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20171001:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20190501:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20210901:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20221201:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230701:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:Webhook"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:Webhook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Webhook, __self__).__init__(
             'azure-native:containerregistry:Webhook',

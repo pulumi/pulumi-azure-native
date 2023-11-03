@@ -101,7 +101,7 @@ def get_server_trust_group(location_name: Optional[str] = None,
     Gets a server trust group.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
 
 
     :param str location_name: The name of the region where the resource is located.
@@ -132,7 +132,7 @@ def get_server_trust_group_output(location_name: Optional[pulumi.Input[str]] = N
     Gets a server trust group.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
 
 
     :param str location_name: The name of the region where the resource is located.

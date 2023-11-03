@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'LanguageRuntime',
     'LedgerRoleName',
+    'LedgerSku',
     'LedgerType',
     'RunningState',
 ]
@@ -27,6 +28,15 @@ class LedgerRoleName(str, Enum):
     READER = "Reader"
     CONTRIBUTOR = "Contributor"
     ADMINISTRATOR = "Administrator"
+
+
+class LedgerSku(str, Enum):
+    """
+    SKU associated with the ledger
+    """
+    STANDARD = "Standard"
+    BASIC = "Basic"
+    UNKNOWN = "Unknown"
 
 
 class LedgerType(str, Enum):

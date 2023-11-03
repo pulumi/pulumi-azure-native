@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Definition of the watcher type.
     /// Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2019-06-01.
+    /// 
+    /// Other available API versions: 2023-05-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource
@@ -128,6 +130,7 @@ namespace Pulumi.AzureNative.Automation
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Watcher"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Watcher"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Watcher"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Watcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -387,7 +387,7 @@ class Migration(pulumi.CustomResource):
         Represents a migration resource.
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
+        Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -423,7 +423,7 @@ class Migration(pulumi.CustomResource):
         Represents a migration resource.
         Azure REST API version: 2023-03-01-preview.
 
-        Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview.
+        Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MigrationArgs args: The arguments to use to populate this resource's properties.
@@ -503,7 +503,7 @@ class Migration(pulumi.CustomResource):
             __props__.__dict__["target_db_server_metadata"] = None
             __props__.__dict__["target_db_server_resource_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220501preview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Migration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220501preview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Migration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:Migration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Migration, __self__).__init__(
             'azure-native:dbforpostgresql:Migration',

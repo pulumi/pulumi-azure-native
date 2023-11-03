@@ -12,6 +12,8 @@ from ._enums import *
 
 __all__ = [
     'AgentUpdatePropertiesArgs',
+    'AppAttachPackageInfoPropertiesArgs',
+    'AppAttachPackagePropertiesArgs',
     'MaintenanceWindowPropertiesArgs',
     'MsixPackageApplicationsArgs',
     'MsixPackageDependenciesArgs',
@@ -95,6 +97,342 @@ class AgentUpdatePropertiesArgs:
     @use_session_host_local_time.setter
     def use_session_host_local_time(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_session_host_local_time", value)
+
+
+@pulumi.input_type
+class AppAttachPackageInfoPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate_expiry: Optional[pulumi.Input[str]] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 image_path: Optional[pulumi.Input[str]] = None,
+                 is_active: Optional[pulumi.Input[bool]] = None,
+                 is_package_timestamped: Optional[pulumi.Input[Union[str, 'PackageTimestamped']]] = None,
+                 is_regular_registration: Optional[pulumi.Input[bool]] = None,
+                 last_updated: Optional[pulumi.Input[str]] = None,
+                 package_alias: Optional[pulumi.Input[str]] = None,
+                 package_applications: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]] = None,
+                 package_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]] = None,
+                 package_family_name: Optional[pulumi.Input[str]] = None,
+                 package_full_name: Optional[pulumi.Input[str]] = None,
+                 package_name: Optional[pulumi.Input[str]] = None,
+                 package_relative_path: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Schema for Import Package Information properties.
+        :param pulumi.Input[str] certificate_expiry: Date certificate expires, found in the appxmanifest.xml. 
+        :param pulumi.Input[str] certificate_name: Certificate name found in the appxmanifest.xml. 
+        :param pulumi.Input[str] display_name: User friendly Name to be displayed in the portal. 
+        :param pulumi.Input[str] image_path: VHD/CIM image path on Network Share.
+        :param pulumi.Input[bool] is_active: Make this version of the package the active one across the hostpool. 
+        :param pulumi.Input[Union[str, 'PackageTimestamped']] is_package_timestamped: Is package timestamped so it can ignore the certificate expiry date
+        :param pulumi.Input[bool] is_regular_registration: Specifies how to register Package in feed.
+        :param pulumi.Input[str] last_updated: Date Package was last updated, found in the appxmanifest.xml. 
+        :param pulumi.Input[str] package_alias: Alias of App Attach Package. Assigned at import time
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]] package_applications: List of package applications. 
+        :param pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]] package_dependencies: List of package dependencies. 
+        :param pulumi.Input[str] package_family_name: Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        :param pulumi.Input[str] package_full_name: Package Full Name from appxmanifest.xml. 
+        :param pulumi.Input[str] package_name: Package Name from appxmanifest.xml. 
+        :param pulumi.Input[str] package_relative_path: Relative Path to the package inside the image. 
+        :param pulumi.Input[str] version: Package Version found in the appxmanifest.xml. 
+        """
+        if certificate_expiry is not None:
+            pulumi.set(__self__, "certificate_expiry", certificate_expiry)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if image_path is not None:
+            pulumi.set(__self__, "image_path", image_path)
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
+        if is_package_timestamped is not None:
+            pulumi.set(__self__, "is_package_timestamped", is_package_timestamped)
+        if is_regular_registration is not None:
+            pulumi.set(__self__, "is_regular_registration", is_regular_registration)
+        if last_updated is not None:
+            pulumi.set(__self__, "last_updated", last_updated)
+        if package_alias is not None:
+            pulumi.set(__self__, "package_alias", package_alias)
+        if package_applications is not None:
+            pulumi.set(__self__, "package_applications", package_applications)
+        if package_dependencies is not None:
+            pulumi.set(__self__, "package_dependencies", package_dependencies)
+        if package_family_name is not None:
+            pulumi.set(__self__, "package_family_name", package_family_name)
+        if package_full_name is not None:
+            pulumi.set(__self__, "package_full_name", package_full_name)
+        if package_name is not None:
+            pulumi.set(__self__, "package_name", package_name)
+        if package_relative_path is not None:
+            pulumi.set(__self__, "package_relative_path", package_relative_path)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="certificateExpiry")
+    def certificate_expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date certificate expires, found in the appxmanifest.xml. 
+        """
+        return pulumi.get(self, "certificate_expiry")
+
+    @certificate_expiry.setter
+    def certificate_expiry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_expiry", value)
+
+    @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate name found in the appxmanifest.xml. 
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_name", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        User friendly Name to be displayed in the portal. 
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="imagePath")
+    def image_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        VHD/CIM image path on Network Share.
+        """
+        return pulumi.get(self, "image_path")
+
+    @image_path.setter
+    def image_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_path", value)
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Make this version of the package the active one across the hostpool. 
+        """
+        return pulumi.get(self, "is_active")
+
+    @is_active.setter
+    def is_active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_active", value)
+
+    @property
+    @pulumi.getter(name="isPackageTimestamped")
+    def is_package_timestamped(self) -> Optional[pulumi.Input[Union[str, 'PackageTimestamped']]]:
+        """
+        Is package timestamped so it can ignore the certificate expiry date
+        """
+        return pulumi.get(self, "is_package_timestamped")
+
+    @is_package_timestamped.setter
+    def is_package_timestamped(self, value: Optional[pulumi.Input[Union[str, 'PackageTimestamped']]]):
+        pulumi.set(self, "is_package_timestamped", value)
+
+    @property
+    @pulumi.getter(name="isRegularRegistration")
+    def is_regular_registration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies how to register Package in feed.
+        """
+        return pulumi.get(self, "is_regular_registration")
+
+    @is_regular_registration.setter
+    def is_regular_registration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_regular_registration", value)
+
+    @property
+    @pulumi.getter(name="lastUpdated")
+    def last_updated(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date Package was last updated, found in the appxmanifest.xml. 
+        """
+        return pulumi.get(self, "last_updated")
+
+    @last_updated.setter
+    def last_updated(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_updated", value)
+
+    @property
+    @pulumi.getter(name="packageAlias")
+    def package_alias(self) -> Optional[pulumi.Input[str]]:
+        """
+        Alias of App Attach Package. Assigned at import time
+        """
+        return pulumi.get(self, "package_alias")
+
+    @package_alias.setter
+    def package_alias(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_alias", value)
+
+    @property
+    @pulumi.getter(name="packageApplications")
+    def package_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]:
+        """
+        List of package applications. 
+        """
+        return pulumi.get(self, "package_applications")
+
+    @package_applications.setter
+    def package_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageApplicationsArgs']]]]):
+        pulumi.set(self, "package_applications", value)
+
+    @property
+    @pulumi.getter(name="packageDependencies")
+    def package_dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]:
+        """
+        List of package dependencies. 
+        """
+        return pulumi.get(self, "package_dependencies")
+
+    @package_dependencies.setter
+    def package_dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MsixPackageDependenciesArgs']]]]):
+        pulumi.set(self, "package_dependencies", value)
+
+    @property
+    @pulumi.getter(name="packageFamilyName")
+    def package_family_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
+        """
+        return pulumi.get(self, "package_family_name")
+
+    @package_family_name.setter
+    def package_family_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_family_name", value)
+
+    @property
+    @pulumi.getter(name="packageFullName")
+    def package_full_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Full Name from appxmanifest.xml. 
+        """
+        return pulumi.get(self, "package_full_name")
+
+    @package_full_name.setter
+    def package_full_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_full_name", value)
+
+    @property
+    @pulumi.getter(name="packageName")
+    def package_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Name from appxmanifest.xml. 
+        """
+        return pulumi.get(self, "package_name")
+
+    @package_name.setter
+    def package_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_name", value)
+
+    @property
+    @pulumi.getter(name="packageRelativePath")
+    def package_relative_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Relative Path to the package inside the image. 
+        """
+        return pulumi.get(self, "package_relative_path")
+
+    @package_relative_path.setter
+    def package_relative_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "package_relative_path", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Package Version found in the appxmanifest.xml. 
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class AppAttachPackagePropertiesArgs:
+    def __init__(__self__, *,
+                 fail_health_check_on_staging_failure: Optional[pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']]] = None,
+                 host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 image: Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']] = None,
+                 key_vault_url: Optional[pulumi.Input[str]] = None):
+        """
+        Schema for App Attach Package properties.
+        :param pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']] fail_health_check_on_staging_failure: Parameter indicating how the health check should behave if this package fails staging
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] host_pool_references: List of Hostpool resource Ids.
+        :param pulumi.Input['AppAttachPackageInfoPropertiesArgs'] image: Detailed properties for App Attach Package
+        :param pulumi.Input[str] key_vault_url: URL of keyvault location to store certificate
+        """
+        if fail_health_check_on_staging_failure is not None:
+            pulumi.set(__self__, "fail_health_check_on_staging_failure", fail_health_check_on_staging_failure)
+        if host_pool_references is not None:
+            pulumi.set(__self__, "host_pool_references", host_pool_references)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if key_vault_url is not None:
+            pulumi.set(__self__, "key_vault_url", key_vault_url)
+
+    @property
+    @pulumi.getter(name="failHealthCheckOnStagingFailure")
+    def fail_health_check_on_staging_failure(self) -> Optional[pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']]]:
+        """
+        Parameter indicating how the health check should behave if this package fails staging
+        """
+        return pulumi.get(self, "fail_health_check_on_staging_failure")
+
+    @fail_health_check_on_staging_failure.setter
+    def fail_health_check_on_staging_failure(self, value: Optional[pulumi.Input[Union[str, 'FailHealthCheckOnStagingFailure']]]):
+        pulumi.set(self, "fail_health_check_on_staging_failure", value)
+
+    @property
+    @pulumi.getter(name="hostPoolReferences")
+    def host_pool_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Hostpool resource Ids.
+        """
+        return pulumi.get(self, "host_pool_references")
+
+    @host_pool_references.setter
+    def host_pool_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "host_pool_references", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']]:
+        """
+        Detailed properties for App Attach Package
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input['AppAttachPackageInfoPropertiesArgs']]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter(name="keyVaultURL")
+    def key_vault_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of keyvault location to store certificate
+        """
+        return pulumi.get(self, "key_vault_url")
+
+    @key_vault_url.setter
+    def key_vault_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_url", value)
 
 
 @pulumi.input_type

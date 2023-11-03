@@ -185,12 +185,14 @@ class LedgerPropertiesArgs:
     def __init__(__self__, *,
                  aad_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]]] = None,
                  cert_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]] = None,
+                 ledger_sku: Optional[pulumi.Input[Union[str, 'LedgerSku']]] = None,
                  ledger_type: Optional[pulumi.Input[Union[str, 'LedgerType']]] = None,
                  running_state: Optional[pulumi.Input[Union[str, 'RunningState']]] = None):
         """
         Additional Confidential Ledger properties.
         :param pulumi.Input[Sequence[pulumi.Input['AADBasedSecurityPrincipalArgs']]] aad_based_security_principals: Array of all AAD based Security Principals.
         :param pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]] cert_based_security_principals: Array of all cert based Security Principals.
+        :param pulumi.Input[Union[str, 'LedgerSku']] ledger_sku: SKU associated with the ledger
         :param pulumi.Input[Union[str, 'LedgerType']] ledger_type: Type of Confidential Ledger
         :param pulumi.Input[Union[str, 'RunningState']] running_state: Object representing RunningState for Ledger.
         """
@@ -198,6 +200,8 @@ class LedgerPropertiesArgs:
             pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
+        if ledger_sku is not None:
+            pulumi.set(__self__, "ledger_sku", ledger_sku)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
         if running_state is not None:
@@ -226,6 +230,18 @@ class LedgerPropertiesArgs:
     @cert_based_security_principals.setter
     def cert_based_security_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertBasedSecurityPrincipalArgs']]]]):
         pulumi.set(self, "cert_based_security_principals", value)
+
+    @property
+    @pulumi.getter(name="ledgerSku")
+    def ledger_sku(self) -> Optional[pulumi.Input[Union[str, 'LedgerSku']]]:
+        """
+        SKU associated with the ledger
+        """
+        return pulumi.get(self, "ledger_sku")
+
+    @ledger_sku.setter
+    def ledger_sku(self, value: Optional[pulumi.Input[Union[str, 'LedgerSku']]]):
+        pulumi.set(self, "ledger_sku", value)
 
     @property
     @pulumi.getter(name="ledgerType")

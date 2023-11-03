@@ -6,8 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .app_attach_package import *
 from .application import *
 from .application_group import *
+from .get_app_attach_package import *
 from .get_application import *
 from .get_application_group import *
 from .get_host_pool import *
@@ -45,6 +47,8 @@ if typing.TYPE_CHECKING:
     v20230707preview = __v20230707preview
     import pulumi_azure_native.desktopvirtualization.v20230905 as __v20230905
     v20230905 = __v20230905
+    import pulumi_azure_native.desktopvirtualization.v20231004preview as __v20231004preview
+    v20231004preview = __v20231004preview
 else:
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20210201preview')
     v20220210preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20220210preview')
@@ -53,4 +57,5 @@ else:
     v20221014preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20221014preview')
     v20230707preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20230707preview')
     v20230905 = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20230905')
+    v20231004preview = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization.v20231004preview')
 

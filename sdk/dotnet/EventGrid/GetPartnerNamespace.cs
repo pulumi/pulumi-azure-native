@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a partner namespace.
         /// Azure REST API version: 2022-06-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
         /// </summary>
         public static Task<GetPartnerNamespaceResult> InvokeAsync(GetPartnerNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a partner namespace.
         /// Azure REST API version: 2022-06-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview.
         /// </summary>
         public static Output<GetPartnerNamespaceResult> Invoke(GetPartnerNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceInvokeArgs(), options.WithDefaults());

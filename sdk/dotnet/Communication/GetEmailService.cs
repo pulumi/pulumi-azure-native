@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Communication
         /// Get the EmailService and its properties.
         /// Azure REST API version: 2023-03-31.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
         /// </summary>
         public static Task<GetEmailServiceResult> InvokeAsync(GetEmailServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailServiceResult>("azure-native:communication:getEmailService", args ?? new GetEmailServiceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Communication
         /// Get the EmailService and its properties.
         /// Azure REST API version: 2023-03-31.
         /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+        /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
         /// </summary>
         public static Output<GetEmailServiceResult> Invoke(GetEmailServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailServiceResult>("azure-native:communication:getEmailService", args ?? new GetEmailServiceInvokeArgs(), options.WithDefaults());

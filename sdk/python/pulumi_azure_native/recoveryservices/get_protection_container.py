@@ -126,6 +126,8 @@ def get_protection_container(container_name: Optional[str] = None,
     Gets details of the specific container registered to your Recovery Services Vault.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-06-01.
+
 
     :param str container_name: Name of the container whose details need to be fetched.
     :param str fabric_name: Name of the fabric where the container belongs.
@@ -159,6 +161,8 @@ def get_protection_container_output(container_name: Optional[pulumi.Input[str]] 
     """
     Gets details of the specific container registered to your Recovery Services Vault.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-06-01.
 
 
     :param str container_name: Name of the container whose details need to be fetched.

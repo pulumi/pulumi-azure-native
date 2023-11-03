@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get properties of an event subscription of a namespace topic.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-12-15-preview.
  */
 export function getNamespaceTopicEventSubscription(args: GetNamespaceTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionResult> {
 
@@ -81,6 +83,8 @@ export interface GetNamespaceTopicEventSubscriptionResult {
 /**
  * Get properties of an event subscription of a namespace topic.
  * Azure REST API version: 2023-06-01-preview.
+ *
+ * Other available API versions: 2023-12-15-preview.
  */
 export function getNamespaceTopicEventSubscriptionOutput(args: GetNamespaceTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceTopicEventSubscription(a, opts))

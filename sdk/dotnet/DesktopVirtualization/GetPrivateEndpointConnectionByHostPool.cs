@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a private endpoint connection.
         /// Azure REST API version: 2022-10-14-preview.
         /// 
-        /// Other available API versions: 2023-07-07-preview, 2023-09-05.
+        /// Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByHostPoolResult> InvokeAsync(GetPrivateEndpointConnectionByHostPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// Get a private endpoint connection.
         /// Azure REST API version: 2022-10-14-preview.
         /// 
-        /// Other available API versions: 2023-07-07-preview, 2023-09-05.
+        /// Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByHostPoolResult> Invoke(GetPrivateEndpointConnectionByHostPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByHostPoolResult>("azure-native:desktopvirtualization:getPrivateEndpointConnectionByHostPool", args ?? new GetPrivateEndpointConnectionByHostPoolInvokeArgs(), options.WithDefaults());

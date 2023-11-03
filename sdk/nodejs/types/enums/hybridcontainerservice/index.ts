@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20220501preview from "./v20220501preview";
 import * as v20220901preview from "./v20220901preview";
+import * as v20231115preview from "./v20231115preview";
 
 export {
     v20220501preview,
     v20220901preview,
+    v20231115preview,
 };
 
 export const AutoUpgradeOptions = {

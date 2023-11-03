@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Retrieve the watcher identified by watcher name.
  * Azure REST API version: 2020-01-13-preview.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getWatcher(args: GetWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetWatcherResult> {
 
@@ -101,6 +103,8 @@ export interface GetWatcherResult {
 /**
  * Retrieve the watcher identified by watcher name.
  * Azure REST API version: 2020-01-13-preview.
+ *
+ * Other available API versions: 2023-05-15-preview.
  */
 export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {
     return pulumi.output(args).apply((a: any) => getWatcher(a, opts))

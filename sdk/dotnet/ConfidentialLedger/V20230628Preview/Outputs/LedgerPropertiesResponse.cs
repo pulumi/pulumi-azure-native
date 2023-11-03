@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230628Preview.Outputs
         /// </summary>
         public readonly string LedgerName;
         /// <summary>
+        /// SKU associated with the ledger
+        /// </summary>
+        public readonly string? LedgerSku;
+        /// <summary>
         /// Type of Confidential Ledger
         /// </summary>
         public readonly string? LedgerType;
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230628Preview.Outputs
 
             string ledgerName,
 
+            string? ledgerSku,
+
             string? ledgerType,
 
             string ledgerUri,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230628Preview.Outputs
             IdentityServiceUri = identityServiceUri;
             LedgerInternalNamespace = ledgerInternalNamespace;
             LedgerName = ledgerName;
+            LedgerSku = ledgerSku;
             LedgerType = ledgerType;
             LedgerUri = ledgerUri;
             ProvisioningState = provisioningState;

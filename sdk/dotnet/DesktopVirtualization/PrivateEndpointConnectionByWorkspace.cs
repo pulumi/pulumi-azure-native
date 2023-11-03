@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
     /// 
-    /// Other available API versions: 2023-07-07-preview, 2023-09-05.
+    /// Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace")]
     public partial class PrivateEndpointConnectionByWorkspace : global::Pulumi.CustomResource
@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

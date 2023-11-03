@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * A CommunicationsGateway resource
  * Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview.
+ *
+ * Other available API versions: 2023-09-01.
  */
 export class CommunicationsGateway extends pulumi.CustomResource {
     /**
@@ -193,7 +195,7 @@ export class CommunicationsGateway extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230131:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230403:CommunicationsGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230131:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230403:CommunicationsGateway" }, { type: "azure-native:voiceservices/v20230901:CommunicationsGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommunicationsGateway.__pulumiType, name, resourceInputs, opts);
     }

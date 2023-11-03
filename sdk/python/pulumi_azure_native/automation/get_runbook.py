@@ -293,6 +293,8 @@ def get_runbook(automation_account_name: Optional[str] = None,
     Retrieve the runbook identified by runbook name.
     Azure REST API version: 2022-08-08.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
@@ -337,6 +339,8 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
     """
     Retrieve the runbook identified by runbook name.
     Azure REST API version: 2022-08-08.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

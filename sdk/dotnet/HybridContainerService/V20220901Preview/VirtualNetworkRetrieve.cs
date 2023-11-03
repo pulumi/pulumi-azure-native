@@ -84,6 +84,8 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220901Preview
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:virtualNetworkRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:virtualNetworkRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

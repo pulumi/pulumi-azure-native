@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// An object that represents a pipeline run for a container registry.
     /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+    /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:PipelineRun")]
     public partial class PipelineRun : global::Pulumi.CustomResource
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230101preview:PipelineRun"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:PipelineRun"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:PipelineRun"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:PipelineRun"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

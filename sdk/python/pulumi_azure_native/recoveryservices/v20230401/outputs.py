@@ -3207,6 +3207,8 @@ class AzureFileshareProtectedItemResponse(dict):
             suggest = "backup_management_type"
         elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -3268,6 +3270,7 @@ class AzureFileshareProtectedItemResponse(dict):
     def __init__(__self__, *,
                  backup_management_type: str,
                  protected_item_type: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -3296,6 +3299,7 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'AzureFileShareProtectedItem'.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -3322,6 +3326,7 @@ class AzureFileshareProtectedItemResponse(dict):
         """
         pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'AzureFileShareProtectedItem')
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -3384,6 +3389,14 @@ class AzureFileshareProtectedItemResponse(dict):
         Expected value is 'AzureFileShareProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -3749,6 +3762,8 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             suggest = "protected_item_data_id"
         elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "virtualMachineId":
             suggest = "virtual_machine_id"
         elif key == "workloadType":
@@ -3816,6 +3831,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
                  last_backup_time: str,
                  protected_item_data_id: str,
                  protected_item_type: str,
+                 vault_id: str,
                  virtual_machine_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
@@ -3849,6 +3865,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
                Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
+        :param str vault_id: ID of the vault which protects this item
         :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
@@ -3880,6 +3897,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         pulumi.set(__self__, "last_backup_time", last_backup_time)
         pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         pulumi.set(__self__, "protected_item_type", 'Microsoft.ClassicCompute/virtualMachines')
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
@@ -3975,6 +3993,14 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="virtualMachineId")
@@ -4348,6 +4374,8 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             suggest = "protected_item_data_id"
         elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "virtualMachineId":
             suggest = "virtual_machine_id"
         elif key == "workloadType":
@@ -4415,6 +4443,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
                  last_backup_time: str,
                  protected_item_data_id: str,
                  protected_item_type: str,
+                 vault_id: str,
                  virtual_machine_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
@@ -4448,6 +4477,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
                Expected value is 'Microsoft.Compute/virtualMachines'.
+        :param str vault_id: ID of the vault which protects this item
         :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
@@ -4479,6 +4509,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         pulumi.set(__self__, "last_backup_time", last_backup_time)
         pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         pulumi.set(__self__, "protected_item_type", 'Microsoft.Compute/virtualMachines')
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
@@ -4574,6 +4605,14 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="virtualMachineId")
@@ -4953,6 +4992,8 @@ class AzureIaaSVMProtectedItemResponse(dict):
             suggest = "protected_item_data_id"
         elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "virtualMachineId":
             suggest = "virtual_machine_id"
         elif key == "workloadType":
@@ -5020,6 +5061,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
                  last_backup_time: str,
                  protected_item_data_id: str,
                  protected_item_type: str,
+                 vault_id: str,
                  virtual_machine_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
@@ -5053,6 +5095,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
                Expected value is 'AzureIaaSVMProtectedItem'.
+        :param str vault_id: ID of the vault which protects this item
         :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
@@ -5084,6 +5127,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         pulumi.set(__self__, "last_backup_time", last_backup_time)
         pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
@@ -5179,6 +5223,14 @@ class AzureIaaSVMProtectedItemResponse(dict):
         Expected value is 'AzureIaaSVMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="virtualMachineId")
@@ -6192,6 +6244,8 @@ class AzureSqlProtectedItemResponse(dict):
             suggest = "backup_management_type"
         elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -6245,6 +6299,7 @@ class AzureSqlProtectedItemResponse(dict):
     def __init__(__self__, *,
                  backup_management_type: str,
                  protected_item_type: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -6269,6 +6324,7 @@ class AzureSqlProtectedItemResponse(dict):
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'Microsoft.Sql/servers/databases'.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -6291,6 +6347,7 @@ class AzureSqlProtectedItemResponse(dict):
         """
         pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'Microsoft.Sql/servers/databases')
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -6345,6 +6402,14 @@ class AzureSqlProtectedItemResponse(dict):
         Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -7383,6 +7448,8 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             suggest = "protected_item_type"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -7456,6 +7523,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
                  friendly_name: str,
                  protected_item_type: str,
                  protection_status: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -7491,6 +7559,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadProtectedItem'.
         :param str protection_status: Backup status of this backup item.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -7524,6 +7593,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
         pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -7612,6 +7682,14 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         Backup status of this backup item.
         """
         return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -7977,6 +8055,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             suggest = "protected_item_type"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -8050,6 +8130,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
                  friendly_name: str,
                  protected_item_type: str,
                  protection_status: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -8085,6 +8166,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadSAPAseDatabase'.
         :param str protection_status: Backup status of this backup item.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -8118,6 +8200,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPAseDatabase')
         pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -8206,6 +8289,14 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         Backup status of this backup item.
         """
         return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -8448,6 +8539,8 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse(dict):
             suggest = "protected_item_type"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -8521,6 +8614,7 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse(dict):
                  friendly_name: str,
                  protected_item_type: str,
                  protection_status: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -8556,6 +8650,7 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse(dict):
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadSAPHanaDBInstance'.
         :param str protection_status: Backup status of this backup item.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -8589,6 +8684,7 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse(dict):
         pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDBInstance')
         pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -8677,6 +8773,14 @@ class AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse(dict):
         Backup status of this backup item.
         """
         return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -8919,6 +9023,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             suggest = "protected_item_type"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -8992,6 +9098,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
                  friendly_name: str,
                  protected_item_type: str,
                  protection_status: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -9027,6 +9134,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
         :param str protection_status: Backup status of this backup item.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -9060,6 +9168,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDatabase')
         pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -9148,6 +9257,14 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         Backup status of this backup item.
         """
         return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -9390,6 +9507,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             suggest = "protected_item_type"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -9463,6 +9582,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
                  friendly_name: str,
                  protected_item_type: str,
                  protection_status: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -9498,6 +9618,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadSQLDatabase'.
         :param str protection_status: Backup status of this backup item.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -9531,6 +9652,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSQLDatabase')
         pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -9619,6 +9741,14 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         Backup status of this backup item.
         """
         return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -11176,6 +11306,8 @@ class DPMProtectedItemResponse(dict):
             suggest = "backup_management_type"
         elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupEngineName":
@@ -11231,6 +11363,7 @@ class DPMProtectedItemResponse(dict):
     def __init__(__self__, *,
                  backup_management_type: str,
                  protected_item_type: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_engine_name: Optional[str] = None,
                  backup_set_name: Optional[str] = None,
@@ -11256,6 +11389,7 @@ class DPMProtectedItemResponse(dict):
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'DPMProtectedItem'.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_engine_name: Backup Management server protecting this backup item
         :param str backup_set_name: Name of the backup set the backup item belongs to
@@ -11279,6 +11413,7 @@ class DPMProtectedItemResponse(dict):
         """
         pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'DPMProtectedItem')
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_engine_name is not None:
             pulumi.set(__self__, "backup_engine_name", backup_engine_name)
@@ -11335,6 +11470,14 @@ class DPMProtectedItemResponse(dict):
         Expected value is 'DPMProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -12907,6 +13050,8 @@ class GenericProtectedItemResponse(dict):
             suggest = "backup_management_type"
         elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -12966,6 +13111,7 @@ class GenericProtectedItemResponse(dict):
     def __init__(__self__, *,
                  backup_management_type: str,
                  protected_item_type: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -12993,6 +13139,7 @@ class GenericProtectedItemResponse(dict):
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'GenericProtectedItem'.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
@@ -13018,6 +13165,7 @@ class GenericProtectedItemResponse(dict):
         """
         pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'GenericProtectedItem')
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -13078,6 +13226,14 @@ class GenericProtectedItemResponse(dict):
         Expected value is 'GenericProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")
@@ -23641,6 +23797,8 @@ class MabFileFolderProtectedItemResponse(dict):
             suggest = "backup_management_type"
         elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "vaultId":
+            suggest = "vault_id"
         elif key == "workloadType":
             suggest = "workload_type"
         elif key == "backupSetName":
@@ -23702,6 +23860,7 @@ class MabFileFolderProtectedItemResponse(dict):
     def __init__(__self__, *,
                  backup_management_type: str,
                  protected_item_type: str,
+                 vault_id: str,
                  workload_type: str,
                  backup_set_name: Optional[str] = None,
                  computer_name: Optional[str] = None,
@@ -23730,6 +23889,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'MabFileFolderProtectedItem'.
+        :param str vault_id: ID of the vault which protects this item
         :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str computer_name: Name of the computer associated with this backup item.
@@ -23756,6 +23916,7 @@ class MabFileFolderProtectedItemResponse(dict):
         """
         pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'MabFileFolderProtectedItem')
+        pulumi.set(__self__, "vault_id", vault_id)
         pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
@@ -23818,6 +23979,14 @@ class MabFileFolderProtectedItemResponse(dict):
         Expected value is 'MabFileFolderProtectedItem'.
         """
         return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> str:
+        """
+        ID of the vault which protects this item
+        """
+        return pulumi.get(self, "vault_id")
 
     @property
     @pulumi.getter(name="workloadType")

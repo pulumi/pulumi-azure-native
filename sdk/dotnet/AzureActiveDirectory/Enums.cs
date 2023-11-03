@@ -80,4 +80,36 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The name of the SKU for the tenant.
+    /// </summary>
+    [EnumType]
+    public readonly struct CIAMResourceSKUName : IEquatable<CIAMResourceSKUName>
+    {
+        private readonly string _value;
+
+        private CIAMResourceSKUName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CIAMResourceSKUName Standard { get; } = new CIAMResourceSKUName("Standard");
+        public static CIAMResourceSKUName PremiumP1 { get; } = new CIAMResourceSKUName("PremiumP1");
+        public static CIAMResourceSKUName PremiumP2 { get; } = new CIAMResourceSKUName("PremiumP2");
+
+        public static bool operator ==(CIAMResourceSKUName left, CIAMResourceSKUName right) => left.Equals(right);
+        public static bool operator !=(CIAMResourceSKUName left, CIAMResourceSKUName right) => !left.Equals(right);
+
+        public static explicit operator string(CIAMResourceSKUName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CIAMResourceSKUName other && Equals(other);
+        public bool Equals(CIAMResourceSKUName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

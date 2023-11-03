@@ -175,6 +175,8 @@ def get_client(client_name: Optional[str] = None,
     Get properties of a client.
     Azure REST API version: 2023-06-01-preview.
 
+    Other available API versions: 2023-12-15-preview.
+
 
     :param str client_name: Name of the client.
     :param str namespace_name: Name of the namespace.
@@ -209,6 +211,8 @@ def get_client_output(client_name: Optional[pulumi.Input[str]] = None,
     """
     Get properties of a client.
     Azure REST API version: 2023-06-01-preview.
+
+    Other available API versions: 2023-12-15-preview.
 
 
     :param str client_name: Name of the client.

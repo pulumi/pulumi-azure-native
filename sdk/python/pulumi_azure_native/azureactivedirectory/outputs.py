@@ -13,6 +13,8 @@ from ._enums import *
 __all__ = [
     'B2CResourceSKUResponse',
     'B2CTenantResourcePropertiesResponseBillingConfig',
+    'CIAMResourceSKUResponse',
+    'CreateCIAMTenantPropertiesResponse',
     'SystemDataResponse',
 ]
 
@@ -102,6 +104,80 @@ class B2CTenantResourcePropertiesResponseBillingConfig(dict):
         The type of billing. Will be MAU for all new customers. If 'Auths', it can be updated to 'MAU'. Cannot be changed if value is 'MAU'. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
         """
         return pulumi.get(self, "billing_type")
+
+
+@pulumi.output_type
+class CIAMResourceSKUResponse(dict):
+    """
+    SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
+        :param str name: The name of the SKU for the tenant.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the SKU for the tenant.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class CreateCIAMTenantPropertiesResponse(dict):
+    """
+    These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "countryCode":
+            suggest = "country_code"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreateCIAMTenantPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreateCIAMTenantPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreateCIAMTenantPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 country_code: str,
+                 display_name: str):
+        """
+        These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
+        :param str country_code: Country code of Azure tenant (e.g. 'US'). Refer to [https://aka.ms/ciam-data-location](https://aka.ms/ciam-data-location) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+        :param str display_name: The display name of the Azure AD for customers tenant.
+        """
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> str:
+        """
+        Country code of Azure tenant (e.g. 'US'). Refer to [https://aka.ms/ciam-data-location](https://aka.ms/ciam-data-location) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+        """
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> str:
+        """
+        The display name of the Azure AD for customers tenant.
+        """
+        return pulumi.get(self, "display_name")
 
 
 @pulumi.output_type

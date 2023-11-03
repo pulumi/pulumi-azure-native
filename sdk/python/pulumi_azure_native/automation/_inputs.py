@@ -42,6 +42,7 @@ __all__ = [
     'TagSettingsPropertiesArgs',
     'TargetPropertiesArgs',
     'TaskPropertiesArgs',
+    'TrackedResourceArgs',
     'UpdateConfigurationArgs',
     'WindowsPropertiesArgs',
 ]
@@ -1664,6 +1665,45 @@ class TaskPropertiesArgs:
     @source.setter
     def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
+
+
+@pulumi.input_type
+class TrackedResourceArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        """
+        pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

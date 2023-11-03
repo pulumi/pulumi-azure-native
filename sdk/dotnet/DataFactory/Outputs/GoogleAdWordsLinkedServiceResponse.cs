@@ -41,10 +41,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
-        /// Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
-        /// </summary>
-        public readonly object? ConnectionProperties;
-        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -61,30 +57,34 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
-        /// The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
+        /// The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/sunset-dates#timetable. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly object? KeyFilePath;
+        public readonly object? GoogleAdsApiVersion;
+        /// <summary>
+        /// The customer ID of the Google Ads Manager account through which you want to fetch report data of specific Customer. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? LoginCustomerID;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// The private key that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? PrivateKey;
+        /// <summary>
         /// The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication.
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? RefreshToken;
         /// <summary>
-        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
+        /// Specifies whether to use the legacy data type mappings, which maps float, int32 and int64 from Google to string. Do not set this to true unless you want to keep backward compatibility with legacy driver's data type mappings. Type: boolean (or Expression with resultType boolean).
         /// </summary>
-        public readonly object? TrustedCertPath;
+        public readonly object? SupportLegacyDataTypes;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'GoogleAdWords'.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
-        /// </summary>
-        public readonly object? UseSystemTrustStore;
 
         [OutputConstructor]
         private GoogleAdWordsLinkedServiceResponse(
@@ -100,8 +100,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object? connectionProperties,
-
             string? description,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? developerToken,
@@ -110,17 +108,19 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? encryptedCredential,
 
-            object? keyFilePath,
+            object? googleAdsApiVersion,
+
+            object? loginCustomerID,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? privateKey,
+
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? refreshToken,
 
-            object? trustedCertPath,
+            object? supportLegacyDataTypes,
 
-            string type,
-
-            object? useSystemTrustStore)
+            string type)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
@@ -128,17 +128,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ClientId = clientId;
             ClientSecret = clientSecret;
             ConnectVia = connectVia;
-            ConnectionProperties = connectionProperties;
             Description = description;
             DeveloperToken = developerToken;
             Email = email;
             EncryptedCredential = encryptedCredential;
-            KeyFilePath = keyFilePath;
+            GoogleAdsApiVersion = googleAdsApiVersion;
+            LoginCustomerID = loginCustomerID;
             Parameters = parameters;
+            PrivateKey = privateKey;
             RefreshToken = refreshToken;
-            TrustedCertPath = trustedCertPath;
+            SupportLegacyDataTypes = supportLegacyDataTypes;
             Type = type;
-            UseSystemTrustStore = useSystemTrustStore;
         }
     }
 }

@@ -126,6 +126,9 @@ import * as integrationspaces from "./integrationspaces";
 import * as intune from "./intune";
 import * as iotcentral from "./iotcentral";
 import * as iotfirmwaredefense from "./iotfirmwaredefense";
+import * as iotoperationsdataprocessor from "./iotoperationsdataprocessor";
+import * as iotoperationsmq from "./iotoperationsmq";
+import * as iotoperationsorchestrator from "./iotoperationsorchestrator";
 import * as keyvault from "./keyvault";
 import * as kubernetes from "./kubernetes";
 import * as kubernetesconfiguration from "./kubernetesconfiguration";
@@ -345,6 +348,9 @@ export {
     intune,
     iotcentral,
     iotfirmwaredefense,
+    iotoperationsdataprocessor,
+    iotoperationsmq,
+    iotoperationsorchestrator,
     keyvault,
     kubernetes,
     kubernetesconfiguration,

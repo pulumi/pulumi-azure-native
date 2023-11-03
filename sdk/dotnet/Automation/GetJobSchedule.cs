@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the job schedule identified by job schedule name.
         /// Azure REST API version: 2022-08-08.
+        /// 
+        /// Other available API versions: 2023-05-15-preview.
         /// </summary>
         public static Task<GetJobScheduleResult> InvokeAsync(GetJobScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobScheduleResult>("azure-native:automation:getJobSchedule", args ?? new GetJobScheduleArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the job schedule identified by job schedule name.
         /// Azure REST API version: 2022-08-08.
+        /// 
+        /// Other available API versions: 2023-05-15-preview.
         /// </summary>
         public static Output<GetJobScheduleResult> Invoke(GetJobScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobScheduleResult>("azure-native:automation:getJobSchedule", args ?? new GetJobScheduleInvokeArgs(), options.WithDefaults());

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Represents a trigger that can invoke an image template build.
  * Azure REST API version: 2022-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export class Trigger extends pulumi.CustomResource {
     /**
@@ -101,7 +103,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages/v20220701:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:virtualmachineimages/v20220701:Trigger" }, { type: "azure-native:virtualmachineimages/v20230701:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, resourceInputs, opts);
     }

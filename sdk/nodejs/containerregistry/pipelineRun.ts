@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An object that represents a pipeline run for a container registry.
  * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
  */
 export class PipelineRun extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class PipelineRun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20191201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20201101preview:PipelineRun" }, { type: "azure-native:containerregistry/v20210601preview:PipelineRun" }, { type: "azure-native:containerregistry/v20210801preview:PipelineRun" }, { type: "azure-native:containerregistry/v20211201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20220201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20230101preview:PipelineRun" }, { type: "azure-native:containerregistry/v20230601preview:PipelineRun" }, { type: "azure-native:containerregistry/v20230801preview:PipelineRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20191201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20201101preview:PipelineRun" }, { type: "azure-native:containerregistry/v20210601preview:PipelineRun" }, { type: "azure-native:containerregistry/v20210801preview:PipelineRun" }, { type: "azure-native:containerregistry/v20211201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20220201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20230101preview:PipelineRun" }, { type: "azure-native:containerregistry/v20230601preview:PipelineRun" }, { type: "azure-native:containerregistry/v20230801preview:PipelineRun" }, { type: "azure-native:containerregistry/v20231101preview:PipelineRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PipelineRun.__pulumiType, name, resourceInputs, opts);
     }

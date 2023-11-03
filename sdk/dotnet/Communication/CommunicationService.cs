@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Communication
     /// A class representing a CommunicationService resource.
     /// Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2020-08-20.
     /// 
-    /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview.
+    /// Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:CommunicationService")]
     public partial class CommunicationService : global::Pulumi.CustomResource
@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.Communication
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:CommunicationService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:CommunicationService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:CommunicationService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230401:CommunicationService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:CommunicationService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:CommunicationService"},
                 },

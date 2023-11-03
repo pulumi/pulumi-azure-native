@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Sql
     /// Distributed availability group between box and Sql Managed Instance.
     /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview.
     /// 
-    /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview.
+    /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DistributedAvailabilityGroup")]
     public partial class DistributedAvailabilityGroup : global::Pulumi.CustomResource
@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DistributedAvailabilityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DistributedAvailabilityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:DistributedAvailabilityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DistributedAvailabilityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

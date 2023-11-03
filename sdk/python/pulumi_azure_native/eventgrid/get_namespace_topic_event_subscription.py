@@ -138,6 +138,8 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[str
     Get properties of an event subscription of a namespace topic.
     Azure REST API version: 2023-06-01-preview.
 
+    Other available API versions: 2023-12-15-preview.
+
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
     :param str namespace_name: Name of the namespace.
@@ -172,6 +174,8 @@ def get_namespace_topic_event_subscription_output(event_subscription_name: Optio
     """
     Get properties of an event subscription of a namespace topic.
     Azure REST API version: 2023-06-01-preview.
+
+    Other available API versions: 2023-12-15-preview.
 
 
     :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

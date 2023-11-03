@@ -19,6 +19,7 @@ __all__ = [
     'ContentHashResponse',
     'ContentLinkResponse',
     'ContentSourceResponse',
+    'DeletedRunbookResponse',
     'DscConfigurationAssociationPropertyResponse',
     'DscConfigurationParameterResponse',
     'EncryptionPropertiesResponse',
@@ -31,6 +32,7 @@ __all__ = [
     'LinuxPropertiesResponse',
     'ModuleErrorInfoResponse',
     'NonAzureQueryPropertiesResponse',
+    'PackageErrorInfoResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
@@ -395,6 +397,125 @@ class ContentSourceResponse(dict):
         Gets or sets the version of the content.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class DeletedRunbookResponse(dict):
+    """
+    Definition of deleted runbook.
+    """
+    def __init__(__self__, *,
+                 creation_time: Optional[str] = None,
+                 deletion_time: Optional[str] = None,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 name: Optional[str] = None,
+                 runbook_id: Optional[str] = None,
+                 runbook_type: Optional[str] = None,
+                 runtime: Optional[str] = None,
+                 runtime_environment: Optional[str] = None):
+        """
+        Definition of deleted runbook.
+        :param str creation_time: Gets or sets the creation time.
+        :param str deletion_time: Gets or sets the last modified time.
+        :param str id: The resource id.
+        :param str location: Gets or sets the location of the resource.
+        :param str name: Gets or sets name of the resource.
+        :param str runbook_id: Gets or sets the Runbook Id.
+        :param str runbook_type: Type of the runbook.
+        :param str runtime: Gets or sets runtime of the runbook.
+        :param str runtime_environment: Environment of the runbook.
+        """
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if deletion_time is not None:
+            pulumi.set(__self__, "deletion_time", deletion_time)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if runbook_id is not None:
+            pulumi.set(__self__, "runbook_id", runbook_id)
+        if runbook_type is not None:
+            pulumi.set(__self__, "runbook_type", runbook_type)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if runtime_environment is not None:
+            pulumi.set(__self__, "runtime_environment", runtime_environment)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        """
+        Gets or sets the creation time.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="deletionTime")
+    def deletion_time(self) -> Optional[str]:
+        """
+        Gets or sets the last modified time.
+        """
+        return pulumi.get(self, "deletion_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Gets or sets the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="runbookId")
+    def runbook_id(self) -> Optional[str]:
+        """
+        Gets or sets the Runbook Id.
+        """
+        return pulumi.get(self, "runbook_id")
+
+    @property
+    @pulumi.getter(name="runbookType")
+    def runbook_type(self) -> Optional[str]:
+        """
+        Type of the runbook.
+        """
+        return pulumi.get(self, "runbook_type")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[str]:
+        """
+        Gets or sets runtime of the runbook.
+        """
+        return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="runtimeEnvironment")
+    def runtime_environment(self) -> Optional[str]:
+        """
+        Environment of the runbook.
+        """
+        return pulumi.get(self, "runtime_environment")
 
 
 @pulumi.output_type
@@ -1063,6 +1184,41 @@ class NonAzureQueryPropertiesResponse(dict):
         Workspace Id for Log Analytics in which the saved Search is resided.
         """
         return pulumi.get(self, "workspace_id")
+
+
+@pulumi.output_type
+class PackageErrorInfoResponse(dict):
+    """
+    Definition of the package error info type.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        """
+        Definition of the package error info type.
+        :param str code: Package import error code.
+        :param str message: Package import error message.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Package import error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Package import error message.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type

@@ -304,6 +304,8 @@ class CommunicationsGateway(pulumi.CustomResource):
         A CommunicationsGateway resource
         Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview.
 
+        Other available API versions: 2023-09-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any api_bridge: Details of API bridge functionality, if required
@@ -332,6 +334,8 @@ class CommunicationsGateway(pulumi.CustomResource):
         """
         A CommunicationsGateway resource
         Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview.
+
+        Other available API versions: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param CommunicationsGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -413,7 +417,7 @@ class CommunicationsGateway(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:voiceservices/v20221201preview:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230131:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230403:CommunicationsGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:voiceservices/v20221201preview:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230131:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230403:CommunicationsGateway"), pulumi.Alias(type_="azure-native:voiceservices/v20230901:CommunicationsGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CommunicationsGateway, __self__).__init__(
             'azure-native:voiceservices:CommunicationsGateway',

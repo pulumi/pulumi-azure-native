@@ -115,7 +115,7 @@ class PipelineRun(pulumi.CustomResource):
         An object that represents a pipeline run for a container registry.
         Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class PipelineRun(pulumi.CustomResource):
         An object that represents a pipeline run for a container registry.
         Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
 
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview.
+        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PipelineRunArgs args: The arguments to use to populate this resource's properties.
@@ -180,7 +180,7 @@ class PipelineRun(pulumi.CustomResource):
             __props__.__dict__["response"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:PipelineRun")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:PipelineRun"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:PipelineRun")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PipelineRun, __self__).__init__(
             'azure-native:containerregistry:PipelineRun',

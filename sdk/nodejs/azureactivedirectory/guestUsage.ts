@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Guest Usages Resource
  * Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2020-05-01-preview.
  *
- * Other available API versions: 2023-01-18-preview.
+ * Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
  */
 export class GuestUsage extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class GuestUsage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20200501preview:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20210401:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20230118preview:GuestUsage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20200501preview:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20210401:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20230118preview:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20230517preview:GuestUsage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestUsage.__pulumiType, name, resourceInputs, opts);
     }

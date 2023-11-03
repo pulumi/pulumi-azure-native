@@ -268,6 +268,8 @@ def get_automation_account(automation_account_name: Optional[str] = None,
     Get information about an Automation Account.
     Azure REST API version: 2022-08-08.
 
+    Other available API versions: 2023-05-15-preview.
+
 
     :param str automation_account_name: The name of the automation account.
     :param str resource_group_name: Name of an Azure Resource group.
@@ -307,6 +309,8 @@ def get_automation_account_output(automation_account_name: Optional[pulumi.Input
     """
     Get information about an Automation Account.
     Azure REST API version: 2022-08-08.
+
+    Other available API versions: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.

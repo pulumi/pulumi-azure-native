@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the specified trigger for the specified image template resource
  * Azure REST API version: 2022-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
 
@@ -72,6 +74,8 @@ export interface GetTriggerResult {
 /**
  * Get the specified trigger for the specified image template resource
  * Azure REST API version: 2022-07-01.
+ *
+ * Other available API versions: 2023-07-01.
  */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
     return pulumi.output(args).apply((a: any) => getTrigger(a, opts))
