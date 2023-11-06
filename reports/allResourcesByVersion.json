@@ -2616,6 +2616,16 @@
       "UpdateRun",
       "UpdateSummary"
     ],
+    "2023-08-01-preview": [
+      "ArcSetting",
+      "Cluster",
+      "DeploymentSetting",
+      "EdgeDevice",
+      "Extension",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
+    ],
     "2023-09-01-preview": [
       "GalleryImage",
       "GuestAgent",
