@@ -5,14 +5,59 @@ package examples
 
 import (
 	"encoding/json"
+	"log"
+	"os"
 	"path/filepath"
 	"strings"
 	"testing"
 
+	"github.com/go-git/go-git/v5/plumbing"
+
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/gitutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func cloneOrPullRepository(url string, sparseDirs ...string) (string, error) {
+	branch := "master"
+
+	parts := strings.Split(url, "/")
+	cloneDir := filepath.Join(os.TempDir(), parts[len(parts)-2], parts[len(parts)-1])
+	err := os.MkdirAll(cloneDir, 0750)
+	if err != nil {
+		return "", err
+	}
+
+	err = gitutil.GitCloneOrPull(url, plumbing.ReferenceName(branch), cloneDir, true /*shallow*/)
+	if err != nil {
+		return "", err
+	}
+	log.Printf("cloned repo to %s", cloneDir)
+	return cloneDir, nil
+}
+
+func prepareProgramTestRemote(t *testing.T, repo, repoPath string) (integration.ProgramTestOptions, error) {
+	dir, err := cloneOrPullRepository(repo)
+
+	return getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(dir, repoPath),
+			// DebugUpdates:  true,
+			// Verbose:       true,
+			// DebugLogLevel: 10,
+		}), err
+}
+
+func TestExamplesFunctionsTs(t *testing.T) {
+	skipIfShort(t)
+
+	test, err := prepareProgramTestRemote(t, "https://github.com/pulumi/examples.git", "azure-ts-functions")
+	if err != nil {
+		t.Fatal(err)
+	}
+	integration.ProgramTest(t, &test)
+}
 
 func TestAccAppServiceTs(t *testing.T) {
 	skipIfShort(t)
