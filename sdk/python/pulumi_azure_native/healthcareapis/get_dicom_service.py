@@ -221,6 +221,8 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
     Gets the properties of the specified DICOM Service.
     Azure REST API version: 2023-02-28.
 
+    Other available API versions: 2023-09-06.
+
 
     :param str dicom_service_name: The name of DICOM Service resource.
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -259,6 +261,8 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
     """
     Gets the properties of the specified DICOM Service.
     Azure REST API version: 2023-02-28.
+
+    Other available API versions: 2023-09-06.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.

@@ -10,6 +10,7 @@ import * as v20230301 from "./v20230301";
 import * as v20230601 from "./v20230601";
 import * as v20230701preview from "./v20230701preview";
 import * as v20230801 from "./v20230801";
+import * as v20230801preview from "./v20230801preview";
 import * as v20230901preview from "./v20230901preview";
 
 export {
@@ -21,6 +22,7 @@ export {
     v20230601,
     v20230701preview,
     v20230801,
+    v20230801preview,
     v20230901preview,
 };
 
@@ -44,6 +46,22 @@ export const CloudInitDataSource = {
  * Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
  */
 export type CloudInitDataSource = (typeof CloudInitDataSource)[keyof typeof CloudInitDataSource];
+
+export const DeploymentMode = {
+    /**
+     * Validate deployment settings for cluster.
+     */
+    Validate: "Validate",
+    /**
+     * Deploy cluster using deployment settings.
+     */
+    Deploy: "Deploy",
+} as const;
+
+/**
+ * The deployment mode for cluster deployment.
+ */
+export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
 export const DiagnosticLevel = {
     Off: "Off",

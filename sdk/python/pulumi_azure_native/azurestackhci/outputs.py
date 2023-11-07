@@ -12,11 +12,17 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AdapterPropertyOverridesResponse',
     'ArcConnectivityPropertiesResponse',
     'ClusterDesiredPropertiesResponse',
     'ClusterNodeResponse',
     'ClusterReportedPropertiesResponse',
+    'ClusterResponse',
     'DefaultExtensionDetailsResponse',
+    'DeploymentConfigurationResponse',
+    'DeploymentDataResponse',
+    'DeploymentStatusResponse',
+    'DeviceConfigurationResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ExtendedLocationResponse',
@@ -32,6 +38,7 @@ __all__ = [
     'GuestAgentInstallStatusResponse',
     'GuestAgentProfileResponse',
     'GuestCredentialResponse',
+    'HostNetworkResponse',
     'HttpProxyConfigurationResponse',
     'IPConfigurationResponse',
     'IPConfigurationResponseProperties',
@@ -39,8 +46,11 @@ __all__ = [
     'IPPoolInfoResponse',
     'IPPoolResponse',
     'IdentityResponse',
+    'InfrastructureNetworkResponse',
     'InstanceViewStatusResponse',
+    'IntentsResponse',
     'InterfaceDNSSettingsResponse',
+    'IpPoolsResponse',
     'LogicalNetworkPropertiesResponseDhcpOptions',
     'LogicalNetworkStatusResponse',
     'LogicalNetworkStatusResponseProvisioningStatus',
@@ -51,21 +61,32 @@ __all__ = [
     'MarketplaceGalleryImageStatusResponseProvisioningStatus',
     'NetworkInterfaceStatusResponse',
     'NetworkInterfaceStatusResponseProvisioningStatus',
+    'NicDetailResponse',
+    'ObservabilityResponse',
+    'OptionalServicesResponse',
     'PerNodeExtensionStateResponse',
     'PerNodeStateResponse',
+    'PhysicalNodesResponse',
+    'QosPolicyOverridesResponse',
+    'ReportedPropertiesResponse',
     'RouteResponse',
     'RouteTableResponse',
+    'ScaleUnitsResponse',
+    'SecuritySettingsResponse',
     'SoftwareAssurancePropertiesResponse',
     'SshConfigurationResponse',
     'SshPublicKeyResponse',
     'StepResponse',
     'StorageContainerStatusResponse',
     'StorageContainerStatusResponseProvisioningStatus',
+    'StorageNetworksResponse',
+    'StorageResponse',
     'SubnetPropertiesFormatResponseIpConfigurationReferences',
     'SubnetResponse',
     'SystemDataResponse',
     'UpdatePrerequisiteResponse',
     'UserAssignedIdentityResponse',
+    'ValidationStatusResponse',
     'VirtualHardDiskStatusResponse',
     'VirtualHardDiskStatusResponseProvisioningStatus',
     'VirtualMachineInstancePropertiesResponseDataDisks',
@@ -111,7 +132,76 @@ __all__ = [
     'VirtualNetworkPropertiesResponseSubnets',
     'VirtualNetworkStatusResponse',
     'VirtualNetworkStatusResponseProvisioningStatus',
+    'VirtualSwitchConfigurationOverridesResponse',
 ]
+
+@pulumi.output_type
+class AdapterPropertyOverridesResponse(dict):
+    """
+    The AdapterPropertyOverrides of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jumboPacket":
+            suggest = "jumbo_packet"
+        elif key == "networkDirect":
+            suggest = "network_direct"
+        elif key == "networkDirectTechnology":
+            suggest = "network_direct_technology"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdapterPropertyOverridesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdapterPropertyOverridesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdapterPropertyOverridesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 jumbo_packet: Optional[str] = None,
+                 network_direct: Optional[str] = None,
+                 network_direct_technology: Optional[str] = None):
+        """
+        The AdapterPropertyOverrides of a cluster.
+        :param str jumbo_packet: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param str network_direct: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param str network_direct_technology: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
+        """
+        if jumbo_packet is not None:
+            pulumi.set(__self__, "jumbo_packet", jumbo_packet)
+        if network_direct is not None:
+            pulumi.set(__self__, "network_direct", network_direct)
+        if network_direct_technology is not None:
+            pulumi.set(__self__, "network_direct_technology", network_direct_technology)
+
+    @property
+    @pulumi.getter(name="jumboPacket")
+    def jumbo_packet(self) -> Optional[str]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "jumbo_packet")
+
+    @property
+    @pulumi.getter(name="networkDirect")
+    def network_direct(self) -> Optional[str]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "network_direct")
+
+    @property
+    @pulumi.getter(name="networkDirectTechnology")
+    def network_direct_technology(self) -> Optional[str]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
+        """
+        return pulumi.get(self, "network_direct_technology")
+
 
 @pulumi.output_type
 class ArcConnectivityPropertiesResponse(dict):
@@ -544,6 +634,100 @@ class ClusterReportedPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ClusterResponse(dict):
+    """
+    AzureStackHCI Cluster deployment properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureServiceEndpoint":
+            suggest = "azure_service_endpoint"
+        elif key == "cloudAccountName":
+            suggest = "cloud_account_name"
+        elif key == "witnessPath":
+            suggest = "witness_path"
+        elif key == "witnessType":
+            suggest = "witness_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_service_endpoint: Optional[str] = None,
+                 cloud_account_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 witness_path: Optional[str] = None,
+                 witness_type: Optional[str] = None):
+        """
+        AzureStackHCI Cluster deployment properties.
+        :param str azure_service_endpoint: For Azure blob service endpoint type, select either Default or Custom domain. If you selected **Custom domain, enter the domain for the blob service in this format core.windows.net.
+        :param str cloud_account_name: Specify the Azure Storage account name for cloud witness for your Azure Stack HCI cluster.
+        :param str name: The cluster name provided when preparing Active Directory.
+        :param str witness_path: Specify the fileshare path for the local witness for your Azure Stack HCI cluster.
+        :param str witness_type: Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
+        """
+        if azure_service_endpoint is not None:
+            pulumi.set(__self__, "azure_service_endpoint", azure_service_endpoint)
+        if cloud_account_name is not None:
+            pulumi.set(__self__, "cloud_account_name", cloud_account_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if witness_path is not None:
+            pulumi.set(__self__, "witness_path", witness_path)
+        if witness_type is not None:
+            pulumi.set(__self__, "witness_type", witness_type)
+
+    @property
+    @pulumi.getter(name="azureServiceEndpoint")
+    def azure_service_endpoint(self) -> Optional[str]:
+        """
+        For Azure blob service endpoint type, select either Default or Custom domain. If you selected **Custom domain, enter the domain for the blob service in this format core.windows.net.
+        """
+        return pulumi.get(self, "azure_service_endpoint")
+
+    @property
+    @pulumi.getter(name="cloudAccountName")
+    def cloud_account_name(self) -> Optional[str]:
+        """
+        Specify the Azure Storage account name for cloud witness for your Azure Stack HCI cluster.
+        """
+        return pulumi.get(self, "cloud_account_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The cluster name provided when preparing Active Directory.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="witnessPath")
+    def witness_path(self) -> Optional[str]:
+        """
+        Specify the fileshare path for the local witness for your Azure Stack HCI cluster.
+        """
+        return pulumi.get(self, "witness_path")
+
+    @property
+    @pulumi.getter(name="witnessType")
+    def witness_type(self) -> Optional[str]:
+        """
+        Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
+        """
+        return pulumi.get(self, "witness_type")
+
+
+@pulumi.output_type
 class DefaultExtensionDetailsResponse(dict):
     """
     Properties for a particular default extension category.
@@ -591,6 +775,331 @@ class DefaultExtensionDetailsResponse(dict):
         Consent time for extension category
         """
         return pulumi.get(self, "consent_time")
+
+
+@pulumi.output_type
+class DeploymentConfigurationResponse(dict):
+    """
+    Deployment Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleUnits":
+            suggest = "scale_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scale_units: Sequence['outputs.ScaleUnitsResponse'],
+                 version: Optional[str] = None):
+        """
+        Deployment Configuration
+        :param Sequence['ScaleUnitsResponse'] scale_units: Scale units will contains list of deployment data
+        :param str version: deployment template version 
+        """
+        pulumi.set(__self__, "scale_units", scale_units)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="scaleUnits")
+    def scale_units(self) -> Sequence['outputs.ScaleUnitsResponse']:
+        """
+        Scale units will contains list of deployment data
+        """
+        return pulumi.get(self, "scale_units")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        deployment template version 
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class DeploymentDataResponse(dict):
+    """
+    The Deployment data of AzureStackHCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adouPath":
+            suggest = "adou_path"
+        elif key == "domainFqdn":
+            suggest = "domain_fqdn"
+        elif key == "hostNetwork":
+            suggest = "host_network"
+        elif key == "infrastructureNetwork":
+            suggest = "infrastructure_network"
+        elif key == "namingPrefix":
+            suggest = "naming_prefix"
+        elif key == "optionalServices":
+            suggest = "optional_services"
+        elif key == "physicalNodes":
+            suggest = "physical_nodes"
+        elif key == "secretsLocation":
+            suggest = "secrets_location"
+        elif key == "securitySettings":
+            suggest = "security_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 adou_path: Optional[str] = None,
+                 cluster: Optional['outputs.ClusterResponse'] = None,
+                 domain_fqdn: Optional[str] = None,
+                 host_network: Optional['outputs.HostNetworkResponse'] = None,
+                 infrastructure_network: Optional[Sequence['outputs.InfrastructureNetworkResponse']] = None,
+                 naming_prefix: Optional[str] = None,
+                 observability: Optional['outputs.ObservabilityResponse'] = None,
+                 optional_services: Optional['outputs.OptionalServicesResponse'] = None,
+                 physical_nodes: Optional[Sequence['outputs.PhysicalNodesResponse']] = None,
+                 secrets_location: Optional[str] = None,
+                 security_settings: Optional['outputs.SecuritySettingsResponse'] = None,
+                 storage: Optional['outputs.StorageResponse'] = None):
+        """
+        The Deployment data of AzureStackHCI Cluster.
+        :param str adou_path: The path to the Active Directory Organizational Unit container object prepared for the deployment. 
+        :param 'ClusterResponse' cluster: Observability config to deploy AzureStackHCI Cluster.
+        :param str domain_fqdn: FQDN to deploy cluster
+        :param 'HostNetworkResponse' host_network: HostNetwork config to deploy AzureStackHCI Cluster.
+        :param Sequence['InfrastructureNetworkResponse'] infrastructure_network: InfrastructureNetwork config to deploy AzureStackHCI Cluster.
+        :param str naming_prefix: naming prefix to deploy cluster.
+        :param 'ObservabilityResponse' observability: Observability config to deploy AzureStackHCI Cluster.
+        :param 'OptionalServicesResponse' optional_services: OptionalServices config to deploy AzureStackHCI Cluster.
+        :param Sequence['PhysicalNodesResponse'] physical_nodes: list of physical nodes config to deploy AzureStackHCI Cluster.
+        :param str secrets_location: The URI to the keyvault / secret store.
+        :param 'SecuritySettingsResponse' security_settings: SecuritySettings to deploy AzureStackHCI Cluster.
+        :param 'StorageResponse' storage: Storage config to deploy AzureStackHCI Cluster.
+        """
+        if adou_path is not None:
+            pulumi.set(__self__, "adou_path", adou_path)
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
+        if domain_fqdn is not None:
+            pulumi.set(__self__, "domain_fqdn", domain_fqdn)
+        if host_network is not None:
+            pulumi.set(__self__, "host_network", host_network)
+        if infrastructure_network is not None:
+            pulumi.set(__self__, "infrastructure_network", infrastructure_network)
+        if naming_prefix is not None:
+            pulumi.set(__self__, "naming_prefix", naming_prefix)
+        if observability is not None:
+            pulumi.set(__self__, "observability", observability)
+        if optional_services is not None:
+            pulumi.set(__self__, "optional_services", optional_services)
+        if physical_nodes is not None:
+            pulumi.set(__self__, "physical_nodes", physical_nodes)
+        if secrets_location is not None:
+            pulumi.set(__self__, "secrets_location", secrets_location)
+        if security_settings is not None:
+            pulumi.set(__self__, "security_settings", security_settings)
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter(name="adouPath")
+    def adou_path(self) -> Optional[str]:
+        """
+        The path to the Active Directory Organizational Unit container object prepared for the deployment. 
+        """
+        return pulumi.get(self, "adou_path")
+
+    @property
+    @pulumi.getter
+    def cluster(self) -> Optional['outputs.ClusterResponse']:
+        """
+        Observability config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "cluster")
+
+    @property
+    @pulumi.getter(name="domainFqdn")
+    def domain_fqdn(self) -> Optional[str]:
+        """
+        FQDN to deploy cluster
+        """
+        return pulumi.get(self, "domain_fqdn")
+
+    @property
+    @pulumi.getter(name="hostNetwork")
+    def host_network(self) -> Optional['outputs.HostNetworkResponse']:
+        """
+        HostNetwork config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "host_network")
+
+    @property
+    @pulumi.getter(name="infrastructureNetwork")
+    def infrastructure_network(self) -> Optional[Sequence['outputs.InfrastructureNetworkResponse']]:
+        """
+        InfrastructureNetwork config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "infrastructure_network")
+
+    @property
+    @pulumi.getter(name="namingPrefix")
+    def naming_prefix(self) -> Optional[str]:
+        """
+        naming prefix to deploy cluster.
+        """
+        return pulumi.get(self, "naming_prefix")
+
+    @property
+    @pulumi.getter
+    def observability(self) -> Optional['outputs.ObservabilityResponse']:
+        """
+        Observability config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "observability")
+
+    @property
+    @pulumi.getter(name="optionalServices")
+    def optional_services(self) -> Optional['outputs.OptionalServicesResponse']:
+        """
+        OptionalServices config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "optional_services")
+
+    @property
+    @pulumi.getter(name="physicalNodes")
+    def physical_nodes(self) -> Optional[Sequence['outputs.PhysicalNodesResponse']]:
+        """
+        list of physical nodes config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "physical_nodes")
+
+    @property
+    @pulumi.getter(name="secretsLocation")
+    def secrets_location(self) -> Optional[str]:
+        """
+        The URI to the keyvault / secret store.
+        """
+        return pulumi.get(self, "secrets_location")
+
+    @property
+    @pulumi.getter(name="securitySettings")
+    def security_settings(self) -> Optional['outputs.SecuritySettingsResponse']:
+        """
+        SecuritySettings to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "security_settings")
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional['outputs.StorageResponse']:
+        """
+        Storage config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
+class DeploymentStatusResponse(dict):
+    """
+    The DeploymentStatus of AzureStackHCI Cluster.
+    """
+    def __init__(__self__, *,
+                 status: str,
+                 steps: Sequence['outputs.StepResponse']):
+        """
+        The DeploymentStatus of AzureStackHCI Cluster.
+        :param str status: Status of AzureStackHCI Cluster Deployment.
+        :param Sequence['StepResponse'] steps: List of steps of AzureStackHCI Cluster Deployment.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "steps", steps)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def steps(self) -> Sequence['outputs.StepResponse']:
+        """
+        List of steps of AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "steps")
+
+
+@pulumi.output_type
+class DeviceConfigurationResponse(dict):
+    """
+    The device Configuration of a device.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nicDetails":
+            suggest = "nic_details"
+        elif key == "deviceMetadata":
+            suggest = "device_metadata"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 nic_details: Sequence['outputs.NicDetailResponse'],
+                 device_metadata: Optional[str] = None):
+        """
+        The device Configuration of a device.
+        :param Sequence['NicDetailResponse'] nic_details: NIC Details of device
+        :param str device_metadata: device metadata details.
+        """
+        pulumi.set(__self__, "nic_details", nic_details)
+        if device_metadata is not None:
+            pulumi.set(__self__, "device_metadata", device_metadata)
+
+    @property
+    @pulumi.getter(name="nicDetails")
+    def nic_details(self) -> Sequence['outputs.NicDetailResponse']:
+        """
+        NIC Details of device
+        """
+        return pulumi.get(self, "nic_details")
+
+    @property
+    @pulumi.getter(name="deviceMetadata")
+    def device_metadata(self) -> Optional[str]:
+        """
+        device metadata details.
+        """
+        return pulumi.get(self, "device_metadata")
 
 
 @pulumi.output_type
@@ -1464,6 +1973,90 @@ class GuestCredentialResponse(dict):
 
 
 @pulumi.output_type
+class HostNetworkResponse(dict):
+    """
+    The HostNetwork of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableStorageAutoIp":
+            suggest = "enable_storage_auto_ip"
+        elif key == "storageConnectivitySwitchless":
+            suggest = "storage_connectivity_switchless"
+        elif key == "storageNetworks":
+            suggest = "storage_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_storage_auto_ip: Optional[bool] = None,
+                 intents: Optional[Sequence['outputs.IntentsResponse']] = None,
+                 storage_connectivity_switchless: Optional[bool] = None,
+                 storage_networks: Optional[Sequence['outputs.StorageNetworksResponse']] = None):
+        """
+        The HostNetwork of a cluster.
+        :param bool enable_storage_auto_ip: Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
+        :param Sequence['IntentsResponse'] intents: The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
+        :param bool storage_connectivity_switchless: Defines how the storage adapters between nodes are connected either switch or switch less..
+        :param Sequence['StorageNetworksResponse'] storage_networks: List of StorageNetworks config to deploy AzureStackHCI Cluster.
+        """
+        if enable_storage_auto_ip is None:
+            enable_storage_auto_ip = False
+        if enable_storage_auto_ip is not None:
+            pulumi.set(__self__, "enable_storage_auto_ip", enable_storage_auto_ip)
+        if intents is not None:
+            pulumi.set(__self__, "intents", intents)
+        if storage_connectivity_switchless is None:
+            storage_connectivity_switchless = False
+        if storage_connectivity_switchless is not None:
+            pulumi.set(__self__, "storage_connectivity_switchless", storage_connectivity_switchless)
+        if storage_networks is not None:
+            pulumi.set(__self__, "storage_networks", storage_networks)
+
+    @property
+    @pulumi.getter(name="enableStorageAutoIp")
+    def enable_storage_auto_ip(self) -> Optional[bool]:
+        """
+        Optional parameter required only for 3 Nodes Switchless deployments. This allows users to specify IPs and Mask for Storage NICs when Network ATC is not assigning the IPs for storage automatically.
+        """
+        return pulumi.get(self, "enable_storage_auto_ip")
+
+    @property
+    @pulumi.getter
+    def intents(self) -> Optional[Sequence['outputs.IntentsResponse']]:
+        """
+        The network intents assigned to the network reference pattern used for the deployment. Each intent will define its own name, traffic type, adapter names, and overrides as recommended by your OEM.
+        """
+        return pulumi.get(self, "intents")
+
+    @property
+    @pulumi.getter(name="storageConnectivitySwitchless")
+    def storage_connectivity_switchless(self) -> Optional[bool]:
+        """
+        Defines how the storage adapters between nodes are connected either switch or switch less..
+        """
+        return pulumi.get(self, "storage_connectivity_switchless")
+
+    @property
+    @pulumi.getter(name="storageNetworks")
+    def storage_networks(self) -> Optional[Sequence['outputs.StorageNetworksResponse']]:
+        """
+        List of StorageNetworks config to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "storage_networks")
+
+
+@pulumi.output_type
 class HttpProxyConfigurationResponse(dict):
     """
     HTTP Proxy configuration for the VM.
@@ -1815,6 +2408,100 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
+class InfrastructureNetworkResponse(dict):
+    """
+    The InfrastructureNetwork of a AzureStackHCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "ipPools":
+            suggest = "ip_pools"
+        elif key == "subnetMask":
+            suggest = "subnet_mask"
+        elif key == "useDhcp":
+            suggest = "use_dhcp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_servers: Optional[Sequence[str]] = None,
+                 gateway: Optional[str] = None,
+                 ip_pools: Optional[Sequence['outputs.IpPoolsResponse']] = None,
+                 subnet_mask: Optional[str] = None,
+                 use_dhcp: Optional[bool] = None):
+        """
+        The InfrastructureNetwork of a AzureStackHCI Cluster.
+        :param Sequence[str] dns_servers: IPv4 address of the DNS servers in your environment.
+        :param str gateway: Default gateway that should be used for the provided IP address space.
+        :param Sequence['IpPoolsResponse'] ip_pools: Range of IP addresses from which addresses are allocated for nodes within a subnet.
+        :param str subnet_mask: Subnet mask that matches the provided IP address space.
+        :param bool use_dhcp: Allows customers to use DHCP for Hosts and Cluster IPs. If not declared, the deployment will default to static IPs. When true, GW and DNS servers are not required
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
+        if ip_pools is not None:
+            pulumi.set(__self__, "ip_pools", ip_pools)
+        if subnet_mask is not None:
+            pulumi.set(__self__, "subnet_mask", subnet_mask)
+        if use_dhcp is not None:
+            pulumi.set(__self__, "use_dhcp", use_dhcp)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        """
+        IPv4 address of the DNS servers in your environment.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[str]:
+        """
+        Default gateway that should be used for the provided IP address space.
+        """
+        return pulumi.get(self, "gateway")
+
+    @property
+    @pulumi.getter(name="ipPools")
+    def ip_pools(self) -> Optional[Sequence['outputs.IpPoolsResponse']]:
+        """
+        Range of IP addresses from which addresses are allocated for nodes within a subnet.
+        """
+        return pulumi.get(self, "ip_pools")
+
+    @property
+    @pulumi.getter(name="subnetMask")
+    def subnet_mask(self) -> Optional[str]:
+        """
+        Subnet mask that matches the provided IP address space.
+        """
+        return pulumi.get(self, "subnet_mask")
+
+    @property
+    @pulumi.getter(name="useDhcp")
+    def use_dhcp(self) -> Optional[bool]:
+        """
+        Allows customers to use DHCP for Hosts and Cluster IPs. If not declared, the deployment will default to static IPs. When true, GW and DNS servers are not required
+        """
+        return pulumi.get(self, "use_dhcp")
+
+
+@pulumi.output_type
 class InstanceViewStatusResponse(dict):
     """
     Instance view status.
@@ -1903,6 +2590,160 @@ class InstanceViewStatusResponse(dict):
 
 
 @pulumi.output_type
+class IntentsResponse(dict):
+    """
+    The Intents of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adapterPropertyOverrides":
+            suggest = "adapter_property_overrides"
+        elif key == "overrideAdapterProperty":
+            suggest = "override_adapter_property"
+        elif key == "overrideQosPolicy":
+            suggest = "override_qos_policy"
+        elif key == "overrideVirtualSwitchConfiguration":
+            suggest = "override_virtual_switch_configuration"
+        elif key == "qosPolicyOverrides":
+            suggest = "qos_policy_overrides"
+        elif key == "trafficType":
+            suggest = "traffic_type"
+        elif key == "virtualSwitchConfigurationOverrides":
+            suggest = "virtual_switch_configuration_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntentsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntentsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntentsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 adapter: Optional[Sequence[str]] = None,
+                 adapter_property_overrides: Optional['outputs.AdapterPropertyOverridesResponse'] = None,
+                 name: Optional[str] = None,
+                 override_adapter_property: Optional[bool] = None,
+                 override_qos_policy: Optional[bool] = None,
+                 override_virtual_switch_configuration: Optional[bool] = None,
+                 qos_policy_overrides: Optional['outputs.QosPolicyOverridesResponse'] = None,
+                 traffic_type: Optional[Sequence[str]] = None,
+                 virtual_switch_configuration_overrides: Optional['outputs.VirtualSwitchConfigurationOverridesResponse'] = None):
+        """
+        The Intents of a cluster.
+        :param Sequence[str] adapter: Array of network interfaces used for the network intent.
+        :param 'AdapterPropertyOverridesResponse' adapter_property_overrides: Set Adapter PropertyOverrides for cluster.
+        :param str name: Name of the network intent you wish to create.
+        :param bool override_adapter_property: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param bool override_qos_policy: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param bool override_virtual_switch_configuration: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param 'QosPolicyOverridesResponse' qos_policy_overrides: Set QoS PolicyOverrides for cluster.
+        :param Sequence[str] traffic_type: List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
+        :param 'VirtualSwitchConfigurationOverridesResponse' virtual_switch_configuration_overrides: Set virtualSwitch ConfigurationOverrides for cluster.
+        """
+        if adapter is not None:
+            pulumi.set(__self__, "adapter", adapter)
+        if adapter_property_overrides is not None:
+            pulumi.set(__self__, "adapter_property_overrides", adapter_property_overrides)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if override_adapter_property is None:
+            override_adapter_property = False
+        if override_adapter_property is not None:
+            pulumi.set(__self__, "override_adapter_property", override_adapter_property)
+        if override_qos_policy is None:
+            override_qos_policy = False
+        if override_qos_policy is not None:
+            pulumi.set(__self__, "override_qos_policy", override_qos_policy)
+        if override_virtual_switch_configuration is None:
+            override_virtual_switch_configuration = False
+        if override_virtual_switch_configuration is not None:
+            pulumi.set(__self__, "override_virtual_switch_configuration", override_virtual_switch_configuration)
+        if qos_policy_overrides is not None:
+            pulumi.set(__self__, "qos_policy_overrides", qos_policy_overrides)
+        if traffic_type is not None:
+            pulumi.set(__self__, "traffic_type", traffic_type)
+        if virtual_switch_configuration_overrides is not None:
+            pulumi.set(__self__, "virtual_switch_configuration_overrides", virtual_switch_configuration_overrides)
+
+    @property
+    @pulumi.getter
+    def adapter(self) -> Optional[Sequence[str]]:
+        """
+        Array of network interfaces used for the network intent.
+        """
+        return pulumi.get(self, "adapter")
+
+    @property
+    @pulumi.getter(name="adapterPropertyOverrides")
+    def adapter_property_overrides(self) -> Optional['outputs.AdapterPropertyOverridesResponse']:
+        """
+        Set Adapter PropertyOverrides for cluster.
+        """
+        return pulumi.get(self, "adapter_property_overrides")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the network intent you wish to create.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="overrideAdapterProperty")
+    def override_adapter_property(self) -> Optional[bool]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_adapter_property")
+
+    @property
+    @pulumi.getter(name="overrideQosPolicy")
+    def override_qos_policy(self) -> Optional[bool]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_qos_policy")
+
+    @property
+    @pulumi.getter(name="overrideVirtualSwitchConfiguration")
+    def override_virtual_switch_configuration(self) -> Optional[bool]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "override_virtual_switch_configuration")
+
+    @property
+    @pulumi.getter(name="qosPolicyOverrides")
+    def qos_policy_overrides(self) -> Optional['outputs.QosPolicyOverridesResponse']:
+        """
+        Set QoS PolicyOverrides for cluster.
+        """
+        return pulumi.get(self, "qos_policy_overrides")
+
+    @property
+    @pulumi.getter(name="trafficType")
+    def traffic_type(self) -> Optional[Sequence[str]]:
+        """
+        List of network traffic types. Only allowed values are 'Compute', 'Storage', 'Management'.
+        """
+        return pulumi.get(self, "traffic_type")
+
+    @property
+    @pulumi.getter(name="virtualSwitchConfigurationOverrides")
+    def virtual_switch_configuration_overrides(self) -> Optional['outputs.VirtualSwitchConfigurationOverridesResponse']:
+        """
+        Set virtualSwitch ConfigurationOverrides for cluster.
+        """
+        return pulumi.get(self, "virtual_switch_configuration_overrides")
+
+
+@pulumi.output_type
 class InterfaceDNSSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1936,6 +2777,60 @@ class InterfaceDNSSettingsResponse(dict):
         List of DNS server IP Addresses for the interface
         """
         return pulumi.get(self, "dns_servers")
+
+
+@pulumi.output_type
+class IpPoolsResponse(dict):
+    """
+    The dnsServers of a device.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endingAddress":
+            suggest = "ending_address"
+        elif key == "startingAddress":
+            suggest = "starting_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpPoolsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpPoolsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpPoolsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ending_address: Optional[str] = None,
+                 starting_address: Optional[str] = None):
+        """
+        The dnsServers of a device.
+        :param str ending_address: Ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
+        :param str starting_address: Starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
+        """
+        if ending_address is not None:
+            pulumi.set(__self__, "ending_address", ending_address)
+        if starting_address is not None:
+            pulumi.set(__self__, "starting_address", starting_address)
+
+    @property
+    @pulumi.getter(name="endingAddress")
+    def ending_address(self) -> Optional[str]:
+        """
+        Ending IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
+        """
+        return pulumi.get(self, "ending_address")
+
+    @property
+    @pulumi.getter(name="startingAddress")
+    def starting_address(self) -> Optional[str]:
+        """
+        Starting IP address for the management network. A minimum of six free, contiguous IPv4 addresses (excluding your host IPs) are needed for infrastructure services such as clustering.
+        """
+        return pulumi.get(self, "starting_address")
 
 
 @pulumi.output_type
@@ -2539,6 +3434,271 @@ class NetworkInterfaceStatusResponseProvisioningStatus(dict):
 
 
 @pulumi.output_type
+class NicDetailResponse(dict):
+    """
+    The NIC Detail of a device.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adapterName":
+            suggest = "adapter_name"
+        elif key == "componentId":
+            suggest = "component_id"
+        elif key == "defaultGateway":
+            suggest = "default_gateway"
+        elif key == "defaultIsolationId":
+            suggest = "default_isolation_id"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "driverVersion":
+            suggest = "driver_version"
+        elif key == "interfaceDescription":
+            suggest = "interface_description"
+        elif key == "ip4Address":
+            suggest = "ip4_address"
+        elif key == "subnetMask":
+            suggest = "subnet_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NicDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NicDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NicDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 adapter_name: str,
+                 component_id: Optional[str] = None,
+                 default_gateway: Optional[str] = None,
+                 default_isolation_id: Optional[str] = None,
+                 dns_servers: Optional[Sequence[str]] = None,
+                 driver_version: Optional[str] = None,
+                 interface_description: Optional[str] = None,
+                 ip4_address: Optional[str] = None,
+                 subnet_mask: Optional[str] = None):
+        """
+        The NIC Detail of a device.
+        :param str adapter_name: Adapter Name of NIC
+        :param str component_id: Component Id of NIC
+        :param str default_gateway: Default Gateway of NIC
+        :param str default_isolation_id: Default Isolation of Management NIC
+        :param Sequence[str] dns_servers: DNS Servers for NIC
+        :param str driver_version: Driver Version of NIC
+        :param str interface_description: Interface Description of NIC
+        :param str ip4_address: Subnet Mask of NIC
+        :param str subnet_mask: Subnet Mask of NIC
+        """
+        pulumi.set(__self__, "adapter_name", adapter_name)
+        if component_id is not None:
+            pulumi.set(__self__, "component_id", component_id)
+        if default_gateway is not None:
+            pulumi.set(__self__, "default_gateway", default_gateway)
+        if default_isolation_id is not None:
+            pulumi.set(__self__, "default_isolation_id", default_isolation_id)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if driver_version is not None:
+            pulumi.set(__self__, "driver_version", driver_version)
+        if interface_description is not None:
+            pulumi.set(__self__, "interface_description", interface_description)
+        if ip4_address is not None:
+            pulumi.set(__self__, "ip4_address", ip4_address)
+        if subnet_mask is not None:
+            pulumi.set(__self__, "subnet_mask", subnet_mask)
+
+    @property
+    @pulumi.getter(name="adapterName")
+    def adapter_name(self) -> str:
+        """
+        Adapter Name of NIC
+        """
+        return pulumi.get(self, "adapter_name")
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> Optional[str]:
+        """
+        Component Id of NIC
+        """
+        return pulumi.get(self, "component_id")
+
+    @property
+    @pulumi.getter(name="defaultGateway")
+    def default_gateway(self) -> Optional[str]:
+        """
+        Default Gateway of NIC
+        """
+        return pulumi.get(self, "default_gateway")
+
+    @property
+    @pulumi.getter(name="defaultIsolationId")
+    def default_isolation_id(self) -> Optional[str]:
+        """
+        Default Isolation of Management NIC
+        """
+        return pulumi.get(self, "default_isolation_id")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        """
+        DNS Servers for NIC
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> Optional[str]:
+        """
+        Driver Version of NIC
+        """
+        return pulumi.get(self, "driver_version")
+
+    @property
+    @pulumi.getter(name="interfaceDescription")
+    def interface_description(self) -> Optional[str]:
+        """
+        Interface Description of NIC
+        """
+        return pulumi.get(self, "interface_description")
+
+    @property
+    @pulumi.getter(name="ip4Address")
+    def ip4_address(self) -> Optional[str]:
+        """
+        Subnet Mask of NIC
+        """
+        return pulumi.get(self, "ip4_address")
+
+    @property
+    @pulumi.getter(name="subnetMask")
+    def subnet_mask(self) -> Optional[str]:
+        """
+        Subnet Mask of NIC
+        """
+        return pulumi.get(self, "subnet_mask")
+
+
+@pulumi.output_type
+class ObservabilityResponse(dict):
+    """
+    The Observability of AzureStackHCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "episodicDataUpload":
+            suggest = "episodic_data_upload"
+        elif key == "euLocation":
+            suggest = "eu_location"
+        elif key == "streamingDataClient":
+            suggest = "streaming_data_client"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ObservabilityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ObservabilityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ObservabilityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 episodic_data_upload: Optional[bool] = None,
+                 eu_location: Optional[bool] = None,
+                 streaming_data_client: Optional[bool] = None):
+        """
+        The Observability of AzureStackHCI Cluster.
+        :param bool episodic_data_upload: When set to true, collects log data to facilitate quicker issue resolution.
+        :param bool eu_location: Location of your cluster. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to false results in all data sent to Microsoft to be stored outside of the EU.
+        :param bool streaming_data_client: Enables telemetry data to be sent to Microsoft
+        """
+        if episodic_data_upload is None:
+            episodic_data_upload = True
+        if episodic_data_upload is not None:
+            pulumi.set(__self__, "episodic_data_upload", episodic_data_upload)
+        if eu_location is None:
+            eu_location = False
+        if eu_location is not None:
+            pulumi.set(__self__, "eu_location", eu_location)
+        if streaming_data_client is None:
+            streaming_data_client = True
+        if streaming_data_client is not None:
+            pulumi.set(__self__, "streaming_data_client", streaming_data_client)
+
+    @property
+    @pulumi.getter(name="episodicDataUpload")
+    def episodic_data_upload(self) -> Optional[bool]:
+        """
+        When set to true, collects log data to facilitate quicker issue resolution.
+        """
+        return pulumi.get(self, "episodic_data_upload")
+
+    @property
+    @pulumi.getter(name="euLocation")
+    def eu_location(self) -> Optional[bool]:
+        """
+        Location of your cluster. The log and diagnostic data is sent to the appropriate diagnostics servers depending upon where your cluster resides. Setting this to false results in all data sent to Microsoft to be stored outside of the EU.
+        """
+        return pulumi.get(self, "eu_location")
+
+    @property
+    @pulumi.getter(name="streamingDataClient")
+    def streaming_data_client(self) -> Optional[bool]:
+        """
+        Enables telemetry data to be sent to Microsoft
+        """
+        return pulumi.get(self, "streaming_data_client")
+
+
+@pulumi.output_type
+class OptionalServicesResponse(dict):
+    """
+    The OptionalServices of AzureStackHCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customLocation":
+            suggest = "custom_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OptionalServicesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OptionalServicesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OptionalServicesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_location: Optional[str] = None):
+        """
+        The OptionalServices of AzureStackHCI Cluster.
+        :param str custom_location: The name of custom location.
+        """
+        if custom_location is not None:
+            pulumi.set(__self__, "custom_location", custom_location)
+
+    @property
+    @pulumi.getter(name="customLocation")
+    def custom_location(self) -> Optional[str]:
+        """
+        The name of custom location.
+        """
+        return pulumi.get(self, "custom_location")
+
+
+@pulumi.output_type
 class PerNodeExtensionStateResponse(dict):
     """
     Status of Arc Extension for a particular node in HCI Cluster.
@@ -2685,6 +3845,178 @@ class PerNodeStateResponse(dict):
 
 
 @pulumi.output_type
+class PhysicalNodesResponse(dict):
+    """
+    The PhysicalNodes of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipv4Address":
+            suggest = "ipv4_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PhysicalNodesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PhysicalNodesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PhysicalNodesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4_address: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        The PhysicalNodes of a cluster.
+        :param str ipv4_address: The IPv4 address assigned to each physical server on your Azure Stack HCI cluster.
+        :param str name: NETBIOS name of each physical server on your Azure Stack HCI cluster.
+        """
+        if ipv4_address is not None:
+            pulumi.set(__self__, "ipv4_address", ipv4_address)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="ipv4Address")
+    def ipv4_address(self) -> Optional[str]:
+        """
+        The IPv4 address assigned to each physical server on your Azure Stack HCI cluster.
+        """
+        return pulumi.get(self, "ipv4_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        NETBIOS name of each physical server on your Azure Stack HCI cluster.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class QosPolicyOverridesResponse(dict):
+    """
+    The QoSPolicyOverrides of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bandwidthPercentageSMB":
+            suggest = "bandwidth_percentage_smb"
+        elif key == "priorityValue8021ActionCluster":
+            suggest = "priority_value8021_action_cluster"
+        elif key == "priorityValue8021ActionSMB":
+            suggest = "priority_value8021_action_smb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QosPolicyOverridesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QosPolicyOverridesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QosPolicyOverridesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bandwidth_percentage_smb: Optional[str] = None,
+                 priority_value8021_action_cluster: Optional[str] = None,
+                 priority_value8021_action_smb: Optional[str] = None):
+        """
+        The QoSPolicyOverrides of a cluster.
+        :param str bandwidth_percentage_smb: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param str priority_value8021_action_cluster: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        :param str priority_value8021_action_smb: This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        if bandwidth_percentage_smb is not None:
+            pulumi.set(__self__, "bandwidth_percentage_smb", bandwidth_percentage_smb)
+        if priority_value8021_action_cluster is not None:
+            pulumi.set(__self__, "priority_value8021_action_cluster", priority_value8021_action_cluster)
+        if priority_value8021_action_smb is not None:
+            pulumi.set(__self__, "priority_value8021_action_smb", priority_value8021_action_smb)
+
+    @property
+    @pulumi.getter(name="bandwidthPercentageSMB")
+    def bandwidth_percentage_smb(self) -> Optional[str]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "bandwidth_percentage_smb")
+
+    @property
+    @pulumi.getter(name="priorityValue8021ActionCluster")
+    def priority_value8021_action_cluster(self) -> Optional[str]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "priority_value8021_action_cluster")
+
+    @property
+    @pulumi.getter(name="priorityValue8021ActionSMB")
+    def priority_value8021_action_smb(self) -> Optional[str]:
+        """
+        This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation.
+        """
+        return pulumi.get(self, "priority_value8021_action_smb")
+
+
+@pulumi.output_type
+class ReportedPropertiesResponse(dict):
+    """
+    The DeploymentStatus of AzureStackHCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentStatus":
+            suggest = "deployment_status"
+        elif key == "validationStatus":
+            suggest = "validation_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReportedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReportedPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReportedPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_status: 'outputs.DeploymentStatusResponse',
+                 validation_status: 'outputs.ValidationStatusResponse'):
+        """
+        The DeploymentStatus of AzureStackHCI Cluster.
+        :param 'DeploymentStatusResponse' deployment_status: Deployment status of AzureStackHCI Cluster Deployment.
+        :param 'ValidationStatusResponse' validation_status: validation status of AzureStackHCI Cluster Deployment.
+        """
+        pulumi.set(__self__, "deployment_status", deployment_status)
+        pulumi.set(__self__, "validation_status", validation_status)
+
+    @property
+    @pulumi.getter(name="deploymentStatus")
+    def deployment_status(self) -> 'outputs.DeploymentStatusResponse':
+        """
+        Deployment status of AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> 'outputs.ValidationStatusResponse':
+        """
+        validation status of AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "validation_status")
+
+
+@pulumi.output_type
 class RouteResponse(dict):
     """
     Route - Route resource.
@@ -2804,6 +4136,231 @@ class RouteTableResponse(dict):
         Collection of routes contained within a route table.
         """
         return pulumi.get(self, "routes")
+
+
+@pulumi.output_type
+class ScaleUnitsResponse(dict):
+    """
+    Scale units will contains list of deployment data
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentData":
+            suggest = "deployment_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleUnitsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleUnitsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleUnitsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_data: 'outputs.DeploymentDataResponse'):
+        """
+        Scale units will contains list of deployment data
+        :param 'DeploymentDataResponse' deployment_data: Deployment Data to deploy AzureStackHCI Cluster.
+        """
+        pulumi.set(__self__, "deployment_data", deployment_data)
+
+    @property
+    @pulumi.getter(name="deploymentData")
+    def deployment_data(self) -> 'outputs.DeploymentDataResponse':
+        """
+        Deployment Data to deploy AzureStackHCI Cluster.
+        """
+        return pulumi.get(self, "deployment_data")
+
+
+@pulumi.output_type
+class SecuritySettingsResponse(dict):
+    """
+    The SecuritySettings of AzureStackHCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bitlockerBootVolume":
+            suggest = "bitlocker_boot_volume"
+        elif key == "bitlockerDataVolumes":
+            suggest = "bitlocker_data_volumes"
+        elif key == "credentialGuardEnforced":
+            suggest = "credential_guard_enforced"
+        elif key == "driftControlEnforced":
+            suggest = "drift_control_enforced"
+        elif key == "drtmProtection":
+            suggest = "drtm_protection"
+        elif key == "hvciProtection":
+            suggest = "hvci_protection"
+        elif key == "sideChannelMitigationEnforced":
+            suggest = "side_channel_mitigation_enforced"
+        elif key == "smbClusterEncryption":
+            suggest = "smb_cluster_encryption"
+        elif key == "smbSigningEnforced":
+            suggest = "smb_signing_enforced"
+        elif key == "wdacEnforced":
+            suggest = "wdac_enforced"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecuritySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecuritySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecuritySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bitlocker_boot_volume: Optional[bool] = None,
+                 bitlocker_data_volumes: Optional[bool] = None,
+                 credential_guard_enforced: Optional[bool] = None,
+                 drift_control_enforced: Optional[bool] = None,
+                 drtm_protection: Optional[bool] = None,
+                 hvci_protection: Optional[bool] = None,
+                 side_channel_mitigation_enforced: Optional[bool] = None,
+                 smb_cluster_encryption: Optional[bool] = None,
+                 smb_signing_enforced: Optional[bool] = None,
+                 wdac_enforced: Optional[bool] = None):
+        """
+        The SecuritySettings of AzureStackHCI Cluster.
+        :param bool bitlocker_boot_volume: When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. 
+        :param bool bitlocker_data_volumes: When set to true, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes.
+        :param bool credential_guard_enforced: When set to true, Credential Guard is enabled.
+        :param bool drift_control_enforced: When set to true, the security baseline is re-applied regularly.
+        :param bool drtm_protection: By default, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent.
+        :param bool hvci_protection: By default, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster.
+        :param bool side_channel_mitigation_enforced: When set to true, all the side channel mitigations are enabled
+        :param bool smb_cluster_encryption: When set to true, cluster east-west traffic is encrypted.
+        :param bool smb_signing_enforced: When set to true, the SMB default instance requires sign in for the client and server services.
+        :param bool wdac_enforced: WDAC is enabled by default and limits the applications and the code that you can run on your Azure Stack HCI cluster.
+        """
+        if bitlocker_boot_volume is None:
+            bitlocker_boot_volume = True
+        if bitlocker_boot_volume is not None:
+            pulumi.set(__self__, "bitlocker_boot_volume", bitlocker_boot_volume)
+        if bitlocker_data_volumes is None:
+            bitlocker_data_volumes = True
+        if bitlocker_data_volumes is not None:
+            pulumi.set(__self__, "bitlocker_data_volumes", bitlocker_data_volumes)
+        if credential_guard_enforced is None:
+            credential_guard_enforced = False
+        if credential_guard_enforced is not None:
+            pulumi.set(__self__, "credential_guard_enforced", credential_guard_enforced)
+        if drift_control_enforced is None:
+            drift_control_enforced = True
+        if drift_control_enforced is not None:
+            pulumi.set(__self__, "drift_control_enforced", drift_control_enforced)
+        if drtm_protection is None:
+            drtm_protection = True
+        if drtm_protection is not None:
+            pulumi.set(__self__, "drtm_protection", drtm_protection)
+        if hvci_protection is None:
+            hvci_protection = True
+        if hvci_protection is not None:
+            pulumi.set(__self__, "hvci_protection", hvci_protection)
+        if side_channel_mitigation_enforced is None:
+            side_channel_mitigation_enforced = True
+        if side_channel_mitigation_enforced is not None:
+            pulumi.set(__self__, "side_channel_mitigation_enforced", side_channel_mitigation_enforced)
+        if smb_cluster_encryption is None:
+            smb_cluster_encryption = False
+        if smb_cluster_encryption is not None:
+            pulumi.set(__self__, "smb_cluster_encryption", smb_cluster_encryption)
+        if smb_signing_enforced is None:
+            smb_signing_enforced = True
+        if smb_signing_enforced is not None:
+            pulumi.set(__self__, "smb_signing_enforced", smb_signing_enforced)
+        if wdac_enforced is None:
+            wdac_enforced = True
+        if wdac_enforced is not None:
+            pulumi.set(__self__, "wdac_enforced", wdac_enforced)
+
+    @property
+    @pulumi.getter(name="bitlockerBootVolume")
+    def bitlocker_boot_volume(self) -> Optional[bool]:
+        """
+        When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. 
+        """
+        return pulumi.get(self, "bitlocker_boot_volume")
+
+    @property
+    @pulumi.getter(name="bitlockerDataVolumes")
+    def bitlocker_data_volumes(self) -> Optional[bool]:
+        """
+        When set to true, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes.
+        """
+        return pulumi.get(self, "bitlocker_data_volumes")
+
+    @property
+    @pulumi.getter(name="credentialGuardEnforced")
+    def credential_guard_enforced(self) -> Optional[bool]:
+        """
+        When set to true, Credential Guard is enabled.
+        """
+        return pulumi.get(self, "credential_guard_enforced")
+
+    @property
+    @pulumi.getter(name="driftControlEnforced")
+    def drift_control_enforced(self) -> Optional[bool]:
+        """
+        When set to true, the security baseline is re-applied regularly.
+        """
+        return pulumi.get(self, "drift_control_enforced")
+
+    @property
+    @pulumi.getter(name="drtmProtection")
+    def drtm_protection(self) -> Optional[bool]:
+        """
+        By default, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent.
+        """
+        return pulumi.get(self, "drtm_protection")
+
+    @property
+    @pulumi.getter(name="hvciProtection")
+    def hvci_protection(self) -> Optional[bool]:
+        """
+        By default, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster.
+        """
+        return pulumi.get(self, "hvci_protection")
+
+    @property
+    @pulumi.getter(name="sideChannelMitigationEnforced")
+    def side_channel_mitigation_enforced(self) -> Optional[bool]:
+        """
+        When set to true, all the side channel mitigations are enabled
+        """
+        return pulumi.get(self, "side_channel_mitigation_enforced")
+
+    @property
+    @pulumi.getter(name="smbClusterEncryption")
+    def smb_cluster_encryption(self) -> Optional[bool]:
+        """
+        When set to true, cluster east-west traffic is encrypted.
+        """
+        return pulumi.get(self, "smb_cluster_encryption")
+
+    @property
+    @pulumi.getter(name="smbSigningEnforced")
+    def smb_signing_enforced(self) -> Optional[bool]:
+        """
+        When set to true, the SMB default instance requires sign in for the client and server services.
+        """
+        return pulumi.get(self, "smb_signing_enforced")
+
+    @property
+    @pulumi.getter(name="wdacEnforced")
+    def wdac_enforced(self) -> Optional[bool]:
+        """
+        WDAC is enabled by default and limits the applications and the code that you can run on your Azure Stack HCI cluster.
+        """
+        return pulumi.get(self, "wdac_enforced")
 
 
 @pulumi.output_type
@@ -2977,6 +4534,8 @@ class StepResponse(dict):
             suggest = "end_time_utc"
         elif key == "errorMessage":
             suggest = "error_message"
+        elif key == "fullStepIndex":
+            suggest = "full_step_index"
         elif key == "lastUpdatedTimeUtc":
             suggest = "last_updated_time_utc"
         elif key == "startTimeUtc":
@@ -2997,6 +4556,8 @@ class StepResponse(dict):
                  description: Optional[str] = None,
                  end_time_utc: Optional[str] = None,
                  error_message: Optional[str] = None,
+                 exception: Optional[Sequence[str]] = None,
+                 full_step_index: Optional[str] = None,
                  last_updated_time_utc: Optional[str] = None,
                  name: Optional[str] = None,
                  start_time_utc: Optional[str] = None,
@@ -3007,6 +4568,8 @@ class StepResponse(dict):
         :param str description: More detailed description of the step.
         :param str end_time_utc: When the step reached a terminal state.
         :param str error_message: Error message, specified if the step is in a failed state.
+        :param Sequence[str] exception: List of exceptions in AzureStackHCI Cluster Deployment.
+        :param str full_step_index: FullStepIndex of step.
         :param str last_updated_time_utc: Completion time of this step or the last completed sub-step.
         :param str name: Name of the step.
         :param str start_time_utc: When the step started, or empty if it has not started executing.
@@ -3019,6 +4582,10 @@ class StepResponse(dict):
             pulumi.set(__self__, "end_time_utc", end_time_utc)
         if error_message is not None:
             pulumi.set(__self__, "error_message", error_message)
+        if exception is not None:
+            pulumi.set(__self__, "exception", exception)
+        if full_step_index is not None:
+            pulumi.set(__self__, "full_step_index", full_step_index)
         if last_updated_time_utc is not None:
             pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
         if name is not None:
@@ -3053,6 +4620,22 @@ class StepResponse(dict):
         Error message, specified if the step is in a failed state.
         """
         return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def exception(self) -> Optional[Sequence[str]]:
+        """
+        List of exceptions in AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "exception")
+
+    @property
+    @pulumi.getter(name="fullStepIndex")
+    def full_step_index(self) -> Optional[str]:
+        """
+        FullStepIndex of step.
+        """
+        return pulumi.get(self, "full_step_index")
 
     @property
     @pulumi.getter(name="lastUpdatedTimeUtc")
@@ -3233,6 +4816,114 @@ class StorageContainerStatusResponseProvisioningStatus(dict):
         The status of the operation performed on the storage container [Succeeded, Failed, InProgress]
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class StorageNetworksResponse(dict):
+    """
+    The StorageNetworks of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkAdapterName":
+            suggest = "network_adapter_name"
+        elif key == "vlanId":
+            suggest = "vlan_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageNetworksResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageNetworksResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageNetworksResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 network_adapter_name: Optional[str] = None,
+                 vlan_id: Optional[str] = None):
+        """
+        The StorageNetworks of a cluster.
+        :param str name: Name of the storage network.
+        :param str network_adapter_name: Name of the storage network adapter.
+        :param str vlan_id: ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_adapter_name is not None:
+            pulumi.set(__self__, "network_adapter_name", network_adapter_name)
+        if vlan_id is not None:
+            pulumi.set(__self__, "vlan_id", vlan_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the storage network.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAdapterName")
+    def network_adapter_name(self) -> Optional[str]:
+        """
+        Name of the storage network adapter.
+        """
+        return pulumi.get(self, "network_adapter_name")
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> Optional[str]:
+        """
+        ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        """
+        return pulumi.get(self, "vlan_id")
+
+
+@pulumi.output_type
+class StorageResponse(dict):
+    """
+    The Storage config of AzureStackHCI Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationMode":
+            suggest = "configuration_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_mode: Optional[str] = None):
+        """
+        The Storage config of AzureStackHCI Cluster.
+        :param str configuration_mode: By default, this mode is set to Express and your storage is configured as per best practices based on the number of nodes in the cluster. Allowed values are 'Express','InfraOnly', 'KeepStorage'
+        """
+        if configuration_mode is None:
+            configuration_mode = 'Express'
+        if configuration_mode is not None:
+            pulumi.set(__self__, "configuration_mode", configuration_mode)
+
+    @property
+    @pulumi.getter(name="configurationMode")
+    def configuration_mode(self) -> Optional[str]:
+        """
+        By default, this mode is set to Express and your storage is configured as per best practices based on the number of nodes in the cluster. Allowed values are 'Express','InfraOnly', 'KeepStorage'
+        """
+        return pulumi.get(self, "configuration_mode")
 
 
 @pulumi.output_type
@@ -3614,6 +5305,39 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class ValidationStatusResponse(dict):
+    """
+    The ValidationStatus of AzureStackHCI Cluster.
+    """
+    def __init__(__self__, *,
+                 status: str,
+                 steps: Sequence['outputs.StepResponse']):
+        """
+        The ValidationStatus of AzureStackHCI Cluster.
+        :param str status: Status of AzureStackHCI Cluster Deployment.
+        :param Sequence['StepResponse'] steps: List of steps of AzureStackHCI Cluster Deployment.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "steps", steps)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def steps(self) -> Sequence['outputs.StepResponse']:
+        """
+        List of steps of AzureStackHCI Cluster Deployment.
+        """
+        return pulumi.get(self, "steps")
 
 
 @pulumi.output_type
@@ -6073,5 +7797,59 @@ class VirtualNetworkStatusResponseProvisioningStatus(dict):
         The status of the operation performed on the virtual network [Succeeded, Failed, InProgress]
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class VirtualSwitchConfigurationOverridesResponse(dict):
+    """
+    The VirtualSwitchConfigurationOverrides of a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableIov":
+            suggest = "enable_iov"
+        elif key == "loadBalancingAlgorithm":
+            suggest = "load_balancing_algorithm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualSwitchConfigurationOverridesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualSwitchConfigurationOverridesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualSwitchConfigurationOverridesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_iov: Optional[str] = None,
+                 load_balancing_algorithm: Optional[str] = None):
+        """
+        The VirtualSwitchConfigurationOverrides of a cluster.
+        :param str enable_iov: Enable IoV for Virtual Switch
+        :param str load_balancing_algorithm: Load Balancing Algorithm for Virtual Switch
+        """
+        if enable_iov is not None:
+            pulumi.set(__self__, "enable_iov", enable_iov)
+        if load_balancing_algorithm is not None:
+            pulumi.set(__self__, "load_balancing_algorithm", load_balancing_algorithm)
+
+    @property
+    @pulumi.getter(name="enableIov")
+    def enable_iov(self) -> Optional[str]:
+        """
+        Enable IoV for Virtual Switch
+        """
+        return pulumi.get(self, "enable_iov")
+
+    @property
+    @pulumi.getter(name="loadBalancingAlgorithm")
+    def load_balancing_algorithm(self) -> Optional[str]:
+        """
+        Load Balancing Algorithm for Virtual Switch
+        """
+        return pulumi.get(self, "load_balancing_algorithm")
 
 

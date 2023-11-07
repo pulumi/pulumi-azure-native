@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
+        /// (Deprecated) Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
+        /// </summary>
+        public readonly object? ConnectionProperties;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -57,9 +61,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
-        /// The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/sunset-dates#timetable. Type: string (or Expression with resultType string).
+        /// The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/release-notes. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? GoogleAdsApiVersion;
+        /// <summary>
+        /// (Deprecated) The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? KeyFilePath;
         /// <summary>
         /// The customer ID of the Google Ads Manager account through which you want to fetch report data of specific Customer. Type: string (or Expression with resultType string).
         /// </summary>
@@ -81,10 +89,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? SupportLegacyDataTypes;
         /// <summary>
+        /// (Deprecated) The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? TrustedCertPath;
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'GoogleAdWords'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// (Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? UseSystemTrustStore;
 
         [OutputConstructor]
         private GoogleAdWordsLinkedServiceResponse(
@@ -100,6 +116,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
+            object? connectionProperties,
+
             string? description,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? developerToken,
@@ -109,6 +127,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             string? encryptedCredential,
 
             object? googleAdsApiVersion,
+
+            object? keyFilePath,
 
             object? loginCustomerID,
 
@@ -120,7 +140,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? supportLegacyDataTypes,
 
-            string type)
+            object? trustedCertPath,
+
+            string type,
+
+            object? useSystemTrustStore)
         {
             Annotations = annotations;
             AuthenticationType = authenticationType;
@@ -128,17 +152,21 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ClientId = clientId;
             ClientSecret = clientSecret;
             ConnectVia = connectVia;
+            ConnectionProperties = connectionProperties;
             Description = description;
             DeveloperToken = developerToken;
             Email = email;
             EncryptedCredential = encryptedCredential;
             GoogleAdsApiVersion = googleAdsApiVersion;
+            KeyFilePath = keyFilePath;
             LoginCustomerID = loginCustomerID;
             Parameters = parameters;
             PrivateKey = privateKey;
             RefreshToken = refreshToken;
             SupportLegacyDataTypes = supportLegacyDataTypes;
+            TrustedCertPath = trustedCertPath;
             Type = type;
+            UseSystemTrustStore = useSystemTrustStore;
         }
     }
 }

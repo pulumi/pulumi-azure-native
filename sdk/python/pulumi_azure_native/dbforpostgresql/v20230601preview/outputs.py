@@ -1272,8 +1272,8 @@ class ReplicaResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "linkState":
-            suggest = "link_state"
+        if key == "replicationState":
+            suggest = "replication_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ReplicaResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1288,16 +1288,16 @@ class ReplicaResponse(dict):
 
     def __init__(__self__, *,
                  capacity: int,
-                 link_state: str,
+                 replication_state: str,
                  role: Optional[str] = None):
         """
         Replica properties of a server
         :param int capacity: Replicas allowed for a server.
-        :param str link_state: Gets the link state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
+        :param str replication_state: Gets the replication state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
         :param str role: Used to indicate role of the server in replication set.
         """
         pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "link_state", link_state)
+        pulumi.set(__self__, "replication_state", replication_state)
         if role is not None:
             pulumi.set(__self__, "role", role)
 
@@ -1310,12 +1310,12 @@ class ReplicaResponse(dict):
         return pulumi.get(self, "capacity")
 
     @property
-    @pulumi.getter(name="linkState")
-    def link_state(self) -> str:
+    @pulumi.getter(name="replicationState")
+    def replication_state(self) -> str:
         """
-        Gets the link state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
+        Gets the replication state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
         """
-        return pulumi.get(self, "link_state")
+        return pulumi.get(self, "replication_state")
 
     @property
     @pulumi.getter

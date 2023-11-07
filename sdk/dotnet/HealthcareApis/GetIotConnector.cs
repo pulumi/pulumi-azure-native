@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified IoT Connector.
         /// Azure REST API version: 2023-02-28.
+        /// 
+        /// Other available API versions: 2023-09-06.
         /// </summary>
         public static Task<GetIotConnectorResult> InvokeAsync(GetIotConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotConnectorResult>("azure-native:healthcareapis:getIotConnector", args ?? new GetIotConnectorArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified IoT Connector.
         /// Azure REST API version: 2023-02-28.
+        /// 
+        /// Other available API versions: 2023-09-06.
         /// </summary>
         public static Output<GetIotConnectorResult> Invoke(GetIotConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotConnectorResult>("azure-native:healthcareapis:getIotConnector", args ?? new GetIotConnectorInvokeArgs(), options.WithDefaults());

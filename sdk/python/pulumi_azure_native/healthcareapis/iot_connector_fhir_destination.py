@@ -162,6 +162,8 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
         IoT Connector FHIR destination definition.
         Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
 
+        Other available API versions: 2023-09-06.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fhir_destination_name: The name of IoT Connector FHIR destination resource.
@@ -182,6 +184,8 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
         """
         IoT Connector FHIR destination definition.
         Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
+
+        Other available API versions: 2023-09-06.
 
         :param str resource_name: The name of the resource.
         :param IotConnectorFhirDestinationArgs args: The arguments to use to populate this resource's properties.
@@ -239,7 +243,7 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:IotConnectorFhirDestination")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:IotConnectorFhirDestination"), pulumi.Alias(type_="azure-native:healthcareapis/v20230906:IotConnectorFhirDestination")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotConnectorFhirDestination, __self__).__init__(
             'azure-native:healthcareapis:IotConnectorFhirDestination',

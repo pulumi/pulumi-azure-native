@@ -102,10 +102,12 @@ export * from "../types/enums/healthcareapis";
 // Export sub-modules:
 import * as v20221001preview from "./v20221001preview";
 import * as v20230228 from "./v20230228";
+import * as v20230906 from "./v20230906";
 
 export {
     v20221001preview,
     v20230228,
+    v20230906,
 };
 
 const _module = {

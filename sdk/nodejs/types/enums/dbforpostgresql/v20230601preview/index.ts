@@ -184,15 +184,15 @@ export const PrivateEndpointServiceConnectionStatus = {
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
-export const ReplicationPromoteMode = {
+export const ReadReplicaPromoteMode = {
     Standalone: "standalone",
-    Siteswap: "siteswap",
+    Switchover: "switchover",
 } as const;
 
 /**
  * Sets the promote mode for a replica server. This is a write only property.
  */
-export type ReplicationPromoteMode = (typeof ReplicationPromoteMode)[keyof typeof ReplicationPromoteMode];
+export type ReadReplicaPromoteMode = (typeof ReadReplicaPromoteMode)[keyof typeof ReadReplicaPromoteMode];
 
 export const ReplicationPromoteOption = {
     Planned: "planned",

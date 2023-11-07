@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230601Preview.Inputs
         /// Sets the promote mode for a replica server. This is a write only property.
         /// </summary>
         [Input("promoteMode")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20230601Preview.ReplicationPromoteMode>? PromoteMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20230601Preview.ReadReplicaPromoteMode>? PromoteMode { get; set; }
 
         /// <summary>
         /// Sets the promote options for a replica server. This is a write only property.

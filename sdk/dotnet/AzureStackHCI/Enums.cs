@@ -71,6 +71,43 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
+    /// The deployment mode for cluster deployment.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeploymentMode : IEquatable<DeploymentMode>
+    {
+        private readonly string _value;
+
+        private DeploymentMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Validate deployment settings for cluster.
+        /// </summary>
+        public static DeploymentMode Validate { get; } = new DeploymentMode("Validate");
+        /// <summary>
+        /// Deploy cluster using deployment settings.
+        /// </summary>
+        public static DeploymentMode Deploy { get; } = new DeploymentMode("Deploy");
+
+        public static bool operator ==(DeploymentMode left, DeploymentMode right) => left.Equals(right);
+        public static bool operator !=(DeploymentMode left, DeploymentMode right) => !left.Equals(right);
+
+        public static explicit operator string(DeploymentMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeploymentMode other && Equals(other);
+        public bool Equals(DeploymentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Desired level of diagnostic data emitted by the cluster.
     /// </summary>
     [EnumType]

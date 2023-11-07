@@ -583,12 +583,12 @@ class PrivateLinkServiceConnectionStateArgs:
 @pulumi.input_type
 class ReplicaArgs:
     def __init__(__self__, *,
-                 promote_mode: Optional[pulumi.Input[Union[str, 'ReplicationPromoteMode']]] = None,
+                 promote_mode: Optional[pulumi.Input[Union[str, 'ReadReplicaPromoteMode']]] = None,
                  promote_option: Optional[pulumi.Input[Union[str, 'ReplicationPromoteOption']]] = None,
                  role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None):
         """
         Replica properties of a server
-        :param pulumi.Input[Union[str, 'ReplicationPromoteMode']] promote_mode: Sets the promote mode for a replica server. This is a write only property.
+        :param pulumi.Input[Union[str, 'ReadReplicaPromoteMode']] promote_mode: Sets the promote mode for a replica server. This is a write only property.
         :param pulumi.Input[Union[str, 'ReplicationPromoteOption']] promote_option: Sets the promote options for a replica server. This is a write only property.
         :param pulumi.Input[Union[str, 'ReplicationRole']] role: Used to indicate role of the server in replication set.
         """
@@ -601,14 +601,14 @@ class ReplicaArgs:
 
     @property
     @pulumi.getter(name="promoteMode")
-    def promote_mode(self) -> Optional[pulumi.Input[Union[str, 'ReplicationPromoteMode']]]:
+    def promote_mode(self) -> Optional[pulumi.Input[Union[str, 'ReadReplicaPromoteMode']]]:
         """
         Sets the promote mode for a replica server. This is a write only property.
         """
         return pulumi.get(self, "promote_mode")
 
     @promote_mode.setter
-    def promote_mode(self, value: Optional[pulumi.Input[Union[str, 'ReplicationPromoteMode']]]):
+    def promote_mode(self, value: Optional[pulumi.Input[Union[str, 'ReadReplicaPromoteMode']]]):
         pulumi.set(self, "promote_mode", value)
 
     @property

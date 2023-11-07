@@ -529,26 +529,26 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230601Preview
     /// Sets the promote mode for a replica server. This is a write only property.
     /// </summary>
     [EnumType]
-    public readonly struct ReplicationPromoteMode : IEquatable<ReplicationPromoteMode>
+    public readonly struct ReadReplicaPromoteMode : IEquatable<ReadReplicaPromoteMode>
     {
         private readonly string _value;
 
-        private ReplicationPromoteMode(string value)
+        private ReadReplicaPromoteMode(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ReplicationPromoteMode Standalone { get; } = new ReplicationPromoteMode("standalone");
-        public static ReplicationPromoteMode Siteswap { get; } = new ReplicationPromoteMode("siteswap");
+        public static ReadReplicaPromoteMode Standalone { get; } = new ReadReplicaPromoteMode("standalone");
+        public static ReadReplicaPromoteMode Switchover { get; } = new ReadReplicaPromoteMode("switchover");
 
-        public static bool operator ==(ReplicationPromoteMode left, ReplicationPromoteMode right) => left.Equals(right);
-        public static bool operator !=(ReplicationPromoteMode left, ReplicationPromoteMode right) => !left.Equals(right);
+        public static bool operator ==(ReadReplicaPromoteMode left, ReadReplicaPromoteMode right) => left.Equals(right);
+        public static bool operator !=(ReadReplicaPromoteMode left, ReadReplicaPromoteMode right) => !left.Equals(right);
 
-        public static explicit operator string(ReplicationPromoteMode value) => value._value;
+        public static explicit operator string(ReadReplicaPromoteMode value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReplicationPromoteMode other && Equals(other);
-        public bool Equals(ReplicationPromoteMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ReadReplicaPromoteMode other && Equals(other);
+        public bool Equals(ReadReplicaPromoteMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -173,6 +173,8 @@ def get_iot_connector(iot_connector_name: Optional[str] = None,
     Gets the properties of the specified IoT Connector.
     Azure REST API version: 2023-02-28.
 
+    Other available API versions: 2023-09-06.
+
 
     :param str iot_connector_name: The name of IoT Connector resource.
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -207,6 +209,8 @@ def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = N
     """
     Gets the properties of the specified IoT Connector.
     Azure REST API version: 2023-02-28.
+
+    Other available API versions: 2023-09-06.
 
 
     :param str iot_connector_name: The name of IoT Connector resource.

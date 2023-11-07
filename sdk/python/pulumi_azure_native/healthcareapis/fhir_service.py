@@ -285,6 +285,8 @@ class FhirService(pulumi.CustomResource):
         The description of Fhir Service
         Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
 
+        Other available API versions: 2023-09-06.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceAccessPolicyEntryArgs']]]] access_policies: Fhir Service access policies.
@@ -312,6 +314,8 @@ class FhirService(pulumi.CustomResource):
         """
         The description of Fhir Service
         Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
+
+        Other available API versions: 2023-09-06.
 
         :param str resource_name: The name of the resource.
         :param FhirServiceArgs args: The arguments to use to populate this resource's properties.
@@ -379,7 +383,7 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:FhirService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20230906:FhirService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FhirService, __self__).__init__(
             'azure-native:healthcareapis:FhirService',

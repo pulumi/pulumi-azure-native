@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified FHIR Service.
         /// Azure REST API version: 2023-02-28.
+        /// 
+        /// Other available API versions: 2023-09-06.
         /// </summary>
         public static Task<GetFhirServiceResult> InvokeAsync(GetFhirServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// Gets the properties of the specified FHIR Service.
         /// Azure REST API version: 2023-02-28.
+        /// 
+        /// Other available API versions: 2023-09-06.
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());

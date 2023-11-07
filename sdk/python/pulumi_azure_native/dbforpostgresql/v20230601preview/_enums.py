@@ -21,7 +21,7 @@ __all__ = [
     'PasswordAuthEnum',
     'PrincipalType',
     'PrivateEndpointServiceConnectionStatus',
-    'ReplicationPromoteMode',
+    'ReadReplicaPromoteMode',
     'ReplicationPromoteOption',
     'ReplicationRole',
     'ServerPublicNetworkAccessState',
@@ -187,12 +187,12 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     REJECTED = "Rejected"
 
 
-class ReplicationPromoteMode(str, Enum):
+class ReadReplicaPromoteMode(str, Enum):
     """
     Sets the promote mode for a replica server. This is a write only property.
     """
     STANDALONE = "standalone"
-    SITESWAP = "siteswap"
+    SWITCHOVER = "switchover"
 
 
 class ReplicationPromoteOption(str, Enum):

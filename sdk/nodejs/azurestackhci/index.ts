@@ -15,6 +15,16 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
+export { DeploymentSettingArgs } from "./deploymentSetting";
+export type DeploymentSetting = import("./deploymentSetting").DeploymentSetting;
+export const DeploymentSetting: typeof import("./deploymentSetting").DeploymentSetting = null as any;
+utilities.lazyLoad(exports, ["DeploymentSetting"], () => require("./deploymentSetting"));
+
+export { EdgeDeviceArgs } from "./edgeDevice";
+export type EdgeDevice = import("./edgeDevice").EdgeDevice;
+export const EdgeDevice: typeof import("./edgeDevice").EdgeDevice = null as any;
+utilities.lazyLoad(exports, ["EdgeDevice"], () => require("./edgeDevice"));
+
 export { ExtensionArgs } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
@@ -34,6 +44,16 @@ export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getClu
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetDeploymentSettingArgs, GetDeploymentSettingResult, GetDeploymentSettingOutputArgs } from "./getDeploymentSetting";
+export const getDeploymentSetting: typeof import("./getDeploymentSetting").getDeploymentSetting = null as any;
+export const getDeploymentSettingOutput: typeof import("./getDeploymentSetting").getDeploymentSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentSetting","getDeploymentSettingOutput"], () => require("./getDeploymentSetting"));
+
+export { GetEdgeDeviceArgs, GetEdgeDeviceResult, GetEdgeDeviceOutputArgs } from "./getEdgeDevice";
+export const getEdgeDevice: typeof import("./getEdgeDevice").getEdgeDevice = null as any;
+export const getEdgeDeviceOutput: typeof import("./getEdgeDevice").getEdgeDeviceOutput = null as any;
+utilities.lazyLoad(exports, ["getEdgeDevice","getEdgeDeviceOutput"], () => require("./getEdgeDevice"));
 
 export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
 export const getExtension: typeof import("./getExtension").getExtension = null as any;
@@ -198,6 +218,7 @@ import * as v20230301 from "./v20230301";
 import * as v20230601 from "./v20230601";
 import * as v20230701preview from "./v20230701preview";
 import * as v20230801 from "./v20230801";
+import * as v20230801preview from "./v20230801preview";
 import * as v20230901preview from "./v20230901preview";
 
 export {
@@ -209,6 +230,7 @@ export {
     v20230601,
     v20230701preview,
     v20230801,
+    v20230801preview,
     v20230901preview,
 };
 
@@ -220,6 +242,10 @@ const _module = {
                 return new ArcSetting(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:DeploymentSetting":
+                return new DeploymentSetting(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:EdgeDevice":
+                return new EdgeDevice(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:Extension":
                 return new Extension(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:GalleryImage":

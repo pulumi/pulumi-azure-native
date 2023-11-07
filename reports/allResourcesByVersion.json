@@ -2616,6 +2616,16 @@
       "UpdateRun",
       "UpdateSummary"
     ],
+    "2023-08-01-preview": [
+      "ArcSetting",
+      "Cluster",
+      "DeploymentSetting",
+      "EdgeDevice",
+      "Extension",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
+    ],
     "2023-09-01-preview": [
       "GalleryImage",
       "GuestAgent",
@@ -8952,6 +8962,16 @@
       "WorkspacePrivateEndpointConnection"
     ],
     "2023-02-28": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
+    ],
+    "2023-09-06": [
       "DicomService",
       "FhirService",
       "IotConnector",

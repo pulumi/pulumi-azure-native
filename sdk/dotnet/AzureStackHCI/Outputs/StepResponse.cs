@@ -29,6 +29,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string? ErrorMessage;
         /// <summary>
+        /// List of exceptions in AzureStackHCI Cluster Deployment.
+        /// </summary>
+        public readonly ImmutableArray<string> Exception;
+        /// <summary>
+        /// FullStepIndex of step.
+        /// </summary>
+        public readonly string? FullStepIndex;
+        /// <summary>
         /// Completion time of this step or the last completed sub-step.
         /// </summary>
         public readonly string? LastUpdatedTimeUtc;
@@ -57,6 +65,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string? errorMessage,
 
+            ImmutableArray<string> exception,
+
+            string? fullStepIndex,
+
             string? lastUpdatedTimeUtc,
 
             string? name,
@@ -70,6 +82,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             Description = description;
             EndTimeUtc = endTimeUtc;
             ErrorMessage = errorMessage;
+            Exception = exception;
+            FullStepIndex = fullStepIndex;
             LastUpdatedTimeUtc = lastUpdatedTimeUtc;
             Name = name;
             StartTimeUtc = startTimeUtc;

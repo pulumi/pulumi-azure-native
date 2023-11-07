@@ -161,6 +161,8 @@ AzureStack:
 AzureStackHCI:
     tracking: "2023-03-01"
     additions:
+        DeploymentSetting: 2023-08-01-preview
+        EdgeDevice: 2023-08-01-preview
         GalleryImage: 2022-12-15-preview
         GuestAgent: 2022-12-15-preview
         HybridIdentityMetadatum: 2022-12-15-preview

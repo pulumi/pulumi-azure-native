@@ -33442,12 +33442,16 @@ class GoogleAdWordsLinkedServiceResponse(dict):
             suggest = "client_secret"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "connectionProperties":
+            suggest = "connection_properties"
         elif key == "developerToken":
             suggest = "developer_token"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
         elif key == "googleAdsApiVersion":
             suggest = "google_ads_api_version"
+        elif key == "keyFilePath":
+            suggest = "key_file_path"
         elif key == "loginCustomerID":
             suggest = "login_customer_id"
         elif key == "privateKey":
@@ -33456,6 +33460,10 @@ class GoogleAdWordsLinkedServiceResponse(dict):
             suggest = "refresh_token"
         elif key == "supportLegacyDataTypes":
             suggest = "support_legacy_data_types"
+        elif key == "trustedCertPath":
+            suggest = "trusted_cert_path"
+        elif key == "useSystemTrustStore":
+            suggest = "use_system_trust_store"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GoogleAdWordsLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -33476,16 +33484,20 @@ class GoogleAdWordsLinkedServiceResponse(dict):
                  client_id: Optional[Any] = None,
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 connection_properties: Optional[Any] = None,
                  description: Optional[str] = None,
                  developer_token: Optional[Any] = None,
                  email: Optional[Any] = None,
                  encrypted_credential: Optional[str] = None,
                  google_ads_api_version: Optional[Any] = None,
+                 key_file_path: Optional[Any] = None,
                  login_customer_id: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  private_key: Optional[Any] = None,
                  refresh_token: Optional[Any] = None,
-                 support_legacy_data_types: Optional[Any] = None):
+                 support_legacy_data_types: Optional[Any] = None,
+                 trusted_cert_path: Optional[Any] = None,
+                 use_system_trust_store: Optional[Any] = None):
         """
         Google AdWords service linked service.
         :param str type: Type of linked service.
@@ -33496,16 +33508,20 @@ class GoogleAdWordsLinkedServiceResponse(dict):
         :param Any client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of the google application used to acquire the refresh token.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Any connection_properties: (Deprecated) Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
         :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
-        :param Any google_ads_api_version: The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/sunset-dates#timetable. Type: string (or Expression with resultType string).
+        :param Any google_ads_api_version: The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/release-notes. Type: string (or Expression with resultType string).
+        :param Any key_file_path: (Deprecated) The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         :param Any login_customer_id: The customer ID of the Google Ads Manager account through which you want to fetch report data of specific Customer. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key: The private key that is used to authenticate the service account email address and can only be used on self-hosted IR.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication.
         :param Any support_legacy_data_types: Specifies whether to use the legacy data type mappings, which maps float, int32 and int64 from Google to string. Do not set this to true unless you want to keep backward compatibility with legacy driver's data type mappings. Type: boolean (or Expression with resultType boolean).
+        :param Any trusted_cert_path: (Deprecated) The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
+        :param Any use_system_trust_store: (Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "type", 'GoogleAdWords')
         if annotations is not None:
@@ -33520,6 +33536,8 @@ class GoogleAdWordsLinkedServiceResponse(dict):
             pulumi.set(__self__, "client_secret", client_secret)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_properties is not None:
+            pulumi.set(__self__, "connection_properties", connection_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if developer_token is not None:
@@ -33530,6 +33548,8 @@ class GoogleAdWordsLinkedServiceResponse(dict):
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if google_ads_api_version is not None:
             pulumi.set(__self__, "google_ads_api_version", google_ads_api_version)
+        if key_file_path is not None:
+            pulumi.set(__self__, "key_file_path", key_file_path)
         if login_customer_id is not None:
             pulumi.set(__self__, "login_customer_id", login_customer_id)
         if parameters is not None:
@@ -33540,6 +33560,10 @@ class GoogleAdWordsLinkedServiceResponse(dict):
             pulumi.set(__self__, "refresh_token", refresh_token)
         if support_legacy_data_types is not None:
             pulumi.set(__self__, "support_legacy_data_types", support_legacy_data_types)
+        if trusted_cert_path is not None:
+            pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
+        if use_system_trust_store is not None:
+            pulumi.set(__self__, "use_system_trust_store", use_system_trust_store)
 
     @property
     @pulumi.getter
@@ -33599,6 +33623,14 @@ class GoogleAdWordsLinkedServiceResponse(dict):
         return pulumi.get(self, "connect_via")
 
     @property
+    @pulumi.getter(name="connectionProperties")
+    def connection_properties(self) -> Optional[Any]:
+        """
+        (Deprecated) Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
+        """
+        return pulumi.get(self, "connection_properties")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -33634,9 +33666,17 @@ class GoogleAdWordsLinkedServiceResponse(dict):
     @pulumi.getter(name="googleAdsApiVersion")
     def google_ads_api_version(self) -> Optional[Any]:
         """
-        The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/sunset-dates#timetable. Type: string (or Expression with resultType string).
+        The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/release-notes. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "google_ads_api_version")
+
+    @property
+    @pulumi.getter(name="keyFilePath")
+    def key_file_path(self) -> Optional[Any]:
+        """
+        (Deprecated) The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "key_file_path")
 
     @property
     @pulumi.getter(name="loginCustomerID")
@@ -33677,6 +33717,22 @@ class GoogleAdWordsLinkedServiceResponse(dict):
         Specifies whether to use the legacy data type mappings, which maps float, int32 and int64 from Google to string. Do not set this to true unless you want to keep backward compatibility with legacy driver's data type mappings. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "support_legacy_data_types")
+
+    @property
+    @pulumi.getter(name="trustedCertPath")
+    def trusted_cert_path(self) -> Optional[Any]:
+        """
+        (Deprecated) The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "trusted_cert_path")
+
+    @property
+    @pulumi.getter(name="useSystemTrustStore")
+    def use_system_trust_store(self) -> Optional[Any]:
+        """
+        (Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "use_system_trust_store")
 
 
 @pulumi.output_type

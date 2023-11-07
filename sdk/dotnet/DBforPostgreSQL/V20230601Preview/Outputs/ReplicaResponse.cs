@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230601Preview.Outputs
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Gets the link state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
+        /// Gets the replication state of a replica server. This property is returned only for replicas api call. Supported values are Active, Catchup, Provisioning, Updating, Broken, Reconfiguring
         /// </summary>
-        public readonly string LinkState;
+        public readonly string ReplicationState;
         /// <summary>
         /// Used to indicate role of the server in replication set.
         /// </summary>
@@ -33,12 +33,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20230601Preview.Outputs
         private ReplicaResponse(
             int capacity,
 
-            string linkState,
+            string replicationState,
 
             string? role)
         {
             Capacity = capacity;
-            LinkState = linkState;
+            ReplicationState = replicationState;
             Role = role;
         }
     }

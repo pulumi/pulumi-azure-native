@@ -293,6 +293,8 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
     Gets the properties of the specified FHIR Service.
     Azure REST API version: 2023-02-28.
 
+    Other available API versions: 2023-09-06.
+
 
     :param str fhir_service_name: The name of FHIR Service resource.
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -337,6 +339,8 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
     """
     Gets the properties of the specified FHIR Service.
     Azure REST API version: 2023-02-28.
+
+    Other available API versions: 2023-09-06.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.

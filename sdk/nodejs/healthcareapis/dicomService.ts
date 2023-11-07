@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The description of Dicom Service
  * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
+ *
+ * Other available API versions: 2023-09-06.
  */
 export class DicomService extends pulumi.CustomResource {
     /**
@@ -146,7 +148,7 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:DicomService" }, { type: "azure-native:healthcareapis/v20211101:DicomService" }, { type: "azure-native:healthcareapis/v20220131preview:DicomService" }, { type: "azure-native:healthcareapis/v20220515:DicomService" }, { type: "azure-native:healthcareapis/v20220601:DicomService" }, { type: "azure-native:healthcareapis/v20221001preview:DicomService" }, { type: "azure-native:healthcareapis/v20221201:DicomService" }, { type: "azure-native:healthcareapis/v20230228:DicomService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:DicomService" }, { type: "azure-native:healthcareapis/v20211101:DicomService" }, { type: "azure-native:healthcareapis/v20220131preview:DicomService" }, { type: "azure-native:healthcareapis/v20220515:DicomService" }, { type: "azure-native:healthcareapis/v20220601:DicomService" }, { type: "azure-native:healthcareapis/v20221001preview:DicomService" }, { type: "azure-native:healthcareapis/v20221201:DicomService" }, { type: "azure-native:healthcareapis/v20230228:DicomService" }, { type: "azure-native:healthcareapis/v20230906:DicomService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DicomService.__pulumiType, name, resourceInputs, opts);
     }

@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
+        /// (Deprecated) Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
+        /// </summary>
+        [Input("connectionProperties")]
+        public Input<object>? ConnectionProperties { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
@@ -82,10 +88,16 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string>? EncryptedCredential { get; set; }
 
         /// <summary>
-        /// The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/sunset-dates#timetable. Type: string (or Expression with resultType string).
+        /// The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/release-notes. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("googleAdsApiVersion")]
         public Input<object>? GoogleAdsApiVersion { get; set; }
+
+        /// <summary>
+        /// (Deprecated) The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("keyFilePath")]
+        public Input<object>? KeyFilePath { get; set; }
 
         /// <summary>
         /// The customer ID of the Google Ads Manager account through which you want to fetch report data of specific Customer. Type: string (or Expression with resultType string).
@@ -124,11 +136,23 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? SupportLegacyDataTypes { get; set; }
 
         /// <summary>
+        /// (Deprecated) The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("trustedCertPath")]
+        public Input<object>? TrustedCertPath { get; set; }
+
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'GoogleAdWords'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// (Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("useSystemTrustStore")]
+        public Input<object>? UseSystemTrustStore { get; set; }
 
         public GoogleAdWordsLinkedServiceArgs()
         {

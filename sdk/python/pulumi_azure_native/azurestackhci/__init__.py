@@ -8,10 +8,14 @@ import typing
 from ._enums import *
 from .arc_setting import *
 from .cluster import *
+from .deployment_setting import *
+from .edge_device import *
 from .extension import *
 from .gallery_image import *
 from .get_arc_setting import *
 from .get_cluster import *
+from .get_deployment_setting import *
+from .get_edge_device import *
 from .get_extension import *
 from .get_gallery_image import *
 from .get_guest_agent import *
@@ -63,6 +67,8 @@ if typing.TYPE_CHECKING:
     v20230701preview = __v20230701preview
     import pulumi_azure_native.azurestackhci.v20230801 as __v20230801
     v20230801 = __v20230801
+    import pulumi_azure_native.azurestackhci.v20230801preview as __v20230801preview
+    v20230801preview = __v20230801preview
     import pulumi_azure_native.azurestackhci.v20230901preview as __v20230901preview
     v20230901preview = __v20230901preview
 else:
@@ -74,5 +80,6 @@ else:
     v20230601 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230601')
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230701preview')
     v20230801 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230801')
+    v20230801preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230801preview')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230901preview')
 

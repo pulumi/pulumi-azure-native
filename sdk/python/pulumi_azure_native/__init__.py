@@ -2352,6 +2352,8 @@ _utilities.register(
   "classes": {
    "azure-native:azurestackhci:ArcSetting": "ArcSetting",
    "azure-native:azurestackhci:Cluster": "Cluster",
+   "azure-native:azurestackhci:DeploymentSetting": "DeploymentSetting",
+   "azure-native:azurestackhci:EdgeDevice": "EdgeDevice",
    "azure-native:azurestackhci:Extension": "Extension",
    "azure-native:azurestackhci:GalleryImage": "GalleryImage",
    "azure-native:azurestackhci:GuestAgent": "GuestAgent",
@@ -2476,6 +2478,21 @@ _utilities.register(
    "azure-native:azurestackhci/v20230801:Update": "Update",
    "azure-native:azurestackhci/v20230801:UpdateRun": "UpdateRun",
    "azure-native:azurestackhci/v20230801:UpdateSummary": "UpdateSummary"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20230801preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20230801preview",
+  "classes": {
+   "azure-native:azurestackhci/v20230801preview:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20230801preview:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20230801preview:DeploymentSetting": "DeploymentSetting",
+   "azure-native:azurestackhci/v20230801preview:EdgeDevice": "EdgeDevice",
+   "azure-native:azurestackhci/v20230801preview:Extension": "Extension",
+   "azure-native:azurestackhci/v20230801preview:Update": "Update",
+   "azure-native:azurestackhci/v20230801preview:UpdateRun": "UpdateRun",
+   "azure-native:azurestackhci/v20230801preview:UpdateSummary": "UpdateSummary"
   }
  },
  {
@@ -6423,6 +6440,21 @@ _utilities.register(
    "azure-native:healthcareapis/v20230228:Service": "Service",
    "azure-native:healthcareapis/v20230228:Workspace": "Workspace",
    "azure-native:healthcareapis/v20230228:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "healthcareapis/v20230906",
+  "fqn": "pulumi_azure_native.healthcareapis.v20230906",
+  "classes": {
+   "azure-native:healthcareapis/v20230906:DicomService": "DicomService",
+   "azure-native:healthcareapis/v20230906:FhirService": "FhirService",
+   "azure-native:healthcareapis/v20230906:IotConnector": "IotConnector",
+   "azure-native:healthcareapis/v20230906:IotConnectorFhirDestination": "IotConnectorFhirDestination",
+   "azure-native:healthcareapis/v20230906:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:healthcareapis/v20230906:Service": "Service",
+   "azure-native:healthcareapis/v20230906:Workspace": "Workspace",
+   "azure-native:healthcareapis/v20230906:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
   }
  },
  {

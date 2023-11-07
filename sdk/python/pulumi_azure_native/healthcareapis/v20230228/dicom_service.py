@@ -219,7 +219,7 @@ class DicomService(pulumi.CustomResource):
             __props__.__dict__["service_url"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:DicomService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20230906:DicomService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DicomService, __self__).__init__(
             'azure-native:healthcareapis/v20230228:DicomService',

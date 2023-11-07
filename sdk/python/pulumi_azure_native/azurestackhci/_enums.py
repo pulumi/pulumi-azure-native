@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AvailabilityType',
     'CloudInitDataSource',
+    'DeploymentMode',
     'DiagnosticLevel',
     'DiskFileFormat',
     'ExtendedLocationTypes',
@@ -46,6 +47,20 @@ class CloudInitDataSource(str, Enum):
     """
     NO_CLOUD = "NoCloud"
     AZURE = "Azure"
+
+
+class DeploymentMode(str, Enum):
+    """
+    The deployment mode for cluster deployment.
+    """
+    VALIDATE = "Validate"
+    """
+    Validate deployment settings for cluster.
+    """
+    DEPLOY = "Deploy"
+    """
+    Deploy cluster using deployment settings.
+    """
 
 
 class DiagnosticLevel(str, Enum):
