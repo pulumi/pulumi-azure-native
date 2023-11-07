@@ -369,6 +369,8 @@
   "AzureStackHCI": {
     "ArcSetting": "2023-03-01",
     "Cluster": "2023-03-01",
+    "DeploymentSetting": "2023-08-01-preview",
+    "EdgeDevice": "2023-08-01-preview",
     "Extension": "2023-03-01",
     "GalleryImage": "2022-12-15-preview",
     "GuestAgent": "2022-12-15-preview",
