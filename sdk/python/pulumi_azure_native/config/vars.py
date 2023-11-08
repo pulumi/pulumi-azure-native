@@ -69,6 +69,20 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('msiEndpoint')
 
     @property
+    def oidc_request_token(self) -> Optional[str]:
+        """
+        Your cloud service or provider’s token to exchange for an Azure token. 
+        """
+        return __config__.get('oidcRequestToken')
+
+    @property
+    def oidc_request_url(self) -> Optional[str]:
+        """
+        The URL to initiate the OIDC token exchange. 
+        """
+        return __config__.get('oidcRequestUrl')
+
+    @property
     def partner_id(self) -> Optional[str]:
         """
         A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -95,4 +109,11 @@ class _ExportableConfig(types.ModuleType):
         Allowed Managed Service Identity be used for Authentication.
         """
         return __config__.get_bool('useMsi') or False
+
+    @property
+    def use_oidc(self) -> bool:
+        """
+        Allowed OpenID Connect (OIDC) to be used for Authentication.
+        """
+        return __config__.get_bool('useOidc') or False
 

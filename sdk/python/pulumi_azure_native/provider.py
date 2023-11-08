@@ -22,10 +22,13 @@ class ProviderArgs:
                  disable_pulumi_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
+                 oidc_request_token: Optional[pulumi.Input[str]] = None,
+                 oidc_request_url: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 use_msi: Optional[pulumi.Input[bool]] = None):
+                 use_msi: Optional[pulumi.Input[bool]] = None,
+                 use_oidc: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auxiliary_tenant_ids: Any additional Tenant IDs which should be used for authentication.
@@ -36,10 +39,13 @@ class ProviderArgs:
         :param pulumi.Input[bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        :param pulumi.Input[str] oidc_request_token: Your cloud service or provider’s token to exchange for an Azure token. 
+        :param pulumi.Input[str] oidc_request_url: The URL to initiate the OIDC token exchange. 
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
-        :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
+        :param pulumi.Input[bool] use_msi: Allow Managed Service Identity to be used for Authentication.
+        :param pulumi.Input[bool] use_oidc: Allow OpenID Connect (OIDC) to be used for Authentication.
         """
         if auxiliary_tenant_ids is not None:
             pulumi.set(__self__, "auxiliary_tenant_ids", auxiliary_tenant_ids)
@@ -59,6 +65,10 @@ class ProviderArgs:
             pulumi.set(__self__, "environment", environment)
         if msi_endpoint is not None:
             pulumi.set(__self__, "msi_endpoint", msi_endpoint)
+        if oidc_request_token is not None:
+            pulumi.set(__self__, "oidc_request_token", oidc_request_token)
+        if oidc_request_url is not None:
+            pulumi.set(__self__, "oidc_request_url", oidc_request_url)
         if partner_id is not None:
             pulumi.set(__self__, "partner_id", partner_id)
         if subscription_id is not None:
@@ -69,6 +79,10 @@ class ProviderArgs:
             use_msi = False
         if use_msi is not None:
             pulumi.set(__self__, "use_msi", use_msi)
+        if use_oidc is None:
+            use_oidc = False
+        if use_oidc is not None:
+            pulumi.set(__self__, "use_oidc", use_oidc)
 
     @property
     @pulumi.getter(name="auxiliaryTenantIds")
@@ -167,6 +181,30 @@ class ProviderArgs:
         pulumi.set(self, "msi_endpoint", value)
 
     @property
+    @pulumi.getter(name="oidcRequestToken")
+    def oidc_request_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Your cloud service or provider’s token to exchange for an Azure token. 
+        """
+        return pulumi.get(self, "oidc_request_token")
+
+    @oidc_request_token.setter
+    def oidc_request_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oidc_request_token", value)
+
+    @property
+    @pulumi.getter(name="oidcRequestUrl")
+    def oidc_request_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL to initiate the OIDC token exchange. 
+        """
+        return pulumi.get(self, "oidc_request_url")
+
+    @oidc_request_url.setter
+    def oidc_request_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oidc_request_url", value)
+
+    @property
     @pulumi.getter(name="partnerId")
     def partner_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -206,13 +244,25 @@ class ProviderArgs:
     @pulumi.getter(name="useMsi")
     def use_msi(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allowed Managed Service Identity be used for Authentication.
+        Allow Managed Service Identity to be used for Authentication.
         """
         return pulumi.get(self, "use_msi")
 
     @use_msi.setter
     def use_msi(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_msi", value)
+
+    @property
+    @pulumi.getter(name="useOidc")
+    def use_oidc(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow OpenID Connect (OIDC) to be used for Authentication.
+        """
+        return pulumi.get(self, "use_oidc")
+
+    @use_oidc.setter
+    def use_oidc(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_oidc", value)
 
 
 class Provider(pulumi.ProviderResource):
@@ -228,10 +278,13 @@ class Provider(pulumi.ProviderResource):
                  disable_pulumi_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
+                 oidc_request_token: Optional[pulumi.Input[str]] = None,
+                 oidc_request_url: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
+                 use_oidc: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         The provider type for the native Azure package.
@@ -246,10 +299,13 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
+        :param pulumi.Input[str] oidc_request_token: Your cloud service or provider’s token to exchange for an Azure token. 
+        :param pulumi.Input[str] oidc_request_url: The URL to initiate the OIDC token exchange. 
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
-        :param pulumi.Input[bool] use_msi: Allowed Managed Service Identity be used for Authentication.
+        :param pulumi.Input[bool] use_msi: Allow Managed Service Identity to be used for Authentication.
+        :param pulumi.Input[bool] use_oidc: Allow OpenID Connect (OIDC) to be used for Authentication.
         """
         ...
     @overload
@@ -283,10 +339,13 @@ class Provider(pulumi.ProviderResource):
                  disable_pulumi_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
+                 oidc_request_token: Optional[pulumi.Input[str]] = None,
+                 oidc_request_url: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_msi: Optional[pulumi.Input[bool]] = None,
+                 use_oidc: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -306,12 +365,17 @@ class Provider(pulumi.ProviderResource):
                 environment = 'public'
             __props__.__dict__["environment"] = environment
             __props__.__dict__["msi_endpoint"] = msi_endpoint
+            __props__.__dict__["oidc_request_token"] = oidc_request_token
+            __props__.__dict__["oidc_request_url"] = oidc_request_url
             __props__.__dict__["partner_id"] = partner_id
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id
             if use_msi is None:
                 use_msi = False
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
+            if use_oidc is None:
+                use_oidc = False
+            __props__.__dict__["use_oidc"] = pulumi.Output.from_input(use_oidc).apply(pulumi.runtime.to_json) if use_oidc is not None else None
         super(Provider, __self__).__init__(
             'azure-native',
             resource_name,
