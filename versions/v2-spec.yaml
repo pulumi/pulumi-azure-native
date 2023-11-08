@@ -133,6 +133,7 @@ Automation:
     tracking: "2022-08-08"
     additions:
         Package: 2023-05-15-preview
+        PowerShell72Module: "2023-11-01"
         PrivateEndpointConnection: 2020-01-13-preview
         RuntimeEnvironment: 2023-05-15-preview
         SoftwareUpdateConfigurationByName: "2019-06-01"

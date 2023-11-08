@@ -2330,6 +2330,27 @@
       "Webhook",
       "listAutomationAccountDeletedRunbooks",
       "listKeyByAutomationAccount"
+    ],
+    "2023-11-01": [
+      "AutomationAccount",
+      "Certificate",
+      "Connection",
+      "ConnectionType",
+      "Credential",
+      "DscConfiguration",
+      "DscNodeConfiguration",
+      "HybridRunbookWorker",
+      "HybridRunbookWorkerGroup",
+      "JobSchedule",
+      "Module",
+      "PowerShell72Module",
+      "Python2Package",
+      "Python3Package",
+      "Runbook",
+      "Schedule",
+      "SourceControl",
+      "Variable",
+      "listKeyByAutomationAccount"
     ]
   },
   "AutonomousDevelopmentPlatform": {
@@ -3042,6 +3063,12 @@
       "listDatabaseKeys"
     ],
     "2023-10-01-preview": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
+    ],
+    "2023-11-01": [
       "Database",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
@@ -5151,6 +5178,17 @@
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
     ],
+    "2023-10-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
     "2023-10-15": [
       "Fleet",
       "FleetMember",
@@ -5595,6 +5633,11 @@
       "PrivateEndpointConnection"
     ],
     "2022-10-01-preview": [
+      "Grafana",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection"
+    ],
+    "2023-09-01": [
       "Grafana",
       "ManagedPrivateEndpoint",
       "PrivateEndpointConnection"
@@ -17652,6 +17695,16 @@
       "getmanagedMaintenanceWindowStatus"
     ],
     "2023-09-01-preview": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
+    ],
+    "2023-11-01-preview": [
       "ManagedCluster",
       "ManagedClusterApplication",
       "ManagedClusterApplicationType",

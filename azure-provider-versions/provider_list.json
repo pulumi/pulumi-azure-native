@@ -1284,12 +1284,14 @@
       {
         "resourceType": "builders/patches",
         "apiVersions": [
+          "2023-11-02-preview",
           "2023-08-01-preview"
         ]
       },
       {
         "resourceType": "connectedEnvironments",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1301,6 +1303,7 @@
       {
         "resourceType": "connectedEnvironments/certificates",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1312,6 +1315,7 @@
       {
         "resourceType": "containerApps",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1324,12 +1328,14 @@
       {
         "resourceType": "getCustomDomainVerificationId",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview"
         ]
       },
       {
         "resourceType": "jobs",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1339,6 +1345,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1363,6 +1370,7 @@
       {
         "resourceType": "locations/availableManagedEnvironmentsWorkloadProfileTypes",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1374,6 +1382,7 @@
       {
         "resourceType": "locations/billingMeters",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1385,6 +1394,7 @@
       {
         "resourceType": "locations/connectedEnvironmentOperationResults",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1396,6 +1406,7 @@
       {
         "resourceType": "locations/connectedEnvironmentOperationStatuses",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1407,6 +1418,7 @@
       {
         "resourceType": "locations/containerappOperationResults",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1419,6 +1431,7 @@
       {
         "resourceType": "locations/containerappOperationStatuses",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1431,6 +1444,7 @@
       {
         "resourceType": "locations/containerappsjobOperationResults",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1440,6 +1454,7 @@
       {
         "resourceType": "locations/containerappsjobOperationStatuses",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1449,6 +1464,7 @@
       {
         "resourceType": "locations/managedCertificateOperationStatuses",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1458,6 +1474,7 @@
       {
         "resourceType": "locations/managedEnvironmentOperationResults",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1470,6 +1487,7 @@
       {
         "resourceType": "locations/managedEnvironmentOperationStatuses",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1482,6 +1500,7 @@
       {
         "resourceType": "locations/sourceControlOperationResults",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1494,6 +1513,7 @@
       {
         "resourceType": "locations/sourceControlOperationStatuses",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1506,12 +1526,14 @@
       {
         "resourceType": "locations/usages",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview"
         ]
       },
       {
         "resourceType": "managedEnvironments",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1524,6 +1546,7 @@
       {
         "resourceType": "managedEnvironments/certificates",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1536,6 +1559,7 @@
       {
         "resourceType": "managedEnvironments/managedCertificates",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -1545,6 +1569,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-05-02-preview",
           "2023-05-01",
           "2023-04-01-preview",
@@ -18743,18 +18768,49 @@
         "apiVersions": [
           "2023-09-01-preview"
         ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2023-09-01-preview"
+        ]
       }
     ]
   },
   {
-    "namespace": "Microsoft.EdgeMarketPlace",
+    "namespace": "Microsoft.EdgeMarketplace",
     "resourceTypes": [
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2023-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationStatuses",
+        "apiVersions": [
+          "2023-08-01-preview"
+        ]
+      },
+      {
+        "resourceType": "offers",
+        "apiVersions": [
+          "2023-08-01-preview"
+        ]
+      },
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-08-01-preview",
           "2023-08-01",
           "2023-06-01-preview",
           "2023-04-01-preview"
+        ]
+      },
+      {
+        "resourceType": "publishers",
+        "apiVersions": [
+          "2023-08-01-preview"
         ]
       }
     ]
