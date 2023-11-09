@@ -304,6 +304,7 @@
     "JobSchedule": "2022-08-08",
     "Module": "2022-08-08",
     "Package": "2023-05-15-preview",
+    "PowerShell72Module": "2023-11-01",
     "PrivateEndpointConnection": "2020-01-13-preview",
     "Python2Package": "2022-08-08",
     "Python3Package": "2022-08-08",
