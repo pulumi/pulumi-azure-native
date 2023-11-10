@@ -114,6 +114,21 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
 				},
+
+				"useOidc": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "Allowed OpenID Connect (OIDC) to be used for Authentication.",
+					Default:     false,
+				},
+				"oidcRequestToken": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "Your cloud service or provider’s token to exchange for an Azure token. ",
+				},
+				"oidcRequestUrl": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The URL to initiate the OIDC token exchange. ",
+				},
+
 				// Managed Tracking GUID for User-Agent.
 				"partnerId": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -169,13 +184,28 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				},
 				"useMsi": {
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
-					Description: "Allowed Managed Service Identity be used for Authentication.",
+					Description: "Allow Managed Service Identity to be used for Authentication.",
 					Default:     false,
 				},
 				"msiEndpoint": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. ",
 				},
+
+				"useOidc": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "Allow OpenID Connect (OIDC) to be used for Authentication.",
+					Default:     false,
+				},
+				"oidcRequestToken": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "Your cloud service or provider’s token to exchange for an Azure token. ",
+				},
+				"oidcRequestUrl": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The URL to initiate the OIDC token exchange. ",
+				},
+
 				// Managed Tracking GUID for User-Agent.
 				"partnerId": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},

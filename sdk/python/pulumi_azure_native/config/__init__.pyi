@@ -46,6 +46,16 @@ msiEndpoint: Optional[str]
 The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
 """
 
+oidcRequestToken: Optional[str]
+"""
+Your cloud service or provider’s token to exchange for an Azure token. 
+"""
+
+oidcRequestUrl: Optional[str]
+"""
+The URL to initiate the OIDC token exchange. 
+"""
+
 partnerId: Optional[str]
 """
 A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -64,5 +74,10 @@ The Tenant ID which should be used.
 useMsi: bool
 """
 Allowed Managed Service Identity be used for Authentication.
+"""
+
+useOidc: bool
+"""
+Allowed OpenID Connect (OIDC) to be used for Authentication.
 """
 

@@ -127,6 +127,18 @@ namespace Pulumi.AzureNative
         public Input<string>? MsiEndpoint { get; set; }
 
         /// <summary>
+        /// Your cloud service or provider’s token to exchange for an Azure token. 
+        /// </summary>
+        [Input("oidcRequestToken")]
+        public Input<string>? OidcRequestToken { get; set; }
+
+        /// <summary>
+        /// The URL to initiate the OIDC token exchange. 
+        /// </summary>
+        [Input("oidcRequestUrl")]
+        public Input<string>? OidcRequestUrl { get; set; }
+
+        /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         /// </summary>
         [Input("partnerId")]
@@ -145,15 +157,22 @@ namespace Pulumi.AzureNative
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Allowed Managed Service Identity be used for Authentication.
+        /// Allow Managed Service Identity to be used for Authentication.
         /// </summary>
         [Input("useMsi", json: true)]
         public Input<bool>? UseMsi { get; set; }
+
+        /// <summary>
+        /// Allow OpenID Connect (OIDC) to be used for Authentication.
+        /// </summary>
+        [Input("useOidc", json: true)]
+        public Input<bool>? UseOidc { get; set; }
 
         public ProviderArgs()
         {
             Environment = "public";
             UseMsi = false;
+            UseOidc = false;
         }
         public static new ProviderArgs Empty => new ProviderArgs();
     }

@@ -42,10 +42,13 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["disablePulumiPartnerId"] = pulumi.output(args ? args.disablePulumiPartnerId : undefined).apply(JSON.stringify);
             resourceInputs["environment"] = (args ? args.environment : undefined) ?? "public";
             resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
+            resourceInputs["oidcRequestToken"] = args ? args.oidcRequestToken : undefined;
+            resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) ?? false).apply(JSON.stringify);
+            resourceInputs["useOidc"] = pulumi.output((args ? args.useOidc : undefined) ?? false).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
@@ -89,6 +92,14 @@ export interface ProviderArgs {
      */
     msiEndpoint?: pulumi.Input<string>;
     /**
+     * Your cloud service or provider’s token to exchange for an Azure token. 
+     */
+    oidcRequestToken?: pulumi.Input<string>;
+    /**
+     * The URL to initiate the OIDC token exchange. 
+     */
+    oidcRequestUrl?: pulumi.Input<string>;
+    /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
     partnerId?: pulumi.Input<string>;
@@ -101,7 +112,11 @@ export interface ProviderArgs {
      */
     tenantId?: pulumi.Input<string>;
     /**
-     * Allowed Managed Service Identity be used for Authentication.
+     * Allow Managed Service Identity to be used for Authentication.
      */
     useMsi?: pulumi.Input<boolean>;
+    /**
+     * Allow OpenID Connect (OIDC) to be used for Authentication.
+     */
+    useOidc?: pulumi.Input<boolean>;
 }

@@ -93,6 +93,28 @@ Object.defineProperty(exports, "msiEndpoint", {
 });
 
 /**
+ * Your cloud service or provider’s token to exchange for an Azure token. 
+ */
+export declare const oidcRequestToken: string | undefined;
+Object.defineProperty(exports, "oidcRequestToken", {
+    get() {
+        return __config.get("oidcRequestToken");
+    },
+    enumerable: true,
+});
+
+/**
+ * The URL to initiate the OIDC token exchange. 
+ */
+export declare const oidcRequestUrl: string | undefined;
+Object.defineProperty(exports, "oidcRequestUrl", {
+    get() {
+        return __config.get("oidcRequestUrl");
+    },
+    enumerable: true,
+});
+
+/**
  * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
  */
 export declare const partnerId: string | undefined;
@@ -132,6 +154,17 @@ export declare const useMsi: boolean;
 Object.defineProperty(exports, "useMsi", {
     get() {
         return __config.getObject<boolean>("useMsi") ?? false;
+    },
+    enumerable: true,
+});
+
+/**
+ * Allowed OpenID Connect (OIDC) to be used for Authentication.
+ */
+export declare const useOidc: boolean;
+Object.defineProperty(exports, "useOidc", {
+    get() {
+        return __config.getObject<boolean>("useOidc") ?? false;
     },
     enumerable: true,
 });
