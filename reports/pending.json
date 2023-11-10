@@ -41,7 +41,8 @@
     "2022-11-01-preview",
     "2023-04-01-preview",
     "2023-05-01",
-    "2023-05-02-preview"
+    "2023-05-02-preview",
+    "2023-08-01-preview"
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [],
@@ -84,7 +85,8 @@
     "2021-06-22",
     "2022-02-22",
     "2022-08-08",
-    "2023-05-15-preview"
+    "2023-05-15-preview",
+    "2023-11-01"
   ],
   "AutonomousDevelopmentPlatform": [],
   "AzureActiveDirectory": [
@@ -127,7 +129,8 @@
     "2023-07-01",
     "2023-08-01",
     "2023-08-01-preview",
-    "2023-10-01-preview"
+    "2023-10-01-preview",
+    "2023-11-01"
   ],
   "Capacity": [],
   "Cdn": [
@@ -149,6 +152,7 @@
     "2023-04-01-preview",
     "2023-06-01-preview"
   ],
+  "Community": [],
   "Compute": [
     "2022-04-04",
     "2022-07-02",
@@ -251,6 +255,7 @@
     "2023-08-15-preview",
     "2023-09-01",
     "2023-09-02-preview",
+    "2023-10-01",
     "2023-10-15"
   ],
   "ContainerStorage": [],
@@ -296,7 +301,8 @@
     "2023-06-01-preview"
   ],
   "Dashboard": [
-    "2022-10-01-preview"
+    "2022-10-01-preview",
+    "2023-09-01"
   ],
   "DataBox": [
     "2023-03-01"
@@ -320,6 +326,7 @@
     "2023-04-01-preview",
     "2023-05-01",
     "2023-06-01-preview",
+    "2023-08-01",
     "2023-08-01-preview"
   ],
   "DataReplication": [],
@@ -350,6 +357,7 @@
     "2023-08-01"
   ],
   "DevOps": [],
+  "DevOpsInfrastructure": [],
   "DevSpaces": [],
   "DevTestLab": [],
   "DeviceRegistry": [],
@@ -701,6 +709,7 @@
     "2023-02-01",
     "2023-04-01",
     "2023-05-01",
+    "2023-06-01",
     "2023-07-01-preview",
     "2023-08-01-preview"
   ],
@@ -840,7 +849,8 @@
   ],
   "ServiceFabric": [
     "2023-07-01-preview",
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2023-11-01-preview"
   ],
   "ServiceFabricMesh": [],
   "ServiceLinker": [],

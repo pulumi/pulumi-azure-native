@@ -1452,6 +1452,35 @@
       "listContainerAppSecrets",
       "listDaprComponentSecrets",
       "listJobSecrets"
+    ],
+    "2023-08-01-preview": [
+      "AppResiliency",
+      "Build",
+      "Builder",
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "DaprComponentResiliencyPolicy",
+      "DaprSubscription",
+      "Job",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getCustomDomainVerificationId",
+      "getManagedEnvironmentAuthToken",
+      "listBuildAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -2330,6 +2359,27 @@
       "Webhook",
       "listAutomationAccountDeletedRunbooks",
       "listKeyByAutomationAccount"
+    ],
+    "2023-11-01": [
+      "AutomationAccount",
+      "Certificate",
+      "Connection",
+      "ConnectionType",
+      "Credential",
+      "DscConfiguration",
+      "DscNodeConfiguration",
+      "HybridRunbookWorker",
+      "HybridRunbookWorkerGroup",
+      "JobSchedule",
+      "Module",
+      "PowerShell72Module",
+      "Python2Package",
+      "Python3Package",
+      "Runbook",
+      "Schedule",
+      "SourceControl",
+      "Variable",
+      "listKeyByAutomationAccount"
     ]
   },
   "AutonomousDevelopmentPlatform": {
@@ -3046,6 +3096,12 @@
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
+    ],
+    "2023-11-01": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
     ]
   },
   "Capacity": {
@@ -3477,6 +3533,11 @@
       "SuppressionListAddress",
       "listCommunicationServiceKeys",
       "listEmailServiceVerifiedExchangeOnlineDomains"
+    ]
+  },
+  "Community": {
+    "2023-11-01": [
+      "CommunityTraining"
     ]
   },
   "Compute": {
@@ -5151,6 +5212,17 @@
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
     ],
+    "2023-10-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
     "2023-10-15": [
       "Fleet",
       "FleetMember",
@@ -5595,6 +5667,11 @@
       "PrivateEndpointConnection"
     ],
     "2022-10-01-preview": [
+      "Grafana",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection"
+    ],
+    "2023-09-01": [
       "Grafana",
       "ManagedPrivateEndpoint",
       "PrivateEndpointConnection"
@@ -6166,6 +6243,13 @@
       "DppResourceGuardProxy",
       "ResourceGuard"
     ],
+    "2023-08-01": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "DppResourceGuardProxy",
+      "ResourceGuard"
+    ],
     "2023-08-01-preview": [
       "BackupInstance",
       "BackupPolicy",
@@ -6681,6 +6765,11 @@
   },
   "DevOps": {
     "": []
+  },
+  "DevOpsInfrastructure": {
+    "2023-10-30-preview": [
+      "Pool"
+    ]
   },
   "DevSpaces": {
     "2019-04-01": [
@@ -14636,7 +14725,6 @@
       "NetworkProfile",
       "NetworkSecurityGroup",
       "NetworkVirtualAppliance",
-      "NetworkVirtualApplianceConnection",
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
@@ -14746,7 +14834,6 @@
       "NetworkProfile",
       "NetworkSecurityGroup",
       "NetworkVirtualAppliance",
-      "NetworkVirtualApplianceConnection",
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
@@ -14856,7 +14943,6 @@
       "NetworkProfile",
       "NetworkSecurityGroup",
       "NetworkVirtualAppliance",
-      "NetworkVirtualApplianceConnection",
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
@@ -14922,6 +15008,115 @@
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
     "2023-05-01": [
+      "AdminRule",
+      "AdminRuleCollection",
+      "ApplicationGateway",
+      "ApplicationGatewayPrivateEndpointConnection",
+      "ApplicationSecurityGroup",
+      "AzureFirewall",
+      "BastionHost",
+      "ConfigurationPolicyGroup",
+      "ConnectionMonitor",
+      "ConnectivityConfiguration",
+      "CustomIPPrefix",
+      "DdosCustomPolicy",
+      "DdosProtectionPlan",
+      "DscpConfiguration",
+      "ExpressRouteCircuit",
+      "ExpressRouteCircuitAuthorization",
+      "ExpressRouteCircuitConnection",
+      "ExpressRouteCircuitPeering",
+      "ExpressRouteConnection",
+      "ExpressRouteCrossConnectionPeering",
+      "ExpressRouteGateway",
+      "ExpressRoutePort",
+      "ExpressRoutePortAuthorization",
+      "FirewallPolicy",
+      "FirewallPolicyRuleCollectionGroup",
+      "FlowLog",
+      "HubRouteTable",
+      "HubVirtualNetworkConnection",
+      "InboundNatRule",
+      "IpAllocation",
+      "IpGroup",
+      "LoadBalancer",
+      "LoadBalancerBackendAddressPool",
+      "LocalNetworkGateway",
+      "ManagementGroupNetworkManagerConnection",
+      "NatGateway",
+      "NatRule",
+      "NetworkGroup",
+      "NetworkInterface",
+      "NetworkInterfaceTapConfiguration",
+      "NetworkManager",
+      "NetworkProfile",
+      "NetworkSecurityGroup",
+      "NetworkVirtualAppliance",
+      "NetworkWatcher",
+      "P2sVpnGateway",
+      "PacketCapture",
+      "PrivateDnsZoneGroup",
+      "PrivateEndpoint",
+      "PrivateLinkService",
+      "PrivateLinkServicePrivateEndpointConnection",
+      "PublicIPAddress",
+      "PublicIPPrefix",
+      "Route",
+      "RouteFilter",
+      "RouteFilterRule",
+      "RouteMap",
+      "RouteTable",
+      "RoutingIntent",
+      "ScopeConnection",
+      "SecurityAdminConfiguration",
+      "SecurityPartnerProvider",
+      "SecurityRule",
+      "ServiceEndpointPolicy",
+      "ServiceEndpointPolicyDefinition",
+      "StaticMember",
+      "Subnet",
+      "SubscriptionNetworkManagerConnection",
+      "VirtualApplianceSite",
+      "VirtualHub",
+      "VirtualHubBgpConnection",
+      "VirtualHubIpConfiguration",
+      "VirtualHubRouteTableV2",
+      "VirtualNetwork",
+      "VirtualNetworkGateway",
+      "VirtualNetworkGatewayConnection",
+      "VirtualNetworkGatewayNatRule",
+      "VirtualNetworkPeering",
+      "VirtualNetworkTap",
+      "VirtualRouter",
+      "VirtualRouterPeering",
+      "VirtualWan",
+      "VpnConnection",
+      "VpnGateway",
+      "VpnServerConfiguration",
+      "VpnSite",
+      "WebApplicationFirewallPolicy",
+      "getActiveSessions",
+      "getApplicationGatewayBackendHealthOnDemand",
+      "getBastionShareableLink",
+      "getP2sVpnGatewayP2sVpnConnectionHealth",
+      "getP2sVpnGatewayP2sVpnConnectionHealthDetailed",
+      "getVirtualNetworkGatewayAdvertisedRoutes",
+      "getVirtualNetworkGatewayBgpPeerStatus",
+      "getVirtualNetworkGatewayConnectionIkeSas",
+      "getVirtualNetworkGatewayLearnedRoutes",
+      "getVirtualNetworkGatewayVpnProfilePackageUrl",
+      "getVirtualNetworkGatewayVpnclientConnectionHealth",
+      "getVirtualNetworkGatewayVpnclientIpsecParameters",
+      "getVpnLinkConnectionIkeSas",
+      "listActiveConnectivityConfigurations",
+      "listActiveSecurityAdminRules",
+      "listFirewallPolicyIdpsSignature",
+      "listFirewallPolicyIdpsSignaturesFilterValue",
+      "listNetworkManagerDeploymentStatus",
+      "listNetworkManagerEffectiveConnectivityConfigurations",
+      "listNetworkManagerEffectiveSecurityAdminRules"
+    ],
+    "2023-06-01": [
       "AdminRule",
       "AdminRuleCollection",
       "ApplicationGateway",
@@ -17652,6 +17847,16 @@
       "getmanagedMaintenanceWindowStatus"
     ],
     "2023-09-01-preview": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
+    ],
+    "2023-11-01-preview": [
       "ManagedCluster",
       "ManagedClusterApplication",
       "ManagedClusterApplicationType",
