@@ -14,13 +14,13 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview.Outputs
     public sealed class RoutingEnrichmentsResponse
     {
         public readonly ImmutableArray<Outputs.DynamicRoutingEnrichmentResponse> Dynamic;
-        public readonly ImmutableArray<Outputs.StaticRoutingEnrichmentResponse> Static;
+        public readonly ImmutableArray<Outputs.StaticStringRoutingEnrichmentResponse> Static;
 
         [OutputConstructor]
         private RoutingEnrichmentsResponse(
             ImmutableArray<Outputs.DynamicRoutingEnrichmentResponse> dynamic,
 
-            ImmutableArray<Outputs.StaticRoutingEnrichmentResponse> @static)
+            ImmutableArray<Outputs.StaticStringRoutingEnrichmentResponse> @static)
         {
             Dynamic = dynamic;
             Static = @static;

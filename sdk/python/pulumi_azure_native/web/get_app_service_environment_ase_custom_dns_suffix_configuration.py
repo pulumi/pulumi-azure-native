@@ -141,6 +141,8 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
     Full view of the custom domain suffix configuration for ASEv3.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2023-01-01.
+
 
     :param str name: Name of the App Service Environment.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
@@ -170,6 +172,8 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name:
     """
     Full view of the custom domain suffix configuration for ASEv3.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2023-01-01.
 
 
     :param str name: Name of the App Service Environment.

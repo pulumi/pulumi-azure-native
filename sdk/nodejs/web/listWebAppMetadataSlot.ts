@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Description for Gets the metadata of an app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2020-10-01.
+ * Other available API versions: 2020-10-01, 2023-01-01.
  */
 export function listWebAppMetadataSlot(args: ListWebAppMetadataSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppMetadataSlotResult> {
 
@@ -64,7 +64,7 @@ export interface ListWebAppMetadataSlotResult {
  * Description for Gets the metadata of an app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2020-10-01.
+ * Other available API versions: 2020-10-01, 2023-01-01.
  */
 export function listWebAppMetadataSlotOutput(args: ListWebAppMetadataSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppMetadataSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppMetadataSlot(a, opts))

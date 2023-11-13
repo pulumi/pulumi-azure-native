@@ -131,7 +131,7 @@ class RoutingIntent(pulumi.CustomResource):
         The routing intent child resource of a Virtual hub.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class RoutingIntent(pulumi.CustomResource):
         The routing intent child resource of a Virtual hub.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param RoutingIntentArgs args: The arguments to use to populate this resource's properties.
@@ -197,7 +197,7 @@ class RoutingIntent(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20210801:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220101:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220501:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220701:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220901:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20221101:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20230201:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20230401:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20230501:RoutingIntent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20210801:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220101:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220501:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220701:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220901:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20221101:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20230201:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20230401:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20230501:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20230601:RoutingIntent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoutingIntent, __self__).__init__(
             'azure-native:network:RoutingIntent',

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An environment for Kubernetes cluster specialized for web workloads by Azure App Service
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
  */
 export class ConnectedEnvironment extends pulumi.CustomResource {
     /**
@@ -132,7 +132,7 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironment" }, { type: "azure-native:app/v20221001:ConnectedEnvironment" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironment" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironment" }, { type: "azure-native:app/v20230501:ConnectedEnvironment" }, { type: "azure-native:app/v20230502preview:ConnectedEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironment" }, { type: "azure-native:app/v20221001:ConnectedEnvironment" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironment" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironment" }, { type: "azure-native:app/v20230501:ConnectedEnvironment" }, { type: "azure-native:app/v20230502preview:ConnectedEnvironment" }, { type: "azure-native:app/v20230801preview:ConnectedEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironment.__pulumiType, name, resourceInputs, opts);
     }

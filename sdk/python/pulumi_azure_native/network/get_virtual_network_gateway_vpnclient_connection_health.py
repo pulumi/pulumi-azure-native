@@ -52,7 +52,7 @@ def get_virtual_network_gateway_vpnclient_connection_health(resource_group_name:
     Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
+    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -76,7 +76,7 @@ def get_virtual_network_gateway_vpnclient_connection_health_output(resource_grou
     Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01.
+    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01.
 
 
     :param str resource_group_name: The name of the resource group.

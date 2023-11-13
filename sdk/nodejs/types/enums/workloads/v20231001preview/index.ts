@@ -75,10 +75,11 @@ export type ManagedResourcesNetworkAccessType = (typeof ManagedResourcesNetworkA
 export const ManagedServiceIdentityType = {
     None: "None",
     UserAssigned: "UserAssigned",
+    SystemAssigned: "SystemAssigned",
 } as const;
 
 /**
- * Type of manage identity
+ * The managed service identity for all identities.
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
@@ -159,6 +160,16 @@ export const RetentionScheduleFormat = {
  * Retention schedule format for yearly retention policy.
  */
 export type RetentionScheduleFormat = (typeof RetentionScheduleFormat)[keyof typeof RetentionScheduleFormat];
+
+export const RoutingPreference = {
+    Default: "Default",
+    RouteAll: "RouteAll",
+} as const;
+
+/**
+ * Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
+ */
+export type RoutingPreference = (typeof RoutingPreference)[keyof typeof RoutingPreference];
 
 export const SAPConfigurationType = {
     Deployment: "Deployment",
@@ -263,6 +274,17 @@ export const SslCryptoProvider = {
  * Specify the crypto provider being used (commoncrypto/openssl). If this argument is not provided, it is automatically determined by searching in the configuration files.
  */
 export type SslCryptoProvider = (typeof SslCryptoProvider)[keyof typeof SslCryptoProvider];
+
+export const SslPreference = {
+    Disabled: "Disabled",
+    RootCertificate: "RootCertificate",
+    ServerCertificate: "ServerCertificate",
+} as const;
+
+/**
+ * Gets or sets certificate preference if secure communication is enabled.
+ */
+export type SslPreference = (typeof SslPreference)[keyof typeof SslPreference];
 
 export const TieringMode = {
     Invalid: "Invalid",

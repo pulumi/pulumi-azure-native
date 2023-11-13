@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
  * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
  *
- * Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview.
+ * Other available API versions: 2021-09-01-privatepreview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
  */
 export class NodeType extends pulumi.CustomResource {
     /**
@@ -358,7 +358,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20200101preview:NodeType" }, { type: "azure-native:servicefabric/v20210101preview:NodeType" }, { type: "azure-native:servicefabric/v20210501:NodeType" }, { type: "azure-native:servicefabric/v20210701preview:NodeType" }, { type: "azure-native:servicefabric/v20210901privatepreview:NodeType" }, { type: "azure-native:servicefabric/v20211101preview:NodeType" }, { type: "azure-native:servicefabric/v20220101:NodeType" }, { type: "azure-native:servicefabric/v20220201preview:NodeType" }, { type: "azure-native:servicefabric/v20220601preview:NodeType" }, { type: "azure-native:servicefabric/v20220801preview:NodeType" }, { type: "azure-native:servicefabric/v20221001preview:NodeType" }, { type: "azure-native:servicefabric/v20230201preview:NodeType" }, { type: "azure-native:servicefabric/v20230301preview:NodeType" }, { type: "azure-native:servicefabric/v20230701preview:NodeType" }, { type: "azure-native:servicefabric/v20230901preview:NodeType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20200101preview:NodeType" }, { type: "azure-native:servicefabric/v20210101preview:NodeType" }, { type: "azure-native:servicefabric/v20210501:NodeType" }, { type: "azure-native:servicefabric/v20210701preview:NodeType" }, { type: "azure-native:servicefabric/v20210901privatepreview:NodeType" }, { type: "azure-native:servicefabric/v20211101preview:NodeType" }, { type: "azure-native:servicefabric/v20220101:NodeType" }, { type: "azure-native:servicefabric/v20220201preview:NodeType" }, { type: "azure-native:servicefabric/v20220601preview:NodeType" }, { type: "azure-native:servicefabric/v20220801preview:NodeType" }, { type: "azure-native:servicefabric/v20221001preview:NodeType" }, { type: "azure-native:servicefabric/v20230201preview:NodeType" }, { type: "azure-native:servicefabric/v20230301preview:NodeType" }, { type: "azure-native:servicefabric/v20230701preview:NodeType" }, { type: "azure-native:servicefabric/v20230901preview:NodeType" }, { type: "azure-native:servicefabric/v20231101preview:NodeType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NodeType.__pulumiType, name, resourceInputs, opts);
     }

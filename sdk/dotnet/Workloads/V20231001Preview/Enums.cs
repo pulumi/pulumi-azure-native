@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
     }
 
     /// <summary>
-    /// Type of manage identity
+    /// The managed service identity for all identities.
     /// </summary>
     [EnumType]
     public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
@@ -218,6 +218,7 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
 
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
@@ -431,6 +432,37 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RetentionScheduleFormat other && Equals(other);
         public bool Equals(RetentionScheduleFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
+    /// </summary>
+    [EnumType]
+    public readonly struct RoutingPreference : IEquatable<RoutingPreference>
+    {
+        private readonly string _value;
+
+        private RoutingPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoutingPreference Default { get; } = new RoutingPreference("Default");
+        public static RoutingPreference RouteAll { get; } = new RoutingPreference("RouteAll");
+
+        public static bool operator ==(RoutingPreference left, RoutingPreference right) => left.Equals(right);
+        public static bool operator !=(RoutingPreference left, RoutingPreference right) => !left.Equals(right);
+
+        public static explicit operator string(RoutingPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoutingPreference other && Equals(other);
+        public bool Equals(RoutingPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -745,6 +777,38 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SslCryptoProvider other && Equals(other);
         public bool Equals(SslCryptoProvider other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets certificate preference if secure communication is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct SslPreference : IEquatable<SslPreference>
+    {
+        private readonly string _value;
+
+        private SslPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SslPreference Disabled { get; } = new SslPreference("Disabled");
+        public static SslPreference RootCertificate { get; } = new SslPreference("RootCertificate");
+        public static SslPreference ServerCertificate { get; } = new SslPreference("ServerCertificate");
+
+        public static bool operator ==(SslPreference left, SslPreference right) => left.Equals(right);
+        public static bool operator !=(SslPreference left, SslPreference right) => !left.Equals(right);
+
+        public static explicit operator string(SslPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SslPreference other && Equals(other);
+        public bool Equals(SslPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

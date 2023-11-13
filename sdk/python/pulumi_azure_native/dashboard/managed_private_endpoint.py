@@ -198,6 +198,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         The managed private endpoint resource type.
         Azure REST API version: 2022-10-01-preview.
 
+        Other available API versions: 2023-09-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The group Ids of the managed private endpoint.
@@ -220,6 +222,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         """
         The managed private endpoint resource type.
         Azure REST API version: 2022-10-01-preview.
+
+        Other available API versions: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param ManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -275,7 +279,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint"), pulumi.Alias(type_="azure-native:dashboard/v20230901:ManagedPrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedPrivateEndpoint, __self__).__init__(
             'azure-native:dashboard:ManagedPrivateEndpoint',

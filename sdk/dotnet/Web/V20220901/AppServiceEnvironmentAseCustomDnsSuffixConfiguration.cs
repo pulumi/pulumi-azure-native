@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Web.V20220901
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

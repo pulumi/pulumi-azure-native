@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2020-10-01.
+    /// Other available API versions: 2020-10-01, 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettings")]
     public partial class WebAppAuthSettings : global::Pulumi.CustomResource
@@ -356,6 +356,7 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettings"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppAuthSettings"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppAuthSettings"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

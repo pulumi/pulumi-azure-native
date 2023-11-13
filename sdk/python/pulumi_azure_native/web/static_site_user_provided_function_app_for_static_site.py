@@ -146,6 +146,8 @@ class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
         Static Site User Provided Function App ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
+        Other available API versions: 2023-01-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] function_app_name: Name of the function app to register with the static site.
@@ -165,6 +167,8 @@ class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
         """
         Static Site User Provided Function App ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
+
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param StaticSiteUserProvidedFunctionAppForStaticSiteArgs args: The arguments to use to populate this resource's properties.
@@ -210,7 +214,7 @@ class StaticSiteUserProvidedFunctionAppForStaticSite(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["created_on"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20220301:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteUserProvidedFunctionAppForStaticSite"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteUserProvidedFunctionAppForStaticSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSiteUserProvidedFunctionAppForStaticSite, __self__).__init__(
             'azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite',

@@ -150,6 +150,8 @@ def get_static_site_build_database_connection(database_connection_name: Optional
     Static Site Database Connection resource.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2023-01-01.
+
 
     :param str database_connection_name: Name of the database connection.
     :param str environment_name: The stage site identifier.
@@ -185,6 +187,8 @@ def get_static_site_build_database_connection_output(database_connection_name: O
     """
     Static Site Database Connection resource.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2023-01-01.
 
 
     :param str database_connection_name: Name of the database connection.

@@ -145,6 +145,8 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
         Static Site Linked Backend ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-03-01.
 
+        Other available API versions: 2023-01-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_resource_id: The resource id of the backend linked to the static site
@@ -164,6 +166,8 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
         """
         Static Site Linked Backend ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-03-01.
+
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param StaticSiteLinkedBackendForBuildArgs args: The arguments to use to populate this resource's properties.
@@ -212,7 +216,7 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
             __props__.__dict__["created_on"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220301:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteLinkedBackendForBuild")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220301:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteLinkedBackendForBuild"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteLinkedBackendForBuild")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSiteLinkedBackendForBuild, __self__).__init__(
             'azure-native:web:StaticSiteLinkedBackendForBuild',

@@ -200,7 +200,6 @@ __all__ = [
     'PrivateLinkServicePropertiesVisibilityArgs',
     'PrivateLinkServiceArgs',
     'ProbeArgs',
-    'PropagatedRouteTableNfvArgs',
     'PropagatedRouteTableArgs',
     'PublicIPAddressDnsSettingsArgs',
     'PublicIPAddressSkuArgs',
@@ -215,8 +214,6 @@ __all__ = [
     'RouteMapRuleArgs',
     'RouteTableArgs',
     'RouteArgs',
-    'RoutingConfigurationNfvSubResourceArgs',
-    'RoutingConfigurationNfvArgs',
     'RoutingConfigurationArgs',
     'RoutingPolicyArgs',
     'SecurityRuleArgs',
@@ -14255,46 +14252,6 @@ class ProbeArgs:
 
 
 @pulumi.input_type
-class PropagatedRouteTableNfvArgs:
-    def __init__(__self__, *,
-                 ids: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]]] = None,
-                 labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Nfv version of the list of RouteTables to advertise the routes to.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]] ids: The list of resource ids of all the RouteTables.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]]]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @ids.setter
-    def ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]]]):
-        pulumi.set(self, "ids", value)
-
-    @property
-    @pulumi.getter
-    def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "labels", value)
-
-
-@pulumi.input_type
 class PropagatedRouteTableArgs:
     def __init__(__self__, *,
                  ids: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
@@ -15459,102 +15416,6 @@ class RouteArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class RoutingConfigurationNfvSubResourceArgs:
-    def __init__(__self__, *,
-                 resource_uri: Optional[pulumi.Input[str]] = None):
-        """
-        Reference to RouteTableV3 associated with the connection.
-        :param pulumi.Input[str] resource_uri: Resource ID.
-        """
-        if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
-
-    @property
-    @pulumi.getter(name="resourceUri")
-    def resource_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "resource_uri")
-
-    @resource_uri.setter
-    def resource_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_uri", value)
-
-
-@pulumi.input_type
-class RoutingConfigurationNfvArgs:
-    def __init__(__self__, *,
-                 associated_route_table: Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']] = None,
-                 inbound_route_map: Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']] = None,
-                 outbound_route_map: Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']] = None,
-                 propagated_route_tables: Optional[pulumi.Input['PropagatedRouteTableNfvArgs']] = None):
-        """
-        NFV version of Routing Configuration indicating the associated and propagated route tables for this connection.
-        :param pulumi.Input['RoutingConfigurationNfvSubResourceArgs'] associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param pulumi.Input['RoutingConfigurationNfvSubResourceArgs'] inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param pulumi.Input['RoutingConfigurationNfvSubResourceArgs'] outbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param pulumi.Input['PropagatedRouteTableNfvArgs'] propagated_route_tables: The list of RouteTables to advertise the routes to.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-
-    @property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @associated_route_table.setter
-    def associated_route_table(self, value: Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]):
-        pulumi.set(self, "associated_route_table", value)
-
-    @property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @inbound_route_map.setter
-    def inbound_route_map(self, value: Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]):
-        pulumi.set(self, "inbound_route_map", value)
-
-    @property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @outbound_route_map.setter
-    def outbound_route_map(self, value: Optional[pulumi.Input['RoutingConfigurationNfvSubResourceArgs']]):
-        pulumi.set(self, "outbound_route_map", value)
-
-    @property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional[pulumi.Input['PropagatedRouteTableNfvArgs']]:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-    @propagated_route_tables.setter
-    def propagated_route_tables(self, value: Optional[pulumi.Input['PropagatedRouteTableNfvArgs']]):
-        pulumi.set(self, "propagated_route_tables", value)
 
 
 @pulumi.input_type

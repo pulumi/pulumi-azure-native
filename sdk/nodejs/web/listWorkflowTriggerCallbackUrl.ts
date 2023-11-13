@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Get the callback URL for a workflow trigger.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function listWorkflowTriggerCallbackUrl(args: ListWorkflowTriggerCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowTriggerCallbackUrlResult> {
 
@@ -73,6 +75,8 @@ export interface ListWorkflowTriggerCallbackUrlResult {
 /**
  * Get the callback URL for a workflow trigger.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function listWorkflowTriggerCallbackUrlOutput(args: ListWorkflowTriggerCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowTriggerCallbackUrlResult> {
     return pulumi.output(args).apply((a: any) => listWorkflowTriggerCallbackUrl(a, opts))

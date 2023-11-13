@@ -184,7 +184,7 @@ export class Runbook extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:Runbook" }, { type: "azure-native:automation/v20151031:Runbook" }, { type: "azure-native:automation/v20180630:Runbook" }, { type: "azure-native:automation/v20190601:Runbook" }, { type: "azure-native:automation/v20230515preview:Runbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Runbook" }, { type: "azure-native:automation/v20151031:Runbook" }, { type: "azure-native:automation/v20180630:Runbook" }, { type: "azure-native:automation/v20190601:Runbook" }, { type: "azure-native:automation/v20230515preview:Runbook" }, { type: "azure-native:automation/v20231101:Runbook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Runbook.__pulumiType, name, resourceInputs, opts);
     }

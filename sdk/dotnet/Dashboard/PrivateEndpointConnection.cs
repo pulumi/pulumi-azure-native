@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Dashboard
     /// The Private Endpoint Connection resource.
     /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2022-05-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview.
+    /// Other available API versions: 2022-10-01-preview, 2023-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Dashboard
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20220501preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20220801:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20221001preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20230901:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

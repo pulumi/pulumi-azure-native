@@ -178,6 +178,8 @@ class StaticSiteBuildDatabaseConnection(pulumi.CustomResource):
         Static Site Database Connection resource.
         Azure REST API version: 2022-09-01.
 
+        Other available API versions: 2023-01-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_identity: If present, the identity is used in conjunction with connection string to connect to the database. Use of the system-assigned managed identity is indicated with the string 'SystemAssigned', while use of a user-assigned managed identity is indicated with the resource id of the managed identity resource.
@@ -199,6 +201,8 @@ class StaticSiteBuildDatabaseConnection(pulumi.CustomResource):
         """
         Static Site Database Connection resource.
         Azure REST API version: 2022-09-01.
+
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param StaticSiteBuildDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -254,7 +258,7 @@ class StaticSiteBuildDatabaseConnection(pulumi.CustomResource):
             __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["configuration_files"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteBuildDatabaseConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220901:StaticSiteBuildDatabaseConnection"), pulumi.Alias(type_="azure-native:web/v20230101:StaticSiteBuildDatabaseConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSiteBuildDatabaseConnection, __self__).__init__(
             'azure-native:web:StaticSiteBuildDatabaseConnection',

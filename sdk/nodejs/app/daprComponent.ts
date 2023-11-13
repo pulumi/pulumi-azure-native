@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Dapr Component.
  * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
  *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+ * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
  */
 export class DaprComponent extends pulumi.CustomResource {
     /**
@@ -130,7 +130,7 @@ export class DaprComponent extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:DaprComponent" }, { type: "azure-native:app/v20220301:DaprComponent" }, { type: "azure-native:app/v20220601preview:DaprComponent" }, { type: "azure-native:app/v20221001:DaprComponent" }, { type: "azure-native:app/v20221101preview:DaprComponent" }, { type: "azure-native:app/v20230401preview:DaprComponent" }, { type: "azure-native:app/v20230501:DaprComponent" }, { type: "azure-native:app/v20230502preview:DaprComponent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:DaprComponent" }, { type: "azure-native:app/v20220301:DaprComponent" }, { type: "azure-native:app/v20220601preview:DaprComponent" }, { type: "azure-native:app/v20221001:DaprComponent" }, { type: "azure-native:app/v20221101preview:DaprComponent" }, { type: "azure-native:app/v20230401preview:DaprComponent" }, { type: "azure-native:app/v20230501:DaprComponent" }, { type: "azure-native:app/v20230502preview:DaprComponent" }, { type: "azure-native:app/v20230801preview:DaprComponent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DaprComponent.__pulumiType, name, resourceInputs, opts);
     }

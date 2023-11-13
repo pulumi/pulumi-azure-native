@@ -27,7 +27,9 @@ __all__ = [
     'AzureFilePropertiesResponse',
     'AzureStaticWebAppsRegistrationResponse',
     'AzureStaticWebAppsResponse',
+    'BuildConfigurationResponse',
     'CertificateResponseProperties',
+    'CircuitBreakerPolicyResponse',
     'ClientRegistrationResponse',
     'ConfigurationResponse',
     'ConnectedEnvironmentStorageResponseProperties',
@@ -36,6 +38,8 @@ __all__ = [
     'ContainerAppProbeResponseHttpHeaders',
     'ContainerAppProbeResponseTcpSocket',
     'ContainerAppSecretResponse',
+    'ContainerRegistryResponse',
+    'ContainerRegistryWithCustomImageResponse',
     'ContainerResourcesResponse',
     'ContainerResponse',
     'CookieExpirationResponse',
@@ -46,12 +50,20 @@ __all__ = [
     'CustomHostnameAnalysisResultResponseDetails',
     'CustomOpenIdConnectProviderResponse',
     'CustomScaleRuleResponse',
+    'DaprComponentResiliencyPolicyConfigurationResponse',
+    'DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse',
+    'DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse',
+    'DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse',
     'DaprMetadataResponse',
     'DaprResponse',
     'DaprSecretResponse',
+    'DaprSubscriptionBulkSubscribeOptionsResponse',
+    'DaprSubscriptionRouteRuleResponse',
+    'DaprSubscriptionRoutesResponse',
     'DefaultAuthorizationPolicyResponse',
     'EnvironmentSkuPropertiesResponse',
     'EnvironmentVarResponse',
+    'EnvironmentVariableResponse',
     'ExtendedLocationResponse',
     'FacebookResponse',
     'ForwardProxyResponse',
@@ -59,6 +71,10 @@ __all__ = [
     'GithubActionConfigurationResponse',
     'GlobalValidationResponse',
     'GoogleResponse',
+    'HeaderMatchResponse',
+    'HttpConnectionPoolResponse',
+    'HttpGetResponse',
+    'HttpRetryPolicyResponse',
     'HttpScaleRuleResponse',
     'HttpSettingsResponse',
     'HttpSettingsRoutesResponse',
@@ -87,6 +103,7 @@ __all__ = [
     'OpenIdConnectConfigResponse',
     'OpenIdConnectLoginResponse',
     'OpenIdConnectRegistrationResponse',
+    'PreBuildStepResponse',
     'QueueScaleRuleResponse',
     'RegistryCredentialsResponse',
     'RegistryInfoResponse',
@@ -96,8 +113,11 @@ __all__ = [
     'SecretResponse',
     'SecretVolumeItemResponse',
     'SystemDataResponse',
+    'TcpConnectionPoolResponse',
+    'TcpRetryPolicyResponse',
     'TcpScaleRuleResponse',
     'TemplateResponse',
+    'TimeoutPolicyResponse',
     'TrafficWeightResponse',
     'TwitterRegistrationResponse',
     'TwitterResponse',
@@ -986,6 +1006,100 @@ class AzureStaticWebAppsResponse(dict):
 
 
 @pulumi.output_type
+class BuildConfigurationResponse(dict):
+    """
+    Configuration of the build.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseOs":
+            suggest = "base_os"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "platformVersion":
+            suggest = "platform_version"
+        elif key == "preBuildSteps":
+            suggest = "pre_build_steps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_os: Optional[str] = None,
+                 environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
+                 platform: Optional[str] = None,
+                 platform_version: Optional[str] = None,
+                 pre_build_steps: Optional[Sequence['outputs.PreBuildStepResponse']] = None):
+        """
+        Configuration of the build.
+        :param str base_os: Base OS used to build and run the app.
+        :param Sequence['EnvironmentVariableResponse'] environment_variables: List of environment variables to be passed to the build and application runtime.
+        :param str platform: Platform to be used to build and run the app.
+        :param str platform_version: Platform version to be used to build and run the app.
+        :param Sequence['PreBuildStepResponse'] pre_build_steps: List of steps to perform before the build.
+        """
+        if base_os is not None:
+            pulumi.set(__self__, "base_os", base_os)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
+        if pre_build_steps is not None:
+            pulumi.set(__self__, "pre_build_steps", pre_build_steps)
+
+    @property
+    @pulumi.getter(name="baseOs")
+    def base_os(self) -> Optional[str]:
+        """
+        Base OS used to build and run the app.
+        """
+        return pulumi.get(self, "base_os")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.EnvironmentVariableResponse']]:
+        """
+        List of environment variables to be passed to the build and application runtime.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[str]:
+        """
+        Platform to be used to build and run the app.
+        """
+        return pulumi.get(self, "platform")
+
+    @property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> Optional[str]:
+        """
+        Platform version to be used to build and run the app.
+        """
+        return pulumi.get(self, "platform_version")
+
+    @property
+    @pulumi.getter(name="preBuildSteps")
+    def pre_build_steps(self) -> Optional[Sequence['outputs.PreBuildStepResponse']]:
+        """
+        List of steps to perform before the build.
+        """
+        return pulumi.get(self, "pre_build_steps")
+
+
+@pulumi.output_type
 class CertificateResponseProperties(dict):
     """
     Certificate resource specific properties
@@ -1120,6 +1234,74 @@ class CertificateResponseProperties(dict):
         Is the certificate valid?.
         """
         return pulumi.get(self, "valid")
+
+
+@pulumi.output_type
+class CircuitBreakerPolicyResponse(dict):
+    """
+    Policy that defines circuit breaker conditions
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consecutiveErrors":
+            suggest = "consecutive_errors"
+        elif key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "maxEjectionPercent":
+            suggest = "max_ejection_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CircuitBreakerPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CircuitBreakerPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CircuitBreakerPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consecutive_errors: Optional[int] = None,
+                 interval_in_seconds: Optional[int] = None,
+                 max_ejection_percent: Optional[int] = None):
+        """
+        Policy that defines circuit breaker conditions
+        :param int consecutive_errors: Number of consecutive errors before the circuit breaker opens
+        :param int interval_in_seconds: The time interval, in seconds, between endpoint checks. This can result in opening the circuit breaker if the check fails as well as closing the circuit breaker if the check succeeds. Defaults to 10s.
+        :param int max_ejection_percent: Maximum percentage of hosts that will be ejected after failure threshold has been met
+        """
+        if consecutive_errors is not None:
+            pulumi.set(__self__, "consecutive_errors", consecutive_errors)
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if max_ejection_percent is not None:
+            pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+
+    @property
+    @pulumi.getter(name="consecutiveErrors")
+    def consecutive_errors(self) -> Optional[int]:
+        """
+        Number of consecutive errors before the circuit breaker opens
+        """
+        return pulumi.get(self, "consecutive_errors")
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[int]:
+        """
+        The time interval, in seconds, between endpoint checks. This can result in opening the circuit breaker if the check fails as well as closing the circuit breaker if the check succeeds. Defaults to 10s.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="maxEjectionPercent")
+    def max_ejection_percent(self) -> Optional[int]:
+        """
+        Maximum percentage of hosts that will be ejected after failure threshold has been met
+        """
+        return pulumi.get(self, "max_ejection_percent")
 
 
 @pulumi.output_type
@@ -1657,6 +1839,92 @@ class ContainerAppSecretResponse(dict):
         Secret Value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ContainerRegistryResponse(dict):
+    """
+    Model representing a mapping from a container registry to the identity used to connect to it.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerRegistryServer":
+            suggest = "container_registry_server"
+        elif key == "identityResourceId":
+            suggest = "identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerRegistryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerRegistryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerRegistryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_registry_server: str,
+                 identity_resource_id: str):
+        """
+        Model representing a mapping from a container registry to the identity used to connect to it.
+        :param str container_registry_server: Login server of the container registry.
+        :param str identity_resource_id: Resource ID of the managed identity.
+        """
+        pulumi.set(__self__, "container_registry_server", container_registry_server)
+        pulumi.set(__self__, "identity_resource_id", identity_resource_id)
+
+    @property
+    @pulumi.getter(name="containerRegistryServer")
+    def container_registry_server(self) -> str:
+        """
+        Login server of the container registry.
+        """
+        return pulumi.get(self, "container_registry_server")
+
+    @property
+    @pulumi.getter(name="identityResourceId")
+    def identity_resource_id(self) -> str:
+        """
+        Resource ID of the managed identity.
+        """
+        return pulumi.get(self, "identity_resource_id")
+
+
+@pulumi.output_type
+class ContainerRegistryWithCustomImageResponse(dict):
+    """
+    Container registry that the final image will be uploaded to.
+    """
+    def __init__(__self__, *,
+                 server: str,
+                 image: Optional[str] = None):
+        """
+        Container registry that the final image will be uploaded to.
+        :param str server: Login server of the container registry that the final image should be uploaded to. Builder resource needs to have this container registry defined along with an identity to use to access it.
+        :param str image: Full name that the final image should be uploaded as, including both image name and tag.
+        """
+        pulumi.set(__self__, "server", server)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+
+    @property
+    @pulumi.getter
+    def server(self) -> str:
+        """
+        Login server of the container registry that the final image should be uploaded to. Builder resource needs to have this container registry defined along with an identity to use to access it.
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        """
+        Full name that the final image should be uploaded as, including both image name and tag.
+        """
+        return pulumi.get(self, "image")
 
 
 @pulumi.output_type
@@ -2387,6 +2655,208 @@ class CustomScaleRuleResponse(dict):
 
 
 @pulumi.output_type
+class DaprComponentResiliencyPolicyConfigurationResponse(dict):
+    """
+    Dapr Component Resiliency Policy Configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpRetryPolicy":
+            suggest = "http_retry_policy"
+        elif key == "timeoutPolicy":
+            suggest = "timeout_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaprComponentResiliencyPolicyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaprComponentResiliencyPolicyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaprComponentResiliencyPolicyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_retry_policy: Optional['outputs.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse'] = None,
+                 timeout_policy: Optional['outputs.DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse'] = None):
+        """
+        Dapr Component Resiliency Policy Configuration.
+        :param 'DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse' http_retry_policy: The optional HTTP retry policy configuration
+        :param 'DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse' timeout_policy: The optional timeout policy configuration
+        """
+        if http_retry_policy is not None:
+            pulumi.set(__self__, "http_retry_policy", http_retry_policy)
+        if timeout_policy is not None:
+            pulumi.set(__self__, "timeout_policy", timeout_policy)
+
+    @property
+    @pulumi.getter(name="httpRetryPolicy")
+    def http_retry_policy(self) -> Optional['outputs.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse']:
+        """
+        The optional HTTP retry policy configuration
+        """
+        return pulumi.get(self, "http_retry_policy")
+
+    @property
+    @pulumi.getter(name="timeoutPolicy")
+    def timeout_policy(self) -> Optional['outputs.DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse']:
+        """
+        The optional timeout policy configuration
+        """
+        return pulumi.get(self, "timeout_policy")
+
+
+@pulumi.output_type
+class DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse(dict):
+    """
+    Dapr Component Resiliency Policy HTTP Retry Backoff Configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initialDelayInMilliseconds":
+            suggest = "initial_delay_in_milliseconds"
+        elif key == "maxIntervalInMilliseconds":
+            suggest = "max_interval_in_milliseconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initial_delay_in_milliseconds: Optional[int] = None,
+                 max_interval_in_milliseconds: Optional[int] = None):
+        """
+        Dapr Component Resiliency Policy HTTP Retry Backoff Configuration.
+        :param int initial_delay_in_milliseconds: The optional initial delay in milliseconds before an operation is retried
+        :param int max_interval_in_milliseconds: The optional maximum time interval in milliseconds between retry attempts
+        """
+        if initial_delay_in_milliseconds is not None:
+            pulumi.set(__self__, "initial_delay_in_milliseconds", initial_delay_in_milliseconds)
+        if max_interval_in_milliseconds is not None:
+            pulumi.set(__self__, "max_interval_in_milliseconds", max_interval_in_milliseconds)
+
+    @property
+    @pulumi.getter(name="initialDelayInMilliseconds")
+    def initial_delay_in_milliseconds(self) -> Optional[int]:
+        """
+        The optional initial delay in milliseconds before an operation is retried
+        """
+        return pulumi.get(self, "initial_delay_in_milliseconds")
+
+    @property
+    @pulumi.getter(name="maxIntervalInMilliseconds")
+    def max_interval_in_milliseconds(self) -> Optional[int]:
+        """
+        The optional maximum time interval in milliseconds between retry attempts
+        """
+        return pulumi.get(self, "max_interval_in_milliseconds")
+
+
+@pulumi.output_type
+class DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse(dict):
+    """
+    Dapr Component Resiliency Policy HTTP Retry Policy Configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRetries":
+            suggest = "max_retries"
+        elif key == "retryBackOff":
+            suggest = "retry_back_off"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_retries: Optional[int] = None,
+                 retry_back_off: Optional['outputs.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse'] = None):
+        """
+        Dapr Component Resiliency Policy HTTP Retry Policy Configuration.
+        :param int max_retries: The optional maximum number of retries
+        :param 'DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse' retry_back_off: The optional retry backoff configuration
+        """
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
+        if retry_back_off is not None:
+            pulumi.set(__self__, "retry_back_off", retry_back_off)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> Optional[int]:
+        """
+        The optional maximum number of retries
+        """
+        return pulumi.get(self, "max_retries")
+
+    @property
+    @pulumi.getter(name="retryBackOff")
+    def retry_back_off(self) -> Optional['outputs.DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationResponse']:
+        """
+        The optional retry backoff configuration
+        """
+        return pulumi.get(self, "retry_back_off")
+
+
+@pulumi.output_type
+class DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse(dict):
+    """
+    Dapr Component Resiliency Policy Timeout Policy Configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseTimeoutInSeconds":
+            suggest = "response_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 response_timeout_in_seconds: Optional[int] = None):
+        """
+        Dapr Component Resiliency Policy Timeout Policy Configuration.
+        :param int response_timeout_in_seconds: The optional response timeout in seconds
+        """
+        if response_timeout_in_seconds is not None:
+            pulumi.set(__self__, "response_timeout_in_seconds", response_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="responseTimeoutInSeconds")
+    def response_timeout_in_seconds(self) -> Optional[int]:
+        """
+        The optional response timeout in seconds
+        """
+        return pulumi.get(self, "response_timeout_in_seconds")
+
+
+@pulumi.output_type
 class DaprMetadataResponse(dict):
     """
     Dapr component metadata.
@@ -2624,6 +3094,144 @@ class DaprSecretResponse(dict):
 
 
 @pulumi.output_type
+class DaprSubscriptionBulkSubscribeOptionsResponse(dict):
+    """
+    Dapr PubSub Bulk Subscription Options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxAwaitDurationMs":
+            suggest = "max_await_duration_ms"
+        elif key == "maxMessagesCount":
+            suggest = "max_messages_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaprSubscriptionBulkSubscribeOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaprSubscriptionBulkSubscribeOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaprSubscriptionBulkSubscribeOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 max_await_duration_ms: Optional[int] = None,
+                 max_messages_count: Optional[int] = None):
+        """
+        Dapr PubSub Bulk Subscription Options.
+        :param bool enabled: Enable bulk subscription
+        :param int max_await_duration_ms: Maximum duration in milliseconds to wait before a bulk message is sent to the app.
+        :param int max_messages_count: Maximum number of messages to deliver in a bulk message.
+        """
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if max_await_duration_ms is not None:
+            pulumi.set(__self__, "max_await_duration_ms", max_await_duration_ms)
+        if max_messages_count is not None:
+            pulumi.set(__self__, "max_messages_count", max_messages_count)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enable bulk subscription
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="maxAwaitDurationMs")
+    def max_await_duration_ms(self) -> Optional[int]:
+        """
+        Maximum duration in milliseconds to wait before a bulk message is sent to the app.
+        """
+        return pulumi.get(self, "max_await_duration_ms")
+
+    @property
+    @pulumi.getter(name="maxMessagesCount")
+    def max_messages_count(self) -> Optional[int]:
+        """
+        Maximum number of messages to deliver in a bulk message.
+        """
+        return pulumi.get(self, "max_messages_count")
+
+
+@pulumi.output_type
+class DaprSubscriptionRouteRuleResponse(dict):
+    """
+    Dapr Pubsub Event Subscription Route Rule is used to specify the condition for sending a message to a specific path.
+    """
+    def __init__(__self__, *,
+                 match: Optional[str] = None,
+                 path: Optional[str] = None):
+        """
+        Dapr Pubsub Event Subscription Route Rule is used to specify the condition for sending a message to a specific path.
+        :param str match: The optional CEL expression used to match the event. If the match is not specified, then the route is considered the default. The rules are tested in the order specified, so they should be define from most-to-least specific. The default route should appear last in the list.
+        :param str path: The path for events that match this rule
+        """
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional[str]:
+        """
+        The optional CEL expression used to match the event. If the match is not specified, then the route is considered the default. The rules are tested in the order specified, so they should be define from most-to-least specific. The default route should appear last in the list.
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        The path for events that match this rule
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class DaprSubscriptionRoutesResponse(dict):
+    """
+    Dapr PubSub Event Subscription Routes configuration.
+    """
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 rules: Optional[Sequence['outputs.DaprSubscriptionRouteRuleResponse']] = None):
+        """
+        Dapr PubSub Event Subscription Routes configuration.
+        :param str default: The default path to deliver events that do not match any of the rules.
+        :param Sequence['DaprSubscriptionRouteRuleResponse'] rules: The list of Dapr PubSub Event Subscription Route Rules.
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        """
+        The default path to deliver events that do not match any of the rules.
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.DaprSubscriptionRouteRuleResponse']]:
+        """
+        The list of Dapr PubSub Event Subscription Route Rules.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
 class DefaultAuthorizationPolicyResponse(dict):
     """
     The configuration settings of the Azure Active Directory default authorization policy.
@@ -2759,6 +3367,39 @@ class EnvironmentVarResponse(dict):
     def value(self) -> Optional[str]:
         """
         Non-secret environment variable value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EnvironmentVariableResponse(dict):
+    """
+    Model representing an environment variable.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        Model representing an environment variable.
+        :param str name: Environment variable name.
+        :param str value: Environment variable value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Environment variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Environment variable value.
         """
         return pulumi.get(self, "value")
 
@@ -3250,6 +3891,323 @@ class GoogleResponse(dict):
         The configuration settings of the Azure Active Directory token validation flow.
         """
         return pulumi.get(self, "validation")
+
+
+@pulumi.output_type
+class HeaderMatchResponse(dict):
+    """
+    Conditions required to match a header
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "exactMatch":
+            suggest = "exact_match"
+        elif key == "prefixMatch":
+            suggest = "prefix_match"
+        elif key == "regexMatch":
+            suggest = "regex_match"
+        elif key == "suffixMatch":
+            suggest = "suffix_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HeaderMatchResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HeaderMatchResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HeaderMatchResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exact_match: Optional[str] = None,
+                 header: Optional[str] = None,
+                 prefix_match: Optional[str] = None,
+                 regex_match: Optional[str] = None,
+                 suffix_match: Optional[str] = None):
+        """
+        Conditions required to match a header
+        :param str exact_match: Exact value of the header
+        :param str header: Name of the header
+        :param str prefix_match: Prefix value of the header
+        :param str regex_match: Regex value of the header
+        :param str suffix_match: Suffix value of the header
+        """
+        if exact_match is not None:
+            pulumi.set(__self__, "exact_match", exact_match)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if prefix_match is not None:
+            pulumi.set(__self__, "prefix_match", prefix_match)
+        if regex_match is not None:
+            pulumi.set(__self__, "regex_match", regex_match)
+        if suffix_match is not None:
+            pulumi.set(__self__, "suffix_match", suffix_match)
+
+    @property
+    @pulumi.getter(name="exactMatch")
+    def exact_match(self) -> Optional[str]:
+        """
+        Exact value of the header
+        """
+        return pulumi.get(self, "exact_match")
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[str]:
+        """
+        Name of the header
+        """
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter(name="prefixMatch")
+    def prefix_match(self) -> Optional[str]:
+        """
+        Prefix value of the header
+        """
+        return pulumi.get(self, "prefix_match")
+
+    @property
+    @pulumi.getter(name="regexMatch")
+    def regex_match(self) -> Optional[str]:
+        """
+        Regex value of the header
+        """
+        return pulumi.get(self, "regex_match")
+
+    @property
+    @pulumi.getter(name="suffixMatch")
+    def suffix_match(self) -> Optional[str]:
+        """
+        Suffix value of the header
+        """
+        return pulumi.get(self, "suffix_match")
+
+
+@pulumi.output_type
+class HttpConnectionPoolResponse(dict):
+    """
+    Defines parameters for http connection pooling
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "http1MaxPendingRequests":
+            suggest = "http1_max_pending_requests"
+        elif key == "http2MaxRequests":
+            suggest = "http2_max_requests"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpConnectionPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpConnectionPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpConnectionPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http1_max_pending_requests: Optional[int] = None,
+                 http2_max_requests: Optional[int] = None):
+        """
+        Defines parameters for http connection pooling
+        :param int http1_max_pending_requests: Maximum number of pending http1 requests allowed
+        :param int http2_max_requests: Maximum number of http2 requests allowed
+        """
+        if http1_max_pending_requests is not None:
+            pulumi.set(__self__, "http1_max_pending_requests", http1_max_pending_requests)
+        if http2_max_requests is not None:
+            pulumi.set(__self__, "http2_max_requests", http2_max_requests)
+
+    @property
+    @pulumi.getter(name="http1MaxPendingRequests")
+    def http1_max_pending_requests(self) -> Optional[int]:
+        """
+        Maximum number of pending http1 requests allowed
+        """
+        return pulumi.get(self, "http1_max_pending_requests")
+
+    @property
+    @pulumi.getter(name="http2MaxRequests")
+    def http2_max_requests(self) -> Optional[int]:
+        """
+        Maximum number of http2 requests allowed
+        """
+        return pulumi.get(self, "http2_max_requests")
+
+
+@pulumi.output_type
+class HttpGetResponse(dict):
+    """
+    Model representing a http get request.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileName":
+            suggest = "file_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpGetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpGetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpGetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 file_name: Optional[str] = None,
+                 headers: Optional[Sequence[str]] = None):
+        """
+        Model representing a http get request.
+        :param str url: URL to make HTTP GET request against.
+        :param str file_name: Name of the file that the request should be saved to.
+        :param Sequence[str] headers: List of headers to send with the request.
+        """
+        pulumi.set(__self__, "url", url)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        URL to make HTTP GET request against.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[str]:
+        """
+        Name of the file that the request should be saved to.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence[str]]:
+        """
+        List of headers to send with the request.
+        """
+        return pulumi.get(self, "headers")
+
+
+@pulumi.output_type
+class HttpRetryPolicyResponse(dict):
+    """
+    Policy that defines http request retry conditions
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpStatusCodes":
+            suggest = "http_status_codes"
+        elif key == "initialDelayInMilliseconds":
+            suggest = "initial_delay_in_milliseconds"
+        elif key == "maxIntervalInMilliseconds":
+            suggest = "max_interval_in_milliseconds"
+        elif key == "maxRetries":
+            suggest = "max_retries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpRetryPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpRetryPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpRetryPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 errors: Optional[Sequence[str]] = None,
+                 headers: Optional[Sequence['outputs.HeaderMatchResponse']] = None,
+                 http_status_codes: Optional[Sequence[int]] = None,
+                 initial_delay_in_milliseconds: Optional[float] = None,
+                 max_interval_in_milliseconds: Optional[float] = None,
+                 max_retries: Optional[int] = None):
+        """
+        Policy that defines http request retry conditions
+        :param Sequence[str] errors: Errors that can trigger a retry
+        :param Sequence['HeaderMatchResponse'] headers: Headers that must be present for a request to be retried
+        :param Sequence[int] http_status_codes: Additional http status codes that can trigger a retry
+        :param float initial_delay_in_milliseconds: Initial delay, in milliseconds, before retrying a request
+        :param float max_interval_in_milliseconds: Maximum interval, in milliseconds, between retries
+        :param int max_retries: Maximum number of times a request will retry
+        """
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if http_status_codes is not None:
+            pulumi.set(__self__, "http_status_codes", http_status_codes)
+        if initial_delay_in_milliseconds is not None:
+            pulumi.set(__self__, "initial_delay_in_milliseconds", initial_delay_in_milliseconds)
+        if max_interval_in_milliseconds is not None:
+            pulumi.set(__self__, "max_interval_in_milliseconds", max_interval_in_milliseconds)
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[Sequence[str]]:
+        """
+        Errors that can trigger a retry
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.HeaderMatchResponse']]:
+        """
+        Headers that must be present for a request to be retried
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="httpStatusCodes")
+    def http_status_codes(self) -> Optional[Sequence[int]]:
+        """
+        Additional http status codes that can trigger a retry
+        """
+        return pulumi.get(self, "http_status_codes")
+
+    @property
+    @pulumi.getter(name="initialDelayInMilliseconds")
+    def initial_delay_in_milliseconds(self) -> Optional[float]:
+        """
+        Initial delay, in milliseconds, before retrying a request
+        """
+        return pulumi.get(self, "initial_delay_in_milliseconds")
+
+    @property
+    @pulumi.getter(name="maxIntervalInMilliseconds")
+    def max_interval_in_milliseconds(self) -> Optional[float]:
+        """
+        Maximum interval, in milliseconds, between retries
+        """
+        return pulumi.get(self, "max_interval_in_milliseconds")
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> Optional[int]:
+        """
+        Maximum number of times a request will retry
+        """
+        return pulumi.get(self, "max_retries")
 
 
 @pulumi.output_type
@@ -5247,6 +6205,70 @@ class OpenIdConnectRegistrationResponse(dict):
 
 
 @pulumi.output_type
+class PreBuildStepResponse(dict):
+    """
+    Model representing a pre-build step.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpGet":
+            suggest = "http_get"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PreBuildStepResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PreBuildStepResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PreBuildStepResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 http_get: Optional['outputs.HttpGetResponse'] = None,
+                 scripts: Optional[Sequence[str]] = None):
+        """
+        Model representing a pre-build step.
+        :param str description: Description of the pre-build step.
+        :param 'HttpGetResponse' http_get: Http get request to send before the build.
+        :param Sequence[str] scripts: List of custom commands to run.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if scripts is not None:
+            pulumi.set(__self__, "scripts", scripts)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the pre-build step.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> Optional['outputs.HttpGetResponse']:
+        """
+        Http get request to send before the build.
+        """
+        return pulumi.get(self, "http_get")
+
+    @property
+    @pulumi.getter
+    def scripts(self) -> Optional[Sequence[str]]:
+        """
+        List of custom commands to run.
+        """
+        return pulumi.get(self, "scripts")
+
+
+@pulumi.output_type
 class QueueScaleRuleResponse(dict):
     """
     Container App container Azure Queue based scaling rule.
@@ -5879,6 +6901,86 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class TcpConnectionPoolResponse(dict):
+    """
+    Defines parameters for tcp connection pooling
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConnections":
+            suggest = "max_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TcpConnectionPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TcpConnectionPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TcpConnectionPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_connections: Optional[int] = None):
+        """
+        Defines parameters for tcp connection pooling
+        :param int max_connections: Maximum number of tcp connections allowed
+        """
+        if max_connections is not None:
+            pulumi.set(__self__, "max_connections", max_connections)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> Optional[int]:
+        """
+        Maximum number of tcp connections allowed
+        """
+        return pulumi.get(self, "max_connections")
+
+
+@pulumi.output_type
+class TcpRetryPolicyResponse(dict):
+    """
+    Policy that defines tcp request retry conditions
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConnectAttempts":
+            suggest = "max_connect_attempts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TcpRetryPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TcpRetryPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TcpRetryPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_connect_attempts: Optional[int] = None):
+        """
+        Policy that defines tcp request retry conditions
+        :param int max_connect_attempts: Maximum number of attempts to connect to the tcp service
+        """
+        if max_connect_attempts is not None:
+            pulumi.set(__self__, "max_connect_attempts", max_connect_attempts)
+
+    @property
+    @pulumi.getter(name="maxConnectAttempts")
+    def max_connect_attempts(self) -> Optional[int]:
+        """
+        Maximum number of attempts to connect to the tcp service
+        """
+        return pulumi.get(self, "max_connect_attempts")
+
+
+@pulumi.output_type
 class TcpScaleRuleResponse(dict):
     """
     Container App container Tcp scaling rule.
@@ -6005,6 +7107,60 @@ class TemplateResponse(dict):
         List of volume definitions for the Container App.
         """
         return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class TimeoutPolicyResponse(dict):
+    """
+    Policy to set request timeouts
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionTimeoutInSeconds":
+            suggest = "connection_timeout_in_seconds"
+        elif key == "responseTimeoutInSeconds":
+            suggest = "response_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TimeoutPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TimeoutPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TimeoutPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_timeout_in_seconds: Optional[int] = None,
+                 response_timeout_in_seconds: Optional[int] = None):
+        """
+        Policy to set request timeouts
+        :param int connection_timeout_in_seconds: Timeout, in seconds, for a request to initiate a connection
+        :param int response_timeout_in_seconds: Timeout, in seconds, for a request to respond
+        """
+        if connection_timeout_in_seconds is not None:
+            pulumi.set(__self__, "connection_timeout_in_seconds", connection_timeout_in_seconds)
+        if response_timeout_in_seconds is not None:
+            pulumi.set(__self__, "response_timeout_in_seconds", response_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="connectionTimeoutInSeconds")
+    def connection_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Timeout, in seconds, for a request to initiate a connection
+        """
+        return pulumi.get(self, "connection_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="responseTimeoutInSeconds")
+    def response_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Timeout, in seconds, for a request to respond
+        """
+        return pulumi.get(self, "response_timeout_in_seconds")
 
 
 @pulumi.output_type

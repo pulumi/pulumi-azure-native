@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Get the specified tap configuration on a network interface.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Task<GetNetworkInterfaceTapConfigurationResult> InvokeAsync(GetNetworkInterfaceTapConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceTapConfigurationResult>("azure-native:network:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Get the specified tap configuration on a network interface.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Output<GetNetworkInterfaceTapConfigurationResult> Invoke(GetNetworkInterfaceTapConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceTapConfigurationResult>("azure-native:network:getNetworkInterfaceTapConfiguration", args ?? new GetNetworkInterfaceTapConfigurationInvokeArgs(), options.WithDefaults());

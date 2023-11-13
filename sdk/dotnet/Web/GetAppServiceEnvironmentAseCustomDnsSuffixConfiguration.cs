@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Full view of the custom domain suffix configuration for ASEv3.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2023-01-01.
         /// </summary>
         public static Task<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> InvokeAsync(GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Full view of the custom domain suffix configuration for ASEv3.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2023-01-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult> Invoke(GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult>("azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration", args ?? new GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationInvokeArgs(), options.WithDefaults());

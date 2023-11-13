@@ -231,7 +231,6 @@ __all__ = [
     'PrivateLinkServicePropertiesResponseVisibility',
     'PrivateLinkServiceResponse',
     'ProbeResponse',
-    'PropagatedRouteTableNfvResponse',
     'PropagatedRouteTableResponse',
     'PublicIPAddressDnsSettingsResponse',
     'PublicIPAddressResponse',
@@ -249,8 +248,6 @@ __all__ = [
     'RouteMapRuleResponse',
     'RouteResponse',
     'RouteTableResponse',
-    'RoutingConfigurationNfvResponse',
-    'RoutingConfigurationNfvSubResourceResponse',
     'RoutingConfigurationResponse',
     'RoutingPolicyResponse',
     'SecurityRuleResponse',
@@ -22018,41 +22015,6 @@ class ProbeResponse(dict):
 
 
 @pulumi.output_type
-class PropagatedRouteTableNfvResponse(dict):
-    """
-    Nfv version of the list of RouteTables to advertise the routes to.
-    """
-    def __init__(__self__, *,
-                 ids: Optional[Sequence['outputs.RoutingConfigurationNfvSubResourceResponse']] = None,
-                 labels: Optional[Sequence[str]] = None):
-        """
-        Nfv version of the list of RouteTables to advertise the routes to.
-        :param Sequence['RoutingConfigurationNfvSubResourceResponse'] ids: The list of resource ids of all the RouteTables.
-        :param Sequence[str] labels: The list of labels.
-        """
-        if ids is not None:
-            pulumi.set(__self__, "ids", ids)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @property
-    @pulumi.getter
-    def ids(self) -> Optional[Sequence['outputs.RoutingConfigurationNfvSubResourceResponse']]:
-        """
-        The list of resource ids of all the RouteTables.
-        """
-        return pulumi.get(self, "ids")
-
-    @property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence[str]]:
-        """
-        The list of labels.
-        """
-        return pulumi.get(self, "labels")
-
-
-@pulumi.output_type
 class PropagatedRouteTableResponse(dict):
     """
     The list of RouteTables to advertise the routes to.
@@ -23626,128 +23588,6 @@ class RouteTableResponse(dict):
         Resource tags.
         """
         return pulumi.get(self, "tags")
-
-
-@pulumi.output_type
-class RoutingConfigurationNfvResponse(dict):
-    """
-    NFV version of Routing Configuration indicating the associated and propagated route tables for this connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "associatedRouteTable":
-            suggest = "associated_route_table"
-        elif key == "inboundRouteMap":
-            suggest = "inbound_route_map"
-        elif key == "outboundRouteMap":
-            suggest = "outbound_route_map"
-        elif key == "propagatedRouteTables":
-            suggest = "propagated_route_tables"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationNfvResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingConfigurationNfvResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingConfigurationNfvResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 associated_route_table: Optional['outputs.RoutingConfigurationNfvSubResourceResponse'] = None,
-                 inbound_route_map: Optional['outputs.RoutingConfigurationNfvSubResourceResponse'] = None,
-                 outbound_route_map: Optional['outputs.RoutingConfigurationNfvSubResourceResponse'] = None,
-                 propagated_route_tables: Optional['outputs.PropagatedRouteTableNfvResponse'] = None):
-        """
-        NFV version of Routing Configuration indicating the associated and propagated route tables for this connection.
-        :param 'RoutingConfigurationNfvSubResourceResponse' associated_route_table: The resource id RouteTable associated with this RoutingConfiguration.
-        :param 'RoutingConfigurationNfvSubResourceResponse' inbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        :param 'RoutingConfigurationNfvSubResourceResponse' outbound_route_map: The resource id of the RouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        :param 'PropagatedRouteTableNfvResponse' propagated_route_tables: The list of RouteTables to advertise the routes to.
-        """
-        if associated_route_table is not None:
-            pulumi.set(__self__, "associated_route_table", associated_route_table)
-        if inbound_route_map is not None:
-            pulumi.set(__self__, "inbound_route_map", inbound_route_map)
-        if outbound_route_map is not None:
-            pulumi.set(__self__, "outbound_route_map", outbound_route_map)
-        if propagated_route_tables is not None:
-            pulumi.set(__self__, "propagated_route_tables", propagated_route_tables)
-
-    @property
-    @pulumi.getter(name="associatedRouteTable")
-    def associated_route_table(self) -> Optional['outputs.RoutingConfigurationNfvSubResourceResponse']:
-        """
-        The resource id RouteTable associated with this RoutingConfiguration.
-        """
-        return pulumi.get(self, "associated_route_table")
-
-    @property
-    @pulumi.getter(name="inboundRouteMap")
-    def inbound_route_map(self) -> Optional['outputs.RoutingConfigurationNfvSubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes.
-        """
-        return pulumi.get(self, "inbound_route_map")
-
-    @property
-    @pulumi.getter(name="outboundRouteMap")
-    def outbound_route_map(self) -> Optional['outputs.RoutingConfigurationNfvSubResourceResponse']:
-        """
-        The resource id of the RouteMap associated with this RoutingConfiguration for outbound advertised routes.
-        """
-        return pulumi.get(self, "outbound_route_map")
-
-    @property
-    @pulumi.getter(name="propagatedRouteTables")
-    def propagated_route_tables(self) -> Optional['outputs.PropagatedRouteTableNfvResponse']:
-        """
-        The list of RouteTables to advertise the routes to.
-        """
-        return pulumi.get(self, "propagated_route_tables")
-
-
-@pulumi.output_type
-class RoutingConfigurationNfvSubResourceResponse(dict):
-    """
-    Reference to RouteTableV3 associated with the connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "resourceUri":
-            suggest = "resource_uri"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoutingConfigurationNfvSubResourceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoutingConfigurationNfvSubResourceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoutingConfigurationNfvSubResourceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 resource_uri: Optional[str] = None):
-        """
-        Reference to RouteTableV3 associated with the connection.
-        :param str resource_uri: Resource ID.
-        """
-        if resource_uri is not None:
-            pulumi.set(__self__, "resource_uri", resource_uri)
-
-    @property
-    @pulumi.getter(name="resourceUri")
-    def resource_uri(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "resource_uri")
 
 
 @pulumi.output_type

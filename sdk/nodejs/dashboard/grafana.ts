@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The grafana resource type.
  * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2022-05-01-preview.
  *
- * Other available API versions: 2021-09-01-preview, 2022-10-01-preview.
+ * Other available API versions: 2021-09-01-preview, 2022-10-01-preview, 2023-09-01.
  */
 export class Grafana extends pulumi.CustomResource {
     /**
@@ -108,7 +108,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20210901preview:Grafana" }, { type: "azure-native:dashboard/v20220501preview:Grafana" }, { type: "azure-native:dashboard/v20220801:Grafana" }, { type: "azure-native:dashboard/v20221001preview:Grafana" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20210901preview:Grafana" }, { type: "azure-native:dashboard/v20220501preview:Grafana" }, { type: "azure-native:dashboard/v20220801:Grafana" }, { type: "azure-native:dashboard/v20221001preview:Grafana" }, { type: "azure-native:dashboard/v20230901:Grafana" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Grafana.__pulumiType, name, resourceInputs, opts);
     }

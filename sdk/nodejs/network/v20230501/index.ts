@@ -380,11 +380,6 @@ export const getNetworkVirtualAppliance: typeof import("./getNetworkVirtualAppli
 export const getNetworkVirtualApplianceOutput: typeof import("./getNetworkVirtualAppliance").getNetworkVirtualApplianceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkVirtualAppliance","getNetworkVirtualApplianceOutput"], () => require("./getNetworkVirtualAppliance"));
 
-export { GetNetworkVirtualApplianceConnectionArgs, GetNetworkVirtualApplianceConnectionResult, GetNetworkVirtualApplianceConnectionOutputArgs } from "./getNetworkVirtualApplianceConnection";
-export const getNetworkVirtualApplianceConnection: typeof import("./getNetworkVirtualApplianceConnection").getNetworkVirtualApplianceConnection = null as any;
-export const getNetworkVirtualApplianceConnectionOutput: typeof import("./getNetworkVirtualApplianceConnection").getNetworkVirtualApplianceConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getNetworkVirtualApplianceConnection","getNetworkVirtualApplianceConnectionOutput"], () => require("./getNetworkVirtualApplianceConnection"));
-
 export { GetNetworkWatcherArgs, GetNetworkWatcherResult, GetNetworkWatcherOutputArgs } from "./getNetworkWatcher";
 export const getNetworkWatcher: typeof import("./getNetworkWatcher").getNetworkWatcher = null as any;
 export const getNetworkWatcherOutput: typeof import("./getNetworkWatcher").getNetworkWatcherOutput = null as any;
@@ -760,11 +755,6 @@ export type NetworkVirtualAppliance = import("./networkVirtualAppliance").Networ
 export const NetworkVirtualAppliance: typeof import("./networkVirtualAppliance").NetworkVirtualAppliance = null as any;
 utilities.lazyLoad(exports, ["NetworkVirtualAppliance"], () => require("./networkVirtualAppliance"));
 
-export { NetworkVirtualApplianceConnectionArgs } from "./networkVirtualApplianceConnection";
-export type NetworkVirtualApplianceConnection = import("./networkVirtualApplianceConnection").NetworkVirtualApplianceConnection;
-export const NetworkVirtualApplianceConnection: typeof import("./networkVirtualApplianceConnection").NetworkVirtualApplianceConnection = null as any;
-utilities.lazyLoad(exports, ["NetworkVirtualApplianceConnection"], () => require("./networkVirtualApplianceConnection"));
-
 export { NetworkWatcherArgs } from "./networkWatcher";
 export type NetworkWatcher = import("./networkWatcher").NetworkWatcher;
 export const NetworkWatcher: typeof import("./networkWatcher").NetworkWatcher = null as any;
@@ -1078,8 +1068,6 @@ const _module = {
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20230501:NetworkVirtualAppliance":
                 return new NetworkVirtualAppliance(name, <any>undefined, { urn })
-            case "azure-native:network/v20230501:NetworkVirtualApplianceConnection":
-                return new NetworkVirtualApplianceConnection(name, <any>undefined, { urn })
             case "azure-native:network/v20230501:NetworkWatcher":
                 return new NetworkWatcher(name, <any>undefined, { urn })
             case "azure-native:network/v20230501:P2sVpnGateway":

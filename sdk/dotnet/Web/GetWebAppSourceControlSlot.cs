@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets the source control configuration of an app.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01.
+        /// Other available API versions: 2020-10-01, 2023-01-01.
         /// </summary>
         public static Task<GetWebAppSourceControlSlotResult> InvokeAsync(GetWebAppSourceControlSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlSlotResult>("azure-native:web:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Gets the source control configuration of an app.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01.
+        /// Other available API versions: 2020-10-01, 2023-01-01.
         /// </summary>
         public static Output<GetWebAppSourceControlSlotResult> Invoke(GetWebAppSourceControlSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlSlotResult>("azure-native:web:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotInvokeArgs(), options.WithDefaults());

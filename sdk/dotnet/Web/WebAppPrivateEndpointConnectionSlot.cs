@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Remote Private Endpoint Connection ARM resource.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// 
+    /// Other available API versions: 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppPrivateEndpointConnectionSlot")]
     public partial class WebAppPrivateEndpointConnectionSlot : global::Pulumi.CustomResource
@@ -87,6 +89,7 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPrivateEndpointConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPrivateEndpointConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppPrivateEndpointConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppPrivateEndpointConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

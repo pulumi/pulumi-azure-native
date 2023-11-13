@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Static Site Database Connection resource.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2023-01-01.
         /// </summary>
         public static Task<GetStaticSiteDatabaseConnectionResult> InvokeAsync(GetStaticSiteDatabaseConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteDatabaseConnectionResult>("azure-native:web:getStaticSiteDatabaseConnection", args ?? new GetStaticSiteDatabaseConnectionArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Static Site Database Connection resource.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2023-01-01.
         /// </summary>
         public static Output<GetStaticSiteDatabaseConnectionResult> Invoke(GetStaticSiteDatabaseConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteDatabaseConnectionResult>("azure-native:web:getStaticSiteDatabaseConnection", args ?? new GetStaticSiteDatabaseConnectionInvokeArgs(), options.WithDefaults());

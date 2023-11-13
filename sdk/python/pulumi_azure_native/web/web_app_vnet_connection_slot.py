@@ -182,7 +182,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         Virtual Network information ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01.
+        Other available API versions: 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,7 +207,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         Virtual Network information ARM resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01.
+        Other available API versions: 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppVnetConnectionSlotArgs args: The arguments to use to populate this resource's properties.
@@ -261,7 +261,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
             __props__.__dict__["resync_required"] = None
             __props__.__dict__["routes"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppVnetConnectionSlot")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppVnetConnectionSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppVnetConnectionSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppVnetConnectionSlot, __self__).__init__(
             'azure-native:web:WebAppVnetConnectionSlot',

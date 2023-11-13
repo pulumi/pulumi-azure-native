@@ -75,7 +75,7 @@ __all__ = [
     'ServiceBusQueueEventSubscriptionDestinationArgs',
     'ServiceBusTopicEventSubscriptionDestinationArgs',
     'StaticDeliveryAttributeMappingArgs',
-    'StaticRoutingEnrichmentArgs',
+    'StaticStringRoutingEnrichmentArgs',
     'StorageBlobDeadLetterDestinationArgs',
     'StorageQueueEventSubscriptionDestinationArgs',
     'StringBeginsWithAdvancedFilterArgs',
@@ -3410,7 +3410,7 @@ class RetryPolicyArgs:
 class RoutingEnrichmentsArgs:
     def __init__(__self__, *,
                  dynamic: Optional[pulumi.Input[Sequence[pulumi.Input['DynamicRoutingEnrichmentArgs']]]] = None,
-                 static: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]] = None):
+                 static: Optional[pulumi.Input[Sequence[pulumi.Input['StaticStringRoutingEnrichmentArgs']]]] = None):
         if dynamic is not None:
             pulumi.set(__self__, "dynamic", dynamic)
         if static is not None:
@@ -3427,11 +3427,11 @@ class RoutingEnrichmentsArgs:
 
     @property
     @pulumi.getter
-    def static(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]]:
+    def static(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticStringRoutingEnrichmentArgs']]]]:
         return pulumi.get(self, "static")
 
     @static.setter
-    def static(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]]):
+    def static(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticStringRoutingEnrichmentArgs']]]]):
         pulumi.set(self, "static", value)
 
 
@@ -3657,18 +3657,35 @@ class StaticDeliveryAttributeMappingArgs:
 
 
 @pulumi.input_type
-class StaticRoutingEnrichmentArgs:
+class StaticStringRoutingEnrichmentArgs:
     def __init__(__self__, *,
+                 value_type: pulumi.Input[str],
                  key: Optional[pulumi.Input[str]] = None,
-                 value_type: Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]] = None):
+                 value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] value_type: Static routing enrichment value type. For e.g. this property value can be 'String'.
+               Expected value is 'String'.
         :param pulumi.Input[str] key: Static routing enrichment key.
-        :param pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']] value_type: Static routing enrichment value type. For e.g. this property value can be 'String'.
+        :param pulumi.Input[str] value: String type routing enrichment value.
         """
+        pulumi.set(__self__, "value_type", 'String')
         if key is not None:
             pulumi.set(__self__, "key", key)
-        if value_type is not None:
-            pulumi.set(__self__, "value_type", value_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> pulumi.Input[str]:
+        """
+        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        Expected value is 'String'.
+        """
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value_type", value)
 
     @property
     @pulumi.getter
@@ -3683,16 +3700,16 @@ class StaticRoutingEnrichmentArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]]:
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        String type routing enrichment value.
         """
-        return pulumi.get(self, "value_type")
+        return pulumi.get(self, "value")
 
-    @value_type.setter
-    def value_type(self, value: Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]]):
-        pulumi.set(self, "value_type", value)
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

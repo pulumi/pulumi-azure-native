@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Workflow properties definition.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function listWebAppWorkflowsConnectionsSlot(args: ListWebAppWorkflowsConnectionsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppWorkflowsConnectionsSlotResult> {
 
@@ -68,6 +70,8 @@ export interface ListWebAppWorkflowsConnectionsSlotResult {
 /**
  * Workflow properties definition.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function listWebAppWorkflowsConnectionsSlotOutput(args: ListWebAppWorkflowsConnectionsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppWorkflowsConnectionsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppWorkflowsConnectionsSlot(a, opts))

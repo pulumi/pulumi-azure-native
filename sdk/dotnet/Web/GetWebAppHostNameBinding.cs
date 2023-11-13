@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Get the named hostname binding for an app (or deployment slot, if specified).
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01.
+        /// Other available API versions: 2020-10-01, 2023-01-01.
         /// </summary>
         public static Task<GetWebAppHostNameBindingResult> InvokeAsync(GetWebAppHostNameBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppHostNameBindingResult>("azure-native:web:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Web
         /// Description for Get the named hostname binding for an app (or deployment slot, if specified).
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2020-10-01.
+        /// Other available API versions: 2020-10-01, 2023-01-01.
         /// </summary>
         public static Output<GetWebAppHostNameBindingResult> Invoke(GetWebAppHostNameBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHostNameBindingResult>("azure-native:web:getWebAppHostNameBinding", args ?? new GetWebAppHostNameBindingInvokeArgs(), options.WithDefaults());

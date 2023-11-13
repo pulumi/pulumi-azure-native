@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Static Site Linked Backend ARM resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-03-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export class StaticSiteLinkedBackendForBuild extends pulumi.CustomResource {
     /**
@@ -104,7 +106,7 @@ export class StaticSiteLinkedBackendForBuild extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20220901:StaticSiteLinkedBackendForBuild" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20220901:StaticSiteLinkedBackendForBuild" }, { type: "azure-native:web/v20230101:StaticSiteLinkedBackendForBuild" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteLinkedBackendForBuild.__pulumiType, name, resourceInputs, opts);
     }

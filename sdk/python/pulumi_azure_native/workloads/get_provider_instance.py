@@ -137,6 +137,8 @@ def get_provider_instance(monitor_name: Optional[str] = None,
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
     Azure REST API version: 2023-04-01.
 
+    Other available API versions: 2023-10-01-preview.
+
 
     :param str monitor_name: Name of the SAP monitor resource.
     :param str provider_instance_name: Name of the provider instance.
@@ -168,6 +170,8 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
     Azure REST API version: 2023-04-01.
+
+    Other available API versions: 2023-10-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.

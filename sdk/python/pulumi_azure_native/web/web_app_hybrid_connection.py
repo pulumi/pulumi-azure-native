@@ -232,7 +232,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01.
+        Other available API versions: 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,7 +260,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01.
+        Other available API versions: 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppHybridConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -317,7 +317,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             __props__.__dict__["service_bus_namespace"] = service_bus_namespace
             __props__.__dict__["service_bus_suffix"] = service_bus_suffix
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppHybridConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppHybridConnection"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppHybridConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppHybridConnection, __self__).__init__(
             'azure-native:web:WebAppHybridConnection',

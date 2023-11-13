@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:AutomationAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20210622:AutomationAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:AutomationAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:AutomationAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

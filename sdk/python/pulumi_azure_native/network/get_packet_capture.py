@@ -185,7 +185,7 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
     Gets a packet capture session by name.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2018-01-01, 2020-06-01, 2023-04-01, 2023-05-01.
+    Other available API versions: 2018-01-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01.
 
 
     :param str network_watcher_name: The name of the network watcher.
@@ -223,7 +223,7 @@ def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[str]] 
     Gets a packet capture session by name.
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2018-01-01, 2020-06-01, 2023-04-01, 2023-05-01.
+    Other available API versions: 2018-01-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01.
 
 
     :param str network_watcher_name: The name of the network watcher.

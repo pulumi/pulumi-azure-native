@@ -25,6 +25,7 @@ from .get_hybrid_runbook_worker_group import *
 from .get_job_schedule import *
 from .get_module import *
 from .get_package import *
+from .get_power_shell72_module import *
 from .get_private_endpoint_connection import *
 from .get_python2_package import *
 from .get_python3_package import *
@@ -43,6 +44,7 @@ from .list_automation_account_deleted_runbooks import *
 from .list_key_by_automation_account import *
 from .module import *
 from .package import *
+from .power_shell72_module import *
 from .private_endpoint_connection import *
 from .python2_package import *
 from .python3_package import *
@@ -73,6 +75,8 @@ if typing.TYPE_CHECKING:
     v20220808 = __v20220808
     import pulumi_azure_native.automation.v20230515preview as __v20230515preview
     v20230515preview = __v20230515preview
+    import pulumi_azure_native.automation.v20231101 as __v20231101
+    v20231101 = __v20231101
 else:
     v20151031 = _utilities.lazy_import('pulumi_azure_native.automation.v20151031')
     v20170515preview = _utilities.lazy_import('pulumi_azure_native.automation.v20170515preview')
@@ -81,4 +85,5 @@ else:
     v20210622 = _utilities.lazy_import('pulumi_azure_native.automation.v20210622')
     v20220808 = _utilities.lazy_import('pulumi_azure_native.automation.v20220808')
     v20230515preview = _utilities.lazy_import('pulumi_azure_native.automation.v20230515preview')
+    v20231101 = _utilities.lazy_import('pulumi_azure_native.automation.v20231101')
 

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets the specified authorization from the specified express route circuit.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
 
@@ -72,7 +72,7 @@ export interface GetExpressRouteCircuitAuthorizationResult {
  * Gets the specified authorization from the specified express route circuit.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuitAuthorization(a, opts))

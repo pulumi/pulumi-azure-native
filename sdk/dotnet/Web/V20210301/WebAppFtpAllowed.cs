@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.Web.V20210301
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppFtpAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppFtpAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppFtpAllowed"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppFtpAllowed"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

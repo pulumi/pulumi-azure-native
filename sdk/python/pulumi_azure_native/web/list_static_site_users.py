@@ -65,7 +65,7 @@ def list_static_site_users(authprovider: Optional[str] = None,
     Description for Gets the list of users of a static site.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2020-10-01, 2021-02-01.
+    Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01.
 
 
     :param str authprovider: The auth provider for the users.
@@ -93,7 +93,7 @@ def list_static_site_users_output(authprovider: Optional[pulumi.Input[str]] = No
     Description for Gets the list of users of a static site.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2020-10-01, 2021-02-01.
+    Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01.
 
 
     :param str authprovider: The auth provider for the users.

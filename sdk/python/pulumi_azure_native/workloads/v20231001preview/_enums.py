@@ -18,6 +18,7 @@ __all__ = [
     'PolicyType',
     'RetentionDurationType',
     'RetentionScheduleFormat',
+    'RoutingPreference',
     'SAPConfigurationType',
     'SAPDatabaseScaleMethod',
     'SAPDatabaseType',
@@ -28,6 +29,7 @@ __all__ = [
     'SAPSoftwareInstallationType',
     'ScheduleRunType',
     'SslCryptoProvider',
+    'SslPreference',
     'TieringMode',
     'VaultType',
     'WeekOfMonth',
@@ -95,10 +97,11 @@ class ManagedResourcesNetworkAccessType(str, Enum):
 
 class ManagedServiceIdentityType(str, Enum):
     """
-    Type of manage identity
+    The managed service identity for all identities.
     """
     NONE = "None"
     USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 class MonthOfYear(str, Enum):
@@ -165,6 +168,14 @@ class RetentionScheduleFormat(str, Enum):
     INVALID = "Invalid"
     DAILY = "Daily"
     WEEKLY = "Weekly"
+
+
+class RoutingPreference(str, Enum):
+    """
+    Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
+    """
+    DEFAULT = "Default"
+    ROUTE_ALL = "RouteAll"
 
 
 class SAPConfigurationType(str, Enum):
@@ -249,6 +260,15 @@ class SslCryptoProvider(str, Enum):
     """
     COMMONCRYPTO = "commoncrypto"
     OPENSSL = "openssl"
+
+
+class SslPreference(str, Enum):
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
+    DISABLED = "Disabled"
+    ROOT_CERTIFICATE = "RootCertificate"
+    SERVER_CERTIFICATE = "ServerCertificate"
 
 
 class TieringMode(str, Enum):

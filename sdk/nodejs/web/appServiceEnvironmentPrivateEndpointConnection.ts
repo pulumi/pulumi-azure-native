@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Remote Private Endpoint Connection ARM resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export class AppServiceEnvironmentPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -100,7 +102,7 @@ export class AppServiceEnvironmentPrivateEndpointConnection extends pulumi.Custo
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210101:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210115:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210301:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20220301:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210101:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210115:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210301:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20220301:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20230101:AppServiceEnvironmentPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceEnvironmentPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

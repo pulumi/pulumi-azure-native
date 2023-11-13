@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve the schedule identified by schedule name.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:automation:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve the schedule identified by schedule name.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:automation:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());

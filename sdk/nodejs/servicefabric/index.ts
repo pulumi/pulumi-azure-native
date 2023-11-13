@@ -88,6 +88,7 @@ import * as v20221001preview from "./v20221001preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230701preview from "./v20230701preview";
 import * as v20230901preview from "./v20230901preview";
+import * as v20231101preview from "./v20231101preview";
 
 export {
     v20200101preview,
@@ -98,6 +99,7 @@ export {
     v20230301preview,
     v20230701preview,
     v20230901preview,
+    v20231101preview,
 };
 
 const _module = {

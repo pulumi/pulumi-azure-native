@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve a hybrid runbook worker.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
         /// </summary>
         public static Task<GetHybridRunbookWorkerResult> InvokeAsync(GetHybridRunbookWorkerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridRunbookWorkerResult>("azure-native:automation:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve a hybrid runbook worker.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
         /// </summary>
         public static Output<GetHybridRunbookWorkerResult> Invoke(GetHybridRunbookWorkerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerResult>("azure-native:automation:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerInvokeArgs(), options.WithDefaults());

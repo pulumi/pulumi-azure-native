@@ -6,12 +6,14 @@ import * as v20170515preview from "./v20170515preview";
 import * as v20190601 from "./v20190601";
 import * as v20220808 from "./v20220808";
 import * as v20230515preview from "./v20230515preview";
+import * as v20231101 from "./v20231101";
 
 export {
     v20170515preview,
     v20190601,
     v20220808,
     v20230515preview,
+    v20231101,
 };
 
 export const ContentSourceType = {

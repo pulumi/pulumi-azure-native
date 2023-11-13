@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DomainRegistration
     /// Information about a domain.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
     /// 
-    /// Other available API versions: 2020-10-01.
+    /// Other available API versions: 2020-10-01, 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
@@ -174,6 +174,7 @@ namespace Pulumi.AzureNative.DomainRegistration
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20220901:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20230101:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

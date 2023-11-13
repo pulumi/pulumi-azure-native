@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     /// A hostname binding object.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2020-10-01.
+    /// Other available API versions: 2020-10-01, 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppHostNameBindingSlot")]
     public partial class WebAppHostNameBindingSlot : global::Pulumi.CustomResource
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBindingSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppHostNameBindingSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppHostNameBindingSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

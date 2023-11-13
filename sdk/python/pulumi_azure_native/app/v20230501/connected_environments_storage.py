@@ -152,7 +152,7 @@ class ConnectedEnvironmentsStorage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20221001:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20221101preview:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20230401preview:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20230502preview:ConnectedEnvironmentsStorage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20221001:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20221101preview:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20230401preview:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20230502preview:ConnectedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20230801preview:ConnectedEnvironmentsStorage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectedEnvironmentsStorage, __self__).__init__(
             'azure-native:app/v20230501:ConnectedEnvironmentsStorage',

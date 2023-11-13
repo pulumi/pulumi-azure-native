@@ -130,12 +130,6 @@ namespace Pulumi.AzureNative.Network.V20230401
         public Output<double?> VirtualApplianceAsn { get; private set; } = null!;
 
         /// <summary>
-        /// List of references to VirtualApplianceConnections.
-        /// </summary>
-        [Output("virtualApplianceConnections")]
-        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualApplianceConnections { get; private set; } = null!;
-
-        /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
         [Output("virtualApplianceNics")]
@@ -198,6 +192,7 @@ namespace Pulumi.AzureNative.Network.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:NetworkVirtualAppliance"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:NetworkVirtualAppliance"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:NetworkVirtualAppliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

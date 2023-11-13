@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.DataProtection.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230101:BackupInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230501:BackupInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230601preview:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230801:BackupInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230801preview:BackupInstance"},
                 },
             };

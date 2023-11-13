@@ -310,6 +310,13 @@ __all__ = [
     'JsonSinkResponse',
     'JsonSourceResponse',
     'JsonWriteSettingsResponse',
+    'LakeHouseLinkedServiceResponse',
+    'LakeHouseLocationResponse',
+    'LakeHouseReadSettingsResponse',
+    'LakeHouseTableDatasetResponse',
+    'LakeHouseTableSinkResponse',
+    'LakeHouseTableSourceResponse',
+    'LakeHouseWriteSettingsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
     'LinkedIntegrationRuntimeRbacAuthorizationResponse',
     'LinkedIntegrationRuntimeResponse',
@@ -4329,7 +4336,7 @@ class AvroDatasetResponse(dict):
         """
         Avro dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the avro storage.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the avro storage.
         :param str type: Type of dataset.
                Expected value is 'Avro'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -4550,7 +4557,7 @@ class AvroSinkResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Avro store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'LakeHouseWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Avro store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -4695,7 +4702,7 @@ class AvroSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Avro store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Avro store settings.
         """
         pulumi.set(__self__, "type", 'AvroSource')
         if additional_columns is not None:
@@ -16853,7 +16860,7 @@ class BinaryDatasetResponse(dict):
         """
         Binary dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the Binary storage.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the Binary storage.
         :param str type: Type of dataset.
                Expected value is 'Binary'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -17068,7 +17075,7 @@ class BinarySinkResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Binary store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'LakeHouseWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Binary store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -17203,7 +17210,7 @@ class BinarySourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Binary store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Binary store settings.
         """
         pulumi.set(__self__, "type", 'BinarySource')
         if disable_metrics_collection is not None:
@@ -20114,8 +20121,8 @@ class CopyActivityResponse(dict):
         """
         Copy activity.
         :param str name: Activity name.
-        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceSinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
+        :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'LakeHouseTableSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceSinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -24939,7 +24946,7 @@ class DeleteActivityResponse(dict):
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any recursive: If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
         :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Delete activity store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Delete activity store settings.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
@@ -25154,7 +25161,7 @@ class DelimitedTextDatasetResponse(dict):
         """
         Delimited text dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the delimited text storage.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the delimited text storage.
         :param str type: Type of dataset.
                Expected value is 'DelimitedText'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -25475,7 +25482,7 @@ class DelimitedTextSinkResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: DelimitedText store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'LakeHouseWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: DelimitedText store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -25624,7 +25631,7 @@ class DelimitedTextSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: DelimitedText store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: DelimitedText store settings.
         """
         pulumi.set(__self__, "type", 'DelimitedTextSource')
         if additional_columns is not None:
@@ -29219,7 +29226,7 @@ class ExcelDatasetResponse(dict):
         """
         Excel dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the excel storage.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the excel storage.
         :param str type: Type of dataset.
                Expected value is 'Excel'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -29434,7 +29441,7 @@ class ExcelSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Excel store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Excel store settings.
         """
         pulumi.set(__self__, "type", 'ExcelSource')
         if additional_columns is not None:
@@ -33204,7 +33211,7 @@ class GetMetadataActivityResponse(dict):
         :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: GetMetadata activity store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: GetMetadata activity store settings.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
@@ -42956,7 +42963,7 @@ class JsonDatasetResponse(dict):
         """
         Json dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the json data storage.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the json data storage.
         :param str type: Type of dataset.
                Expected value is 'Json'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -43319,7 +43326,7 @@ class JsonSinkResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Json store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'LakeHouseWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Json store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -43468,7 +43475,7 @@ class JsonSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Json store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Json store settings.
         """
         pulumi.set(__self__, "type", 'JsonSource')
         if additional_columns is not None:
@@ -43603,6 +43610,982 @@ class JsonWriteSettingsResponse(dict):
         File pattern of JSON. This setting controls the way a collection of JSON objects will be treated. The default value is 'setOfObjects'. It is case-sensitive.
         """
         return pulumi.get(self, "file_pattern")
+
+
+@pulumi.output_type
+class LakeHouseLinkedServiceResponse(dict):
+    """
+    Microsoft Fabric LakeHouse linked service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactId":
+            suggest = "artifact_id"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "servicePrincipalCredential":
+            suggest = "service_principal_credential"
+        elif key == "servicePrincipalCredentialType":
+            suggest = "service_principal_credential_type"
+        elif key == "servicePrincipalId":
+            suggest = "service_principal_id"
+        elif key == "servicePrincipalKey":
+            suggest = "service_principal_key"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LakeHouseLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LakeHouseLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LakeHouseLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 artifact_id: Optional[Any] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 service_principal_credential: Optional[Any] = None,
+                 service_principal_credential_type: Optional[Any] = None,
+                 service_principal_id: Optional[Any] = None,
+                 service_principal_key: Optional[Any] = None,
+                 tenant: Optional[Any] = None,
+                 workspace_id: Optional[Any] = None):
+        """
+        Microsoft Fabric LakeHouse linked service.
+        :param str type: Type of linked service.
+               Expected value is 'LakeHouse'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any artifact_id: The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any workspace_id: The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'LakeHouse')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if artifact_id is not None:
+            pulumi.set(__self__, "artifact_id", artifact_id)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if service_principal_credential is not None:
+            pulumi.set(__self__, "service_principal_credential", service_principal_credential)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'LakeHouse'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="artifactId")
+    def artifact_id(self) -> Optional[Any]:
+        """
+        The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "artifact_id")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[str]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredential")
+    def service_principal_credential(self) -> Optional[Any]:
+        """
+        The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "service_principal_credential")
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[Any]:
+        """
+        The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[Any]:
+        """
+        The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[Any]:
+        """
+        The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "workspace_id")
+
+
+@pulumi.output_type
+class LakeHouseLocationResponse(dict):
+    """
+    The location of Microsoft Fabric LakeHouse Files dataset.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileName":
+            suggest = "file_name"
+        elif key == "folderPath":
+            suggest = "folder_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LakeHouseLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LakeHouseLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LakeHouseLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 file_name: Optional[Any] = None,
+                 folder_path: Optional[Any] = None):
+        """
+        The location of Microsoft Fabric LakeHouse Files dataset.
+        :param str type: Type of dataset storage location.
+               Expected value is 'LakeHouseLocation'.
+        :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
+        :param Any folder_path: Specify the folder path of dataset. Type: string (or Expression with resultType string)
+        """
+        pulumi.set(__self__, "type", 'LakeHouseLocation')
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset storage location.
+        Expected value is 'LakeHouseLocation'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[Any]:
+        """
+        Specify the file name of dataset. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[Any]:
+        """
+        Specify the folder path of dataset. Type: string (or Expression with resultType string)
+        """
+        return pulumi.get(self, "folder_path")
+
+
+@pulumi.output_type
+class LakeHouseReadSettingsResponse(dict):
+    """
+    Microsoft Fabric LakeHouse Files read settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteFilesAfterCompletion":
+            suggest = "delete_files_after_completion"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "enablePartitionDiscovery":
+            suggest = "enable_partition_discovery"
+        elif key == "fileListPath":
+            suggest = "file_list_path"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "modifiedDatetimeEnd":
+            suggest = "modified_datetime_end"
+        elif key == "modifiedDatetimeStart":
+            suggest = "modified_datetime_start"
+        elif key == "partitionRootPath":
+            suggest = "partition_root_path"
+        elif key == "wildcardFileName":
+            suggest = "wildcard_file_name"
+        elif key == "wildcardFolderPath":
+            suggest = "wildcard_folder_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LakeHouseReadSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LakeHouseReadSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LakeHouseReadSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 enable_partition_discovery: Optional[Any] = None,
+                 file_list_path: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 modified_datetime_end: Optional[Any] = None,
+                 modified_datetime_start: Optional[Any] = None,
+                 partition_root_path: Optional[Any] = None,
+                 recursive: Optional[Any] = None,
+                 wildcard_file_name: Optional[Any] = None,
+                 wildcard_folder_path: Optional[Any] = None):
+        """
+        Microsoft Fabric LakeHouse Files read settings.
+        :param str type: The read setting type.
+               Expected value is 'LakeHouseReadSettings'.
+        :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
+        :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
+        :param Any modified_datetime_start: The start of file's modified datetime. Type: string (or Expression with resultType string).
+        :param Any partition_root_path: Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
+        :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        :param Any wildcard_file_name: Microsoft Fabric LakeHouse Files wildcardFileName. Type: string (or Expression with resultType string).
+        :param Any wildcard_folder_path: Microsoft Fabric LakeHouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'LakeHouseReadSettings')
+        if delete_files_after_completion is not None:
+            pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if enable_partition_discovery is not None:
+            pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
+        if file_list_path is not None:
+            pulumi.set(__self__, "file_list_path", file_list_path)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if modified_datetime_end is not None:
+            pulumi.set(__self__, "modified_datetime_end", modified_datetime_end)
+        if modified_datetime_start is not None:
+            pulumi.set(__self__, "modified_datetime_start", modified_datetime_start)
+        if partition_root_path is not None:
+            pulumi.set(__self__, "partition_root_path", partition_root_path)
+        if recursive is not None:
+            pulumi.set(__self__, "recursive", recursive)
+        if wildcard_file_name is not None:
+            pulumi.set(__self__, "wildcard_file_name", wildcard_file_name)
+        if wildcard_folder_path is not None:
+            pulumi.set(__self__, "wildcard_folder_path", wildcard_folder_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The read setting type.
+        Expected value is 'LakeHouseReadSettings'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="deleteFilesAfterCompletion")
+    def delete_files_after_completion(self) -> Optional[Any]:
+        """
+        Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "delete_files_after_completion")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="enablePartitionDiscovery")
+    def enable_partition_discovery(self) -> Optional[Any]:
+        """
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "enable_partition_discovery")
+
+    @property
+    @pulumi.getter(name="fileListPath")
+    def file_list_path(self) -> Optional[Any]:
+        """
+        Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_list_path")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="modifiedDatetimeEnd")
+    def modified_datetime_end(self) -> Optional[Any]:
+        """
+        The end of file's modified datetime. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "modified_datetime_end")
+
+    @property
+    @pulumi.getter(name="modifiedDatetimeStart")
+    def modified_datetime_start(self) -> Optional[Any]:
+        """
+        The start of file's modified datetime. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "modified_datetime_start")
+
+    @property
+    @pulumi.getter(name="partitionRootPath")
+    def partition_root_path(self) -> Optional[Any]:
+        """
+        Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "partition_root_path")
+
+    @property
+    @pulumi.getter
+    def recursive(self) -> Optional[Any]:
+        """
+        If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "recursive")
+
+    @property
+    @pulumi.getter(name="wildcardFileName")
+    def wildcard_file_name(self) -> Optional[Any]:
+        """
+        Microsoft Fabric LakeHouse Files wildcardFileName. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "wildcard_file_name")
+
+    @property
+    @pulumi.getter(name="wildcardFolderPath")
+    def wildcard_folder_path(self) -> Optional[Any]:
+        """
+        Microsoft Fabric LakeHouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "wildcard_folder_path")
+
+
+@pulumi.output_type
+class LakeHouseTableDatasetResponse(dict):
+    """
+    Microsoft Fabric LakeHouse Table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LakeHouseTableDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LakeHouseTableDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LakeHouseTableDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None,
+                 table: Optional[Any] = None):
+        """
+        Microsoft Fabric LakeHouse Table.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str type: Type of dataset.
+               Expected value is 'LakeHouseTable'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param str description: Dataset description.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table: The name of Microsoft Fabric LakeHouse Table. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'LakeHouseTable')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset.
+        Expected value is 'LakeHouseTable'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[Any]:
+        """
+        The name of Microsoft Fabric LakeHouse Table. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "table")
+
+
+@pulumi.output_type
+class LakeHouseTableSinkResponse(dict):
+    """
+    A copy activity for Microsoft Fabric LakeHouse Table sink.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "partitionNameList":
+            suggest = "partition_name_list"
+        elif key == "partitionOption":
+            suggest = "partition_option"
+        elif key == "sinkRetryCount":
+            suggest = "sink_retry_count"
+        elif key == "sinkRetryWait":
+            suggest = "sink_retry_wait"
+        elif key == "tableActionOption":
+            suggest = "table_action_option"
+        elif key == "writeBatchSize":
+            suggest = "write_batch_size"
+        elif key == "writeBatchTimeout":
+            suggest = "write_batch_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LakeHouseTableSinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LakeHouseTableSinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LakeHouseTableSinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 partition_name_list: Optional[Any] = None,
+                 partition_option: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 table_action_option: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity for Microsoft Fabric LakeHouse Table sink.
+        :param str type: Copy sink type.
+               Expected value is 'LakeHouseTableSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any partition_name_list: Specify the partition column names from sink columns. Type: array of objects (or Expression with resultType array of objects).
+        :param Any partition_option: Create partitions in folder structure based on one or multiple columns. Each distinct column value (pair) will be a new partition. Possible values include: "None", "PartitionByKey".
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any table_action_option: The type of table action for LakeHouse Table sink. Possible values include: "None", "Append", "Overwrite".
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'LakeHouseTableSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if partition_name_list is not None:
+            pulumi.set(__self__, "partition_name_list", partition_name_list)
+        if partition_option is not None:
+            pulumi.set(__self__, "partition_option", partition_option)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if table_action_option is not None:
+            pulumi.set(__self__, "table_action_option", table_action_option)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy sink type.
+        Expected value is 'LakeHouseTableSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="partitionNameList")
+    def partition_name_list(self) -> Optional[Any]:
+        """
+        Specify the partition column names from sink columns. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "partition_name_list")
+
+    @property
+    @pulumi.getter(name="partitionOption")
+    def partition_option(self) -> Optional[Any]:
+        """
+        Create partitions in folder structure based on one or multiple columns. Each distinct column value (pair) will be a new partition. Possible values include: "None", "PartitionByKey".
+        """
+        return pulumi.get(self, "partition_option")
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @property
+    @pulumi.getter(name="tableActionOption")
+    def table_action_option(self) -> Optional[Any]:
+        """
+        The type of table action for LakeHouse Table sink. Possible values include: "None", "Append", "Overwrite".
+        """
+        return pulumi.get(self, "table_action_option")
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+
+@pulumi.output_type
+class LakeHouseTableSourceResponse(dict):
+    """
+    A copy activity source for Microsoft Fabric LakeHouse Table.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalColumns":
+            suggest = "additional_columns"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+        elif key == "timestampAsOf":
+            suggest = "timestamp_as_of"
+        elif key == "versionAsOf":
+            suggest = "version_as_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LakeHouseTableSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LakeHouseTableSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LakeHouseTableSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 additional_columns: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None,
+                 timestamp_as_of: Optional[Any] = None,
+                 version_as_of: Optional[Any] = None):
+        """
+        A copy activity source for Microsoft Fabric LakeHouse Table.
+        :param str type: Copy source type.
+               Expected value is 'LakeHouseTableSource'.
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any timestamp_as_of: Query an older snapshot by timestamp. Type: string (or Expression with resultType string).
+        :param Any version_as_of: Query an older snapshot by version. Type: integer (or Expression with resultType integer).
+        """
+        pulumi.set(__self__, "type", 'LakeHouseTableSource')
+        if additional_columns is not None:
+            pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+        if timestamp_as_of is not None:
+            pulumi.set(__self__, "timestamp_as_of", timestamp_as_of)
+        if version_as_of is not None:
+            pulumi.set(__self__, "version_as_of", version_as_of)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy source type.
+        Expected value is 'LakeHouseTableSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalColumns")
+    def additional_columns(self) -> Optional[Any]:
+        """
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "additional_columns")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @property
+    @pulumi.getter(name="timestampAsOf")
+    def timestamp_as_of(self) -> Optional[Any]:
+        """
+        Query an older snapshot by timestamp. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "timestamp_as_of")
+
+    @property
+    @pulumi.getter(name="versionAsOf")
+    def version_as_of(self) -> Optional[Any]:
+        """
+        Query an older snapshot by version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "version_as_of")
+
+
+@pulumi.output_type
+class LakeHouseWriteSettingsResponse(dict):
+    """
+    Microsoft Fabric LakeHouse Files write settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyBehavior":
+            suggest = "copy_behavior"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LakeHouseWriteSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LakeHouseWriteSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LakeHouseWriteSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None):
+        """
+        Microsoft Fabric LakeHouse Files write settings.
+        :param str type: The write setting type.
+               Expected value is 'LakeHouseWriteSettings'.
+        :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        pulumi.set(__self__, "type", 'LakeHouseWriteSettings')
+        if copy_behavior is not None:
+            pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The write setting type.
+        Expected value is 'LakeHouseWriteSettings'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="copyBehavior")
+    def copy_behavior(self) -> Optional[Any]:
+        """
+        The type of copy behavior for copy sink.
+        """
+        return pulumi.get(self, "copy_behavior")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
 
 
 @pulumi.output_type
@@ -44095,7 +45078,7 @@ class LookupActivityResponse(dict):
         Lookup activity.
         :param 'DatasetReferenceResponse' dataset: Lookup activity dataset reference.
         :param str name: Activity name.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'LakeHouseTableSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
         :param str type: Type of activity.
                Expected value is 'Lookup'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -53467,7 +54450,7 @@ class OrcDatasetResponse(dict):
         """
         ORC dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the ORC data storage.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the ORC data storage.
         :param str type: Type of dataset.
                Expected value is 'Orc'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -53681,7 +54664,7 @@ class OrcSinkResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: ORC store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'LakeHouseWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: ORC store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -53826,7 +54809,7 @@ class OrcSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: ORC store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: ORC store settings.
         """
         pulumi.set(__self__, "type", 'OrcSource')
         if additional_columns is not None:
@@ -54106,7 +55089,7 @@ class ParquetDatasetResponse(dict):
         """
         Parquet dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the parquet storage.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the parquet storage.
         :param str type: Type of dataset.
                Expected value is 'Parquet'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -54373,7 +55356,7 @@ class ParquetSinkResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Parquet store settings.
+        :param Union['AzureBlobFSWriteSettingsResponse', 'AzureBlobStorageWriteSettingsResponse', 'AzureDataLakeStoreWriteSettingsResponse', 'AzureFileStorageWriteSettingsResponse', 'FileServerWriteSettingsResponse', 'LakeHouseWriteSettingsResponse', 'SftpWriteSettingsResponse'] store_settings: Parquet store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -54522,7 +55505,7 @@ class ParquetSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Parquet store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Parquet store settings.
         """
         pulumi.set(__self__, "type", 'ParquetSource')
         if additional_columns is not None:
@@ -80782,7 +81765,7 @@ class XmlDatasetResponse(dict):
         """
         Xml dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the json data storage.
+        :param Union['AmazonS3CompatibleLocationResponse', 'AmazonS3LocationResponse', 'AzureBlobFSLocationResponse', 'AzureBlobStorageLocationResponse', 'AzureDataLakeStoreLocationResponse', 'AzureFileStorageLocationResponse', 'FileServerLocationResponse', 'FtpServerLocationResponse', 'GoogleCloudStorageLocationResponse', 'HdfsLocationResponse', 'HttpServerLocationResponse', 'LakeHouseLocationResponse', 'OracleCloudStorageLocationResponse', 'SftpLocationResponse'] location: The location of the json data storage.
         :param str type: Type of dataset.
                Expected value is 'Xml'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
@@ -81075,7 +82058,7 @@ class XmlSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Xml store settings.
+        :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'LakeHouseReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Xml store settings.
         """
         pulumi.set(__self__, "type", 'XmlSource')
         if additional_columns is not None:

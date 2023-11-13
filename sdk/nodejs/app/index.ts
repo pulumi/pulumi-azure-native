@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AppResiliencyArgs } from "./appResiliency";
+export type AppResiliency = import("./appResiliency").AppResiliency;
+export const AppResiliency: typeof import("./appResiliency").AppResiliency = null as any;
+utilities.lazyLoad(exports, ["AppResiliency"], () => require("./appResiliency"));
+
+export { BuildArgs } from "./build";
+export type Build = import("./build").Build;
+export const Build: typeof import("./build").Build = null as any;
+utilities.lazyLoad(exports, ["Build"], () => require("./build"));
+
+export { BuilderArgs } from "./builder";
+export type Builder = import("./builder").Builder;
+export const Builder: typeof import("./builder").Builder = null as any;
+utilities.lazyLoad(exports, ["Builder"], () => require("./builder"));
+
 export { CertificateArgs } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
@@ -49,6 +64,31 @@ export { DaprComponentArgs } from "./daprComponent";
 export type DaprComponent = import("./daprComponent").DaprComponent;
 export const DaprComponent: typeof import("./daprComponent").DaprComponent = null as any;
 utilities.lazyLoad(exports, ["DaprComponent"], () => require("./daprComponent"));
+
+export { DaprComponentResiliencyPolicyArgs } from "./daprComponentResiliencyPolicy";
+export type DaprComponentResiliencyPolicy = import("./daprComponentResiliencyPolicy").DaprComponentResiliencyPolicy;
+export const DaprComponentResiliencyPolicy: typeof import("./daprComponentResiliencyPolicy").DaprComponentResiliencyPolicy = null as any;
+utilities.lazyLoad(exports, ["DaprComponentResiliencyPolicy"], () => require("./daprComponentResiliencyPolicy"));
+
+export { DaprSubscriptionArgs } from "./daprSubscription";
+export type DaprSubscription = import("./daprSubscription").DaprSubscription;
+export const DaprSubscription: typeof import("./daprSubscription").DaprSubscription = null as any;
+utilities.lazyLoad(exports, ["DaprSubscription"], () => require("./daprSubscription"));
+
+export { GetAppResiliencyArgs, GetAppResiliencyResult, GetAppResiliencyOutputArgs } from "./getAppResiliency";
+export const getAppResiliency: typeof import("./getAppResiliency").getAppResiliency = null as any;
+export const getAppResiliencyOutput: typeof import("./getAppResiliency").getAppResiliencyOutput = null as any;
+utilities.lazyLoad(exports, ["getAppResiliency","getAppResiliencyOutput"], () => require("./getAppResiliency"));
+
+export { GetBuildArgs, GetBuildResult, GetBuildOutputArgs } from "./getBuild";
+export const getBuild: typeof import("./getBuild").getBuild = null as any;
+export const getBuildOutput: typeof import("./getBuild").getBuildOutput = null as any;
+utilities.lazyLoad(exports, ["getBuild","getBuildOutput"], () => require("./getBuild"));
+
+export { GetBuilderArgs, GetBuilderResult, GetBuilderOutputArgs } from "./getBuilder";
+export const getBuilder: typeof import("./getBuilder").getBuilder = null as any;
+export const getBuilderOutput: typeof import("./getBuilder").getBuilderOutput = null as any;
+utilities.lazyLoad(exports, ["getBuilder","getBuilderOutput"], () => require("./getBuilder"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
@@ -100,6 +140,16 @@ export const getDaprComponent: typeof import("./getDaprComponent").getDaprCompon
 export const getDaprComponentOutput: typeof import("./getDaprComponent").getDaprComponentOutput = null as any;
 utilities.lazyLoad(exports, ["getDaprComponent","getDaprComponentOutput"], () => require("./getDaprComponent"));
 
+export { GetDaprComponentResiliencyPolicyArgs, GetDaprComponentResiliencyPolicyResult, GetDaprComponentResiliencyPolicyOutputArgs } from "./getDaprComponentResiliencyPolicy";
+export const getDaprComponentResiliencyPolicy: typeof import("./getDaprComponentResiliencyPolicy").getDaprComponentResiliencyPolicy = null as any;
+export const getDaprComponentResiliencyPolicyOutput: typeof import("./getDaprComponentResiliencyPolicy").getDaprComponentResiliencyPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDaprComponentResiliencyPolicy","getDaprComponentResiliencyPolicyOutput"], () => require("./getDaprComponentResiliencyPolicy"));
+
+export { GetDaprSubscriptionArgs, GetDaprSubscriptionResult, GetDaprSubscriptionOutputArgs } from "./getDaprSubscription";
+export const getDaprSubscription: typeof import("./getDaprSubscription").getDaprSubscription = null as any;
+export const getDaprSubscriptionOutput: typeof import("./getDaprSubscription").getDaprSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getDaprSubscription","getDaprSubscriptionOutput"], () => require("./getDaprSubscription"));
+
 export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
 export const getJob: typeof import("./getJob").getJob = null as any;
 export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
@@ -129,6 +179,11 @@ export { JobArgs } from "./job";
 export type Job = import("./job").Job;
 export const Job: typeof import("./job").Job = null as any;
 utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+
+export { ListBuildAuthTokenArgs, ListBuildAuthTokenResult, ListBuildAuthTokenOutputArgs } from "./listBuildAuthToken";
+export const listBuildAuthToken: typeof import("./listBuildAuthToken").listBuildAuthToken = null as any;
+export const listBuildAuthTokenOutput: typeof import("./listBuildAuthToken").listBuildAuthTokenOutput = null as any;
+utilities.lazyLoad(exports, ["listBuildAuthToken","listBuildAuthTokenOutput"], () => require("./listBuildAuthToken"));
 
 export { ListConnectedEnvironmentsDaprComponentSecretsArgs, ListConnectedEnvironmentsDaprComponentSecretsResult, ListConnectedEnvironmentsDaprComponentSecretsOutputArgs } from "./listConnectedEnvironmentsDaprComponentSecrets";
 export const listConnectedEnvironmentsDaprComponentSecrets: typeof import("./listConnectedEnvironmentsDaprComponentSecrets").listConnectedEnvironmentsDaprComponentSecrets = null as any;
@@ -180,6 +235,7 @@ import * as v20221001 from "./v20221001";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230501 from "./v20230501";
 import * as v20230502preview from "./v20230502preview";
+import * as v20230801preview from "./v20230801preview";
 
 export {
     v20220101preview,
@@ -187,12 +243,19 @@ export {
     v20230401preview,
     v20230501,
     v20230502preview,
+    v20230801preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:app:AppResiliency":
+                return new AppResiliency(name, <any>undefined, { urn })
+            case "azure-native:app:Build":
+                return new Build(name, <any>undefined, { urn })
+            case "azure-native:app:Builder":
+                return new Builder(name, <any>undefined, { urn })
             case "azure-native:app:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "azure-native:app:ConnectedEnvironment":
@@ -211,6 +274,10 @@ const _module = {
                 return new ContainerAppsSourceControl(name, <any>undefined, { urn })
             case "azure-native:app:DaprComponent":
                 return new DaprComponent(name, <any>undefined, { urn })
+            case "azure-native:app:DaprComponentResiliencyPolicy":
+                return new DaprComponentResiliencyPolicy(name, <any>undefined, { urn })
+            case "azure-native:app:DaprSubscription":
+                return new DaprSubscription(name, <any>undefined, { urn })
             case "azure-native:app:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure-native:app:ManagedCertificate":

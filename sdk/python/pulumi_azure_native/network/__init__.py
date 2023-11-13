@@ -102,7 +102,6 @@ from .get_network_profile import *
 from .get_network_security_group import *
 from .get_network_security_perimeter import *
 from .get_network_virtual_appliance import *
-from .get_network_virtual_appliance_connection import *
 from .get_network_watcher import *
 from .get_nsp_access_rule import *
 from .get_nsp_association import *
@@ -212,7 +211,6 @@ from .network_profile import *
 from .network_security_group import *
 from .network_security_perimeter import *
 from .network_virtual_appliance import *
-from .network_virtual_appliance_connection import *
 from .network_watcher import *
 from .nsp_access_rule import *
 from .nsp_association import *
@@ -338,6 +336,8 @@ if typing.TYPE_CHECKING:
     v20230401 = __v20230401
     import pulumi_azure_native.network.v20230501 as __v20230501
     v20230501 = __v20230501
+    import pulumi_azure_native.network.v20230601 as __v20230601
+    v20230601 = __v20230601
     import pulumi_azure_native.network.v20230701preview as __v20230701preview
     v20230701preview = __v20230701preview
     import pulumi_azure_native.network.v20230801preview as __v20230801preview
@@ -372,6 +372,7 @@ else:
     v20230201 = _utilities.lazy_import('pulumi_azure_native.network.v20230201')
     v20230401 = _utilities.lazy_import('pulumi_azure_native.network.v20230401')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.network.v20230501')
+    v20230601 = _utilities.lazy_import('pulumi_azure_native.network.v20230601')
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.network.v20230701preview')
     v20230801preview = _utilities.lazy_import('pulumi_azure_native.network.v20230801preview')
 

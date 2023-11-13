@@ -376,10 +376,9 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["partner_managed_resource"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["virtual_appliance_connections"] = None
             __props__.__dict__["virtual_appliance_nics"] = None
             __props__.__dict__["virtual_appliance_sites"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230501:NetworkVirtualAppliance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230601:NetworkVirtualAppliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkVirtualAppliance, __self__).__init__(
             'azure-native:network/v20230201:NetworkVirtualAppliance',
@@ -422,7 +421,6 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_appliance_asn"] = None
-        __props__.__dict__["virtual_appliance_connections"] = None
         __props__.__dict__["virtual_appliance_nics"] = None
         __props__.__dict__["virtual_appliance_sites"] = None
         __props__.__dict__["virtual_hub"] = None
@@ -579,14 +577,6 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         """
         return pulumi.get(self, "virtual_appliance_asn")
-
-    @property
-    @pulumi.getter(name="virtualApplianceConnections")
-    def virtual_appliance_connections(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
-        """
-        List of references to VirtualApplianceConnections.
-        """
-        return pulumi.get(self, "virtual_appliance_connections")
 
     @property
     @pulumi.getter(name="virtualApplianceNics")

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-10-01.
+ * Other available API versions: 2020-10-01, 2023-01-01.
  */
 export class WebAppHybridConnection extends pulumi.CustomResource {
     /**
@@ -130,7 +130,7 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppHybridConnection" }, { type: "azure-native:web/v20180201:WebAppHybridConnection" }, { type: "azure-native:web/v20181101:WebAppHybridConnection" }, { type: "azure-native:web/v20190801:WebAppHybridConnection" }, { type: "azure-native:web/v20200601:WebAppHybridConnection" }, { type: "azure-native:web/v20200901:WebAppHybridConnection" }, { type: "azure-native:web/v20201001:WebAppHybridConnection" }, { type: "azure-native:web/v20201201:WebAppHybridConnection" }, { type: "azure-native:web/v20210101:WebAppHybridConnection" }, { type: "azure-native:web/v20210115:WebAppHybridConnection" }, { type: "azure-native:web/v20210201:WebAppHybridConnection" }, { type: "azure-native:web/v20210301:WebAppHybridConnection" }, { type: "azure-native:web/v20220301:WebAppHybridConnection" }, { type: "azure-native:web/v20220901:WebAppHybridConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppHybridConnection" }, { type: "azure-native:web/v20180201:WebAppHybridConnection" }, { type: "azure-native:web/v20181101:WebAppHybridConnection" }, { type: "azure-native:web/v20190801:WebAppHybridConnection" }, { type: "azure-native:web/v20200601:WebAppHybridConnection" }, { type: "azure-native:web/v20200901:WebAppHybridConnection" }, { type: "azure-native:web/v20201001:WebAppHybridConnection" }, { type: "azure-native:web/v20201201:WebAppHybridConnection" }, { type: "azure-native:web/v20210101:WebAppHybridConnection" }, { type: "azure-native:web/v20210115:WebAppHybridConnection" }, { type: "azure-native:web/v20210201:WebAppHybridConnection" }, { type: "azure-native:web/v20210301:WebAppHybridConnection" }, { type: "azure-native:web/v20220301:WebAppHybridConnection" }, { type: "azure-native:web/v20220901:WebAppHybridConnection" }, { type: "azure-native:web/v20230101:WebAppHybridConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppHybridConnection.__pulumiType, name, resourceInputs, opts);
     }

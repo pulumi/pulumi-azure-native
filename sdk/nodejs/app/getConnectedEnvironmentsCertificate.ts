@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
  */
 export function getConnectedEnvironmentsCertificate(args: GetConnectedEnvironmentsCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedEnvironmentsCertificateResult> {
 
@@ -75,7 +75,7 @@ export interface GetConnectedEnvironmentsCertificateResult {
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
  */
 export function getConnectedEnvironmentsCertificateOutput(args: GetConnectedEnvironmentsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsCertificateResult> {
     return pulumi.output(args).apply((a: any) => getConnectedEnvironmentsCertificate(a, opts))

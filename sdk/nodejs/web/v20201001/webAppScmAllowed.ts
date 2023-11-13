@@ -92,7 +92,7 @@ export class WebAppScmAllowed extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppScmAllowed" }, { type: "azure-native:web/v20190801:WebAppScmAllowed" }, { type: "azure-native:web/v20200601:WebAppScmAllowed" }, { type: "azure-native:web/v20200901:WebAppScmAllowed" }, { type: "azure-native:web/v20201201:WebAppScmAllowed" }, { type: "azure-native:web/v20210101:WebAppScmAllowed" }, { type: "azure-native:web/v20210115:WebAppScmAllowed" }, { type: "azure-native:web/v20210201:WebAppScmAllowed" }, { type: "azure-native:web/v20210301:WebAppScmAllowed" }, { type: "azure-native:web/v20220301:WebAppScmAllowed" }, { type: "azure-native:web/v20220901:WebAppScmAllowed" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppScmAllowed" }, { type: "azure-native:web/v20190801:WebAppScmAllowed" }, { type: "azure-native:web/v20200601:WebAppScmAllowed" }, { type: "azure-native:web/v20200901:WebAppScmAllowed" }, { type: "azure-native:web/v20201201:WebAppScmAllowed" }, { type: "azure-native:web/v20210101:WebAppScmAllowed" }, { type: "azure-native:web/v20210115:WebAppScmAllowed" }, { type: "azure-native:web/v20210201:WebAppScmAllowed" }, { type: "azure-native:web/v20210301:WebAppScmAllowed" }, { type: "azure-native:web/v20220301:WebAppScmAllowed" }, { type: "azure-native:web/v20220901:WebAppScmAllowed" }, { type: "azure-native:web/v20230101:WebAppScmAllowed" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppScmAllowed.__pulumiType, name, resourceInputs, opts);
     }

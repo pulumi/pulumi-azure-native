@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Network Manager Connection resource
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview.
  *
- * Other available API versions: 2023-04-01, 2023-05-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220101:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220501:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220701:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220901:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20221101:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20230201:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20230401:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20230501:SubscriptionNetworkManagerConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220101:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220501:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220701:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220901:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20221101:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20230201:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20230401:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20230501:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20230601:SubscriptionNetworkManagerConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionNetworkManagerConnection.__pulumiType, name, resourceInputs, opts);
     }

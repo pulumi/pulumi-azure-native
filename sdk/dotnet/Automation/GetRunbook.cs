@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve the runbook identified by runbook name.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
         /// </summary>
         public static Task<GetRunbookResult> InvokeAsync(GetRunbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve the runbook identified by runbook name.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());

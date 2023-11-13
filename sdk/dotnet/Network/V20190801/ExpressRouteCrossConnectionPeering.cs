@@ -177,6 +177,7 @@ namespace Pulumi.AzureNative.Network.V20190801
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ExpressRouteCrossConnectionPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:ExpressRouteCrossConnectionPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:ExpressRouteCrossConnectionPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:ExpressRouteCrossConnectionPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

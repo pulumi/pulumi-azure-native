@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Virtual Appliance Site resource.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export class VirtualHubBgpConnection extends pulumi.CustomResource {
     /**
@@ -113,7 +113,7 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200501:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200601:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200701:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200801:VirtualHubBgpConnection" }, { type: "azure-native:network/v20201101:VirtualHubBgpConnection" }, { type: "azure-native:network/v20210201:VirtualHubBgpConnection" }, { type: "azure-native:network/v20210301:VirtualHubBgpConnection" }, { type: "azure-native:network/v20210501:VirtualHubBgpConnection" }, { type: "azure-native:network/v20210801:VirtualHubBgpConnection" }, { type: "azure-native:network/v20220101:VirtualHubBgpConnection" }, { type: "azure-native:network/v20220501:VirtualHubBgpConnection" }, { type: "azure-native:network/v20220701:VirtualHubBgpConnection" }, { type: "azure-native:network/v20220901:VirtualHubBgpConnection" }, { type: "azure-native:network/v20221101:VirtualHubBgpConnection" }, { type: "azure-native:network/v20230201:VirtualHubBgpConnection" }, { type: "azure-native:network/v20230401:VirtualHubBgpConnection" }, { type: "azure-native:network/v20230501:VirtualHubBgpConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200501:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200601:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200701:VirtualHubBgpConnection" }, { type: "azure-native:network/v20200801:VirtualHubBgpConnection" }, { type: "azure-native:network/v20201101:VirtualHubBgpConnection" }, { type: "azure-native:network/v20210201:VirtualHubBgpConnection" }, { type: "azure-native:network/v20210301:VirtualHubBgpConnection" }, { type: "azure-native:network/v20210501:VirtualHubBgpConnection" }, { type: "azure-native:network/v20210801:VirtualHubBgpConnection" }, { type: "azure-native:network/v20220101:VirtualHubBgpConnection" }, { type: "azure-native:network/v20220501:VirtualHubBgpConnection" }, { type: "azure-native:network/v20220701:VirtualHubBgpConnection" }, { type: "azure-native:network/v20220901:VirtualHubBgpConnection" }, { type: "azure-native:network/v20221101:VirtualHubBgpConnection" }, { type: "azure-native:network/v20230201:VirtualHubBgpConnection" }, { type: "azure-native:network/v20230401:VirtualHubBgpConnection" }, { type: "azure-native:network/v20230501:VirtualHubBgpConnection" }, { type: "azure-native:network/v20230601:VirtualHubBgpConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHubBgpConnection.__pulumiType, name, resourceInputs, opts);
     }

@@ -51,6 +51,7 @@ import * as changeanalysis from "./changeanalysis";
 import * as chaos from "./chaos";
 import * as cognitiveservices from "./cognitiveservices";
 import * as communication from "./communication";
+import * as community from "./community";
 import * as compute from "./compute";
 import * as confidentialledger from "./confidentialledger";
 import * as config from "./config";
@@ -88,6 +89,7 @@ import * as devhub from "./devhub";
 import * as deviceregistry from "./deviceregistry";
 import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
+import * as devopsinfrastructure from "./devopsinfrastructure";
 import * as devspaces from "./devspaces";
 import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
@@ -273,6 +275,7 @@ export {
     chaos,
     cognitiveservices,
     communication,
+    community,
     compute,
     confidentialledger,
     config,
@@ -310,6 +313,7 @@ export {
     deviceregistry,
     devices,
     deviceupdate,
+    devopsinfrastructure,
     devspaces,
     devtestlab,
     digitaltwins,

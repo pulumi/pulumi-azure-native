@@ -173,6 +173,9 @@
     "listWorkspaceSubscriptionSecrets": "2022-09-01-preview"
   },
   "App": {
+    "AppResiliency": "2023-08-01-preview",
+    "Build": "2023-08-01-preview",
+    "Builder": "2023-08-01-preview",
     "Certificate": "2022-10-01",
     "ConnectedEnvironment": "2022-10-01",
     "ConnectedEnvironmentsCertificate": "2022-10-01",
@@ -182,6 +185,8 @@
     "ContainerAppsAuthConfig": "2022-10-01",
     "ContainerAppsSourceControl": "2022-10-01",
     "DaprComponent": "2022-10-01",
+    "DaprComponentResiliencyPolicy": "2023-08-01-preview",
+    "DaprSubscription": "2023-08-01-preview",
     "Job": "2023-04-01-preview",
     "ManagedCertificate": "2023-04-01-preview",
     "ManagedEnvironment": "2022-10-01",
@@ -189,6 +194,7 @@
     "getContainerAppAuthToken": "2022-10-01",
     "getCustomDomainVerificationId": "2023-05-02-preview",
     "getManagedEnvironmentAuthToken": "2022-10-01",
+    "listBuildAuthToken": "2023-08-01-preview",
     "listConnectedEnvironmentsDaprComponentSecrets": "2022-10-01",
     "listContainerAppCustomHostNameAnalysis": "2022-10-01",
     "listContainerAppSecrets": "2022-10-01",
@@ -304,6 +310,7 @@
     "JobSchedule": "2022-08-08",
     "Module": "2022-08-08",
     "Package": "2023-05-15-preview",
+    "PowerShell72Module": "2023-11-01",
     "PrivateEndpointConnection": "2020-01-13-preview",
     "Python2Package": "2022-08-08",
     "Python3Package": "2022-08-08",
@@ -499,6 +506,9 @@
     "SuppressionListAddress": "2023-06-01-preview",
     "listCommunicationServiceKeys": "2023-03-31",
     "listEmailServiceVerifiedExchangeOnlineDomains": "2023-03-31"
+  },
+  "Community": {
+    "CommunityTraining": "2023-11-01"
   },
   "Compute": {
     "AvailabilitySet": "2023-03-01",
@@ -859,6 +869,9 @@
     "getGitHubOAuth": "2022-10-11-preview"
   },
   "DevOps": {},
+  "DevOpsInfrastructure": {
+    "Pool": "2023-10-30-preview"
+  },
   "DevSpaces": {
     "Controller": "2019-04-01",
     "listControllerConnectionDetails": "2019-04-01"
@@ -2504,6 +2517,7 @@
     "Certificate": "2022-09-01",
     "Connection": "2016-06-01",
     "ConnectionGateway": "2016-06-01",
+    "ContainerApp": "2023-01-01",
     "CustomApi": "2016-06-01",
     "KubeEnvironment": "2022-09-01",
     "StaticSite": "2022-09-01",
@@ -2566,6 +2580,7 @@
     "listAppServicePlanHybridConnectionKeys": "2022-09-01",
     "listConnectionConsentLinks": "2016-06-01",
     "listConnectionKeys": "2015-08-01-preview",
+    "listContainerAppSecrets": "2023-01-01",
     "listCustomApiWsdlInterfaces": "2016-06-01",
     "listSiteIdentifiersAssignedToHostName": "2022-09-01",
     "listStaticSiteAppSettings": "2022-09-01",

@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Web.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSitePushSettingsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSitePushSettingsSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSitePushSettingsSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppSitePushSettingsSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -25,6 +25,16 @@ export const getConnector: typeof import("./getConnector").getConnector = null a
 export const getConnectorOutput: typeof import("./getConnector").getConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getConnector","getConnectorOutput"], () => require("./getConnector"));
 
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
+export { GetProviderInstanceArgs, GetProviderInstanceResult, GetProviderInstanceOutputArgs } from "./getProviderInstance";
+export const getProviderInstance: typeof import("./getProviderInstance").getProviderInstance = null as any;
+export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getProviderInstance","getProviderInstanceOutput"], () => require("./getProviderInstance"));
+
 export { GetSAPApplicationServerInstanceArgs, GetSAPApplicationServerInstanceResult, GetSAPApplicationServerInstanceOutputArgs } from "./getSAPApplicationServerInstance";
 export const getSAPApplicationServerInstance: typeof import("./getSAPApplicationServerInstance").getSAPApplicationServerInstance = null as any;
 export const getSAPApplicationServerInstanceOutput: typeof import("./getSAPApplicationServerInstance").getSAPApplicationServerInstanceOutput = null as any;
@@ -65,6 +75,26 @@ export const getSAPVirtualInstance: typeof import("./getSAPVirtualInstance").get
 export const getSAPVirtualInstanceOutput: typeof import("./getSAPVirtualInstance").getSAPVirtualInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSAPVirtualInstance","getSAPVirtualInstanceOutput"], () => require("./getSAPVirtualInstance"));
 
+export { GetSapLandscapeMonitorArgs, GetSapLandscapeMonitorResult, GetSapLandscapeMonitorOutputArgs } from "./getSapLandscapeMonitor";
+export const getSapLandscapeMonitor: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitor = null as any;
+export const getSapLandscapeMonitorOutput: typeof import("./getSapLandscapeMonitor").getSapLandscapeMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getSapLandscapeMonitor","getSapLandscapeMonitorOutput"], () => require("./getSapLandscapeMonitor"));
+
+export { MonitorArgs } from "./monitor";
+export type Monitor = import("./monitor").Monitor;
+export const Monitor: typeof import("./monitor").Monitor = null as any;
+utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+
+export { ProviderInstanceArgs } from "./providerInstance";
+export type ProviderInstance = import("./providerInstance").ProviderInstance;
+export const ProviderInstance: typeof import("./providerInstance").ProviderInstance = null as any;
+utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
+
+export { SapLandscapeMonitorArgs } from "./sapLandscapeMonitor";
+export type SapLandscapeMonitor = import("./sapLandscapeMonitor").SapLandscapeMonitor;
+export const SapLandscapeMonitor: typeof import("./sapLandscapeMonitor").SapLandscapeMonitor = null as any;
+utilities.lazyLoad(exports, ["SapLandscapeMonitor"], () => require("./sapLandscapeMonitor"));
+
 export { SAPApplicationServerInstanceArgs } from "./sapapplicationServerInstance";
 export type SAPApplicationServerInstance = import("./sapapplicationServerInstance").SAPApplicationServerInstance;
 export const SAPApplicationServerInstance: typeof import("./sapapplicationServerInstance").SAPApplicationServerInstance = null as any;
@@ -97,6 +127,10 @@ const _module = {
                 return new ACSSBackupConnection(name, <any>undefined, { urn })
             case "azure-native:workloads/v20231001preview:Connector":
                 return new Connector(name, <any>undefined, { urn })
+            case "azure-native:workloads/v20231001preview:Monitor":
+                return new Monitor(name, <any>undefined, { urn })
+            case "azure-native:workloads/v20231001preview:ProviderInstance":
+                return new ProviderInstance(name, <any>undefined, { urn })
             case "azure-native:workloads/v20231001preview:SAPApplicationServerInstance":
                 return new SAPApplicationServerInstance(name, <any>undefined, { urn })
             case "azure-native:workloads/v20231001preview:SAPCentralInstance":
@@ -105,6 +139,8 @@ const _module = {
                 return new SAPDatabaseInstance(name, <any>undefined, { urn })
             case "azure-native:workloads/v20231001preview:SAPVirtualInstance":
                 return new SAPVirtualInstance(name, <any>undefined, { urn })
+            case "azure-native:workloads/v20231001preview:SapLandscapeMonitor":
+                return new SapLandscapeMonitor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

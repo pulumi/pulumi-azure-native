@@ -137,6 +137,8 @@ def get_static_site_linked_backend_for_build(environment_name: Optional[str] = N
     Static Site Linked Backend ARM resource.
     Azure REST API version: 2022-09-01.
 
+    Other available API versions: 2023-01-01.
+
 
     :param str environment_name: The stage site identifier
     :param str linked_backend_name: Name of the linked backend that should be retrieved
@@ -171,6 +173,8 @@ def get_static_site_linked_backend_for_build_output(environment_name: Optional[p
     """
     Static Site Linked Backend ARM resource.
     Azure REST API version: 2022-09-01.
+
+    Other available API versions: 2023-01-01.
 
 
     :param str environment_name: The stage site identifier

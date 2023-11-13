@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export function getVirtualNetworkGatewayLearnedRoutes(args: GetVirtualNetworkGatewayLearnedRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayLearnedRoutesResult> {
 
@@ -46,7 +46,7 @@ export interface GetVirtualNetworkGatewayLearnedRoutesResult {
  * This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export function getVirtualNetworkGatewayLearnedRoutesOutput(args: GetVirtualNetworkGatewayLearnedRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayLearnedRoutesResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayLearnedRoutes(a, opts))

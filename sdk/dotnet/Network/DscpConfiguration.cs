@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// Differentiated Services Code Point configuration for any given network interface
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-05-01.
+    /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DscpConfiguration")]
     public partial class DscpConfiguration : global::Pulumi.CustomResource
@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:DscpConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:DscpConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:DscpConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

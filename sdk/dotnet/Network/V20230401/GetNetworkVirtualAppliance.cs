@@ -162,10 +162,6 @@ namespace Pulumi.AzureNative.Network.V20230401
         /// </summary>
         public readonly double? VirtualApplianceAsn;
         /// <summary>
-        /// List of references to VirtualApplianceConnections.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualApplianceConnections;
-        /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> VirtualApplianceNics;
@@ -220,8 +216,6 @@ namespace Pulumi.AzureNative.Network.V20230401
 
             double? virtualApplianceAsn,
 
-            ImmutableArray<Outputs.SubResourceResponse> virtualApplianceConnections,
-
             ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> virtualApplianceNics,
 
             ImmutableArray<Outputs.SubResourceResponse> virtualApplianceSites,
@@ -248,7 +242,6 @@ namespace Pulumi.AzureNative.Network.V20230401
             Tags = tags;
             Type = type;
             VirtualApplianceAsn = virtualApplianceAsn;
-            VirtualApplianceConnections = virtualApplianceConnections;
             VirtualApplianceNics = virtualApplianceNics;
             VirtualApplianceSites = virtualApplianceSites;
             VirtualHub = virtualHub;

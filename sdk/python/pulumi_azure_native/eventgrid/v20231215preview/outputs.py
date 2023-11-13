@@ -76,7 +76,7 @@ __all__ = [
     'ServiceBusQueueEventSubscriptionDestinationResponse',
     'ServiceBusTopicEventSubscriptionDestinationResponse',
     'StaticDeliveryAttributeMappingResponse',
-    'StaticRoutingEnrichmentResponse',
+    'StaticStringRoutingEnrichmentResponse',
     'StorageBlobDeadLetterDestinationResponse',
     'StorageQueueEventSubscriptionDestinationResponse',
     'StringBeginsWithAdvancedFilterResponse',
@@ -3935,7 +3935,7 @@ class RetryPolicyResponse(dict):
 class RoutingEnrichmentsResponse(dict):
     def __init__(__self__, *,
                  dynamic: Optional[Sequence['outputs.DynamicRoutingEnrichmentResponse']] = None,
-                 static: Optional[Sequence['outputs.StaticRoutingEnrichmentResponse']] = None):
+                 static: Optional[Sequence['outputs.StaticStringRoutingEnrichmentResponse']] = None):
         if dynamic is not None:
             pulumi.set(__self__, "dynamic", dynamic)
         if static is not None:
@@ -3948,7 +3948,7 @@ class RoutingEnrichmentsResponse(dict):
 
     @property
     @pulumi.getter
-    def static(self) -> Optional[Sequence['outputs.StaticRoutingEnrichmentResponse']]:
+    def static(self) -> Optional[Sequence['outputs.StaticStringRoutingEnrichmentResponse']]:
         return pulumi.get(self, "static")
 
 
@@ -4214,7 +4214,7 @@ class StaticDeliveryAttributeMappingResponse(dict):
 
 
 @pulumi.output_type
-class StaticRoutingEnrichmentResponse(dict):
+class StaticStringRoutingEnrichmentResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4222,27 +4222,40 @@ class StaticRoutingEnrichmentResponse(dict):
             suggest = "value_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in StaticRoutingEnrichmentResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in StaticStringRoutingEnrichmentResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        StaticRoutingEnrichmentResponse.__key_warning(key)
+        StaticStringRoutingEnrichmentResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        StaticRoutingEnrichmentResponse.__key_warning(key)
+        StaticStringRoutingEnrichmentResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 value_type: str,
                  key: Optional[str] = None,
-                 value_type: Optional[str] = None):
+                 value: Optional[str] = None):
         """
-        :param str key: Static routing enrichment key.
         :param str value_type: Static routing enrichment value type. For e.g. this property value can be 'String'.
+               Expected value is 'String'.
+        :param str key: Static routing enrichment key.
+        :param str value: String type routing enrichment value.
         """
+        pulumi.set(__self__, "value_type", 'String')
         if key is not None:
             pulumi.set(__self__, "key", key)
-        if value_type is not None:
-            pulumi.set(__self__, "value_type", value_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> str:
+        """
+        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        Expected value is 'String'.
+        """
+        return pulumi.get(self, "value_type")
 
     @property
     @pulumi.getter
@@ -4253,12 +4266,12 @@ class StaticRoutingEnrichmentResponse(dict):
         return pulumi.get(self, "key")
 
     @property
-    @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[str]:
+    @pulumi.getter
+    def value(self) -> Optional[str]:
         """
-        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        String type routing enrichment value.
         """
-        return pulumi.get(self, "value_type")
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

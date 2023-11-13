@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Static Site Linked Backend ARM resource.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2023-01-01.
         /// </summary>
         public static Task<GetStaticSiteLinkedBackendForBuildResult> InvokeAsync(GetStaticSiteLinkedBackendForBuildArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteLinkedBackendForBuildResult>("azure-native:web:getStaticSiteLinkedBackendForBuild", args ?? new GetStaticSiteLinkedBackendForBuildArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Static Site Linked Backend ARM resource.
         /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2023-01-01.
         /// </summary>
         public static Output<GetStaticSiteLinkedBackendForBuildResult> Invoke(GetStaticSiteLinkedBackendForBuildInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteLinkedBackendForBuildResult>("azure-native:web:getStaticSiteLinkedBackendForBuild", args ?? new GetStaticSiteLinkedBackendForBuildInvokeArgs(), options.WithDefaults());

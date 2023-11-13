@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Slot Config names azure resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-10-01.
+ * Other available API versions: 2020-10-01, 2023-01-01.
  */
 export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20160801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20180201:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20181101:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20190801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20200601:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20200901:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20201001:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20201201:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210101:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210115:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210201:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210301:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20220301:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20220901:WebAppSlotConfigurationNames" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20160801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20180201:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20181101:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20190801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20200601:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20200901:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20201001:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20201201:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210101:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210115:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210201:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210301:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20220301:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20220901:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20230101:WebAppSlotConfigurationNames" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSlotConfigurationNames.__pulumiType, name, resourceInputs, opts);
     }

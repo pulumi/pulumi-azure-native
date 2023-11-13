@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Description for Gets the backup configuration of an app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2016-08-01, 2020-10-01.
+ * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
  */
 export function listWebAppBackupConfigurationSlot(args: ListWebAppBackupConfigurationSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupConfigurationSlotResult> {
 
@@ -83,7 +83,7 @@ export interface ListWebAppBackupConfigurationSlotResult {
  * Description for Gets the backup configuration of an app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2016-08-01, 2020-10-01.
+ * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
  */
 export function listWebAppBackupConfigurationSlotOutput(args: ListWebAppBackupConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupConfigurationSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppBackupConfigurationSlot(a, opts))

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Cache
         /// Retrieves the access keys for the RedisEnterprise database.
         /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01.
         /// </summary>
         public static Task<ListDatabaseKeysResult> InvokeAsync(ListDatabaseKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDatabaseKeysResult>("azure-native:cache:listDatabaseKeys", args ?? new ListDatabaseKeysArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Cache
         /// Retrieves the access keys for the RedisEnterprise database.
         /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01.
         /// </summary>
         public static Output<ListDatabaseKeysResult> Invoke(ListDatabaseKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseKeysResult>("azure-native:cache:listDatabaseKeys", args ?? new ListDatabaseKeysInvokeArgs(), options.WithDefaults());

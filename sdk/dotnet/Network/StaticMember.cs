@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// StaticMember Item.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-05-01.
+    /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:StaticMember")]
     public partial class StaticMember : global::Pulumi.CustomResource
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:StaticMember"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:StaticMember"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:StaticMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:StaticMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

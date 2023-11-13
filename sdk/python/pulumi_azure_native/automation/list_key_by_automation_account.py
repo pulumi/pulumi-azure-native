@@ -49,7 +49,7 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
     Retrieve the automation keys for an account.
     Azure REST API version: 2022-08-08.
 
-    Other available API versions: 2023-05-15-preview.
+    Other available API versions: 2023-05-15-preview, 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -73,7 +73,7 @@ def list_key_by_automation_account_output(automation_account_name: Optional[pulu
     Retrieve the automation keys for an account.
     Azure REST API version: 2022-08-08.
 
-    Other available API versions: 2023-05-15-preview.
+    Other available API versions: 2023-05-15-preview, 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.

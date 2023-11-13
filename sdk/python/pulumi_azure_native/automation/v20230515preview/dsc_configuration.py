@@ -299,7 +299,7 @@ class DscConfiguration(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:DscConfiguration"), pulumi.Alias(type_="azure-native:automation/v20151031:DscConfiguration"), pulumi.Alias(type_="azure-native:automation/v20190601:DscConfiguration"), pulumi.Alias(type_="azure-native:automation/v20220808:DscConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:DscConfiguration"), pulumi.Alias(type_="azure-native:automation/v20151031:DscConfiguration"), pulumi.Alias(type_="azure-native:automation/v20190601:DscConfiguration"), pulumi.Alias(type_="azure-native:automation/v20220808:DscConfiguration"), pulumi.Alias(type_="azure-native:automation/v20231101:DscConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DscConfiguration, __self__).__init__(
             'azure-native:automation/v20230515preview:DscConfiguration',

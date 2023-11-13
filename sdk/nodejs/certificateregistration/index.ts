@@ -32,10 +32,12 @@ export * from "../types/enums/certificateregistration";
 // Export sub-modules:
 import * as v20201001 from "./v20201001";
 import * as v20220901 from "./v20220901";
+import * as v20230101 from "./v20230101";
 
 export {
     v20201001,
     v20220901,
+    v20230101,
 };
 
 const _module = {

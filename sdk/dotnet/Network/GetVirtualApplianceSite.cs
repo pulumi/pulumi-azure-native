@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified Virtual Appliance Site.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Task<GetVirtualApplianceSiteResult> InvokeAsync(GetVirtualApplianceSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualApplianceSiteResult>("azure-native:network:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified Virtual Appliance Site.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Output<GetVirtualApplianceSiteResult> Invoke(GetVirtualApplianceSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualApplianceSiteResult>("azure-native:network:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteInvokeArgs(), options.WithDefaults());

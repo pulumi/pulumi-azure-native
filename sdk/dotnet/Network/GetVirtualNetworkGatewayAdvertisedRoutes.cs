@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayAdvertisedRoutesResult> InvokeAsync(GetVirtualNetworkGatewayAdvertisedRoutesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayAdvertisedRoutesResult>("azure-native:network:getVirtualNetworkGatewayAdvertisedRoutes", args ?? new GetVirtualNetworkGatewayAdvertisedRoutesArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2016-09-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayAdvertisedRoutesResult> Invoke(GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayAdvertisedRoutesResult>("azure-native:network:getVirtualNetworkGatewayAdvertisedRoutes", args ?? new GetVirtualNetworkGatewayAdvertisedRoutesInvokeArgs(), options.WithDefaults());

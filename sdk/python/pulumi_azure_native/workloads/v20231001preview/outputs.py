@@ -20,6 +20,7 @@ __all__ = [
     'CentralServerVmDetailsResponse',
     'ConnectorErrorDefinitionResponse',
     'CreateAndMountFileShareConfigurationResponse',
+    'DB2ProviderInstancePropertiesResponse',
     'DBBackupPolicyPropertiesResponse',
     'DailyRetentionFormatResponse',
     'DailyRetentionScheduleResponse',
@@ -40,10 +41,14 @@ __all__ = [
     'EnqueueReplicationServerPropertiesResponse',
     'EnqueueServerPropertiesResponse',
     'ErrorDefinitionResponse',
+    'ErrorResponse',
+    'ErrorResponseInnerError',
     'ExistingRecoveryServicesVaultResponse',
     'ExternalInstallationSoftwareConfigurationResponse',
     'GatewayServerPropertiesResponse',
     'HanaBackupDataResponse',
+    'HanaDbProviderInstancePropertiesResponse',
+    'HealthResponse',
     'HighAvailabilityConfigurationResponse',
     'HighAvailabilitySoftwareConfigurationResponse',
     'HourlyScheduleResponse',
@@ -56,14 +61,20 @@ __all__ = [
     'LongTermRetentionPolicyResponse',
     'LongTermSchedulePolicyResponse',
     'ManagedRGConfigurationResponse',
+    'ManagedServiceIdentityResponse',
     'MessageServerPropertiesResponse',
+    'MonitorPropertiesResponseErrors',
     'MonthlyRetentionScheduleResponse',
     'MountFileShareConfigurationResponse',
+    'MsSqlServerProviderInstancePropertiesResponse',
     'NetworkConfigurationResponse',
     'NetworkInterfaceResourceNamesResponse',
     'NewRecoveryServicesVaultResponse',
     'OSProfileResponse',
     'OsSapConfigurationResponse',
+    'PrometheusHaClusterProviderInstancePropertiesResponse',
+    'PrometheusOSProviderInstancePropertiesResponse',
+    'ProviderInstancePropertiesResponseErrors',
     'RetentionDurationResponse',
     'SAPAvailabilityZonePairResponse',
     'SAPDiskConfigurationResponse',
@@ -71,6 +82,10 @@ __all__ = [
     'SAPSupportedSkuResponse',
     'SAPVirtualInstanceErrorResponse',
     'SSLConfigurationResponse',
+    'SapLandscapeMonitorMetricThresholdsResponse',
+    'SapLandscapeMonitorPropertiesResponseGrouping',
+    'SapLandscapeMonitorSidMappingResponse',
+    'SapNetWeaverProviderInstancePropertiesResponse',
     'ServiceInitiatedSoftwareConfigurationResponse',
     'SettingsResponse',
     'SharedStorageResourceNamesResponse',
@@ -588,6 +603,171 @@ class CreateAndMountFileShareConfigurationResponse(dict):
         The name of file share storage account name . A custom name is used in case of missing input.
         """
         return pulumi.get(self, "storage_account_name")
+
+
+@pulumi.output_type
+class DB2ProviderInstancePropertiesResponse(dict):
+    """
+    Gets or sets the DB2 provider properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerType":
+            suggest = "provider_type"
+        elif key == "dbName":
+            suggest = "db_name"
+        elif key == "dbPassword":
+            suggest = "db_password"
+        elif key == "dbPasswordUri":
+            suggest = "db_password_uri"
+        elif key == "dbPort":
+            suggest = "db_port"
+        elif key == "dbUsername":
+            suggest = "db_username"
+        elif key == "sapSid":
+            suggest = "sap_sid"
+        elif key == "sslCertificateUri":
+            suggest = "ssl_certificate_uri"
+        elif key == "sslPreference":
+            suggest = "ssl_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DB2ProviderInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DB2ProviderInstancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DB2ProviderInstancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_type: str,
+                 db_name: Optional[str] = None,
+                 db_password: Optional[str] = None,
+                 db_password_uri: Optional[str] = None,
+                 db_port: Optional[str] = None,
+                 db_username: Optional[str] = None,
+                 hostname: Optional[str] = None,
+                 sap_sid: Optional[str] = None,
+                 ssl_certificate_uri: Optional[str] = None,
+                 ssl_preference: Optional[str] = None):
+        """
+        Gets or sets the DB2 provider properties.
+        :param str provider_type: The provider type. For example, the value can be SapHana.
+               Expected value is 'Db2'.
+        :param str db_name: Gets or sets the db2 database name.
+        :param str db_password: Gets or sets the db2 database password.
+        :param str db_password_uri: Gets or sets the key vault URI to secret with the database password.
+        :param str db_port: Gets or sets the db2 database sql port.
+        :param str db_username: Gets or sets the db2 database user name.
+        :param str hostname: Gets or sets the target virtual machine name.
+        :param str sap_sid: Gets or sets the SAP System Identifier
+        :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
+        """
+        pulumi.set(__self__, "provider_type", 'Db2')
+        if db_name is not None:
+            pulumi.set(__self__, "db_name", db_name)
+        if db_password is not None:
+            pulumi.set(__self__, "db_password", db_password)
+        if db_password_uri is not None:
+            pulumi.set(__self__, "db_password_uri", db_password_uri)
+        if db_port is not None:
+            pulumi.set(__self__, "db_port", db_port)
+        if db_username is not None:
+            pulumi.set(__self__, "db_username", db_username)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> str:
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'Db2'.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> Optional[str]:
+        """
+        Gets or sets the db2 database name.
+        """
+        return pulumi.get(self, "db_name")
+
+    @property
+    @pulumi.getter(name="dbPassword")
+    def db_password(self) -> Optional[str]:
+        """
+        Gets or sets the db2 database password.
+        """
+        return pulumi.get(self, "db_password")
+
+    @property
+    @pulumi.getter(name="dbPasswordUri")
+    def db_password_uri(self) -> Optional[str]:
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        return pulumi.get(self, "db_password_uri")
+
+    @property
+    @pulumi.getter(name="dbPort")
+    def db_port(self) -> Optional[str]:
+        """
+        Gets or sets the db2 database sql port.
+        """
+        return pulumi.get(self, "db_port")
+
+    @property
+    @pulumi.getter(name="dbUsername")
+    def db_username(self) -> Optional[str]:
+        """
+        Gets or sets the db2 database user name.
+        """
+        return pulumi.get(self, "db_username")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[str]:
+        """
+        Gets or sets the target virtual machine name.
+        """
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[str]:
+        """
+        Gets or sets the SAP System Identifier
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[str]:
+        """
+        Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[str]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
 
 
 @pulumi.output_type
@@ -1948,6 +2128,129 @@ class ErrorDefinitionResponse(dict):
 
 
 @pulumi.output_type
+class ErrorResponse(dict):
+    """
+    Standard error object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "innerError":
+            suggest = "inner_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: str,
+                 details: Sequence['outputs.ErrorResponse'],
+                 inner_error: 'outputs.ErrorResponseInnerError',
+                 message: str,
+                 target: str):
+        """
+        Standard error object.
+        :param str code: Server-defined set of error codes.
+        :param Sequence['ErrorResponse'] details: Array of details about specific errors that led to this reported error.
+        :param 'ErrorResponseInnerError' inner_error: Object containing more specific information than  the current object about the error.
+        :param str message: Human-readable representation of the error.
+        :param str target: Target of the error.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "inner_error", inner_error)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Server-defined set of error codes.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorResponse']:
+        """
+        Array of details about specific errors that led to this reported error.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="innerError")
+    def inner_error(self) -> 'outputs.ErrorResponseInnerError':
+        """
+        Object containing more specific information than  the current object about the error.
+        """
+        return pulumi.get(self, "inner_error")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Human-readable representation of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        Target of the error.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class ErrorResponseInnerError(dict):
+    """
+    Object containing more specific information than  the current object about the error.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "innerError":
+            suggest = "inner_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorResponseInnerError. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorResponseInnerError.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorResponseInnerError.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inner_error: Optional['outputs.ErrorResponse'] = None):
+        """
+        Object containing more specific information than  the current object about the error.
+        :param 'ErrorResponse' inner_error: Standard error object.
+        """
+        if inner_error is not None:
+            pulumi.set(__self__, "inner_error", inner_error)
+
+    @property
+    @pulumi.getter(name="innerError")
+    def inner_error(self) -> Optional['outputs.ErrorResponse']:
+        """
+        Standard error object.
+        """
+        return pulumi.get(self, "inner_error")
+
+
+@pulumi.output_type
 class ExistingRecoveryServicesVaultResponse(dict):
     """
     Existing recovery services vault.
@@ -2207,6 +2510,251 @@ class HanaBackupDataResponse(dict):
         Path of the SSL key store.
         """
         return pulumi.get(self, "ssl_configuration")
+
+
+@pulumi.output_type
+class HanaDbProviderInstancePropertiesResponse(dict):
+    """
+    Gets or sets the provider properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerType":
+            suggest = "provider_type"
+        elif key == "dbName":
+            suggest = "db_name"
+        elif key == "dbPassword":
+            suggest = "db_password"
+        elif key == "dbPasswordUri":
+            suggest = "db_password_uri"
+        elif key == "dbUsername":
+            suggest = "db_username"
+        elif key == "instanceNumber":
+            suggest = "instance_number"
+        elif key == "sapSid":
+            suggest = "sap_sid"
+        elif key == "sqlPort":
+            suggest = "sql_port"
+        elif key == "sslCertificateUri":
+            suggest = "ssl_certificate_uri"
+        elif key == "sslHostNameInCertificate":
+            suggest = "ssl_host_name_in_certificate"
+        elif key == "sslPreference":
+            suggest = "ssl_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HanaDbProviderInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HanaDbProviderInstancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HanaDbProviderInstancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_type: str,
+                 db_name: Optional[str] = None,
+                 db_password: Optional[str] = None,
+                 db_password_uri: Optional[str] = None,
+                 db_username: Optional[str] = None,
+                 hostname: Optional[str] = None,
+                 instance_number: Optional[str] = None,
+                 sap_sid: Optional[str] = None,
+                 sql_port: Optional[str] = None,
+                 ssl_certificate_uri: Optional[str] = None,
+                 ssl_host_name_in_certificate: Optional[str] = None,
+                 ssl_preference: Optional[str] = None):
+        """
+        Gets or sets the provider properties.
+        :param str provider_type: The provider type. For example, the value can be SapHana.
+               Expected value is 'SapHana'.
+        :param str db_name: Gets or sets the hana database name.
+        :param str db_password: Gets or sets the database password.
+        :param str db_password_uri: Gets or sets the key vault URI to secret with the database password.
+        :param str db_username: Gets or sets the database user name.
+        :param str hostname: Gets or sets the target virtual machine size.
+        :param str instance_number: Gets or sets the database instance number.
+        :param str sap_sid: Gets or sets the SAP System Identifier.
+        :param str sql_port: Gets or sets the database sql port.
+        :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB.
+        :param str ssl_host_name_in_certificate: Gets or sets the hostname(s) in the SSL certificate.
+        :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
+        """
+        pulumi.set(__self__, "provider_type", 'SapHana')
+        if db_name is not None:
+            pulumi.set(__self__, "db_name", db_name)
+        if db_password is not None:
+            pulumi.set(__self__, "db_password", db_password)
+        if db_password_uri is not None:
+            pulumi.set(__self__, "db_password_uri", db_password_uri)
+        if db_username is not None:
+            pulumi.set(__self__, "db_username", db_username)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if instance_number is not None:
+            pulumi.set(__self__, "instance_number", instance_number)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
+        if sql_port is not None:
+            pulumi.set(__self__, "sql_port", sql_port)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_host_name_in_certificate is not None:
+            pulumi.set(__self__, "ssl_host_name_in_certificate", ssl_host_name_in_certificate)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> str:
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'SapHana'.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> Optional[str]:
+        """
+        Gets or sets the hana database name.
+        """
+        return pulumi.get(self, "db_name")
+
+    @property
+    @pulumi.getter(name="dbPassword")
+    def db_password(self) -> Optional[str]:
+        """
+        Gets or sets the database password.
+        """
+        return pulumi.get(self, "db_password")
+
+    @property
+    @pulumi.getter(name="dbPasswordUri")
+    def db_password_uri(self) -> Optional[str]:
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        return pulumi.get(self, "db_password_uri")
+
+    @property
+    @pulumi.getter(name="dbUsername")
+    def db_username(self) -> Optional[str]:
+        """
+        Gets or sets the database user name.
+        """
+        return pulumi.get(self, "db_username")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[str]:
+        """
+        Gets or sets the target virtual machine size.
+        """
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="instanceNumber")
+    def instance_number(self) -> Optional[str]:
+        """
+        Gets or sets the database instance number.
+        """
+        return pulumi.get(self, "instance_number")
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[str]:
+        """
+        Gets or sets the SAP System Identifier.
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @property
+    @pulumi.getter(name="sqlPort")
+    def sql_port(self) -> Optional[str]:
+        """
+        Gets or sets the database sql port.
+        """
+        return pulumi.get(self, "sql_port")
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[str]:
+        """
+        Gets or sets the blob URI to SSL certificate for the DB.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @property
+    @pulumi.getter(name="sslHostNameInCertificate")
+    def ssl_host_name_in_certificate(self) -> Optional[str]:
+        """
+        Gets or sets the hostname(s) in the SSL certificate.
+        """
+        return pulumi.get(self, "ssl_host_name_in_certificate")
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[str]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+
+@pulumi.output_type
+class HealthResponse(dict):
+    """
+    Resource health details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "healthState":
+            suggest = "health_state"
+        elif key == "impactingReasons":
+            suggest = "impacting_reasons"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 health_state: str,
+                 impacting_reasons: str):
+        """
+        Resource health details
+        :param str health_state: State of health of the provider instance
+        :param str impacting_reasons: Reasons impacting health state
+        """
+        pulumi.set(__self__, "health_state", health_state)
+        pulumi.set(__self__, "impacting_reasons", impacting_reasons)
+
+    @property
+    @pulumi.getter(name="healthState")
+    def health_state(self) -> str:
+        """
+        State of health of the provider instance
+        """
+        return pulumi.get(self, "health_state")
+
+    @property
+    @pulumi.getter(name="impactingReasons")
+    def impacting_reasons(self) -> str:
+        """
+        Reasons impacting health state
+        """
+        return pulumi.get(self, "impacting_reasons")
 
 
 @pulumi.output_type
@@ -2891,6 +3439,83 @@ class ManagedRGConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    The Managed service identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        The Managed service identity.
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: The managed service identity for all identities.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The managed service identity for all identities.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class MessageServerPropertiesResponse(dict):
     """
     Defines the SAP message server properties.
@@ -3001,6 +3626,89 @@ class MessageServerPropertiesResponse(dict):
         message server port.
         """
         return pulumi.get(self, "ms_port")
+
+
+@pulumi.output_type
+class MonitorPropertiesResponseErrors(dict):
+    """
+    Defines the SAP monitor errors.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "innerError":
+            suggest = "inner_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorPropertiesResponseErrors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorPropertiesResponseErrors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorPropertiesResponseErrors.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: str,
+                 details: Sequence['outputs.ErrorResponse'],
+                 inner_error: 'outputs.ErrorResponseInnerError',
+                 message: str,
+                 target: str):
+        """
+        Defines the SAP monitor errors.
+        :param str code: Server-defined set of error codes.
+        :param Sequence['ErrorResponse'] details: Array of details about specific errors that led to this reported error.
+        :param 'ErrorResponseInnerError' inner_error: Object containing more specific information than  the current object about the error.
+        :param str message: Human-readable representation of the error.
+        :param str target: Target of the error.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "inner_error", inner_error)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Server-defined set of error codes.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorResponse']:
+        """
+        Array of details about specific errors that led to this reported error.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="innerError")
+    def inner_error(self) -> 'outputs.ErrorResponseInnerError':
+        """
+        Object containing more specific information than  the current object about the error.
+        """
+        return pulumi.get(self, "inner_error")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Human-readable representation of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        Target of the error.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -3162,6 +3870,157 @@ class MountFileShareConfigurationResponse(dict):
         The private endpoint resource ID
         """
         return pulumi.get(self, "private_endpoint_id")
+
+
+@pulumi.output_type
+class MsSqlServerProviderInstancePropertiesResponse(dict):
+    """
+    Gets or sets the SQL server provider properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerType":
+            suggest = "provider_type"
+        elif key == "dbPassword":
+            suggest = "db_password"
+        elif key == "dbPasswordUri":
+            suggest = "db_password_uri"
+        elif key == "dbPort":
+            suggest = "db_port"
+        elif key == "dbUsername":
+            suggest = "db_username"
+        elif key == "sapSid":
+            suggest = "sap_sid"
+        elif key == "sslCertificateUri":
+            suggest = "ssl_certificate_uri"
+        elif key == "sslPreference":
+            suggest = "ssl_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MsSqlServerProviderInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MsSqlServerProviderInstancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MsSqlServerProviderInstancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_type: str,
+                 db_password: Optional[str] = None,
+                 db_password_uri: Optional[str] = None,
+                 db_port: Optional[str] = None,
+                 db_username: Optional[str] = None,
+                 hostname: Optional[str] = None,
+                 sap_sid: Optional[str] = None,
+                 ssl_certificate_uri: Optional[str] = None,
+                 ssl_preference: Optional[str] = None):
+        """
+        Gets or sets the SQL server provider properties.
+        :param str provider_type: The provider type. For example, the value can be SapHana.
+               Expected value is 'MsSqlServer'.
+        :param str db_password: Gets or sets the database password.
+        :param str db_password_uri: Gets or sets the key vault URI to secret with the database password.
+        :param str db_port: Gets or sets the database sql port.
+        :param str db_username: Gets or sets the database user name.
+        :param str hostname: Gets or sets the SQL server host name.
+        :param str sap_sid: Gets or sets the SAP System Identifier
+        :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SQL Database.
+        :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
+        """
+        pulumi.set(__self__, "provider_type", 'MsSqlServer')
+        if db_password is not None:
+            pulumi.set(__self__, "db_password", db_password)
+        if db_password_uri is not None:
+            pulumi.set(__self__, "db_password_uri", db_password_uri)
+        if db_port is not None:
+            pulumi.set(__self__, "db_port", db_port)
+        if db_username is not None:
+            pulumi.set(__self__, "db_username", db_username)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> str:
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'MsSqlServer'.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter(name="dbPassword")
+    def db_password(self) -> Optional[str]:
+        """
+        Gets or sets the database password.
+        """
+        return pulumi.get(self, "db_password")
+
+    @property
+    @pulumi.getter(name="dbPasswordUri")
+    def db_password_uri(self) -> Optional[str]:
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        return pulumi.get(self, "db_password_uri")
+
+    @property
+    @pulumi.getter(name="dbPort")
+    def db_port(self) -> Optional[str]:
+        """
+        Gets or sets the database sql port.
+        """
+        return pulumi.get(self, "db_port")
+
+    @property
+    @pulumi.getter(name="dbUsername")
+    def db_username(self) -> Optional[str]:
+        """
+        Gets or sets the database user name.
+        """
+        return pulumi.get(self, "db_username")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[str]:
+        """
+        Gets or sets the SQL server host name.
+        """
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[str]:
+        """
+        Gets or sets the SAP System Identifier
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[str]:
+        """
+        Gets or sets the blob URI to SSL certificate for the SQL Database.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[str]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
 
 
 @pulumi.output_type
@@ -3431,6 +4290,307 @@ class OsSapConfigurationResponse(dict):
         The FQDN to set for the SAP system
         """
         return pulumi.get(self, "sap_fqdn")
+
+
+@pulumi.output_type
+class PrometheusHaClusterProviderInstancePropertiesResponse(dict):
+    """
+    Gets or sets the PrometheusHaCluster provider properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerType":
+            suggest = "provider_type"
+        elif key == "clusterName":
+            suggest = "cluster_name"
+        elif key == "prometheusUrl":
+            suggest = "prometheus_url"
+        elif key == "sslCertificateUri":
+            suggest = "ssl_certificate_uri"
+        elif key == "sslPreference":
+            suggest = "ssl_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrometheusHaClusterProviderInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrometheusHaClusterProviderInstancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrometheusHaClusterProviderInstancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_type: str,
+                 cluster_name: Optional[str] = None,
+                 hostname: Optional[str] = None,
+                 prometheus_url: Optional[str] = None,
+                 sid: Optional[str] = None,
+                 ssl_certificate_uri: Optional[str] = None,
+                 ssl_preference: Optional[str] = None):
+        """
+        Gets or sets the PrometheusHaCluster provider properties.
+        :param str provider_type: The provider type. For example, the value can be SapHana.
+               Expected value is 'PrometheusHaCluster'.
+        :param str cluster_name: Gets or sets the clusterName.
+        :param str hostname: Gets or sets the target machine name.
+        :param str prometheus_url: URL of the Node Exporter endpoint.
+        :param str sid: Gets or sets the cluster sid.
+        :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
+        :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
+        """
+        pulumi.set(__self__, "provider_type", 'PrometheusHaCluster')
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if prometheus_url is not None:
+            pulumi.set(__self__, "prometheus_url", prometheus_url)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> str:
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'PrometheusHaCluster'.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> Optional[str]:
+        """
+        Gets or sets the clusterName.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[str]:
+        """
+        Gets or sets the target machine name.
+        """
+        return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter(name="prometheusUrl")
+    def prometheus_url(self) -> Optional[str]:
+        """
+        URL of the Node Exporter endpoint.
+        """
+        return pulumi.get(self, "prometheus_url")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[str]:
+        """
+        Gets or sets the cluster sid.
+        """
+        return pulumi.get(self, "sid")
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[str]:
+        """
+        Gets or sets the blob URI to SSL certificate for the HA cluster exporter.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[str]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+
+@pulumi.output_type
+class PrometheusOSProviderInstancePropertiesResponse(dict):
+    """
+    Gets or sets the PrometheusOS provider properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerType":
+            suggest = "provider_type"
+        elif key == "prometheusUrl":
+            suggest = "prometheus_url"
+        elif key == "sapSid":
+            suggest = "sap_sid"
+        elif key == "sslCertificateUri":
+            suggest = "ssl_certificate_uri"
+        elif key == "sslPreference":
+            suggest = "ssl_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrometheusOSProviderInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrometheusOSProviderInstancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrometheusOSProviderInstancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_type: str,
+                 prometheus_url: Optional[str] = None,
+                 sap_sid: Optional[str] = None,
+                 ssl_certificate_uri: Optional[str] = None,
+                 ssl_preference: Optional[str] = None):
+        """
+        Gets or sets the PrometheusOS provider properties.
+        :param str provider_type: The provider type. For example, the value can be SapHana.
+               Expected value is 'PrometheusOS'.
+        :param str prometheus_url: URL of the Node Exporter endpoint
+        :param str sap_sid: Gets or sets the SAP System Identifier
+        :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+        :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
+        """
+        pulumi.set(__self__, "provider_type", 'PrometheusOS')
+        if prometheus_url is not None:
+            pulumi.set(__self__, "prometheus_url", prometheus_url)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> str:
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'PrometheusOS'.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter(name="prometheusUrl")
+    def prometheus_url(self) -> Optional[str]:
+        """
+        URL of the Node Exporter endpoint
+        """
+        return pulumi.get(self, "prometheus_url")
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[str]:
+        """
+        Gets or sets the SAP System Identifier
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[str]:
+        """
+        Gets or sets the blob URI to SSL certificate for the prometheus node exporter.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[str]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+
+@pulumi.output_type
+class ProviderInstancePropertiesResponseErrors(dict):
+    """
+    Defines the provider instance errors.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "innerError":
+            suggest = "inner_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProviderInstancePropertiesResponseErrors. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProviderInstancePropertiesResponseErrors.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProviderInstancePropertiesResponseErrors.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: str,
+                 details: Sequence['outputs.ErrorResponse'],
+                 inner_error: 'outputs.ErrorResponseInnerError',
+                 message: str,
+                 target: str):
+        """
+        Defines the provider instance errors.
+        :param str code: Server-defined set of error codes.
+        :param Sequence['ErrorResponse'] details: Array of details about specific errors that led to this reported error.
+        :param 'ErrorResponseInnerError' inner_error: Object containing more specific information than  the current object about the error.
+        :param str message: Human-readable representation of the error.
+        :param str target: Target of the error.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "inner_error", inner_error)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Server-defined set of error codes.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorResponse']:
+        """
+        Array of details about specific errors that led to this reported error.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter(name="innerError")
+    def inner_error(self) -> 'outputs.ErrorResponseInnerError':
+        """
+        Object containing more specific information than  the current object about the error.
+        """
+        return pulumi.get(self, "inner_error")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Human-readable representation of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        Target of the error.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -3801,6 +4961,364 @@ class SSLConfigurationResponse(dict):
         Specify the name of the trust store file that contains the server’s public certificates (eg. sapsrv.pse). The script will search for the file in the appropriate directory depending on the crypto provider mentioned. If this argument is not provided, it is automatically determined by searching in the configuration files.
         """
         return pulumi.get(self, "ssl_trust_store")
+
+
+@pulumi.output_type
+class SapLandscapeMonitorMetricThresholdsResponse(dict):
+    """
+    Gets or sets the Threshold Values for Top Metrics Health.
+    """
+    def __init__(__self__, *,
+                 green: Optional[float] = None,
+                 name: Optional[str] = None,
+                 red: Optional[float] = None,
+                 yellow: Optional[float] = None):
+        """
+        Gets or sets the Threshold Values for Top Metrics Health.
+        :param float green: Gets or sets the threshold value for Green.
+        :param str name: Gets or sets the name of the threshold.
+        :param float red: Gets or sets the threshold value for Red.
+        :param float yellow: Gets or sets the threshold value for Yellow.
+        """
+        if green is not None:
+            pulumi.set(__self__, "green", green)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if red is not None:
+            pulumi.set(__self__, "red", red)
+        if yellow is not None:
+            pulumi.set(__self__, "yellow", yellow)
+
+    @property
+    @pulumi.getter
+    def green(self) -> Optional[float]:
+        """
+        Gets or sets the threshold value for Green.
+        """
+        return pulumi.get(self, "green")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the name of the threshold.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def red(self) -> Optional[float]:
+        """
+        Gets or sets the threshold value for Red.
+        """
+        return pulumi.get(self, "red")
+
+    @property
+    @pulumi.getter
+    def yellow(self) -> Optional[float]:
+        """
+        Gets or sets the threshold value for Yellow.
+        """
+        return pulumi.get(self, "yellow")
+
+
+@pulumi.output_type
+class SapLandscapeMonitorPropertiesResponseGrouping(dict):
+    """
+    Gets or sets the SID groupings by landscape and Environment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sapApplication":
+            suggest = "sap_application"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapLandscapeMonitorPropertiesResponseGrouping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapLandscapeMonitorPropertiesResponseGrouping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapLandscapeMonitorPropertiesResponseGrouping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 landscape: Optional[Sequence['outputs.SapLandscapeMonitorSidMappingResponse']] = None,
+                 sap_application: Optional[Sequence['outputs.SapLandscapeMonitorSidMappingResponse']] = None):
+        """
+        Gets or sets the SID groupings by landscape and Environment.
+        :param Sequence['SapLandscapeMonitorSidMappingResponse'] landscape: Gets or sets the list of landscape to SID mappings.
+        :param Sequence['SapLandscapeMonitorSidMappingResponse'] sap_application: Gets or sets the list of Sap Applications to SID mappings.
+        """
+        if landscape is not None:
+            pulumi.set(__self__, "landscape", landscape)
+        if sap_application is not None:
+            pulumi.set(__self__, "sap_application", sap_application)
+
+    @property
+    @pulumi.getter
+    def landscape(self) -> Optional[Sequence['outputs.SapLandscapeMonitorSidMappingResponse']]:
+        """
+        Gets or sets the list of landscape to SID mappings.
+        """
+        return pulumi.get(self, "landscape")
+
+    @property
+    @pulumi.getter(name="sapApplication")
+    def sap_application(self) -> Optional[Sequence['outputs.SapLandscapeMonitorSidMappingResponse']]:
+        """
+        Gets or sets the list of Sap Applications to SID mappings.
+        """
+        return pulumi.get(self, "sap_application")
+
+
+@pulumi.output_type
+class SapLandscapeMonitorSidMappingResponse(dict):
+    """
+    Gets or sets the mapping for SID to Environment/Applications.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topSid":
+            suggest = "top_sid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapLandscapeMonitorSidMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapLandscapeMonitorSidMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapLandscapeMonitorSidMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 top_sid: Optional[Sequence[str]] = None):
+        """
+        Gets or sets the mapping for SID to Environment/Applications.
+        :param str name: Gets or sets the name of the grouping.
+        :param Sequence[str] top_sid: Gets or sets the list of SID's.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if top_sid is not None:
+            pulumi.set(__self__, "top_sid", top_sid)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the name of the grouping.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="topSid")
+    def top_sid(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the list of SID's.
+        """
+        return pulumi.get(self, "top_sid")
+
+
+@pulumi.output_type
+class SapNetWeaverProviderInstancePropertiesResponse(dict):
+    """
+    Gets or sets the provider properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerType":
+            suggest = "provider_type"
+        elif key == "sapClientId":
+            suggest = "sap_client_id"
+        elif key == "sapHostFileEntries":
+            suggest = "sap_host_file_entries"
+        elif key == "sapHostname":
+            suggest = "sap_hostname"
+        elif key == "sapInstanceNr":
+            suggest = "sap_instance_nr"
+        elif key == "sapPassword":
+            suggest = "sap_password"
+        elif key == "sapPasswordUri":
+            suggest = "sap_password_uri"
+        elif key == "sapPortNumber":
+            suggest = "sap_port_number"
+        elif key == "sapSid":
+            suggest = "sap_sid"
+        elif key == "sapUsername":
+            suggest = "sap_username"
+        elif key == "sslCertificateUri":
+            suggest = "ssl_certificate_uri"
+        elif key == "sslPreference":
+            suggest = "ssl_preference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapNetWeaverProviderInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapNetWeaverProviderInstancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapNetWeaverProviderInstancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_type: str,
+                 sap_client_id: Optional[str] = None,
+                 sap_host_file_entries: Optional[Sequence[str]] = None,
+                 sap_hostname: Optional[str] = None,
+                 sap_instance_nr: Optional[str] = None,
+                 sap_password: Optional[str] = None,
+                 sap_password_uri: Optional[str] = None,
+                 sap_port_number: Optional[str] = None,
+                 sap_sid: Optional[str] = None,
+                 sap_username: Optional[str] = None,
+                 ssl_certificate_uri: Optional[str] = None,
+                 ssl_preference: Optional[str] = None):
+        """
+        Gets or sets the provider properties.
+        :param str provider_type: The provider type. For example, the value can be SapHana.
+               Expected value is 'SapNetWeaver'.
+        :param str sap_client_id: Gets or sets the SAP Client ID.
+        :param Sequence[str] sap_host_file_entries: Gets or sets the list of HostFile Entries
+        :param str sap_hostname: Gets or sets the target virtual machine IP Address/FQDN.
+        :param str sap_instance_nr: Gets or sets the instance number of SAP NetWeaver.
+        :param str sap_password: Sets the SAP password.
+        :param str sap_password_uri: Gets or sets the key vault URI to secret with the SAP password.
+        :param str sap_port_number: Gets or sets the SAP HTTP port number.
+        :param str sap_sid: Gets or sets the SAP System Identifier
+        :param str sap_username: Gets or sets the SAP user name.
+        :param str ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the SAP system.
+        :param str ssl_preference: Gets or sets certificate preference if secure communication is enabled.
+        """
+        pulumi.set(__self__, "provider_type", 'SapNetWeaver')
+        if sap_client_id is not None:
+            pulumi.set(__self__, "sap_client_id", sap_client_id)
+        if sap_host_file_entries is not None:
+            pulumi.set(__self__, "sap_host_file_entries", sap_host_file_entries)
+        if sap_hostname is not None:
+            pulumi.set(__self__, "sap_hostname", sap_hostname)
+        if sap_instance_nr is not None:
+            pulumi.set(__self__, "sap_instance_nr", sap_instance_nr)
+        if sap_password is not None:
+            pulumi.set(__self__, "sap_password", sap_password)
+        if sap_password_uri is not None:
+            pulumi.set(__self__, "sap_password_uri", sap_password_uri)
+        if sap_port_number is not None:
+            pulumi.set(__self__, "sap_port_number", sap_port_number)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
+        if sap_username is not None:
+            pulumi.set(__self__, "sap_username", sap_username)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> str:
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'SapNetWeaver'.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter(name="sapClientId")
+    def sap_client_id(self) -> Optional[str]:
+        """
+        Gets or sets the SAP Client ID.
+        """
+        return pulumi.get(self, "sap_client_id")
+
+    @property
+    @pulumi.getter(name="sapHostFileEntries")
+    def sap_host_file_entries(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the list of HostFile Entries
+        """
+        return pulumi.get(self, "sap_host_file_entries")
+
+    @property
+    @pulumi.getter(name="sapHostname")
+    def sap_hostname(self) -> Optional[str]:
+        """
+        Gets or sets the target virtual machine IP Address/FQDN.
+        """
+        return pulumi.get(self, "sap_hostname")
+
+    @property
+    @pulumi.getter(name="sapInstanceNr")
+    def sap_instance_nr(self) -> Optional[str]:
+        """
+        Gets or sets the instance number of SAP NetWeaver.
+        """
+        return pulumi.get(self, "sap_instance_nr")
+
+    @property
+    @pulumi.getter(name="sapPassword")
+    def sap_password(self) -> Optional[str]:
+        """
+        Sets the SAP password.
+        """
+        return pulumi.get(self, "sap_password")
+
+    @property
+    @pulumi.getter(name="sapPasswordUri")
+    def sap_password_uri(self) -> Optional[str]:
+        """
+        Gets or sets the key vault URI to secret with the SAP password.
+        """
+        return pulumi.get(self, "sap_password_uri")
+
+    @property
+    @pulumi.getter(name="sapPortNumber")
+    def sap_port_number(self) -> Optional[str]:
+        """
+        Gets or sets the SAP HTTP port number.
+        """
+        return pulumi.get(self, "sap_port_number")
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[str]:
+        """
+        Gets or sets the SAP System Identifier
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @property
+    @pulumi.getter(name="sapUsername")
+    def sap_username(self) -> Optional[str]:
+        """
+        Gets or sets the SAP user name.
+        """
+        return pulumi.get(self, "sap_username")
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[str]:
+        """
+        Gets or sets the blob URI to SSL certificate for the SAP system.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[str]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
 
 
 @pulumi.output_type

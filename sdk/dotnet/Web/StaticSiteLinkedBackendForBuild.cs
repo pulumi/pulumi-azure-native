@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Static Site Linked Backend ARM resource.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-03-01.
+    /// 
+    /// Other available API versions: 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteLinkedBackendForBuild")]
     public partial class StaticSiteLinkedBackendForBuild : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.Web
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:StaticSiteLinkedBackendForBuild"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:StaticSiteLinkedBackendForBuild"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

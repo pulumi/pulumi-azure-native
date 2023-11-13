@@ -250,7 +250,7 @@ class Certificate(pulumi.CustomResource):
         SSL certificate for an app.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
+        Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,7 +278,7 @@ class Certificate(pulumi.CustomResource):
         SSL certificate for an app.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01.
+        Other available API versions: 2015-08-01, 2016-03-01, 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -346,7 +346,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["valid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:Certificate"), pulumi.Alias(type_="azure-native:web/v20160301:Certificate"), pulumi.Alias(type_="azure-native:web/v20180201:Certificate"), pulumi.Alias(type_="azure-native:web/v20181101:Certificate"), pulumi.Alias(type_="azure-native:web/v20190801:Certificate"), pulumi.Alias(type_="azure-native:web/v20200601:Certificate"), pulumi.Alias(type_="azure-native:web/v20200901:Certificate"), pulumi.Alias(type_="azure-native:web/v20201001:Certificate"), pulumi.Alias(type_="azure-native:web/v20201201:Certificate"), pulumi.Alias(type_="azure-native:web/v20210101:Certificate"), pulumi.Alias(type_="azure-native:web/v20210115:Certificate"), pulumi.Alias(type_="azure-native:web/v20210201:Certificate"), pulumi.Alias(type_="azure-native:web/v20210301:Certificate"), pulumi.Alias(type_="azure-native:web/v20220301:Certificate"), pulumi.Alias(type_="azure-native:web/v20220901:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:Certificate"), pulumi.Alias(type_="azure-native:web/v20160301:Certificate"), pulumi.Alias(type_="azure-native:web/v20180201:Certificate"), pulumi.Alias(type_="azure-native:web/v20181101:Certificate"), pulumi.Alias(type_="azure-native:web/v20190801:Certificate"), pulumi.Alias(type_="azure-native:web/v20200601:Certificate"), pulumi.Alias(type_="azure-native:web/v20200901:Certificate"), pulumi.Alias(type_="azure-native:web/v20201001:Certificate"), pulumi.Alias(type_="azure-native:web/v20201201:Certificate"), pulumi.Alias(type_="azure-native:web/v20210101:Certificate"), pulumi.Alias(type_="azure-native:web/v20210115:Certificate"), pulumi.Alias(type_="azure-native:web/v20210201:Certificate"), pulumi.Alias(type_="azure-native:web/v20210301:Certificate"), pulumi.Alias(type_="azure-native:web/v20220301:Certificate"), pulumi.Alias(type_="azure-native:web/v20220901:Certificate"), pulumi.Alias(type_="azure-native:web/v20230101:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:web:Certificate',

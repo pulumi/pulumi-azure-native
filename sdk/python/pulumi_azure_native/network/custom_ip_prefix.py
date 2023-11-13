@@ -320,7 +320,7 @@ class CustomIPPrefix(pulumi.CustomResource):
         Custom IP prefix resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01.
+        Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -352,7 +352,7 @@ class CustomIPPrefix(pulumi.CustomResource):
         Custom IP prefix resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01.
+        Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param CustomIPPrefixArgs args: The arguments to use to populate this resource's properties.
@@ -422,7 +422,7 @@ class CustomIPPrefix(pulumi.CustomResource):
             __props__.__dict__["public_ip_prefixes"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210201:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210301:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210801:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220701:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220901:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20221101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20230201:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20230401:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20230501:CustomIPPrefix")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200601:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200701:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20200801:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20201101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210201:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210301:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20210801:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220701:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20220901:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20221101:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20230201:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20230401:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20230501:CustomIPPrefix"), pulumi.Alias(type_="azure-native:network/v20230601:CustomIPPrefix")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomIPPrefix, __self__).__init__(
             'azure-native:network:CustomIPPrefix',

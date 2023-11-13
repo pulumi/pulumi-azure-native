@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:RouteMap"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:RouteMap"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:RouteMap"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:RouteMap"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

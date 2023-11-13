@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * String dictionary resource.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-10-01.
+ * Other available API versions: 2020-10-01, 2023-01-01.
  */
 export class WebAppMetadataSlot extends pulumi.CustomResource {
     /**
@@ -87,7 +87,7 @@ export class WebAppMetadataSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppMetadataSlot" }, { type: "azure-native:web/v20160801:WebAppMetadataSlot" }, { type: "azure-native:web/v20180201:WebAppMetadataSlot" }, { type: "azure-native:web/v20181101:WebAppMetadataSlot" }, { type: "azure-native:web/v20190801:WebAppMetadataSlot" }, { type: "azure-native:web/v20200601:WebAppMetadataSlot" }, { type: "azure-native:web/v20200901:WebAppMetadataSlot" }, { type: "azure-native:web/v20201001:WebAppMetadataSlot" }, { type: "azure-native:web/v20201201:WebAppMetadataSlot" }, { type: "azure-native:web/v20210101:WebAppMetadataSlot" }, { type: "azure-native:web/v20210115:WebAppMetadataSlot" }, { type: "azure-native:web/v20210201:WebAppMetadataSlot" }, { type: "azure-native:web/v20210301:WebAppMetadataSlot" }, { type: "azure-native:web/v20220301:WebAppMetadataSlot" }, { type: "azure-native:web/v20220901:WebAppMetadataSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppMetadataSlot" }, { type: "azure-native:web/v20160801:WebAppMetadataSlot" }, { type: "azure-native:web/v20180201:WebAppMetadataSlot" }, { type: "azure-native:web/v20181101:WebAppMetadataSlot" }, { type: "azure-native:web/v20190801:WebAppMetadataSlot" }, { type: "azure-native:web/v20200601:WebAppMetadataSlot" }, { type: "azure-native:web/v20200901:WebAppMetadataSlot" }, { type: "azure-native:web/v20201001:WebAppMetadataSlot" }, { type: "azure-native:web/v20201201:WebAppMetadataSlot" }, { type: "azure-native:web/v20210101:WebAppMetadataSlot" }, { type: "azure-native:web/v20210115:WebAppMetadataSlot" }, { type: "azure-native:web/v20210201:WebAppMetadataSlot" }, { type: "azure-native:web/v20210301:WebAppMetadataSlot" }, { type: "azure-native:web/v20220301:WebAppMetadataSlot" }, { type: "azure-native:web/v20220901:WebAppMetadataSlot" }, { type: "azure-native:web/v20230101:WebAppMetadataSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppMetadataSlot.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The RouteMap child resource of a Virtual hub.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2023-04-01, 2023-05-01.
+ * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export class RouteMap extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class RouteMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220501:RouteMap" }, { type: "azure-native:network/v20220701:RouteMap" }, { type: "azure-native:network/v20220901:RouteMap" }, { type: "azure-native:network/v20221101:RouteMap" }, { type: "azure-native:network/v20230201:RouteMap" }, { type: "azure-native:network/v20230401:RouteMap" }, { type: "azure-native:network/v20230501:RouteMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220501:RouteMap" }, { type: "azure-native:network/v20220701:RouteMap" }, { type: "azure-native:network/v20220901:RouteMap" }, { type: "azure-native:network/v20221101:RouteMap" }, { type: "azure-native:network/v20230201:RouteMap" }, { type: "azure-native:network/v20230401:RouteMap" }, { type: "azure-native:network/v20230501:RouteMap" }, { type: "azure-native:network/v20230601:RouteMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RouteMap.__pulumiType, name, resourceInputs, opts);
     }

@@ -113,7 +113,7 @@ class Python2Package(pulumi.CustomResource):
         Definition of the module type.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
 
-        Other available API versions: 2023-05-15-preview.
+        Other available API versions: 2023-05-15-preview, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -133,7 +133,7 @@ class Python2Package(pulumi.CustomResource):
         Definition of the module type.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
 
-        Other available API versions: 2023-05-15-preview.
+        Other available API versions: 2023-05-15-preview, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param Python2PackageArgs args: The arguments to use to populate this resource's properties.
@@ -189,7 +189,7 @@ class Python2Package(pulumi.CustomResource):
             __props__.__dict__["size_in_bytes"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20180630:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20190601:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20220808:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Python2Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20180630:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20190601:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20220808:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Python2Package"), pulumi.Alias(type_="azure-native:automation/v20231101:Python2Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Python2Package, __self__).__init__(
             'azure-native:automation:Python2Package',

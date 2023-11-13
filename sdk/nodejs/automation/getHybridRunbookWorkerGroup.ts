@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Retrieve a hybrid runbook worker group.
  * Azure REST API version: 2022-08-08.
  *
- * Other available API versions: 2021-06-22, 2023-05-15-preview.
+ * Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01.
  */
 export function getHybridRunbookWorkerGroup(args: GetHybridRunbookWorkerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridRunbookWorkerGroupResult> {
 
@@ -71,7 +71,7 @@ export interface GetHybridRunbookWorkerGroupResult {
  * Retrieve a hybrid runbook worker group.
  * Azure REST API version: 2022-08-08.
  *
- * Other available API versions: 2021-06-22, 2023-05-15-preview.
+ * Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01.
  */
 export function getHybridRunbookWorkerGroupOutput(args: GetHybridRunbookWorkerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerGroupResult> {
     return pulumi.output(args).apply((a: any) => getHybridRunbookWorkerGroup(a, opts))

@@ -130,7 +130,7 @@ class ScopeConnection(pulumi.CustomResource):
         The Scope Connections resource
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview.
 
-        Other available API versions: 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +151,7 @@ class ScopeConnection(pulumi.CustomResource):
         The Scope Connections resource
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview.
 
-        Other available API versions: 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param ScopeConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -197,7 +197,7 @@ class ScopeConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501preview:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220101:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220201preview:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220401preview:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220701:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220901:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20221101:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20230201:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20230401:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20230501:ScopeConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501preview:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220101:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220201preview:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220401preview:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220701:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20220901:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20221101:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20230201:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20230401:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20230501:ScopeConnection"), pulumi.Alias(type_="azure-native:network/v20230601:ScopeConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScopeConnection, __self__).__init__(
             'azure-native:network:ScopeConnection',

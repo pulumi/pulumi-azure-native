@@ -115,6 +115,8 @@ class ProviderInstance(pulumi.CustomResource):
         A provider instance associated with SAP monitor.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
 
+        Other available API versions: 2023-10-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: [currently not in use] Managed service identity(user assigned identities)
@@ -132,6 +134,8 @@ class ProviderInstance(pulumi.CustomResource):
         """
         A provider instance associated with SAP monitor.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
+
+        Other available API versions: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ProviderInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +180,7 @@ class ProviderInstance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:ProviderInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:ProviderInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:ProviderInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:ProviderInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:ProviderInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:ProviderInstance"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:ProviderInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProviderInstance, __self__).__init__(
             'azure-native:workloads:ProviderInstance',

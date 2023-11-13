@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Definition of the module type.
  * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
  *
- * Other available API versions: 2023-05-15-preview.
+ * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export class Python2Package extends pulumi.CustomResource {
     /**
@@ -163,7 +163,7 @@ export class Python2Package extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20180630:Python2Package" }, { type: "azure-native:automation/v20190601:Python2Package" }, { type: "azure-native:automation/v20200113preview:Python2Package" }, { type: "azure-native:automation/v20220808:Python2Package" }, { type: "azure-native:automation/v20230515preview:Python2Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20180630:Python2Package" }, { type: "azure-native:automation/v20190601:Python2Package" }, { type: "azure-native:automation/v20200113preview:Python2Package" }, { type: "azure-native:automation/v20220808:Python2Package" }, { type: "azure-native:automation/v20230515preview:Python2Package" }, { type: "azure-native:automation/v20231101:Python2Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Python2Package.__pulumiType, name, resourceInputs, opts);
     }

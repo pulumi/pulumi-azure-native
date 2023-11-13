@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
         /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
         /// </summary>
         public static Task<GetManagedClusterApplicationTypeResult> InvokeAsync(GetManagedClusterApplicationTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedClusterApplicationTypeResult>("azure-native:servicefabric:getManagedClusterApplicationType", args ?? new GetManagedClusterApplicationTypeArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
         /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview.
+        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview.
         /// </summary>
         public static Output<GetManagedClusterApplicationTypeResult> Invoke(GetManagedClusterApplicationTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterApplicationTypeResult>("azure-native:servicefabric:getManagedClusterApplicationType", args ?? new GetManagedClusterApplicationTypeInvokeArgs(), options.WithDefaults());

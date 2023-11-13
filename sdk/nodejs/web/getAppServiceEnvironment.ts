@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Description for Get the properties of an App Service Environment.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15.
+ * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
 
@@ -147,7 +147,7 @@ export interface GetAppServiceEnvironmentResult {
  * Description for Get the properties of an App Service Environment.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15.
+ * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01.
  */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))

@@ -234,7 +234,7 @@ class ConnectedEnvironment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20221101preview:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230401preview:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230501:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230502preview:ConnectedEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20221101preview:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230401preview:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230501:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230502preview:ConnectedEnvironment"), pulumi.Alias(type_="azure-native:app/v20230801preview:ConnectedEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectedEnvironment, __self__).__init__(
             'azure-native:app/v20221001:ConnectedEnvironment',

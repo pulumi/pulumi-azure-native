@@ -26,7 +26,9 @@ __all__ = [
     'AzureFilePropertiesArgs',
     'AzureStaticWebAppsRegistrationArgs',
     'AzureStaticWebAppsArgs',
+    'BuildConfigurationArgs',
     'CertificatePropertiesArgs',
+    'CircuitBreakerPolicyArgs',
     'ClientRegistrationArgs',
     'ConfigurationArgs',
     'ConnectedEnvironmentStoragePropertiesArgs',
@@ -34,6 +36,8 @@ __all__ = [
     'ContainerAppProbeHttpHeadersArgs',
     'ContainerAppProbeTcpSocketArgs',
     'ContainerAppProbeArgs',
+    'ContainerRegistryWithCustomImageArgs',
+    'ContainerRegistryArgs',
     'ContainerResourcesArgs',
     'ContainerArgs',
     'CookieExpirationArgs',
@@ -42,10 +46,18 @@ __all__ = [
     'CustomDomainArgs',
     'CustomOpenIdConnectProviderArgs',
     'CustomScaleRuleArgs',
+    'DaprComponentResiliencyPolicyConfigurationArgs',
+    'DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs',
+    'DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs',
+    'DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs',
     'DaprMetadataArgs',
+    'DaprSubscriptionBulkSubscribeOptionsArgs',
+    'DaprSubscriptionRouteRuleArgs',
+    'DaprSubscriptionRoutesArgs',
     'DaprArgs',
     'DefaultAuthorizationPolicyArgs',
     'EnvironmentSkuPropertiesArgs',
+    'EnvironmentVariableArgs',
     'EnvironmentVarArgs',
     'ExtendedLocationArgs',
     'FacebookArgs',
@@ -54,6 +66,10 @@ __all__ = [
     'GithubActionConfigurationArgs',
     'GlobalValidationArgs',
     'GoogleArgs',
+    'HeaderMatchArgs',
+    'HttpConnectionPoolArgs',
+    'HttpGetArgs',
+    'HttpRetryPolicyArgs',
     'HttpScaleRuleArgs',
     'HttpSettingsRoutesArgs',
     'HttpSettingsArgs',
@@ -82,6 +98,7 @@ __all__ = [
     'OpenIdConnectConfigArgs',
     'OpenIdConnectLoginArgs',
     'OpenIdConnectRegistrationArgs',
+    'PreBuildStepArgs',
     'QueueScaleRuleArgs',
     'RegistryCredentialsArgs',
     'RegistryInfoArgs',
@@ -90,8 +107,11 @@ __all__ = [
     'ScaleArgs',
     'SecretVolumeItemArgs',
     'SecretArgs',
+    'TcpConnectionPoolArgs',
+    'TcpRetryPolicyArgs',
     'TcpScaleRuleArgs',
     'TemplateArgs',
+    'TimeoutPolicyArgs',
     'TrafficWeightArgs',
     'TwitterRegistrationArgs',
     'TwitterArgs',
@@ -904,6 +924,94 @@ class AzureStaticWebAppsArgs:
 
 
 @pulumi.input_type
+class BuildConfigurationArgs:
+    def __init__(__self__, *,
+                 base_os: Optional[pulumi.Input[str]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
+                 platform_version: Optional[pulumi.Input[str]] = None,
+                 pre_build_steps: Optional[pulumi.Input[Sequence[pulumi.Input['PreBuildStepArgs']]]] = None):
+        """
+        Configuration of the build.
+        :param pulumi.Input[str] base_os: Base OS used to build and run the app.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: List of environment variables to be passed to the build and application runtime.
+        :param pulumi.Input[str] platform: Platform to be used to build and run the app.
+        :param pulumi.Input[str] platform_version: Platform version to be used to build and run the app.
+        :param pulumi.Input[Sequence[pulumi.Input['PreBuildStepArgs']]] pre_build_steps: List of steps to perform before the build.
+        """
+        if base_os is not None:
+            pulumi.set(__self__, "base_os", base_os)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
+        if pre_build_steps is not None:
+            pulumi.set(__self__, "pre_build_steps", pre_build_steps)
+
+    @property
+    @pulumi.getter(name="baseOs")
+    def base_os(self) -> Optional[pulumi.Input[str]]:
+        """
+        Base OS used to build and run the app.
+        """
+        return pulumi.get(self, "base_os")
+
+    @base_os.setter
+    def base_os(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "base_os", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
+        """
+        List of environment variables to be passed to the build and application runtime.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter
+    def platform(self) -> Optional[pulumi.Input[str]]:
+        """
+        Platform to be used to build and run the app.
+        """
+        return pulumi.get(self, "platform")
+
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Platform version to be used to build and run the app.
+        """
+        return pulumi.get(self, "platform_version")
+
+    @platform_version.setter
+    def platform_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_version", value)
+
+    @property
+    @pulumi.getter(name="preBuildSteps")
+    def pre_build_steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PreBuildStepArgs']]]]:
+        """
+        List of steps to perform before the build.
+        """
+        return pulumi.get(self, "pre_build_steps")
+
+    @pre_build_steps.setter
+    def pre_build_steps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PreBuildStepArgs']]]]):
+        pulumi.set(self, "pre_build_steps", value)
+
+
+@pulumi.input_type
 class CertificatePropertiesArgs:
     def __init__(__self__, *,
                  password: Optional[pulumi.Input[str]] = None,
@@ -941,6 +1049,62 @@ class CertificatePropertiesArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class CircuitBreakerPolicyArgs:
+    def __init__(__self__, *,
+                 consecutive_errors: Optional[pulumi.Input[int]] = None,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 max_ejection_percent: Optional[pulumi.Input[int]] = None):
+        """
+        Policy that defines circuit breaker conditions
+        :param pulumi.Input[int] consecutive_errors: Number of consecutive errors before the circuit breaker opens
+        :param pulumi.Input[int] interval_in_seconds: The time interval, in seconds, between endpoint checks. This can result in opening the circuit breaker if the check fails as well as closing the circuit breaker if the check succeeds. Defaults to 10s.
+        :param pulumi.Input[int] max_ejection_percent: Maximum percentage of hosts that will be ejected after failure threshold has been met
+        """
+        if consecutive_errors is not None:
+            pulumi.set(__self__, "consecutive_errors", consecutive_errors)
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if max_ejection_percent is not None:
+            pulumi.set(__self__, "max_ejection_percent", max_ejection_percent)
+
+    @property
+    @pulumi.getter(name="consecutiveErrors")
+    def consecutive_errors(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of consecutive errors before the circuit breaker opens
+        """
+        return pulumi.get(self, "consecutive_errors")
+
+    @consecutive_errors.setter
+    def consecutive_errors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "consecutive_errors", value)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time interval, in seconds, between endpoint checks. This can result in opening the circuit breaker if the check fails as well as closing the circuit breaker if the check succeeds. Defaults to 10s.
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maxEjectionPercent")
+    def max_ejection_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum percentage of hosts that will be ejected after failure threshold has been met
+        """
+        return pulumi.get(self, "max_ejection_percent")
+
+    @max_ejection_percent.setter
+    def max_ejection_percent(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_ejection_percent", value)
 
 
 @pulumi.input_type
@@ -1429,6 +1593,83 @@ class ContainerAppProbeArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'Type']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ContainerRegistryWithCustomImageArgs:
+    def __init__(__self__, *,
+                 server: pulumi.Input[str],
+                 image: Optional[pulumi.Input[str]] = None):
+        """
+        Container registry that the final image will be uploaded to.
+        :param pulumi.Input[str] server: Login server of the container registry that the final image should be uploaded to. Builder resource needs to have this container registry defined along with an identity to use to access it.
+        :param pulumi.Input[str] image: Full name that the final image should be uploaded as, including both image name and tag.
+        """
+        pulumi.set(__self__, "server", server)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+
+    @property
+    @pulumi.getter
+    def server(self) -> pulumi.Input[str]:
+        """
+        Login server of the container registry that the final image should be uploaded to. Builder resource needs to have this container registry defined along with an identity to use to access it.
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full name that the final image should be uploaded as, including both image name and tag.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+
+@pulumi.input_type
+class ContainerRegistryArgs:
+    def __init__(__self__, *,
+                 container_registry_server: pulumi.Input[str],
+                 identity_resource_id: pulumi.Input[str]):
+        """
+        Model representing a mapping from a container registry to the identity used to connect to it.
+        :param pulumi.Input[str] container_registry_server: Login server of the container registry.
+        :param pulumi.Input[str] identity_resource_id: Resource ID of the managed identity.
+        """
+        pulumi.set(__self__, "container_registry_server", container_registry_server)
+        pulumi.set(__self__, "identity_resource_id", identity_resource_id)
+
+    @property
+    @pulumi.getter(name="containerRegistryServer")
+    def container_registry_server(self) -> pulumi.Input[str]:
+        """
+        Login server of the container registry.
+        """
+        return pulumi.get(self, "container_registry_server")
+
+    @container_registry_server.setter
+    def container_registry_server(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_registry_server", value)
+
+    @property
+    @pulumi.getter(name="identityResourceId")
+    def identity_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the managed identity.
+        """
+        return pulumi.get(self, "identity_resource_id")
+
+    @identity_resource_id.setter
+    def identity_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity_resource_id", value)
 
 
 @pulumi.input_type
@@ -1976,6 +2217,150 @@ class CustomScaleRuleArgs:
 
 
 @pulumi.input_type
+class DaprComponentResiliencyPolicyConfigurationArgs:
+    def __init__(__self__, *,
+                 http_retry_policy: Optional[pulumi.Input['DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs']] = None,
+                 timeout_policy: Optional[pulumi.Input['DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs']] = None):
+        """
+        Dapr Component Resiliency Policy Configuration.
+        :param pulumi.Input['DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs'] http_retry_policy: The optional HTTP retry policy configuration
+        :param pulumi.Input['DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs'] timeout_policy: The optional timeout policy configuration
+        """
+        if http_retry_policy is not None:
+            pulumi.set(__self__, "http_retry_policy", http_retry_policy)
+        if timeout_policy is not None:
+            pulumi.set(__self__, "timeout_policy", timeout_policy)
+
+    @property
+    @pulumi.getter(name="httpRetryPolicy")
+    def http_retry_policy(self) -> Optional[pulumi.Input['DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs']]:
+        """
+        The optional HTTP retry policy configuration
+        """
+        return pulumi.get(self, "http_retry_policy")
+
+    @http_retry_policy.setter
+    def http_retry_policy(self, value: Optional[pulumi.Input['DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs']]):
+        pulumi.set(self, "http_retry_policy", value)
+
+    @property
+    @pulumi.getter(name="timeoutPolicy")
+    def timeout_policy(self) -> Optional[pulumi.Input['DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs']]:
+        """
+        The optional timeout policy configuration
+        """
+        return pulumi.get(self, "timeout_policy")
+
+    @timeout_policy.setter
+    def timeout_policy(self, value: Optional[pulumi.Input['DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs']]):
+        pulumi.set(self, "timeout_policy", value)
+
+
+@pulumi.input_type
+class DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs:
+    def __init__(__self__, *,
+                 initial_delay_in_milliseconds: Optional[pulumi.Input[int]] = None,
+                 max_interval_in_milliseconds: Optional[pulumi.Input[int]] = None):
+        """
+        Dapr Component Resiliency Policy HTTP Retry Backoff Configuration.
+        :param pulumi.Input[int] initial_delay_in_milliseconds: The optional initial delay in milliseconds before an operation is retried
+        :param pulumi.Input[int] max_interval_in_milliseconds: The optional maximum time interval in milliseconds between retry attempts
+        """
+        if initial_delay_in_milliseconds is not None:
+            pulumi.set(__self__, "initial_delay_in_milliseconds", initial_delay_in_milliseconds)
+        if max_interval_in_milliseconds is not None:
+            pulumi.set(__self__, "max_interval_in_milliseconds", max_interval_in_milliseconds)
+
+    @property
+    @pulumi.getter(name="initialDelayInMilliseconds")
+    def initial_delay_in_milliseconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The optional initial delay in milliseconds before an operation is retried
+        """
+        return pulumi.get(self, "initial_delay_in_milliseconds")
+
+    @initial_delay_in_milliseconds.setter
+    def initial_delay_in_milliseconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_delay_in_milliseconds", value)
+
+    @property
+    @pulumi.getter(name="maxIntervalInMilliseconds")
+    def max_interval_in_milliseconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The optional maximum time interval in milliseconds between retry attempts
+        """
+        return pulumi.get(self, "max_interval_in_milliseconds")
+
+    @max_interval_in_milliseconds.setter
+    def max_interval_in_milliseconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_interval_in_milliseconds", value)
+
+
+@pulumi.input_type
+class DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationArgs:
+    def __init__(__self__, *,
+                 max_retries: Optional[pulumi.Input[int]] = None,
+                 retry_back_off: Optional[pulumi.Input['DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs']] = None):
+        """
+        Dapr Component Resiliency Policy HTTP Retry Policy Configuration.
+        :param pulumi.Input[int] max_retries: The optional maximum number of retries
+        :param pulumi.Input['DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs'] retry_back_off: The optional retry backoff configuration
+        """
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
+        if retry_back_off is not None:
+            pulumi.set(__self__, "retry_back_off", retry_back_off)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        The optional maximum number of retries
+        """
+        return pulumi.get(self, "max_retries")
+
+    @max_retries.setter
+    def max_retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_retries", value)
+
+    @property
+    @pulumi.getter(name="retryBackOff")
+    def retry_back_off(self) -> Optional[pulumi.Input['DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs']]:
+        """
+        The optional retry backoff configuration
+        """
+        return pulumi.get(self, "retry_back_off")
+
+    @retry_back_off.setter
+    def retry_back_off(self, value: Optional[pulumi.Input['DaprComponentResiliencyPolicyHttpRetryBackOffConfigurationArgs']]):
+        pulumi.set(self, "retry_back_off", value)
+
+
+@pulumi.input_type
+class DaprComponentResiliencyPolicyTimeoutPolicyConfigurationArgs:
+    def __init__(__self__, *,
+                 response_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Dapr Component Resiliency Policy Timeout Policy Configuration.
+        :param pulumi.Input[int] response_timeout_in_seconds: The optional response timeout in seconds
+        """
+        if response_timeout_in_seconds is not None:
+            pulumi.set(__self__, "response_timeout_in_seconds", response_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="responseTimeoutInSeconds")
+    def response_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The optional response timeout in seconds
+        """
+        return pulumi.get(self, "response_timeout_in_seconds")
+
+    @response_timeout_in_seconds.setter
+    def response_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "response_timeout_in_seconds", value)
+
+
+@pulumi.input_type
 class DaprMetadataArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -2029,6 +2414,144 @@ class DaprMetadataArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DaprSubscriptionBulkSubscribeOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 max_await_duration_ms: Optional[pulumi.Input[int]] = None,
+                 max_messages_count: Optional[pulumi.Input[int]] = None):
+        """
+        Dapr PubSub Bulk Subscription Options.
+        :param pulumi.Input[bool] enabled: Enable bulk subscription
+        :param pulumi.Input[int] max_await_duration_ms: Maximum duration in milliseconds to wait before a bulk message is sent to the app.
+        :param pulumi.Input[int] max_messages_count: Maximum number of messages to deliver in a bulk message.
+        """
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if max_await_duration_ms is not None:
+            pulumi.set(__self__, "max_await_duration_ms", max_await_duration_ms)
+        if max_messages_count is not None:
+            pulumi.set(__self__, "max_messages_count", max_messages_count)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable bulk subscription
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="maxAwaitDurationMs")
+    def max_await_duration_ms(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum duration in milliseconds to wait before a bulk message is sent to the app.
+        """
+        return pulumi.get(self, "max_await_duration_ms")
+
+    @max_await_duration_ms.setter
+    def max_await_duration_ms(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_await_duration_ms", value)
+
+    @property
+    @pulumi.getter(name="maxMessagesCount")
+    def max_messages_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of messages to deliver in a bulk message.
+        """
+        return pulumi.get(self, "max_messages_count")
+
+    @max_messages_count.setter
+    def max_messages_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_messages_count", value)
+
+
+@pulumi.input_type
+class DaprSubscriptionRouteRuleArgs:
+    def __init__(__self__, *,
+                 match: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Dapr Pubsub Event Subscription Route Rule is used to specify the condition for sending a message to a specific path.
+        :param pulumi.Input[str] match: The optional CEL expression used to match the event. If the match is not specified, then the route is considered the default. The rules are tested in the order specified, so they should be define from most-to-least specific. The default route should appear last in the list.
+        :param pulumi.Input[str] path: The path for events that match this rule
+        """
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional[pulumi.Input[str]]:
+        """
+        The optional CEL expression used to match the event. If the match is not specified, then the route is considered the default. The rules are tested in the order specified, so they should be define from most-to-least specific. The default route should appear last in the list.
+        """
+        return pulumi.get(self, "match")
+
+    @match.setter
+    def match(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for events that match this rule
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class DaprSubscriptionRoutesArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['DaprSubscriptionRouteRuleArgs']]]] = None):
+        """
+        Dapr PubSub Event Subscription Routes configuration.
+        :param pulumi.Input[str] default: The default path to deliver events that do not match any of the rules.
+        :param pulumi.Input[Sequence[pulumi.Input['DaprSubscriptionRouteRuleArgs']]] rules: The list of Dapr PubSub Event Subscription Route Rules.
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[str]]:
+        """
+        The default path to deliver events that do not match any of the rules.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaprSubscriptionRouteRuleArgs']]]]:
+        """
+        The list of Dapr PubSub Event Subscription Route Rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaprSubscriptionRouteRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
@@ -2232,6 +2755,44 @@ class EnvironmentSkuPropertiesArgs:
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class EnvironmentVariableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Model representing an environment variable.
+        :param pulumi.Input[str] name: Environment variable name.
+        :param pulumi.Input[str] value: Environment variable value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Environment variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Environment variable value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2780,6 +3341,293 @@ class GoogleArgs:
     @validation.setter
     def validation(self, value: Optional[pulumi.Input['AllowedAudiencesValidationArgs']]):
         pulumi.set(self, "validation", value)
+
+
+@pulumi.input_type
+class HeaderMatchArgs:
+    def __init__(__self__, *,
+                 exact_match: Optional[pulumi.Input[str]] = None,
+                 header: Optional[pulumi.Input[str]] = None,
+                 prefix_match: Optional[pulumi.Input[str]] = None,
+                 regex_match: Optional[pulumi.Input[str]] = None,
+                 suffix_match: Optional[pulumi.Input[str]] = None):
+        """
+        Conditions required to match a header
+        :param pulumi.Input[str] exact_match: Exact value of the header
+        :param pulumi.Input[str] header: Name of the header
+        :param pulumi.Input[str] prefix_match: Prefix value of the header
+        :param pulumi.Input[str] regex_match: Regex value of the header
+        :param pulumi.Input[str] suffix_match: Suffix value of the header
+        """
+        if exact_match is not None:
+            pulumi.set(__self__, "exact_match", exact_match)
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+        if prefix_match is not None:
+            pulumi.set(__self__, "prefix_match", prefix_match)
+        if regex_match is not None:
+            pulumi.set(__self__, "regex_match", regex_match)
+        if suffix_match is not None:
+            pulumi.set(__self__, "suffix_match", suffix_match)
+
+    @property
+    @pulumi.getter(name="exactMatch")
+    def exact_match(self) -> Optional[pulumi.Input[str]]:
+        """
+        Exact value of the header
+        """
+        return pulumi.get(self, "exact_match")
+
+    @exact_match.setter
+    def exact_match(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exact_match", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the header
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter(name="prefixMatch")
+    def prefix_match(self) -> Optional[pulumi.Input[str]]:
+        """
+        Prefix value of the header
+        """
+        return pulumi.get(self, "prefix_match")
+
+    @prefix_match.setter
+    def prefix_match(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix_match", value)
+
+    @property
+    @pulumi.getter(name="regexMatch")
+    def regex_match(self) -> Optional[pulumi.Input[str]]:
+        """
+        Regex value of the header
+        """
+        return pulumi.get(self, "regex_match")
+
+    @regex_match.setter
+    def regex_match(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regex_match", value)
+
+    @property
+    @pulumi.getter(name="suffixMatch")
+    def suffix_match(self) -> Optional[pulumi.Input[str]]:
+        """
+        Suffix value of the header
+        """
+        return pulumi.get(self, "suffix_match")
+
+    @suffix_match.setter
+    def suffix_match(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "suffix_match", value)
+
+
+@pulumi.input_type
+class HttpConnectionPoolArgs:
+    def __init__(__self__, *,
+                 http1_max_pending_requests: Optional[pulumi.Input[int]] = None,
+                 http2_max_requests: Optional[pulumi.Input[int]] = None):
+        """
+        Defines parameters for http connection pooling
+        :param pulumi.Input[int] http1_max_pending_requests: Maximum number of pending http1 requests allowed
+        :param pulumi.Input[int] http2_max_requests: Maximum number of http2 requests allowed
+        """
+        if http1_max_pending_requests is not None:
+            pulumi.set(__self__, "http1_max_pending_requests", http1_max_pending_requests)
+        if http2_max_requests is not None:
+            pulumi.set(__self__, "http2_max_requests", http2_max_requests)
+
+    @property
+    @pulumi.getter(name="http1MaxPendingRequests")
+    def http1_max_pending_requests(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of pending http1 requests allowed
+        """
+        return pulumi.get(self, "http1_max_pending_requests")
+
+    @http1_max_pending_requests.setter
+    def http1_max_pending_requests(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http1_max_pending_requests", value)
+
+    @property
+    @pulumi.getter(name="http2MaxRequests")
+    def http2_max_requests(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of http2 requests allowed
+        """
+        return pulumi.get(self, "http2_max_requests")
+
+    @http2_max_requests.setter
+    def http2_max_requests(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http2_max_requests", value)
+
+
+@pulumi.input_type
+class HttpGetArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 file_name: Optional[pulumi.Input[str]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Model representing a http get request.
+        :param pulumi.Input[str] url: URL to make HTTP GET request against.
+        :param pulumi.Input[str] file_name: Name of the file that the request should be saved to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: List of headers to send with the request.
+        """
+        pulumi.set(__self__, "url", url)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        URL to make HTTP GET request against.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the file that the request should be saved to.
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_name", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of headers to send with the request.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers", value)
+
+
+@pulumi.input_type
+class HttpRetryPolicyArgs:
+    def __init__(__self__, *,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['HeaderMatchArgs']]]] = None,
+                 http_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 initial_delay_in_milliseconds: Optional[pulumi.Input[float]] = None,
+                 max_interval_in_milliseconds: Optional[pulumi.Input[float]] = None,
+                 max_retries: Optional[pulumi.Input[int]] = None):
+        """
+        Policy that defines http request retry conditions
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] errors: Errors that can trigger a retry
+        :param pulumi.Input[Sequence[pulumi.Input['HeaderMatchArgs']]] headers: Headers that must be present for a request to be retried
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] http_status_codes: Additional http status codes that can trigger a retry
+        :param pulumi.Input[float] initial_delay_in_milliseconds: Initial delay, in milliseconds, before retrying a request
+        :param pulumi.Input[float] max_interval_in_milliseconds: Maximum interval, in milliseconds, between retries
+        :param pulumi.Input[int] max_retries: Maximum number of times a request will retry
+        """
+        if errors is not None:
+            pulumi.set(__self__, "errors", errors)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if http_status_codes is not None:
+            pulumi.set(__self__, "http_status_codes", http_status_codes)
+        if initial_delay_in_milliseconds is not None:
+            pulumi.set(__self__, "initial_delay_in_milliseconds", initial_delay_in_milliseconds)
+        if max_interval_in_milliseconds is not None:
+            pulumi.set(__self__, "max_interval_in_milliseconds", max_interval_in_milliseconds)
+        if max_retries is not None:
+            pulumi.set(__self__, "max_retries", max_retries)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Errors that can trigger a retry
+        """
+        return pulumi.get(self, "errors")
+
+    @errors.setter
+    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "errors", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HeaderMatchArgs']]]]:
+        """
+        Headers that must be present for a request to be retried
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HeaderMatchArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="httpStatusCodes")
+    def http_status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        Additional http status codes that can trigger a retry
+        """
+        return pulumi.get(self, "http_status_codes")
+
+    @http_status_codes.setter
+    def http_status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "http_status_codes", value)
+
+    @property
+    @pulumi.getter(name="initialDelayInMilliseconds")
+    def initial_delay_in_milliseconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        Initial delay, in milliseconds, before retrying a request
+        """
+        return pulumi.get(self, "initial_delay_in_milliseconds")
+
+    @initial_delay_in_milliseconds.setter
+    def initial_delay_in_milliseconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "initial_delay_in_milliseconds", value)
+
+    @property
+    @pulumi.getter(name="maxIntervalInMilliseconds")
+    def max_interval_in_milliseconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum interval, in milliseconds, between retries
+        """
+        return pulumi.get(self, "max_interval_in_milliseconds")
+
+    @max_interval_in_milliseconds.setter
+    def max_interval_in_milliseconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_interval_in_milliseconds", value)
+
+    @property
+    @pulumi.getter(name="maxRetries")
+    def max_retries(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of times a request will retry
+        """
+        return pulumi.get(self, "max_retries")
+
+    @max_retries.setter
+    def max_retries(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_retries", value)
 
 
 @pulumi.input_type
@@ -4524,6 +5372,62 @@ class OpenIdConnectRegistrationArgs:
 
 
 @pulumi.input_type
+class PreBuildStepArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 http_get: Optional[pulumi.Input['HttpGetArgs']] = None,
+                 scripts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Model representing a pre-build step.
+        :param pulumi.Input[str] description: Description of the pre-build step.
+        :param pulumi.Input['HttpGetArgs'] http_get: Http get request to send before the build.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scripts: List of custom commands to run.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if http_get is not None:
+            pulumi.set(__self__, "http_get", http_get)
+        if scripts is not None:
+            pulumi.set(__self__, "scripts", scripts)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the pre-build step.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="httpGet")
+    def http_get(self) -> Optional[pulumi.Input['HttpGetArgs']]:
+        """
+        Http get request to send before the build.
+        """
+        return pulumi.get(self, "http_get")
+
+    @http_get.setter
+    def http_get(self, value: Optional[pulumi.Input['HttpGetArgs']]):
+        pulumi.set(self, "http_get", value)
+
+    @property
+    @pulumi.getter
+    def scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of custom commands to run.
+        """
+        return pulumi.get(self, "scripts")
+
+    @scripts.setter
+    def scripts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scripts", value)
+
+
+@pulumi.input_type
 class QueueScaleRuleArgs:
     def __init__(__self__, *,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
@@ -5006,6 +5910,54 @@ class SecretArgs:
 
 
 @pulumi.input_type
+class TcpConnectionPoolArgs:
+    def __init__(__self__, *,
+                 max_connections: Optional[pulumi.Input[int]] = None):
+        """
+        Defines parameters for tcp connection pooling
+        :param pulumi.Input[int] max_connections: Maximum number of tcp connections allowed
+        """
+        if max_connections is not None:
+            pulumi.set(__self__, "max_connections", max_connections)
+
+    @property
+    @pulumi.getter(name="maxConnections")
+    def max_connections(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of tcp connections allowed
+        """
+        return pulumi.get(self, "max_connections")
+
+    @max_connections.setter
+    def max_connections(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_connections", value)
+
+
+@pulumi.input_type
+class TcpRetryPolicyArgs:
+    def __init__(__self__, *,
+                 max_connect_attempts: Optional[pulumi.Input[int]] = None):
+        """
+        Policy that defines tcp request retry conditions
+        :param pulumi.Input[int] max_connect_attempts: Maximum number of attempts to connect to the tcp service
+        """
+        if max_connect_attempts is not None:
+            pulumi.set(__self__, "max_connect_attempts", max_connect_attempts)
+
+    @property
+    @pulumi.getter(name="maxConnectAttempts")
+    def max_connect_attempts(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of attempts to connect to the tcp service
+        """
+        return pulumi.get(self, "max_connect_attempts")
+
+    @max_connect_attempts.setter
+    def max_connect_attempts(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_connect_attempts", value)
+
+
+@pulumi.input_type
 class TcpScaleRuleArgs:
     def __init__(__self__, *,
                  auth: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleAuthArgs']]]] = None,
@@ -5133,6 +6085,46 @@ class TemplateArgs:
     @volumes.setter
     def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
+
+
+@pulumi.input_type
+class TimeoutPolicyArgs:
+    def __init__(__self__, *,
+                 connection_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 response_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Policy to set request timeouts
+        :param pulumi.Input[int] connection_timeout_in_seconds: Timeout, in seconds, for a request to initiate a connection
+        :param pulumi.Input[int] response_timeout_in_seconds: Timeout, in seconds, for a request to respond
+        """
+        if connection_timeout_in_seconds is not None:
+            pulumi.set(__self__, "connection_timeout_in_seconds", connection_timeout_in_seconds)
+        if response_timeout_in_seconds is not None:
+            pulumi.set(__self__, "response_timeout_in_seconds", response_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="connectionTimeoutInSeconds")
+    def connection_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout, in seconds, for a request to initiate a connection
+        """
+        return pulumi.get(self, "connection_timeout_in_seconds")
+
+    @connection_timeout_in_seconds.setter
+    def connection_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="responseTimeoutInSeconds")
+    def response_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout, in seconds, for a request to respond
+        """
+        return pulumi.get(self, "response_timeout_in_seconds")
+
+    @response_timeout_in_seconds.setter
+    def response_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "response_timeout_in_seconds", value)
 
 
 @pulumi.input_type

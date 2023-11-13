@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Push settings for the App.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-10-01.
+ * Other available API versions: 2020-10-01, 2023-01-01.
  */
 export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201001:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210115:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210301:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20220301:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20220901:WebAppSitePushSettingsSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200901:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201001:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210115:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210301:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20220301:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20220901:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20230101:WebAppSitePushSettingsSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSitePushSettingsSlot.__pulumiType, name, resourceInputs, opts);
     }

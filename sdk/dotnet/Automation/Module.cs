@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation
     /// Definition of the module type.
     /// Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
     /// 
-    /// Other available API versions: 2023-05-15-preview.
+    /// Other available API versions: 2023-05-15-preview, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Module")]
     public partial class Module : global::Pulumi.CustomResource
@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.Automation
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Module"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Module"},
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Module"},
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:Module"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

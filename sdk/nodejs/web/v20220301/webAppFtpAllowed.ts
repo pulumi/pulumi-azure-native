@@ -83,7 +83,7 @@ export class WebAppFtpAllowed extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppFtpAllowed" }, { type: "azure-native:web/v20190801:WebAppFtpAllowed" }, { type: "azure-native:web/v20200601:WebAppFtpAllowed" }, { type: "azure-native:web/v20200901:WebAppFtpAllowed" }, { type: "azure-native:web/v20201001:WebAppFtpAllowed" }, { type: "azure-native:web/v20201201:WebAppFtpAllowed" }, { type: "azure-native:web/v20210101:WebAppFtpAllowed" }, { type: "azure-native:web/v20210115:WebAppFtpAllowed" }, { type: "azure-native:web/v20210201:WebAppFtpAllowed" }, { type: "azure-native:web/v20210301:WebAppFtpAllowed" }, { type: "azure-native:web/v20220901:WebAppFtpAllowed" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppFtpAllowed" }, { type: "azure-native:web/v20190801:WebAppFtpAllowed" }, { type: "azure-native:web/v20200601:WebAppFtpAllowed" }, { type: "azure-native:web/v20200901:WebAppFtpAllowed" }, { type: "azure-native:web/v20201001:WebAppFtpAllowed" }, { type: "azure-native:web/v20201201:WebAppFtpAllowed" }, { type: "azure-native:web/v20210101:WebAppFtpAllowed" }, { type: "azure-native:web/v20210115:WebAppFtpAllowed" }, { type: "azure-native:web/v20210201:WebAppFtpAllowed" }, { type: "azure-native:web/v20210301:WebAppFtpAllowed" }, { type: "azure-native:web/v20220901:WebAppFtpAllowed" }, { type: "azure-native:web/v20230101:WebAppFtpAllowed" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppFtpAllowed.__pulumiType, name, resourceInputs, opts);
     }

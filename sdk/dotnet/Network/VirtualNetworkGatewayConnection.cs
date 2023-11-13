@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     /// A common class for general resource information.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
     /// 
-    /// Other available API versions: 2016-06-01, 2019-08-01, 2023-04-01, 2023-05-01.
+    /// Other available API versions: 2016-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : global::Pulumi.CustomResource
@@ -282,6 +282,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:VirtualNetworkGatewayConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:VirtualNetworkGatewayConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:VirtualNetworkGatewayConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:VirtualNetworkGatewayConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Description for Gets an existing custom domain for a particular static site.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function getStaticSiteCustomDomain(args: GetStaticSiteCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteCustomDomainResult> {
 
@@ -74,6 +76,8 @@ export interface GetStaticSiteCustomDomainResult {
 /**
  * Description for Gets an existing custom domain for a particular static site.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function getStaticSiteCustomDomainOutput(args: GetStaticSiteCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteCustomDomain(a, opts))

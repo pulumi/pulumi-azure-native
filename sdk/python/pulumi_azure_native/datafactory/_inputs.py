@@ -308,6 +308,13 @@ __all__ = [
     'JsonSinkArgs',
     'JsonSourceArgs',
     'JsonWriteSettingsArgs',
+    'LakeHouseLinkedServiceArgs',
+    'LakeHouseLocationArgs',
+    'LakeHouseReadSettingsArgs',
+    'LakeHouseTableDatasetArgs',
+    'LakeHouseTableSinkArgs',
+    'LakeHouseTableSourceArgs',
+    'LakeHouseWriteSettingsArgs',
     'LinkedIntegrationRuntimeKeyAuthorizationArgs',
     'LinkedIntegrationRuntimeRbacAuthorizationArgs',
     'LinkedServiceReferenceArgs',
@@ -4484,7 +4491,7 @@ class AsanaLinkedServiceArgs:
 class AvroDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
+                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  avro_compression_codec: Optional[Any] = None,
@@ -4497,7 +4504,7 @@ class AvroDatasetArgs:
         """
         Avro dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the avro storage.
+        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the avro storage.
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Avro'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -4542,14 +4549,14 @@ class AvroDatasetArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
+    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
         """
         The location of the avro storage.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
+    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @property
@@ -4725,7 +4732,7 @@ class AvroSinkArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
+                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
                  write_batch_size: Optional[Any] = None,
                  write_batch_timeout: Optional[Any] = None):
         """
@@ -4737,7 +4744,7 @@ class AvroSinkArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: Avro store settings.
+        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: Avro store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -4834,14 +4841,14 @@ class AvroSinkArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
         """
         Avro store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
     @property
@@ -4878,7 +4885,7 @@ class AvroSourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
         """
         A copy activity Avro source.
         :param pulumi.Input[str] type: Copy source type.
@@ -4888,7 +4895,7 @@ class AvroSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Avro store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Avro store settings.
         """
         pulumi.set(__self__, "type", 'AvroSource')
         if additional_columns is not None:
@@ -4979,14 +4986,14 @@ class AvroSourceArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         Avro store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
 
@@ -17805,7 +17812,7 @@ class BigDataPoolParametrizationReferenceArgs:
 class BinaryDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
+                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
@@ -17817,7 +17824,7 @@ class BinaryDatasetArgs:
         """
         Binary dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the Binary storage.
+        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the Binary storage.
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Binary'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -17860,14 +17867,14 @@ class BinaryDatasetArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
+    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
         """
         The location of the Binary storage.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
+    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @property
@@ -18017,7 +18024,7 @@ class BinarySinkArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
+                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
                  write_batch_size: Optional[Any] = None,
                  write_batch_timeout: Optional[Any] = None):
         """
@@ -18028,7 +18035,7 @@ class BinarySinkArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: Binary store settings.
+        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: Binary store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -18111,14 +18118,14 @@ class BinarySinkArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
         """
         Binary store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
     @property
@@ -18155,7 +18162,7 @@ class BinarySourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
         """
         A copy activity Binary source.
         :param pulumi.Input[str] type: Copy source type.
@@ -18165,7 +18172,7 @@ class BinarySourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Binary store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Binary store settings.
         """
         pulumi.set(__self__, "type", 'BinarySource')
         if disable_metrics_collection is not None:
@@ -18256,14 +18263,14 @@ class BinarySourceArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         Binary store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
 
@@ -21043,8 +21050,8 @@ class CopyActivityLogSettingsArgs:
 class CopyActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 sink: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']],
-                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
+                 sink: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']],
+                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
                  type: pulumi.Input[str],
                  data_integration_units: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
@@ -21071,8 +21078,8 @@ class CopyActivityArgs:
         """
         Copy activity.
         :param pulumi.Input[str] name: Activity name.
-        :param pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']] sink: Copy activity sink.
-        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Copy activity source.
+        :param pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']] sink: Copy activity sink.
+        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Copy activity source.
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -21161,26 +21168,26 @@ class CopyActivityArgs:
 
     @property
     @pulumi.getter
-    def sink(self) -> pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']]:
+    def sink(self) -> pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']]:
         """
         Copy activity sink.
         """
         return pulumi.get(self, "sink")
 
     @sink.setter
-    def sink(self, value: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']]):
+    def sink(self, value: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'LakeHouseTableSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']]):
         pulumi.set(self, "sink", value)
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
+    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
         """
         Copy activity source.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
+    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -26132,7 +26139,7 @@ class DeleteActivityArgs:
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
                  recursive: Optional[Any] = None,
                  state: Optional[pulumi.Input[Union[str, 'ActivityState']]] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None,
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         Delete activity.
@@ -26150,7 +26157,7 @@ class DeleteActivityArgs:
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param Any recursive: If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Union[str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Delete activity store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Delete activity store settings.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
@@ -26340,14 +26347,14 @@ class DeleteActivityArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         Delete activity store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
     @property
@@ -26367,7 +26374,7 @@ class DeleteActivityArgs:
 class DelimitedTextDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
+                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  column_delimiter: Optional[Any] = None,
@@ -26387,7 +26394,7 @@ class DelimitedTextDatasetArgs:
         """
         Delimited text dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the delimited text storage.
+        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the delimited text storage.
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'DelimitedText'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -26454,14 +26461,14 @@ class DelimitedTextDatasetArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
+    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
         """
         The location of the delimited text storage.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
+    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @property
@@ -26724,7 +26731,7 @@ class DelimitedTextSinkArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
+                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
                  write_batch_size: Optional[Any] = None,
                  write_batch_timeout: Optional[Any] = None):
         """
@@ -26736,7 +26743,7 @@ class DelimitedTextSinkArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: DelimitedText store settings.
+        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: DelimitedText store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -26833,14 +26840,14 @@ class DelimitedTextSinkArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
         """
         DelimitedText store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
     @property
@@ -26878,7 +26885,7 @@ class DelimitedTextSourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
         """
         A copy activity DelimitedText source.
         :param pulumi.Input[str] type: Copy source type.
@@ -26889,7 +26896,7 @@ class DelimitedTextSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: DelimitedText store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: DelimitedText store settings.
         """
         pulumi.set(__self__, "type", 'DelimitedTextSource')
         if additional_columns is not None:
@@ -26994,14 +27001,14 @@ class DelimitedTextSourceArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         DelimitedText store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
 
@@ -30643,7 +30650,7 @@ class EnvironmentVariableSetupArgs:
 class ExcelDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
+                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
@@ -30660,7 +30667,7 @@ class ExcelDatasetArgs:
         """
         Excel dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the excel storage.
+        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the excel storage.
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Excel'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -30718,14 +30725,14 @@ class ExcelDatasetArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
+    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
         """
         The location of the excel storage.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
+    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @property
@@ -30895,7 +30902,7 @@ class ExcelSourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
         """
         A copy activity excel source.
         :param pulumi.Input[str] type: Copy source type.
@@ -30905,7 +30912,7 @@ class ExcelSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Excel store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Excel store settings.
         """
         pulumi.set(__self__, "type", 'ExcelSource')
         if additional_columns is not None:
@@ -30996,14 +31003,14 @@ class ExcelSourceArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         Excel store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
 
@@ -34840,7 +34847,7 @@ class GetMetadataActivityArgs:
                  on_inactive_mark_as: Optional[pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
                  state: Optional[pulumi.Input[Union[str, 'ActivityState']]] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None,
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         Activity to get metadata of dataset
@@ -34856,7 +34863,7 @@ class GetMetadataActivityArgs:
         :param pulumi.Input[Union[str, 'ActivityOnInactiveMarkAs']] on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param pulumi.Input[Union[str, 'ActivityState']] state: Activity state. This is an optional property and if not provided, the state will be Active by default.
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: GetMetadata activity store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: GetMetadata activity store settings.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
@@ -35018,14 +35025,14 @@ class GetMetadataActivityArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         GetMetadata activity store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
     @property
@@ -45332,7 +45339,7 @@ class JiraSourceArgs:
 class JsonDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
+                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
@@ -45345,7 +45352,7 @@ class JsonDatasetArgs:
         """
         Json dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the json data storage.
+        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the json data storage.
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Json'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -45391,14 +45398,14 @@ class JsonDatasetArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
+    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
         """
         The location of the json data storage.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
+    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @property
@@ -45698,7 +45705,7 @@ class JsonSinkArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
+                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
                  write_batch_size: Optional[Any] = None,
                  write_batch_timeout: Optional[Any] = None):
         """
@@ -45710,7 +45717,7 @@ class JsonSinkArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: Json store settings.
+        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: Json store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -45807,14 +45814,14 @@ class JsonSinkArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
         """
         Json store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
     @property
@@ -45852,7 +45859,7 @@ class JsonSourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
         """
         A copy activity Json source.
         :param pulumi.Input[str] type: Copy source type.
@@ -45863,7 +45870,7 @@ class JsonSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Json store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Json store settings.
         """
         pulumi.set(__self__, "type", 'JsonSource')
         if additional_columns is not None:
@@ -45968,14 +45975,14 @@ class JsonSourceArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         Json store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
 
@@ -46018,6 +46025,1012 @@ class JsonWriteSettingsArgs:
     @file_pattern.setter
     def file_pattern(self, value: Optional[Any]):
         pulumi.set(self, "file_pattern", value)
+
+
+@pulumi.input_type
+class LakeHouseLinkedServiceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 artifact_id: Optional[Any] = None,
+                 connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted_credential: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 service_principal_credential: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 service_principal_credential_type: Optional[Any] = None,
+                 service_principal_id: Optional[Any] = None,
+                 service_principal_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 tenant: Optional[Any] = None,
+                 workspace_id: Optional[Any] = None):
+        """
+        Microsoft Fabric LakeHouse linked service.
+        :param pulumi.Input[str] type: Type of linked service.
+               Expected value is 'LakeHouse'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any artifact_id: The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] description: Linked service description.
+        :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param Any service_principal_id: The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] service_principal_key: The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
+        :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        :param Any workspace_id: The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'LakeHouse')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if artifact_id is not None:
+            pulumi.set(__self__, "artifact_id", artifact_id)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if service_principal_credential is not None:
+            pulumi.set(__self__, "service_principal_credential", service_principal_credential)
+        if service_principal_credential_type is not None:
+            pulumi.set(__self__, "service_principal_credential_type", service_principal_credential_type)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if service_principal_key is not None:
+            pulumi.set(__self__, "service_principal_key", service_principal_key)
+        if tenant is not None:
+            pulumi.set(__self__, "tenant", tenant)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of linked service.
+        Expected value is 'LakeHouse'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="artifactId")
+    def artifact_id(self) -> Optional[Any]:
+        """
+        The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "artifact_id")
+
+    @artifact_id.setter
+    def artifact_id(self, value: Optional[Any]):
+        pulumi.set(self, "artifact_id", value)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @encrypted_credential.setter
+    def encrypted_credential(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredential")
+    def service_principal_credential(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
+        """
+        return pulumi.get(self, "service_principal_credential")
+
+    @service_principal_credential.setter
+    def service_principal_credential(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "service_principal_credential", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalCredentialType")
+    def service_principal_credential_type(self) -> Optional[Any]:
+        """
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_credential_type")
+
+    @service_principal_credential_type.setter
+    def service_principal_credential_type(self, value: Optional[Any]):
+        pulumi.set(self, "service_principal_credential_type", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[Any]:
+        """
+        The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @service_principal_id.setter
+    def service_principal_id(self, value: Optional[Any]):
+        pulumi.set(self, "service_principal_id", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalKey")
+    def service_principal_key(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The Key of the application used to authenticate against Microsoft Fabric LakeHouse.
+        """
+        return pulumi.get(self, "service_principal_key")
+
+    @service_principal_key.setter
+    def service_principal_key(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "service_principal_key", value)
+
+    @property
+    @pulumi.getter
+    def tenant(self) -> Optional[Any]:
+        """
+        The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "tenant")
+
+    @tenant.setter
+    def tenant(self, value: Optional[Any]):
+        pulumi.set(self, "tenant", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[Any]:
+        """
+        The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: Optional[Any]):
+        pulumi.set(self, "workspace_id", value)
+
+
+@pulumi.input_type
+class LakeHouseLocationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 file_name: Optional[Any] = None,
+                 folder_path: Optional[Any] = None):
+        """
+        The location of Microsoft Fabric LakeHouse Files dataset.
+        :param pulumi.Input[str] type: Type of dataset storage location.
+               Expected value is 'LakeHouseLocation'.
+        :param Any file_name: Specify the file name of dataset. Type: string (or Expression with resultType string).
+        :param Any folder_path: Specify the folder path of dataset. Type: string (or Expression with resultType string)
+        """
+        pulumi.set(__self__, "type", 'LakeHouseLocation')
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
+        if folder_path is not None:
+            pulumi.set(__self__, "folder_path", folder_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset storage location.
+        Expected value is 'LakeHouseLocation'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> Optional[Any]:
+        """
+        Specify the file name of dataset. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: Optional[Any]):
+        pulumi.set(self, "file_name", value)
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> Optional[Any]:
+        """
+        Specify the folder path of dataset. Type: string (or Expression with resultType string)
+        """
+        return pulumi.get(self, "folder_path")
+
+    @folder_path.setter
+    def folder_path(self, value: Optional[Any]):
+        pulumi.set(self, "folder_path", value)
+
+
+@pulumi.input_type
+class LakeHouseReadSettingsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 delete_files_after_completion: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 enable_partition_discovery: Optional[Any] = None,
+                 file_list_path: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 modified_datetime_end: Optional[Any] = None,
+                 modified_datetime_start: Optional[Any] = None,
+                 partition_root_path: Optional[Any] = None,
+                 recursive: Optional[Any] = None,
+                 wildcard_file_name: Optional[Any] = None,
+                 wildcard_folder_path: Optional[Any] = None):
+        """
+        Microsoft Fabric LakeHouse Files read settings.
+        :param pulumi.Input[str] type: The read setting type.
+               Expected value is 'LakeHouseReadSettings'.
+        :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
+        :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
+        :param Any modified_datetime_start: The start of file's modified datetime. Type: string (or Expression with resultType string).
+        :param Any partition_root_path: Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
+        :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        :param Any wildcard_file_name: Microsoft Fabric LakeHouse Files wildcardFileName. Type: string (or Expression with resultType string).
+        :param Any wildcard_folder_path: Microsoft Fabric LakeHouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'LakeHouseReadSettings')
+        if delete_files_after_completion is not None:
+            pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if enable_partition_discovery is not None:
+            pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
+        if file_list_path is not None:
+            pulumi.set(__self__, "file_list_path", file_list_path)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if modified_datetime_end is not None:
+            pulumi.set(__self__, "modified_datetime_end", modified_datetime_end)
+        if modified_datetime_start is not None:
+            pulumi.set(__self__, "modified_datetime_start", modified_datetime_start)
+        if partition_root_path is not None:
+            pulumi.set(__self__, "partition_root_path", partition_root_path)
+        if recursive is not None:
+            pulumi.set(__self__, "recursive", recursive)
+        if wildcard_file_name is not None:
+            pulumi.set(__self__, "wildcard_file_name", wildcard_file_name)
+        if wildcard_folder_path is not None:
+            pulumi.set(__self__, "wildcard_folder_path", wildcard_folder_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The read setting type.
+        Expected value is 'LakeHouseReadSettings'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="deleteFilesAfterCompletion")
+    def delete_files_after_completion(self) -> Optional[Any]:
+        """
+        Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "delete_files_after_completion")
+
+    @delete_files_after_completion.setter
+    def delete_files_after_completion(self, value: Optional[Any]):
+        pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
+    @pulumi.getter(name="enablePartitionDiscovery")
+    def enable_partition_discovery(self) -> Optional[Any]:
+        """
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "enable_partition_discovery")
+
+    @enable_partition_discovery.setter
+    def enable_partition_discovery(self, value: Optional[Any]):
+        pulumi.set(self, "enable_partition_discovery", value)
+
+    @property
+    @pulumi.getter(name="fileListPath")
+    def file_list_path(self) -> Optional[Any]:
+        """
+        Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "file_list_path")
+
+    @file_list_path.setter
+    def file_list_path(self, value: Optional[Any]):
+        pulumi.set(self, "file_list_path", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @max_concurrent_connections.setter
+    def max_concurrent_connections(self, value: Optional[Any]):
+        pulumi.set(self, "max_concurrent_connections", value)
+
+    @property
+    @pulumi.getter(name="modifiedDatetimeEnd")
+    def modified_datetime_end(self) -> Optional[Any]:
+        """
+        The end of file's modified datetime. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "modified_datetime_end")
+
+    @modified_datetime_end.setter
+    def modified_datetime_end(self, value: Optional[Any]):
+        pulumi.set(self, "modified_datetime_end", value)
+
+    @property
+    @pulumi.getter(name="modifiedDatetimeStart")
+    def modified_datetime_start(self) -> Optional[Any]:
+        """
+        The start of file's modified datetime. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "modified_datetime_start")
+
+    @modified_datetime_start.setter
+    def modified_datetime_start(self, value: Optional[Any]):
+        pulumi.set(self, "modified_datetime_start", value)
+
+    @property
+    @pulumi.getter(name="partitionRootPath")
+    def partition_root_path(self) -> Optional[Any]:
+        """
+        Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "partition_root_path")
+
+    @partition_root_path.setter
+    def partition_root_path(self, value: Optional[Any]):
+        pulumi.set(self, "partition_root_path", value)
+
+    @property
+    @pulumi.getter
+    def recursive(self) -> Optional[Any]:
+        """
+        If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "recursive")
+
+    @recursive.setter
+    def recursive(self, value: Optional[Any]):
+        pulumi.set(self, "recursive", value)
+
+    @property
+    @pulumi.getter(name="wildcardFileName")
+    def wildcard_file_name(self) -> Optional[Any]:
+        """
+        Microsoft Fabric LakeHouse Files wildcardFileName. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "wildcard_file_name")
+
+    @wildcard_file_name.setter
+    def wildcard_file_name(self, value: Optional[Any]):
+        pulumi.set(self, "wildcard_file_name", value)
+
+    @property
+    @pulumi.getter(name="wildcardFolderPath")
+    def wildcard_folder_path(self) -> Optional[Any]:
+        """
+        Microsoft Fabric LakeHouse Files wildcardFolderPath. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "wildcard_folder_path")
+
+    @wildcard_folder_path.setter
+    def wildcard_folder_path(self, value: Optional[Any]):
+        pulumi.set(self, "wildcard_folder_path", value)
+
+
+@pulumi.input_type
+class LakeHouseTableDatasetArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None,
+                 table: Optional[Any] = None):
+        """
+        Microsoft Fabric LakeHouse Table.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input[str] type: Type of dataset.
+               Expected value is 'LakeHouseTable'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[str] description: Dataset description.
+        :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        :param Any table: The name of Microsoft Fabric LakeHouse Table. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "type", 'LakeHouseTable')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset.
+        Expected value is 'LakeHouseTable'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional[pulumi.Input['DatasetFolderArgs']]:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @folder.setter
+    def folder(self, value: Optional[pulumi.Input['DatasetFolderArgs']]):
+        pulumi.set(self, "folder", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[Any]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    @structure.setter
+    def structure(self, value: Optional[Any]):
+        pulumi.set(self, "structure", value)
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[Any]:
+        """
+        The name of Microsoft Fabric LakeHouse Table. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[Any]):
+        pulumi.set(self, "table", value)
+
+
+@pulumi.input_type
+class LakeHouseTableSinkArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 partition_name_list: Optional[Any] = None,
+                 partition_option: Optional[Any] = None,
+                 sink_retry_count: Optional[Any] = None,
+                 sink_retry_wait: Optional[Any] = None,
+                 table_action_option: Optional[Any] = None,
+                 write_batch_size: Optional[Any] = None,
+                 write_batch_timeout: Optional[Any] = None):
+        """
+        A copy activity for Microsoft Fabric LakeHouse Table sink.
+        :param pulumi.Input[str] type: Copy sink type.
+               Expected value is 'LakeHouseTableSink'.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        :param Any partition_name_list: Specify the partition column names from sink columns. Type: array of objects (or Expression with resultType array of objects).
+        :param Any partition_option: Create partitions in folder structure based on one or multiple columns. Each distinct column value (pair) will be a new partition. Possible values include: "None", "PartitionByKey".
+        :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
+        :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any table_action_option: The type of table action for LakeHouse Table sink. Possible values include: "None", "Append", "Overwrite".
+        :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        pulumi.set(__self__, "type", 'LakeHouseTableSink')
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if partition_name_list is not None:
+            pulumi.set(__self__, "partition_name_list", partition_name_list)
+        if partition_option is not None:
+            pulumi.set(__self__, "partition_option", partition_option)
+        if sink_retry_count is not None:
+            pulumi.set(__self__, "sink_retry_count", sink_retry_count)
+        if sink_retry_wait is not None:
+            pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if table_action_option is not None:
+            pulumi.set(__self__, "table_action_option", table_action_option)
+        if write_batch_size is not None:
+            pulumi.set(__self__, "write_batch_size", write_batch_size)
+        if write_batch_timeout is not None:
+            pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy sink type.
+        Expected value is 'LakeHouseTableSink'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @max_concurrent_connections.setter
+    def max_concurrent_connections(self, value: Optional[Any]):
+        pulumi.set(self, "max_concurrent_connections", value)
+
+    @property
+    @pulumi.getter(name="partitionNameList")
+    def partition_name_list(self) -> Optional[Any]:
+        """
+        Specify the partition column names from sink columns. Type: array of objects (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "partition_name_list")
+
+    @partition_name_list.setter
+    def partition_name_list(self, value: Optional[Any]):
+        pulumi.set(self, "partition_name_list", value)
+
+    @property
+    @pulumi.getter(name="partitionOption")
+    def partition_option(self) -> Optional[Any]:
+        """
+        Create partitions in folder structure based on one or multiple columns. Each distinct column value (pair) will be a new partition. Possible values include: "None", "PartitionByKey".
+        """
+        return pulumi.get(self, "partition_option")
+
+    @partition_option.setter
+    def partition_option(self, value: Optional[Any]):
+        pulumi.set(self, "partition_option", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryCount")
+    def sink_retry_count(self) -> Optional[Any]:
+        """
+        Sink retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "sink_retry_count")
+
+    @sink_retry_count.setter
+    def sink_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sinkRetryWait")
+    def sink_retry_wait(self) -> Optional[Any]:
+        """
+        Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "sink_retry_wait")
+
+    @sink_retry_wait.setter
+    def sink_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "sink_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="tableActionOption")
+    def table_action_option(self) -> Optional[Any]:
+        """
+        The type of table action for LakeHouse Table sink. Possible values include: "None", "Append", "Overwrite".
+        """
+        return pulumi.get(self, "table_action_option")
+
+    @table_action_option.setter
+    def table_action_option(self, value: Optional[Any]):
+        pulumi.set(self, "table_action_option", value)
+
+    @property
+    @pulumi.getter(name="writeBatchSize")
+    def write_batch_size(self) -> Optional[Any]:
+        """
+        Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
+        """
+        return pulumi.get(self, "write_batch_size")
+
+    @write_batch_size.setter
+    def write_batch_size(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_size", value)
+
+    @property
+    @pulumi.getter(name="writeBatchTimeout")
+    def write_batch_timeout(self) -> Optional[Any]:
+        """
+        Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "write_batch_timeout")
+
+    @write_batch_timeout.setter
+    def write_batch_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "write_batch_timeout", value)
+
+
+@pulumi.input_type
+class LakeHouseTableSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 additional_columns: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None,
+                 timestamp_as_of: Optional[Any] = None,
+                 version_as_of: Optional[Any] = None):
+        """
+        A copy activity source for Microsoft Fabric LakeHouse Table.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'LakeHouseTableSource'.
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any timestamp_as_of: Query an older snapshot by timestamp. Type: string (or Expression with resultType string).
+        :param Any version_as_of: Query an older snapshot by version. Type: integer (or Expression with resultType integer).
+        """
+        pulumi.set(__self__, "type", 'LakeHouseTableSource')
+        if additional_columns is not None:
+            pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+        if timestamp_as_of is not None:
+            pulumi.set(__self__, "timestamp_as_of", timestamp_as_of)
+        if version_as_of is not None:
+            pulumi.set(__self__, "version_as_of", version_as_of)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'LakeHouseTableSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="additionalColumns")
+    def additional_columns(self) -> Optional[Any]:
+        """
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "additional_columns")
+
+    @additional_columns.setter
+    def additional_columns(self, value: Optional[Any]):
+        pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @max_concurrent_connections.setter
+    def max_concurrent_connections(self, value: Optional[Any]):
+        pulumi.set(self, "max_concurrent_connections", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="timestampAsOf")
+    def timestamp_as_of(self) -> Optional[Any]:
+        """
+        Query an older snapshot by timestamp. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "timestamp_as_of")
+
+    @timestamp_as_of.setter
+    def timestamp_as_of(self, value: Optional[Any]):
+        pulumi.set(self, "timestamp_as_of", value)
+
+    @property
+    @pulumi.getter(name="versionAsOf")
+    def version_as_of(self) -> Optional[Any]:
+        """
+        Query an older snapshot by version. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "version_as_of")
+
+    @version_as_of.setter
+    def version_as_of(self, value: Optional[Any]):
+        pulumi.set(self, "version_as_of", value)
+
+
+@pulumi.input_type
+class LakeHouseWriteSettingsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 copy_behavior: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None):
+        """
+        Microsoft Fabric LakeHouse Files write settings.
+        :param pulumi.Input[str] type: The write setting type.
+               Expected value is 'LakeHouseWriteSettings'.
+        :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        pulumi.set(__self__, "type", 'LakeHouseWriteSettings')
+        if copy_behavior is not None:
+            pulumi.set(__self__, "copy_behavior", copy_behavior)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The write setting type.
+        Expected value is 'LakeHouseWriteSettings'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="copyBehavior")
+    def copy_behavior(self) -> Optional[Any]:
+        """
+        The type of copy behavior for copy sink.
+        """
+        return pulumi.get(self, "copy_behavior")
+
+    @copy_behavior.setter
+    def copy_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "copy_behavior", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @max_concurrent_connections.setter
+    def max_concurrent_connections(self, value: Optional[Any]):
+        pulumi.set(self, "max_concurrent_connections", value)
 
 
 @pulumi.input_type
@@ -46340,7 +47353,7 @@ class LookupActivityArgs:
     def __init__(__self__, *,
                  dataset: pulumi.Input['DatasetReferenceArgs'],
                  name: pulumi.Input[str],
-                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
+                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
                  type: pulumi.Input[str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -46354,7 +47367,7 @@ class LookupActivityArgs:
         Lookup activity.
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Lookup activity dataset reference.
         :param pulumi.Input[str] name: Activity name.
-        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Dataset-specific source properties, same as copy activity source.
+        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Dataset-specific source properties, same as copy activity source.
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Lookup'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -46413,14 +47426,14 @@ class LookupActivityArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
+    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
         """
         Dataset-specific source properties, same as copy activity source.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
+    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'LakeHouseTableSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -55805,7 +56818,7 @@ class OracleTableDatasetArgs:
 class OrcDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
+                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -55817,7 +56830,7 @@ class OrcDatasetArgs:
         """
         ORC dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the ORC data storage.
+        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the ORC data storage.
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Orc'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -55860,14 +56873,14 @@ class OrcDatasetArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
+    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
         """
         The location of the ORC data storage.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
+    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @property
@@ -56034,7 +57047,7 @@ class OrcSinkArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
+                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
                  write_batch_size: Optional[Any] = None,
                  write_batch_timeout: Optional[Any] = None):
         """
@@ -56046,7 +57059,7 @@ class OrcSinkArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: ORC store settings.
+        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: ORC store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -56143,14 +57156,14 @@ class OrcSinkArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
         """
         ORC store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
     @property
@@ -56187,7 +57200,7 @@ class OrcSourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
         """
         A copy activity ORC source.
         :param pulumi.Input[str] type: Copy source type.
@@ -56197,7 +57210,7 @@ class OrcSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: ORC store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: ORC store settings.
         """
         pulumi.set(__self__, "type", 'OrcSource')
         if additional_columns is not None:
@@ -56288,14 +57301,14 @@ class OrcSourceArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         ORC store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
 
@@ -56437,7 +57450,7 @@ class ParameterSpecificationArgs:
 class ParquetDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
+                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression_codec: Optional[Any] = None,
@@ -56449,7 +57462,7 @@ class ParquetDatasetArgs:
         """
         Parquet dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the parquet storage.
+        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the parquet storage.
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Parquet'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -56492,14 +57505,14 @@ class ParquetDatasetArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
+    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
         """
         The location of the parquet storage.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
+    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @property
@@ -56707,7 +57720,7 @@ class ParquetSinkArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
+                 store_settings: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]] = None,
                  write_batch_size: Optional[Any] = None,
                  write_batch_timeout: Optional[Any] = None):
         """
@@ -56719,7 +57732,7 @@ class ParquetSinkArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: Parquet store settings.
+        :param pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']] store_settings: Parquet store settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -56816,14 +57829,14 @@ class ParquetSinkArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]:
         """
         Parquet store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AzureBlobFSWriteSettingsArgs', 'AzureBlobStorageWriteSettingsArgs', 'AzureDataLakeStoreWriteSettingsArgs', 'AzureFileStorageWriteSettingsArgs', 'FileServerWriteSettingsArgs', 'LakeHouseWriteSettingsArgs', 'SftpWriteSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
     @property
@@ -56861,7 +57874,7 @@ class ParquetSourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
         """
         A copy activity Parquet source.
         :param pulumi.Input[str] type: Copy source type.
@@ -56872,7 +57885,7 @@ class ParquetSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Parquet store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Parquet store settings.
         """
         pulumi.set(__self__, "type", 'ParquetSource')
         if additional_columns is not None:
@@ -56977,14 +57990,14 @@ class ParquetSourceArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         Parquet store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
 
@@ -83185,7 +84198,7 @@ class XeroSourceArgs:
 class XmlDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
-                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
+                 location: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']],
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  compression: Optional[pulumi.Input['DatasetCompressionArgs']] = None,
@@ -83199,7 +84212,7 @@ class XmlDatasetArgs:
         """
         Xml dataset.
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
-        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the json data storage.
+        :param pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']] location: The location of the json data storage.
         :param pulumi.Input[str] type: Type of dataset.
                Expected value is 'Xml'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -83248,14 +84261,14 @@ class XmlDatasetArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
+    def location(self) -> pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]:
         """
         The location of the json data storage.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
+    def location(self, value: pulumi.Input[Union['AmazonS3CompatibleLocationArgs', 'AmazonS3LocationArgs', 'AzureBlobFSLocationArgs', 'AzureBlobStorageLocationArgs', 'AzureDataLakeStoreLocationArgs', 'AzureFileStorageLocationArgs', 'FileServerLocationArgs', 'FtpServerLocationArgs', 'GoogleCloudStorageLocationArgs', 'HdfsLocationArgs', 'HttpServerLocationArgs', 'LakeHouseLocationArgs', 'OracleCloudStorageLocationArgs', 'SftpLocationArgs']]):
         pulumi.set(self, "location", value)
 
     @property
@@ -83495,7 +84508,7 @@ class XmlSourceArgs:
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None,
-                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
+                 store_settings: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]] = None):
         """
         A copy activity Xml source.
         :param pulumi.Input[str] type: Copy source type.
@@ -83506,7 +84519,7 @@ class XmlSourceArgs:
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Xml store settings.
+        :param pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']] store_settings: Xml store settings.
         """
         pulumi.set(__self__, "type", 'XmlSource')
         if additional_columns is not None:
@@ -83611,14 +84624,14 @@ class XmlSourceArgs:
 
     @property
     @pulumi.getter(name="storeSettings")
-    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
+    def store_settings(self) -> Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]:
         """
         Xml store settings.
         """
         return pulumi.get(self, "store_settings")
 
     @store_settings.setter
-    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
+    def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'LakeHouseReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
 
 

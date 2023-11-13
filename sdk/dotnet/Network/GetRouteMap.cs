@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves the details of a RouteMap.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Task<GetRouteMapResult> InvokeAsync(GetRouteMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteMapResult>("azure-native:network:getRouteMap", args ?? new GetRouteMapArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves the details of a RouteMap.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Output<GetRouteMapResult> Invoke(GetRouteMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteMapResult>("azure-native:network:getRouteMap", args ?? new GetRouteMapInvokeArgs(), options.WithDefaults());

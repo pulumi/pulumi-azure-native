@@ -129,7 +129,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
         Slot Config names azure resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01.
+        Other available API versions: 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
         Slot Config names azure resource.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2020-10-01.
+        Other available API versions: 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSlotConfigurationNamesArgs args: The arguments to use to populate this resource's properties.
@@ -193,7 +193,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSlotConfigurationNames")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSlotConfigurationNames")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSlotConfigurationNames, __self__).__init__(
             'azure-native:web:WebAppSlotConfigurationNames',

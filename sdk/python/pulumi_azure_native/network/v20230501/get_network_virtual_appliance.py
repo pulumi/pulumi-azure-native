@@ -22,7 +22,7 @@ class GetNetworkVirtualApplianceResult:
     """
     NetworkVirtualAppliance Resource.
     """
-    def __init__(__self__, additional_nics=None, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, delegation=None, deployment_type=None, etag=None, id=None, identity=None, inbound_security_rules=None, location=None, name=None, nva_sku=None, partner_managed_resource=None, provisioning_state=None, ssh_public_key=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_connections=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
+    def __init__(__self__, additional_nics=None, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, delegation=None, deployment_type=None, etag=None, id=None, identity=None, inbound_security_rules=None, location=None, name=None, nva_sku=None, partner_managed_resource=None, provisioning_state=None, ssh_public_key=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
         if additional_nics and not isinstance(additional_nics, list):
             raise TypeError("Expected argument 'additional_nics' to be a list")
         pulumi.set(__self__, "additional_nics", additional_nics)
@@ -83,9 +83,6 @@ class GetNetworkVirtualApplianceResult:
         if virtual_appliance_asn and not isinstance(virtual_appliance_asn, float):
             raise TypeError("Expected argument 'virtual_appliance_asn' to be a float")
         pulumi.set(__self__, "virtual_appliance_asn", virtual_appliance_asn)
-        if virtual_appliance_connections and not isinstance(virtual_appliance_connections, list):
-            raise TypeError("Expected argument 'virtual_appliance_connections' to be a list")
-        pulumi.set(__self__, "virtual_appliance_connections", virtual_appliance_connections)
         if virtual_appliance_nics and not isinstance(virtual_appliance_nics, list):
             raise TypeError("Expected argument 'virtual_appliance_nics' to be a list")
         pulumi.set(__self__, "virtual_appliance_nics", virtual_appliance_nics)
@@ -257,14 +254,6 @@ class GetNetworkVirtualApplianceResult:
         return pulumi.get(self, "virtual_appliance_asn")
 
     @property
-    @pulumi.getter(name="virtualApplianceConnections")
-    def virtual_appliance_connections(self) -> Sequence['outputs.SubResourceResponse']:
-        """
-        List of references to VirtualApplianceConnections.
-        """
-        return pulumi.get(self, "virtual_appliance_connections")
-
-    @property
     @pulumi.getter(name="virtualApplianceNics")
     def virtual_appliance_nics(self) -> Sequence['outputs.VirtualApplianceNicPropertiesResponse']:
         """
@@ -315,7 +304,6 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
             tags=self.tags,
             type=self.type,
             virtual_appliance_asn=self.virtual_appliance_asn,
-            virtual_appliance_connections=self.virtual_appliance_connections,
             virtual_appliance_nics=self.virtual_appliance_nics,
             virtual_appliance_sites=self.virtual_appliance_sites,
             virtual_hub=self.virtual_hub)
@@ -361,7 +349,6 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_appliance_asn=pulumi.get(__ret__, 'virtual_appliance_asn'),
-        virtual_appliance_connections=pulumi.get(__ret__, 'virtual_appliance_connections'),
         virtual_appliance_nics=pulumi.get(__ret__, 'virtual_appliance_nics'),
         virtual_appliance_sites=pulumi.get(__ret__, 'virtual_appliance_sites'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))

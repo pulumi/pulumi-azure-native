@@ -209,6 +209,8 @@ def get_managed_private_endpoint(managed_private_endpoint_name: Optional[str] = 
     The managed private endpoint resource type.
     Azure REST API version: 2022-10-01-preview.
 
+    Other available API versions: 2023-09-01.
+
 
     :param str managed_private_endpoint_name: The managed private endpoint name of Azure Managed Grafana.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -246,6 +248,8 @@ def get_managed_private_endpoint_output(managed_private_endpoint_name: Optional[
     """
     The managed private endpoint resource type.
     Azure REST API version: 2022-10-01-preview.
+
+    Other available API versions: 2023-09-01.
 
 
     :param str managed_private_endpoint_name: The managed private endpoint name of Azure Managed Grafana.

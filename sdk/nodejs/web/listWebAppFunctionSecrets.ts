@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Description for Get function secrets for a function in a web site, or a deployment slot.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2016-08-01, 2020-10-01.
+ * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
  */
 export function listWebAppFunctionSecrets(args: ListWebAppFunctionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsResult> {
 
@@ -52,7 +52,7 @@ export interface ListWebAppFunctionSecretsResult {
  * Description for Get function secrets for a function in a web site, or a deployment slot.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2016-08-01, 2020-10-01.
+ * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
  */
 export function listWebAppFunctionSecretsOutput(args: ListWebAppFunctionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppFunctionSecrets(a, opts))

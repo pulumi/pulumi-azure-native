@@ -200,7 +200,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         VirtualNetworkGatewayNatRule Resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,7 +225,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         VirtualNetworkGatewayNatRule Resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayNatRuleInitArgs args: The arguments to use to populate this resource's properties.
@@ -277,7 +277,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             __props__.__dict__["virtual_network_gateway_name"] = virtual_network_gateway_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230401:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230501:VirtualNetworkGatewayNatRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230401:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230601:VirtualNetworkGatewayNatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkGatewayNatRule, __self__).__init__(
             'azure-native:network:VirtualNetworkGatewayNatRule',

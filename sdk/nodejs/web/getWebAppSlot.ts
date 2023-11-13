@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Description for Gets the details of a web, mobile, or API app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+ * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01.
  */
 export function getWebAppSlot(args: GetWebAppSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSlotResult> {
 
@@ -267,7 +267,7 @@ export interface GetWebAppSlotResult {
  * Description for Gets the details of a web, mobile, or API app.
  * Azure REST API version: 2022-09-01.
  *
- * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01.
+ * Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01.
  */
 export function getWebAppSlotOutput(args: GetWebAppSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSlot(a, opts))

@@ -81,7 +81,6 @@ from .get_network_manager import *
 from .get_network_profile import *
 from .get_network_security_group import *
 from .get_network_virtual_appliance import *
-from .get_network_virtual_appliance_connection import *
 from .get_network_watcher import *
 from .get_p2s_vpn_gateway import *
 from .get_p2s_vpn_gateway_p2s_vpn_connection_health import *
@@ -157,7 +156,6 @@ from .network_manager import *
 from .network_profile import *
 from .network_security_group import *
 from .network_virtual_appliance import *
-from .network_virtual_appliance_connection import *
 from .network_watcher import *
 from .p2s_vpn_gateway import *
 from .packet_capture import *

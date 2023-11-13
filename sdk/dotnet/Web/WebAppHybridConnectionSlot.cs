@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Web
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
     /// 
-    /// Other available API versions: 2020-10-01.
+    /// Other available API versions: 2020-10-01, 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppHybridConnectionSlot")]
     public partial class WebAppHybridConnectionSlot : global::Pulumi.CustomResource
@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Web
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHybridConnectionSlot"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppHybridConnectionSlot"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppHybridConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

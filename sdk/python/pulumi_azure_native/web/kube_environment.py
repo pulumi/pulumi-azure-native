@@ -256,6 +256,8 @@ class KubeEnvironment(pulumi.CustomResource):
         A Kubernetes cluster specialized for web workloads by Azure App Service
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
+        Other available API versions: 2023-01-01.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']] app_logs_configuration: Cluster configuration which enables the log daemon to export
@@ -284,6 +286,8 @@ class KubeEnvironment(pulumi.CustomResource):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
+
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param KubeEnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -341,7 +345,7 @@ class KubeEnvironment(pulumi.CustomResource):
             __props__.__dict__["deployment_errors"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210201:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220901:KubeEnvironment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20210101:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210115:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210201:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20210301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220301:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20220901:KubeEnvironment"), pulumi.Alias(type_="azure-native:web/v20230101:KubeEnvironment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KubeEnvironment, __self__).__init__(
             'azure-native:web:KubeEnvironment',

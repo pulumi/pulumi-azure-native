@@ -149,7 +149,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         Rule Collection Group resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         Rule Collection Group resource.
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01.
+        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyRuleCollectionGroupArgs args: The arguments to use to populate this resource's properties.
@@ -218,7 +218,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200801:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20201101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210201:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210301:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210801:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20221101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230401:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230501:FirewallPolicyRuleCollectionGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20200801:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20201101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210201:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210301:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20210801:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220701:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20220901:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20221101:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230201:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230401:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230501:FirewallPolicyRuleCollectionGroup"), pulumi.Alias(type_="azure-native:network/v20230601:FirewallPolicyRuleCollectionGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallPolicyRuleCollectionGroup, __self__).__init__(
             'azure-native:network:FirewallPolicyRuleCollectionGroup',

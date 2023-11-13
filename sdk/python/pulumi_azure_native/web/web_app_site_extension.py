@@ -78,7 +78,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
         Site Extension Information.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-08-01, 2020-10-01.
+        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -96,7 +96,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
         Site Extension Information.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2016-08-01, 2020-10-01.
+        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSiteExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +154,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
             __props__.__dict__["title"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSiteExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSiteExtension"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSiteExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppSiteExtension, __self__).__init__(
             'azure-native:web:WebAppSiteExtension',

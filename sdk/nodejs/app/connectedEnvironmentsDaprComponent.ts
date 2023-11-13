@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Dapr Component.
  * Azure REST API version: 2022-10-01.
  *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview.
+ * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview.
  */
 export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
     /**
@@ -130,7 +130,7 @@ export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230501:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230502preview:ConnectedEnvironmentsDaprComponent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230501:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230502preview:ConnectedEnvironmentsDaprComponent" }, { type: "azure-native:app/v20230801preview:ConnectedEnvironmentsDaprComponent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironmentsDaprComponent.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetProviderInstanceResult> {
 
@@ -76,6 +78,8 @@ export interface GetProviderInstanceResult {
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  * Azure REST API version: 2023-04-01.
+ *
+ * Other available API versions: 2023-10-01-preview.
  */
 export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
     return pulumi.output(args).apply((a: any) => getProviderInstance(a, opts))

@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Push settings for the App.
  * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
  *
- * Other available API versions: 2020-10-01.
+ * Other available API versions: 2020-10-01, 2023-01-01.
  */
 export class WebAppSitePushSettings extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class WebAppSitePushSettings extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppSitePushSettings" }, { type: "azure-native:web/v20180201:WebAppSitePushSettings" }, { type: "azure-native:web/v20181101:WebAppSitePushSettings" }, { type: "azure-native:web/v20190801:WebAppSitePushSettings" }, { type: "azure-native:web/v20200601:WebAppSitePushSettings" }, { type: "azure-native:web/v20200901:WebAppSitePushSettings" }, { type: "azure-native:web/v20201001:WebAppSitePushSettings" }, { type: "azure-native:web/v20201201:WebAppSitePushSettings" }, { type: "azure-native:web/v20210101:WebAppSitePushSettings" }, { type: "azure-native:web/v20210115:WebAppSitePushSettings" }, { type: "azure-native:web/v20210201:WebAppSitePushSettings" }, { type: "azure-native:web/v20210301:WebAppSitePushSettings" }, { type: "azure-native:web/v20220301:WebAppSitePushSettings" }, { type: "azure-native:web/v20220901:WebAppSitePushSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppSitePushSettings" }, { type: "azure-native:web/v20180201:WebAppSitePushSettings" }, { type: "azure-native:web/v20181101:WebAppSitePushSettings" }, { type: "azure-native:web/v20190801:WebAppSitePushSettings" }, { type: "azure-native:web/v20200601:WebAppSitePushSettings" }, { type: "azure-native:web/v20200901:WebAppSitePushSettings" }, { type: "azure-native:web/v20201001:WebAppSitePushSettings" }, { type: "azure-native:web/v20201201:WebAppSitePushSettings" }, { type: "azure-native:web/v20210101:WebAppSitePushSettings" }, { type: "azure-native:web/v20210115:WebAppSitePushSettings" }, { type: "azure-native:web/v20210201:WebAppSitePushSettings" }, { type: "azure-native:web/v20210301:WebAppSitePushSettings" }, { type: "azure-native:web/v20220301:WebAppSitePushSettings" }, { type: "azure-native:web/v20220901:WebAppSitePushSettings" }, { type: "azure-native:web/v20230101:WebAppSitePushSettings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSitePushSettings.__pulumiType, name, resourceInputs, opts);
     }

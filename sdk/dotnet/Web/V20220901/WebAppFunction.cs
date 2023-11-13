@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Web.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppFunction"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppFunction"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

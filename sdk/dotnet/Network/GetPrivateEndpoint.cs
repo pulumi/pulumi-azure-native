@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified private endpoint by resource group.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:network:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified private endpoint by resource group.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:network:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());

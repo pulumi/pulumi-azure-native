@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The Private Endpoint Connection resource.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2023-09-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:dashboard:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The Private Endpoint Connection resource.
         /// Azure REST API version: 2022-08-01.
         /// 
-        /// Other available API versions: 2022-10-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2023-09-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dashboard:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

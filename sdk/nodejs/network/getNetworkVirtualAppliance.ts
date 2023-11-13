@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the specified Network Virtual Appliance.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
 
@@ -123,10 +123,6 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly virtualApplianceAsn?: number;
     /**
-     * List of references to VirtualApplianceConnections.
-     */
-    readonly virtualApplianceConnections: outputs.network.SubResourceResponse[];
-    /**
      * List of Virtual Appliance Network Interfaces.
      */
     readonly virtualApplianceNics: outputs.network.VirtualApplianceNicPropertiesResponse[];
@@ -143,7 +139,7 @@ export interface GetNetworkVirtualApplianceResult {
  * Gets the specified Network Virtual Appliance.
  * Azure REST API version: 2023-02-01.
  *
- * Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01.
  */
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))

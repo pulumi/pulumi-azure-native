@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Retrieve the variable identified by variable name.
  * Azure REST API version: 2022-08-08.
  *
- * Other available API versions: 2023-05-15-preview.
+ * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
 
@@ -76,7 +76,7 @@ export interface GetVariableResult {
  * Retrieve the variable identified by variable name.
  * Azure REST API version: 2022-08-08.
  *
- * Other available API versions: 2023-05-15-preview.
+ * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
     return pulumi.output(args).apply((a: any) => getVariable(a, opts))

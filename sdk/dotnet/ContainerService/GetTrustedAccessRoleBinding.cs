@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// Defines binding between a resource and role
         /// Azure REST API version: 2023-05-02-preview.
         /// 
-        /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview.
+        /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01.
         /// </summary>
         public static Task<GetTrustedAccessRoleBindingResult> InvokeAsync(GetTrustedAccessRoleBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustedAccessRoleBindingResult>("azure-native:containerservice:getTrustedAccessRoleBinding", args ?? new GetTrustedAccessRoleBindingArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ContainerService
         /// Defines binding between a resource and role
         /// Azure REST API version: 2023-05-02-preview.
         /// 
-        /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview.
+        /// Other available API versions: 2023-06-02-preview, 2023-07-02-preview, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01.
         /// </summary>
         public static Output<GetTrustedAccessRoleBindingResult> Invoke(GetTrustedAccessRoleBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustedAccessRoleBindingResult>("azure-native:containerservice:getTrustedAccessRoleBinding", args ?? new GetTrustedAccessRoleBindingInvokeArgs(), options.WithDefaults());

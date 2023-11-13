@@ -100,6 +100,11 @@ export const getPackage: typeof import("./getPackage").getPackage = null as any;
 export const getPackageOutput: typeof import("./getPackage").getPackageOutput = null as any;
 utilities.lazyLoad(exports, ["getPackage","getPackageOutput"], () => require("./getPackage"));
 
+export { GetPowerShell72ModuleArgs, GetPowerShell72ModuleResult, GetPowerShell72ModuleOutputArgs } from "./getPowerShell72Module";
+export const getPowerShell72Module: typeof import("./getPowerShell72Module").getPowerShell72Module = null as any;
+export const getPowerShell72ModuleOutput: typeof import("./getPowerShell72Module").getPowerShell72ModuleOutput = null as any;
+utilities.lazyLoad(exports, ["getPowerShell72Module","getPowerShell72ModuleOutput"], () => require("./getPowerShell72Module"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -190,6 +195,11 @@ export type Package = import("./package").Package;
 export const Package: typeof import("./package").Package = null as any;
 utilities.lazyLoad(exports, ["Package"], () => require("./package"));
 
+export { PowerShell72ModuleArgs } from "./powerShell72Module";
+export type PowerShell72Module = import("./powerShell72Module").PowerShell72Module;
+export const PowerShell72Module: typeof import("./powerShell72Module").PowerShell72Module = null as any;
+utilities.lazyLoad(exports, ["PowerShell72Module"], () => require("./powerShell72Module"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -257,6 +267,7 @@ import * as v20200113preview from "./v20200113preview";
 import * as v20210622 from "./v20210622";
 import * as v20220808 from "./v20220808";
 import * as v20230515preview from "./v20230515preview";
+import * as v20231101 from "./v20231101";
 
 export {
     v20151031,
@@ -266,6 +277,7 @@ export {
     v20210622,
     v20220808,
     v20230515preview,
+    v20231101,
 };
 
 const _module = {
@@ -296,6 +308,8 @@ const _module = {
                 return new Module(name, <any>undefined, { urn })
             case "azure-native:automation:Package":
                 return new Package(name, <any>undefined, { urn })
+            case "azure-native:automation:PowerShell72Module":
+                return new PowerShell72Module(name, <any>undefined, { urn })
             case "azure-native:automation:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:automation:Python2Package":

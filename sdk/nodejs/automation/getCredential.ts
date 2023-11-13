@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Retrieve the credential identified by credential name.
  * Azure REST API version: 2022-08-08.
  *
- * Other available API versions: 2023-05-15-preview.
+ * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetCredentialResult> {
 
@@ -72,7 +72,7 @@ export interface GetCredentialResult {
  * Retrieve the credential identified by credential name.
  * Azure REST API version: 2022-08-08.
  *
- * Other available API versions: 2023-05-15-preview.
+ * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
 export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialResult> {
     return pulumi.output(args).apply((a: any) => getCredential(a, opts))

@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.Web.V20190801
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppScmAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppScmAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppScmAllowed"},
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppScmAllowed"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

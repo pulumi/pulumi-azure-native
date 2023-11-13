@@ -153,7 +153,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20220222:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20220808:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20230515preview:HybridRunbookWorkerGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20220222:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20220808:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20230515preview:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20231101:HybridRunbookWorkerGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HybridRunbookWorkerGroup, __self__).__init__(
             'azure-native:automation/v20210622:HybridRunbookWorkerGroup',

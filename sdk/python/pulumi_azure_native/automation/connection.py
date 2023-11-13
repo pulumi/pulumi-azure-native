@@ -146,7 +146,7 @@ class Connection(pulumi.CustomResource):
         Definition of the connection.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
 
-        Other available API versions: 2023-05-15-preview.
+        Other available API versions: 2023-05-15-preview, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +168,7 @@ class Connection(pulumi.CustomResource):
         Definition of the connection.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
 
-        Other available API versions: 2023-05-15-preview.
+        Other available API versions: 2023-05-15-preview, 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -219,7 +219,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Connection"), pulumi.Alias(type_="azure-native:automation/v20190601:Connection"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Connection"), pulumi.Alias(type_="azure-native:automation/v20220808:Connection"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Connection"), pulumi.Alias(type_="azure-native:automation/v20190601:Connection"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Connection"), pulumi.Alias(type_="azure-native:automation/v20220808:Connection"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Connection"), pulumi.Alias(type_="azure-native:automation/v20231101:Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connection, __self__).__init__(
             'azure-native:automation:Connection',

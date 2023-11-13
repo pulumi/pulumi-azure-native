@@ -211,7 +211,7 @@ class Grafana(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dashboard:Grafana"), pulumi.Alias(type_="azure-native:dashboard/v20210901preview:Grafana"), pulumi.Alias(type_="azure-native:dashboard/v20220501preview:Grafana"), pulumi.Alias(type_="azure-native:dashboard/v20220801:Grafana")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dashboard:Grafana"), pulumi.Alias(type_="azure-native:dashboard/v20210901preview:Grafana"), pulumi.Alias(type_="azure-native:dashboard/v20220501preview:Grafana"), pulumi.Alias(type_="azure-native:dashboard/v20220801:Grafana"), pulumi.Alias(type_="azure-native:dashboard/v20230901:Grafana")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Grafana, __self__).__init__(
             'azure-native:dashboard/v20221001preview:Grafana',

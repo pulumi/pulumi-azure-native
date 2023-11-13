@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified rule from a route filter.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2017-03-01, 2017-10-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2017-03-01, 2017-10-01, 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Task<GetRouteFilterRuleResult> InvokeAsync(GetRouteFilterRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterRuleResult>("azure-native:network:getRouteFilterRule", args ?? new GetRouteFilterRuleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Network
         /// Gets the specified rule from a route filter.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2017-03-01, 2017-10-01, 2023-04-01, 2023-05-01.
+        /// Other available API versions: 2017-03-01, 2017-10-01, 2023-04-01, 2023-05-01, 2023-06-01.
         /// </summary>
         public static Output<GetRouteFilterRuleResult> Invoke(GetRouteFilterRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteFilterRuleResult>("azure-native:network:getRouteFilterRule", args ?? new GetRouteFilterRuleInvokeArgs(), options.WithDefaults());

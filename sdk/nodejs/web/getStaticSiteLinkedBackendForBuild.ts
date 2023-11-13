@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Static Site Linked Backend ARM resource.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function getStaticSiteLinkedBackendForBuild(args: GetStaticSiteLinkedBackendForBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteLinkedBackendForBuildResult> {
 
@@ -78,6 +80,8 @@ export interface GetStaticSiteLinkedBackendForBuildResult {
 /**
  * Static Site Linked Backend ARM resource.
  * Azure REST API version: 2022-09-01.
+ *
+ * Other available API versions: 2023-01-01.
  */
 export function getStaticSiteLinkedBackendForBuildOutput(args: GetStaticSiteLinkedBackendForBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteLinkedBackendForBuildResult> {
     return pulumi.output(args).apply((a: any) => getStaticSiteLinkedBackendForBuild(a, opts))
