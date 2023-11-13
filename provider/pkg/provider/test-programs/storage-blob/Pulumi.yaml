@@ -9,6 +9,7 @@ resources:
     properties:
       resourceGroupName: ${rg.name}
       kind: StorageV2
+      allowBlobPublicAccess: true
       sku:
         name: Standard_LRS
   blobContainer:
