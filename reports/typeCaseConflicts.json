@@ -4,5 +4,11 @@
   ],
   "azure-native:servicefabric/v20230901preview:IPTagResponse": [
     "azure-native:servicefabric/v20230901preview:IpTagResponse"
+  ],
+  "azure-native:servicefabric/v20231101preview:IPTag": [
+    "azure-native:servicefabric/v20231101preview:IpTag"
+  ],
+  "azure-native:servicefabric/v20231101preview:IPTagResponse": [
+    "azure-native:servicefabric/v20231101preview:IpTagResponse"
   ]
 }

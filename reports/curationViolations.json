@@ -88,6 +88,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "DevOpsInfrastructure",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "DeviceRegistry",
     "Detail": "expected tracking stable but found preview"
   },

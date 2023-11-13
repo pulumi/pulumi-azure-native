@@ -77,9 +77,15 @@ ApiManagement:
 App:
     tracking: "2022-10-01"
     additions:
+        AppResiliency: 2023-08-01-preview
+        Build: 2023-08-01-preview
+        Builder: 2023-08-01-preview
+        DaprComponentResiliencyPolicy: 2023-08-01-preview
+        DaprSubscription: 2023-08-01-preview
         Job: 2023-04-01-preview
         ManagedCertificate: 2023-04-01-preview
         getCustomDomainVerificationId: 2023-05-02-preview
+        listBuildAuthToken: 2023-08-01-preview
         listJobSecrets: 2023-04-01-preview
 AppComplianceAutomation:
     tracking: 2022-11-16-preview
@@ -133,6 +139,7 @@ Automation:
     tracking: "2022-08-08"
     additions:
         Package: 2023-05-15-preview
+        PowerShell72Module: "2023-11-01"
         PrivateEndpointConnection: 2020-01-13-preview
         RuntimeEnvironment: 2023-05-15-preview
         SoftwareUpdateConfigurationByName: "2019-06-01"
@@ -228,6 +235,8 @@ Communication:
     additions:
         SuppressionList: 2023-06-01-preview
         SuppressionListAddress: 2023-06-01-preview
+Community:
+    tracking: "2023-11-01"
 Compute:
     additions:
         AvailabilitySet: "2023-03-01"
@@ -655,6 +664,8 @@ DevCenter:
 DevHub:
     tracking: 2022-10-11-preview
 DevOps: {}
+DevOpsInfrastructure:
+    tracking: 2023-10-30-preview
 DevSpaces:
     tracking: "2019-04-01"
 DevTestLab:
@@ -1239,6 +1250,9 @@ Network:
         - provider: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-05-01 is greater than 2022-09-01
+        - provider: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2023-06-01 is greater than 2022-09-01
 NetworkAnalytics:
     tracking: "2023-11-15"
 NetworkCloud:
@@ -1548,6 +1562,7 @@ Web:
         Certificate: "2022-09-01"
         Connection: "2016-06-01"
         ConnectionGateway: "2016-06-01"
+        ContainerApp: "2023-01-01"
         CustomApi: "2016-06-01"
         KubeEnvironment: "2022-09-01"
         StaticSite: "2022-09-01"
@@ -1610,6 +1625,7 @@ Web:
         listAppServicePlanHybridConnectionKeys: "2022-09-01"
         listConnectionConsentLinks: "2016-06-01"
         listConnectionKeys: 2015-08-01-preview
+        listContainerAppSecrets: "2023-01-01"
         listCustomApiWsdlInterfaces: "2016-06-01"
         listSiteIdentifiersAssignedToHostName: "2022-09-01"
         listStaticSiteAppSettings: "2022-09-01"
@@ -1656,6 +1672,13 @@ Web:
         listWorkflowRunActionExpressionTraces: "2022-09-01"
         listWorkflowRunActionRepetitionExpressionTraces: "2022-09-01"
         listWorkflowTriggerCallbackUrl: "2022-09-01"
+    exclusionErrors:
+        - provider: Web
+          resourcename: ContainerApp
+          detail: version 2023-01-01 is greater than 2022-09-01
+        - provider: Web
+          resourcename: listContainerAppSecrets
+          detail: version 2023-01-01 is greater than 2022-09-01
 WebPubSub:
     tracking: "2023-02-01"
     additions:
