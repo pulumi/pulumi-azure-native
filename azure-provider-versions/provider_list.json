@@ -9106,6 +9106,7 @@
       {
         "resourceType": "diskAccesses",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9122,6 +9123,7 @@
       {
         "resourceType": "diskEncryptionSets",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9140,6 +9142,7 @@
       {
         "resourceType": "disks",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9442,6 +9445,7 @@
       {
         "resourceType": "locations/diskoperations",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9942,6 +9946,7 @@
       {
         "resourceType": "restorePointCollections/restorePoints/diskRestorePoints",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9968,6 +9973,7 @@
       {
         "resourceType": "snapshots",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -10054,6 +10060,7 @@
       {
         "resourceType": "virtualMachineScaleSets/disks",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -34419,7 +34426,6 @@
       {
         "resourceType": "locations",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34518,7 +34524,6 @@
       {
         "resourceType": "locations/backupPreValidateProtection",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34546,7 +34551,6 @@
       {
         "resourceType": "locations/backupStatus",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34575,7 +34579,6 @@
       {
         "resourceType": "locations/backupValidateFeatures",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34603,7 +34606,6 @@
       {
         "resourceType": "locations/capabilities",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34622,7 +34624,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34681,7 +34682,6 @@
       {
         "resourceType": "replicationEligibilityResults",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34709,7 +34709,6 @@
       {
         "resourceType": "vaults",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
