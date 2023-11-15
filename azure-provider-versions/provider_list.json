@@ -34419,7 +34419,6 @@
       {
         "resourceType": "locations",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34518,7 +34517,6 @@
       {
         "resourceType": "locations/backupPreValidateProtection",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34546,7 +34544,6 @@
       {
         "resourceType": "locations/backupStatus",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34575,7 +34572,6 @@
       {
         "resourceType": "locations/backupValidateFeatures",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34603,7 +34599,6 @@
       {
         "resourceType": "locations/capabilities",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34622,7 +34617,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34681,7 +34675,6 @@
       {
         "resourceType": "replicationEligibilityResults",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
@@ -34709,7 +34702,6 @@
       {
         "resourceType": "vaults",
         "apiVersions": [
-          "2023-07-01-preview",
           "2023-06-01",
           "2023-04-01",
           "2023-02-01",
