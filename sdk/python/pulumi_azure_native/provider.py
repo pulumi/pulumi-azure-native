@@ -24,6 +24,7 @@ class ProviderArgs:
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
                  oidc_request_url: Optional[pulumi.Input[str]] = None,
+                 oidc_token: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -39,8 +40,9 @@ class ProviderArgs:
         :param pulumi.Input[bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
-        :param pulumi.Input[str] oidc_request_token: Your cloud service or provider’s token to exchange for an Azure token. 
-        :param pulumi.Input[str] oidc_request_url: The URL to initiate the OIDC token exchange. 
+        :param pulumi.Input[str] oidc_request_token: Your provider’s token to exchange for an OIDC token.
+        :param pulumi.Input[str] oidc_request_url: The URL to initiate the `oidcRequestToken` OIDC token exchange.
+        :param pulumi.Input[str] oidc_token: The OIDC token to exchange for an Azure token.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
@@ -69,6 +71,8 @@ class ProviderArgs:
             pulumi.set(__self__, "oidc_request_token", oidc_request_token)
         if oidc_request_url is not None:
             pulumi.set(__self__, "oidc_request_url", oidc_request_url)
+        if oidc_token is not None:
+            pulumi.set(__self__, "oidc_token", oidc_token)
         if partner_id is not None:
             pulumi.set(__self__, "partner_id", partner_id)
         if subscription_id is not None:
@@ -184,7 +188,7 @@ class ProviderArgs:
     @pulumi.getter(name="oidcRequestToken")
     def oidc_request_token(self) -> Optional[pulumi.Input[str]]:
         """
-        Your cloud service or provider’s token to exchange for an Azure token. 
+        Your provider’s token to exchange for an OIDC token.
         """
         return pulumi.get(self, "oidc_request_token")
 
@@ -196,13 +200,25 @@ class ProviderArgs:
     @pulumi.getter(name="oidcRequestUrl")
     def oidc_request_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL to initiate the OIDC token exchange. 
+        The URL to initiate the `oidcRequestToken` OIDC token exchange.
         """
         return pulumi.get(self, "oidc_request_url")
 
     @oidc_request_url.setter
     def oidc_request_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "oidc_request_url", value)
+
+    @property
+    @pulumi.getter(name="oidcToken")
+    def oidc_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC token to exchange for an Azure token.
+        """
+        return pulumi.get(self, "oidc_token")
+
+    @oidc_token.setter
+    def oidc_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oidc_token", value)
 
     @property
     @pulumi.getter(name="partnerId")
@@ -280,6 +296,7 @@ class Provider(pulumi.ProviderResource):
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
                  oidc_request_url: Optional[pulumi.Input[str]] = None,
+                 oidc_token: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -299,8 +316,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
         :param pulumi.Input[str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
         :param pulumi.Input[str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
-        :param pulumi.Input[str] oidc_request_token: Your cloud service or provider’s token to exchange for an Azure token. 
-        :param pulumi.Input[str] oidc_request_url: The URL to initiate the OIDC token exchange. 
+        :param pulumi.Input[str] oidc_request_token: Your provider’s token to exchange for an OIDC token.
+        :param pulumi.Input[str] oidc_request_url: The URL to initiate the `oidcRequestToken` OIDC token exchange.
+        :param pulumi.Input[str] oidc_token: The OIDC token to exchange for an Azure token.
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
@@ -341,6 +359,7 @@ class Provider(pulumi.ProviderResource):
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
                  oidc_request_url: Optional[pulumi.Input[str]] = None,
+                 oidc_token: Optional[pulumi.Input[str]] = None,
                  partner_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -367,6 +386,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["msi_endpoint"] = msi_endpoint
             __props__.__dict__["oidc_request_token"] = oidc_request_token
             __props__.__dict__["oidc_request_url"] = oidc_request_url
+            __props__.__dict__["oidc_token"] = oidc_token
             __props__.__dict__["partner_id"] = partner_id
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id

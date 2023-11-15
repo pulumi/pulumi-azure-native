@@ -44,6 +44,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
             resourceInputs["oidcRequestToken"] = args ? args.oidcRequestToken : undefined;
             resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
+            resourceInputs["oidcToken"] = args ? args.oidcToken : undefined;
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
@@ -92,13 +93,17 @@ export interface ProviderArgs {
      */
     msiEndpoint?: pulumi.Input<string>;
     /**
-     * Your cloud service or provider’s token to exchange for an Azure token. 
+     * Your provider’s token to exchange for an OIDC token.
      */
     oidcRequestToken?: pulumi.Input<string>;
     /**
-     * The URL to initiate the OIDC token exchange. 
+     * The URL to initiate the `oidcRequestToken` OIDC token exchange.
      */
     oidcRequestUrl?: pulumi.Input<string>;
+    /**
+     * The OIDC token to exchange for an Azure token.
+     */
+    oidcToken?: pulumi.Input<string>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */

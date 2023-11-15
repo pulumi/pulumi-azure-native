@@ -197,13 +197,17 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 					Description: "Allow OpenID Connect (OIDC) to be used for Authentication.",
 					Default:     false,
 				},
+				"oidcToken": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The OIDC token to exchange for an Azure token.",
+				},
 				"oidcRequestToken": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "Your cloud service or provider’s token to exchange for an Azure token. ",
+					Description: "Your provider’s token to exchange for an OIDC token.",
 				},
 				"oidcRequestUrl": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The URL to initiate the OIDC token exchange. ",
+					Description: "The URL to initiate the `oidcRequestToken` OIDC token exchange.",
 				},
 
 				// Managed Tracking GUID for User-Agent.
