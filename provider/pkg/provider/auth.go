@@ -26,6 +26,44 @@ type authConfig struct {
 	useCli bool
 }
 
+type oidcConfig struct {
+	oidcToken        string
+	oidcRequestToken string
+	oidcRequestUrl   string
+}
+
+// Assumes that OIDC authentication is requested. Accordingly, returns an error if OIDC is not
+// properly configured.
+func (k *azureNativeProvider) determineOidcConfig() (oidcConfig, error) {
+	oidcRequestToken := k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN")
+	oidcRequestUrl := k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL")
+	if oidcRequestToken != "" && oidcRequestUrl != "" {
+		return oidcConfig{
+			oidcRequestToken: oidcRequestToken,
+			oidcRequestUrl:   oidcRequestUrl,
+		}, nil
+	}
+
+	oidcRequestToken = k.getConfig("oidcRequestToken", "ARM_OIDC_REQUEST_TOKEN")
+	oidcRequestUrl = k.getConfig("oidcRequestUrl", "ARM_OIDC_REQUEST_URL")
+	if oidcRequestToken != "" && oidcRequestUrl != "" {
+		return oidcConfig{
+			oidcRequestToken: oidcRequestToken,
+			oidcRequestUrl:   oidcRequestUrl,
+		}, nil
+	}
+
+	oidcToken := k.getConfig("oidcToken", "ARM_OIDC_TOKEN")
+	if oidcToken != "" {
+		return oidcConfig{
+			oidcToken: oidcToken,
+		}, nil
+	}
+
+	return oidcConfig{}, fmt.Errorf(`OIDC authentication was requested via useOidc/ARM_USE_OIDC but no token and/or request URL were configured. See
+https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials for more information.`)
+}
+
 func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 	auxTenantsString := k.getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
@@ -45,23 +83,9 @@ func (k *azureNativeProvider) getAuthConfig() (*authConfig, error) {
 	clientCertPath := k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH")
 
 	useOIDC := k.getConfig("useOidc", "ARM_USE_OIDC") == "true"
-	var oidcRequestToken, oidcRequestUrl string
-	if useOIDC {
-		oidcRequestToken = k.getConfig("oidcRequestToken", "ARM_OIDC_REQUEST_TOKEN")
-		if oidcRequestToken == "" {
-			// The ACTIONS_ variables are set by GitHub.
-			oidcRequestToken = k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN")
-		}
-		oidcRequestUrl = k.getConfig("oidcRequestUrl", "ARM_OIDC_REQUEST_URL")
-		if oidcRequestUrl == "" {
-			oidcRequestUrl = k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL")
-		}
-
-		if oidcRequestToken == "" || oidcRequestUrl == "" {
-			return nil, fmt.Errorf(`OIDC authentication was requested via useOidc/ARM_USE_OIDC but no token and/or
-request URL were configured. See
-https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials for more information.`)
-		}
+	oidcConf, err := k.determineOidcConfig()
+	if useOIDC && err != nil {
+		return nil, err
 	}
 
 	builder := &authentication.Builder{
@@ -76,13 +100,13 @@ https://www.pulumi.com/registry/packages/azure-native/installation-configuration
 		MsiEndpoint:          k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
 		AuxiliaryTenantIDs:   auxTenants,
 		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
+		MetadataHost:         k.getConfig("metadataHost", "ARM_METADATA_HOSTNAME"),
 
 		// OIDC section.
-		IDTokenRequestToken: oidcRequestToken,
-		IDTokenRequestURL:   oidcRequestUrl,
-		IDToken:             k.getConfig("oidcToken", "ARM_OIDC_TOKEN"),
+		IDTokenRequestToken: oidcConf.oidcRequestToken,
+		IDTokenRequestURL:   oidcConf.oidcRequestUrl,
+		IDToken:             oidcConf.oidcToken,
 		IDTokenFilePath:     k.getConfig("oidcTokenFilePath", "ARM_OIDC_TOKEN_FILE_PATH"),
-		MetadataHost:        k.getConfig("metadataHost", "ARM_METADATA_HOSTNAME"),
 
 		// Feature Toggles
 		SupportsClientCertAuth:         true,
