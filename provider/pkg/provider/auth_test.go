@@ -100,7 +100,7 @@ func TestOidcConfigWithTokenFromConfig(t *testing.T) {
 	assert.Equal(t, "t3", conf.oidcToken)
 }
 
-func TestOidcEmpyConfig(t *testing.T) {
+func TestOidcEmptyConfig(t *testing.T) {
 	p := azureNativeProvider{}
 
 	_, err := p.determineOidcConfig()
