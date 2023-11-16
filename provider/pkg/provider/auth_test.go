@@ -31,3 +31,88 @@ func TestAcceptedAzVersions(t *testing.T) {
 		assert.NotNil(t, assertAzVersion(v))
 	}
 }
+
+func TestOidcConfigFromGithub(t *testing.T) {
+	p := azureNativeProvider{}
+
+	// GH pre-set env
+	t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", "t1")
+	t.Setenv("ACTIONS_ID_TOKEN_REQUEST_URL", "url1")
+
+	conf, err := p.determineOidcConfig()
+	assert.Nil(t, err)
+	assert.Equal(t, "t1", conf.oidcRequestToken)
+	assert.Equal(t, "url1", conf.oidcRequestUrl)
+	assert.Empty(t, conf.oidcToken)
+}
+
+func TestOidcConfigWithRequestUrlFromEnv(t *testing.T) {
+	p := azureNativeProvider{}
+
+	t.Setenv("ARM_OIDC_REQUEST_TOKEN", "t1")
+	t.Setenv("ARM_OIDC_REQUEST_URL", "url1")
+
+	conf, err := p.determineOidcConfig()
+	assert.Nil(t, err)
+	assert.Equal(t, "t1", conf.oidcRequestToken)
+	assert.Equal(t, "url1", conf.oidcRequestUrl)
+	assert.Empty(t, conf.oidcToken)
+}
+
+func TestOidcConfigWithRequestUrlFromConfig(t *testing.T) {
+	p := azureNativeProvider{
+		config: map[string]string{
+			"oidcRequestToken": "t1",
+			"oidcRequestUrl":   "url1",
+		},
+	}
+
+	conf, err := p.determineOidcConfig()
+	assert.Nil(t, err)
+	assert.Equal(t, "t1", conf.oidcRequestToken)
+	assert.Equal(t, "url1", conf.oidcRequestUrl)
+	assert.Empty(t, conf.oidcToken)
+}
+
+func TestOidcConfigWithTokenFromEnv(t *testing.T) {
+	p := azureNativeProvider{}
+
+	t.Setenv("ARM_OIDC_TOKEN", "t2")
+
+	conf, err := p.determineOidcConfig()
+	assert.Nil(t, err)
+	assert.Empty(t, conf.oidcRequestToken)
+	assert.Empty(t, conf.oidcRequestUrl)
+	assert.Equal(t, "t2", conf.oidcToken)
+}
+
+func TestOidcConfigWithTokenFromConfig(t *testing.T) {
+	p := azureNativeProvider{
+		config: map[string]string{
+			"oidcToken": "t3",
+		},
+	}
+
+	conf, err := p.determineOidcConfig()
+	assert.Nil(t, err)
+	assert.Empty(t, conf.oidcRequestToken)
+	assert.Empty(t, conf.oidcRequestUrl)
+	assert.Equal(t, "t3", conf.oidcToken)
+}
+
+func TestOidcEmptyConfig(t *testing.T) {
+	p := azureNativeProvider{}
+
+	_, err := p.determineOidcConfig()
+	assert.NotNil(t, err)
+}
+
+func TestOidcUrlTokenPairValidation(t *testing.T) {
+	p := azureNativeProvider{}
+
+	// With a request token we also need a request URL.
+	t.Setenv("ARM_OIDC_REQUEST_TOKEN", "t1")
+
+	_, err := p.determineOidcConfig()
+	assert.NotNil(t, err)
+}

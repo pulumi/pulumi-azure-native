@@ -127,16 +127,22 @@ namespace Pulumi.AzureNative
         public Input<string>? MsiEndpoint { get; set; }
 
         /// <summary>
-        /// Your cloud service or provider’s token to exchange for an Azure token. 
+        /// Your provider’s token to exchange for an OIDC token.
         /// </summary>
         [Input("oidcRequestToken")]
         public Input<string>? OidcRequestToken { get; set; }
 
         /// <summary>
-        /// The URL to initiate the OIDC token exchange. 
+        /// The URL to initiate the `oidcRequestToken` OIDC token exchange.
         /// </summary>
         [Input("oidcRequestUrl")]
         public Input<string>? OidcRequestUrl { get; set; }
+
+        /// <summary>
+        /// The OIDC token to exchange for an Azure token.
+        /// </summary>
+        [Input("oidcToken")]
+        public Input<string>? OidcToken { get; set; }
 
         /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
