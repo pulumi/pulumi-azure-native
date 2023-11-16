@@ -784,6 +784,7 @@ HybridCompute:
     additions:
         License: 2023-06-20-preview
         LicenseProfile: 2023-06-20-preview
+        MachineRunCommand: 2023-10-03-preview
         PrivateLinkScopedResource: 2020-08-15-preview
 HybridConnectivity:
     tracking: "2023-03-15"

@@ -1153,6 +1153,7 @@
     "LicenseProfile": "2023-06-20-preview",
     "Machine": "2022-12-27",
     "MachineExtension": "2022-12-27",
+    "MachineRunCommand": "2023-10-03-preview",
     "PrivateEndpointConnection": "2022-12-27",
     "PrivateLinkScope": "2022-12-27",
     "PrivateLinkScopedResource": "2020-08-15-preview"
