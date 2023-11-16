@@ -578,7 +578,7 @@ class ContentPackage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:ContentPackage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230701preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20230901preview:ContentPackage"), pulumi.Alias(type_="azure-native:securityinsights/v20231001preview:ContentPackage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContentPackage, __self__).__init__(
             'azure-native:securityinsights/v20230801preview:ContentPackage',

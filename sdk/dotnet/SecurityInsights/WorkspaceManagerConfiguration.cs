@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// The workspace manager configuration
     /// Azure REST API version: 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:WorkspaceManagerConfiguration")]
     public partial class WorkspaceManagerConfiguration : global::Pulumi.CustomResource
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:WorkspaceManagerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:WorkspaceManagerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

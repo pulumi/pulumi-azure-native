@@ -9106,6 +9106,7 @@
       {
         "resourceType": "diskAccesses",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9122,6 +9123,7 @@
       {
         "resourceType": "diskEncryptionSets",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9140,6 +9142,7 @@
       {
         "resourceType": "disks",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9442,6 +9445,7 @@
       {
         "resourceType": "locations/diskoperations",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9942,6 +9946,7 @@
       {
         "resourceType": "restorePointCollections/restorePoints/diskRestorePoints",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -9968,6 +9973,7 @@
       {
         "resourceType": "snapshots",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -10054,6 +10060,7 @@
       {
         "resourceType": "virtualMachineScaleSets/disks",
         "apiVersions": [
+          "2023-10-02",
           "2023-04-02",
           "2023-01-02",
           "2022-07-02",
@@ -20972,6 +20979,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2024-03-01-preview",
           "2023-09-01-preview",
           "2023-06-01",
           "2023-03-23-preview",
@@ -20982,6 +20990,7 @@
       {
         "resourceType": "diagnostics",
         "apiVersions": [
+          "2024-03-01-preview",
           "2023-09-01-preview",
           "2023-06-01",
           "2023-01-01-preview"
@@ -20996,6 +21005,7 @@
       {
         "resourceType": "discoverySolutions",
         "apiVersions": [
+          "2024-03-01-preview",
           "2023-09-01-preview",
           "2023-08-01-preview",
           "2023-06-01",
@@ -21005,6 +21015,7 @@
       {
         "resourceType": "operationResults",
         "apiVersions": [
+          "2024-03-01-preview",
           "2023-09-01-preview",
           "2023-06-01",
           "2023-03-03-preview",
@@ -21014,6 +21025,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2024-03-01-preview",
           "2023-09-01-preview",
           "2023-06-01",
           "2023-03-23-preview",
@@ -21024,6 +21036,7 @@
       {
         "resourceType": "solutions",
         "apiVersions": [
+          "2024-03-01-preview",
           "2023-09-01-preview",
           "2023-03-03-preview"
         ]
@@ -21031,6 +21044,7 @@
       {
         "resourceType": "troubleshooters",
         "apiVersions": [
+          "2024-03-01-preview",
           "2023-09-01-preview",
           "2023-03-23-preview"
         ]

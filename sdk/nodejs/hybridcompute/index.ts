@@ -25,6 +25,11 @@ export const getMachineExtension: typeof import("./getMachineExtension").getMach
 export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
 utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
 
+export { GetMachineRunCommandArgs, GetMachineRunCommandResult, GetMachineRunCommandOutputArgs } from "./getMachineRunCommand";
+export const getMachineRunCommand: typeof import("./getMachineRunCommand").getMachineRunCommand = null as any;
+export const getMachineRunCommandOutput: typeof import("./getMachineRunCommand").getMachineRunCommandOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineRunCommand","getMachineRunCommandOutput"], () => require("./getMachineRunCommand"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -60,6 +65,11 @@ export type MachineExtension = import("./machineExtension").MachineExtension;
 export const MachineExtension: typeof import("./machineExtension").MachineExtension = null as any;
 utilities.lazyLoad(exports, ["MachineExtension"], () => require("./machineExtension"));
 
+export { MachineRunCommandArgs } from "./machineRunCommand";
+export type MachineRunCommand = import("./machineRunCommand").MachineRunCommand;
+export const MachineRunCommand: typeof import("./machineRunCommand").MachineRunCommand = null as any;
+utilities.lazyLoad(exports, ["MachineRunCommand"], () => require("./machineRunCommand"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -85,6 +95,7 @@ import * as v20200815preview from "./v20200815preview";
 import * as v20220510preview from "./v20220510preview";
 import * as v20221227 from "./v20221227";
 import * as v20230620preview from "./v20230620preview";
+import * as v20231003preview from "./v20231003preview";
 
 export {
     v20200802,
@@ -92,6 +103,7 @@ export {
     v20220510preview,
     v20221227,
     v20230620preview,
+    v20231003preview,
 };
 
 const _module = {
@@ -106,6 +118,8 @@ const _module = {
                 return new Machine(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:MachineExtension":
                 return new MachineExtension(name, <any>undefined, { urn })
+            case "azure-native:hybridcompute:MachineRunCommand":
+                return new MachineRunCommand(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:PrivateLinkScope":

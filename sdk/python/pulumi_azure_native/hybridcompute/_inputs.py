@@ -19,12 +19,15 @@ __all__ = [
     'MachineExtensionInstanceViewStatusArgs',
     'MachineExtensionInstanceViewArgs',
     'MachineExtensionPropertiesArgs',
+    'MachineRunCommandScriptSourceArgs',
     'OSProfileLinuxConfigurationArgs',
     'OSProfileWindowsConfigurationArgs',
     'OSProfileArgs',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointPropertyArgs',
     'PrivateLinkServiceConnectionStatePropertyArgs',
+    'RunCommandInputParameterArgs',
+    'RunCommandManagedIdentityArgs',
     'ServiceStatusesArgs',
     'ServiceStatusArgs',
 ]
@@ -605,6 +608,78 @@ class MachineExtensionPropertiesArgs:
 
 
 @pulumi.input_type
+class MachineRunCommandScriptSourceArgs:
+    def __init__(__self__, *,
+                 command_id: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None,
+                 script_uri: Optional[pulumi.Input[str]] = None,
+                 script_uri_managed_identity: Optional[pulumi.Input['RunCommandManagedIdentityArgs']] = None):
+        """
+        Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+        :param pulumi.Input[str] command_id: Specifies the commandId of predefined built-in script.
+        :param pulumi.Input[str] script: Specifies the script content to be executed on the machine.
+        :param pulumi.Input[str] script_uri: Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
+        :param pulumi.Input['RunCommandManagedIdentityArgs'] script_uri_managed_identity: User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        """
+        if command_id is not None:
+            pulumi.set(__self__, "command_id", command_id)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if script_uri_managed_identity is not None:
+            pulumi.set(__self__, "script_uri_managed_identity", script_uri_managed_identity)
+
+    @property
+    @pulumi.getter(name="commandId")
+    def command_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the commandId of predefined built-in script.
+        """
+        return pulumi.get(self, "command_id")
+
+    @command_id.setter
+    def command_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "command_id", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the script content to be executed on the machine.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
+        """
+        return pulumi.get(self, "script_uri")
+
+    @script_uri.setter
+    def script_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_uri", value)
+
+    @property
+    @pulumi.getter(name="scriptUriManagedIdentity")
+    def script_uri_managed_identity(self) -> Optional[pulumi.Input['RunCommandManagedIdentityArgs']]:
+        """
+        User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        """
+        return pulumi.get(self, "script_uri_managed_identity")
+
+    @script_uri_managed_identity.setter
+    def script_uri_managed_identity(self, value: Optional[pulumi.Input['RunCommandManagedIdentityArgs']]):
+        pulumi.set(self, "script_uri_managed_identity", value)
+
+
+@pulumi.input_type
 class OSProfileLinuxConfigurationArgs:
     def __init__(__self__, *,
                  assessment_mode: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]] = None,
@@ -824,6 +899,84 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
     @status.setter
     def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class RunCommandInputParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Describes the properties of a run command parameter.
+        :param pulumi.Input[str] name: The run command parameter name.
+        :param pulumi.Input[str] value: The run command parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The run command parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The run command parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RunCommandManagedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None):
+        """
+         Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        :param pulumi.Input[str] client_id: Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
+        :param pulumi.Input[str] object_id: Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
 
 
 @pulumi.input_type

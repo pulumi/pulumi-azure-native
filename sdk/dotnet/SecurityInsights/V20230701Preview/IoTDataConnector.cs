@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:IoTDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:IoTDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:IoTDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:IoTDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

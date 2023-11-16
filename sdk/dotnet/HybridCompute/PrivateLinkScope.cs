@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridCompute
     /// An Azure Arc PrivateLinkScope definition.
     /// Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview.
     /// 
-    /// Other available API versions: 2020-08-15-preview, 2023-06-20-preview.
+    /// Other available API versions: 2020-08-15-preview, 2023-06-20-preview, 2023-10-03-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:PrivateLinkScope")]
     public partial class PrivateLinkScope : global::Pulumi.CustomResource
@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221227preview:PrivateLinkScope"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230315preview:PrivateLinkScope"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230620preview:PrivateLinkScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20231003preview:PrivateLinkScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

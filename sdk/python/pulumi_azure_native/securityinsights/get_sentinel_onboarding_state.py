@@ -113,7 +113,7 @@ def get_sentinel_onboarding_state(resource_group_name: Optional[str] = None,
     Get Sentinel onboarding state
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -145,7 +145,7 @@ def get_sentinel_onboarding_state_output(resource_group_name: Optional[pulumi.In
     Get Sentinel onboarding state
     Azure REST API version: 2023-02-01.
 
-    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview.
+    Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

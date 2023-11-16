@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:WorkspaceManagerMember"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:WorkspaceManagerMember"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:WorkspaceManagerMember"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:WorkspaceManagerMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -5227,6 +5227,18 @@
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
     ],
+    "2023-10-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
     "2023-10-15": [
       "Fleet",
       "FleetMember",
@@ -9206,6 +9218,15 @@
       "LicenseProfile",
       "Machine",
       "MachineExtension",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
+    ],
+    "2023-10-03-preview": [
+      "License",
+      "LicenseProfile",
+      "Machine",
+      "MachineExtension",
+      "MachineRunCommand",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
     ]
@@ -17486,6 +17507,40 @@
       "listSourceControlRepositories"
     ],
     "2023-09-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "DataConnectorDefinition",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2023-10-01-preview": [
       "Action",
       "AlertRule",
       "AutomationRule",

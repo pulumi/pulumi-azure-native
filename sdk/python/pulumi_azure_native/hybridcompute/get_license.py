@@ -160,6 +160,8 @@ def get_license(license_name: Optional[str] = None,
     Retrieves information about the view of a license.
     Azure REST API version: 2023-06-20-preview.
 
+    Other available API versions: 2023-10-03-preview.
+
 
     :param str license_name: The name of the license.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -190,6 +192,8 @@ def get_license_output(license_name: Optional[pulumi.Input[str]] = None,
     """
     Retrieves information about the view of a license.
     Azure REST API version: 2023-06-20-preview.
+
+    Other available API versions: 2023-10-03-preview.
 
 
     :param str license_name: The name of the license.

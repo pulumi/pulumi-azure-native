@@ -111,7 +111,7 @@ export class License extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:License" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:License" }, { type: "azure-native:hybridcompute/v20231003preview:License" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(License.__pulumiType, name, resourceInputs, opts);
     }

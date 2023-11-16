@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Retrieves information about the view of a license profile.
         /// Azure REST API version: 2023-06-20-preview.
+        /// 
+        /// Other available API versions: 2023-10-03-preview.
         /// </summary>
         public static Task<GetLicenseProfileResult> InvokeAsync(GetLicenseProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseProfileResult>("azure-native:hybridcompute:getLicenseProfile", args ?? new GetLicenseProfileArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// Retrieves information about the view of a license profile.
         /// Azure REST API version: 2023-06-20-preview.
+        /// 
+        /// Other available API versions: 2023-10-03-preview.
         /// </summary>
         public static Output<GetLicenseProfileResult> Invoke(GetLicenseProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseProfileResult>("azure-native:hybridcompute:getLicenseProfile", args ?? new GetLicenseProfileInvokeArgs(), options.WithDefaults());

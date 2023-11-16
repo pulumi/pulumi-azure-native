@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.HybridCompute
     /// <summary>
     /// Describes a license profile in a hybrid machine.
     /// Azure REST API version: 2023-06-20-preview.
+    /// 
+    /// Other available API versions: 2023-10-03-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:LicenseProfile")]
     public partial class LicenseProfile : global::Pulumi.CustomResource
@@ -114,6 +116,7 @@ namespace Pulumi.AzureNative.HybridCompute
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230620preview:LicenseProfile"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20231003preview:LicenseProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
