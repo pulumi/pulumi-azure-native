@@ -8787,6 +8787,22 @@
       "listDisasterRecoveryConfigKeys",
       "listEventHubKeys",
       "listNamespaceKeys"
+    ],
+    "2024-01-01": [
+      "ApplicationGroup",
+      "Cluster",
+      "ConsumerGroup",
+      "DisasterRecoveryConfig",
+      "EventHub",
+      "EventHubAuthorizationRule",
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "NamespaceNetworkRuleSet",
+      "PrivateEndpointConnection",
+      "SchemaRegistry",
+      "listDisasterRecoveryConfigKeys",
+      "listEventHubKeys",
+      "listNamespaceKeys"
     ]
   },
   "ExtendedLocation": {
@@ -9083,6 +9099,16 @@
       "WorkspacePrivateEndpointConnection"
     ],
     "2023-09-06": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
+    ],
+    "2023-11-01": [
       "DicomService",
       "FhirService",
       "IotConnector",
