@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub
     /// Description of topic resource.
     /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
     /// 
-    /// Other available API versions: 2023-01-01-preview.
+    /// Other available API versions: 2023-01-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.EventHub
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:NamespaceNetworkRuleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:NamespaceNetworkRuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

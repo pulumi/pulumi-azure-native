@@ -240,6 +240,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "OffAzureSpringBoot",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "Quota",
     "Detail": "expected tracking stable but found preview"
   },

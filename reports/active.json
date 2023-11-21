@@ -949,6 +949,10 @@
       "2023-05-01",
       "2023-05-02-preview",
       "2023-08-01-preview"
+    ],
+    "sessionpools": [
+      "2023-08-01-preview",
+      "2023-11-02-preview"
     ]
   },
   "appassessment": {
@@ -4698,7 +4702,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "appliedreservations": [
       "2017-11-01",
@@ -4717,7 +4723,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "calculateexchange": [
       "2018-06-01",
@@ -4735,7 +4743,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "calculateprice": [
       "2017-11-01",
@@ -4754,7 +4764,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "calculatepurchaseprice": [
       "2019-06-01-beta",
@@ -4778,7 +4790,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "checkbenefitscopes": [
       "2021-03-01-beta",
@@ -4833,7 +4847,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "listbenefits": [
       "2019-04-01",
@@ -4855,7 +4871,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "operations": [
       "2017-11-01",
@@ -4873,7 +4891,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "ownreservations": [
       "2020-06-01",
@@ -4903,7 +4923,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/availablescopes": [
       "2017-11-01",
@@ -4931,7 +4953,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/changedirectory": [
       "2020-11-15",
@@ -4945,7 +4969,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/merge": [
       "2017-11-01",
@@ -4964,7 +4990,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/reservations": [
       "2017-11-01",
@@ -4985,7 +5013,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/reservations/availablescopes": [
       "2019-04-01",
@@ -4997,7 +5027,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/reservations/revisions": [
       "2017-11-01",
@@ -5016,7 +5048,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/return": [
       "2017-11-01",
@@ -5034,7 +5068,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/split": [
       "2017-11-01",
@@ -5053,7 +5089,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "reservationorders/swap": [
       "2018-06-01",
@@ -5081,7 +5119,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "resourceproviders": [
       "2019-07-19-preview",
@@ -5117,7 +5157,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ]
   },
   "carbon": {
@@ -10435,6 +10477,29 @@
       "2023-10-02-preview"
     ]
   },
+  "containerstorage": {
+    "": [
+      "2023-07-01-preview"
+    ],
+    "locations": [
+      "2023-07-01-preview"
+    ],
+    "locations/asyncoperations": [
+      "2023-07-01-preview"
+    ],
+    "operations": [
+      "2023-07-01-preview"
+    ],
+    "pools": [
+      "2023-07-01-preview"
+    ],
+    "pools/snapshots": [
+      "2023-07-01-preview"
+    ],
+    "pools/volumes": [
+      "2023-07-01-preview"
+    ]
+  },
   "costmanagement": {
     "": [
       "2018-03-31",
@@ -11465,36 +11530,6 @@
     "operations": [
       "2015-07-01-preview",
       "2016-03-30"
-    ]
-  },
-  "datacollaboration": {
-    "": [
-      "2020-05-04-preview",
-      "2022-05-04-preview"
-    ],
-    "listinvitations": [
-      "2020-05-04-preview",
-      "2022-05-04-preview"
-    ],
-    "locations": [
-      "2020-05-04-preview",
-      "2022-05-04-preview"
-    ],
-    "locations/consumerinvitations": [
-      "2020-05-04-preview",
-      "2022-05-04-preview"
-    ],
-    "locations/consumerinvitations/reject": [
-      "2020-05-04-preview",
-      "2022-05-04-preview"
-    ],
-    "locations/operationresults": [
-      "2020-05-04-preview",
-      "2022-05-04-preview"
-    ],
-    "operations": [
-      "2020-05-04-preview",
-      "2022-05-04-preview"
     ]
   },
   "datadog": {
@@ -20625,17 +20660,6 @@
       "2022-10-01"
     ]
   },
-  "managedstorageclass": {
-    "": [
-      "2023-02-01-preview"
-    ],
-    "locations": [
-      "2023-02-01-preview"
-    ],
-    "locations/operationstatuses": [
-      "2023-02-01-preview"
-    ]
-  },
   "management": {
     "": [
       "2017-05-31-preview",
@@ -21569,59 +21593,73 @@
   "mission": {
     "": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "catalogs": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "checknameavailability": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "communities": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "communities/communityendpoints": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "communities/transithubs": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "enclaveconnections": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "externalconnections": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "internalconnections": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "locations": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "locations/operationstatuses": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "operations": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "virtualenclaves": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "virtualenclaves/enclaveendpoints": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ],
     "virtualenclaves/endpoints": [
       "2023-02-01-preview",
@@ -21629,7 +21667,8 @@
     ],
     "virtualenclaves/workloads": [
       "2023-02-01-preview",
-      "2023-08-01-preview"
+      "2023-08-01-preview",
+      "2023-11-01-preview"
     ]
   },
   "mixedreality": {
@@ -27556,14 +27595,16 @@
       "2021-12-01-preview",
       "2022-09-01-privatepreview",
       "2022-10-01",
-      "2023-01-01-preview"
+      "2023-01-01-preview",
+      "2023-09-01"
     ],
     "clusters": [
       "2019-08-01-preview",
       "2020-03-01-preview",
       "2020-08-01",
       "2020-10-01",
-      "2021-06-01"
+      "2021-06-01",
+      "2022-10-01"
     ],
     "deletedworkspaces": [
       "2020-03-01-preview",
@@ -27614,7 +27655,8 @@
       "2020-08-01",
       "2020-10-01",
       "2021-12-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-09-01"
     ],
     "querypacks": [
       "2019-09-01",
@@ -27638,7 +27680,8 @@
       "2021-03-01-privatepreview",
       "2021-06-01",
       "2021-12-01-preview",
-      "2022-10-01"
+      "2022-10-01",
+      "2023-09-01"
     ],
     "workspaces/api": [
       "2017-01-01-preview",
@@ -38856,14 +38899,16 @@
       "2022-09-01-preview",
       "2022-12-01-preview",
       "2023-02-01-preview",
-      "2023-04-01-preview"
+      "2023-04-01-preview",
+      "2023-09-01-preview"
     ],
     "operations": [
       "2021-05-01-preview",
       "2022-09-01-preview",
       "2022-12-01-preview",
       "2023-02-01-preview",
-      "2023-04-01-preview"
+      "2023-04-01-preview",
+      "2023-09-01-preview"
     ]
   },
   "videoindexer": {

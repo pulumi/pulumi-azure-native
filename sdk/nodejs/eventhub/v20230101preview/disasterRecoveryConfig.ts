@@ -115,7 +115,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20211101:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20220101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20221001preview:DisasterRecoveryConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20210601preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20211101:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20220101preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20221001preview:DisasterRecoveryConfig" }, { type: "azure-native:eventhub/v20240101:DisasterRecoveryConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DisasterRecoveryConfig.__pulumiType, name, resourceInputs, opts);
     }

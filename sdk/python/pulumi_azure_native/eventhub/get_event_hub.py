@@ -197,7 +197,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
     Gets an Event Hubs description for the specified Event Hub.
     Azure REST API version: 2022-10-01-preview.
 
-    Other available API versions: 2015-08-01, 2023-01-01-preview.
+    Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01.
 
 
     :param str event_hub_name: The Event Hub name
@@ -236,7 +236,7 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
     Gets an Event Hubs description for the specified Event Hub.
     Azure REST API version: 2022-10-01-preview.
 
-    Other available API versions: 2015-08-01, 2023-01-01-preview.
+    Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01.
 
 
     :param str event_hub_name: The Event Hub name

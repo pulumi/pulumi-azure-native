@@ -166,6 +166,7 @@ import * as networkcloud from "./networkcloud";
 import * as networkfunction from "./networkfunction";
 import * as notificationhubs from "./notificationhubs";
 import * as offazure from "./offazure";
+import * as offazurespringboot from "./offazurespringboot";
 import * as openenergyplatform from "./openenergyplatform";
 import * as operationalinsights from "./operationalinsights";
 import * as operationsmanagement from "./operationsmanagement";
@@ -390,6 +391,7 @@ export {
     networkfunction,
     notificationhubs,
     offazure,
+    offazurespringboot,
     openenergyplatform,
     operationalinsights,
     operationsmanagement,

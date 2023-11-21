@@ -31,7 +31,7 @@ class AlertsSuppressionRuleArgs:
         :param pulumi.Input[Union[str, 'RuleState']] state: Possible states of the rule
         :param pulumi.Input[str] alerts_suppression_rule_name: The unique name of the suppression alert rule
         :param pulumi.Input[str] comment: Any comment regarding the rule
-        :param pulumi.Input[str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+        :param pulumi.Input[str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         :param pulumi.Input['SuppressionAlertsScopeArgs'] suppression_alerts_scope: The suppression conditions
         """
         pulumi.set(__self__, "alert_type", alert_type)
@@ -110,7 +110,7 @@ class AlertsSuppressionRuleArgs:
     @pulumi.getter(name="expirationDateUtc")
     def expiration_date_utc(self) -> Optional[pulumi.Input[str]]:
         """
-        Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+        Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         """
         return pulumi.get(self, "expiration_date_utc")
 
@@ -153,7 +153,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         :param pulumi.Input[str] alert_type: Type of the alert to automatically suppress. For all alert types, use '*'
         :param pulumi.Input[str] alerts_suppression_rule_name: The unique name of the suppression alert rule
         :param pulumi.Input[str] comment: Any comment regarding the rule
-        :param pulumi.Input[str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+        :param pulumi.Input[str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         :param pulumi.Input[str] reason: The reason for dismissing the alert
         :param pulumi.Input[Union[str, 'RuleState']] state: Possible states of the rule
         :param pulumi.Input[pulumi.InputType['SuppressionAlertsScopeArgs']] suppression_alerts_scope: The suppression conditions
@@ -270,7 +270,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
     @pulumi.getter(name="expirationDateUtc")
     def expiration_date_utc(self) -> pulumi.Output[Optional[str]]:
         """
-        Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+        Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         """
         return pulumi.get(self, "expiration_date_utc")
 

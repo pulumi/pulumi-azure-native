@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Security
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+        /// Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         /// </summary>
         [Output("expirationDateUtc")]
         public Output<string?> ExpirationDateUtc { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Security
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+        /// Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         /// </summary>
         [Input("expirationDateUtc")]
         public Input<string>? ExpirationDateUtc { get; set; }

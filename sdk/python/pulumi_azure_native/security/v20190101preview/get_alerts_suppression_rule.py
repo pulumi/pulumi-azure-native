@@ -74,7 +74,7 @@ class GetAlertsSuppressionRuleResult:
     @pulumi.getter(name="expirationDateUtc")
     def expiration_date_utc(self) -> Optional[str]:
         """
-        Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+        Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         """
         return pulumi.get(self, "expiration_date_utc")
 

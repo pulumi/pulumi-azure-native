@@ -136,6 +136,7 @@ import * as networkcloud from "./networkcloud";
 import * as networkfunction from "./networkfunction";
 import * as notificationhubs from "./notificationhubs";
 import * as offazure from "./offazure";
+import * as offazurespringboot from "./offazurespringboot";
 import * as operationalinsights from "./operationalinsights";
 import * as orbital from "./orbital";
 import * as peering from "./peering";
@@ -331,6 +332,7 @@ export {
     networkfunction,
     notificationhubs,
     offazure,
+    offazurespringboot,
     operationalinsights,
     orbital,
     peering,

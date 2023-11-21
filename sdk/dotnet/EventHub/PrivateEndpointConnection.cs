@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub
     /// Properties of the PrivateEndpointConnection.
     /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
     /// 
-    /// Other available API versions: 2023-01-01-preview.
+    /// Other available API versions: 2023-01-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.EventHub
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

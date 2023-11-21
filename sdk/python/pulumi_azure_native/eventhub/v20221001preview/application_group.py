@@ -194,7 +194,7 @@ class ApplicationGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub:ApplicationGroup"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:eventhub/v20230101preview:ApplicationGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub:ApplicationGroup"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:eventhub/v20230101preview:ApplicationGroup"), pulumi.Alias(type_="azure-native:eventhub/v20240101:ApplicationGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGroup, __self__).__init__(
             'azure-native:eventhub/v20221001preview:ApplicationGroup',

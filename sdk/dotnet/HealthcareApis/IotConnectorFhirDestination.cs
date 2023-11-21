@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// IoT Connector FHIR destination definition.
     /// Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
     /// 
-    /// Other available API versions: 2023-09-06.
+    /// Other available API versions: 2023-09-06, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:IotConnectorFhirDestination")]
     public partial class IotConnectorFhirDestination : global::Pulumi.CustomResource
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:IotConnectorFhirDestination"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:IotConnectorFhirDestination"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:IotConnectorFhirDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:IotConnectorFhirDestination"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

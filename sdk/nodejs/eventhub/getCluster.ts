@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the resource description of the specified Event Hubs Cluster.
  * Azure REST API version: 2022-10-01-preview.
  *
- * Other available API versions: 2023-01-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2024-01-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -90,7 +90,7 @@ export interface GetClusterResult {
  * Gets the resource description of the specified Event Hubs Cluster.
  * Azure REST API version: 2022-10-01-preview.
  *
- * Other available API versions: 2023-01-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2024-01-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

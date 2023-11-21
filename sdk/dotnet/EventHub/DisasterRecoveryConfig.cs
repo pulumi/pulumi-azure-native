@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventHub
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
     /// 
-    /// Other available API versions: 2023-01-01-preview.
+    /// Other available API versions: 2023-01-01-preview, 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : global::Pulumi.CustomResource
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.EventHub
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:DisasterRecoveryConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:DisasterRecoveryConfig"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:DisasterRecoveryConfig"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:DisasterRecoveryConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

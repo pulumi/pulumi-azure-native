@@ -47,7 +47,7 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+     * Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
      */
     public readonly expirationDateUtc!: pulumi.Output<string | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface AlertsSuppressionRuleArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+     * Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
      */
     expirationDateUtc?: pulumi.Input<string>;
     /**

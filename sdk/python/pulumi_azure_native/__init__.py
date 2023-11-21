@@ -317,6 +317,8 @@ if typing.TYPE_CHECKING:
     notificationhubs = __notificationhubs
     import pulumi_azure_native.offazure as __offazure
     offazure = __offazure
+    import pulumi_azure_native.offazurespringboot as __offazurespringboot
+    offazurespringboot = __offazurespringboot
     import pulumi_azure_native.openenergyplatform as __openenergyplatform
     openenergyplatform = __openenergyplatform
     import pulumi_azure_native.operationalinsights as __operationalinsights
@@ -606,6 +608,7 @@ else:
     networkfunction = _utilities.lazy_import('pulumi_azure_native.networkfunction')
     notificationhubs = _utilities.lazy_import('pulumi_azure_native.notificationhubs')
     offazure = _utilities.lazy_import('pulumi_azure_native.offazure')
+    offazurespringboot = _utilities.lazy_import('pulumi_azure_native.offazurespringboot')
     openenergyplatform = _utilities.lazy_import('pulumi_azure_native.openenergyplatform')
     operationalinsights = _utilities.lazy_import('pulumi_azure_native.operationalinsights')
     operationsmanagement = _utilities.lazy_import('pulumi_azure_native.operationsmanagement')
@@ -6345,6 +6348,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "eventhub/v20240101",
+  "fqn": "pulumi_azure_native.eventhub.v20240101",
+  "classes": {
+   "azure-native:eventhub/v20240101:ApplicationGroup": "ApplicationGroup",
+   "azure-native:eventhub/v20240101:Cluster": "Cluster",
+   "azure-native:eventhub/v20240101:ConsumerGroup": "ConsumerGroup",
+   "azure-native:eventhub/v20240101:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:eventhub/v20240101:EventHub": "EventHub",
+   "azure-native:eventhub/v20240101:EventHubAuthorizationRule": "EventHubAuthorizationRule",
+   "azure-native:eventhub/v20240101:Namespace": "Namespace",
+   "azure-native:eventhub/v20240101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:eventhub/v20240101:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:eventhub/v20240101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventhub/v20240101:SchemaRegistry": "SchemaRegistry"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "extendedlocation",
   "fqn": "pulumi_azure_native.extendedlocation",
   "classes": {
@@ -6626,6 +6647,21 @@ _utilities.register(
    "azure-native:healthcareapis/v20230906:Service": "Service",
    "azure-native:healthcareapis/v20230906:Workspace": "Workspace",
    "azure-native:healthcareapis/v20230906:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "healthcareapis/v20231101",
+  "fqn": "pulumi_azure_native.healthcareapis.v20231101",
+  "classes": {
+   "azure-native:healthcareapis/v20231101:DicomService": "DicomService",
+   "azure-native:healthcareapis/v20231101:FhirService": "FhirService",
+   "azure-native:healthcareapis/v20231101:IotConnector": "IotConnector",
+   "azure-native:healthcareapis/v20231101:IotConnectorFhirDestination": "IotConnectorFhirDestination",
+   "azure-native:healthcareapis/v20231101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:healthcareapis/v20231101:Service": "Service",
+   "azure-native:healthcareapis/v20231101:Workspace": "Workspace",
+   "azure-native:healthcareapis/v20231101:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
   }
  },
  {
@@ -10207,6 +10243,24 @@ _utilities.register(
    "azure-native:offazure/v20230606:VcenterController": "VcenterController",
    "azure-native:offazure/v20230606:WebAppDiscoverySiteDataSourcesController": "WebAppDiscoverySiteDataSourcesController",
    "azure-native:offazure/v20230606:WebAppSitesController": "WebAppSitesController"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "offazurespringboot",
+  "fqn": "pulumi_azure_native.offazurespringboot",
+  "classes": {
+   "azure-native:offazurespringboot:Springbootserver": "Springbootserver",
+   "azure-native:offazurespringboot:Springbootsite": "Springbootsite"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "offazurespringboot/v20230101preview",
+  "fqn": "pulumi_azure_native.offazurespringboot.v20230101preview",
+  "classes": {
+   "azure-native:offazurespringboot/v20230101preview:Springbootserver": "Springbootserver",
+   "azure-native:offazurespringboot/v20230101preview:Springbootsite": "Springbootsite"
   }
  },
  {

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventHub
         /// Gets an ApplicationGroup for a Namespace.
         /// Azure REST API version: 2022-10-01-preview.
         /// 
-        /// Other available API versions: 2023-01-01-preview.
+        /// Other available API versions: 2023-01-01-preview, 2024-01-01.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventHub
         /// Gets an ApplicationGroup for a Namespace.
         /// Azure REST API version: 2022-10-01-preview.
         /// 
-        /// Other available API versions: 2023-01-01-preview.
+        /// Other available API versions: 2023-01-01-preview, 2024-01-01.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());

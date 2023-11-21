@@ -184,7 +184,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     Gets the resource description of the specified Event Hubs Cluster.
     Azure REST API version: 2022-10-01-preview.
 
-    Other available API versions: 2023-01-01-preview.
+    Other available API versions: 2023-01-01-preview, 2024-01-01.
 
 
     :param str cluster_name: The name of the Event Hubs Cluster.
@@ -219,7 +219,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     Gets the resource description of the specified Event Hubs Cluster.
     Azure REST API version: 2022-10-01-preview.
 
-    Other available API versions: 2023-01-01-preview.
+    Other available API versions: 2023-01-01-preview, 2024-01-01.
 
 
     :param str cluster_name: The name of the Event Hubs Cluster.

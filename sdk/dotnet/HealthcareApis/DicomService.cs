@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// The description of Dicom Service
     /// Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
     /// 
-    /// Other available API versions: 2023-09-06.
+    /// Other available API versions: 2023-09-06, 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:DicomService")]
     public partial class DicomService : global::Pulumi.CustomResource
@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20221201:DicomService"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230228:DicomService"},
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20230906:DicomService"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231101:DicomService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

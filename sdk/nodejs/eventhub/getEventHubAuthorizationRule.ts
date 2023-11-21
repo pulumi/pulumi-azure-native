@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets an AuthorizationRule for an Event Hub by rule name.
  * Azure REST API version: 2022-10-01-preview.
  *
- * Other available API versions: 2015-08-01, 2023-01-01-preview.
+ * Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01.
  */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
 
@@ -76,7 +76,7 @@ export interface GetEventHubAuthorizationRuleResult {
  * Gets an AuthorizationRule for an Event Hub by rule name.
  * Azure REST API version: 2022-10-01-preview.
  *
- * Other available API versions: 2015-08-01, 2023-01-01-preview.
+ * Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01.
  */
 export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getEventHubAuthorizationRule(a, opts))

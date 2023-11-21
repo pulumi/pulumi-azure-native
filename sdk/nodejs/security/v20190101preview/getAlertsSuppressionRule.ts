@@ -38,7 +38,7 @@ export interface GetAlertsSuppressionRuleResult {
      */
     readonly comment?: string;
     /**
-     * Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+     * Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
      */
     readonly expirationDateUtc?: string;
     /**

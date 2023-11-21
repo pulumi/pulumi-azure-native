@@ -150,7 +150,7 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
     Gets the properties of the specified Iot Connector FHIR destination.
     Azure REST API version: 2023-02-28.
 
-    Other available API versions: 2023-09-06.
+    Other available API versions: 2023-09-06, 2023-11-01.
 
 
     :param str fhir_destination_name: The name of IoT Connector FHIR destination resource.
@@ -188,7 +188,7 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
     Gets the properties of the specified Iot Connector FHIR destination.
     Azure REST API version: 2023-02-28.
 
-    Other available API versions: 2023-09-06.
+    Other available API versions: 2023-09-06, 2023-11-01.
 
 
     :param str fhir_destination_name: The name of IoT Connector FHIR destination resource.

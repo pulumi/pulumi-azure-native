@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Application Group object
  * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
  *
- * Other available API versions: 2023-01-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2024-01-01.
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20220101preview:ApplicationGroup" }, { type: "azure-native:eventhub/v20221001preview:ApplicationGroup" }, { type: "azure-native:eventhub/v20230101preview:ApplicationGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20220101preview:ApplicationGroup" }, { type: "azure-native:eventhub/v20221001preview:ApplicationGroup" }, { type: "azure-native:eventhub/v20230101preview:ApplicationGroup" }, { type: "azure-native:eventhub/v20240101:ApplicationGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
