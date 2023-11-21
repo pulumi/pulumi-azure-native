@@ -1887,6 +1887,10 @@
     "listServerSitesControllerHealthSummary": "2023-06-06",
     "listSitesControllerHealthSummary": "2023-06-06"
   },
+  "OffAzureSpringBoot": {
+    "springbootserver": "2023-01-01-preview",
+    "springbootsite": "2023-01-01-preview"
+  },
   "OpenEnergyPlatform": {
     "EnergyService": "2022-04-04-preview",
     "listEnergyServicePartitions": "2022-04-04-preview"
