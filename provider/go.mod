@@ -22,9 +22,9 @@ require (
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-java/pkg v0.9.8
-	github.com/pulumi/pulumi-yaml v1.4.1
-	github.com/pulumi/pulumi/pkg/v3 v3.94.0
-	github.com/pulumi/pulumi/sdk/v3 v3.94.0
+	github.com/pulumi/pulumi-yaml v1.4.2
+	github.com/pulumi/pulumi/pkg/v3 v3.94.2
+	github.com/pulumi/pulumi/sdk/v3 v3.94.2
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
@@ -83,7 +83,7 @@ require (
 	github.com/muesli/termenv v0.15.1 // indirect
 	github.com/oklog/run v1.1.0 // indirect
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
-	github.com/pulumi/esc v0.5.7-0.20231030195049-f71961c0d5fa // indirect
+	github.com/pulumi/esc v0.6.0 // indirect
 	github.com/skeema/knownhosts v1.2.0 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
 	github.com/tidwall/gjson v1.16.0 // indirect
