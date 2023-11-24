@@ -15433,6 +15433,17 @@
       "getNotificationHubPnsCredentials",
       "listNamespaceKeys",
       "listNotificationHubKeys"
+    ],
+    "2023-10-01-preview": [
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "NotificationHub",
+      "NotificationHubAuthorizationRule",
+      "PrivateEndpointConnection",
+      "getNamespacePnsCredentials",
+      "getNotificationHubPnsCredentials",
+      "listNamespaceKeys",
+      "listNotificationHubKeys"
     ]
   },
   "OffAzure": {
