@@ -33,30 +33,30 @@ type oidcConfig struct {
 }
 
 // Assumes that OIDC authentication is requested. Accordingly, returns an error if OIDC is not
-// properly configured.
+// properly configured. If ARM_OIDC_TOKEN/azure-native:oidcToken is set, it is preferred.
 func (k *azureNativeProvider) determineOidcConfig() (oidcConfig, error) {
-	oidcRequestToken := k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN")
-	oidcRequestUrl := k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL")
-	if oidcRequestToken != "" && oidcRequestUrl != "" {
-		return oidcConfig{
-			oidcRequestToken: oidcRequestToken,
-			oidcRequestUrl:   oidcRequestUrl,
-		}, nil
-	}
-
-	oidcRequestToken = k.getConfig("oidcRequestToken", "ARM_OIDC_REQUEST_TOKEN")
-	oidcRequestUrl = k.getConfig("oidcRequestUrl", "ARM_OIDC_REQUEST_URL")
-	if oidcRequestToken != "" && oidcRequestUrl != "" {
-		return oidcConfig{
-			oidcRequestToken: oidcRequestToken,
-			oidcRequestUrl:   oidcRequestUrl,
-		}, nil
-	}
-
 	oidcToken := k.getConfig("oidcToken", "ARM_OIDC_TOKEN")
 	if oidcToken != "" {
 		return oidcConfig{
 			oidcToken: oidcToken,
+		}, nil
+	}
+
+	oidcRequestToken := k.getConfig("oidcRequestToken", "ARM_OIDC_REQUEST_TOKEN")
+	oidcRequestUrl := k.getConfig("oidcRequestUrl", "ARM_OIDC_REQUEST_URL")
+	if oidcRequestToken != "" && oidcRequestUrl != "" {
+		return oidcConfig{
+			oidcRequestToken: oidcRequestToken,
+			oidcRequestUrl:   oidcRequestUrl,
+		}, nil
+	}
+
+	oidcRequestToken = k.getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN")
+	oidcRequestUrl = k.getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL")
+	if oidcRequestToken != "" && oidcRequestUrl != "" {
+		return oidcConfig{
+			oidcRequestToken: oidcRequestToken,
+			oidcRequestUrl:   oidcRequestUrl,
 		}, nil
 	}
 

@@ -116,3 +116,17 @@ func TestOidcUrlTokenPairValidation(t *testing.T) {
 	_, err := p.determineOidcConfig()
 	assert.NotNil(t, err)
 }
+
+func TestOidcPrefersToken(t *testing.T) {
+	p := azureNativeProvider{
+		config: map[string]string{
+			"oidcRequestToken": "t1",
+			"oidcRequestUrl":   "url1",
+			"oidcToken":        "t2",
+		},
+	}
+
+	config, err := p.determineOidcConfig()
+	assert.Nil(t, err)
+	assert.NotEmpty(t, config.oidcToken)
+}
