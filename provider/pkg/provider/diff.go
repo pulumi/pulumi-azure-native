@@ -216,17 +216,28 @@ func applyValueDiff(baseValue resource.PropertyValue, oldValue resource.Property
 func applyAzureSpecificDiff(diff *resource.ObjectDiff) {
 	updates := map[resource.PropertyKey]resource.ValueDiff{}
 	for k, v := range diff.Updates {
-		// Apply special diffing logic to top-level properties called "location".
-		// Those are special in the sense that casing and spaces are not significant.
-		if string(k) == "location" && v.Old.IsString() && v.New.IsString() {
-			if normalizedLocation(v.Old.StringValue()) == normalizedLocation(v.New.StringValue()) {
-				continue
+		// Apply special diffing logic to some well-known top-level properties.
+		switch string(k) {
+		case "resourceGroupName":
+			// "resourceGroupName" is case-insensitive.
+			if v.Old.IsString() && v.New.IsString() {
+				if strings.EqualFold(strings.ToLower(v.Old.StringValue()), v.New.StringValue()) {
+					continue
+				}
 			}
-		}
-		// Another special case is "sku" in AKS clusters.
-		if string(k) == "sku" && v.Old.IsObject() && v.New.IsObject() {
-			if sameManagedClusterSku(v.Old.ObjectValue(), v.New.ObjectValue()) {
-				continue
+		case "location":
+			// "location" is case- and spaces-insensitive.
+			if v.Old.IsString() && v.New.IsString() {
+				if normalizedLocation(v.Old.StringValue()) == normalizedLocation(v.New.StringValue()) {
+					continue
+				}
+			}
+		case "sku":
+			// Another special case is "sku" in AKS clusters.
+			if v.Old.IsObject() && v.New.IsObject() {
+				if sameManagedClusterSku(v.Old.ObjectValue(), v.New.ObjectValue()) {
+					continue
+				}
 			}
 		}
 		updates[k] = v
