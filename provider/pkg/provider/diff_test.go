@@ -445,6 +445,43 @@ func TestApplyDiff(t *testing.T) {
 	assert.Equal(t, expected, actual)
 }
 
+func TestResourceGroupNameDiffingIsCaseInsensitive(t *testing.T) {
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "path",
+				Name:     "resourceGroupName",
+			},
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"something": {Type: "string"},
+					},
+				},
+			},
+		},
+	}
+	variantsSame := []string{"MyRG", "myrg", "MYRG", "MyRg"}
+	for _, oldValue := range variantsSame {
+		for _, newValue := range variantsSame {
+			diff := resource.ObjectDiff{
+				Updates: map[resource.PropertyKey]resource.ValueDiff{
+					"resourceGroupName": {
+						Old: resource.PropertyValue{V: oldValue},
+						New: resource.PropertyValue{V: newValue},
+					},
+				},
+			}
+			emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
+			actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+			expected := map[string]*rpc.PropertyDiff{}
+			assert.Equal(t, expected, actual)
+		}
+	}
+}
+
 func TestLocationDiffingIsInsensitiveToSpacesAndCasing(t *testing.T) {
 	res := resources.AzureAPIResource{
 		PutParameters: []resources.AzureAPIParameter{
