@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Notification Hub Resource.
  * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
  *
- * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
+ * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
 export class NotificationHub extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class NotificationHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }, { type: "azure-native:notificationhubs/v20170401:NotificationHub" }, { type: "azure-native:notificationhubs/v20230101preview:NotificationHub" }, { type: "azure-native:notificationhubs/v20230901:NotificationHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:NotificationHub" }, { type: "azure-native:notificationhubs/v20160301:NotificationHub" }, { type: "azure-native:notificationhubs/v20170401:NotificationHub" }, { type: "azure-native:notificationhubs/v20230101preview:NotificationHub" }, { type: "azure-native:notificationhubs/v20230901:NotificationHub" }, { type: "azure-native:notificationhubs/v20231001preview:NotificationHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationHub.__pulumiType, name, resourceInputs, opts);
     }

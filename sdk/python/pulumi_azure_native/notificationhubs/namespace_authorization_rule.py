@@ -132,7 +132,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         Response for POST requests that return single SharedAccessAuthorizationRule.
         Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
+        Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,7 +153,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         Response for POST requests that return single SharedAccessAuthorizationRule.
         Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01.
+        Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +198,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20230901:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20230901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:notificationhubs/v20231001preview:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure-native:notificationhubs:NamespaceAuthorizationRule',

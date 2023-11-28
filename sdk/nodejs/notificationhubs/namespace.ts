@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Notification Hubs Namespace Resource.
  * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
  *
- * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01.
+ * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-native:notificationhubs/v20230101preview:Namespace" }, { type: "azure-native:notificationhubs/v20230901:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-native:notificationhubs/v20230101preview:Namespace" }, { type: "azure-native:notificationhubs/v20230901:Namespace" }, { type: "azure-native:notificationhubs/v20231001preview:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }

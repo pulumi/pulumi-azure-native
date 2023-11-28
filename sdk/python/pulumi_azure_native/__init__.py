@@ -4738,6 +4738,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dataprotection/v20231101",
+  "fqn": "pulumi_azure_native.dataprotection.v20231101",
+  "classes": {
+   "azure-native:dataprotection/v20231101:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20231101:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20231101:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20231101:DppResourceGuardProxy": "DppResourceGuardProxy",
+   "azure-native:dataprotection/v20231101:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datareplication",
   "fqn": "pulumi_azure_native.datareplication",
   "classes": {
@@ -10190,6 +10202,18 @@ _utilities.register(
    "azure-native:notificationhubs/v20230901:NotificationHub": "NotificationHub",
    "azure-native:notificationhubs/v20230901:NotificationHubAuthorizationRule": "NotificationHubAuthorizationRule",
    "azure-native:notificationhubs/v20230901:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "notificationhubs/v20231001preview",
+  "fqn": "pulumi_azure_native.notificationhubs.v20231001preview",
+  "classes": {
+   "azure-native:notificationhubs/v20231001preview:Namespace": "Namespace",
+   "azure-native:notificationhubs/v20231001preview:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:notificationhubs/v20231001preview:NotificationHub": "NotificationHub",
+   "azure-native:notificationhubs/v20231001preview:NotificationHubAuthorizationRule": "NotificationHubAuthorizationRule",
+   "azure-native:notificationhubs/v20231001preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {

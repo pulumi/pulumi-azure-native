@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview.Outputs
         /// </summary>
         public readonly string ErrorMessage;
         /// <summary>
-        /// The particular KubernetesVersion's Image's OS SKU (CBLMariner, Windows, Windows2022)
+        /// Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
         /// </summary>
-        public readonly string OsSku;
+        public readonly string? OsSku;
         /// <summary>
         /// The particular KubernetesVersion's Image's OS Type (Linux, Windows)
         /// </summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview.Outputs
         private KubernetesVersionReadinessResponse(
             string errorMessage,
 
-            string osSku,
+            string? osSku,
 
             string osType,
 

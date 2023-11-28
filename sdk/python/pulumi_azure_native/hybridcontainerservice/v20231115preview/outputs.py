@@ -25,8 +25,8 @@ __all__ = [
     'ExtendedLocationResponse',
     'KubernetesPatchVersionsResponse',
     'KubernetesVersionCapabilitiesResponse',
-    'KubernetesVersionProfilePropertiesResponse',
     'KubernetesVersionProfileResponseProperties',
+    'KubernetesVersionPropertiesResponse',
     'KubernetesVersionReadinessResponse',
     'LinuxProfilePropertiesResponse',
     'LinuxProfilePropertiesResponsePublicKeys',
@@ -53,8 +53,8 @@ __all__ = [
     'VirtualNetworkPropertiesResponseVmware',
     'VirtualNetworkResponseExtendedLocation',
     'VmSkuCapabilitiesResponse',
-    'VmSkuProfilePropertiesResponse',
     'VmSkuProfileResponseProperties',
+    'VmSkuPropertiesResponse',
 ]
 
 @pulumi.output_type
@@ -746,7 +746,54 @@ class KubernetesVersionCapabilitiesResponse(dict):
 
 
 @pulumi.output_type
-class KubernetesVersionProfilePropertiesResponse(dict):
+class KubernetesVersionProfileResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionProfileResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesVersionProfileResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesVersionProfileResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 values: Optional[Sequence['outputs.KubernetesVersionPropertiesResponse']] = None):
+        """
+        :param str provisioning_state: Provisioning state of the resource
+        :param Sequence['KubernetesVersionPropertiesResponse'] values: List of supported Kubernetes versions
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['outputs.KubernetesVersionPropertiesResponse']]:
+        """
+        List of supported Kubernetes versions
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class KubernetesVersionPropertiesResponse(dict):
     """
     Kubernetes version profile for given major.minor release
     """
@@ -759,14 +806,14 @@ class KubernetesVersionProfilePropertiesResponse(dict):
             suggest = "patch_versions"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KubernetesVersionProfilePropertiesResponse.__key_warning(key)
+        KubernetesVersionPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KubernetesVersionProfilePropertiesResponse.__key_warning(key)
+        KubernetesVersionPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -820,53 +867,6 @@ class KubernetesVersionProfilePropertiesResponse(dict):
 
 
 @pulumi.output_type
-class KubernetesVersionProfileResponseProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionProfileResponseProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KubernetesVersionProfileResponseProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KubernetesVersionProfileResponseProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 values: Optional[Sequence['outputs.KubernetesVersionProfilePropertiesResponse']] = None):
-        """
-        :param str provisioning_state: Provisioning state of the resource
-        :param Sequence['KubernetesVersionProfilePropertiesResponse'] values: List of supported Kubernetes versions
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Optional[Sequence['outputs.KubernetesVersionProfilePropertiesResponse']]:
-        """
-        List of supported Kubernetes versions
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
 class KubernetesVersionReadinessResponse(dict):
     """
     Whether a particular kubernetes version's variant (CBLMariner, Windows, Windows2022) is ready or not 
@@ -876,10 +876,10 @@ class KubernetesVersionReadinessResponse(dict):
         suggest = None
         if key == "errorMessage":
             suggest = "error_message"
-        elif key == "osSku":
-            suggest = "os_sku"
         elif key == "osType":
             suggest = "os_type"
+        elif key == "osSku":
+            suggest = "os_sku"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionReadinessResponse. Access the value via the '{suggest}' property getter instead.")
@@ -894,24 +894,23 @@ class KubernetesVersionReadinessResponse(dict):
 
     def __init__(__self__, *,
                  error_message: str,
-                 os_sku: Optional[str] = None,
                  os_type: Optional[str] = None,
-                 ready: bool):
+                 ready: bool,
+                 os_sku: Optional[str] = None):
         """
         Whether a particular kubernetes version's variant (CBLMariner, Windows, Windows2022) is ready or not 
         :param str error_message: If image is not ready, the error message for version not being ready
-        :param str os_sku: The particular KubernetesVersion's Image's OS SKU (CBLMariner, Windows, Windows2022)
         :param str os_type: The particular KubernetesVersion's Image's OS Type (Linux, Windows)
         :param bool ready: Whether or not the given image is ready
+        :param str os_sku: Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
         """
         pulumi.set(__self__, "error_message", error_message)
-        if os_sku is None:
-            os_sku = 'CBLMariner'
-        pulumi.set(__self__, "os_sku", os_sku)
         if os_type is None:
             os_type = 'Linux'
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "ready", ready)
+        if os_sku is not None:
+            pulumi.set(__self__, "os_sku", os_sku)
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -920,14 +919,6 @@ class KubernetesVersionReadinessResponse(dict):
         If image is not ready, the error message for version not being ready
         """
         return pulumi.get(self, "error_message")
-
-    @property
-    @pulumi.getter(name="osSku")
-    def os_sku(self) -> str:
-        """
-        The particular KubernetesVersion's Image's OS SKU (CBLMariner, Windows, Windows2022)
-        """
-        return pulumi.get(self, "os_sku")
 
     @property
     @pulumi.getter(name="osType")
@@ -944,6 +935,14 @@ class KubernetesVersionReadinessResponse(dict):
         Whether or not the given image is ready
         """
         return pulumi.get(self, "ready")
+
+    @property
+    @pulumi.getter(name="osSku")
+    def os_sku(self) -> Optional[str]:
+        """
+        Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
+        """
+        return pulumi.get(self, "os_sku")
 
 
 @pulumi.output_type
@@ -2323,7 +2322,54 @@ class VmSkuCapabilitiesResponse(dict):
 
 
 @pulumi.output_type
-class VmSkuProfilePropertiesResponse(dict):
+class VmSkuProfileResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VmSkuProfileResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VmSkuProfileResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VmSkuProfileResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 values: Optional[Sequence['outputs.VmSkuPropertiesResponse']] = None):
+        """
+        :param str provisioning_state: Provisioning state of the resource
+        :param Sequence['VmSkuPropertiesResponse'] values: Array of HybridAKS Support VM Skus
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['outputs.VmSkuPropertiesResponse']]:
+        """
+        Array of HybridAKS Support VM Skus
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class VmSkuPropertiesResponse(dict):
     """
     The profile for supported VM skus
     """
@@ -2334,14 +2380,14 @@ class VmSkuProfilePropertiesResponse(dict):
             suggest = "resource_type"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VmSkuProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VmSkuPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VmSkuProfilePropertiesResponse.__key_warning(key)
+        VmSkuPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VmSkuProfilePropertiesResponse.__key_warning(key)
+        VmSkuPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2403,52 +2449,5 @@ class VmSkuProfilePropertiesResponse(dict):
         The tier of the VM Family
         """
         return pulumi.get(self, "tier")
-
-
-@pulumi.output_type
-class VmSkuProfileResponseProperties(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VmSkuProfileResponseProperties. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VmSkuProfileResponseProperties.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VmSkuProfileResponseProperties.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 provisioning_state: str,
-                 values: Optional[Sequence['outputs.VmSkuProfilePropertiesResponse']] = None):
-        """
-        :param str provisioning_state: Provisioning state of the resource
-        :param Sequence['VmSkuProfilePropertiesResponse'] values: Array of HybridAKS Support VM Skus
-        """
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Optional[Sequence['outputs.VmSkuProfilePropertiesResponse']]:
-        """
-        Array of HybridAKS Support VM Skus
-        """
-        return pulumi.get(self, "values")
 
 

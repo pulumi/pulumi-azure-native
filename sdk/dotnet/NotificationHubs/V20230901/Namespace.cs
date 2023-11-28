@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20230901
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230101preview:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20231001preview:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

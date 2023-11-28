@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview.Outputs
     /// The profile for supported VM skus
     /// </summary>
     [OutputType]
-    public sealed class VmSkuProfilePropertiesResponse
+    public sealed class VmSkuPropertiesResponse
     {
         /// <summary>
         /// A name value pair to describe the specific vm's capability
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview.Outputs
         public readonly string Tier;
 
         [OutputConstructor]
-        private VmSkuProfilePropertiesResponse(
+        private VmSkuPropertiesResponse(
             ImmutableArray<Outputs.VmSkuCapabilitiesResponse> capabilities,
 
             string name,

@@ -31,8 +31,11 @@ if typing.TYPE_CHECKING:
     v20230101preview = __v20230101preview
     import pulumi_azure_native.notificationhubs.v20230901 as __v20230901
     v20230901 = __v20230901
+    import pulumi_azure_native.notificationhubs.v20231001preview as __v20231001preview
+    v20231001preview = __v20231001preview
 else:
     v20170401 = _utilities.lazy_import('pulumi_azure_native.notificationhubs.v20170401')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.notificationhubs.v20230101preview')
     v20230901 = _utilities.lazy_import('pulumi_azure_native.notificationhubs.v20230901')
+    v20231001preview = _utilities.lazy_import('pulumi_azure_native.notificationhubs.v20231001preview')
 

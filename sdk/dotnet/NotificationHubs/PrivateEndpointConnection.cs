@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
     /// Azure REST API version: 2023-01-01-preview.
     /// 
-    /// Other available API versions: 2023-09-01.
+    /// Other available API versions: 2023-09-01, 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.NotificationHubs
                 {
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230101preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230901:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20231001preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

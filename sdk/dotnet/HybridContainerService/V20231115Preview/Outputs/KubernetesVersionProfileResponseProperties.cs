@@ -20,13 +20,13 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview.Outputs
         /// <summary>
         /// List of supported Kubernetes versions
         /// </summary>
-        public readonly ImmutableArray<Outputs.KubernetesVersionProfilePropertiesResponse> Values;
+        public readonly ImmutableArray<Outputs.KubernetesVersionPropertiesResponse> Values;
 
         [OutputConstructor]
         private KubernetesVersionProfileResponseProperties(
             string provisioningState,
 
-            ImmutableArray<Outputs.KubernetesVersionProfilePropertiesResponse> values)
+            ImmutableArray<Outputs.KubernetesVersionPropertiesResponse> values)
         {
             ProvisioningState = provisioningState;
             Values = values;

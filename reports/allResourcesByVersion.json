@@ -6272,6 +6272,13 @@
       "BackupVault",
       "DppResourceGuardProxy",
       "ResourceGuard"
+    ],
+    "2023-11-01": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "DppResourceGuardProxy",
+      "ResourceGuard"
     ]
   },
   "DataReplication": {
@@ -15424,6 +15431,17 @@
       "listNotificationHubKeys"
     ],
     "2023-09-01": [
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "NotificationHub",
+      "NotificationHubAuthorizationRule",
+      "PrivateEndpointConnection",
+      "getNamespacePnsCredentials",
+      "getNotificationHubPnsCredentials",
+      "listNamespaceKeys",
+      "listNotificationHubKeys"
+    ],
+    "2023-10-01-preview": [
       "Namespace",
       "NamespaceAuthorizationRule",
       "NotificationHub",

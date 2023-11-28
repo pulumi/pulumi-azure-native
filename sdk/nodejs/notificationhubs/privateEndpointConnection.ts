@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
  * Azure REST API version: 2023-01-01-preview.
  *
- * Other available API versions: 2023-09-01.
+ * Other available API versions: 2023-09-01, 2023-10-01-preview.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -88,7 +88,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20230101preview:PrivateEndpointConnection" }, { type: "azure-native:notificationhubs/v20230901:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20230101preview:PrivateEndpointConnection" }, { type: "azure-native:notificationhubs/v20230901:PrivateEndpointConnection" }, { type: "azure-native:notificationhubs/v20231001preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

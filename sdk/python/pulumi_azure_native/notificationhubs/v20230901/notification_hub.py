@@ -212,7 +212,7 @@ class NotificationHub(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20140901:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:NotificationHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20140901:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:NotificationHub"), pulumi.Alias(type_="azure-native:notificationhubs/v20231001preview:NotificationHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationHub, __self__).__init__(
             'azure-native:notificationhubs/v20230901:NotificationHub',

@@ -102,7 +102,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:Namespace" }, { type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-native:notificationhubs/v20230101preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:Namespace" }, { type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-native:notificationhubs/v20230101preview:Namespace" }, { type: "azure-native:notificationhubs/v20231001preview:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }

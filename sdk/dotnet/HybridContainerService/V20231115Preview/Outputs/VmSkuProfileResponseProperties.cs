@@ -20,13 +20,13 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview.Outputs
         /// <summary>
         /// Array of HybridAKS Support VM Skus
         /// </summary>
-        public readonly ImmutableArray<Outputs.VmSkuProfilePropertiesResponse> Values;
+        public readonly ImmutableArray<Outputs.VmSkuPropertiesResponse> Values;
 
         [OutputConstructor]
         private VmSkuProfileResponseProperties(
             string provisioningState,
 
-            ImmutableArray<Outputs.VmSkuProfilePropertiesResponse> values)
+            ImmutableArray<Outputs.VmSkuPropertiesResponse> values)
         {
             ProvisioningState = provisioningState;
             Values = values;

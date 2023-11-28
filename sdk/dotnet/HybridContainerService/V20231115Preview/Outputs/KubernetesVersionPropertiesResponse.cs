@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview.Outputs
     /// Kubernetes version profile for given major.minor release
     /// </summary>
     [OutputType]
-    public sealed class KubernetesVersionProfilePropertiesResponse
+    public sealed class KubernetesVersionPropertiesResponse
     {
         /// <summary>
         /// Capabilities on this kubernetes version
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview.Outputs
         public readonly string Version;
 
         [OutputConstructor]
-        private KubernetesVersionProfilePropertiesResponse(
+        private KubernetesVersionPropertiesResponse(
             Outputs.KubernetesVersionCapabilitiesResponse capabilities,
 
             bool isPreview,
