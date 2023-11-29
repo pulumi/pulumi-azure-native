@@ -1,0 +1,59 @@
+{
+    "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+    },
+    "kind": "StorageV2",
+    "id": "/subscriptions/32b9cb2e-69be-4040-80a6-02cd6b2cc5ec/resourceGroups/cust-bug-delete-not-applied78355785/providers/Microsoft.Storage/storageAccounts/custsa488f214b",
+    "name": "custsa488f214b",
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "westeurope",
+    "tags": {},
+    "properties": {
+        "keyCreationTime": {
+            "key1": "2023-06-13T10:25:59.2315027Z",
+            "key2": "2023-06-13T10:25:59.2315027Z"
+        },
+        "privateEndpointConnections": [],
+        "networkAcls": {
+            "bypass": "AzureServices",
+            "virtualNetworkRules": [],
+            "ipRules": [
+                {
+                    "value": "78.23.36.13",
+                    "action": "Allow"
+                }
+            ],
+            "defaultAction": "Deny"
+        },
+        "supportsHttpsTrafficOnly": true,
+        "encryption": {
+            "services": {
+                "file": {
+                    "keyType": "Account",
+                    "enabled": true,
+                    "lastEnabledTime": "2023-06-13T10:25:59.7627521Z"
+                },
+                "blob": {
+                    "keyType": "Account",
+                    "enabled": true,
+                    "lastEnabledTime": "2023-06-13T10:25:59.7627521Z"
+                }
+            },
+            "keySource": "Microsoft.Storage"
+        },
+        "accessTier": "Hot",
+        "provisioningState": "Succeeded",
+        "creationTime": "2023-06-13T10:25:59.0909032Z",
+        "primaryEndpoints": {
+            "dfs": "https://custsa488f214b.dfs.core.windows.net/",
+            "web": "https://custsa488f214b.z6.web.core.windows.net/",
+            "blob": "https://custsa488f214b.blob.core.windows.net/",
+            "queue": "https://custsa488f214b.queue.core.windows.net/",
+            "table": "https://custsa488f214b.table.core.windows.net/",
+            "file": "https://custsa488f214b.file.core.windows.net/"
+        },
+        "primaryLocation": "westeurope",
+        "statusOfPrimary": "available"
+    }
+}

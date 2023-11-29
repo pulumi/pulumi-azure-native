@@ -1161,15 +1161,19 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
 
+	readOlds := func() (resource.PropertyMap, error) {
+		return plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+		})
+	}
+
 	if req.GetPreview() {
 		// The preview outputs are inputs + a limited list of outputs that are universally immutable.
 		// We know that their values won't change, so it's safe to propagate the values to dependent
 		// resources during the preview.
 		outputs := k.converter.PreviewOutputs(inputs, res.Response)
 
-		oldState, err := plugin.UnmarshalProperties(req.GetOlds(), plugin.MarshalOptions{
-			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
-		})
+		oldState, err := readOlds()
 		if err != nil {
 			return nil, err
 		}
@@ -1193,6 +1197,33 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 		return &rpc.UpdateResponse{
 			Properties: previewOutputs,
 		}, nil
+	}
+
+	// Special case for storage accounts: if networkRuleSet was specified and then removed, set it
+	// back to the default value because Azure will interpret omission as "no changes".
+	// https://github.com/pulumi/pulumi-azure-native/issues/2507
+	if !req.GetPreview() && resourceKey == "azure-native:storage:StorageAccount" {
+		oldState, err := readOlds()
+		if err != nil {
+			return nil, err
+		}
+
+		networkRuleSet := resource.PropertyKey("networkRuleSet")
+		if !inputs.HasValue(networkRuleSet) && oldState.HasValue(networkRuleSet) {
+			const defaultNetworkRuleSetJson = `{
+				"bypass":              "AzureServices",
+				"defaultAction":       "Allow",
+				"ipRules":             [],
+				"ipv6Rules":           [],
+				"virtualNetworkRules": []
+			}`
+			var m map[string]interface{}
+			err := json.Unmarshal([]byte(defaultNetworkRuleSetJson), &m)
+			if err != nil {
+				return nil, err
+			}
+			inputs[networkRuleSet] = resource.NewPropertyValue(m)
+		}
 	}
 
 	id, bodyParams, queryParams, err := k.prepareAzureRESTInputs(
