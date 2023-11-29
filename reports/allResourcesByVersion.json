@@ -3966,6 +3966,13 @@
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
     ],
+    "2022-08-03": [
+      "Gallery",
+      "GalleryApplication",
+      "GalleryApplicationVersion",
+      "GalleryImage",
+      "GalleryImageVersion"
+    ],
     "2022-09-04": [
       "CloudService"
     ],
@@ -6656,6 +6663,19 @@
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
       "Workspace"
+    ],
+    "2023-11-01-preview": [
+      "AppAttachPackage",
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
     ]
   },
   "DevCenter": {
@@ -8297,6 +8317,20 @@
       "listlistAssociatedTrafficFilter"
     ],
     "2023-10-01-preview": [
+      "Monitor",
+      "TagRule",
+      "getBillingInfo",
+      "getOrganizationApiKey",
+      "getOrganizationElasticToAzureSubscriptionMapping",
+      "listAllTrafficFilter",
+      "listConnectedPartnerResource",
+      "listDeploymentInfo",
+      "listMonitoredResource",
+      "listUpgradableVersionDetails",
+      "listVMHost",
+      "listlistAssociatedTrafficFilter"
+    ],
+    "2023-11-01-preview": [
       "Monitor",
       "TagRule",
       "getBillingInfo",
