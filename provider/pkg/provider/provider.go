@@ -1214,7 +1214,6 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 				"bypass":              "AzureServices",
 				"defaultAction":       "Allow",
 				"ipRules":             [],
-				"ipv6Rules":           [],
 				"virtualNetworkRules": []
 			}`
 			var m map[string]interface{}
