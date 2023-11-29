@@ -163,7 +163,7 @@ func TestStorageAccountNetworkRule(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "storageaccount-networkrule"),
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
+					Dir:      filepath.Join("storageaccount-networkrule", "step2"),
 					Additive: true,
 					ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
 						assert.NotNil(t, stackInfo.Deployment)
