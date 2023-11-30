@@ -40,8 +40,6 @@ runs:
           # Update the comment if one already exists
           comment_tag: schema-check
           message: |
-            ### Does the PR have any schema changes?
-
             ${{ steps.schema-tools.outputs.summary }}
           GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
 
