@@ -321,17 +321,9 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				}
 			}
 
-			// Populate POST invokes.
-			var invokes []string
-			for invoke := range items.Invokes {
-				invokes = append(invokes, invoke)
-			}
-			sort.Strings(invokes)
-
-			for _, typeName := range invokes {
-				invoke := items.Invokes[typeName]
-				gen.genPostFunctions(typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
-			}
+			// Populate invokes.
+			gen.genPostInvokes(items.Invokes)
+			gen.genGetInvokes(items.GetInvokes)
 			warnings = append(warnings, gen.warnings...)
 		}
 	}
@@ -394,6 +386,33 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		Examples:          exampleMap,
 		TypeCaseConflicts: caseSensitiveTypes.findCaseConflicts(),
 	}, nil
+}
+
+func (g *packageGenerator) genPostInvokes(invokes map[string]*openapi.ResourceSpec) {
+	g.genInvokes(invokes, true)
+}
+
+func (g *packageGenerator) genGetInvokes(invokes map[string]*openapi.ResourceSpec) {
+	g.genInvokes(invokes, false)
+}
+
+func (g *packageGenerator) genInvokes(invokes map[string]*openapi.ResourceSpec, post bool) {
+	var invokeNames []string
+	for invokeName := range invokes {
+		invokeNames = append(invokeNames, invokeName)
+	}
+	sort.Strings(invokeNames)
+
+	for _, invokeName := range invokeNames {
+		invoke := invokes[invokeName]
+
+		op := invoke.PathItem.Get
+		if post {
+			op = invoke.PathItem.Post
+		}
+
+		g.genFunctions(invokeName, invoke.Path, invoke.PathItem, op, invoke.Swagger)
+	}
 }
 
 func findNestedResourceBodyRefs(resource *openapi.ResourceSpec, resourceSpecs map[string]*openapi.ResourceSpec) []string {
@@ -938,9 +957,9 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 	return nil
 }
 
-// genPostFunctions defines functions for list* (listKeys, listSecrets, etc.)
+// genFunctions defines functions for list* (listKeys, listSecrets, etc.)
 // and get* (getFullUrl, getBastionShareableLink, etc.) POST endpoints.
-func (g *packageGenerator) genPostFunctions(typeName, path string, pathItem *spec.PathItem, swagger *openapi.Spec) {
+func (g *packageGenerator) genFunctions(typeName, path string, pathItem *spec.PathItem, operation *spec.Operation, swagger *openapi.Spec) {
 	module := g.moduleName()
 	gen := moduleGenerator{
 		pkg:                g.pkg,
@@ -960,13 +979,13 @@ func (g *packageGenerator) genPostFunctions(typeName, path string, pathItem *spe
 		return
 	}
 
-	parameters := swagger.MergeParameters(pathItem.Post.Parameters, pathItem.Parameters)
+	parameters := swagger.MergeParameters(operation.Parameters, pathItem.Parameters)
 	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, nil)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
 	}
-	response, err := gen.genResponse(pathItem.Post.Responses.StatusCodeResponses, swagger.ReferenceContext, nil)
+	response, err := gen.genResponse(operation.Responses.StatusCodeResponses, swagger.ReferenceContext, nil)
 	if err != nil {
 		log.Printf("failed to generate '%s': response type: %s", functionTok, err.Error())
 		return
@@ -978,7 +997,7 @@ func (g *packageGenerator) genPostFunctions(typeName, path string, pathItem *spe
 	}
 
 	functionSpec := pschema.FunctionSpec{
-		Description: g.formatFunctionDescription(pathItem.Post, typeName, response, swagger.Info),
+		Description: g.formatFunctionDescription(operation, typeName, response, swagger.Info),
 		Inputs: &pschema.ObjectTypeSpec{
 			Description: request.description,
 			Type:        "object",

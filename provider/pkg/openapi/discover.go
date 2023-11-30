@@ -49,8 +49,9 @@ type DiscoveryDiagnostics struct {
 
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {
-	Resources map[ResourceName]*ResourceSpec
-	Invokes   map[InvokeName]*ResourceSpec
+	Resources  map[ResourceName]*ResourceSpec
+	Invokes    map[InvokeName]*ResourceSpec
+	GetInvokes map[InvokeName]*ResourceSpec
 }
 
 type ProviderVersionList = map[ProviderName][]ApiVersion
@@ -150,6 +151,7 @@ func ApplyDeprecations(providers AzureProviders, deprecated ProviderVersionList)
 func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions map[ResourceName]ApiVersion, previousResourceVersions map[ResourceName]ApiVersion) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
+	getInvokes := map[string]*ResourceSpec{}
 	for _, resourceName := range codegen.SortedKeys(defaultResourceVersions) {
 		apiVersion := defaultResourceVersions[resourceName]
 		if versionResources, ok := versionMap[ApiToSdkVersion(apiVersion)]; ok {
@@ -165,8 +167,9 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 		}
 	}
 	return VersionResources{
-		Resources: resources,
-		Invokes:   invokes,
+		Resources:  resources,
+		Invokes:    invokes,
+		GetInvokes: getInvokes,
 	}
 }
 
@@ -354,8 +357,9 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	version, ok := versionMap[apiVersion]
 	if !ok {
 		version = VersionResources{
-			Resources: map[string]*ResourceSpec{},
-			Invokes:   map[string]*ResourceSpec{},
+			Resources:  map[string]*ResourceSpec{},
+			Invokes:    map[string]*ResourceSpec{},
+			GetInvokes: map[string]*ResourceSpec{},
 		}
 		versionMap[apiVersion] = version
 	}
@@ -519,5 +523,24 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			}
 		}
 	}
+
+	// TODO,tkappler This is a hacky hard-coded exception for https://github.com/pulumi/pulumi-azure-native/issues/2419, WIP
+	if pathItem.Get != nil && !pathItem.Get.Deprecated && strings.HasSuffix(path, "{resourceUri}/providers/Microsoft.Insights/diagnosticSettingsCategories") && pathItem.Get.OperationProps.ID == "DiagnosticSettingsCategory_List" {
+		prefix := "list"
+
+		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
+		if disambiguation != nil {
+			disambiguation.FileLocation = fileLocation
+			nameDisambiguations = append(nameDisambiguations, *disambiguation)
+		}
+		if typeName != "" {
+			version.GetInvokes[prefix+typeName] = &ResourceSpec{
+				Path:     path,
+				PathItem: &pathItem,
+				Swagger:  swagger,
+			}
+		}
+	}
+
 	return nameDisambiguations
 }
