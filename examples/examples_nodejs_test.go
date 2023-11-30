@@ -133,7 +133,7 @@ func TestPublicIpUpdateTs(t *testing.T) {
 			SkipRefresh: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
+					Dir:      filepath.Join("public-ip-update", "step2"),
 					Additive: true,
 				},
 			},
@@ -148,7 +148,7 @@ func TestVnetSubnetsResolution(t *testing.T) {
 			Dir: filepath.Join(getCwd(t), "vnet-subnets-resolution"),
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
+					Dir:      filepath.Join("vnet-subnets-resolution", "step2"),
 					Additive: true,
 				},
 			},
