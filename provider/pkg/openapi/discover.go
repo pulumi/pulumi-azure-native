@@ -54,6 +54,14 @@ type VersionResources struct {
 	GetInvokes map[InvokeName]*ResourceSpec
 }
 
+func NewVersionResources() VersionResources {
+	return VersionResources{
+		Resources:  map[ResourceName]*ResourceSpec{},
+		Invokes:    map[InvokeName]*ResourceSpec{},
+		GetInvokes: map[InvokeName]*ResourceSpec{},
+	}
+}
+
 type ProviderVersionList = map[ProviderName][]ApiVersion
 
 // DefaultVersionLock is an amalgamation of multiple API versions
@@ -356,11 +364,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	apiVersion := ApiToSdkVersion(swagger.Info.Version)
 	version, ok := versionMap[apiVersion]
 	if !ok {
-		version = VersionResources{
-			Resources:  map[string]*ResourceSpec{},
-			Invokes:    map[string]*ResourceSpec{},
-			GetInvokes: map[string]*ResourceSpec{},
-		}
+		version = NewVersionResources()
 		versionMap[apiVersion] = version
 	}
 
@@ -489,8 +493,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	if pathItem.Post != nil && !pathItem.Post.Deprecated {
 		parts := strings.Split(path, "/")
 		operationName := strings.ToLower(parts[len(parts)-1])
-		parts = strings.Split(pathItem.Post.OperationProps.ID, "_")
-		operationId := strings.ToLower(parts[len(parts)-1])
+		operationId := operationFromOperationID(pathItem.Post.OperationProps.ID)
 		prefix := ""
 		switch {
 		case strings.HasPrefix(operationName, "list"):
@@ -524,23 +527,42 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		}
 	}
 
-	// TODO,tkappler This is a hacky hard-coded exception for https://github.com/pulumi/pulumi-azure-native/issues/2419, WIP
-	if pathItem.Get != nil && !pathItem.Get.Deprecated && strings.HasSuffix(path, "{resourceUri}/providers/Microsoft.Insights/diagnosticSettingsCategories") && pathItem.Get.OperationProps.ID == "DiagnosticSettingsCategory_List" {
-		prefix := "list"
-
-		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
-		if disambiguation != nil {
-			disambiguation.FileLocation = fileLocation
-			nameDisambiguations = append(nameDisambiguations, *disambiguation)
-		}
-		if typeName != "" {
-			version.GetInvokes[prefix+typeName] = &ResourceSpec{
-				Path:     path,
-				PathItem: &pathItem,
-				Swagger:  swagger,
-			}
-		}
+	disambiguation := addGetFunctionIfRequired(version, pathItem, path, swagger)
+	if disambiguation != nil {
+		disambiguation.FileLocation = fileLocation
+		nameDisambiguations = append(nameDisambiguations, *disambiguation)
 	}
 
 	return nameDisambiguations
+}
+
+// Check if this GET operation is one we want to include. If so, create a resource name and
+// record an accordingly named GET invoke in `version`. Return the resource name disambiguation,
+// which may be nil.
+func addGetFunctionIfRequired(version VersionResources, pathItem spec.PathItem, path string, swagger *Spec) *resources.NameDisambiguation {
+	if pathItem.Get == nil || !shouldIncludeGETInvoke(path, pathItem.Get) {
+		return nil
+	}
+
+	typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
+	if typeName != "" {
+		operation := operationFromOperationID(pathItem.Get.OperationProps.ID)
+		prefix := "get"
+		if operation == "list" {
+			prefix = "list"
+		}
+
+		version.GetInvokes[prefix+typeName] = &ResourceSpec{
+			Path:     path,
+			PathItem: &pathItem,
+			Swagger:  swagger,
+		}
+	}
+	return disambiguation
+}
+
+// DiagnosticSettingsCategory_List -> list
+func operationFromOperationID(opID string) string {
+	parts := strings.Split(opID, "_")
+	return strings.ToLower(parts[len(parts)-1])
 }
