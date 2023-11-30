@@ -5,35 +5,12 @@
 from enum import Enum
 
 __all__ = [
-    'ActionRuleStatus',
-    'ActionRuleType',
     'ActionType',
-    'AlertRuleState',
     'DaysOfWeek',
     'Field',
     'Operator',
     'RecurrenceType',
-    'ScopeType',
-    'Severity',
-    'SuppressionType',
 ]
-
-
-class ActionRuleStatus(str, Enum):
-    """
-    Indicates if the given action rule is enabled or disabled
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class ActionRuleType(str, Enum):
-    """
-    Indicates type of action rule
-    """
-    SUPPRESSION = "Suppression"
-    ACTION_GROUP = "ActionGroup"
-    DIAGNOSTICS = "Diagnostics"
 
 
 class ActionType(str, Enum):
@@ -42,14 +19,6 @@ class ActionType(str, Enum):
     """
     ADD_ACTION_GROUPS = "AddActionGroups"
     REMOVE_ALL_ACTION_GROUPS = "RemoveAllActionGroups"
-
-
-class AlertRuleState(str, Enum):
-    """
-    The alert rule state.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class DaysOfWeek(str, Enum):
@@ -96,37 +65,6 @@ class RecurrenceType(str, Enum):
     """
     Specifies when the recurrence should be applied.
     """
-    DAILY = "Daily"
-    WEEKLY = "Weekly"
-    MONTHLY = "Monthly"
-
-
-class ScopeType(str, Enum):
-    """
-    type of target scope
-    """
-    RESOURCE_GROUP = "ResourceGroup"
-    RESOURCE = "Resource"
-    SUBSCRIPTION = "Subscription"
-
-
-class Severity(str, Enum):
-    """
-    The alert rule severity.
-    """
-    SEV0 = "Sev0"
-    SEV1 = "Sev1"
-    SEV2 = "Sev2"
-    SEV3 = "Sev3"
-    SEV4 = "Sev4"
-
-
-class SuppressionType(str, Enum):
-    """
-    Specifies when the suppression should be applied
-    """
-    ALWAYS = "Always"
-    ONCE = "Once"
     DAILY = "Daily"
     WEEKLY = "Weekly"
     MONTHLY = "Monthly"

@@ -853,6 +853,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "alertsmanagement/v20210808",
+  "fqn": "pulumi_azure_native.alertsmanagement.v20210808",
+  "classes": {
+   "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName": "AlertProcessingRuleByName"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "alertsmanagement/v20230301",
   "fqn": "pulumi_azure_native.alertsmanagement.v20230301",
   "classes": {

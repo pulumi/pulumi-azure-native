@@ -7,7 +7,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities
+from ... import _utilities
 from . import outputs
 
 __all__ = [
@@ -122,9 +122,6 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[str] 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertProcessingRuleByNameResult:
     """
     Get an alert processing rule by name.
-    Azure REST API version: 2021-08-08.
-
-    Other available API versions: 2023-05-01-preview.
 
 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
@@ -134,7 +131,7 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[str] 
     __args__['alertProcessingRuleName'] = alert_processing_rule_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('azure-native:alertsmanagement:getAlertProcessingRuleByName', __args__, opts=opts, typ=GetAlertProcessingRuleByNameResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:alertsmanagement/v20210808:getAlertProcessingRuleByName', __args__, opts=opts, typ=GetAlertProcessingRuleByNameResult).value
 
     return AwaitableGetAlertProcessingRuleByNameResult(
         id=pulumi.get(__ret__, 'id'),
@@ -152,9 +149,6 @@ def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optiona
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertProcessingRuleByNameResult]:
     """
     Get an alert processing rule by name.
-    Azure REST API version: 2021-08-08.
-
-    Other available API versions: 2023-05-01-preview.
 
 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
