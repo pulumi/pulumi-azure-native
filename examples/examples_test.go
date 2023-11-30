@@ -27,6 +27,7 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	if err != nil {
 		t.Fatal(err)
 	}
+	fmt.Printf("Using binPath %s\n", binPath)
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
 		Config: map[string]string{
